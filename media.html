@@ -36,6 +36,31 @@
         rel="stylesheet"
         href="styles.css"
     >
+
+    <!-- Gallery image styling -->
+    <style>
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+    </style>
+
 </head>
 
 
@@ -150,108 +175,99 @@
             <div class="gallery-grid">
 
 
+                <!-- ============================= -->
                 <!-- OPERATION PHOTO -->
-
-                <div class="gallery-card placeholder">
-
-                    <span>
-                        01
-                    </span>
-
-                    <strong>
-                        OPERATION PHOTO
-                    </strong>
-
-                    <small>
-                        Replace with your screenshot
-                    </small>
-
-                </div>
-
-
-                <!-- AVIATION PHOTO -->
-
-                <div class="gallery-card placeholder">
-
-                    <span>
-                        02
-                    </span>
-
-                    <strong>
-                        AVIATION PHOTO
-                    </strong>
-
-                    <small>
-                        Replace with your screenshot
-                    </small>
-
-                </div>
-
-
-                <!-- GROUND PHOTO -->
-
-                <div class="gallery-card placeholder">
-
-                    <span>
-                        03
-                    </span>
-
-                    <strong>
-                        GROUND PHOTO
-                    </strong>
-
-                    <small>
-                        Replace with your screenshot
-                    </small>
-
-                </div>
-
-
-                <!-- ARMOR PHOTO -->
-
-                <div class="gallery-card placeholder">
-
-                    <span>
-                        04
-                    </span>
-
-                    <strong>
-                        ARMOR PHOTO
-                    </strong>
-
-                    <small>
-                        Replace with your screenshot
-                    </small>
-
-                </div>
-
-
-                <!-- TRAINING PHOTO -->
-
-                <div class="gallery-card placeholder">
-
-                    <span>
-                        05
-                    </span>
-
-                    <strong>
-                        TRAINING PHOTO
-                    </strong>
-
-                    <small>
-                        Replace with your screenshot
-                    </small>
-
-                </div>
-
-
-                <!-- UNIT PHOTO -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
                         src="assets/screenshots/Unitmax.png"
-                        alt="21st Cavalry Division Unit Photo"
+                        alt="21st Cavalry Division Operation Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- AVIATION PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/Aviation.png"
+                        alt="21st Cavalry Division Aviation Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- GROUND OPERATIONS PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/TrainingShot.png"
+                        alt="21st Cavalry Division Ground Operations Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- ARMOR PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/Armor.png"
+                        alt="21st Cavalry Division Armor Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- TRAINING PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/Training.png"
+                        alt="21st Cavalry Division Training Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- ARTILLERY PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/Arty.png"
+                        alt="21st Cavalry Division Artillery Photo"
+                    >
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- SMALL UNIT TRAINING PHOTO -->
+                <!-- ============================= -->
+
+                <div class="gallery-card">
+
+                    <img
+                        src="assets/screenshots/SRTraining.png"
+                        alt="21st Cavalry Division Small Unit Training Photo"
                     >
 
                 </div>
@@ -263,7 +279,7 @@
 
 
         <!-- ============================= -->
-        <!-- ADDING PHOTOS INFO -->
+        <!-- GALLERY INFORMATION -->
         <!-- ============================= -->
 
         <section class="section dark-section">
@@ -271,22 +287,18 @@
             <div class="section-heading">
 
                 <p class="eyebrow">
-                    ADDING PHOTOS
+                    21ST CAVALRY DIVISION
                 </p>
 
                 <h2>
-                    Easy to update.
+                    From the Field.
                 </h2>
 
                 <p>
-                    Upload screenshots into
-                    <code>assets/screenshots</code>,
-                    then replace a gallery placeholder with an image such as:
+                    Images from 21st Cavalry Division training,
+                    aviation, armor, artillery, and combined-arms
+                    operations.
                 </p>
-
-                <code>
-                    &lt;img src="assets/screenshots/operation-01.jpg" alt="Operation photo"&gt;
-                </code>
 
             </div>
 
@@ -354,6 +366,7 @@
     <!-- ============================= -->
 
     <script src="script.js"></script>
+
 
 </body>
 
