@@ -37,14 +37,20 @@
         href="styles.css"
     >
 
-    <!-- Gallery image styling -->
+
+    <!-- ============================= -->
+    <!-- MEDIA GALLERY + LIGHTBOX CSS -->
+    <!-- ============================= -->
+
     <style>
 
         .gallery-card {
             position: relative;
             overflow: hidden;
             min-height: 300px;
+            cursor: pointer;
         }
+
 
         .gallery-card img {
             width: 100%;
@@ -52,11 +58,504 @@
             min-height: 300px;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease;
         }
+
 
         .gallery-card:hover img {
             transform: scale(1.05);
+            filter: brightness(1.08);
+        }
+
+
+        .gallery-open-button {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+            cursor: zoom-in;
+            z-index: 3;
+        }
+
+
+        .gallery-open-button:focus-visible {
+            outline: 3px solid #c5a75b;
+            outline-offset: -5px;
+        }
+
+
+        .gallery-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+
+            padding:
+                40px
+                18px
+                14px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 0, 0, 0.90)
+                );
+
+            pointer-events: none;
+        }
+
+
+        .gallery-label strong {
+            display: block;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 17px;
+            font-weight: 600;
+
+            letter-spacing: 0.7px;
+
+            text-transform: uppercase;
+
+            color: #ffffff;
+        }
+
+
+        .gallery-label small {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #c7cdd0;
+        }
+
+
+        /* ============================= */
+        /* LIGHTBOX */
+        /* ============================= */
+
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(2, 4, 6, 0.96);
+
+            backdrop-filter: blur(6px);
+
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+
+        .lightbox.active {
+            display: flex;
+        }
+
+
+        .lightbox-stage {
+            position: relative;
+
+            width: min(
+                1400px,
+                100%
+            );
+
+            height: min(
+                88vh,
+                900px
+            );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .lightbox-image-wrap {
+            width:
+                calc(
+                    100% - 160px
+                );
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            display: block;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.15
+                );
+
+            box-shadow:
+                0
+                20px
+                80px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.8
+                );
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
+
+
+        /* ============================= */
+        /* CLOSE BUTTON */
+        /* ============================= */
+
+
+        .lightbox-close {
+            position: fixed;
+
+            top: 20px;
+            right: 25px;
+
+            z-index: 10002;
+
+            width: 50px;
+            height: 50px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.25
+                );
+
+            background:
+                rgba(
+                    8,
+                    12,
+                    15,
+                    0.85
+                );
+
+            color: #ffffff;
+
+            font-size: 34px;
+
+            cursor: pointer;
+
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .lightbox-close:hover {
+            color: #c5a75b;
+
+            border-color:
+                #c5a75b;
+
+            background:
+                rgba(
+                    14,
+                    19,
+                    22,
+                    0.98
+                );
+        }
+
+
+        /* ============================= */
+        /* LEFT + RIGHT ARROWS */
+        /* ============================= */
+
+
+        .lightbox-arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            z-index: 10001;
+
+            width: 65px;
+            height: 95px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.25
+                );
+
+            background:
+                rgba(
+                    8,
+                    12,
+                    15,
+                    0.80
+                );
+
+            color: #ffffff;
+
+            font-size: 42px;
+
+            cursor: pointer;
+
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .lightbox-arrow:hover {
+            color: #c5a75b;
+
+            border-color:
+                #c5a75b;
+
+            background:
+                rgba(
+                    14,
+                    19,
+                    22,
+                    0.98
+                );
+
+            transform:
+                translateY(-50%)
+                scale(1.05);
+        }
+
+
+        .lightbox-prev {
+            left: 0;
+        }
+
+
+        .lightbox-next {
+            right: 0;
+        }
+
+
+        /* ============================= */
+        /* CAPTION + COUNTER */
+        /* ============================= */
+
+
+        .lightbox-info {
+            position: fixed;
+
+            left: 50%;
+            bottom: 18px;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 10002;
+
+            width:
+                min(
+                    900px,
+                    calc(
+                        100% - 40px
+                    )
+                );
+
+            padding:
+                10px
+                16px;
+
+            text-align: center;
+
+            background:
+                rgba(
+                    6,
+                    9,
+                    11,
+                    0.82
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+        }
+
+
+        .lightbox-caption {
+            display: block;
+
+            color: #ffffff;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.8px;
+
+            text-transform: uppercase;
+        }
+
+
+        .lightbox-counter {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #c5a75b;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            letter-spacing: 1.3px;
+        }
+
+
+        body.lightbox-open {
+            overflow: hidden;
+        }
+
+
+        /* ============================= */
+        /* MOBILE */
+        /* ============================= */
+
+
+        @media (
+            max-width: 700px
+        ) {
+
+            .gallery-card,
+            .gallery-card img {
+                min-height: 240px;
+            }
+
+
+            .lightbox {
+                padding: 10px;
+            }
+
+
+            .lightbox-stage {
+                width: 100%;
+                height: 82vh;
+            }
+
+
+            .lightbox-image-wrap {
+                width: 100%;
+
+                padding:
+                    0
+                    42px;
+            }
+
+
+            .lightbox-arrow {
+                width: 44px;
+                height: 68px;
+
+                font-size: 30px;
+
+                background:
+                    rgba(
+                        8,
+                        12,
+                        15,
+                        0.70
+                    );
+            }
+
+
+            .lightbox-prev {
+                left: 0;
+            }
+
+
+            .lightbox-next {
+                right: 0;
+            }
+
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+
+                width: 44px;
+                height: 44px;
+
+                font-size: 28px;
+            }
+
+
+            .lightbox-info {
+                bottom: 10px;
+
+                width:
+                    calc(
+                        100% - 20px
+                    );
+            }
+
         }
 
     </style>
@@ -73,6 +572,7 @@
 
     <header class="site-header">
 
+
         <a
             class="brand"
             href="index.html"
@@ -83,9 +583,17 @@
                 21
             </div>
 
+
             <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
             </div>
 
         </a>
@@ -135,6 +643,7 @@
 
         </nav>
 
+
     </header>
 
 
@@ -160,7 +669,8 @@
             </h1>
 
             <p>
-                Highlights from training, deployments, aviation, and combined-arms operations.
+                Highlights from training, deployments, aviation,
+                and combined-arms operations.
             </p>
 
         </section>
@@ -172,125 +682,348 @@
 
         <section class="section">
 
-            <div class="gallery-grid">
+            <div
+                class="gallery-grid"
+                id="mediaGallery"
+            >
 
 
-                <!-- OPERATION PHOTO -->
+                <!-- ============================= -->
+                <!-- 1 - OPERATION -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/Unitmax.png"
                         alt="21st Cavalry Division Operation Photo"
+                        data-caption="21st Cavalry Division Operation"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Operation
+                        </strong>
+
+                        <small>
+                            21st Cavalry Division
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open operation photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- AVIATION PHOTO -->
+                <!-- ============================= -->
+                <!-- 2 - AVIATION -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/Aviation.png"
                         alt="21st Cavalry Division Aviation Photo"
+                        data-caption="Aviation Operations"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Aviation
+                        </strong>
+
+                        <small>
+                            Air Cavalry Operations
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open aviation photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- GROUND OPERATIONS PHOTO -->
+                <!-- ============================= -->
+                <!-- 3 - GROUND OPERATIONS -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/TrainingShot.png"
                         alt="21st Cavalry Division Ground Operations Photo"
+                        data-caption="Ground Operations"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Ground Operations
+                        </strong>
+
+                        <small>
+                            Maneuver Element
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open ground operations photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- ARMOR PHOTO -->
+                <!-- ============================= -->
+                <!-- 4 - ARMOR -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/Armor.png"
                         alt="21st Cavalry Division Armor Photo"
+                        data-caption="Armor Operations"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Armor
+                        </strong>
+
+                        <small>
+                            Armored Operations
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open armor photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- TRAINING PHOTO -->
+                <!-- ============================= -->
+                <!-- 5 - TRAINING -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/Training.png"
                         alt="21st Cavalry Division Training Photo"
+                        data-caption="Unit Training"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Training
+                        </strong>
+
+                        <small>
+                            Unit Qualification
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open training photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- ARTILLERY PHOTO -->
+                <!-- ============================= -->
+                <!-- 6 - ARTILLERY -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/Arty.png"
                         alt="21st Cavalry Division Artillery Photo"
+                        data-caption="Artillery Operations"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Artillery
+                        </strong>
+
+                        <small>
+                            Fire Support
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open artillery photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- SMALL UNIT TRAINING PHOTO -->
+                <!-- ============================= -->
+                <!-- 7 - SMALL UNIT TRAINING -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/SRTraining.png"
                         alt="21st Cavalry Division Small Unit Training Photo"
+                        data-caption="Small Unit Training"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Small Unit Training
+                        </strong>
+
+                        <small>
+                            Tactical Training
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open small unit training photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- BRADLEY FIRE PHOTO -->
+                <!-- ============================= -->
+                <!-- 8 - BRADLEY FIRE -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/BradleyFire.png"
-                        alt="21st Cavalry Division Bradley Live Fire"
+                        alt="21st Cavalry Division Bradley Fire Photo"
+                        data-caption="Bradley Live Fire"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Bradley Fire
+                        </strong>
+
+                        <small>
+                            Mechanized Operations
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open Bradley fire photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- GUN RUN PHOTO -->
+                <!-- ============================= -->
+                <!-- 9 - GUN RUN -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/GunRun.png"
-                        alt="21st Cavalry Division Aviation Gun Run"
+                        alt="21st Cavalry Division Aviation Gun Run Photo"
+                        data-caption="Aviation Gun Run"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Gun Run
+                        </strong>
+
+                        <small>
+                            Aviation Fire Support
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open gun run photo"
+                    ></button>
 
                 </div>
 
 
-                <!-- LITTLE BIRD FIRE PHOTO -->
+                <!-- ============================= -->
+                <!-- 10 - LITTLE BIRD FIRE -->
+                <!-- ============================= -->
 
                 <div class="gallery-card">
 
                     <img
+                        class="gallery-image"
                         src="assets/screenshots/LilBirdFire.png"
                         alt="21st Cavalry Division Little Bird Fire Mission"
+                        data-caption="Little Bird Fire Mission"
                     >
+
+                    <div class="gallery-label">
+
+                        <strong>
+                            Little Bird Fire
+                        </strong>
+
+                        <small>
+                            Air Cavalry
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="gallery-open-button"
+                        type="button"
+                        aria-label="Open Little Bird fire photo"
+                    ></button>
 
                 </div>
 
@@ -336,6 +1069,7 @@
 
     <footer>
 
+
         <div class="brand footer-brand">
 
             <div class="brand-mark">
@@ -343,8 +1077,15 @@
             </div>
 
             <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
             </div>
 
         </div>
@@ -377,17 +1118,703 @@
 
 
         <p class="fineprint">
-            This is a gaming/military simulation community website and is not affiliated with the United States Department of Defense.
+            This is a gaming/military simulation community website
+            and is not affiliated with the United States Department
+            of Defense.
         </p>
+
 
     </footer>
 
 
     <!-- ============================= -->
-    <!-- JAVASCRIPT -->
+    <!-- IMAGE LIGHTBOX -->
+    <!-- ============================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Media image viewer"
+        aria-hidden="true"
+    >
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            type="button"
+            aria-label="Close image viewer"
+        >
+            &times;
+        </button>
+
+
+        <div class="lightbox-stage">
+
+
+            <!-- PREVIOUS -->
+
+            <button
+                class="lightbox-arrow lightbox-prev"
+                id="lightboxPrev"
+                type="button"
+                aria-label="Previous image"
+            >
+                &#10094;
+            </button>
+
+
+            <!-- LARGE IMAGE -->
+
+            <div class="lightbox-image-wrap">
+
+                <img
+                    class="lightbox-image"
+                    id="lightboxImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+            <!-- NEXT -->
+
+            <button
+                class="lightbox-arrow lightbox-next"
+                id="lightboxNext"
+                type="button"
+                aria-label="Next image"
+            >
+                &#10095;
+            </button>
+
+
+        </div>
+
+
+        <!-- IMAGE INFORMATION -->
+
+        <div class="lightbox-info">
+
+            <span
+                class="lightbox-caption"
+                id="lightboxCaption"
+            ></span>
+
+            <span
+                class="lightbox-counter"
+                id="lightboxCounter"
+            ></span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- EXISTING WEBSITE JAVASCRIPT -->
     <!-- ============================= -->
 
     <script src="script.js"></script>
+
+
+    <!-- ============================= -->
+    <!-- MEDIA LIGHTBOX JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script>
+
+        (() => {
+
+
+            /* ============================= */
+            /* GET PAGE ELEMENTS */
+            /* ============================= */
+
+
+            const gallery =
+                document.getElementById(
+                    "mediaGallery"
+                );
+
+
+            const lightbox =
+                document.getElementById(
+                    "lightbox"
+                );
+
+
+            const lightboxImage =
+                document.getElementById(
+                    "lightboxImage"
+                );
+
+
+            const lightboxCaption =
+                document.getElementById(
+                    "lightboxCaption"
+                );
+
+
+            const lightboxCounter =
+                document.getElementById(
+                    "lightboxCounter"
+                );
+
+
+            const closeButton =
+                document.getElementById(
+                    "lightboxClose"
+                );
+
+
+            const previousButton =
+                document.getElementById(
+                    "lightboxPrev"
+                );
+
+
+            const nextButton =
+                document.getElementById(
+                    "lightboxNext"
+                );
+
+
+            /*
+                Stop the lightbox code if the
+                required elements do not exist.
+            */
+
+            if (
+                !gallery ||
+                !lightbox ||
+                !lightboxImage ||
+                !closeButton ||
+                !previousButton ||
+                !nextButton
+            ) {
+
+                return;
+
+            }
+
+
+            /* ============================= */
+            /* BUILD IMAGE LIST */
+            /* ============================= */
+
+
+            const cards =
+                Array.from(
+                    gallery.querySelectorAll(
+                        ".gallery-card"
+                    )
+                );
+
+
+            const images =
+                cards
+                    .map(
+                        card =>
+                            card.querySelector(
+                                ".gallery-image"
+                            )
+                    )
+                    .filter(Boolean);
+
+
+            const openButtons =
+                cards
+                    .map(
+                        card =>
+                            card.querySelector(
+                                ".gallery-open-button"
+                            )
+                    )
+                    .filter(Boolean);
+
+
+            if (!images.length) {
+
+                return;
+
+            }
+
+
+            /* ============================= */
+            /* VARIABLES */
+            /* ============================= */
+
+
+            let currentIndex = 0;
+
+            let lastFocusedElement = null;
+
+            let touchStartX = 0;
+
+            let touchEndX = 0;
+
+
+            /* ============================= */
+            /* NORMALIZE IMAGE NUMBER */
+            /* ============================= */
+
+
+            function normalizeIndex(
+                index
+            ) {
+
+                return (
+                    index +
+                    images.length
+                ) % images.length;
+
+            }
+
+
+            /* ============================= */
+            /* PRELOAD NEXT IMAGE */
+            /* ============================= */
+
+
+            function preloadImage(
+                index
+            ) {
+
+                const preload =
+                    new Image();
+
+
+                preload.src =
+                    images[
+                        normalizeIndex(
+                            index
+                        )
+                    ].src;
+
+            }
+
+
+            /* ============================= */
+            /* UPDATE LARGE IMAGE */
+            /* ============================= */
+
+
+            function updateLightbox(
+                index
+            ) {
+
+                currentIndex =
+                    normalizeIndex(
+                        index
+                    );
+
+
+                const sourceImage =
+                    images[
+                        currentIndex
+                    ];
+
+
+                const caption =
+                    sourceImage.dataset.caption ||
+                    sourceImage.alt ||
+                    "21st Cavalry Division Media";
+
+
+                lightboxImage.src =
+                    sourceImage.src;
+
+
+                lightboxImage.alt =
+                    sourceImage.alt ||
+                    caption;
+
+
+                lightboxCaption.textContent =
+                    caption;
+
+
+                lightboxCounter.textContent =
+                    `${currentIndex + 1} / ${images.length}`;
+
+
+                /*
+                    Preload neighboring photos
+                    for smoother navigation.
+                */
+
+                preloadImage(
+                    currentIndex - 1
+                );
+
+
+                preloadImage(
+                    currentIndex + 1
+                );
+
+            }
+
+
+            /* ============================= */
+            /* OPEN LIGHTBOX */
+            /* ============================= */
+
+
+            function openLightbox(
+                index,
+                trigger
+            ) {
+
+                lastFocusedElement =
+                    trigger ||
+                    document.activeElement;
+
+
+                updateLightbox(
+                    index
+                );
+
+
+                lightbox.classList.add(
+                    "active"
+                );
+
+
+                lightbox.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                document.body.classList.add(
+                    "lightbox-open"
+                );
+
+
+                closeButton.focus();
+
+            }
+
+
+            /* ============================= */
+            /* CLOSE LIGHTBOX */
+            /* ============================= */
+
+
+            function closeLightbox() {
+
+                if (
+                    !lightbox.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                lightbox.classList.remove(
+                    "active"
+                );
+
+
+                lightbox.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+
+                document.body.classList.remove(
+                    "lightbox-open"
+                );
+
+
+                lightboxImage.src = "";
+
+
+                if (
+                    lastFocusedElement &&
+                    typeof lastFocusedElement.focus ===
+                    "function"
+                ) {
+
+                    lastFocusedElement.focus();
+
+                }
+
+            }
+
+
+            /* ============================= */
+            /* PREVIOUS IMAGE */
+            /* ============================= */
+
+
+            function showPreviousImage() {
+
+                updateLightbox(
+                    currentIndex - 1
+                );
+
+            }
+
+
+            /* ============================= */
+            /* NEXT IMAGE */
+            /* ============================= */
+
+
+            function showNextImage() {
+
+                updateLightbox(
+                    currentIndex + 1
+                );
+
+            }
+
+
+            /* ============================= */
+            /* CLICK GALLERY IMAGE */
+            /* ============================= */
+
+
+            openButtons.forEach(
+                (
+                    button,
+                    index
+                ) => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            openLightbox(
+                                index,
+                                button
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+            /* ============================= */
+            /* BUTTON CONTROLS */
+            /* ============================= */
+
+
+            closeButton.addEventListener(
+                "click",
+                closeLightbox
+            );
+
+
+            previousButton.addEventListener(
+                "click",
+                showPreviousImage
+            );
+
+
+            nextButton.addEventListener(
+                "click",
+                showNextImage
+            );
+
+
+            /* ============================= */
+            /* CLICK OUTSIDE IMAGE TO CLOSE */
+            /* ============================= */
+
+
+            lightbox.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target ===
+                        lightbox
+                    ) {
+
+                        closeLightbox();
+
+                    }
+
+                }
+            );
+
+
+            /* ============================= */
+            /* KEYBOARD CONTROLS */
+            /* ============================= */
+
+
+            document.addEventListener(
+                "keydown",
+                event => {
+
+
+                    if (
+                        !lightbox.classList.contains(
+                            "active"
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        ESC closes viewer.
+                    */
+
+                    if (
+                        event.key ===
+                        "Escape"
+                    ) {
+
+                        event.preventDefault();
+
+                        closeLightbox();
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Left arrow.
+                    */
+
+                    if (
+                        event.key ===
+                        "ArrowLeft"
+                    ) {
+
+                        event.preventDefault();
+
+                        showPreviousImage();
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Right arrow.
+                    */
+
+                    if (
+                        event.key ===
+                        "ArrowRight"
+                    ) {
+
+                        event.preventDefault();
+
+                        showNextImage();
+
+                        return;
+
+                    }
+
+                }
+            );
+
+
+            /* ============================= */
+            /* MOBILE SWIPE SUPPORT */
+            /* ============================= */
+
+
+            lightbox.addEventListener(
+                "touchstart",
+                event => {
+
+                    touchStartX =
+                        event.changedTouches[0]
+                            .screenX;
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            lightbox.addEventListener(
+                "touchend",
+                event => {
+
+                    touchEndX =
+                        event.changedTouches[0]
+                            .screenX;
+
+
+                    const distance =
+                        touchEndX -
+                        touchStartX;
+
+
+                    /*
+                        Ignore tiny movements.
+                    */
+
+                    if (
+                        Math.abs(
+                            distance
+                        ) < 50
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Swipe right =
+                        previous image.
+                    */
+
+                    if (
+                        distance > 0
+                    ) {
+
+                        showPreviousImage();
+
+                    }
+
+
+                    /*
+                        Swipe left =
+                        next image.
+                    */
+
+                    else {
+
+                        showNextImage();
+
+                    }
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+        })();
+
+    </script>
 
 
 </body>
