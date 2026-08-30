@@ -20,9 +20,7 @@
     </title>
 
 
-    <!-- ============================= -->
     <!-- GOOGLE FONTS -->
-    <!-- ============================= -->
 
     <link
         rel="preconnect"
@@ -41,9 +39,7 @@
     >
 
 
-    <!-- ============================= -->
-    <!-- MAIN WEBSITE STYLES -->
-    <!-- ============================= -->
+    <!-- MAIN STYLESHEET -->
 
     <link
         rel="stylesheet"
@@ -51,17 +47,15 @@
     >
 
 
-    <!-- ============================= -->
-    <!-- HOMEPAGE HERO BACKGROUND -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
+    <!-- HOMEPAGE BANNER STYLING -->
+    <!-- ================================================= -->
 
     <style>
 
-        /*
-        =============================================
-        21ST CAVALRY HERO BACKGROUND
-        =============================================
-        */
+        /* ============================================= */
+        /* HERO SECTION */
+        /* ============================================= */
 
         .hero {
             position: relative;
@@ -70,27 +64,24 @@
             background-image:
                 linear-gradient(
                     90deg,
-                    rgba(3, 7, 9, 0.94) 0%,
-                    rgba(3, 7, 9, 0.88) 28%,
-                    rgba(3, 7, 9, 0.70) 48%,
-                    rgba(3, 7, 9, 0.42) 72%,
-                    rgba(3, 7, 9, 0.30) 100%
+                    rgba(3, 7, 9, 0.78) 0%,
+                    rgba(3, 7, 9, 0.65) 30%,
+                    rgba(3, 7, 9, 0.38) 55%,
+                    rgba(3, 7, 9, 0.18) 100%
                 ),
-                url("assets/21stBanner.png");
+                url("assets/screenshots/21stBanner.png") !important;
 
-            background-size: cover;
+            background-size: cover !important;
 
-            background-position: center center;
+            background-position: center center !important;
 
-            background-repeat: no-repeat;
+            background-repeat: no-repeat !important;
         }
 
 
-        /*
-        =============================================
-        KEEP HERO CONTENT ABOVE IMAGE
-        =============================================
-        */
+        /* ============================================= */
+        /* DARK OVERLAY */
+        /* ============================================= */
 
         .hero-overlay {
             position: absolute;
@@ -101,15 +92,19 @@
 
             background:
                 linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, 0.05) 0%,
-                    rgba(0, 0, 0, 0.10) 55%,
-                    rgba(0, 0, 0, 0.40) 100%
-                );
+                    90deg,
+                    rgba(0, 0, 0, 0.30) 0%,
+                    rgba(0, 0, 0, 0.18) 40%,
+                    rgba(0, 0, 0, 0.05) 100%
+                ) !important;
 
             pointer-events: none;
         }
 
+
+        /* ============================================= */
+        /* EXISTING GRID EFFECT */
+        /* ============================================= */
 
         .hero-grid {
             position: absolute;
@@ -118,29 +113,35 @@
 
             z-index: 2;
 
+            opacity: 0.15;
+
             pointer-events: none;
         }
 
 
+        /* ============================================= */
+        /* HERO CONTENT */
+        /* ============================================= */
+
         .hero-content {
             position: relative;
 
-            z-index: 4;
+            z-index: 5;
         }
 
+
+        /* ============================================= */
+        /* HERO BADGE */
+        /* ============================================= */
 
         .hero-badge {
-            position: relative;
-
-            z-index: 4;
+            z-index: 5;
         }
 
 
-        /*
-        =============================================
-        MOBILE / TABLET HERO
-        =============================================
-        */
+        /* ============================================= */
+        /* TABLET */
+        /* ============================================= */
 
         @media (max-width: 1000px) {
 
@@ -148,31 +149,47 @@
                 background-image:
                     linear-gradient(
                         90deg,
-                        rgba(3, 7, 9, 0.92) 0%,
-                        rgba(3, 7, 9, 0.80) 55%,
-                        rgba(3, 7, 9, 0.55) 100%
+                        rgba(3, 7, 9, 0.82) 0%,
+                        rgba(3, 7, 9, 0.62) 60%,
+                        rgba(3, 7, 9, 0.30) 100%
                     ),
-                    url("assets/21stBanner.png");
+                    url("assets/screenshots/21stBanner.png") !important;
+
+                background-size:
+                    cover !important;
 
                 background-position:
-                    center center;
+                    center center !important;
+
+                background-repeat:
+                    no-repeat !important;
             }
 
         }
 
+
+        /* ============================================= */
+        /* MOBILE */
+        /* ============================================= */
 
         @media (max-width: 700px) {
 
             .hero {
                 background-image:
                     linear-gradient(
-                        rgba(3, 7, 9, 0.82),
-                        rgba(3, 7, 9, 0.82)
+                        rgba(3, 7, 9, 0.72),
+                        rgba(3, 7, 9, 0.72)
                     ),
-                    url("assets/21stBanner.png");
+                    url("assets/screenshots/21stBanner.png") !important;
+
+                background-size:
+                    cover !important;
 
                 background-position:
-                    center center;
+                    center center !important;
+
+                background-repeat:
+                    no-repeat !important;
             }
 
         }
@@ -185,9 +202,9 @@
 <body>
 
 
-    <!-- ============================= -->
+    <!-- ================================================= -->
     <!-- HEADER -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <header class="site-header">
 
@@ -204,7 +221,6 @@
                 21
             </div>
 
-
             <div>
 
                 <span>
@@ -220,7 +236,7 @@
         </a>
 
 
-        <!-- MOBILE MENU BUTTON -->
+        <!-- MOBILE NAVIGATION BUTTON -->
 
         <button
             class="nav-toggle"
@@ -272,16 +288,16 @@
     </header>
 
 
-    <!-- ============================= -->
+    <!-- ================================================= -->
     <!-- MAIN CONTENT -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <main>
 
 
-        <!-- ============================= -->
-        <!-- HERO -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
+        <!-- HERO / MAIN BANNER -->
+        <!-- ================================================= -->
 
         <section class="hero">
 
@@ -296,9 +312,10 @@
             <div class="hero-grid"></div>
 
 
-            <!-- HERO TEXT -->
+            <!-- HERO CONTENT -->
 
             <div class="hero-content reveal">
+
 
                 <p class="eyebrow">
                     21ST CAVALRY DIVISION
@@ -323,12 +340,13 @@
 
 
                 <p class="hero-copy">
-                    A disciplined combined-arms milsim community built around teamwork,
-                    leadership, tactical excellence, and decisive action.
+                    A disciplined combined-arms milsim community built around
+                    teamwork, leadership, tactical excellence, and decisive action.
                 </p>
 
 
                 <div class="hero-actions">
+
 
                     <a
                         class="btn btn-primary"
@@ -345,7 +363,9 @@
                         View Unit Resources
                     </a>
 
+
                 </div>
+
 
             </div>
 
@@ -371,9 +391,9 @@
         </section>
 
 
-        <!-- ============================= -->
+        <!-- ================================================= -->
         <!-- UNIT STATS -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
 
         <section class="stats strip">
 
@@ -433,9 +453,9 @@
         </section>
 
 
-        <!-- ============================= -->
+        <!-- ================================================= -->
         <!-- WHO WE ARE -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
 
         <section class="section two-col">
 
@@ -475,11 +495,12 @@
         </section>
 
 
-        <!-- ============================= -->
+        <!-- ================================================= -->
         <!-- PROJECT MISSION -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
 
         <section class="section mission">
+
 
             <div class="mission-card reveal">
 
@@ -505,12 +526,13 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- ============================= -->
+        <!-- ================================================= -->
         <!-- UNIT CAPABILITIES -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
 
         <section class="section">
 
@@ -617,9 +639,9 @@
         </section>
 
 
-        <!-- ============================= -->
+        <!-- ================================================= -->
         <!-- START HERE -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
 
         <section class="section dark-section">
 
@@ -722,14 +744,14 @@
         </section>
 
 
-        <!-- ============================= -->
-        <!-- JOIN SECTION -->
-        <!-- ============================= -->
+        <!-- ================================================= -->
+        <!-- JOIN THE DIVISION -->
+        <!-- ================================================= -->
 
         <section class="section join">
 
-            <div class="join-inner reveal">
 
+            <div class="join-inner reveal">
 
                 <p class="eyebrow">
                     READY TO SERVE?
@@ -773,20 +795,22 @@
 
             </div>
 
+
         </section>
 
 
     </main>
 
 
-    <!-- ============================= -->
+    <!-- ================================================= -->
     <!-- FOOTER -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <footer>
 
 
         <div class="brand footer-brand">
+
 
             <div class="brand-mark">
                 21
@@ -805,6 +829,7 @@
 
             </div>
 
+
         </div>
 
 
@@ -815,13 +840,16 @@
 
         <div class="footer-links">
 
+
             <a href="recruitment.html">
                 Recruitment
             </a>
 
+
             <a href="resources.html">
                 Unit Resources
             </a>
+
 
             <a
                 href="https://discord.gg/PCxE5jTYZ"
@@ -830,6 +858,7 @@
             >
                 Discord
             </a>
+
 
         </div>
 
@@ -843,9 +872,9 @@
     </footer>
 
 
-    <!-- ============================= -->
+    <!-- ================================================= -->
     <!-- JAVASCRIPT -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <script src="script.js"></script>
 
