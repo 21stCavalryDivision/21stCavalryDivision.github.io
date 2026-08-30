@@ -1,9 +1,855 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="21st Cavalry Division — Swift, Silent, Relentless."><title>21st Cavalry Division | Home</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><header class="site-header"><a class="brand" href="index.html" aria-label="21st Cavalry Division home"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a><button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="main-nav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">SOPs</a><a href="server.html">Server</a><a href="media.html">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a></nav></header><main>
-<section class="hero"><div class="hero-overlay"></div><div class="hero-grid"></div><div class="hero-content reveal"><p class="eyebrow">21ST CAVALRY DIVISION</p><h1>SWIFT.<br><span>SILENT.</span><br>RELENTLESS.</h1><p class="hero-copy">A disciplined combined-arms milsim community built around teamwork, leadership, tactical excellence, and decisive action.</p><div class="hero-actions"><a class="btn btn-primary" href="recruitment.html">Join the Division</a><a class="btn btn-secondary" href="resources.html">View Unit Resources</a></div></div><div class="hero-badge" aria-hidden="true"><b>21</b><span>CAVALRY</span></div></section>
-<section class="stats strip"><div><strong>WEEKLY</strong><span>Operations & Training</span></div><div><strong>COMBINED ARMS</strong><span>Ground • Armor • Aviation</span></div><div><strong>STRUCTURED</strong><span>Training & Leadership</span></div><div><strong>ONE TEAM</strong><span>Mission Focused</span></div></section>
-<section class="section two-col"><div class="section-heading reveal"><p class="eyebrow">WHO WE ARE</p><h2>Built for teamwork.<br>Driven by standards.</h2></div><div class="section-copy reveal"><p>The 21st Cavalry Division is an organized military simulation community focused on coordinated, immersive operations while maintaining a welcoming environment for its members.</p><p>Every member has a purpose. Ground, armor, aviation, reconnaissance, medical, support, and leadership elements work together as one force.</p></div></section>
-<section class="section mission"><div class="mission-card reveal"><p class="eyebrow">PROJECT MISSION</p><h2>Develop capable members who can adapt to any mission and operate effectively as one team.</h2><p>The mission of the 21st Cavalry Division is to build a disciplined, organized, and professional unit focused on teamwork, leadership, and tactical excellence. Through structured training, realistic operations, and strong unit cohesion, we aim to develop confident members prepared to succeed in any assigned role.</p></div></section>
-<section class="section"><div class="section-heading center reveal"><p class="eyebrow">UNIT CAPABILITIES</p><h2>One force. Multiple roles.</h2></div><div class="card-grid four"><article class="info-card reveal"><span>01</span><h3>Ground</h3><p>Dismounted and mechanized maneuver elements focused on coordinated team operations.</p></article><article class="info-card reveal"><span>02</span><h3>Armor</h3><p>Armored crews providing mobility, protection, and support to maneuver forces.</p></article><article class="info-card reveal"><span>03</span><h3>Aviation</h3><p>Air crews supporting transport, reconnaissance, resupply, and coordinated air operations.</p></article><article class="info-card reveal"><span>04</span><h3>Support</h3><p>Medical, logistics, communications, and staff functions that keep the division moving.</p></article></div></section>
-<section class="section dark-section"><div class="section-heading reveal"><p class="eyebrow">START HERE</p><h2>Your path into the 21st.</h2></div><div class="timeline"><div><b>01</b><h3>Join Discord</h3><p>Enter the community and review unit information.</p></div><div><b>02</b><h3>Submit Application</h3><p>Complete the short enlistment application.</p></div><div><b>03</b><h3>Basic Training</h3><p>Learn unit standards and core procedures.</p></div><div><b>04</b><h3>Join Your Element</h3><p>Move into a role and begin qualification training.</p></div></div></section>
-<section class="section join"><div class="join-inner reveal"><p class="eyebrow">READY TO SERVE?</p><h2>Earn your place in the 21st.</h2><p>Join the community, complete your entry process, and begin training with your assigned element.</p><div class="hero-actions"><a class="btn btn-primary" href="recruitment.html">Start Application</a><a class="btn btn-secondary" href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Join Discord</a></div></div></section>
-</main><footer><div class="brand footer-brand"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></div><p>Swift. Silent. Relentless.</p><div class="footer-links"><a href="recruitment.html">Recruitment</a><a href="resources.html">Unit Resources</a><a href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Discord</a></div><p class="fineprint">This is a gaming/military simulation community website and is not affiliated with the United States Department of Defense.</p></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="21st Cavalry Division — Swift, Silent, Relentless."
+    >
+
+    <title>
+        21st Cavalry Division | Home
+    </title>
+
+
+    <!-- ============================= -->
+    <!-- GOOGLE FONTS -->
+    <!-- ============================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ============================= -->
+    <!-- MAIN WEBSITE STYLES -->
+    <!-- ============================= -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+
+    <!-- ============================= -->
+    <!-- HOMEPAGE HERO BACKGROUND -->
+    <!-- ============================= -->
+
+    <style>
+
+        /*
+        =============================================
+        21ST CAVALRY HERO BACKGROUND
+        =============================================
+        */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 7, 9, 0.94) 0%,
+                    rgba(3, 7, 9, 0.88) 28%,
+                    rgba(3, 7, 9, 0.70) 48%,
+                    rgba(3, 7, 9, 0.42) 72%,
+                    rgba(3, 7, 9, 0.30) 100%
+                ),
+                url("assets/21stBanner.png");
+
+            background-size: cover;
+
+            background-position: center center;
+
+            background-repeat: no-repeat;
+        }
+
+
+        /*
+        =============================================
+        KEEP HERO CONTENT ABOVE IMAGE
+        =============================================
+        */
+
+        .hero-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.05) 0%,
+                    rgba(0, 0, 0, 0.10) 55%,
+                    rgba(0, 0, 0, 0.40) 100%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .hero-grid {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .hero-content {
+            position: relative;
+
+            z-index: 4;
+        }
+
+
+        .hero-badge {
+            position: relative;
+
+            z-index: 4;
+        }
+
+
+        /*
+        =============================================
+        MOBILE / TABLET HERO
+        =============================================
+        */
+
+        @media (max-width: 1000px) {
+
+            .hero {
+                background-image:
+                    linear-gradient(
+                        90deg,
+                        rgba(3, 7, 9, 0.92) 0%,
+                        rgba(3, 7, 9, 0.80) 55%,
+                        rgba(3, 7, 9, 0.55) 100%
+                    ),
+                    url("assets/21stBanner.png");
+
+                background-position:
+                    center center;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .hero {
+                background-image:
+                    linear-gradient(
+                        rgba(3, 7, 9, 0.82),
+                        rgba(3, 7, 9, 0.82)
+                    ),
+                    url("assets/21stBanner.png");
+
+                background-position:
+                    center center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ============================= -->
+    <!-- HEADER -->
+    <!-- ============================= -->
+
+    <header class="site-header">
+
+
+        <!-- BRAND -->
+
+        <a
+            class="brand"
+            href="index.html"
+            aria-label="21st Cavalry Division home"
+        >
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="orbat.html">
+                ORBAT
+            </a>
+
+            <a href="training.html">
+                Training
+            </a>
+
+            <a href="resources.html">
+                SOPs
+            </a>
+
+            <a href="server.html">
+                Server
+            </a>
+
+            <a href="media.html">
+                Media
+            </a>
+
+            <a
+                class="nav-cta"
+                href="recruitment.html"
+            >
+                Enlist
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================= -->
+
+    <main>
+
+
+        <!-- ============================= -->
+        <!-- HERO -->
+        <!-- ============================= -->
+
+        <section class="hero">
+
+
+            <!-- DARK OVERLAY -->
+
+            <div class="hero-overlay"></div>
+
+
+            <!-- GRID EFFECT -->
+
+            <div class="hero-grid"></div>
+
+
+            <!-- HERO TEXT -->
+
+            <div class="hero-content reveal">
+
+                <p class="eyebrow">
+                    21ST CAVALRY DIVISION
+                </p>
+
+
+                <h1>
+
+                    SWIFT.
+
+                    <br>
+
+                    <span>
+                        SILENT.
+                    </span>
+
+                    <br>
+
+                    RELENTLESS.
+
+                </h1>
+
+
+                <p class="hero-copy">
+                    A disciplined combined-arms milsim community built around teamwork,
+                    leadership, tactical excellence, and decisive action.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        class="btn btn-primary"
+                        href="recruitment.html"
+                    >
+                        Join the Division
+                    </a>
+
+
+                    <a
+                        class="btn btn-secondary"
+                        href="resources.html"
+                    >
+                        View Unit Resources
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO BADGE -->
+
+            <div
+                class="hero-badge"
+                aria-hidden="true"
+            >
+
+                <b>
+                    21
+                </b>
+
+                <span>
+                    CAVALRY
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- UNIT STATS -->
+        <!-- ============================= -->
+
+        <section class="stats strip">
+
+
+            <div>
+
+                <strong>
+                    WEEKLY
+                </strong>
+
+                <span>
+                    Operations & Training
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    COMBINED ARMS
+                </strong>
+
+                <span>
+                    Ground • Armor • Aviation
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    STRUCTURED
+                </strong>
+
+                <span>
+                    Training & Leadership
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ONE TEAM
+                </strong>
+
+                <span>
+                    Mission Focused
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- WHO WE ARE -->
+        <!-- ============================= -->
+
+        <section class="section two-col">
+
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    WHO WE ARE
+                </p>
+
+                <h2>
+                    Built for teamwork.
+                    <br>
+                    Driven by standards.
+                </h2>
+
+            </div>
+
+
+            <div class="section-copy reveal">
+
+                <p>
+                    The 21st Cavalry Division is an organized military simulation
+                    community focused on coordinated, immersive operations while
+                    maintaining a welcoming environment for its members.
+                </p>
+
+                <p>
+                    Every member has a purpose. Ground, armor, aviation,
+                    reconnaissance, medical, support, and leadership elements
+                    work together as one force.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- PROJECT MISSION -->
+        <!-- ============================= -->
+
+        <section class="section mission">
+
+            <div class="mission-card reveal">
+
+                <p class="eyebrow">
+                    PROJECT MISSION
+                </p>
+
+
+                <h2>
+                    Develop capable members who can adapt to any mission
+                    and operate effectively as one team.
+                </h2>
+
+
+                <p>
+                    The mission of the 21st Cavalry Division is to build a
+                    disciplined, organized, and professional unit focused on
+                    teamwork, leadership, and tactical excellence. Through
+                    structured training, realistic operations, and strong unit
+                    cohesion, we aim to develop confident members prepared to
+                    succeed in any assigned role.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- UNIT CAPABILITIES -->
+        <!-- ============================= -->
+
+        <section class="section">
+
+
+            <div class="section-heading center reveal">
+
+                <p class="eyebrow">
+                    UNIT CAPABILITIES
+                </p>
+
+                <h2>
+                    One force. Multiple roles.
+                </h2>
+
+            </div>
+
+
+            <div class="card-grid four">
+
+
+                <!-- GROUND -->
+
+                <article class="info-card reveal">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Ground
+                    </h3>
+
+                    <p>
+                        Dismounted and mechanized maneuver elements focused
+                        on coordinated team operations.
+                    </p>
+
+                </article>
+
+
+                <!-- ARMOR -->
+
+                <article class="info-card reveal">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Armor
+                    </h3>
+
+                    <p>
+                        Armored crews providing mobility, protection,
+                        and support to maneuver forces.
+                    </p>
+
+                </article>
+
+
+                <!-- AVIATION -->
+
+                <article class="info-card reveal">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Aviation
+                    </h3>
+
+                    <p>
+                        Air crews supporting transport, reconnaissance,
+                        resupply, and coordinated air operations.
+                    </p>
+
+                </article>
+
+
+                <!-- SUPPORT -->
+
+                <article class="info-card reveal">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <p>
+                        Medical, logistics, communications, and staff
+                        functions that keep the division moving.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- START HERE -->
+        <!-- ============================= -->
+
+        <section class="section dark-section">
+
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">
+                    START HERE
+                </p>
+
+                <h2>
+                    Your path into the 21st.
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <!-- STEP 1 -->
+
+                <div>
+
+                    <b>
+                        01
+                    </b>
+
+                    <h3>
+                        Join Discord
+                    </h3>
+
+                    <p>
+                        Enter the community and review unit information.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 2 -->
+
+                <div>
+
+                    <b>
+                        02
+                    </b>
+
+                    <h3>
+                        Submit Application
+                    </h3>
+
+                    <p>
+                        Complete the short enlistment application.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 3 -->
+
+                <div>
+
+                    <b>
+                        03
+                    </b>
+
+                    <h3>
+                        Basic Training
+                    </h3>
+
+                    <p>
+                        Learn unit standards and core procedures.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+
+                <div>
+
+                    <b>
+                        04
+                    </b>
+
+                    <h3>
+                        Join Your Element
+                    </h3>
+
+                    <p>
+                        Move into a role and begin qualification training.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- JOIN SECTION -->
+        <!-- ============================= -->
+
+        <section class="section join">
+
+            <div class="join-inner reveal">
+
+
+                <p class="eyebrow">
+                    READY TO SERVE?
+                </p>
+
+
+                <h2>
+                    Earn your place in the 21st.
+                </h2>
+
+
+                <p>
+                    Join the community, complete your entry process,
+                    and begin training with your assigned element.
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <a
+                        class="btn btn-primary"
+                        href="recruitment.html"
+                    >
+                        Start Application
+                    </a>
+
+
+                    <a
+                        class="btn btn-secondary"
+                        href="https://discord.gg/PCxE5jTYZ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Join Discord
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer>
+
+
+        <div class="brand footer-brand">
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Swift. Silent. Relentless.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="recruitment.html">
+                Recruitment
+            </a>
+
+            <a href="resources.html">
+                Unit Resources
+            </a>
+
+            <a
+                href="https://discord.gg/PCxE5jTYZ"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Discord
+            </a>
+
+        </div>
+
+
+        <p class="fineprint">
+            This is a gaming/military simulation community website and is not
+            affiliated with the United States Department of Defense.
+        </p>
+
+
+    </footer>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
