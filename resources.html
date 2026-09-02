@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,7 +12,7 @@
 
     <meta
         name="description"
-        content="21st Cavalry Division SOP and unit reference library."
+        content="21st Cavalry Division SOP, training, administrative, personnel, and unit reference library."
     >
 
     <title>21st Cavalry Division | SOP Library</title>
@@ -36,15 +37,74 @@
         rel="stylesheet"
         href="styles.css"
     >
+
+
+    <!-- =====================================================
+         SOP PAGE ONLY STYLES
+    ====================================================== -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .doc-section {
+            scroll-margin-top: 90px;
+        }
+
+        .doc-section h3 {
+            margin-top: 30px;
+        }
+
+        .doc-section ul {
+            margin-top: 15px;
+            padding-left: 24px;
+        }
+
+        .doc-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .policy-note {
+            margin-top: 25px;
+            padding: 18px 20px;
+            border-left: 3px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.035);
+        }
+
+        .policy-note strong {
+            display: block;
+            margin-bottom: 8px;
+            font-family: "Oswald", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sop-category-title {
+            margin-bottom: 30px;
+        }
+
+        .sop-category-title h2 {
+            margin-bottom: 10px;
+        }
+
+        .resource-card {
+            text-decoration: none;
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- ============================= -->
-    <!-- HEADER -->
-    <!-- ============================= -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="site-header">
 
@@ -59,8 +119,15 @@
             </div>
 
             <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
             </div>
 
         </a>
@@ -113,16 +180,17 @@
     </header>
 
 
-    <!-- ============================= -->
-    <!-- MAIN CONTENT -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
     <main>
 
 
-        <!-- ============================= -->
-        <!-- PAGE HERO -->
-        <!-- ============================= -->
+        <!-- =================================================
+             PAGE HERO
+        ================================================== -->
 
         <section class="page-hero">
 
@@ -135,22 +203,23 @@
             </h1>
 
             <p>
-                A centralized reference for unit standards, procedures, training, and administrative information.
+                A centralized reference for unit standards,
+                procedures, training requirements, administrative
+                policies, personnel management, and operational guidance.
             </p>
 
         </section>
 
 
-        <!-- ============================= -->
-        <!-- RESOURCE CARDS -->
-        <!-- ============================= -->
+
+        <!-- =================================================
+             SOP CATEGORY CARDS
+        ================================================== -->
 
         <section class="section">
 
             <div class="resource-grid">
 
-
-                <!-- GENERAL SOP -->
 
                 <a
                     class="resource-card"
@@ -162,7 +231,7 @@
                     </strong>
 
                     <span>
-                        Conduct, organization, and operating standards
+                        Conduct, organization, and unit standards
                     </span>
 
                     <em>
@@ -171,8 +240,6 @@
 
                 </a>
 
-
-                <!-- COMMUNICATIONS -->
 
                 <a
                     class="resource-card"
@@ -194,19 +261,17 @@
                 </a>
 
 
-                <!-- TRAINING POLICY -->
-
                 <a
                     class="resource-card"
-                    href="#training"
+                    href="#tradoc"
                 >
 
                     <strong>
-                        TRAINING POLICY
+                        TRADOC
                     </strong>
 
                     <span>
-                        Qualifications and progression
+                        Training, qualifications, and progression
                     </span>
 
                     <em>
@@ -216,19 +281,77 @@
                 </a>
 
 
-                <!-- ATTENDANCE -->
-
                 <a
                     class="resource-card"
-                    href="#attendance"
+                    href="#admin"
                 >
 
                     <strong>
-                        ATTENDANCE
+                        ADMIN
                     </strong>
 
                     <span>
-                        Participation and leave expectations
+                        Attendance, leave, and administrative policy
+                    </span>
+
+                    <em>
+                        Read →
+                    </em>
+
+                </a>
+
+
+                <a
+                    class="resource-card"
+                    href="#operations"
+                >
+
+                    <strong>
+                        OPERATIONS
+                    </strong>
+
+                    <span>
+                        Readiness, loadouts, and operational standards
+                    </span>
+
+                    <em>
+                        Read →
+                    </em>
+
+                </a>
+
+
+                <a
+                    class="resource-card"
+                    href="#personnel"
+                >
+
+                    <strong>
+                        PERSONNEL
+                    </strong>
+
+                    <span>
+                        Promotions, billets, and reserve status
+                    </span>
+
+                    <em>
+                        Read →
+                    </em>
+
+                </a>
+
+
+                <a
+                    class="resource-card"
+                    href="#command"
+                >
+
+                    <strong>
+                        COMMAND
+                    </strong>
+
+                    <span>
+                        Leadership responsibilities and authority
                     </span>
 
                     <em>
@@ -243,9 +366,10 @@
         </section>
 
 
-        <!-- ============================= -->
-        <!-- GENERAL SOP -->
-        <!-- ============================= -->
+
+        <!-- =================================================
+             GENERAL SOP
+        ================================================== -->
 
         <section
             class="section dark-section doc-section"
@@ -261,8 +385,20 @@
             </h2>
 
             <p>
-                Members are expected to maintain professionalism, follow the chain of command, communicate clearly, and contribute to a positive team environment. During organized operations, members follow assigned leadership and remain focused on the mission.
+                Members of the 21st Cavalry Division are expected to
+                maintain professionalism, follow the established chain
+                of command, communicate clearly, and contribute to a
+                positive and organized unit environment.
             </p>
+
+            <p>
+                During official training and operations, personnel will
+                remain focused on their assigned responsibilities and
+                follow instructions issued by designated leadership.
+                Members are expected to support the mission, their team,
+                and the overall effectiveness of the unit.
+            </p>
+
 
             <h3>
                 Core Expectations
@@ -271,33 +407,59 @@
             <ul>
 
                 <li>
-                    Respect other members and staff.
+                    Treat members, guests, and staff with respect.
                 </li>
 
                 <li>
-                    Be prepared before scheduled training and operations.
+                    Arrive prepared for scheduled training and operations.
                 </li>
 
                 <li>
-                    Use the proper chain of command for unit matters.
+                    Follow the established chain of command.
                 </li>
 
                 <li>
-                    Follow event-specific instructions and assigned roles.
+                    Perform assigned roles to the best of your ability.
                 </li>
 
                 <li>
-                    Participate in after-action reviews constructively.
+                    Follow event-specific instructions and briefings.
+                </li>
+
+                <li>
+                    Participate constructively in training and after-action reviews.
+                </li>
+
+                <li>
+                    Maintain a cooperative team-oriented attitude.
+                </li>
+
+                <li>
+                    Avoid conduct that intentionally disrupts official unit activities.
                 </li>
 
             </ul>
 
+
+            <h3>
+                Professional Conduct
+            </h3>
+
+            <p>
+                Members are expected to maintain a reasonable level of
+                professionalism within official unit spaces. Harassment,
+                deliberate disruption, excessive toxicity, repeated disrespect,
+                or behavior that damages the unit environment may result in
+                administrative action.
+            </p>
+
         </section>
 
 
-        <!-- ============================= -->
-        <!-- COMMUNICATIONS SOP -->
-        <!-- ============================= -->
+
+        <!-- =================================================
+             COMMUNICATIONS
+        ================================================== -->
 
         <section
             class="section doc-section"
@@ -313,44 +475,103 @@
             </h2>
 
             <p>
-                Unit communications should be brief, clear, and relevant. Operational channels are kept free of unnecessary traffic so leaders and teams can pass important information efficiently.
+                Unit communications should remain brief, clear, and relevant.
+                Operational channels are kept free of unnecessary traffic so
+                leaders and teams can pass important information efficiently.
             </p>
 
+
             <h3>
-                Standard
+                Radio Discipline
             </h3>
 
             <ul>
 
                 <li>
-                    Identify who you are calling before transmitting your message.
+                    Listen before transmitting.
                 </li>
 
                 <li>
-                    Keep transmissions concise.
+                    Identify the intended receiving station or callsign.
                 </li>
 
                 <li>
-                    Acknowledge instructions when required.
+                    Keep transmissions concise and relevant.
                 </li>
 
                 <li>
-                    Move extended discussion to an appropriate channel.
+                    Avoid unnecessary conversation on operational frequencies.
+                </li>
+
+                <li>
+                    Acknowledge instructions when appropriate.
+                </li>
+
+                <li>
+                    Repeat important information when clarification is required.
+                </li>
+
+                <li>
+                    Move lengthy conversations to another channel when possible.
                 </li>
 
             </ul>
 
+
+            <h3>
+                Reporting
+            </h3>
+
+            <p>
+                Reports should contain the information needed by leadership
+                without unnecessary detail. Members should provide accurate
+                location, situation, personnel, equipment, and mission information
+                when applicable.
+            </p>
+
+
+            <h3>
+                Callsigns
+            </h3>
+
+            <p>
+                Assigned callsigns should be used during official operations.
+                Personnel should avoid replacing assigned callsigns with names,
+                nicknames, or unrelated identifiers when communicating over
+                operational radio channels.
+            </p>
+
         </section>
 
 
-        <!-- ============================= -->
-        <!-- TRAINING POLICY -->
-        <!-- ============================= -->
+
+        <!-- =================================================
+             TRADOC HEADER
+        ================================================== -->
 
         <section
             class="section dark-section doc-section"
-            id="training"
+            id="tradoc"
         >
+
+            <div class="sop-category-title">
+
+                <p class="eyebrow">
+                    TRAINING & DOCTRINE
+                </p>
+
+                <h2>
+                    TRADOC
+                </h2>
+
+                <p>
+                    TRADOC policies establish the training,
+                    qualification, evaluation, and progression
+                    standards used throughout the unit.
+                </p>
+
+            </div>
+
 
             <p class="eyebrow">
                 TRADOC 1-01
@@ -361,20 +582,315 @@
             </h2>
 
             <p>
-                All members complete initial orientation and basic training before advanced qualification. Specialized billets may require additional evaluation by qualified instructors.
+                All new members complete initial orientation and basic
+                training before progressing into advanced or specialized
+                qualifications.
+            </p>
+
+            <p>
+                Specialized billets may require additional instruction,
+                evaluation, or qualification by an approved instructor
+                before a member may perform the role during official operations.
+            </p>
+
+
+            <h3>
+                Training Expectations
+            </h3>
+
+            <ul>
+
+                <li>
+                    Members should arrive on time and prepared for instruction.
+                </li>
+
+                <li>
+                    Members should follow instructor directions during training.
+                </li>
+
+                <li>
+                    Questions are encouraged when clarification is needed.
+                </li>
+
+                <li>
+                    Members should demonstrate the required skill before qualification.
+                </li>
+
+                <li>
+                    Instructors should maintain consistent training standards.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRADOC BASIC TRAINING
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                TRADOC 1-02
+            </p>
+
+            <h2>
+                Basic Training
+            </h2>
+
+            <p>
+                Basic Training provides new members with the foundational
+                skills needed to participate safely and effectively in unit
+                activities.
+            </p>
+
+
+            <h3>
+                Training Subjects
+            </h3>
+
+            <ul>
+
+                <li>
+                    Unit organization and chain of command.
+                </li>
+
+                <li>
+                    Basic communications and radio procedures.
+                </li>
+
+                <li>
+                    Individual equipment and loadout standards.
+                </li>
+
+                <li>
+                    Movement and formations.
+                </li>
+
+                <li>
+                    Basic navigation.
+                </li>
+
+                <li>
+                    Medical fundamentals.
+                </li>
+
+                <li>
+                    Weapons handling and range procedures.
+                </li>
+
+                <li>
+                    Basic team-level tactical procedures.
+                </li>
+
+                <li>
+                    Mission preparation and briefing procedures.
+                </li>
+
+            </ul>
+
+
+            <div class="policy-note">
+
+                <strong>
+                    Training Completion
+                </strong>
+
+                Successful completion of Basic Training is required before
+                a new member is considered fully qualified for normal
+                operational assignment.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRADOC SPECIALIZED QUALIFICATIONS
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                TRADOC 1-03
+            </p>
+
+            <h2>
+                Specialized Qualifications
+            </h2>
+
+            <p>
+                Specialized positions require additional knowledge and
+                responsibility. Personnel may be required to complete
+                qualification training before serving in advanced billets.
+            </p>
+
+
+            <h3>
+                Specialized Areas
+            </h3>
+
+            <ul>
+
+                <li>
+                    Aviation.
+                </li>
+
+                <li>
+                    Armor and vehicle crews.
+                </li>
+
+                <li>
+                    Reconnaissance.
+                </li>
+
+                <li>
+                    Medical roles.
+                </li>
+
+                <li>
+                    Crew-served weapons.
+                </li>
+
+                <li>
+                    Forward observation and fire support.
+                </li>
+
+                <li>
+                    Leadership positions.
+                </li>
+
+                <li>
+                    Instructor positions.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRADOC TRAINING STANDARDS
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                TRADOC 1-04
+            </p>
+
+            <h2>
+                Training Standards
+            </h2>
+
+            <p>
+                Training events should provide practical instruction,
+                repetition, and evaluation relevant to a member's assigned
+                duties.
+            </p>
+
+
+            <h3>
+                Instructor Responsibilities
+            </h3>
+
+            <ul>
+
+                <li>
+                    Prepare training material before the scheduled event.
+                </li>
+
+                <li>
+                    Explain the purpose and objective of the training.
+                </li>
+
+                <li>
+                    Demonstrate required procedures when appropriate.
+                </li>
+
+                <li>
+                    Allow members reasonable opportunities to practice.
+                </li>
+
+                <li>
+                    Correct mistakes professionally.
+                </li>
+
+                <li>
+                    Evaluate members using consistent standards.
+                </li>
+
+                <li>
+                    Record qualifications when required.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRADOC REMEDIAL TRAINING
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                TRADOC 1-05
+            </p>
+
+            <h2>
+                Remedial & Refresher Training
+            </h2>
+
+            <p>
+                Remedial or refresher training may be provided when a member
+                requires additional instruction or when a qualification has not
+                been used for an extended period.
+            </p>
+
+            <p>
+                The purpose of remedial training is to improve performance and
+                reinforce unit standards rather than to punish members for
+                reasonable mistakes.
             </p>
 
         </section>
 
 
-        <!-- ============================= -->
-        <!-- ATTENDANCE POLICY -->
-        <!-- ============================= -->
+
+        <!-- =================================================
+             ADMIN HEADER / ATTENDANCE
+        ================================================== -->
 
         <section
             class="section doc-section"
-            id="attendance"
+            id="admin"
         >
+
+            <div class="sop-category-title">
+
+                <p class="eyebrow">
+                    ADMINISTRATION
+                </p>
+
+                <h2>
+                    ADMIN
+                </h2>
+
+                <p>
+                    Administrative policies establish standards for
+                    attendance, leave, accountability, communication,
+                    and membership status.
+                </p>
+
+            </div>
+
 
             <p class="eyebrow">
                 ADMIN 1-01
@@ -385,8 +901,901 @@
             </h2>
 
             <p>
-                Members should make a reasonable effort to attend scheduled unit events and communicate when real-life obligations prevent participation. Consistent unexplained inactivity may result in reassignment to reserve status so active billets remain available.
+                Members should make a reasonable effort to attend scheduled
+                unit events and communicate when real-life obligations prevent
+                participation.
             </p>
+
+            <p>
+                Active members should attend at least two official unit events
+                per month unless excused by their chain of command.
+            </p>
+
+            <p>
+                Consistent unexplained inactivity may result in reassignment
+                to reserve status so active billets remain available for
+                participating members.
+            </p>
+
+
+            <h3>
+                Attendance Expectations
+            </h3>
+
+            <ul>
+
+                <li>
+                    Monitor unit announcements and schedules.
+                </li>
+
+                <li>
+                    Notify leadership when unable to attend a required event.
+                </li>
+
+                <li>
+                    Avoid repeated no-call/no-show absences.
+                </li>
+
+                <li>
+                    Maintain reasonable communication with the unit.
+                </li>
+
+                <li>
+                    Request leave when expecting extended inactivity.
+                </li>
+
+            </ul>
+
+
+            <div class="policy-note">
+
+                <strong>
+                    Real Life Comes First
+                </strong>
+
+                Employment, family obligations, education, emergencies,
+                and other legitimate real-life responsibilities take
+                priority. Members are expected to communicate when possible.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADMIN LEAVE OF ABSENCE
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                ADMIN 1-02
+            </p>
+
+            <h2>
+                Leave of Absence
+            </h2>
+
+            <p>
+                Members who expect to be unavailable for an extended period
+                should notify their chain of command and request a Leave of
+                Absence when appropriate.
+            </p>
+
+            <p>
+                Approved leave allows leadership to plan around the member's
+                absence while allowing the member to maintain standing within
+                the unit.
+            </p>
+
+
+            <h3>
+                LOA Expectations
+            </h3>
+
+            <ul>
+
+                <li>
+                    Notify leadership as early as reasonably possible.
+                </li>
+
+                <li>
+                    Provide an estimated return date when known.
+                </li>
+
+                <li>
+                    Sensitive personal information is not required.
+                </li>
+
+                <li>
+                    Notify leadership if the expected return date changes.
+                </li>
+
+                <li>
+                    Contact the chain of command when ready to return to active status.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADMIN CHAIN OF COMMAND
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                ADMIN 1-03
+            </p>
+
+            <h2>
+                Chain of Command
+            </h2>
+
+            <p>
+                Members should use the established chain of command for
+                questions, requests, concerns, and unit-related matters.
+            </p>
+
+            <p>
+                Issues should normally be handled at the lowest appropriate
+                leadership level before being elevated to higher command.
+            </p>
+
+
+            <h3>
+                Escalation
+            </h3>
+
+            <ul>
+
+                <li>
+                    Begin with your immediate team or squad leadership.
+                </li>
+
+                <li>
+                    Elevate unresolved matters through the next leadership level.
+                </li>
+
+                <li>
+                    Serious or sensitive concerns may be taken directly to appropriate command staff.
+                </li>
+
+                <li>
+                    Emergency matters do not require unnecessary delays through normal channels.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADMIN PROFESSIONAL CONDUCT
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                ADMIN 1-04
+            </p>
+
+            <h2>
+                Professional Conduct
+            </h2>
+
+            <p>
+                Members should maintain a respectful environment in unit
+                Discord channels, servers, training events, operations,
+                and other official community spaces.
+            </p>
+
+
+            <h3>
+                Unacceptable Conduct
+            </h3>
+
+            <ul>
+
+                <li>
+                    Harassment of other members.
+                </li>
+
+                <li>
+                    Deliberate disruption of training or operations.
+                </li>
+
+                <li>
+                    Repeated disrespect toward members or leadership.
+                </li>
+
+                <li>
+                    Intentional misuse of administrative permissions.
+                </li>
+
+                <li>
+                    Actions intended to damage the unit or its community.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADMIN INACTIVITY
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                ADMIN 1-05
+            </p>
+
+            <h2>
+                Inactivity
+            </h2>
+
+            <p>
+                Members who become inactive without communication may be
+                contacted by leadership to determine their status.
+            </p>
+
+            <p>
+                Extended inactivity may result in reassignment to reserve
+                status or removal from an active billet.
+            </p>
+
+            <p>
+                Members returning after extended inactivity may be required
+                to complete refresher training before resuming certain
+                specialized responsibilities.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPERATIONS HEADER
+        ================================================== -->
+
+        <section
+            class="section dark-section doc-section"
+            id="operations"
+        >
+
+            <div class="sop-category-title">
+
+                <p class="eyebrow">
+                    OPERATIONS
+                </p>
+
+                <h2>
+                    Operational Standards
+                </h2>
+
+                <p>
+                    Operational policies establish expectations for
+                    preparation, equipment, organization, and conduct
+                    during official missions.
+                </p>
+
+            </div>
+
+
+            <p class="eyebrow">
+                OPS 2-01
+            </p>
+
+            <h2>
+                Operational Readiness
+            </h2>
+
+            <p>
+                Personnel should arrive before scheduled operations with
+                required mods updated, communications working, and assigned
+                equipment prepared.
+            </p>
+
+
+            <h3>
+                Pre-Operation Requirements
+            </h3>
+
+            <ul>
+
+                <li>
+                    Review operation announcements.
+                </li>
+
+                <li>
+                    Update required server mods.
+                </li>
+
+                <li>
+                    Verify microphone and communications.
+                </li>
+
+                <li>
+                    Know your assigned billet.
+                </li>
+
+                <li>
+                    Review available briefing information.
+                </li>
+
+                <li>
+                    Prepare required equipment before formation.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPS LOADOUTS
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                OPS 2-02
+            </p>
+
+            <h2>
+                Equipment & Loadouts
+            </h2>
+
+            <p>
+                Members will use equipment appropriate to their assigned
+                role and follow established unit loadout standards during
+                official operations.
+            </p>
+
+
+            <h3>
+                Equipment Standards
+            </h3>
+
+            <ul>
+
+                <li>
+                    Use equipment appropriate to the assigned billet.
+                </li>
+
+                <li>
+                    Avoid unnecessary equipment that does not support the mission.
+                </li>
+
+                <li>
+                    Specialized weapons should be used by assigned personnel.
+                </li>
+
+                <li>
+                    Crew-served equipment should be operated by trained personnel.
+                </li>
+
+                <li>
+                    Aviation equipment should be used by assigned aviation personnel.
+                </li>
+
+                <li>
+                    Vehicle crews should use equipment appropriate to their assigned platform.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPS FORMATION
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                OPS 2-03
+            </p>
+
+            <h2>
+                Formation & Briefing
+            </h2>
+
+            <p>
+                Members should report to their assigned element before the
+                operation briefing and remain available for accountability.
+            </p>
+
+            <p>
+                Personnel should listen to the briefing, understand the mission,
+                identify their role, and ask necessary questions before the
+                operation begins.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPS AFTER ACTION
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                OPS 2-04
+            </p>
+
+            <h2>
+                After-Action Review
+            </h2>
+
+            <p>
+                After-action reviews are used to identify strengths,
+                problems, lessons learned, and opportunities for future
+                improvement.
+            </p>
+
+
+            <h3>
+                AAR Standards
+            </h3>
+
+            <ul>
+
+                <li>
+                    Keep feedback constructive.
+                </li>
+
+                <li>
+                    Discuss actions and procedures rather than attacking individuals.
+                </li>
+
+                <li>
+                    Identify what worked well.
+                </li>
+
+                <li>
+                    Identify areas requiring improvement.
+                </li>
+
+                <li>
+                    Recommend practical solutions when possible.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONNEL
+        ================================================== -->
+
+        <section
+            class="section dark-section doc-section"
+            id="personnel"
+        >
+
+            <div class="sop-category-title">
+
+                <p class="eyebrow">
+                    PERSONNEL
+                </p>
+
+                <h2>
+                    Personnel Management
+                </h2>
+
+                <p>
+                    Personnel policies establish standards for promotion,
+                    assignments, billets, activity status, and professional
+                    development.
+                </p>
+
+            </div>
+
+
+            <p class="eyebrow">
+                PERSONNEL 3-01
+            </p>
+
+            <h2>
+                Ranks & Promotions
+            </h2>
+
+            <p>
+                Promotions are based on demonstrated leadership, reliability,
+                activity, training completion, unit contribution, performance,
+                and available positions.
+            </p>
+
+            <p>
+                Time in the unit alone does not guarantee promotion.
+            </p>
+
+
+            <h3>
+                Promotion Considerations
+            </h3>
+
+            <ul>
+
+                <li>
+                    Attendance and activity.
+                </li>
+
+                <li>
+                    Training completion.
+                </li>
+
+                <li>
+                    Performance in assigned duties.
+                </li>
+
+                <li>
+                    Leadership ability.
+                </li>
+
+                <li>
+                    Professional conduct.
+                </li>
+
+                <li>
+                    Reliability.
+                </li>
+
+                <li>
+                    Unit requirements.
+                </li>
+
+                <li>
+                    Availability of appropriate billets.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONNEL BILLETS
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                PERSONNEL 3-02
+            </p>
+
+            <h2>
+                Billets & Assignments
+            </h2>
+
+            <p>
+                Billets identify a member's primary responsibility within
+                the unit. Assignments are based on qualifications,
+                performance, activity, unit requirements, and available
+                positions.
+            </p>
+
+            <p>
+                Command may reassign personnel when necessary to maintain
+                effective unit organization.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONNEL RESERVE
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                PERSONNEL 3-03
+            </p>
+
+            <h2>
+                Reserve Status
+            </h2>
+
+            <p>
+                Reserve status is available for members who cannot
+                consistently meet active attendance requirements but wish
+                to remain affiliated with the unit.
+            </p>
+
+            <p>
+                Reserve personnel may return to active status when their
+                availability improves and an appropriate billet becomes
+                available.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONNEL QUALIFICATION RECORDS
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                PERSONNEL 3-04
+            </p>
+
+            <h2>
+                Qualification Records
+            </h2>
+
+            <p>
+                Leadership and instructors may maintain records of member
+                qualifications, training completion, and specialized
+                certifications when required for unit organization.
+            </p>
+
+            <p>
+                Members should notify leadership if a qualification record
+                appears inaccurate or incomplete.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMAND
+        ================================================== -->
+
+        <section
+            class="section dark-section doc-section"
+            id="command"
+        >
+
+            <div class="sop-category-title">
+
+                <p class="eyebrow">
+                    COMMAND
+                </p>
+
+                <h2>
+                    Leadership Standards
+                </h2>
+
+                <p>
+                    Command policies define the responsibilities,
+                    expectations, and authority of unit leadership.
+                </p>
+
+            </div>
+
+
+            <p class="eyebrow">
+                COMMAND 4-01
+            </p>
+
+            <h2>
+                Leadership Responsibilities
+            </h2>
+
+            <p>
+                Unit leaders are responsible for maintaining accountability,
+                communicating expectations, developing personnel, conducting
+                training, and supporting organized operations.
+            </p>
+
+
+            <h3>
+                Leadership Expectations
+            </h3>
+
+            <ul>
+
+                <li>
+                    Lead by example.
+                </li>
+
+                <li>
+                    Maintain reasonable accountability of assigned personnel.
+                </li>
+
+                <li>
+                    Communicate schedules and expectations.
+                </li>
+
+                <li>
+                    Support member development.
+                </li>
+
+                <li>
+                    Address problems professionally.
+                </li>
+
+                <li>
+                    Maintain consistent standards.
+                </li>
+
+                <li>
+                    Support the command structure and mission.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMAND AUTHORITY
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                COMMAND 4-02
+            </p>
+
+            <h2>
+                Orders & Authority
+            </h2>
+
+            <p>
+                During official operations and training, members are
+                expected to follow reasonable instructions issued by
+                designated unit leadership.
+            </p>
+
+            <p>
+                Leaders should exercise authority professionally and keep
+                instructions consistent with unit policies, training
+                objectives, and mission requirements.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMAND ACCOUNTABILITY
+        ================================================== -->
+
+        <section class="section dark-section doc-section">
+
+            <p class="eyebrow">
+                COMMAND 4-03
+            </p>
+
+            <h2>
+                Personnel Accountability
+            </h2>
+
+            <p>
+                Leaders should maintain awareness of the status, assignment,
+                and availability of personnel under their responsibility.
+            </p>
+
+
+            <h3>
+                Accountability Includes
+            </h3>
+
+            <ul>
+
+                <li>
+                    Personnel assigned.
+                </li>
+
+                <li>
+                    Personnel present.
+                </li>
+
+                <li>
+                    Personnel absent or excused.
+                </li>
+
+                <li>
+                    Training and qualification status.
+                </li>
+
+                <li>
+                    Current billet assignment.
+                </li>
+
+                <li>
+                    Reserve or leave status when applicable.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMMAND DEVELOPMENT
+        ================================================== -->
+
+        <section class="section doc-section">
+
+            <p class="eyebrow">
+                COMMAND 4-04
+            </p>
+
+            <h2>
+                Leadership Development
+            </h2>
+
+            <p>
+                Members being considered for leadership positions should
+                demonstrate reliability, communication ability, sound
+                judgment, knowledge of unit standards, and the ability to
+                work effectively with others.
+            </p>
+
+            <p>
+                Prospective leaders may be given opportunities to assist
+                with training, planning, accountability, or temporary
+                leadership responsibilities before permanent assignment.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FINAL REFERENCE NOTE
+        ================================================== -->
+
+        <section class="section dark-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    UNIT REFERENCE
+                </p>
+
+                <h2>
+                    Policy Updates
+                </h2>
+
+                <p>
+                    Unit policies may be updated as training standards,
+                    organizational requirements, or operational needs change.
+                    Members are responsible for reviewing current published
+                    standards and official unit announcements.
+                </p>
+
+            </div>
+
+
+            <div class="policy-note">
+
+                <strong>
+                    Questions About Policy
+                </strong>
+
+                Members who need clarification regarding any SOP,
+                administrative policy, qualification requirement,
+                or unit standard should contact their chain of command.
+
+            </div>
 
         </section>
 
@@ -394,9 +1803,10 @@
     </main>
 
 
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
@@ -407,8 +1817,15 @@
             </div>
 
             <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
             </div>
 
         </div>
@@ -441,17 +1858,23 @@
 
 
         <p class="fineprint">
-            This is a gaming/military simulation community website and is not affiliated with the United States Department of Defense.
+
+            This is a gaming/military simulation community website
+            and is not affiliated with the United States Department
+            of Defense.
+
         </p>
 
     </footer>
 
 
-    <!-- ============================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ============================= -->
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
