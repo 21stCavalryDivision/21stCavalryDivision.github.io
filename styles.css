@@ -24,16 +24,14 @@ code {
 }
 
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* HEADER */
 
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
 
-    height: 78px;
+    min-height: 78px;
 
     padding: 0 clamp(22px, 5vw, 80px);
 
@@ -49,9 +47,7 @@ code {
 }
 
 
-/* =========================================================
-   BRAND
-   ========================================================= */
+/* BRAND */
 
 .brand {
     display: flex;
@@ -90,7 +86,6 @@ code {
 .brand span,
 .brand small {
     display: block;
-    transform: none;
 }
 
 .brand small {
@@ -102,15 +97,13 @@ code {
 }
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* NAVIGATION */
 
 .main-nav {
     display: flex;
     align-items: center;
 
-    gap: 26px;
+    gap: 20px;
 
     font: 500 14px Oswald, sans-serif;
 
@@ -145,12 +138,12 @@ code {
     color: #fff;
 
     font-size: 25px;
+
+    cursor: pointer;
 }
 
 
-/* =========================================================
-   HERO
-   ========================================================= */
+/* HERO */
 
 .hero {
     min-height: calc(100vh - 78px);
@@ -286,9 +279,7 @@ code {
 }
 
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* BUTTONS */
 
 .btn {
     display: inline-flex;
@@ -333,9 +324,7 @@ code {
 }
 
 
-/* =========================================================
-   HERO BADGE
-   ========================================================= */
+/* HERO BADGE */
 
 .hero-badge {
     position: absolute;
@@ -367,9 +356,7 @@ code {
 }
 
 
-/* =========================================================
-   STATS
-   ========================================================= */
+/* STATS */
 
 .strip {
     display: grid;
@@ -408,9 +395,7 @@ code {
 }
 
 
-/* =========================================================
-   SECTIONS
-   ========================================================= */
+/* SECTIONS */
 
 .section {
     padding: 100px clamp(24px, 8vw, 140px);
@@ -454,9 +439,7 @@ code {
 }
 
 
-/* =========================================================
-   MISSION
-   ========================================================= */
+/* MISSION */
 
 .mission {
     background: #11171a;
@@ -477,9 +460,7 @@ code {
 }
 
 
-/* =========================================================
-   CARDS
-   ========================================================= */
+/* CARDS */
 
 .card-grid {
     display: grid;
@@ -520,9 +501,7 @@ code {
 }
 
 
-/* =========================================================
-   DARK SECTION / TIMELINE
-   ========================================================= */
+/* DARK SECTION */
 
 .dark-section {
     background: #080b0e;
@@ -531,12 +510,13 @@ code {
     border-bottom: 1px solid #232a2f;
 }
 
+
+/* TIMELINE */
+
 .timeline {
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
-
-    gap: 0;
 
     margin-top: 45px;
 }
@@ -582,9 +562,7 @@ code {
 }
 
 
-/* =========================================================
-   JOIN SECTION
-   ========================================================= */
+/* JOIN */
 
 .join {
     text-align: center;
@@ -623,9 +601,7 @@ code {
 }
 
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/* FOOTER */
 
 footer {
     padding: 50px clamp(24px, 8vw, 140px);
@@ -660,9 +636,7 @@ footer {
 }
 
 
-/* =========================================================
-   PAGE HERO
-   ========================================================= */
+/* PAGE HERO */
 
 .page-hero {
     padding:
@@ -695,9 +669,7 @@ footer {
 }
 
 
-/* =========================================================
-   ORBAT
-   ========================================================= */
+/* ORBAT */
 
 .orbat-tree {
     max-width: 1100px;
@@ -770,9 +742,7 @@ footer {
 }
 
 
-/* =========================================================
-   ROSTER
-   ========================================================= */
+/* ROSTER */
 
 .roster-table {
     border: 1px solid #2b3237;
@@ -811,9 +781,7 @@ footer {
 }
 
 
-/* =========================================================
-   TRAINING
-   ========================================================= */
+/* TRAINING */
 
 .training-path {
     display: grid;
@@ -862,9 +830,7 @@ footer {
 }
 
 
-/* =========================================================
-   RESOURCE LIBRARY
-   ========================================================= */
+/* RESOURCES */
 
 .resource-grid {
     display: grid;
@@ -924,9 +890,7 @@ footer {
 }
 
 
-/* =========================================================
-   APPLICATION
-   ========================================================= */
+/* APPLICATION */
 
 .application-layout {
     display: grid;
@@ -1029,9 +993,7 @@ footer {
 }
 
 
-/* =========================================================
-   SERVER
-   ========================================================= */
+/* SERVER */
 
 .server-card {
     display: grid;
@@ -1088,9 +1050,7 @@ footer {
 }
 
 
-/* =========================================================
-   CHECKLIST
-   ========================================================= */
+/* CHECK GRID */
 
 .check-grid {
     display: grid;
@@ -1139,9 +1099,7 @@ footer {
 }
 
 
-/* =========================================================
-   GALLERY
-   ========================================================= */
+/* GALLERY */
 
 .gallery-grid {
     display: grid;
@@ -1202,9 +1160,7 @@ footer {
 }
 
 
-/* =========================================================
-   REVEAL ANIMATION
-   ========================================================= */
+/* REVEAL */
 
 .reveal {
     opacity: 0;
@@ -1222,7 +1178,7 @@ footer {
 
 
 /* =========================================================
-   MEMBER / DISCORD AUTHENTICATION
+   DISCORD MEMBER LOGIN
    ========================================================= */
 
 .member-auth {
@@ -1231,19 +1187,18 @@ footer {
     align-items: center;
 }
 
-.member-login-btn,
-.member-logout-btn {
+.member-login-btn {
     appearance: none;
-
-    border: 1px solid #5865f2;
-
-    background: transparent;
-
-    color: #fff;
 
     min-height: 40px;
 
-    padding: 0 14px;
+    padding: 0 15px;
+
+    border: 1px solid #5865f2;
+
+    background: #5865f2;
+
+    color: #fff;
 
     font: 600 12px Oswald, sans-serif;
 
@@ -1252,11 +1207,30 @@ footer {
     letter-spacing: 1px;
 
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .member-login-btn:hover {
-    background: #5865f2;
+    background: #6d78f5;
+
+    border-color: #6d78f5;
 }
+
+.member-login-btn:disabled {
+    opacity: 0.55;
+
+    cursor: wait;
+}
+
+.member-login-btn[hidden] {
+    display: none !important;
+}
+
+
+/* LOGGED IN PROFILE */
 
 .member-profile {
     display: flex;
@@ -1287,6 +1261,10 @@ footer {
     border: 1px solid #c5a75b;
 
     background: #20262b;
+}
+
+.member-avatar[hidden] {
+    display: none !important;
 }
 
 .member-profile-text {
@@ -1320,13 +1298,25 @@ footer {
 }
 
 .member-logout-btn {
+    appearance: none;
+
     min-height: 32px;
 
     padding: 0 10px;
 
-    border-color: #596167;
+    border: 1px solid #596167;
+
+    background: transparent;
 
     color: #cbd1d4;
+
+    font: 600 11px Oswald, sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
 }
 
 .member-logout-btn:hover {
@@ -1337,8 +1327,17 @@ footer {
 
 
 /* =========================================================
-   TABLET / MOBILE
+   TABLET
    ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 14px;
+    }
+
+}
+
 
 @media (max-width: 1000px) {
 
@@ -1368,6 +1367,10 @@ footer {
 
     .nav-toggle {
         display: block;
+    }
+
+    .main-nav > a {
+        padding: 8px 0;
     }
 
     .card-grid.four,
@@ -1401,29 +1404,28 @@ footer {
     }
 
 
-    /* MEMBER LOGIN MOBILE */
-
     .member-auth {
         width: 100%;
     }
 
-    .member-login-btn,
-    .member-profile {
+    .member-login-btn {
         width: 100%;
     }
 
     .member-profile {
-        justify-content: flex-start;
+        width: 100%;
     }
 
     .member-logout-btn {
         margin-left: auto;
-
-        width: auto;
     }
 
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 650px) {
 
