@@ -275,6 +275,60 @@
                 Media
             </a>
 
+
+            <!-- MEMBER AUTHENTICATION -->
+
+            <div class="member-auth" id="memberAuth">
+
+                <button
+                    class="member-login-btn"
+                    id="discordLoginBtn"
+                    type="button"
+                >
+                    Login with Discord
+                </button>
+
+
+                <div
+                    class="member-profile"
+                    id="memberProfile"
+                    hidden
+                >
+
+                    <img
+                        id="memberAvatar"
+                        src=""
+                        alt=""
+                        class="member-avatar"
+                    >
+
+
+                    <div class="member-profile-text">
+
+                        <span id="memberName">
+                            Member
+                        </span>
+
+                        <small>
+                            Authenticated Member
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        class="member-logout-btn"
+                        id="discordLogoutBtn"
+                        type="button"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+
             <a
                 class="nav-cta"
                 href="recruitment.html"
@@ -875,6 +929,13 @@
     <!-- ================================================= -->
     <!-- JAVASCRIPT -->
     <!-- ================================================= -->
+
+    <!-- SUPABASE AUTH LIBRARY -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- MAIN WEBSITE JAVASCRIPT -->
 
     <script src="script.js"></script>
 
