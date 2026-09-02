@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="21st Cavalry Division Administration Portal"
+    >
+
+    <title>
+        21st Cavalry Division | Administration
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- MAIN WEBSITE CSS -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css?v=6"
+    >
+
+
+    <style>
+
+        /* =================================================
+           ADMIN PAGE
+           ================================================= */
+
+        body {
+            background: #090d10;
+        }
+
+
+        .admin-hero {
+
+            padding:
+                70px
+                clamp(24px, 6vw, 110px)
+                55px;
+
+            border-bottom:
+                1px solid #30383d;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #0a1014,
+                    #141710
+                );
+
+        }
+
+
+        .admin-hero h1 {
+
+            margin: 10px 0;
+
+            font:
+                700 clamp(46px, 7vw, 88px)
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .admin-hero p:last-child {
+
+            max-width: 750px;
+
+            color: #abb4b8;
+
+        }
+
+
+        /* =================================================
+           ACCESS SCREENS
+           ================================================= */
+
+        .admin-message {
+
+            max-width: 700px;
+
+            margin: 80px auto;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border:
+                1px solid #30383d;
+
+            border-top:
+                3px solid #c5a75b;
+
+            background: #11171a;
+
+        }
+
+
+        .admin-message h2 {
+
+            font:
+                600 34px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .admin-message p {
+
+            color: #9ca6aa;
+
+        }
+
+
+        /* =================================================
+           MAIN ADMIN CONTAINER
+           ================================================= */
+
+        .admin-container {
+
+            padding:
+                45px
+                clamp(24px, 6vw, 110px)
+                100px;
+
+        }
+
+
+        /* =================================================
+           ADMIN TOOLBAR
+           ================================================= */
+
+        .admin-toolbar {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr auto;
+
+            gap: 18px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .admin-search {
+
+            width: 100%;
+
+            min-height: 48px;
+
+            padding:
+                0 16px;
+
+            background: #0c1114;
+
+            color: #fff;
+
+            border:
+                1px solid #384147;
+
+            font:
+                400 14px
+                Roboto,
+                sans-serif;
+
+        }
+
+
+        .admin-search:focus {
+
+            outline: none;
+
+            border-color: #c5a75b;
+
+        }
+
+
+        .admin-refresh {
+
+            min-height: 48px;
+
+            padding:
+                0 20px;
+
+            border:
+                1px solid #c5a75b;
+
+            background: transparent;
+
+            color: #c5a75b;
+
+            cursor: pointer;
+
+            font:
+                600 12px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .admin-refresh:hover {
+
+            background: #c5a75b;
+
+            color: #111;
+
+        }
+
+
+        /* =================================================
+           SUMMARY
+           ================================================= */
+
+        .admin-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .summary-card {
+
+            padding: 22px;
+
+            border:
+                1px solid #30383d;
+
+            background: #11171a;
+
+        }
+
+
+        .summary-card span {
+
+            display: block;
+
+            color: #858f94;
+
+            font:
+                500 10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .summary-card strong {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: #fff;
+
+            font:
+                600 28px
+                Oswald,
+                sans-serif;
+
+        }
+
+
+        /* =================================================
+           MEMBER CARDS
+           ================================================= */
+
+        .member-admin-list {
+
+            display: grid;
+
+            gap: 18px;
+
+        }
+
+
+        .member-admin-card {
+
+            border:
+                1px solid #30383d;
+
+            background: #11171a;
+
+        }
+
+
+        .member-admin-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            align-items: center;
+
+            padding: 20px 24px;
+
+            border-bottom:
+                1px solid #30383d;
+
+            background: #0e1417;
+
+        }
+
+
+        .member-admin-identity {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+        }
+
+
+        .member-admin-avatar {
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border:
+                1px solid #c5a75b;
+
+            background: #20262b;
+
+        }
+
+
+        .member-admin-name {
+
+            margin: 0;
+
+            color: #fff;
+
+            font:
+                600 22px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .member-admin-id {
+
+            color: #778187;
+
+            font-size: 10px;
+
+            word-break: break-all;
+
+        }
+
+
+        .access-badge {
+
+            padding:
+                7px 11px;
+
+            border:
+                1px solid #c5a75b;
+
+            color: #c5a75b;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =================================================
+           FORM
+           ================================================= */
+
+        .member-admin-body {
+
+            padding: 24px;
+
+        }
+
+
+        .admin-form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+
+        }
+
+
+        .admin-field {
+
+            display: grid;
+
+            gap: 6px;
+
+        }
+
+
+        .admin-field.wide {
+
+            grid-column:
+                span 2;
+
+        }
+
+
+        .admin-field label {
+
+            color: #c5a75b;
+
+            font:
+                500 10px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .admin-field input,
+        .admin-field select {
+
+            width: 100%;
+
+            min-height: 42px;
+
+            padding:
+                0 11px;
+
+            border:
+                1px solid #384147;
+
+            background: #090e11;
+
+            color: #fff;
+
+            font-size: 13px;
+
+        }
+
+
+        .admin-field input:focus,
+        .admin-field select:focus {
+
+            outline: none;
+
+            border-color: #c5a75b;
+
+        }
+
+
+        .admin-form-actions {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 22px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid #293036;
+
+        }
+
+
+        .save-member-btn {
+
+            min-height: 42px;
+
+            padding:
+                0 22px;
+
+            border: 0;
+
+            background: #c5a75b;
+
+            color: #111;
+
+            cursor: pointer;
+
+            font:
+                600 12px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .save-member-btn:hover {
+
+            background: #dac171;
+
+        }
+
+
+        .save-member-btn:disabled {
+
+            opacity: 0.6;
+
+            cursor: wait;
+
+        }
+
+
+        .save-status {
+
+            color: #8f999e;
+
+            font-size: 12px;
+
+        }
+
+
+        .save-status.success {
+
+            color: #75d48c;
+
+        }
+
+
+        .save-status.error {
+
+            color: #e47b7b;
+
+        }
+
+
+        /* =================================================
+           EMPTY STATE
+           ================================================= */
+
+        .admin-empty {
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            border:
+                1px solid #30383d;
+
+            color: #7e888d;
+
+            background: #11171a;
+
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+           ================================================= */
+
+        @media (max-width: 1150px) {
+
+            .admin-form-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .admin-summary {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .admin-toolbar {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .member-admin-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .admin-form-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .admin-field.wide {
+
+                grid-column:
+                    span 1;
+
+            }
+
+
+            .admin-summary {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="site-header">
+
+
+        <a
+            class="brand"
+            href="index.html"
+        >
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="orbat.html">
+                ORBAT
+            </a>
+
+            <a href="training.html">
+                Training
+            </a>
+
+            <a href="resources.html">
+                SOPs
+            </a>
+
+            <a href="server.html">
+                Server
+            </a>
+
+            <a href="members.html">
+                Member Portal
+            </a>
+
+            <a
+                href="admin.html"
+                style="color:#c5a75b;"
+            >
+                Admin
+            </a>
+
+
+            <div
+                class="member-auth"
+                id="memberAuth"
+            >
+
+                <button
+                    class="member-login-btn"
+                    id="discordLoginBtn"
+                    type="button"
+                >
+                    Login with Discord
+                </button>
+
+
+                <div
+                    class="member-profile"
+                    id="memberProfile"
+                    hidden
+                >
+
+                    <img
+                        id="memberAvatar"
+                        class="member-avatar"
+                        src=""
+                        alt=""
+                        hidden
+                    >
+
+
+                    <div class="member-profile-text">
+
+                        <span id="memberName">
+                            Member
+                        </span>
+
+                        <small>
+                            Authenticated Member
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        class="member-logout-btn"
+                        id="discordLogoutBtn"
+                        type="button"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================================================= -->
+    <!-- HERO -->
+    <!-- ================================================= -->
+
+    <section class="admin-hero">
+
+        <p class="eyebrow">
+            COMMAND ACCESS
+        </p>
+
+        <h1>
+            Administration
+        </h1>
+
+        <p>
+            Manage member assignments, ranks, attendance,
+            qualifications, status and portal access.
+        </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- LOADING -->
+    <!-- ================================================= -->
+
+    <section
+        id="adminLoading"
+        class="admin-message"
+    >
+
+        <h2>
+            Loading Administration
+        </h2>
+
+        <p>
+            Verifying command authorization...
+        </p>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- LOGIN REQUIRED -->
+    <!-- ================================================= -->
+
+    <section
+        id="adminLoginRequired"
+        class="admin-message"
+        hidden
+    >
+
+        <p class="eyebrow">
+            AUTHENTICATION REQUIRED
+        </p>
+
+        <h2>
+            Discord Login Required
+        </h2>
+
+        <p>
+            You must authenticate before accessing
+            the administrative portal.
+        </p>
+
+        <a
+            href="index.html"
+            class="btn btn-primary"
+        >
+            Return Home
+        </a>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- ACCESS DENIED -->
+    <!-- ================================================= -->
+
+    <section
+        id="adminDenied"
+        class="admin-message"
+        hidden
+    >
+
+        <p class="eyebrow">
+            ACCESS DENIED
+        </p>
+
+        <h2>
+            Command Authorization Required
+        </h2>
+
+        <p>
+            Your account does not have permission to access
+            the 21st Cavalry Division Administration Portal.
+        </p>
+
+        <a
+            href="members.html"
+            class="btn btn-secondary"
+        >
+            Member Portal
+        </a>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- ADMIN DASHBOARD -->
+    <!-- ================================================= -->
+
+    <main
+        id="adminContent"
+        class="admin-container"
+        hidden
+    >
+
+
+        <!-- SUMMARY -->
+
+        <section class="admin-summary">
+
+
+            <div class="summary-card">
+
+                <span>
+                    Total Members
+                </span>
+
+                <strong id="totalMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    Active
+                </span>
+
+                <strong id="activeMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    Admins
+                </span>
+
+                <strong id="adminMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    Average Attendance
+                </span>
+
+                <strong id="averageAttendance">
+                    0%
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- TOOLBAR -->
+
+        <section class="admin-toolbar">
+
+
+            <input
+                id="memberSearch"
+                class="admin-search"
+                type="search"
+                placeholder="Search members by name, rank, billet, section..."
+            >
+
+
+            <button
+                id="refreshMembers"
+                class="admin-refresh"
+                type="button"
+            >
+                Refresh Members
+            </button>
+
+
+        </section>
+
+
+        <!-- MEMBER LIST -->
+
+        <section
+            id="memberAdminList"
+            class="member-admin-list"
+        ></section>
+
+
+    </main>
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <footer>
+
+        <div class="brand footer-brand">
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Swift. Silent. Relentless.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="members.html">
+                Member Portal
+            </a>
+
+            <a href="resources.html">
+                Unit Resources
+            </a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+        </div>
+
+
+        <p class="fineprint">
+            Administrative access is restricted to authorized
+            21st Cavalry Division personnel.
+        </p>
+
+    </footer>
+
+
+    <!-- ================================================= -->
+    <!-- SUPABASE -->
+    <!-- ================================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script src="script.js?v=6"></script>
+
+
+    <!-- ================================================= -->
+    <!-- ADMIN JAVASCRIPT -->
+    <!-- ================================================= -->
+
+    <script>
+
+        document.addEventListener(
+            'DOMContentLoaded',
+
+            async () => {
+
+
+                /* =========================================
+                   CONFIG
+                   ========================================= */
+
+                const SUPABASE_URL =
+                    'https://uwtvgpeijygvjpcifkew.supabase.co';
+
+
+                const SUPABASE_KEY =
+                    'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
+
+                const client =
+                    window.supabase.createClient(
+
+                        SUPABASE_URL,
+
+                        SUPABASE_KEY
+
+                    );
+
+
+                let allMembers = [];
+
+                let currentProfile = null;
+
+
+                /* =========================================
+                   ELEMENTS
+                   ========================================= */
+
+                const loading =
+                    document.getElementById(
+                        'adminLoading'
+                    );
+
+
+                const loginRequired =
+                    document.getElementById(
+                        'adminLoginRequired'
+                    );
+
+
+                const denied =
+                    document.getElementById(
+                        'adminDenied'
+                    );
+
+
+                const content =
+                    document.getElementById(
+                        'adminContent'
+                    );
+
+
+                const memberList =
+                    document.getElementById(
+                        'memberAdminList'
+                    );
+
+
+                const search =
+                    document.getElementById(
+                        'memberSearch'
+                    );
+
+
+                const refresh =
+                    document.getElementById(
+                        'refreshMembers'
+                    );
+
+
+                /* =========================================
+                   SCREEN HELPERS
+                   ========================================= */
+
+                function showScreen(screen) {
+
+                    loading.hidden =
+                        screen !== 'loading';
+
+
+                    loginRequired.hidden =
+                        screen !== 'login';
+
+
+                    denied.hidden =
+                        screen !== 'denied';
+
+
+                    content.hidden =
+                        screen !== 'admin';
+
+                }
+
+
+                /* =========================================
+                   ESCAPE HTML
+                   ========================================= */
+
+                function escapeHtml(value) {
+
+                    return String(
+                        value ?? ''
+                    )
+
+                    .replaceAll(
+                        '&',
+                        '&amp;'
+                    )
+
+                    .replaceAll(
+                        '<',
+                        '&lt;'
+                    )
+
+                    .replaceAll(
+                        '>',
+                        '&gt;'
+                    )
+
+                    .replaceAll(
+                        '"',
+                        '&quot;'
+                    )
+
+                    .replaceAll(
+                        "'",
+                        '&#039;'
+                    );
+
+                }
+
+
+                /* =========================================
+                   DATE
+                   ========================================= */
+
+                function safeDate(value) {
+
+                    if (!value) {
+
+                        return '';
+
+                    }
+
+                    return value;
+
+                }
+
+
+                /* =========================================
+                   SUMMARY
+                   ========================================= */
+
+                function updateSummary() {
+
+                    const total =
+                        allMembers.length;
+
+
+                    const active =
+                        allMembers.filter(
+
+                            member =>
+                                member.member_status ===
+                                'Active'
+
+                        ).length;
+
+
+                    const admins =
+                        allMembers.filter(
+
+                            member =>
+
+                                member.access_level ===
+                                'Admin'
+
+                                ||
+
+                                member.access_level ===
+                                'Super Admin'
+
+                        ).length;
+
+
+                    const attendance =
+                        total
+
+                        ?
+
+                        Math.round(
+
+                            allMembers.reduce(
+
+                                (
+                                    totalValue,
+                                    member
+                                ) =>
+
+                                    totalValue +
+
+                                    Number(
+                                        member.attendance_rate
+                                        ||
+                                        0
+                                    ),
+
+                                0
+
+                            )
+
+                            /
+
+                            total
+
+                        )
+
+                        :
+
+                        0;
+
+
+                    document
+                        .getElementById(
+                            'totalMembers'
+                        )
+                        .textContent =
+                            total;
+
+
+                    document
+                        .getElementById(
+                            'activeMembers'
+                        )
+                        .textContent =
+                            active;
+
+
+                    document
+                        .getElementById(
+                            'adminMembers'
+                        )
+                        .textContent =
+                            admins;
+
+
+                    document
+                        .getElementById(
+                            'averageAttendance'
+                        )
+                        .textContent =
+                            attendance + '%';
+
+                }
+
+
+                /* =========================================
+                   SELECT OPTIONS
+                   ========================================= */
+
+                function optionList(
+                    options,
+                    selected
+                ) {
+
+                    return options
+                        .map(
+
+                            value => {
+
+                                const isSelected =
+                                    value === selected
+                                    ?
+                                    'selected'
+                                    :
+                                    '';
+
+
+                                return `
+                                    <option
+                                        value="${escapeHtml(value)}"
+                                        ${isSelected}
+                                    >
+                                        ${escapeHtml(value)}
+                                    </option>
+                                `;
+
+                            }
+
+                        )
+                        .join('');
+
+                }
+
+
+                /* =========================================
+                   RENDER MEMBERS
+                   ========================================= */
+
+                function renderMembers(
+                    members
+                ) {
+
+                    memberList.innerHTML = '';
+
+
+                    if (!members.length) {
+
+                        memberList.innerHTML = `
+
+                            <div class="admin-empty">
+
+                                No members found.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    members.forEach(
+
+                        member => {
+
+
+                            const card =
+                                document.createElement(
+                                    'article'
+                                );
+
+
+                            card.className =
+                                'member-admin-card';
+
+
+                            const qualifications =
+                                Array.isArray(
+                                    member.qualifications
+                                )
+
+                                ?
+
+                                member.qualifications.join(
+                                    ', '
+                                )
+
+                                :
+
+                                '';
+
+
+                            card.innerHTML = `
+
+                                <div class="member-admin-header">
+
+                                    <div class="member-admin-identity">
+
+                                        <div>
+
+                                            <h2 class="member-admin-name">
+
+                                                ${escapeHtml(
+                                                    member.display_name
+                                                    ||
+                                                    'Member'
+                                                )}
+
+                                            </h2>
+
+
+                                            <div class="member-admin-id">
+
+                                                ${escapeHtml(
+                                                    member.user_id
+                                                )}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="access-badge">
+
+                                        ${escapeHtml(
+                                            member.access_level
+                                            ||
+                                            'Member'
+                                        )}
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="member-admin-body">
+
+
+                                    <div class="admin-form-grid">
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Display Name
+                                            </label>
+
+                                            <input
+                                                data-field="display_name"
+                                                value="${escapeHtml(
+                                                    member.display_name
+                                                    ||
+                                                    ''
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Rank
+                                            </label>
+
+                                            <input
+                                                data-field="rank"
+                                                value="${escapeHtml(
+                                                    member.rank
+                                                    ||
+                                                    'Recruit'
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Billet
+                                            </label>
+
+                                            <input
+                                                data-field="billet"
+                                                value="${escapeHtml(
+                                                    member.billet
+                                                    ||
+                                                    'Unassigned'
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Section
+                                            </label>
+
+                                            <input
+                                                data-field="section"
+                                                value="${escapeHtml(
+                                                    member.section
+                                                    ||
+                                                    'Unassigned'
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Member Role
+                                            </label>
+
+                                            <select
+                                                data-field="member_role"
+                                            >
+
+                                                ${optionList(
+                                                    [
+                                                        'Member',
+                                                        'NCO',
+                                                        'Officer',
+                                                        'Command'
+                                                    ],
+                                                    member.member_role
+                                                    ||
+                                                    'Member'
+                                                )}
+
+                                            </select>
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Status
+                                            </label>
+
+                                            <select
+                                                data-field="member_status"
+                                            >
+
+                                                ${optionList(
+                                                    [
+                                                        'Active',
+                                                        'LOA',
+                                                        'Reserve',
+                                                        'Inactive'
+                                                    ],
+                                                    member.member_status
+                                                    ||
+                                                    'Active'
+                                                )}
+
+                                            </select>
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Access Level
+                                            </label>
+
+                                            <select
+                                                data-field="access_level"
+                                            >
+
+                                                ${optionList(
+                                                    [
+                                                        'Member',
+                                                        'NCO',
+                                                        'Officer',
+                                                        'Admin',
+                                                        'Super Admin'
+                                                    ],
+                                                    member.access_level
+                                                    ||
+                                                    'Member'
+                                                )}
+
+                                            </select>
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Attendance %
+                                            </label>
+
+                                            <input
+                                                data-field="attendance_rate"
+                                                type="number"
+                                                min="0"
+                                                max="100"
+                                                value="${escapeHtml(
+                                                    member.attendance_rate
+                                                    ??
+                                                    0
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field">
+
+                                            <label>
+                                                Join Date
+                                            </label>
+
+                                            <input
+                                                data-field="join_date"
+                                                type="date"
+                                                value="${escapeHtml(
+                                                    safeDate(
+                                                        member.join_date
+                                                    )
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="admin-field wide">
+
+                                            <label>
+                                                Qualifications
+                                            </label>
+
+                                            <input
+                                                data-field="qualifications"
+                                                placeholder="Example: BCT, CLS, Rifleman, Crewman"
+                                                value="${escapeHtml(
+                                                    qualifications
+                                                )}"
+                                            >
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="admin-form-actions">
+
+
+                                        <span
+                                            class="save-status"
+                                            data-save-status
+                                        ></span>
+
+
+                                        <button
+                                            class="save-member-btn"
+                                            type="button"
+                                            data-save-member
+                                        >
+                                            Save Member
+                                        </button>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            `;
+
+
+                            const saveButton =
+                                card.querySelector(
+                                    '[data-save-member]'
+                                );
+
+
+                            saveButton.addEventListener(
+
+                                'click',
+
+                                () => {
+
+                                    saveMember(
+                                        member.user_id,
+                                        card,
+                                        saveButton
+                                    );
+
+                                }
+
+                            );
+
+
+                            memberList.appendChild(
+                                card
+                            );
+
+                        }
+
+                    );
+
+                }
+
+
+                /* =========================================
+                   SAVE MEMBER
+                   ========================================= */
+
+                async function saveMember(
+                    userId,
+                    card,
+                    button
+                ) {
+
+                    const status =
+                        card.querySelector(
+                            '[data-save-status]'
+                        );
+
+
+                    const getValue =
+                        field =>
+
+                            card.querySelector(
+                                `[data-field="${field}"]`
+                            )?.value
+                            ??
+                            '';
+
+
+                    let attendance =
+                        Number(
+                            getValue(
+                                'attendance_rate'
+                            )
+                        );
+
+
+                    if (
+                        Number.isNaN(
+                            attendance
+                        )
+                    ) {
+
+                        attendance = 0;
+
+                    }
+
+
+                    attendance =
+                        Math.max(
+                            0,
+                            Math.min(
+                                100,
+                                attendance
+                            )
+                        );
+
+
+                    const qualificationText =
+                        getValue(
+                            'qualifications'
+                        );
+
+
+                    const qualifications =
+                        qualificationText
+
+                        .split(',')
+
+                        .map(
+                            value =>
+                                value.trim()
+                        )
+
+                        .filter(Boolean);
+
+
+                    const updateData = {
+
+                        display_name:
+                            getValue(
+                                'display_name'
+                            ),
+
+                        rank:
+                            getValue(
+                                'rank'
+                            ),
+
+                        billet:
+                            getValue(
+                                'billet'
+                            ),
+
+                        section:
+                            getValue(
+                                'section'
+                            ),
+
+                        member_role:
+                            getValue(
+                                'member_role'
+                            ),
+
+                        member_status:
+                            getValue(
+                                'member_status'
+                            ),
+
+                        access_level:
+                            getValue(
+                                'access_level'
+                            ),
+
+                        attendance_rate:
+                            attendance,
+
+                        join_date:
+                            getValue(
+                                'join_date'
+                            )
+                            ||
+                            null,
+
+                        qualifications:
+                            qualifications,
+
+                        updated_at:
+                            new Date()
+                                .toISOString()
+
+                    };
+
+
+                    button.disabled =
+                        true;
+
+
+                    status.className =
+                        'save-status';
+
+
+                    status.textContent =
+                        'Saving...';
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'member_profiles'
+                            )
+
+                            .update(
+                                updateData
+                            )
+
+                            .eq(
+                                'user_id',
+                                userId
+                            );
+
+
+                    button.disabled =
+                        false;
+
+
+                    if (error) {
+
+                        console.error(
+                            'Member update failed:',
+                            error
+                        );
+
+
+                        status.className =
+                            'save-status error';
+
+
+                        status.textContent =
+                            error.message;
+
+
+                        return;
+
+                    }
+
+
+                    status.className =
+                        'save-status success';
+
+
+                    status.textContent =
+                        'Saved successfully';
+
+
+                    await loadMembers();
+
+                }
+
+
+                /* =========================================
+                   LOAD MEMBERS
+                   ========================================= */
+
+                async function loadMembers() {
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'member_profiles'
+                            )
+
+                            .select(
+                                '*'
+                            )
+
+                            .order(
+                                'display_name',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Could not load members:',
+                            error
+                        );
+
+
+                        memberList.innerHTML = `
+
+                            <div class="admin-empty">
+
+                                Unable to load members.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    allMembers =
+                        data || [];
+
+
+                    updateSummary();
+
+
+                    renderMembers(
+                        allMembers
+                    );
+
+                }
+
+
+                /* =========================================
+                   SEARCH
+                   ========================================= */
+
+                search.addEventListener(
+
+                    'input',
+
+                    () => {
+
+                        const query =
+                            search.value
+                                .trim()
+                                .toLowerCase();
+
+
+                        if (!query) {
+
+                            renderMembers(
+                                allMembers
+                            );
+
+
+                            return;
+
+                        }
+
+
+                        const results =
+                            allMembers.filter(
+
+                                member => {
+
+                                    const text = [
+
+                                        member.display_name,
+
+                                        member.rank,
+
+                                        member.billet,
+
+                                        member.section,
+
+                                        member.member_role,
+
+                                        member.member_status,
+
+                                        member.access_level
+
+                                    ]
+
+                                    .join(' ')
+
+                                    .toLowerCase();
+
+
+                                    return text.includes(
+                                        query
+                                    );
+
+                                }
+
+                            );
+
+
+                        renderMembers(
+                            results
+                        );
+
+                    }
+
+                );
+
+
+                refresh.addEventListener(
+
+                    'click',
+
+                    loadMembers
+
+                );
+
+
+                /* =========================================
+                   AUTHORIZATION
+                   ========================================= */
+
+                showScreen(
+                    'loading'
+                );
+
+
+                const {
+                    data:
+                    {
+                        session
+                    },
+                    error:
+                        sessionError
+                } =
+                    await client
+                        .auth
+                        .getSession();
+
+
+                if (
+                    sessionError
+                    ||
+                    !session?.user
+                ) {
+
+                    showScreen(
+                        'login'
+                    );
+
+
+                    return;
+
+                }
+
+
+                const {
+                    data:
+                        profile,
+
+                    error:
+                        profileError
+
+                } =
+                    await client
+
+                        .from(
+                            'member_profiles'
+                        )
+
+                        .select(
+                            '*'
+                        )
+
+                        .eq(
+                            'user_id',
+                            session.user.id
+                        )
+
+                        .maybeSingle();
+
+
+                if (
+                    profileError
+                    ||
+                    !profile
+                ) {
+
+                    console.error(
+                        'Admin profile error:',
+                        profileError
+                    );
+
+
+                    showScreen(
+                        'denied'
+                    );
+
+
+                    return;
+
+                }
+
+
+                currentProfile =
+                    profile;
+
+
+                const authorized =
+                    profile.access_level ===
+                    'Admin'
+
+                    ||
+
+                    profile.access_level ===
+                    'Super Admin';
+
+
+                if (!authorized) {
+
+                    showScreen(
+                        'denied'
+                    );
+
+
+                    return;
+
+                }
+
+
+                showScreen(
+                    'admin'
+                );
+
+
+                await loadMembers();
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
