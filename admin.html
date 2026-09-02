@@ -19,10 +19,7 @@
         21st Cavalry Division | Administration
     </title>
 
-
-    <!-- ================================================= -->
     <!-- GOOGLE FONTS -->
-    <!-- ================================================= -->
 
     <link
         rel="preconnect"
@@ -40,33 +37,20 @@
         rel="stylesheet"
     >
 
-
-    <!-- ================================================= -->
     <!-- MAIN WEBSITE CSS -->
-    <!-- ================================================= -->
 
     <link
         rel="stylesheet"
         href="styles.css?v=9"
     >
 
-
     <style>
 
-        /* =================================================
-           ADMIN PAGE
-           ================================================= */
-
         body {
-
-            background:
-                #090d10;
-
+            background: #090d10;
         }
 
-
         .admin-hero {
-
             padding:
                 70px
                 clamp(24px, 6vw, 110px)
@@ -81,54 +65,32 @@
                     #0a1014,
                     #141710
                 );
-
         }
 
-
         .admin-hero h1 {
-
-            margin:
-                10px 0;
+            margin: 10px 0;
 
             font:
                 700 clamp(46px, 7vw, 88px)
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
-
 
         .admin-hero p:last-child {
-
-            max-width:
-                750px;
-
-            color:
-                #abb4b8;
-
+            max-width: 750px;
+            color: #abb4b8;
         }
 
-
-        /* =================================================
-           ACCESS SCREENS
-           ================================================= */
-
         .admin-message {
+            max-width: 700px;
 
-            max-width:
-                700px;
+            margin: 80px auto;
 
-            margin:
-                80px auto;
+            padding: 40px;
 
-            padding:
-                40px;
-
-            text-align:
-                center;
+            text-align: center;
 
             border:
                 1px solid #30383d;
@@ -136,604 +98,380 @@
             border-top:
                 3px solid #c5a75b;
 
-            background:
-                #11171a;
-
+            background: #11171a;
         }
 
-
         .admin-message h2 {
-
             font:
                 600 34px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
-
 
         .admin-message p {
-
-            color:
-                #9ca6aa;
-
+            color: #9ca6aa;
         }
 
-
-        /* =================================================
-           ADMIN CONTAINER
-           ================================================= */
-
         .admin-container {
-
             padding:
                 45px
                 clamp(24px, 6vw, 110px)
                 100px;
-
         }
 
-
-        /* =================================================
-           SUMMARY
-           ================================================= */
-
         .admin-summary {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap:
-                14px;
+            gap: 14px;
 
-            margin-bottom:
-                25px;
-
+            margin-bottom: 25px;
         }
 
-
         .summary-card {
-
-            padding:
-                22px;
+            padding: 22px;
 
             border:
                 1px solid #30383d;
 
-            background:
-                #11171a;
-
+            background: #11171a;
         }
 
-
         .summary-card span {
+            display: block;
 
-            display:
-                block;
-
-            color:
-                #858f94;
+            color: #858f94;
 
             font:
                 500 10px
                 Oswald,
                 sans-serif;
 
-            letter-spacing:
-                1px;
+            letter-spacing: 1px;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
 
-
         .summary-card strong {
+            display: block;
 
-            display:
-                block;
+            margin-top: 5px;
 
-            margin-top:
-                5px;
-
-            color:
-                #fff;
+            color: #fff;
 
             font:
                 600 28px
                 Oswald,
                 sans-serif;
-
         }
 
-
-        /* =================================================
-           ATTENDANCE MANAGEMENT
-           ================================================= */
-
         .attendance-panel {
-
-            margin-bottom:
-                35px;
+            margin-bottom: 35px;
 
             border:
                 1px solid #30383d;
 
-            background:
-                #11171a;
-
+            background: #11171a;
         }
 
-
         .attendance-panel-header {
+            display: flex;
 
-            display:
-                flex;
+            justify-content: space-between;
 
-            justify-content:
-                space-between;
+            align-items: flex-start;
 
-            align-items:
-                flex-start;
+            gap: 20px;
 
-            gap:
-                20px;
-
-            padding:
-                24px;
+            padding: 24px;
 
             border-bottom:
                 1px solid #30383d;
 
-            background:
-                #0e1417;
-
+            background: #0e1417;
         }
 
-
         .attendance-panel-header h2 {
+            margin: 4px 0 0;
 
-            margin:
-                4px 0 0;
-
-            color:
-                #fff;
+            color: #fff;
 
             font:
                 600 28px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
-
 
         .attendance-panel-header p {
+            margin: 8px 0 0;
 
-            margin:
-                8px 0 0;
+            color: #8f999e;
 
-            color:
-                #8f999e;
-
-            font-size:
-                13px;
-
+            font-size: 13px;
         }
 
-
         .attendance-create {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 2fr 1fr 1fr auto;
 
-            gap:
-                12px;
+            gap: 12px;
 
-            padding:
-                20px 24px;
+            padding: 20px 24px;
 
             border-bottom:
                 1px solid #30383d;
-
         }
-
 
         .attendance-create input,
         .attendance-create select,
         .attendance-event-select {
+            width: 100%;
 
-            width:
-                100%;
+            min-height: 44px;
 
-            min-height:
-                44px;
-
-            padding:
-                0 11px;
+            padding: 0 11px;
 
             border:
                 1px solid #384147;
 
-            background:
-                #090e11;
+            background: #090e11;
 
-            color:
-                #fff;
+            color: #fff;
 
             font:
                 400 13px
                 Roboto,
                 sans-serif;
-
         }
-
 
         .attendance-create input:focus,
         .attendance-create select:focus,
         .attendance-event-select:focus {
+            outline: none;
 
-            outline:
-                none;
-
-            border-color:
-                #c5a75b;
-
+            border-color: #c5a75b;
         }
 
-
         .attendance-action-btn {
+            min-height: 44px;
 
-            min-height:
-                44px;
-
-            padding:
-                0 18px;
+            padding: 0 18px;
 
             border:
                 1px solid #c5a75b;
 
-            background:
-                #c5a75b;
+            background: #c5a75b;
 
-            color:
-                #111;
+            color: #111;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
             font:
                 600 12px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                1px;
-
+            letter-spacing: 1px;
         }
-
 
         .attendance-action-btn.secondary {
+            background: transparent;
 
-            background:
-                transparent;
-
-            color:
-                #c5a75b;
-
+            color: #c5a75b;
         }
-
 
         .attendance-action-btn:hover {
+            background: #dac171;
 
-            background:
-                #dac171;
-
-            color:
-                #111;
-
+            color: #111;
         }
-
 
         .attendance-action-btn:disabled {
+            opacity: 0.55;
 
-            opacity:
-                0.55;
-
-            cursor:
-                wait;
-
+            cursor: wait;
         }
-
 
         .attendance-workspace {
-
-            padding:
-                24px;
-
+            padding: 24px;
         }
 
-
         .attendance-event-bar {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 1fr auto;
 
-            gap:
-                12px;
+            gap: 12px;
 
-            align-items:
-                center;
+            align-items: center;
 
-            margin-bottom:
-                18px;
-
+            margin-bottom: 18px;
         }
 
-
         .attendance-event-details {
+            margin-bottom: 18px;
 
-            margin-bottom:
-                18px;
-
-            padding:
-                14px 16px;
+            padding: 14px 16px;
 
             border-left:
                 3px solid #c5a75b;
 
-            background:
-                #0c1114;
+            background: #0c1114;
 
-            color:
-                #9ca6aa;
+            color: #9ca6aa;
 
-            font-size:
-                13px;
-
+            font-size: 13px;
         }
-
 
         .attendance-roster {
+            display: grid;
 
-            display:
-                grid;
-
-            gap:
-                10px;
-
+            gap: 10px;
         }
 
-
         .attendance-row {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 minmax(220px, 1fr)
                 auto;
 
-            gap:
-                18px;
+            gap: 18px;
 
-            align-items:
-                center;
+            align-items: center;
 
-            padding:
-                16px;
+            padding: 16px;
 
             border:
                 1px solid #293036;
 
-            background:
-                #0c1114;
-
+            background: #0c1114;
         }
 
-
         .attendance-member-name {
-
-            color:
-                #fff;
+            color: #fff;
 
             font:
                 600 17px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
-
 
         .attendance-member-meta {
+            margin-top: 3px;
 
-            margin-top:
-                3px;
+            color: #778187;
 
-            color:
-                #778187;
-
-            font-size:
-                11px;
-
+            font-size: 11px;
         }
-
 
         .attendance-status-group {
+            display: flex;
 
-            display:
-                flex;
+            gap: 8px;
 
-            gap:
-                8px;
-
-            flex-wrap:
-                wrap;
-
+            flex-wrap: wrap;
         }
 
-
         .attendance-status {
+            min-height: 36px;
 
-            min-height:
-                36px;
-
-            padding:
-                0 13px;
+            padding: 0 13px;
 
             border:
                 1px solid #384147;
 
-            background:
-                #11171a;
+            background: #11171a;
 
-            color:
-                #aeb7bb;
+            color: #aeb7bb;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
             font:
                 600 10px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                0.7px;
-
+            letter-spacing: 0.7px;
         }
-
 
         .attendance-status.active {
+            border-color: #c5a75b;
 
-            border-color:
-                #c5a75b;
+            background: #c5a75b;
 
-            background:
-                #c5a75b;
-
-            color:
-                #111;
-
+            color: #111;
         }
 
-
         .attendance-footer {
+            display: flex;
 
-            display:
-                flex;
+            justify-content: flex-end;
 
-            justify-content:
-                flex-end;
+            align-items: center;
 
-            align-items:
-                center;
+            gap: 14px;
 
-            gap:
-                14px;
+            margin-top: 18px;
 
-            margin-top:
-                18px;
-
-            padding-top:
-                18px;
+            padding-top: 18px;
 
             border-top:
                 1px solid #293036;
-
         }
-
 
         .attendance-message {
+            margin-right: auto;
 
-            margin-right:
-                auto;
+            color: #8f999e;
 
-            color:
-                #8f999e;
-
-            font-size:
-                12px;
-
+            font-size: 12px;
         }
-
 
         .attendance-message.success {
-
-            color:
-                #75d48c;
-
+            color: #75d48c;
         }
-
 
         .attendance-message.error {
-
-            color:
-                #e47b7b;
-
+            color: #e47b7b;
         }
 
-
-        /* =================================================
-           TOOLBAR
-           ================================================= */
-
         .admin-toolbar {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 1fr auto;
 
-            gap:
-                18px;
+            gap: 18px;
 
-            margin-bottom:
-                25px;
-
+            margin-bottom: 25px;
         }
 
-
         .admin-search {
+            width: 100%;
 
-            width:
-                100%;
+            min-height: 48px;
 
-            min-height:
-                48px;
+            padding: 0 16px;
 
-            padding:
-                0 16px;
+            background: #0c1114;
 
-            background:
-                #0c1114;
-
-            color:
-                #fff;
+            color: #fff;
 
             border:
                 1px solid #384147;
@@ -742,534 +480,330 @@
                 400 14px
                 Roboto,
                 sans-serif;
-
         }
-
 
         .admin-search:focus {
+            outline: none;
 
-            outline:
-                none;
-
-            border-color:
-                #c5a75b;
-
+            border-color: #c5a75b;
         }
 
-
         .admin-refresh {
+            min-height: 48px;
 
-            min-height:
-                48px;
-
-            padding:
-                0 20px;
+            padding: 0 20px;
 
             border:
                 1px solid #c5a75b;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                #c5a75b;
+            color: #c5a75b;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
             font:
                 600 12px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                1px;
-
+            letter-spacing: 1px;
         }
-
 
         .admin-refresh:hover {
+            background: #c5a75b;
 
-            background:
-                #c5a75b;
-
-            color:
-                #111;
-
+            color: #111;
         }
-
-
-        /* =================================================
-           MEMBER LIST
-           ================================================= */
 
         .member-admin-list {
+            display: grid;
 
-            display:
-                grid;
-
-            gap:
-                18px;
-
+            gap: 18px;
         }
 
-
         .member-admin-card {
-
             border:
                 1px solid #30383d;
 
-            background:
-                #11171a;
-
+            background: #11171a;
         }
 
-
         .member-admin-header {
+            display: flex;
 
-            display:
-                flex;
+            justify-content: space-between;
 
-            justify-content:
-                space-between;
+            gap: 20px;
 
-            gap:
-                20px;
+            align-items: center;
 
-            align-items:
-                center;
-
-            padding:
-                20px 24px;
+            padding: 20px 24px;
 
             border-bottom:
                 1px solid #30383d;
 
-            background:
-                #0e1417;
-
+            background: #0e1417;
         }
 
-
         .member-admin-name {
+            margin: 0;
 
-            margin:
-                0;
-
-            color:
-                #fff;
+            color: #fff;
 
             font:
                 600 22px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
-
 
         .member-admin-id {
+            color: #778187;
 
-            color:
-                #778187;
+            font-size: 10px;
 
-            font-size:
-                10px;
-
-            word-break:
-                break-all;
-
+            word-break: break-all;
         }
 
-
         .access-badge {
-
-            padding:
-                7px 11px;
+            padding: 7px 11px;
 
             border:
                 1px solid #c5a75b;
 
-            color:
-                #c5a75b;
+            color: #c5a75b;
 
             font:
                 600 10px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                1px;
-
+            letter-spacing: 1px;
         }
-
-
-        /* =================================================
-           MEMBER FORM
-           ================================================= */
 
         .member-admin-body {
-
-            padding:
-                24px;
-
+            padding: 24px;
         }
 
-
         .admin-form-grid {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap:
-                16px;
-
+            gap: 16px;
         }
-
 
         .admin-field {
+            display: grid;
 
-            display:
-                grid;
-
-            gap:
-                6px;
-
+            gap: 6px;
         }
-
 
         .admin-field.wide {
-
-            grid-column:
-                span 2;
-
+            grid-column: span 2;
         }
 
-
         .admin-field label {
-
-            color:
-                #c5a75b;
+            color: #c5a75b;
 
             font:
                 500 10px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                1px;
-
+            letter-spacing: 1px;
         }
-
 
         .admin-field input,
         .admin-field select {
+            width: 100%;
 
-            width:
-                100%;
+            min-height: 42px;
 
-            min-height:
-                42px;
-
-            padding:
-                0 11px;
+            padding: 0 11px;
 
             border:
                 1px solid #384147;
 
-            background:
-                #090e11;
+            background: #090e11;
 
-            color:
-                #fff;
+            color: #fff;
 
-            font-size:
-                13px;
-
+            font-size: 13px;
         }
-
 
         .admin-field input:focus,
         .admin-field select:focus {
+            outline: none;
 
-            outline:
-                none;
-
-            border-color:
-                #c5a75b;
-
+            border-color: #c5a75b;
         }
-
 
         .admin-field select {
-
-            cursor:
-                pointer;
-
+            cursor: pointer;
         }
-
 
         .admin-field input:disabled {
+            opacity: 0.75;
 
-            opacity:
-                0.75;
+            cursor: not-allowed;
 
-            cursor:
-                not-allowed;
-
-            color:
-                #c5a75b;
-
+            color: #c5a75b;
         }
 
-
         .admin-form-actions {
+            display: flex;
 
-            display:
-                flex;
+            justify-content: flex-end;
 
-            justify-content:
-                flex-end;
+            align-items: center;
 
-            align-items:
-                center;
+            gap: 12px;
 
-            gap:
-                12px;
+            margin-top: 22px;
 
-            margin-top:
-                22px;
-
-            padding-top:
-                20px;
+            padding-top: 20px;
 
             border-top:
                 1px solid #293036;
-
         }
 
-
         .save-member-btn {
+            min-height: 42px;
 
-            min-height:
-                42px;
+            padding: 0 22px;
 
-            padding:
-                0 22px;
+            border: 0;
 
-            border:
-                0;
+            background: #c5a75b;
 
-            background:
-                #c5a75b;
+            color: #111;
 
-            color:
-                #111;
-
-            cursor:
-                pointer;
+            cursor: pointer;
 
             font:
                 600 12px
                 Oswald,
                 sans-serif;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                1px;
-
+            letter-spacing: 1px;
         }
-
 
         .save-member-btn:hover {
-
-            background:
-                #dac171;
-
+            background: #dac171;
         }
-
 
         .save-member-btn:disabled {
+            opacity: 0.6;
 
-            opacity:
-                0.6;
-
-            cursor:
-                wait;
-
+            cursor: wait;
         }
-
 
         .save-status {
+            color: #8f999e;
 
-            color:
-                #8f999e;
-
-            font-size:
-                12px;
-
+            font-size: 12px;
         }
-
 
         .save-status.success {
-
-            color:
-                #75d48c;
-
+            color: #75d48c;
         }
-
 
         .save-status.error {
-
-            color:
-                #e47b7b;
-
+            color: #e47b7b;
         }
 
-
         .admin-empty {
+            padding: 45px 20px;
 
-            padding:
-                45px 20px;
-
-            text-align:
-                center;
+            text-align: center;
 
             border:
                 1px solid #30383d;
 
-            color:
-                #7e888d;
+            color: #7e888d;
 
-            background:
-                #11171a;
-
+            background: #11171a;
         }
-
-
-        /* =================================================
-           RESPONSIVE
-           ================================================= */
 
         @media (max-width: 1150px) {
 
             .admin-form-grid {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
 
         }
-
 
         @media (max-width: 900px) {
 
             .attendance-create {
-
                 grid-template-columns:
                     1fr 1fr;
-
             }
 
-
             .attendance-row {
-
                 grid-template-columns:
                     1fr;
-
             }
 
         }
-
 
         @media (max-width: 800px) {
 
             .admin-summary {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
-
 
             .admin-toolbar {
-
                 grid-template-columns:
                     1fr;
-
             }
 
-
             .member-admin-header {
+                align-items: flex-start;
 
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
 
         }
 
-
         @media (max-width: 600px) {
 
             .admin-form-grid {
-
                 grid-template-columns:
                     1fr;
-
             }
-
 
             .admin-field.wide {
-
-                grid-column:
-                    span 1;
-
+                grid-column: span 1;
             }
-
 
             .attendance-create,
             .attendance-event-bar {
-
                 grid-template-columns:
                     1fr;
-
             }
-
 
             .attendance-panel-header {
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
 
-
             .admin-summary {
-
                 grid-template-columns:
                     1fr 1fr;
-
             }
 
         }
@@ -1282,12 +816,9 @@
 <body>
 
 
-    <!-- ================================================= -->
     <!-- HEADER -->
-    <!-- ================================================= -->
 
     <header class="site-header">
-
 
         <a
             class="brand"
@@ -1297,7 +828,6 @@
             <div class="brand-mark">
                 21
             </div>
-
 
             <div>
 
@@ -1385,7 +915,6 @@
                         hidden
                     >
 
-
                     <div class="member-profile-text">
 
                         <span id="memberName">
@@ -1416,9 +945,7 @@
     </header>
 
 
-    <!-- ================================================= -->
     <!-- HERO -->
-    <!-- ================================================= -->
 
     <section class="admin-hero">
 
@@ -1432,15 +959,14 @@
 
         <p>
             Manage member assignments, ranks, billets,
-            attendance, qualifications, status and portal access.
+            sections, attendance, qualifications, status
+            and portal access.
         </p>
 
     </section>
 
 
-    <!-- ================================================= -->
     <!-- LOADING -->
-    <!-- ================================================= -->
 
     <section
         id="adminLoading"
@@ -1458,9 +984,7 @@
     </section>
 
 
-    <!-- ================================================= -->
     <!-- LOGIN REQUIRED -->
-    <!-- ================================================= -->
 
     <section
         id="adminLoginRequired"
@@ -1491,9 +1015,7 @@
     </section>
 
 
-    <!-- ================================================= -->
     <!-- ACCESS DENIED -->
-    <!-- ================================================= -->
 
     <section
         id="adminDenied"
@@ -1524,9 +1046,7 @@
     </section>
 
 
-    <!-- ================================================= -->
     <!-- ADMIN DASHBOARD -->
-    <!-- ================================================= -->
 
     <main
         id="adminContent"
@@ -1534,13 +1054,9 @@
         hidden
     >
 
-
-        <!-- ================================================= -->
         <!-- SUMMARY -->
-        <!-- ================================================= -->
 
         <section class="admin-summary">
-
 
             <div class="summary-card">
 
@@ -1593,19 +1109,14 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- ================================================= -->
         <!-- ATTENDANCE MANAGEMENT -->
-        <!-- ================================================= -->
 
         <section class="attendance-panel">
 
-
             <div class="attendance-panel-header">
-
 
                 <div>
 
@@ -1633,14 +1144,10 @@
                     Refresh Attendance
                 </button>
 
-
             </div>
 
 
-            <!-- CREATE EVENT -->
-
             <div class="attendance-create">
-
 
                 <input
                     id="attendanceEventTitle"
@@ -1696,17 +1203,12 @@
                     Create Event
                 </button>
 
-
             </div>
 
 
-            <!-- EVENT WORKSPACE -->
-
             <div class="attendance-workspace">
 
-
                 <div class="attendance-event-bar">
-
 
                     <select
                         id="attendanceEventSelect"
@@ -1728,7 +1230,6 @@
                     >
                         Delete Event
                     </button>
-
 
                 </div>
 
@@ -1754,7 +1255,6 @@
 
                 <div class="attendance-footer">
 
-
                     <span
                         id="attendanceMessage"
                         class="attendance-message"
@@ -1770,22 +1270,16 @@
                         Save Attendance
                     </button>
 
-
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-        <!-- ================================================= -->
         <!-- MEMBER MANAGEMENT -->
-        <!-- ================================================= -->
 
         <section class="admin-toolbar">
-
 
             <input
                 id="memberSearch"
@@ -1803,7 +1297,6 @@
                 Refresh Members
             </button>
 
-
         </section>
 
 
@@ -1812,24 +1305,18 @@
             class="member-admin-list"
         ></section>
 
-
     </main>
 
 
-    <!-- ================================================= -->
     <!-- FOOTER -->
-    <!-- ================================================= -->
 
     <footer>
 
-
         <div class="brand footer-brand">
-
 
             <div class="brand-mark">
                 21
             </div>
-
 
             <div>
 
@@ -1842,7 +1329,6 @@
                 </small>
 
             </div>
-
 
         </div>
 
@@ -1874,13 +1360,10 @@
             21st Cavalry Division personnel.
         </p>
 
-
     </footer>
 
 
-    <!-- ================================================= -->
     <!-- SUPABASE -->
-    <!-- ================================================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
@@ -1890,9 +1373,7 @@
     <script src="script.js?v=9"></script>
 
 
-    <!-- ================================================= -->
     <!-- ADMIN JAVASCRIPT -->
-    <!-- ================================================= -->
 
     <script>
 
@@ -1943,204 +1424,123 @@
 
                 /* =========================================
                    RANK OPTIONS
-
-                   The label includes pay grade.
-                   The database stores the clean rank name.
                    ========================================= */
 
                 const RANK_OPTIONS = [
 
                     {
-                        label:
-                            'Recruit',
-
-                        value:
-                            'Recruit'
-                    },
-
-
-                    /* ENLISTED */
-
-                    {
-                        label:
-                            'E-1 — Private (PVT)',
-
-                        value:
-                            'Private (PVT)'
+                        label: 'Recruit',
+                        value: 'Recruit'
                     },
 
                     {
-                        label:
-                            'E-2 — Private Second Class (PV2)',
-
-                        value:
-                            'Private Second Class (PV2)'
+                        label: 'E-1 — Private (PVT)',
+                        value: 'Private (PVT)'
                     },
 
                     {
-                        label:
-                            'E-3 — Private First Class (PFC)',
-
-                        value:
-                            'Private First Class (PFC)'
+                        label: 'E-2 — Private Second Class (PV2)',
+                        value: 'Private Second Class (PV2)'
                     },
 
                     {
-                        label:
-                            'E-4 — Specialist (SPC)',
-
-                        value:
-                            'Specialist (SPC)'
+                        label: 'E-3 — Private First Class (PFC)',
+                        value: 'Private First Class (PFC)'
                     },
 
                     {
-                        label:
-                            'E-4 — Corporal (CPL)',
-
-                        value:
-                            'Corporal (CPL)'
+                        label: 'E-4 — Specialist (SPC)',
+                        value: 'Specialist (SPC)'
                     },
 
                     {
-                        label:
-                            'E-5 — Sergeant (SGT)',
-
-                        value:
-                            'Sergeant (SGT)'
+                        label: 'E-4 — Corporal (CPL)',
+                        value: 'Corporal (CPL)'
                     },
 
                     {
-                        label:
-                            'E-6 — Staff Sergeant (SSG)',
-
-                        value:
-                            'Staff Sergeant (SSG)'
+                        label: 'E-5 — Sergeant (SGT)',
+                        value: 'Sergeant (SGT)'
                     },
 
                     {
-                        label:
-                            'E-7 — Sergeant First Class (SFC)',
-
-                        value:
-                            'Sergeant First Class (SFC)'
+                        label: 'E-6 — Staff Sergeant (SSG)',
+                        value: 'Staff Sergeant (SSG)'
                     },
 
                     {
-                        label:
-                            'E-8 — Master Sergeant (MSG)',
-
-                        value:
-                            'Master Sergeant (MSG)'
+                        label: 'E-7 — Sergeant First Class (SFC)',
+                        value: 'Sergeant First Class (SFC)'
                     },
 
                     {
-                        label:
-                            'E-8 — First Sergeant (1SG)',
-
-                        value:
-                            'First Sergeant (1SG)'
+                        label: 'E-8 — Master Sergeant (MSG)',
+                        value: 'Master Sergeant (MSG)'
                     },
 
                     {
-                        label:
-                            'E-9 — Sergeant Major (SGM)',
-
-                        value:
-                            'Sergeant Major (SGM)'
+                        label: 'E-8 — First Sergeant (1SG)',
+                        value: 'First Sergeant (1SG)'
                     },
 
                     {
-                        label:
-                            'E-9 — Command Sergeant Major (CSM)',
-
-                        value:
-                            'Command Sergeant Major (CSM)'
-                    },
-
-
-                    /* WARRANT OFFICERS */
-
-                    {
-                        label:
-                            'W-1 — Warrant Officer 1 (WO1)',
-
-                        value:
-                            'Warrant Officer 1 (WO1)'
+                        label: 'E-9 — Sergeant Major (SGM)',
+                        value: 'Sergeant Major (SGM)'
                     },
 
                     {
-                        label:
-                            'W-2 — Chief Warrant Officer 2 (CW2)',
-
-                        value:
-                            'Chief Warrant Officer 2 (CW2)'
+                        label: 'E-9 — Command Sergeant Major (CSM)',
+                        value: 'Command Sergeant Major (CSM)'
                     },
 
                     {
-                        label:
-                            'W-3 — Chief Warrant Officer 3 (CW3)',
-
-                        value:
-                            'Chief Warrant Officer 3 (CW3)'
+                        label: 'W-1 — Warrant Officer 1 (WO1)',
+                        value: 'Warrant Officer 1 (WO1)'
                     },
 
                     {
-                        label:
-                            'W-4 — Chief Warrant Officer 4 (CW4)',
-
-                        value:
-                            'Chief Warrant Officer 4 (CW4)'
+                        label: 'W-2 — Chief Warrant Officer 2 (CW2)',
+                        value: 'Chief Warrant Officer 2 (CW2)'
                     },
 
                     {
-                        label:
-                            'W-5 — Chief Warrant Officer 5 (CW5)',
-
-                        value:
-                            'Chief Warrant Officer 5 (CW5)'
-                    },
-
-
-                    /* COMMISSIONED OFFICERS */
-
-                    {
-                        label:
-                            'O-1 — Second Lieutenant (2LT)',
-
-                        value:
-                            'Second Lieutenant (2LT)'
+                        label: 'W-3 — Chief Warrant Officer 3 (CW3)',
+                        value: 'Chief Warrant Officer 3 (CW3)'
                     },
 
                     {
-                        label:
-                            'O-2 — First Lieutenant (1LT)',
-
-                        value:
-                            'First Lieutenant (1LT)'
+                        label: 'W-4 — Chief Warrant Officer 4 (CW4)',
+                        value: 'Chief Warrant Officer 4 (CW4)'
                     },
 
                     {
-                        label:
-                            'O-3 — Captain (CPT)',
-
-                        value:
-                            'Captain (CPT)'
+                        label: 'W-5 — Chief Warrant Officer 5 (CW5)',
+                        value: 'Chief Warrant Officer 5 (CW5)'
                     },
 
                     {
-                        label:
-                            'O-4 — Major (MAJ)',
-
-                        value:
-                            'Major (MAJ)'
+                        label: 'O-1 — Second Lieutenant (2LT)',
+                        value: 'Second Lieutenant (2LT)'
                     },
 
                     {
-                        label:
-                            'O-5 — Lieutenant Colonel (LTC)',
+                        label: 'O-2 — First Lieutenant (1LT)',
+                        value: 'First Lieutenant (1LT)'
+                    },
 
-                        value:
-                            'Lieutenant Colonel (LTC)'
+                    {
+                        label: 'O-3 — Captain (CPT)',
+                        value: 'Captain (CPT)'
+                    },
+
+                    {
+                        label: 'O-4 — Major (MAJ)',
+                        value: 'Major (MAJ)'
+                    },
+
+                    {
+                        label: 'O-5 — Lieutenant Colonel (LTC)',
+                        value: 'Lieutenant Colonel (LTC)'
                     }
 
                 ];
@@ -2201,6 +1601,45 @@
                     'Training NCO',
 
                     'Recruiter'
+
+                ];
+
+
+                /* =========================================
+                   SECTION OPTIONS
+                   ========================================= */
+
+                const SECTION_OPTIONS = [
+
+                    'Unassigned',
+
+                    'Division HQ',
+
+                    'Command Staff',
+
+                    '1st Platoon',
+
+                    '2nd Platoon',
+
+                    '1st Squad',
+
+                    '2nd Squad',
+
+                    '3rd Squad',
+
+                    'Weapons Squad',
+
+                    'Aviation Detachment',
+
+                    'Armor Section',
+
+                    'Recon Section',
+
+                    'Medical Section',
+
+                    'Training Section',
+
+                    'Recruitment Section'
 
                 ];
 
@@ -2401,7 +1840,6 @@
                         .map(
                             value => {
 
-
                                 const isSelected =
                                     value ===
                                     selected
@@ -2453,7 +1891,6 @@
                         .map(
                             rank => {
 
-
                                 const isSelected =
                                     rank.value ===
                                     selected
@@ -2497,7 +1934,6 @@
                    ========================================= */
 
                 function updateSummary() {
-
 
                     const total =
                         allMembers.length;
@@ -2610,7 +2046,6 @@
                     members
                 ) {
 
-
                     memberList.innerHTML =
                         '';
 
@@ -2618,7 +2053,6 @@
                     if (
                         !members.length
                     ) {
-
 
                         memberList.innerHTML = `
 
@@ -2666,11 +2100,7 @@
                                 '';
 
 
-                            /*
-                             * If an older billet exists that is not
-                             * in the new billet dropdown, include it
-                             * so the existing member data is not lost.
-                             */
+                            /* PRESERVE CUSTOM BILLET */
 
                             let billetOptions =
                                 [
@@ -2693,6 +2123,29 @@
                             }
 
 
+                            /* PRESERVE CUSTOM SECTION */
+
+                            let sectionOptions =
+                                [
+                                    ...SECTION_OPTIONS
+                                ];
+
+
+                            if (
+                                member.section
+                                &&
+                                !sectionOptions.includes(
+                                    member.section
+                                )
+                            ) {
+
+                                sectionOptions.push(
+                                    member.section
+                                );
+
+                            }
+
+
                             card.innerHTML = `
 
 
@@ -2700,7 +2153,6 @@
 
 
                                     <div>
-
 
                                         <h2 class="member-admin-name">
 
@@ -2721,7 +2173,6 @@
 
                                         </div>
 
-
                                     </div>
 
 
@@ -2734,7 +2185,6 @@
                                         )}
 
                                     </div>
-
 
                                 </div>
 
@@ -2820,14 +2270,18 @@
                                                 Section
                                             </label>
 
-                                            <input
+                                            <select
                                                 data-field="section"
-                                                value="${escapeHtml(
+                                            >
+
+                                                ${optionList(
+                                                    sectionOptions,
                                                     member.section
                                                     ||
                                                     'Unassigned'
-                                                )}"
-                                            >
+                                                )}
+
+                                            </select>
 
                                         </div>
 
@@ -2988,7 +2442,6 @@
 
                                     <div class="admin-form-actions">
 
-
                                         <span
                                             class="save-status"
                                             data-save-status
@@ -3005,9 +2458,7 @@
 
                                         </button>
 
-
                                     </div>
-
 
                                 </div>
 
@@ -3058,7 +2509,6 @@
                     button
                 ) {
 
-
                     const status =
                         card.querySelector(
                             '[data-save-status]'
@@ -3099,7 +2549,6 @@
 
 
                     const updateData = {
-
 
                         display_name:
                             getValue(
@@ -3199,7 +2648,6 @@
 
                     if (error) {
 
-
                         console.error(
                             'Member update failed:',
                             error
@@ -3241,7 +2689,6 @@
 
                 async function loadMembers() {
 
-
                     const {
                         data,
                         error
@@ -3257,14 +2704,12 @@
                             .order(
                                 'display_name',
                                 {
-                                    ascending:
-                                        true
+                                    ascending: true
                                 }
                             );
 
 
                     if (error) {
-
 
                         console.error(
                             'Could not load members:',
@@ -3311,7 +2756,6 @@
                     type = ''
                 ) {
 
-
                     attendanceMessage.className =
                         'attendance-message'
 
@@ -3344,7 +2788,6 @@
                     value
                 ) {
 
-
                     if (!value) {
 
                         return '';
@@ -3363,14 +2806,11 @@
                         undefined,
                         {
 
-                            year:
-                                'numeric',
+                            year: 'numeric',
 
-                            month:
-                                'long',
+                            month: 'long',
 
-                            day:
-                                'numeric'
+                            day: 'numeric'
 
                         }
                     );
@@ -3383,7 +2823,6 @@
                    ========================================= */
 
                 function renderAttendanceEventOptions() {
-
 
                     const currentValue =
                         selectedAttendanceEventId
@@ -3455,7 +2894,6 @@
 
                 function renderAttendanceRoster() {
 
-
                     const event =
                         attendanceEvents.find(
 
@@ -3475,7 +2913,6 @@
 
 
                     if (!event) {
-
 
                         attendanceEventDetails.hidden =
                             true;
@@ -3543,7 +2980,6 @@
                     if (
                         !allMembers.length
                     ) {
-
 
                         attendanceRoster.innerHTML = `
 
@@ -3796,7 +3232,6 @@
                     preserveSelection = true
                 ) {
 
-
                     const previous =
                         preserveSelection
 
@@ -3824,22 +3259,19 @@
                             .order(
                                 'event_date',
                                 {
-                                    ascending:
-                                        false
+                                    ascending: false
                                 }
                             )
 
                             .order(
                                 'id',
                                 {
-                                    ascending:
-                                        false
+                                    ascending: false
                                 }
                             );
 
 
                     if (error) {
-
 
                         console.error(
                             'Could not load attendance events:',
@@ -3882,14 +3314,12 @@
                         )
                     ) {
 
-
                         selectedAttendanceEventId =
                             previous;
 
                     }
 
                     else {
-
 
                         selectedAttendanceEventId =
                             attendanceEvents[0]?.id
@@ -3915,11 +3345,9 @@
 
                 async function loadAttendanceRecords() {
 
-
                     if (
                         !selectedAttendanceEventId
                     ) {
-
 
                         attendanceRecords =
                             [];
@@ -3953,7 +3381,6 @@
 
                     if (error) {
 
-
                         console.error(
                             'Could not load attendance records:',
                             error
@@ -3986,7 +3413,6 @@
 
                 async function createEvent() {
 
-
                     const title =
                         attendanceEventTitle
                             .value
@@ -4005,7 +3431,6 @@
 
                     if (!title) {
 
-
                         setAttendanceMessage(
                             'Enter an event name.',
                             'error'
@@ -4021,7 +3446,6 @@
 
 
                     if (!eventDate) {
-
 
                         setAttendanceMessage(
                             'Select an event date.',
@@ -4086,7 +3510,6 @@
 
                     if (error) {
 
-
                         console.error(
                             'Attendance event creation failed:',
                             error
@@ -4130,7 +3553,6 @@
                    ========================================= */
 
                 async function saveAttendanceRecords() {
-
 
                     if (
                         !selectedAttendanceEventId
@@ -4223,7 +3645,6 @@
 
                     if (error) {
 
-
                         console.error(
                             'Attendance save failed:',
                             error
@@ -4268,7 +3689,6 @@
                    ========================================= */
 
                 async function deleteEvent() {
-
 
                     if (
                         !selectedAttendanceEventId
@@ -4349,7 +3769,6 @@
 
                     if (error) {
 
-
                         console.error(
                             'Attendance event deletion failed:',
                             error
@@ -4375,16 +3794,10 @@
                         null;
 
 
-                    /*
-                     * Recalculate every member after the
-                     * deleted event is removed.
-                     */
-
                     for (
                         const member
                         of allMembers
                     ) {
-
 
                         const {
                             error:
@@ -4403,7 +3816,6 @@
 
 
                         if (refreshError) {
-
 
                             console.error(
                                 'Attendance refresh failed:',
@@ -4432,7 +3844,7 @@
 
 
                 /* =========================================
-                   ATTENDANCE EVENT LISTENER
+                   ATTENDANCE EVENT SELECT
                    ========================================= */
 
                 attendanceEventSelect
@@ -4470,10 +3882,6 @@
                     );
 
 
-                /* =========================================
-                   CREATE EVENT BUTTON
-                   ========================================= */
-
                 createAttendanceEvent
                     .addEventListener(
 
@@ -4483,10 +3891,6 @@
 
                     );
 
-
-                /* =========================================
-                   SAVE ATTENDANCE BUTTON
-                   ========================================= */
 
                 saveAttendance
                     .addEventListener(
@@ -4498,10 +3902,6 @@
                     );
 
 
-                /* =========================================
-                   DELETE EVENT BUTTON
-                   ========================================= */
-
                 deleteAttendanceEvent
                     .addEventListener(
 
@@ -4511,10 +3911,6 @@
 
                     );
 
-
-                /* =========================================
-                   REFRESH ATTENDANCE
-                   ========================================= */
 
                 refreshAttendance
                     .addEventListener(
@@ -4580,7 +3976,6 @@
 
 
                         if (!query) {
-
 
                             renderMembers(
                                 allMembers
@@ -4690,7 +4085,6 @@
                     !session?.user
                 ) {
 
-
                     showScreen(
                         'login'
                     );
@@ -4704,10 +4098,6 @@
                 currentAdminUserId =
                     session.user.id;
 
-
-                /* =========================================
-                   GET CURRENT ADMIN PROFILE
-                   ========================================= */
 
                 const {
                     data:
@@ -4739,7 +4129,6 @@
                     !profile
                 ) {
 
-
                     console.error(
                         'Admin profile error:',
                         profileError
@@ -4756,10 +4145,6 @@
                 }
 
 
-                /* =========================================
-                   CHECK ADMIN ACCESS
-                   ========================================= */
-
                 const authorized =
 
                     profile.access_level ===
@@ -4775,7 +4160,6 @@
                     !authorized
                 ) {
 
-
                     showScreen(
                         'denied'
                     );
@@ -4786,9 +4170,7 @@
                 }
 
 
-                /* =========================================
-                   LOAD ADMIN PORTAL
-                   ========================================= */
+                /* LOAD ADMIN PORTAL */
 
                 showScreen(
                     'admin'
