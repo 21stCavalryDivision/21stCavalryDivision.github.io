@@ -224,6 +224,18 @@ const memberName =
     );
 
 
+const memberPortalLink =
+    document.getElementById(
+        'memberPortalLink'
+    );
+
+
+const adminPortalLink =
+    document.getElementById(
+        'adminPortalLink'
+    );
+
+
 let supabaseClient = null;
 
 
@@ -285,7 +297,7 @@ function getAvatarUrl(user) {
 // UPDATE MEMBER INTERFACE
 // =========================================================
 
-function renderAuthState(session) {
+async function renderAuthState(session) {
 
     if (
         !loginBtn ||
@@ -323,6 +335,22 @@ function renderAuthState(session) {
             true;
 
 
+        if (memberPortalLink) {
+
+            memberPortalLink.hidden =
+                true;
+
+        }
+
+
+        if (adminPortalLink) {
+
+            adminPortalLink.hidden =
+                true;
+
+        }
+
+
         return;
 
     }
@@ -340,6 +368,26 @@ function renderAuthState(session) {
         false;
 
 
+    // Every authenticated user gets the Member Portal link.
+
+    if (memberPortalLink) {
+
+        memberPortalLink.hidden =
+            false;
+
+    }
+
+
+    // Hide Admin by default until access is verified.
+
+    if (adminPortalLink) {
+
+        adminPortalLink.hidden =
+            true;
+
+    }
+
+
     // MEMBER NAME
 
     if (memberName) {
@@ -350,7 +398,7 @@ function renderAuthState(session) {
     }
 
 
-    // MEMBER AVATAR
+    // DISCORD AVATAR
 
     if (memberAvatar) {
 
@@ -383,6 +431,62 @@ function renderAuthState(session) {
 
             memberAvatar.hidden =
                 true;
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHECK MEMBER ACCESS LEVEL
+    // =====================================================
+
+    if (supabaseClient) {
+
+        const {
+            data: profile,
+            error
+        } =
+            await supabaseClient
+                .from(
+                    'member_profiles'
+                )
+                .select(
+                    'access_level'
+                )
+                .eq(
+                    'user_id',
+                    user.id
+                )
+                .maybeSingle();
+
+
+        if (error) {
+
+            console.error(
+                'Unable to check member portal access:',
+                error
+            );
+
+            return;
+
+        }
+
+
+        const accessLevel =
+            profile?.access_level ||
+            'Member';
+
+
+        const hasAdminAccess =
+            accessLevel === 'Admin' ||
+            accessLevel === 'Super Admin';
+
+
+        if (adminPortalLink) {
+
+            adminPortalLink.hidden =
+                !hasAdminAccess;
 
         }
 
@@ -543,7 +647,7 @@ async function logoutMember() {
         }
 
 
-        renderAuthState(
+        await renderAuthState(
             null
         );
 
@@ -685,7 +789,7 @@ async function initializeMemberAuth() {
         }
 
 
-        renderAuthState(
+        await renderAuthState(
             data?.session || null
         );
 
@@ -698,7 +802,7 @@ async function initializeMemberAuth() {
             .auth
             .onAuthStateChange(
 
-                (
+                async (
                     event,
                     session
                 ) => {
@@ -709,7 +813,7 @@ async function initializeMemberAuth() {
                     );
 
 
-                    renderAuthState(
+                    await renderAuthState(
                         session
                     );
 
