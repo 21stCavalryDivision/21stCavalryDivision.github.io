@@ -43,7 +43,7 @@
 
     <link
         rel="stylesheet"
-        href="styles.css?v=6"
+        href="styles.css?v=7"
     >
 
 
@@ -146,7 +146,7 @@
 
 
         /* =================================================
-           MAIN ADMIN CONTAINER
+           ADMIN CONTAINER
            ================================================= */
 
         .admin-container {
@@ -160,7 +160,7 @@
 
 
         /* =================================================
-           ADMIN TOOLBAR
+           TOOLBAR
            ================================================= */
 
         .admin-toolbar {
@@ -312,7 +312,7 @@
 
 
         /* =================================================
-           MEMBER CARDS
+           MEMBER LIST
            ================================================= */
 
         .member-admin-list {
@@ -361,23 +361,6 @@
             align-items: center;
 
             gap: 14px;
-
-        }
-
-
-        .member-admin-avatar {
-
-            width: 48px;
-            height: 48px;
-
-            border-radius: 50%;
-
-            object-fit: cover;
-
-            border:
-                1px solid #c5a75b;
-
-            background: #20262b;
 
         }
 
@@ -432,7 +415,7 @@
 
 
         /* =================================================
-           FORM
+           MEMBER FORM
            ================================================= */
 
         .member-admin-body {
@@ -515,6 +498,13 @@
             outline: none;
 
             border-color: #c5a75b;
+
+        }
+
+
+        .admin-field select {
+
+            cursor: pointer;
 
         }
 
@@ -1123,7 +1113,7 @@
     ></script>
 
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
 
 
     <!-- ================================================= -->
@@ -1139,7 +1129,7 @@
 
 
                 /* =========================================
-                   CONFIG
+                   SUPABASE CONFIGURATION
                    ========================================= */
 
                 const SUPABASE_URL =
@@ -1162,7 +1152,211 @@
 
                 let allMembers = [];
 
-                let currentProfile = null;
+
+                /* =========================================
+                   RANK OPTIONS
+                   
+                   Visible label includes pay grade.
+                   Stored value contains only rank name
+                   and abbreviation.
+                   ========================================= */
+
+                const RANK_OPTIONS = [
+
+                    {
+                        label:
+                            'Recruit',
+
+                        value:
+                            'Recruit'
+                    },
+
+
+                    /* ENLISTED */
+
+                    {
+                        label:
+                            'E-1 — Private (PVT)',
+
+                        value:
+                            'Private (PVT)'
+                    },
+
+                    {
+                        label:
+                            'E-2 — Private Second Class (PV2)',
+
+                        value:
+                            'Private Second Class (PV2)'
+                    },
+
+                    {
+                        label:
+                            'E-3 — Private First Class (PFC)',
+
+                        value:
+                            'Private First Class (PFC)'
+                    },
+
+                    {
+                        label:
+                            'E-4 — Specialist (SPC)',
+
+                        value:
+                            'Specialist (SPC)'
+                    },
+
+                    {
+                        label:
+                            'E-4 — Corporal (CPL)',
+
+                        value:
+                            'Corporal (CPL)'
+                    },
+
+                    {
+                        label:
+                            'E-5 — Sergeant (SGT)',
+
+                        value:
+                            'Sergeant (SGT)'
+                    },
+
+                    {
+                        label:
+                            'E-6 — Staff Sergeant (SSG)',
+
+                        value:
+                            'Staff Sergeant (SSG)'
+                    },
+
+                    {
+                        label:
+                            'E-7 — Sergeant First Class (SFC)',
+
+                        value:
+                            'Sergeant First Class (SFC)'
+                    },
+
+                    {
+                        label:
+                            'E-8 — Master Sergeant (MSG)',
+
+                        value:
+                            'Master Sergeant (MSG)'
+                    },
+
+                    {
+                        label:
+                            'E-8 — First Sergeant (1SG)',
+
+                        value:
+                            'First Sergeant (1SG)'
+                    },
+
+                    {
+                        label:
+                            'E-9 — Sergeant Major (SGM)',
+
+                        value:
+                            'Sergeant Major (SGM)'
+                    },
+
+                    {
+                        label:
+                            'E-9 — Command Sergeant Major (CSM)',
+
+                        value:
+                            'Command Sergeant Major (CSM)'
+                    },
+
+
+                    /* WARRANT OFFICERS */
+
+                    {
+                        label:
+                            'W-1 — Warrant Officer 1 (WO1)',
+
+                        value:
+                            'Warrant Officer 1 (WO1)'
+                    },
+
+                    {
+                        label:
+                            'W-2 — Chief Warrant Officer 2 (CW2)',
+
+                        value:
+                            'Chief Warrant Officer 2 (CW2)'
+                    },
+
+                    {
+                        label:
+                            'W-3 — Chief Warrant Officer 3 (CW3)',
+
+                        value:
+                            'Chief Warrant Officer 3 (CW3)'
+                    },
+
+                    {
+                        label:
+                            'W-4 — Chief Warrant Officer 4 (CW4)',
+
+                        value:
+                            'Chief Warrant Officer 4 (CW4)'
+                    },
+
+                    {
+                        label:
+                            'W-5 — Chief Warrant Officer 5 (CW5)',
+
+                        value:
+                            'Chief Warrant Officer 5 (CW5)'
+                    },
+
+
+                    /* COMMISSIONED OFFICERS */
+
+                    {
+                        label:
+                            'O-1 — Second Lieutenant (2LT)',
+
+                        value:
+                            'Second Lieutenant (2LT)'
+                    },
+
+                    {
+                        label:
+                            'O-2 — First Lieutenant (1LT)',
+
+                        value:
+                            'First Lieutenant (1LT)'
+                    },
+
+                    {
+                        label:
+                            'O-3 — Captain (CPT)',
+
+                        value:
+                            'Captain (CPT)'
+                    },
+
+                    {
+                        label:
+                            'O-4 — Major (MAJ)',
+
+                        value:
+                            'Major (MAJ)'
+                    },
+
+                    {
+                        label:
+                            'O-5 — Lieutenant Colonel (LTC)',
+
+                        value:
+                            'Lieutenant Colonel (LTC)'
+                    }
+
+                ];
 
 
                 /* =========================================
@@ -1212,25 +1406,31 @@
 
 
                 /* =========================================
-                   SCREEN HELPERS
+                   SCREEN HANDLER
                    ========================================= */
 
-                function showScreen(screen) {
+                function showScreen(
+                    screen
+                ) {
 
                     loading.hidden =
-                        screen !== 'loading';
+                        screen !==
+                        'loading';
 
 
                     loginRequired.hidden =
-                        screen !== 'login';
+                        screen !==
+                        'login';
 
 
                     denied.hidden =
-                        screen !== 'denied';
+                        screen !==
+                        'denied';
 
 
                     content.hidden =
-                        screen !== 'admin';
+                        screen !==
+                        'admin';
 
                 }
 
@@ -1239,7 +1439,9 @@
                    ESCAPE HTML
                    ========================================= */
 
-                function escapeHtml(value) {
+                function escapeHtml(
+                    value
+                ) {
 
                     return String(
                         value ?? ''
@@ -1274,18 +1476,99 @@
 
 
                 /* =========================================
-                   DATE
+                   STANDARD SELECT OPTIONS
                    ========================================= */
 
-                function safeDate(value) {
+                function optionList(
+                    options,
+                    selected
+                ) {
 
-                    if (!value) {
+                    return options
 
-                        return '';
+                        .map(
 
-                    }
+                            value => {
 
-                    return value;
+                                const isSelected =
+                                    value === selected
+                                    ?
+                                    'selected'
+                                    :
+                                    '';
+
+
+                                return `
+
+                                    <option
+                                        value="${escapeHtml(
+                                            value
+                                        )}"
+                                        ${isSelected}
+                                    >
+
+                                        ${escapeHtml(
+                                            value
+                                        )}
+
+                                    </option>
+
+                                `;
+
+                            }
+
+                        )
+
+                        .join('');
+
+                }
+
+
+                /* =========================================
+                   RANK SELECT OPTIONS
+                   ========================================= */
+
+                function rankOptionList(
+                    selected
+                ) {
+
+                    return RANK_OPTIONS
+
+                        .map(
+
+                            rank => {
+
+                                const isSelected =
+                                    rank.value ===
+                                    selected
+                                    ?
+                                    'selected'
+                                    :
+                                    '';
+
+
+                                return `
+
+                                    <option
+                                        value="${escapeHtml(
+                                            rank.value
+                                        )}"
+                                        ${isSelected}
+                                    >
+
+                                        ${escapeHtml(
+                                            rank.label
+                                        )}
+
+                                    </option>
+
+                                `;
+
+                            }
+
+                        )
+
+                        .join('');
 
                 }
 
@@ -1392,46 +1675,8 @@
                             'averageAttendance'
                         )
                         .textContent =
-                            attendance + '%';
-
-                }
-
-
-                /* =========================================
-                   SELECT OPTIONS
-                   ========================================= */
-
-                function optionList(
-                    options,
-                    selected
-                ) {
-
-                    return options
-                        .map(
-
-                            value => {
-
-                                const isSelected =
-                                    value === selected
-                                    ?
-                                    'selected'
-                                    :
-                                    '';
-
-
-                                return `
-                                    <option
-                                        value="${escapeHtml(value)}"
-                                        ${isSelected}
-                                    >
-                                        ${escapeHtml(value)}
-                                    </option>
-                                `;
-
-                            }
-
-                        )
-                        .join('');
+                            attendance +
+                            '%';
 
                 }
 
@@ -1444,10 +1689,13 @@
                     members
                 ) {
 
-                    memberList.innerHTML = '';
+                    memberList.innerHTML =
+                        '';
 
 
-                    if (!members.length) {
+                    if (
+                        !members.length
+                    ) {
 
                         memberList.innerHTML = `
 
@@ -1487,9 +1735,8 @@
 
                                 ?
 
-                                member.qualifications.join(
-                                    ', '
-                                )
+                                member.qualifications
+                                    .join(', ')
 
                                 :
 
@@ -1498,11 +1745,15 @@
 
                             card.innerHTML = `
 
+
                                 <div class="member-admin-header">
+
 
                                     <div class="member-admin-identity">
 
+
                                         <div>
+
 
                                             <h2 class="member-admin-name">
 
@@ -1523,7 +1774,9 @@
 
                                             </div>
 
+
                                         </div>
+
 
                                     </div>
 
@@ -1538,6 +1791,7 @@
 
                                     </div>
 
+
                                 </div>
 
 
@@ -1546,6 +1800,8 @@
 
                                     <div class="admin-form-grid">
 
+
+                                        <!-- DISPLAY NAME -->
 
                                         <div class="admin-field">
 
@@ -1565,23 +1821,30 @@
                                         </div>
 
 
+                                        <!-- RANK -->
+
                                         <div class="admin-field">
 
                                             <label>
                                                 Rank
                                             </label>
 
-                                            <input
+                                            <select
                                                 data-field="rank"
-                                                value="${escapeHtml(
+                                            >
+
+                                                ${rankOptionList(
                                                     member.rank
                                                     ||
                                                     'Recruit'
-                                                )}"
-                                            >
+                                                )}
+
+                                            </select>
 
                                         </div>
 
+
+                                        <!-- BILLET -->
 
                                         <div class="admin-field">
 
@@ -1601,6 +1864,8 @@
                                         </div>
 
 
+                                        <!-- SECTION -->
+
                                         <div class="admin-field">
 
                                             <label>
@@ -1619,6 +1884,8 @@
                                         </div>
 
 
+                                        <!-- MEMBER ROLE -->
+
                                         <div class="admin-field">
 
                                             <label>
@@ -1636,6 +1903,7 @@
                                                         'Officer',
                                                         'Command'
                                                     ],
+
                                                     member.member_role
                                                     ||
                                                     'Member'
@@ -1645,6 +1913,8 @@
 
                                         </div>
 
+
+                                        <!-- STATUS -->
 
                                         <div class="admin-field">
 
@@ -1663,6 +1933,7 @@
                                                         'Reserve',
                                                         'Inactive'
                                                     ],
+
                                                     member.member_status
                                                     ||
                                                     'Active'
@@ -1672,6 +1943,8 @@
 
                                         </div>
 
+
+                                        <!-- ACCESS -->
 
                                         <div class="admin-field">
 
@@ -1691,6 +1964,7 @@
                                                         'Admin',
                                                         'Super Admin'
                                                     ],
+
                                                     member.access_level
                                                     ||
                                                     'Member'
@@ -1700,6 +1974,8 @@
 
                                         </div>
 
+
+                                        <!-- ATTENDANCE -->
 
                                         <div class="admin-field">
 
@@ -1722,6 +1998,8 @@
                                         </div>
 
 
+                                        <!-- JOIN DATE -->
+
                                         <div class="admin-field">
 
                                             <label>
@@ -1732,14 +2010,16 @@
                                                 data-field="join_date"
                                                 type="date"
                                                 value="${escapeHtml(
-                                                    safeDate(
-                                                        member.join_date
-                                                    )
+                                                    member.join_date
+                                                    ||
+                                                    ''
                                                 )}"
                                             >
 
                                         </div>
 
+
+                                        <!-- QUALIFICATIONS -->
 
                                         <div class="admin-field wide">
 
@@ -1775,7 +2055,9 @@
                                             type="button"
                                             data-save-member
                                         >
+
                                             Save Member
+
                                         </button>
 
 
@@ -1849,9 +2131,11 @@
 
                     let attendance =
                         Number(
+
                             getValue(
                                 'attendance_rate'
                             )
+
                         );
 
 
@@ -1861,7 +2145,8 @@
                         )
                     ) {
 
-                        attendance = 0;
+                        attendance =
+                            0;
 
                     }
 
@@ -1869,6 +2154,7 @@
                     attendance =
                         Math.max(
                             0,
+
                             Math.min(
                                 100,
                                 attendance
@@ -1885,55 +2171,77 @@
                     const qualifications =
                         qualificationText
 
-                        .split(',')
+                            .split(',')
 
-                        .map(
-                            value =>
-                                value.trim()
-                        )
+                            .map(
+                                value =>
+                                    value.trim()
+                            )
 
-                        .filter(Boolean);
+                            .filter(
+                                Boolean
+                            );
 
 
                     const updateData = {
+
 
                         display_name:
                             getValue(
                                 'display_name'
                             ),
 
+
+                        /*
+                         * Rank value is already the clean
+                         * version:
+                         *
+                         * Staff Sergeant (SSG)
+                         *
+                         * rather than:
+                         *
+                         * E-6 — Staff Sergeant (SSG)
+                         */
+
                         rank:
                             getValue(
                                 'rank'
                             ),
+
 
                         billet:
                             getValue(
                                 'billet'
                             ),
 
+
                         section:
                             getValue(
                                 'section'
                             ),
+
 
                         member_role:
                             getValue(
                                 'member_role'
                             ),
 
+
                         member_status:
                             getValue(
                                 'member_status'
                             ),
+
 
                         access_level:
                             getValue(
                                 'access_level'
                             ),
 
+
                         attendance_rate:
                             attendance,
+
 
                         join_date:
                             getValue(
@@ -1942,8 +2250,10 @@
                             ||
                             null,
 
+
                         qualifications:
                             qualifications,
+
 
                         updated_at:
                             new Date()
@@ -1988,6 +2298,7 @@
 
 
                     if (error) {
+
 
                         console.error(
                             'Member update failed:',
@@ -2052,6 +2363,7 @@
 
                     if (error) {
 
+
                         console.error(
                             'Could not load members:',
                             error
@@ -2098,13 +2410,17 @@
 
                     () => {
 
+
                         const query =
                             search.value
+
                                 .trim()
+
                                 .toLowerCase();
 
 
                         if (!query) {
+
 
                             renderMembers(
                                 allMembers
@@ -2120,6 +2436,7 @@
                             allMembers.filter(
 
                                 member => {
+
 
                                     const text = [
 
@@ -2162,6 +2479,10 @@
                 );
 
 
+                /* =========================================
+                   REFRESH
+                   ========================================= */
+
                 refresh.addEventListener(
 
                     'click',
@@ -2185,8 +2506,10 @@
                     {
                         session
                     },
+
                     error:
                         sessionError
+
                 } =
                     await client
                         .auth
@@ -2199,6 +2522,7 @@
                     !session?.user
                 ) {
 
+
                     showScreen(
                         'login'
                     );
@@ -2208,6 +2532,10 @@
 
                 }
 
+
+                /* =========================================
+                   GET CURRENT ADMIN PROFILE
+                   ========================================= */
 
                 const {
                     data:
@@ -2241,6 +2569,7 @@
                     !profile
                 ) {
 
+
                     console.error(
                         'Admin profile error:',
                         profileError
@@ -2257,11 +2586,12 @@
                 }
 
 
-                currentProfile =
-                    profile;
-
+                /* =========================================
+                   CHECK ADMIN ACCESS
+                   ========================================= */
 
                 const authorized =
+
                     profile.access_level ===
                     'Admin'
 
@@ -2273,6 +2603,7 @@
 
                 if (!authorized) {
 
+
                     showScreen(
                         'denied'
                     );
@@ -2282,6 +2613,10 @@
 
                 }
 
+
+                /* =========================================
+                   LOAD ADMIN PORTAL
+                   ========================================= */
 
                 showScreen(
                     'admin'
