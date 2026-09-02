@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <!-- =========================================
+
+    <!-- =====================================================
          BASIC PAGE SETTINGS
-    ========================================== -->
+    ====================================================== -->
 
     <meta charset="UTF-8">
 
@@ -21,9 +22,9 @@
     <title>21st Cavalry Division | Server</title>
 
 
-    <!-- =========================================
-         FONTS
-    ========================================== -->
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -42,27 +43,286 @@
     >
 
 
-    <!-- =========================================
-         MAIN STYLESHEET
-    ========================================== -->
+    <!-- =====================================================
+         MAIN WEBSITE CSS
+    ====================================================== -->
 
     <link
         rel="stylesheet"
         href="styles.css"
     >
+
+
+    <!-- =====================================================
+         SERVER PAGE ONLY CSS
+
+         You do NOT need to add this to styles.css.
+         This only affects this page.
+    ====================================================== -->
+
+    <style>
+
+        /* ============================
+           SERVER MOD SUMMARY
+        ============================ */
+
+        .mod-summary {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 25px 0 15px;
+            font-family: "Oswald", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mod-summary strong {
+            font-size: 1rem;
+        }
+
+        .mod-summary span {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+
+        /* ============================
+           MOD SEARCH
+        ============================ */
+
+        .mod-tools {
+            margin-bottom: 25px;
+        }
+
+        #mod-search {
+            width: 100%;
+            max-width: 500px;
+
+            padding: 14px 18px;
+
+            background: #0b0f12;
+            color: #ffffff;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 4px;
+
+            font-family: "Roboto", sans-serif;
+            font-size: 1rem;
+
+            outline: none;
+        }
+
+        #mod-search:focus {
+            border-color: rgba(255,255,255,0.45);
+        }
+
+
+        /* ============================
+           MOD LIST
+        ============================ */
+
+        .server-mod-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+
+        /* ============================
+           INDIVIDUAL MOD
+        ============================ */
+
+        .server-mod-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 16px 18px;
+
+            background: rgba(255,255,255,0.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-radius: 4px;
+        }
+
+        .server-mod-number {
+            min-width: 36px;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 1.2rem;
+            font-weight: 700;
+
+            opacity: 0.45;
+        }
+
+        .server-mod-info {
+            flex: 1;
+        }
+
+        .server-mod-info h3 {
+            margin: 0 0 4px 0;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 1.05rem;
+
+            text-transform: uppercase;
+        }
+
+        .server-mod-info p {
+            margin: 0;
+
+            font-size: 0.85rem;
+
+            opacity: 0.65;
+        }
+
+        .server-mod-info code {
+            user-select: all;
+        }
+
+
+        /* ============================
+           MOD BUTTONS
+        ============================ */
+
+        .server-mod-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .server-mod-actions button,
+        .server-mod-actions a {
+
+            display: inline-block;
+
+            padding: 8px 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.20);
+
+            border-radius: 3px;
+
+            background: transparent;
+
+            color: #ffffff;
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 0.8rem;
+
+            text-transform: uppercase;
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .server-mod-actions button:hover,
+        .server-mod-actions a:hover {
+
+            background: #ffffff;
+            color: #080c0f;
+        }
+
+
+        /* ============================
+           MOD CATEGORY HEADERS
+        ============================ */
+
+        .mod-category {
+
+            margin-top: 30px;
+            margin-bottom: 10px;
+
+            padding-bottom: 8px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            font-family:
+                "Oswald",
+                sans-serif;
+
+            font-size: 1.05rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ============================
+           EMPTY SEARCH
+        ============================ */
+
+        .no-mod-results {
+
+            padding: 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            text-align: center;
+
+            opacity: 0.7;
+        }
+
+
+        /* ============================
+           MOBILE
+        ============================ */
+
+        @media
+        (max-width: 700px) {
+
+            .server-mod-item {
+
+                align-items: flex-start;
+
+                flex-wrap: wrap;
+            }
+
+            .server-mod-actions {
+
+                width: 100%;
+
+                padding-left: 54px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 
 <body>
 
 
-    <!-- =========================================
-         HEADER / NAVIGATION
-    ========================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="site-header">
 
-        <!-- UNIT LOGO -->
+
+        <!-- UNIT BRAND -->
 
         <a
             class="brand"
@@ -75,14 +335,22 @@
             </div>
 
             <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
             </div>
 
         </a>
 
 
-        <!-- MOBILE MENU BUTTON -->
+
+        <!-- MOBILE NAVIGATION -->
 
         <button
             class="nav-toggle"
@@ -91,6 +359,7 @@
         >
             ☰
         </button>
+
 
 
         <!-- MAIN NAVIGATION -->
@@ -134,16 +403,16 @@
 
 
 
-    <!-- =========================================
-         MAIN PAGE CONTENT
-    ========================================== -->
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
     <main>
 
 
-        <!-- =====================================
-             PAGE HEADER
-        ====================================== -->
+        <!-- =================================================
+             SERVER PAGE HERO
+        ================================================== -->
 
         <section class="page-hero">
 
@@ -156,16 +425,17 @@
             </h1>
 
             <p>
-                Everything members need before joining an official unit session.
+                Everything members need before joining
+                an official unit session.
             </p>
 
         </section>
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              SERVER INFORMATION
-        ====================================== -->
+        ================================================== -->
 
         <section class="section">
 
@@ -191,7 +461,8 @@
                 </div>
 
 
-                <!-- SERVER DETAILS -->
+
+                <!-- SERVER CONNECTION INFORMATION -->
 
                 <div class="server-details">
 
@@ -211,6 +482,7 @@
                     </p>
 
 
+
                     <!-- SERVER PORT -->
 
                     <p>
@@ -226,7 +498,8 @@
                     </p>
 
 
-                    <!-- SERVER PASSWORD -->
+
+                    <!-- PASSWORD -->
 
                     <p>
 
@@ -239,6 +512,7 @@
                         </strong>
 
                     </p>
+
 
 
                     <!-- PLATFORM -->
@@ -256,6 +530,38 @@
                     </p>
 
 
+
+                    <!-- GAME MODE -->
+
+                    <p>
+
+                        <span>
+                            Game Mode
+                        </span>
+
+                        <strong>
+                            Conflict
+                        </strong>
+
+                    </p>
+
+
+
+                    <!-- MAP -->
+
+                    <p>
+
+                        <span>
+                            Map
+                        </span>
+
+                        <strong>
+                            Everon
+                        </strong>
+
+                    </p>
+
+
                 </div>
 
             </div>
@@ -264,14 +570,12 @@
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              SERVER CHECKLIST
-        ====================================== -->
+        ================================================== -->
 
         <section class="section dark-section">
 
-
-            <!-- SECTION TITLE -->
 
             <div class="section-heading">
 
@@ -286,8 +590,6 @@
             </div>
 
 
-
-            <!-- CHECKLIST -->
 
             <div class="check-grid">
 
@@ -326,8 +628,9 @@
                     </h3>
 
                     <p>
-                        Allow enough time for required Workshop
-                        content to download before formation.
+                        Allow enough time for required
+                        Workshop content to download
+                        before formation.
                     </p>
 
                 </div>
@@ -347,8 +650,8 @@
                     </h3>
 
                     <p>
-                        Verify your microphone and assigned voice
-                        channels before stepping off.
+                        Verify your microphone and assigned
+                        voice channels before stepping off.
                     </p>
 
                 </div>
@@ -381,14 +684,12 @@
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              MODPACK
-        ====================================== -->
+        ================================================== -->
 
         <section class="section">
 
-
-            <!-- MODPACK TITLE -->
 
             <div class="section-heading">
 
@@ -409,104 +710,60 @@
 
 
 
-            <!-- =================================
-                 MOD LIST
+            <!-- MOD COUNT -->
 
-                 ADD OR REMOVE MODS HERE
-            ================================== -->
-
-            <div class="notice">
+            <div class="mod-summary">
 
                 <strong>
-                    REQUIRED MODS
+                    Required Mods:
                 </strong>
 
-
-                <div class="server-mod-list">
-
-                    <!-- RHS -->
-
-                    <p>
-                        RHS - Content Pack 01
-                    </p>
-
-                    <p>
-                        RHS - Content Pack 02
-                    </p>
-
-                    <p>
-                        RHS - Status Quo
-                    </p>
-
-
-                    <!-- WCS -->
-
-                    <p>
-                        WCS Armaments
-                    </p>
-
-                    <p>
-                        WCS Core
-                    </p>
-
-                    <p>
-                        WCS Weapon Scripts
-                    </p>
-
-                    <p>
-                        WCS Sounds
-                    </p>
-
-                    <p>
-                        WCS Attachments
-                    </p>
-
-                    <p>
-                        WCS Scopes
-                    </p>
-
-                    <p>
-                        WCS Clothing Assets
-                    </p>
-
-                    <p>
-                        WCS Clothing
-                    </p>
-
-                    <p>
-                        WCS NATO
-                    </p>
-
-                    <p>
-                        WCS RU
-                    </p>
-
-                    <p>
-                        WCS Weapons
-                    </p>
-
-                    <p>
-                        WCS RHS Weapons
-                    </p>
-
-                    <p>
-                        WCS Earplugs
-                    </p>
-
-
-                    <!-- OTHER MODS CAN BE ADDED BELOW -->
-
-                </div>
+                <span id="mod-count">
+                    0
+                </span>
 
             </div>
+
+
+
+            <!-- MOD SEARCH -->
+
+            <div class="mod-tools">
+
+                <input
+                    type="text"
+                    id="mod-search"
+                    placeholder="Search mods or Workshop ID..."
+                    aria-label="Search server mods"
+                >
+
+            </div>
+
+
+
+            <!--
+            ===============================================
+            MODS ARE GENERATED AUTOMATICALLY HERE
+
+            DO NOT MANUALLY ADD MODS IN THIS DIV.
+            EDIT THE MOD LIST NEAR THE BOTTOM OF THIS FILE.
+            ===============================================
+            -->
+
+            <div
+                id="server-mod-list"
+                class="server-mod-list"
+            >
+            </div>
+
 
         </section>
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              SERVER SUPPORT
-        ====================================== -->
+        ================================================== -->
 
         <section class="section dark-section">
 
@@ -521,8 +778,9 @@
                 </h2>
 
                 <p>
-                    Contact unit staff through Discord if you
-                    encounter server, mod, or connection issues.
+                    Contact unit staff through Discord if
+                    you encounter server, mod, or connection
+                    issues.
                 </p>
 
             </div>
@@ -534,14 +792,12 @@
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          FOOTER
-    ========================================== -->
+    ====================================================== -->
 
     <footer>
 
-
-        <!-- FOOTER LOGO -->
 
         <div class="brand footer-brand">
 
@@ -565,15 +821,11 @@
 
 
 
-        <!-- MOTTO -->
-
         <p>
             Swift. Silent. Relentless.
         </p>
 
 
-
-        <!-- FOOTER LINKS -->
 
         <div class="footer-links">
 
@@ -597,25 +849,888 @@
 
 
 
-        <!-- DISCLAIMER -->
-
         <p class="fineprint">
 
-            This is a gaming/military simulation community website
-            and is not affiliated with the United States Department
-            of Defense.
+            This is a gaming/military simulation
+            community website and is not affiliated
+            with the United States Department of Defense.
 
         </p>
+
 
     </footer>
 
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
+    <!-- =====================================================
+         YOUR NORMAL WEBSITE JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
+
+
+
+    <!-- =====================================================
+         SERVER MOD SYSTEM
+
+         THIS IS THE MAIN AREA YOU EDIT
+         WHEN ADDING OR REMOVING MODS.
+    ====================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           SERVER MOD LIST
+
+           TO ADD A MOD:
+
+           {
+               category: "CATEGORY",
+               modId: "MOD ID",
+               name: "MOD NAME"
+           },
+
+           KEEP CM-PlayerStatsHUD LAST.
+        ================================================== */
+
+
+        const SERVER_MODS = [
+
+
+            /* =================================================
+               RHS
+            ================================================== */
+
+            {
+                category: "RHS",
+                modId: "1337C0DE5DABBEEF",
+                name: "RHS - Content Pack 01"
+            },
+
+            {
+                category: "RHS",
+                modId: "BADC0DEDABBEDA5E",
+                name: "RHS - Content Pack 02"
+            },
+
+            {
+                category: "RHS",
+                modId: "595F2BF2F44836FB",
+                name: "RHS - Status Quo"
+            },
+
+
+
+            /* =================================================
+               WCS CORE
+            ================================================== */
+
+            {
+                category: "WCS",
+                modId: "629B2BA37EFFD577",
+                name: "WCS_Armaments"
+            },
+
+            {
+                category: "WCS",
+                modId: "64610AFB74AA9842",
+                name: "WCS_Core"
+            },
+
+            {
+                category: "WCS",
+                modId: "68F006D910E7546F",
+                name: "WCS_Weapon_Scripts"
+            },
+
+            {
+                category: "WCS",
+                modId: "631C3C1AEE9C90BC",
+                name: "WCS_Sounds"
+            },
+
+            {
+                category: "WCS",
+                modId: "61C74A8B647617DA",
+                name: "WCS_Attachments"
+            },
+
+            {
+                category: "WCS",
+                modId: "62A668F513428630",
+                name: "WCS_Scopes"
+            },
+
+            {
+                category: "WCS",
+                modId: "6602C1EC7E5A4A87",
+                name: "WCS_Clothing_Assets"
+            },
+
+            {
+                category: "WCS",
+                modId: "6152CB0BD0684837",
+                name: "WCS_Clothing"
+            },
+
+            {
+                category: "WCS",
+                modId: "615806DC6C57AF02",
+                name: "WCS_NATO"
+            },
+
+            {
+                category: "WCS",
+                modId: "615818DA7C0343FD",
+                name: "WCS_RU"
+            },
+
+            {
+                category: "WCS",
+                modId: "65CF7AE8574E06D2",
+                name: "WCS_Weapons"
+            },
+
+            {
+                category: "WCS",
+                modId: "65F929DF622BAD50",
+                name: "WCS_RHS_Weapons"
+            },
+
+            {
+                category: "WCS",
+                modId: "612F512CD4CB21D5",
+                name: "WCS_Earplugs"
+            },
+
+
+
+            /* =================================================
+               FRAMEWORKS
+            ================================================== */
+
+            {
+                category: "Frameworks",
+                modId: "5E389BB9F58B79A6",
+                name: "SpaceCore"
+            },
+
+            {
+                category: "Frameworks",
+                modId: "6276E6E3CC97A22B",
+                name: "AUS_CORE"
+            },
+
+            {
+                category: "Frameworks",
+                modId: "62CCD69DD17E4F2F",
+                name: "AKI_Core"
+            },
+
+            {
+                category: "Frameworks",
+                modId: "64EE818E08AFCF94",
+                name: "MFD Framework"
+            },
+
+            {
+                category: "Frameworks",
+                modId: "66DF6C37335B0554",
+                name: "AHC Fuel Systems"
+            },
+
+
+
+            /* =================================================
+               WEAPONS & EQUIPMENT
+            ================================================== */
+
+            {
+                category: "Weapons & Equipment",
+                modId: "6A1A34CAC30229CF",
+                name: "M240H"
+            },
+
+            {
+                category: "Weapons & Equipment",
+                modId: "5AB301290317994A",
+                name: "Bacon Suppressors"
+            },
+
+            {
+                category: "Weapons & Equipment",
+                modId: "5ABD0CB57F7E9EB1",
+                name: "RIS Laser Attachments"
+            },
+
+            {
+                category: "Weapons & Equipment",
+                modId: "5CA6BA2F63DE1174",
+                name: "M17 Pistol"
+            },
+
+            {
+                category: "Weapons & Equipment",
+                modId: "5B3ED33ADA805340",
+                name: "Task Force Mattock Weapons"
+            },
+
+
+
+            /* =================================================
+               GRS
+            ================================================== */
+
+            {
+                category: "GRS",
+                modId: "65DACC64CE785B6C",
+                name: "GRS - Dev Framework"
+            },
+
+            {
+                category: "GRS",
+                modId: "657B064AE0E231DF",
+                name: "GRS - Patches"
+            },
+
+            {
+                category: "GRS",
+                modId: "65157D09F042428A",
+                name: "GRS - Apparel"
+            },
+
+            {
+                category: "GRS",
+                modId: "651433ECBC794018",
+                name: "GRS - Weapons"
+            },
+
+
+
+            /* =================================================
+               UNIFORMS & CHARACTERS
+            ================================================== */
+
+            {
+                category: "Uniforms & Characters",
+                modId: "5D0551624969C92E",
+                name: "Zeliks Character"
+            },
+
+            {
+                category: "Uniforms & Characters",
+                modId: "66D45759BD855397",
+                name: "Gabagool Gears"
+            },
+
+            {
+                category: "Uniforms & Characters",
+                modId: "696214A3D7FAD490",
+                name: "Modern US Army Revamped 2026"
+            },
+
+
+
+            /* =================================================
+               GROUND VEHICLES
+            ================================================== */
+
+            {
+                category: "Ground Vehicles",
+                modId: "5D1880C4AD410C14",
+                name: "M1 Abrams"
+            },
+
+            {
+                category: "Ground Vehicles",
+                modId: "63120AE07E6C0966",
+                name: "M2 Bradley Fighting Vehicle"
+            },
+
+            {
+                category: "Ground Vehicles",
+                modId: "5C721177A220B42F",
+                name: "Joint Light Tactical Vehicle"
+            },
+
+
+
+            /* =================================================
+               VEHICLE AUDIO
+            ================================================== */
+
+            {
+                category: "Vehicle Audio",
+                modId: "6A2D41D3518240A4",
+                name: "M1 Abrams Sound"
+            },
+
+            {
+                category: "Vehicle Audio",
+                modId: "6A26F10D504E0003",
+                name: "SFD JLTV Sound Fix"
+            },
+
+            {
+                category: "Vehicle Audio",
+                modId: "6A2F132394AF5056",
+                name: "MWH Vehicle Audio Compatibility"
+            },
+
+
+
+            /* =================================================
+               AVIATION
+            ================================================== */
+
+            {
+                category: "Aviation",
+                modId: "6303360DA719E832",
+                name: "WCS_AH-64D"
+            },
+
+            {
+                category: "Aviation",
+                modId: "6273146ADFE8241D",
+                name: "WCS_AH-6M"
+            },
+
+            {
+                category: "Aviation",
+                modId: "694E575D2AD51736",
+                name: "WCS Littlebird Maps"
+            },
+
+            {
+                category: "Aviation",
+                modId: "60ED3CC6E7E40221",
+                name: "Sikorsky H60 Project"
+            },
+
+            {
+                category: "Aviation",
+                modId: "61957C5C6FB7A773",
+                name: "H-47 Chinook"
+            },
+
+
+
+            /* =================================================
+               ARTILLERY
+            ================================================== */
+
+            {
+                category: "Artillery",
+                modId: "686AC479236F235D",
+                name: "M777 Howitzer Artillery"
+            },
+
+
+
+            /* =================================================
+               FORTIFICATIONS
+            ================================================== */
+
+            {
+                category: "Fortifications",
+                modId: "6A20948448913FD7",
+                name: "WCS_Hescos"
+            },
+
+
+
+            /* =================================================
+               LOADOUT SYSTEM
+            ================================================== */
+
+            {
+                category: "Loadouts",
+                modId: "606B100247F5C709",
+                name: "Bacon Loadout Editor"
+            },
+
+            {
+                category: "Loadouts",
+                modId: "68E62B31ACC625A3",
+                name: "RHS_BaconLoadout"
+            },
+
+
+
+            /* =================================================
+               RAPPEL / ROPE
+            ================================================== */
+
+            {
+                category: "Rappel & Rope",
+                modId: "69156B5B321244C9",
+                name: "Physics Rope"
+            },
+
+            {
+                category: "Rappel & Rope",
+                modId: "68D53E2C3E3F4436",
+                name: "BFS - Rappel Reforged"
+            },
+
+
+
+            /* =================================================
+               PLAYER FEATURES
+            ================================================== */
+
+            {
+                category: "Player Features",
+                modId: "6052A9DD45564825",
+                name: "You can sit"
+            },
+
+            {
+                category: "Player Features",
+                modId: "5965550F24A0C152",
+                name: "Where Am I"
+            },
+
+            {
+                category: "Player Features",
+                modId: "656AC01634459D8D",
+                name: "Map Drawing"
+            },
+
+
+
+            /* =================================================
+               GAME MASTER / GAMEPLAY
+            ================================================== */
+
+            {
+                category: "Game Master",
+                modId: "5994AD5A9F33BE57",
+                name: "Game Master FX"
+            },
+
+            {
+                category: "Game Master",
+                modId: "5C9758250C8C56F1",
+                name: "Bon Action Animations"
+            },
+
+            {
+                category: "Game Master",
+                modId: "65AD7D0D9941A380",
+                name: "ACE Core Dev"
+            },
+
+            {
+                category: "Game Master",
+                modId: "5964E0B3BB7410CE",
+                name: "Game Master Enhanced"
+            },
+
+
+
+            /* =================================================
+               PLAYER STATISTICS
+
+               KEEP THIS MOD LAST
+            ================================================== */
+
+            {
+                category: "Player Statistics",
+                modId: "65213120F3802203",
+                name: "CM-PlayerStatsHUD"
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           MOD SYSTEM
+        ====================================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const modList =
+                    document.getElementById(
+                        "server-mod-list"
+                    );
+
+
+                const modSearch =
+                    document.getElementById(
+                        "mod-search"
+                    );
+
+
+                const modCount =
+                    document.getElementById(
+                        "mod-count"
+                    );
+
+
+                /* =============================================
+                   MOD COUNT
+                ============================================== */
+
+                modCount.textContent =
+                    SERVER_MODS.length;
+
+
+
+                /* =============================================
+                   DISPLAY MODS
+                ============================================== */
+
+                function displayMods(mods) {
+
+
+                    modList.innerHTML = "";
+
+
+                    if (mods.length === 0) {
+
+                        modList.innerHTML = `
+
+                            <div class="no-mod-results">
+
+                                No matching mods found.
+
+                            </div>
+
+                        `;
+
+                        return;
+
+                    }
+
+
+                    let currentCategory = "";
+
+
+                    mods.forEach(
+                        function (mod) {
+
+
+                            /* =================================
+                               CATEGORY HEADER
+                            ================================== */
+
+                            if (
+                                mod.category !==
+                                currentCategory
+                            ) {
+
+                                currentCategory =
+                                    mod.category;
+
+
+                                const category =
+                                    document.createElement(
+                                        "div"
+                                    );
+
+
+                                category.className =
+                                    "mod-category";
+
+
+                                category.textContent =
+                                    currentCategory;
+
+
+                                modList.appendChild(
+                                    category
+                                );
+
+                            }
+
+
+
+                            /* =================================
+                               FIND REAL MOD NUMBER
+                            ================================== */
+
+                            const realIndex =
+                                SERVER_MODS.indexOf(mod) + 1;
+
+
+
+                            /* =================================
+                               MOD CARD
+                            ================================== */
+
+                            const item =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            item.className =
+                                "server-mod-item";
+
+
+                            item.innerHTML = `
+
+                                <div
+                                    class="server-mod-number"
+                                >
+                                    ${String(realIndex).padStart(2, "0")}
+                                </div>
+
+
+                                <div
+                                    class="server-mod-info"
+                                >
+
+                                    <h3>
+                                        ${escapeHTML(mod.name)}
+                                    </h3>
+
+                                    <p>
+
+                                        Workshop ID:
+
+                                        <code>
+                                            ${escapeHTML(mod.modId)}
+                                        </code>
+
+                                    </p>
+
+                                </div>
+
+
+                                <div
+                                    class="server-mod-actions"
+                                >
+
+                                    <button
+                                        type="button"
+                                        class="copy-mod-id"
+                                        data-id="${escapeHTML(mod.modId)}"
+                                    >
+                                        Copy ID
+                                    </button>
+
+
+                                    <a
+                                        href="https://reforger.armaplatform.com/workshop/${encodeURIComponent(mod.modId)}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Workshop
+                                    </a>
+
+                                </div>
+
+                            `;
+
+
+                            modList.appendChild(
+                                item
+                            );
+
+                        }
+                    );
+
+
+                    setupCopyButtons();
+
+                }
+
+
+
+                /* =============================================
+                   FIRST LOAD
+                ============================================== */
+
+                displayMods(
+                    SERVER_MODS
+                );
+
+
+
+                /* =============================================
+                   MOD SEARCH
+                ============================================== */
+
+                modSearch.addEventListener(
+                    "input",
+                    function () {
+
+
+                        const search =
+                            modSearch.value
+                                .trim()
+                                .toLowerCase();
+
+
+                        const filtered =
+                            SERVER_MODS.filter(
+                                function (mod) {
+
+
+                                    return (
+
+                                        mod.name
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                        ||
+
+                                        mod.modId
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                        ||
+
+                                        mod.category
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                    );
+
+                                }
+                            );
+
+
+                        displayMods(
+                            filtered
+                        );
+
+                    }
+                );
+
+
+
+                /* =============================================
+                   COPY WORKSHOP ID
+                ============================================== */
+
+                function setupCopyButtons() {
+
+
+                    const buttons =
+                        document.querySelectorAll(
+                            ".copy-mod-id"
+                        );
+
+
+                    buttons.forEach(
+                        function (button) {
+
+
+                            button.addEventListener(
+                                "click",
+                                async function () {
+
+
+                                    const modId =
+                                        button.dataset.id;
+
+
+                                    try {
+
+
+                                        await navigator
+                                            .clipboard
+                                            .writeText(
+                                                modId
+                                            );
+
+
+                                        const oldText =
+                                            button.textContent;
+
+
+                                        button.textContent =
+                                            "Copied";
+
+
+                                        setTimeout(
+                                            function () {
+
+                                                button.textContent =
+                                                    oldText;
+
+                                            },
+                                            1200
+                                        );
+
+
+                                    }
+
+                                    catch (error) {
+
+
+                                        console.error(
+                                            "Unable to copy mod ID:",
+                                            error
+                                        );
+
+
+                                    }
+
+
+                                }
+                            );
+
+
+                        }
+                    );
+
+
+                }
+
+
+
+                /* =============================================
+                   SAFE HTML OUTPUT
+                ============================================== */
+
+                function escapeHTML(value) {
+
+
+                    return String(value)
+
+                        .replaceAll(
+                            "&",
+                            "&amp;"
+                        )
+
+                        .replaceAll(
+                            "<",
+                            "&lt;"
+                        )
+
+                        .replaceAll(
+                            ">",
+                            "&gt;"
+                        )
+
+                        .replaceAll(
+                            '"',
+                            "&quot;"
+                        )
+
+                        .replaceAll(
+                            "'",
+                            "&#039;"
+                        );
+
+
+                }
+
+
+            }
+        );
+
+
+    </script>
 
 
 </body>
