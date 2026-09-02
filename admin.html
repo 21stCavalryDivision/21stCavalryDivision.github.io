@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -15,12 +14,7 @@
         content="21st Cavalry Division Administration Portal"
     >
 
-    <title>
-        21st Cavalry Division | Administration
-    </title>
-
-
-    <!-- GOOGLE FONTS -->
+    <title>21st Cavalry Division | Administration</title>
 
     <link
         rel="preconnect"
@@ -38,14 +32,10 @@
         rel="stylesheet"
     >
 
-
-    <!-- MAIN WEBSITE CSS -->
-
     <link
         rel="stylesheet"
-        href="styles.css?v=7"
+        href="styles.css?v=8"
     >
-
 
     <style>
 
@@ -57,16 +47,13 @@
             background: #090d10;
         }
 
-
         .admin-hero {
-
             padding:
                 70px
                 clamp(24px, 6vw, 110px)
                 55px;
 
-            border-bottom:
-                1px solid #30383d;
+            border-bottom: 1px solid #30383d;
 
             background:
                 linear-gradient(
@@ -74,12 +61,9 @@
                     #0a1014,
                     #141710
                 );
-
         }
 
-
         .admin-hero h1 {
-
             margin: 10px 0;
 
             font:
@@ -88,16 +72,11 @@
                 sans-serif;
 
             text-transform: uppercase;
-
         }
 
-
         .admin-hero p:last-child {
-
             max-width: 750px;
-
             color: #abb4b8;
-
         }
 
 
@@ -106,42 +85,26 @@
            ================================================= */
 
         .admin-message {
-
             max-width: 700px;
-
             margin: 80px auto;
-
             padding: 40px;
-
             text-align: center;
-
-            border:
-                1px solid #30383d;
-
-            border-top:
-                3px solid #c5a75b;
-
+            border: 1px solid #30383d;
+            border-top: 3px solid #c5a75b;
             background: #11171a;
-
         }
 
-
         .admin-message h2 {
-
             font:
                 600 34px
                 Oswald,
                 sans-serif;
 
             text-transform: uppercase;
-
         }
 
-
         .admin-message p {
-
             color: #9ca6aa;
-
         }
 
 
@@ -150,100 +113,10 @@
            ================================================= */
 
         .admin-container {
-
             padding:
                 45px
                 clamp(24px, 6vw, 110px)
                 100px;
-
-        }
-
-
-        /* =================================================
-           TOOLBAR
-           ================================================= */
-
-        .admin-toolbar {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr auto;
-
-            gap: 18px;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .admin-search {
-
-            width: 100%;
-
-            min-height: 48px;
-
-            padding:
-                0 16px;
-
-            background: #0c1114;
-
-            color: #fff;
-
-            border:
-                1px solid #384147;
-
-            font:
-                400 14px
-                Roboto,
-                sans-serif;
-
-        }
-
-
-        .admin-search:focus {
-
-            outline: none;
-
-            border-color: #c5a75b;
-
-        }
-
-
-        .admin-refresh {
-
-            min-height: 48px;
-
-            padding:
-                0 20px;
-
-            border:
-                1px solid #c5a75b;
-
-            background: transparent;
-
-            color: #c5a75b;
-
-            cursor: pointer;
-
-            font:
-                600 12px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-        }
-
-
-        .admin-refresh:hover {
-
-            background: #c5a75b;
-
-            color: #111;
-
         }
 
 
@@ -252,35 +125,20 @@
            ================================================= */
 
         .admin-summary {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 14px;
-
             margin-bottom: 25px;
-
         }
-
 
         .summary-card {
-
             padding: 22px;
-
-            border:
-                1px solid #30383d;
-
+            border: 1px solid #30383d;
             background: #11171a;
-
         }
 
-
         .summary-card span {
-
             display: block;
-
             color: #858f94;
 
             font:
@@ -289,329 +147,388 @@
                 sans-serif;
 
             letter-spacing: 1px;
-
             text-transform: uppercase;
-
         }
 
-
         .summary-card strong {
-
             display: block;
-
             margin-top: 5px;
-
             color: #fff;
 
             font:
                 600 28px
                 Oswald,
                 sans-serif;
-
         }
 
 
         /* =================================================
-           MEMBER LIST
+           ATTENDANCE MANAGEMENT
+           ================================================= */
+
+        .attendance-panel {
+            margin-bottom: 35px;
+            border: 1px solid #30383d;
+            background: #11171a;
+        }
+
+        .attendance-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            border-bottom: 1px solid #30383d;
+            background: #0e1417;
+        }
+
+        .attendance-panel-header h2 {
+            margin: 4px 0 0;
+            color: #fff;
+            font: 600 28px Oswald, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .attendance-panel-header p {
+            margin: 8px 0 0;
+            color: #8f999e;
+            font-size: 13px;
+        }
+
+        .attendance-create {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 12px;
+            padding: 20px 24px;
+            border-bottom: 1px solid #30383d;
+        }
+
+        .attendance-create input,
+        .attendance-create select,
+        .attendance-event-select {
+            width: 100%;
+            min-height: 44px;
+            padding: 0 11px;
+            border: 1px solid #384147;
+            background: #090e11;
+            color: #fff;
+            font: 400 13px Roboto, sans-serif;
+        }
+
+        .attendance-create input:focus,
+        .attendance-create select:focus,
+        .attendance-event-select:focus {
+            outline: none;
+            border-color: #c5a75b;
+        }
+
+        .attendance-action-btn {
+            min-height: 44px;
+            padding: 0 18px;
+            border: 1px solid #c5a75b;
+            background: #c5a75b;
+            color: #111;
+            cursor: pointer;
+            font: 600 12px Oswald, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .attendance-action-btn.secondary {
+            background: transparent;
+            color: #c5a75b;
+        }
+
+        .attendance-action-btn:hover {
+            background: #dac171;
+            color: #111;
+        }
+
+        .attendance-action-btn:disabled {
+            opacity: 0.55;
+            cursor: wait;
+        }
+
+        .attendance-workspace {
+            padding: 24px;
+        }
+
+        .attendance-event-bar {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .attendance-event-details {
+            margin-bottom: 18px;
+            padding: 14px 16px;
+            border-left: 3px solid #c5a75b;
+            background: #0c1114;
+            color: #9ca6aa;
+            font-size: 13px;
+        }
+
+        .attendance-roster {
+            display: grid;
+            gap: 10px;
+        }
+
+        .attendance-row {
+            display: grid;
+            grid-template-columns: minmax(220px, 1fr) auto;
+            gap: 18px;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid #293036;
+            background: #0c1114;
+        }
+
+        .attendance-member-name {
+            color: #fff;
+            font: 600 17px Oswald, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .attendance-member-meta {
+            margin-top: 3px;
+            color: #778187;
+            font-size: 11px;
+        }
+
+        .attendance-status-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .attendance-status {
+            min-height: 36px;
+            padding: 0 13px;
+            border: 1px solid #384147;
+            background: #11171a;
+            color: #aeb7bb;
+            cursor: pointer;
+            font: 600 10px Oswald, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        .attendance-status.active {
+            border-color: #c5a75b;
+            background: #c5a75b;
+            color: #111;
+        }
+
+        .attendance-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 14px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #293036;
+        }
+
+        .attendance-message {
+            margin-right: auto;
+            color: #8f999e;
+            font-size: 12px;
+        }
+
+        .attendance-message.success {
+            color: #75d48c;
+        }
+
+        .attendance-message.error {
+            color: #e47b7b;
+        }
+
+
+        /* =================================================
+           TOOLBAR
+           ================================================= */
+
+        .admin-toolbar {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .admin-search {
+            width: 100%;
+            min-height: 48px;
+            padding: 0 16px;
+            background: #0c1114;
+            color: #fff;
+            border: 1px solid #384147;
+            font: 400 14px Roboto, sans-serif;
+        }
+
+        .admin-search:focus {
+            outline: none;
+            border-color: #c5a75b;
+        }
+
+        .admin-refresh {
+            min-height: 48px;
+            padding: 0 20px;
+            border: 1px solid #c5a75b;
+            background: transparent;
+            color: #c5a75b;
+            cursor: pointer;
+            font: 600 12px Oswald, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-refresh:hover {
+            background: #c5a75b;
+            color: #111;
+        }
+
+
+        /* =================================================
+           MEMBER MANAGEMENT
            ================================================= */
 
         .member-admin-list {
-
             display: grid;
-
             gap: 18px;
-
         }
-
 
         .member-admin-card {
-
-            border:
-                1px solid #30383d;
-
+            border: 1px solid #30383d;
             background: #11171a;
-
         }
-
 
         .member-admin-header {
-
             display: flex;
-
             justify-content: space-between;
-
             gap: 20px;
-
             align-items: center;
-
             padding: 20px 24px;
-
-            border-bottom:
-                1px solid #30383d;
-
+            border-bottom: 1px solid #30383d;
             background: #0e1417;
-
         }
-
-
-        .member-admin-identity {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-        }
-
 
         .member-admin-name {
-
             margin: 0;
-
             color: #fff;
-
-            font:
-                600 22px
-                Oswald,
-                sans-serif;
-
+            font: 600 22px Oswald, sans-serif;
             text-transform: uppercase;
-
         }
-
 
         .member-admin-id {
-
             color: #778187;
-
             font-size: 10px;
-
             word-break: break-all;
-
         }
-
 
         .access-badge {
-
-            padding:
-                7px 11px;
-
-            border:
-                1px solid #c5a75b;
-
+            padding: 7px 11px;
+            border: 1px solid #c5a75b;
             color: #c5a75b;
-
-            font:
-                600 10px
-                Oswald,
-                sans-serif;
-
+            font: 600 10px Oswald, sans-serif;
             text-transform: uppercase;
-
             letter-spacing: 1px;
-
         }
-
-
-        /* =================================================
-           MEMBER FORM
-           ================================================= */
 
         .member-admin-body {
-
             padding: 24px;
-
         }
-
 
         .admin-form-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
-
         }
-
 
         .admin-field {
-
             display: grid;
-
             gap: 6px;
-
         }
-
 
         .admin-field.wide {
-
-            grid-column:
-                span 2;
-
+            grid-column: span 2;
         }
-
 
         .admin-field label {
-
             color: #c5a75b;
-
-            font:
-                500 10px
-                Oswald,
-                sans-serif;
-
+            font: 500 10px Oswald, sans-serif;
             text-transform: uppercase;
-
             letter-spacing: 1px;
-
         }
-
 
         .admin-field input,
         .admin-field select {
-
             width: 100%;
-
             min-height: 42px;
-
-            padding:
-                0 11px;
-
-            border:
-                1px solid #384147;
-
+            padding: 0 11px;
+            border: 1px solid #384147;
             background: #090e11;
-
             color: #fff;
-
             font-size: 13px;
-
         }
-
 
         .admin-field input:focus,
         .admin-field select:focus {
-
             outline: none;
-
             border-color: #c5a75b;
-
         }
-
-
-        .admin-field select {
-
-            cursor: pointer;
-
-        }
-
 
         .admin-form-actions {
-
             display: flex;
-
             justify-content: flex-end;
-
             align-items: center;
-
             gap: 12px;
-
             margin-top: 22px;
-
             padding-top: 20px;
-
-            border-top:
-                1px solid #293036;
-
+            border-top: 1px solid #293036;
         }
-
 
         .save-member-btn {
-
             min-height: 42px;
-
-            padding:
-                0 22px;
-
+            padding: 0 22px;
             border: 0;
-
             background: #c5a75b;
-
             color: #111;
-
             cursor: pointer;
-
-            font:
-                600 12px
-                Oswald,
-                sans-serif;
-
+            font: 600 12px Oswald, sans-serif;
             text-transform: uppercase;
-
             letter-spacing: 1px;
-
         }
-
 
         .save-member-btn:hover {
-
             background: #dac171;
-
         }
-
 
         .save-member-btn:disabled {
-
             opacity: 0.6;
-
             cursor: wait;
-
         }
-
 
         .save-status {
-
             color: #8f999e;
-
             font-size: 12px;
-
         }
-
 
         .save-status.success {
-
             color: #75d48c;
-
         }
-
 
         .save-status.error {
-
             color: #e47b7b;
-
         }
 
-
-        /* =================================================
-           EMPTY STATE
-           ================================================= */
-
         .admin-empty {
-
-            padding: 60px 20px;
-
+            padding: 45px 20px;
             text-align: center;
-
-            border:
-                1px solid #30383d;
-
+            border: 1px solid #30383d;
             color: #7e888d;
-
             background: #11171a;
-
         }
 
 
@@ -622,69 +539,57 @@
         @media (max-width: 1150px) {
 
             .admin-form-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
+                grid-template-columns: repeat(2, 1fr);
             }
 
         }
 
+        @media (max-width: 900px) {
+
+            .attendance-create {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .attendance-row {
+                grid-template-columns: 1fr;
+            }
+
+        }
 
         @media (max-width: 800px) {
 
             .admin-summary {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
+                grid-template-columns: repeat(2, 1fr);
             }
-
 
             .admin-toolbar {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-
             .member-admin-header {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                align-items: flex-start;
+                flex-direction: column;
             }
 
         }
 
-
         @media (max-width: 600px) {
 
             .admin-form-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .admin-field.wide {
-
-                grid-column:
-                    span 1;
-
+                grid-column: span 1;
             }
 
+            .attendance-create,
+            .attendance-event-bar {
+                grid-template-columns: 1fr;
+            }
 
-            .admin-summary {
-
-                grid-template-columns:
-                    1fr 1fr;
-
+            .attendance-panel-header {
+                flex-direction: column;
             }
 
         }
@@ -703,7 +608,6 @@
 
     <header class="site-header">
 
-
         <a
             class="brand"
             href="index.html"
@@ -713,17 +617,9 @@
                 21
             </div>
 
-
             <div>
-
-                <span>
-                    21ST CAVALRY
-                </span>
-
-                <small>
-                    DIVISION
-                </small>
-
+                <span>21ST CAVALRY</span>
+                <small>DIVISION</small>
             </div>
 
         </a>
@@ -740,29 +636,12 @@
 
         <nav class="main-nav">
 
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="members.html">
-                Member Portal
-            </a>
+            <a href="index.html">Home</a>
+            <a href="orbat.html">ORBAT</a>
+            <a href="training.html">Training</a>
+            <a href="resources.html">SOPs</a>
+            <a href="server.html">Server</a>
+            <a href="members.html">Member Portal</a>
 
             <a
                 href="admin.html"
@@ -800,7 +679,6 @@
                         hidden
                     >
 
-
                     <div class="member-profile-text">
 
                         <span id="memberName">
@@ -812,7 +690,6 @@
                         </small>
 
                     </div>
-
 
                     <button
                         class="member-logout-btn"
@@ -854,7 +731,7 @@
 
 
     <!-- ================================================= -->
-    <!-- LOADING -->
+    <!-- ACCESS SCREENS -->
     <!-- ================================================= -->
 
     <section
@@ -872,10 +749,6 @@
 
     </section>
 
-
-    <!-- ================================================= -->
-    <!-- LOGIN REQUIRED -->
-    <!-- ================================================= -->
 
     <section
         id="adminLoginRequired"
@@ -905,10 +778,6 @@
 
     </section>
 
-
-    <!-- ================================================= -->
-    <!-- ACCESS DENIED -->
-    <!-- ================================================= -->
 
     <section
         id="adminDenied"
@@ -940,7 +809,7 @@
 
 
     <!-- ================================================= -->
-    <!-- ADMIN DASHBOARD -->
+    <!-- ADMIN CONTENT -->
     <!-- ================================================= -->
 
     <main
@@ -954,66 +823,197 @@
 
         <section class="admin-summary">
 
-
             <div class="summary-card">
-
-                <span>
-                    Total Members
-                </span>
-
-                <strong id="totalMembers">
-                    0
-                </strong>
-
+                <span>Total Members</span>
+                <strong id="totalMembers">0</strong>
             </div>
 
-
             <div class="summary-card">
-
-                <span>
-                    Active
-                </span>
-
-                <strong id="activeMembers">
-                    0
-                </strong>
-
+                <span>Active</span>
+                <strong id="activeMembers">0</strong>
             </div>
 
-
             <div class="summary-card">
-
-                <span>
-                    Admins
-                </span>
-
-                <strong id="adminMembers">
-                    0
-                </strong>
-
+                <span>Admins</span>
+                <strong id="adminMembers">0</strong>
             </div>
 
-
             <div class="summary-card">
-
-                <span>
-                    Average Attendance
-                </span>
-
-                <strong id="averageAttendance">
-                    0%
-                </strong>
-
+                <span>Average Attendance</span>
+                <strong id="averageAttendance">0%</strong>
             </div>
-
 
         </section>
 
 
-        <!-- TOOLBAR -->
+        <!-- ================================================= -->
+        <!-- ATTENDANCE -->
+        <!-- ================================================= -->
+
+        <section class="attendance-panel">
+
+            <div class="attendance-panel-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        PERSONNEL ACCOUNTABILITY
+                    </p>
+
+                    <h2>
+                        Attendance Management
+                    </h2>
+
+                    <p>
+                        Create an official event and mark each member
+                        Present, Excused or Absent.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="refreshAttendance"
+                    class="attendance-action-btn secondary"
+                    type="button"
+                >
+                    Refresh Attendance
+                </button>
+
+            </div>
+
+
+            <!-- CREATE EVENT -->
+
+            <div class="attendance-create">
+
+                <input
+                    id="attendanceEventTitle"
+                    type="text"
+                    placeholder="Event name — Example: Weekly Training"
+                >
+
+
+                <select id="attendanceEventType">
+
+                    <option value="Training">
+                        Training
+                    </option>
+
+                    <option value="Operation">
+                        Operation
+                    </option>
+
+                    <option value="FTX">
+                        FTX
+                    </option>
+
+                    <option value="Meeting">
+                        Meeting
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    id="attendanceEventDate"
+                    type="date"
+                >
+
+
+                <button
+                    id="createAttendanceEvent"
+                    class="attendance-action-btn"
+                    type="button"
+                >
+                    Create Event
+                </button>
+
+            </div>
+
+
+            <!-- EVENT WORKSPACE -->
+
+            <div class="attendance-workspace">
+
+                <div class="attendance-event-bar">
+
+                    <select
+                        id="attendanceEventSelect"
+                        class="attendance-event-select"
+                    >
+
+                        <option value="">
+                            Select an attendance event...
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="deleteAttendanceEvent"
+                        class="attendance-action-btn secondary"
+                        type="button"
+                        disabled
+                    >
+                        Delete Event
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="attendanceEventDetails"
+                    class="attendance-event-details"
+                    hidden
+                ></div>
+
+
+                <div
+                    id="attendanceRoster"
+                    class="attendance-roster"
+                >
+
+                    <div class="admin-empty">
+                        Create or select an event to begin attendance.
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-footer">
+
+                    <span
+                        id="attendanceMessage"
+                        class="attendance-message"
+                    ></span>
+
+
+                    <button
+                        id="saveAttendance"
+                        class="attendance-action-btn"
+                        type="button"
+                        disabled
+                    >
+                        Save Attendance
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- MEMBER MANAGEMENT -->
+        <!-- ================================================= -->
 
         <section class="admin-toolbar">
-
 
             <input
                 id="memberSearch"
@@ -1021,7 +1021,6 @@
                 type="search"
                 placeholder="Search members by name, rank, billet, section..."
             >
-
 
             <button
                 id="refreshMembers"
@@ -1031,11 +1030,8 @@
                 Refresh Members
             </button>
 
-
         </section>
 
-
-        <!-- MEMBER LIST -->
 
         <section
             id="memberAdminList"
@@ -1058,26 +1054,16 @@
                 21
             </div>
 
-
             <div>
-
-                <span>
-                    21ST CAVALRY
-                </span>
-
-                <small>
-                    DIVISION
-                </small>
-
+                <span>21ST CAVALRY</span>
+                <small>DIVISION</small>
             </div>
 
         </div>
 
-
         <p>
             Swift. Silent. Relentless.
         </p>
-
 
         <div class="footer-links">
 
@@ -1095,7 +1081,6 @@
 
         </div>
 
-
         <p class="fineprint">
             Administrative access is restricted to authorized
             21st Cavalry Division personnel.
@@ -1112,8 +1097,7 @@
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
-
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
 
 
     <!-- ================================================= -->
@@ -1129,12 +1113,11 @@
 
 
                 /* =========================================
-                   SUPABASE CONFIGURATION
+                   SUPABASE
                    ========================================= */
 
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
-
 
                 const SUPABASE_KEY =
                     'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
@@ -1142,218 +1125,143 @@
 
                 const client =
                     window.supabase.createClient(
-
                         SUPABASE_URL,
-
                         SUPABASE_KEY
-
                     );
 
 
                 let allMembers = [];
 
+                let attendanceEvents = [];
+
+                let attendanceRecords = [];
+
+                let selectedAttendanceEventId =
+                    null;
+
+                let currentAdminUserId =
+                    null;
+
 
                 /* =========================================
-                   RANK OPTIONS
-                   
-                   Visible label includes pay grade.
-                   Stored value contains only rank name
-                   and abbreviation.
+                   RANKS
                    ========================================= */
 
                 const RANK_OPTIONS = [
 
                     {
-                        label:
-                            'Recruit',
-
-                        value:
-                            'Recruit'
-                    },
-
-
-                    /* ENLISTED */
-
-                    {
-                        label:
-                            'E-1 — Private (PVT)',
-
-                        value:
-                            'Private (PVT)'
+                        label: 'Recruit',
+                        value: 'Recruit'
                     },
 
                     {
-                        label:
-                            'E-2 — Private Second Class (PV2)',
-
-                        value:
-                            'Private Second Class (PV2)'
+                        label: 'E-1 — Private (PVT)',
+                        value: 'Private (PVT)'
                     },
 
                     {
-                        label:
-                            'E-3 — Private First Class (PFC)',
-
-                        value:
-                            'Private First Class (PFC)'
+                        label: 'E-2 — Private Second Class (PV2)',
+                        value: 'Private Second Class (PV2)'
                     },
 
                     {
-                        label:
-                            'E-4 — Specialist (SPC)',
-
-                        value:
-                            'Specialist (SPC)'
+                        label: 'E-3 — Private First Class (PFC)',
+                        value: 'Private First Class (PFC)'
                     },
 
                     {
-                        label:
-                            'E-4 — Corporal (CPL)',
-
-                        value:
-                            'Corporal (CPL)'
+                        label: 'E-4 — Specialist (SPC)',
+                        value: 'Specialist (SPC)'
                     },
 
                     {
-                        label:
-                            'E-5 — Sergeant (SGT)',
-
-                        value:
-                            'Sergeant (SGT)'
+                        label: 'E-4 — Corporal (CPL)',
+                        value: 'Corporal (CPL)'
                     },
 
                     {
-                        label:
-                            'E-6 — Staff Sergeant (SSG)',
-
-                        value:
-                            'Staff Sergeant (SSG)'
+                        label: 'E-5 — Sergeant (SGT)',
+                        value: 'Sergeant (SGT)'
                     },
 
                     {
-                        label:
-                            'E-7 — Sergeant First Class (SFC)',
-
-                        value:
-                            'Sergeant First Class (SFC)'
+                        label: 'E-6 — Staff Sergeant (SSG)',
+                        value: 'Staff Sergeant (SSG)'
                     },
 
                     {
-                        label:
-                            'E-8 — Master Sergeant (MSG)',
-
-                        value:
-                            'Master Sergeant (MSG)'
+                        label: 'E-7 — Sergeant First Class (SFC)',
+                        value: 'Sergeant First Class (SFC)'
                     },
 
                     {
-                        label:
-                            'E-8 — First Sergeant (1SG)',
-
-                        value:
-                            'First Sergeant (1SG)'
+                        label: 'E-8 — Master Sergeant (MSG)',
+                        value: 'Master Sergeant (MSG)'
                     },
 
                     {
-                        label:
-                            'E-9 — Sergeant Major (SGM)',
-
-                        value:
-                            'Sergeant Major (SGM)'
+                        label: 'E-8 — First Sergeant (1SG)',
+                        value: 'First Sergeant (1SG)'
                     },
 
                     {
-                        label:
-                            'E-9 — Command Sergeant Major (CSM)',
-
-                        value:
-                            'Command Sergeant Major (CSM)'
-                    },
-
-
-                    /* WARRANT OFFICERS */
-
-                    {
-                        label:
-                            'W-1 — Warrant Officer 1 (WO1)',
-
-                        value:
-                            'Warrant Officer 1 (WO1)'
+                        label: 'E-9 — Sergeant Major (SGM)',
+                        value: 'Sergeant Major (SGM)'
                     },
 
                     {
-                        label:
-                            'W-2 — Chief Warrant Officer 2 (CW2)',
-
-                        value:
-                            'Chief Warrant Officer 2 (CW2)'
+                        label: 'E-9 — Command Sergeant Major (CSM)',
+                        value: 'Command Sergeant Major (CSM)'
                     },
 
                     {
-                        label:
-                            'W-3 — Chief Warrant Officer 3 (CW3)',
-
-                        value:
-                            'Chief Warrant Officer 3 (CW3)'
+                        label: 'W-1 — Warrant Officer 1 (WO1)',
+                        value: 'Warrant Officer 1 (WO1)'
                     },
 
                     {
-                        label:
-                            'W-4 — Chief Warrant Officer 4 (CW4)',
-
-                        value:
-                            'Chief Warrant Officer 4 (CW4)'
+                        label: 'W-2 — Chief Warrant Officer 2 (CW2)',
+                        value: 'Chief Warrant Officer 2 (CW2)'
                     },
 
                     {
-                        label:
-                            'W-5 — Chief Warrant Officer 5 (CW5)',
-
-                        value:
-                            'Chief Warrant Officer 5 (CW5)'
-                    },
-
-
-                    /* COMMISSIONED OFFICERS */
-
-                    {
-                        label:
-                            'O-1 — Second Lieutenant (2LT)',
-
-                        value:
-                            'Second Lieutenant (2LT)'
+                        label: 'W-3 — Chief Warrant Officer 3 (CW3)',
+                        value: 'Chief Warrant Officer 3 (CW3)'
                     },
 
                     {
-                        label:
-                            'O-2 — First Lieutenant (1LT)',
-
-                        value:
-                            'First Lieutenant (1LT)'
+                        label: 'W-4 — Chief Warrant Officer 4 (CW4)',
+                        value: 'Chief Warrant Officer 4 (CW4)'
                     },
 
                     {
-                        label:
-                            'O-3 — Captain (CPT)',
-
-                        value:
-                            'Captain (CPT)'
+                        label: 'W-5 — Chief Warrant Officer 5 (CW5)',
+                        value: 'Chief Warrant Officer 5 (CW5)'
                     },
 
                     {
-                        label:
-                            'O-4 — Major (MAJ)',
-
-                        value:
-                            'Major (MAJ)'
+                        label: 'O-1 — Second Lieutenant (2LT)',
+                        value: 'Second Lieutenant (2LT)'
                     },
 
                     {
-                        label:
-                            'O-5 — Lieutenant Colonel (LTC)',
+                        label: 'O-2 — First Lieutenant (1LT)',
+                        value: 'First Lieutenant (1LT)'
+                    },
 
-                        value:
-                            'Lieutenant Colonel (LTC)'
+                    {
+                        label: 'O-3 — Captain (CPT)',
+                        value: 'Captain (CPT)'
+                    },
+
+                    {
+                        label: 'O-4 — Major (MAJ)',
+                        value: 'Major (MAJ)'
+                    },
+
+                    {
+                        label: 'O-5 — Lieutenant Colonel (LTC)',
+                        value: 'Lieutenant Colonel (LTC)'
                     }
 
                 ];
@@ -1368,40 +1276,89 @@
                         'adminLoading'
                     );
 
-
                 const loginRequired =
                     document.getElementById(
                         'adminLoginRequired'
                     );
-
 
                 const denied =
                     document.getElementById(
                         'adminDenied'
                     );
 
-
                 const content =
                     document.getElementById(
                         'adminContent'
                     );
-
 
                 const memberList =
                     document.getElementById(
                         'memberAdminList'
                     );
 
-
                 const search =
                     document.getElementById(
                         'memberSearch'
                     );
 
-
                 const refresh =
                     document.getElementById(
                         'refreshMembers'
+                    );
+
+                const attendanceEventTitle =
+                    document.getElementById(
+                        'attendanceEventTitle'
+                    );
+
+                const attendanceEventType =
+                    document.getElementById(
+                        'attendanceEventType'
+                    );
+
+                const attendanceEventDate =
+                    document.getElementById(
+                        'attendanceEventDate'
+                    );
+
+                const createAttendanceEvent =
+                    document.getElementById(
+                        'createAttendanceEvent'
+                    );
+
+                const attendanceEventSelect =
+                    document.getElementById(
+                        'attendanceEventSelect'
+                    );
+
+                const attendanceEventDetails =
+                    document.getElementById(
+                        'attendanceEventDetails'
+                    );
+
+                const attendanceRoster =
+                    document.getElementById(
+                        'attendanceRoster'
+                    );
+
+                const attendanceMessage =
+                    document.getElementById(
+                        'attendanceMessage'
+                    );
+
+                const saveAttendance =
+                    document.getElementById(
+                        'saveAttendance'
+                    );
+
+                const deleteAttendanceEvent =
+                    document.getElementById(
+                        'deleteAttendanceEvent'
+                    );
+
+                const refreshAttendance =
+                    document.getElementById(
+                        'refreshAttendance'
                     );
 
 
@@ -1409,28 +1366,19 @@
                    SCREEN HANDLER
                    ========================================= */
 
-                function showScreen(
-                    screen
-                ) {
+                function showScreen(screen) {
 
                     loading.hidden =
-                        screen !==
-                        'loading';
-
+                        screen !== 'loading';
 
                     loginRequired.hidden =
-                        screen !==
-                        'login';
-
+                        screen !== 'login';
 
                     denied.hidden =
-                        screen !==
-                        'denied';
-
+                        screen !== 'denied';
 
                     content.hidden =
-                        screen !==
-                        'admin';
+                        screen !== 'admin';
 
                 }
 
@@ -1439,9 +1387,7 @@
                    ESCAPE HTML
                    ========================================= */
 
-                function escapeHtml(
-                    value
-                ) {
+                function escapeHtml(value) {
 
                     return String(
                         value ?? ''
@@ -1476,7 +1422,7 @@
 
 
                 /* =========================================
-                   STANDARD SELECT OPTIONS
+                   OPTIONS
                    ========================================= */
 
                 function optionList(
@@ -1487,7 +1433,6 @@
                     return options
 
                         .map(
-
                             value => {
 
                                 const isSelected =
@@ -1497,26 +1442,16 @@
                                     :
                                     '';
 
-
                                 return `
-
                                     <option
-                                        value="${escapeHtml(
-                                            value
-                                        )}"
+                                        value="${escapeHtml(value)}"
                                         ${isSelected}
                                     >
-
-                                        ${escapeHtml(
-                                            value
-                                        )}
-
+                                        ${escapeHtml(value)}
                                     </option>
-
                                 `;
 
                             }
-
                         )
 
                         .join('');
@@ -1524,48 +1459,30 @@
                 }
 
 
-                /* =========================================
-                   RANK SELECT OPTIONS
-                   ========================================= */
-
-                function rankOptionList(
-                    selected
-                ) {
+                function rankOptionList(selected) {
 
                     return RANK_OPTIONS
 
                         .map(
-
                             rank => {
 
                                 const isSelected =
-                                    rank.value ===
-                                    selected
+                                    rank.value === selected
                                     ?
                                     'selected'
                                     :
                                     '';
 
-
                                 return `
-
                                     <option
-                                        value="${escapeHtml(
-                                            rank.value
-                                        )}"
+                                        value="${escapeHtml(rank.value)}"
                                         ${isSelected}
                                     >
-
-                                        ${escapeHtml(
-                                            rank.label
-                                        )}
-
+                                        ${escapeHtml(rank.label)}
                                     </option>
-
                                 `;
 
                             }
-
                         )
 
                         .join('');
@@ -1585,17 +1502,14 @@
 
                     const active =
                         allMembers.filter(
-
                             member =>
                                 member.member_status ===
                                 'Active'
-
                         ).length;
 
 
                     const admins =
                         allMembers.filter(
-
                             member =>
 
                                 member.access_level ===
@@ -1617,7 +1531,6 @@
                         Math.round(
 
                             allMembers.reduce(
-
                                 (
                                     totalValue,
                                     member
@@ -1632,7 +1545,6 @@
                                     ),
 
                                 0
-
                             )
 
                             /
@@ -1675,38 +1587,28 @@
                             'averageAttendance'
                         )
                         .textContent =
-                            attendance +
-                            '%';
+                            attendance + '%';
 
                 }
 
 
                 /* =========================================
-                   RENDER MEMBERS
+                   MEMBER CARDS
                    ========================================= */
 
-                function renderMembers(
-                    members
-                ) {
+                function renderMembers(members) {
 
                     memberList.innerHTML =
                         '';
 
 
-                    if (
-                        !members.length
-                    ) {
+                    if (!members.length) {
 
                         memberList.innerHTML = `
-
                             <div class="admin-empty">
-
                                 No members found.
-
                             </div>
-
                         `;
-
 
                         return;
 
@@ -1714,7 +1616,6 @@
 
 
                     members.forEach(
-
                         member => {
 
 
@@ -1745,63 +1646,42 @@
 
                             card.innerHTML = `
 
-
                                 <div class="member-admin-header">
 
+                                    <div>
 
-                                    <div class="member-admin-identity">
+                                        <h2 class="member-admin-name">
+                                            ${escapeHtml(
+                                                member.display_name
+                                                ||
+                                                'Member'
+                                            )}
+                                        </h2>
 
-
-                                        <div>
-
-
-                                            <h2 class="member-admin-name">
-
-                                                ${escapeHtml(
-                                                    member.display_name
-                                                    ||
-                                                    'Member'
-                                                )}
-
-                                            </h2>
-
-
-                                            <div class="member-admin-id">
-
-                                                ${escapeHtml(
-                                                    member.user_id
-                                                )}
-
-                                            </div>
-
-
+                                        <div class="member-admin-id">
+                                            ${escapeHtml(
+                                                member.user_id
+                                            )}
                                         </div>
-
 
                                     </div>
 
 
                                     <div class="access-badge">
-
                                         ${escapeHtml(
                                             member.access_level
                                             ||
                                             'Member'
                                         )}
-
                                     </div>
-
 
                                 </div>
 
 
                                 <div class="member-admin-body">
 
-
                                     <div class="admin-form-grid">
 
-
-                                        <!-- DISPLAY NAME -->
 
                                         <div class="admin-field">
 
@@ -1821,8 +1701,6 @@
                                         </div>
 
 
-                                        <!-- RANK -->
-
                                         <div class="admin-field">
 
                                             <label>
@@ -1832,19 +1710,15 @@
                                             <select
                                                 data-field="rank"
                                             >
-
                                                 ${rankOptionList(
                                                     member.rank
                                                     ||
                                                     'Recruit'
                                                 )}
-
                                             </select>
 
                                         </div>
 
-
-                                        <!-- BILLET -->
 
                                         <div class="admin-field">
 
@@ -1864,8 +1738,6 @@
                                         </div>
 
 
-                                        <!-- SECTION -->
-
                                         <div class="admin-field">
 
                                             <label>
@@ -1884,8 +1756,6 @@
                                         </div>
 
 
-                                        <!-- MEMBER ROLE -->
-
                                         <div class="admin-field">
 
                                             <label>
@@ -1895,7 +1765,6 @@
                                             <select
                                                 data-field="member_role"
                                             >
-
                                                 ${optionList(
                                                     [
                                                         'Member',
@@ -1903,18 +1772,14 @@
                                                         'Officer',
                                                         'Command'
                                                     ],
-
                                                     member.member_role
                                                     ||
                                                     'Member'
                                                 )}
-
                                             </select>
 
                                         </div>
 
-
-                                        <!-- STATUS -->
 
                                         <div class="admin-field">
 
@@ -1925,7 +1790,6 @@
                                             <select
                                                 data-field="member_status"
                                             >
-
                                                 ${optionList(
                                                     [
                                                         'Active',
@@ -1933,18 +1797,14 @@
                                                         'Reserve',
                                                         'Inactive'
                                                     ],
-
                                                     member.member_status
                                                     ||
                                                     'Active'
                                                 )}
-
                                             </select>
 
                                         </div>
 
-
-                                        <!-- ACCESS -->
 
                                         <div class="admin-field">
 
@@ -1955,7 +1815,6 @@
                                             <select
                                                 data-field="access_level"
                                             >
-
                                                 ${optionList(
                                                     [
                                                         'Member',
@@ -1964,41 +1823,32 @@
                                                         'Admin',
                                                         'Super Admin'
                                                     ],
-
                                                     member.access_level
                                                     ||
                                                     'Member'
                                                 )}
-
                                             </select>
 
                                         </div>
 
 
-                                        <!-- ATTENDANCE -->
-
                                         <div class="admin-field">
 
                                             <label>
-                                                Attendance %
+                                                Attendance
                                             </label>
 
                                             <input
-                                                data-field="attendance_rate"
-                                                type="number"
-                                                min="0"
-                                                max="100"
                                                 value="${escapeHtml(
                                                     member.attendance_rate
                                                     ??
                                                     0
-                                                )}"
+                                                )}%"
+                                                disabled
                                             >
 
                                         </div>
 
-
-                                        <!-- JOIN DATE -->
 
                                         <div class="admin-field">
 
@@ -2018,8 +1868,6 @@
 
                                         </div>
 
-
-                                        <!-- QUALIFICATIONS -->
 
                                         <div class="admin-field wide">
 
@@ -2043,26 +1891,20 @@
 
                                     <div class="admin-form-actions">
 
-
                                         <span
                                             class="save-status"
                                             data-save-status
                                         ></span>
-
 
                                         <button
                                             class="save-member-btn"
                                             type="button"
                                             data-save-member
                                         >
-
                                             Save Member
-
                                         </button>
 
-
                                     </div>
-
 
                                 </div>
 
@@ -2076,7 +1918,6 @@
 
 
                             saveButton.addEventListener(
-
                                 'click',
 
                                 () => {
@@ -2088,7 +1929,6 @@
                                     );
 
                                 }
-
                             );
 
 
@@ -2097,7 +1937,6 @@
                             );
 
                         }
-
                     );
 
                 }
@@ -2129,39 +1968,6 @@
                             '';
 
 
-                    let attendance =
-                        Number(
-
-                            getValue(
-                                'attendance_rate'
-                            )
-
-                        );
-
-
-                    if (
-                        Number.isNaN(
-                            attendance
-                        )
-                    ) {
-
-                        attendance =
-                            0;
-
-                    }
-
-
-                    attendance =
-                        Math.max(
-                            0,
-
-                            Math.min(
-                                100,
-                                attendance
-                            )
-                        );
-
-
                     const qualificationText =
                         getValue(
                             'qualifications'
@@ -2185,63 +1991,40 @@
 
                     const updateData = {
 
-
                         display_name:
                             getValue(
                                 'display_name'
                             ),
-
-
-                        /*
-                         * Rank value is already the clean
-                         * version:
-                         *
-                         * Staff Sergeant (SSG)
-                         *
-                         * rather than:
-                         *
-                         * E-6 — Staff Sergeant (SSG)
-                         */
 
                         rank:
                             getValue(
                                 'rank'
                             ),
 
-
                         billet:
                             getValue(
                                 'billet'
                             ),
-
 
                         section:
                             getValue(
                                 'section'
                             ),
 
-
                         member_role:
                             getValue(
                                 'member_role'
                             ),
-
 
                         member_status:
                             getValue(
                                 'member_status'
                             ),
 
-
                         access_level:
                             getValue(
                                 'access_level'
                             ),
-
-
-                        attendance_rate:
-                            attendance,
-
 
                         join_date:
                             getValue(
@@ -2250,10 +2033,8 @@
                             ||
                             null,
 
-
                         qualifications:
                             qualifications,
-
 
                         updated_at:
                             new Date()
@@ -2299,20 +2080,16 @@
 
                     if (error) {
 
-
                         console.error(
                             'Member update failed:',
                             error
                         );
 
-
                         status.className =
                             'save-status error';
 
-
                         status.textContent =
                             error.message;
-
 
                         return;
 
@@ -2322,12 +2099,13 @@
                     status.className =
                         'save-status success';
 
-
                     status.textContent =
                         'Saved successfully';
 
 
                     await loadMembers();
+
+                    renderAttendanceRoster();
 
                 }
 
@@ -2348,9 +2126,7 @@
                                 'member_profiles'
                             )
 
-                            .select(
-                                '*'
-                            )
+                            .select('*')
 
                             .order(
                                 'display_name',
@@ -2363,23 +2139,16 @@
 
                     if (error) {
 
-
                         console.error(
                             'Could not load members:',
                             error
                         );
 
-
                         memberList.innerHTML = `
-
                             <div class="admin-empty">
-
                                 Unable to load members.
-
                             </div>
-
                         `;
-
 
                         return;
 
@@ -2401,7 +2170,1124 @@
 
 
                 /* =========================================
-                   SEARCH
+                   ATTENDANCE MESSAGES
+                   ========================================= */
+
+                function setAttendanceMessage(
+                    message,
+                    type = ''
+                ) {
+
+                    attendanceMessage.className =
+                        'attendance-message' +
+                        (
+                            type
+                            ?
+                            ' ' + type
+                            :
+                            ''
+                        );
+
+
+                    attendanceMessage.textContent =
+                        message || '';
+
+                }
+
+
+                function formatAttendanceDate(value) {
+
+                    if (!value) {
+                        return '';
+                    }
+
+
+                    const date =
+                        new Date(
+                            value +
+                            'T00:00:00'
+                        );
+
+
+                    return date.toLocaleDateString(
+                        undefined,
+                        {
+                            year:
+                                'numeric',
+
+                            month:
+                                'long',
+
+                            day:
+                                'numeric'
+                        }
+                    );
+
+                }
+
+
+                /* =========================================
+                   EVENT SELECT
+                   ========================================= */
+
+                function renderAttendanceEventOptions() {
+
+                    const currentValue =
+                        selectedAttendanceEventId
+
+                        ?
+
+                        String(
+                            selectedAttendanceEventId
+                        )
+
+                        :
+
+                        '';
+
+
+                    attendanceEventSelect.innerHTML =
+
+                        '<option value="">Select an attendance event...</option>'
+
+                        +
+
+                        attendanceEvents
+
+                            .map(
+                                event => `
+
+                                    <option
+                                        value="${event.id}"
+
+                                        ${
+                                            String(
+                                                event.id
+                                            ) ===
+                                            currentValue
+
+                                            ?
+
+                                            'selected'
+
+                                            :
+
+                                            ''
+                                        }
+                                    >
+
+                                        ${escapeHtml(
+                                            event.event_date
+                                        )}
+
+                                        —
+
+                                        ${escapeHtml(
+                                            event.title
+                                        )}
+
+                                    </option>
+
+                                `
+                            )
+
+                            .join('');
+
+                }
+
+
+                /* =========================================
+                   ATTENDANCE ROSTER
+                   ========================================= */
+
+                function renderAttendanceRoster() {
+
+                    const event =
+                        attendanceEvents.find(
+                            item =>
+
+                                String(
+                                    item.id
+                                )
+
+                                ===
+
+                                String(
+                                    selectedAttendanceEventId
+                                )
+                        );
+
+
+                    if (!event) {
+
+                        attendanceEventDetails.hidden =
+                            true;
+
+
+                        attendanceRoster.innerHTML = `
+                            <div class="admin-empty">
+                                Create or select an event to begin attendance.
+                            </div>
+                        `;
+
+
+                        saveAttendance.disabled =
+                            true;
+
+
+                        deleteAttendanceEvent.disabled =
+                            true;
+
+
+                        return;
+
+                    }
+
+
+                    attendanceEventDetails.hidden =
+                        false;
+
+
+                    attendanceEventDetails.innerHTML = `
+
+                        <strong>
+                            ${escapeHtml(
+                                event.title
+                            )}
+                        </strong>
+
+                        &nbsp;•&nbsp;
+
+                        ${escapeHtml(
+                            event.event_type
+                        )}
+
+                        &nbsp;•&nbsp;
+
+                        ${escapeHtml(
+                            formatAttendanceDate(
+                                event.event_date
+                            )
+                        )}
+
+                    `;
+
+
+                    deleteAttendanceEvent.disabled =
+                        false;
+
+
+                    if (!allMembers.length) {
+
+                        attendanceRoster.innerHTML = `
+                            <div class="admin-empty">
+                                No members are available.
+                            </div>
+                        `;
+
+                        saveAttendance.disabled =
+                            true;
+
+                        return;
+
+                    }
+
+
+                    attendanceRoster.innerHTML =
+
+                        allMembers
+
+                            .map(
+                                member => {
+
+
+                                    const record =
+                                        attendanceRecords.find(
+                                            item =>
+                                                item.user_id ===
+                                                member.user_id
+                                        );
+
+
+                                    const attendanceStatus =
+                                        record?.status
+                                        ||
+                                        'Absent';
+
+
+                                    return `
+
+                                        <div
+                                            class="attendance-row"
+                                            data-attendance-user="${escapeHtml(
+                                                member.user_id
+                                            )}"
+                                            data-attendance-status="${escapeHtml(
+                                                attendanceStatus
+                                            )}"
+                                        >
+
+
+                                            <div>
+
+                                                <div class="attendance-member-name">
+
+                                                    ${escapeHtml(
+                                                        member.rank
+                                                        ||
+                                                        'Recruit'
+                                                    )}
+
+                                                    ${escapeHtml(
+                                                        member.display_name
+                                                        ||
+                                                        'Member'
+                                                    )}
+
+                                                </div>
+
+
+                                                <div class="attendance-member-meta">
+
+                                                    ${escapeHtml(
+                                                        member.section
+                                                        ||
+                                                        'Unassigned'
+                                                    )}
+
+                                                    •
+
+                                                    ${escapeHtml(
+                                                        member.billet
+                                                        ||
+                                                        'Unassigned'
+                                                    )}
+
+                                                    •
+
+                                                    Current Rate:
+
+                                                    ${escapeHtml(
+                                                        member.attendance_rate
+                                                        ??
+                                                        0
+                                                    )}%
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="attendance-status-group">
+
+                                                ${[
+                                                    'Present',
+                                                    'Excused',
+                                                    'Absent'
+                                                ]
+
+                                                    .map(
+                                                        option => `
+
+                                                            <button
+                                                                class="attendance-status ${
+                                                                    attendanceStatus ===
+                                                                    option
+
+                                                                    ?
+
+                                                                    'active'
+
+                                                                    :
+
+                                                                    ''
+                                                                }"
+                                                                type="button"
+                                                                data-attendance-choice="${option}"
+                                                            >
+
+                                                                ${option}
+
+                                                            </button>
+
+                                                        `
+                                                    )
+
+                                                    .join('')}
+
+                                            </div>
+
+
+                                        </div>
+
+                                    `;
+
+                                }
+                            )
+
+                            .join('');
+
+
+                    attendanceRoster
+
+                        .querySelectorAll(
+                            '[data-attendance-choice]'
+                        )
+
+                        .forEach(
+                            button => {
+
+
+                                button.addEventListener(
+                                    'click',
+
+                                    () => {
+
+
+                                        const row =
+                                            button.closest(
+                                                '[data-attendance-user]'
+                                            );
+
+
+                                        row.dataset.attendanceStatus =
+                                            button.dataset.attendanceChoice;
+
+
+                                        row
+
+                                            .querySelectorAll(
+                                                '[data-attendance-choice]'
+                                            )
+
+                                            .forEach(
+                                                item =>
+                                                    item.classList.remove(
+                                                        'active'
+                                                    )
+                                            );
+
+
+                                        button.classList.add(
+                                            'active'
+                                        );
+
+
+                                        setAttendanceMessage(
+                                            'Unsaved attendance changes.'
+                                        );
+
+                                    }
+                                );
+
+                            }
+                        );
+
+
+                    saveAttendance.disabled =
+                        false;
+
+                }
+
+
+                /* =========================================
+                   LOAD EVENTS
+                   ========================================= */
+
+                async function loadAttendanceEvents(
+                    preserveSelection = true
+                ) {
+
+                    const previous =
+                        preserveSelection
+
+                        ?
+
+                        selectedAttendanceEventId
+
+                        :
+
+                        null;
+
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_events'
+                            )
+
+                            .select('*')
+
+                            .order(
+                                'event_date',
+                                {
+                                    ascending:
+                                        false
+                                }
+                            )
+
+                            .order(
+                                'id',
+                                {
+                                    ascending:
+                                        false
+                                }
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Could not load attendance events:',
+                            error
+                        );
+
+
+                        setAttendanceMessage(
+                            error.message,
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    attendanceEvents =
+                        data || [];
+
+
+                    if (
+                        previous
+                        &&
+                        attendanceEvents.some(
+                            event =>
+
+                                String(
+                                    event.id
+                                )
+
+                                ===
+
+                                String(
+                                    previous
+                                )
+                        )
+                    ) {
+
+                        selectedAttendanceEventId =
+                            previous;
+
+                    }
+
+                    else {
+
+                        selectedAttendanceEventId =
+                            attendanceEvents[0]?.id
+                            ||
+                            null;
+
+                    }
+
+
+                    renderAttendanceEventOptions();
+
+
+                    await loadAttendanceRecords();
+
+                }
+
+
+                /* =========================================
+                   LOAD ATTENDANCE RECORDS
+                   ========================================= */
+
+                async function loadAttendanceRecords() {
+
+                    if (!selectedAttendanceEventId) {
+
+                        attendanceRecords =
+                            [];
+
+
+                        renderAttendanceRoster();
+
+
+                        return;
+
+                    }
+
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_records'
+                            )
+
+                            .select('*')
+
+                            .eq(
+                                'event_id',
+                                selectedAttendanceEventId
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Could not load attendance records:',
+                            error
+                        );
+
+
+                        setAttendanceMessage(
+                            error.message,
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    attendanceRecords =
+                        data || [];
+
+
+                    renderAttendanceRoster();
+
+                }
+
+
+                /* =========================================
+                   CREATE EVENT
+                   ========================================= */
+
+                async function createEvent() {
+
+                    const title =
+                        attendanceEventTitle
+                            .value
+                            .trim();
+
+
+                    const eventType =
+                        attendanceEventType
+                            .value;
+
+
+                    const eventDate =
+                        attendanceEventDate
+                            .value;
+
+
+                    if (!title) {
+
+                        setAttendanceMessage(
+                            'Enter an event name.',
+                            'error'
+                        );
+
+                        attendanceEventTitle.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!eventDate) {
+
+                        setAttendanceMessage(
+                            'Select an event date.',
+                            'error'
+                        );
+
+                        attendanceEventDate.focus();
+
+                        return;
+
+                    }
+
+
+                    createAttendanceEvent.disabled =
+                        true;
+
+
+                    setAttendanceMessage(
+                        'Creating event...'
+                    );
+
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_events'
+                            )
+
+                            .insert({
+
+                                title:
+                                    title,
+
+                                event_type:
+                                    eventType,
+
+                                event_date:
+                                    eventDate,
+
+                                counts_for_attendance:
+                                    true,
+
+                                created_by:
+                                    currentAdminUserId
+
+                            })
+
+                            .select()
+
+                            .single();
+
+
+                    createAttendanceEvent.disabled =
+                        false;
+
+
+                    if (error) {
+
+                        console.error(
+                            'Attendance event creation failed:',
+                            error
+                        );
+
+
+                        setAttendanceMessage(
+                            error.message,
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    attendanceEventTitle.value =
+                        '';
+
+
+                    selectedAttendanceEventId =
+                        data.id;
+
+
+                    await loadAttendanceEvents(
+                        true
+                    );
+
+
+                    setAttendanceMessage(
+                        'Event created. Mark the roster and save attendance.',
+                        'success'
+                    );
+
+                }
+
+
+                /* =========================================
+                   SAVE ATTENDANCE
+                   ========================================= */
+
+                async function saveAttendanceRecords() {
+
+                    if (!selectedAttendanceEventId) {
+                        return;
+                    }
+
+
+                    const rows = [
+
+                        ...attendanceRoster
+                            .querySelectorAll(
+                                '[data-attendance-user]'
+                            )
+
+                    ];
+
+
+                    if (!rows.length) {
+                        return;
+                    }
+
+
+                    saveAttendance.disabled =
+                        true;
+
+
+                    setAttendanceMessage(
+                        'Saving attendance...'
+                    );
+
+
+                    const records =
+                        rows.map(
+                            row => ({
+
+                                event_id:
+                                    Number(
+                                        selectedAttendanceEventId
+                                    ),
+
+                                user_id:
+                                    row.dataset
+                                        .attendanceUser,
+
+                                status:
+                                    row.dataset
+                                        .attendanceStatus
+                                    ||
+                                    'Absent',
+
+                                marked_by:
+                                    currentAdminUserId,
+
+                                updated_at:
+                                    new Date()
+                                        .toISOString()
+
+                            })
+                        );
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_records'
+                            )
+
+                            .upsert(
+                                records,
+                                {
+                                    onConflict:
+                                        'event_id,user_id'
+                                }
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Attendance save failed:',
+                            error
+                        );
+
+
+                        setAttendanceMessage(
+                            error.message,
+                            'error'
+                        );
+
+
+                        saveAttendance.disabled =
+                            false;
+
+
+                        return;
+
+                    }
+
+
+                    await loadMembers();
+
+                    await loadAttendanceRecords();
+
+
+                    setAttendanceMessage(
+                        'Attendance saved and member rates updated.',
+                        'success'
+                    );
+
+
+                    saveAttendance.disabled =
+                        false;
+
+                }
+
+
+                /* =========================================
+                   DELETE EVENT
+                   ========================================= */
+
+                async function deleteEvent() {
+
+                    if (!selectedAttendanceEventId) {
+                        return;
+                    }
+
+
+                    const event =
+                        attendanceEvents.find(
+                            item =>
+
+                                String(
+                                    item.id
+                                )
+
+                                ===
+
+                                String(
+                                    selectedAttendanceEventId
+                                )
+                        );
+
+
+                    if (!event) {
+                        return;
+                    }
+
+
+                    const confirmed =
+                        window.confirm(
+
+                            `Delete "${event.title}" and all attendance records for this event?`
+
+                        );
+
+
+                    if (!confirmed) {
+                        return;
+                    }
+
+
+                    deleteAttendanceEvent.disabled =
+                        true;
+
+
+                    setAttendanceMessage(
+                        'Deleting event...'
+                    );
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_events'
+                            )
+
+                            .delete()
+
+                            .eq(
+                                'id',
+                                selectedAttendanceEventId
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Attendance event deletion failed:',
+                            error
+                        );
+
+
+                        setAttendanceMessage(
+                            error.message,
+                            'error'
+                        );
+
+
+                        deleteAttendanceEvent.disabled =
+                            false;
+
+
+                        return;
+
+                    }
+
+
+                    selectedAttendanceEventId =
+                        null;
+
+
+                    /*
+                     * Recalculate every member after deleting
+                     * an event because its attendance records
+                     * were removed by cascade.
+                     */
+
+                    for (
+                        const member
+                        of allMembers
+                    ) {
+
+                        const {
+                            error:
+                                refreshError
+                        } =
+                            await client.rpc(
+
+                                'refresh_member_attendance',
+
+                                {
+                                    p_user_id:
+                                        member.user_id
+                                }
+
+                            );
+
+
+                        if (refreshError) {
+
+                            console.error(
+                                'Attendance refresh failed:',
+                                refreshError
+                            );
+
+                        }
+
+                    }
+
+
+                    await loadMembers();
+
+
+                    await loadAttendanceEvents(
+                        false
+                    );
+
+
+                    setAttendanceMessage(
+                        'Attendance event deleted.',
+                        'success'
+                    );
+
+                }
+
+
+                /* =========================================
+                   ATTENDANCE EVENTS
+                   ========================================= */
+
+                attendanceEventSelect
+                    .addEventListener(
+
+                        'change',
+
+                        async () => {
+
+
+                            selectedAttendanceEventId =
+
+                                attendanceEventSelect.value
+
+                                ?
+
+                                Number(
+                                    attendanceEventSelect.value
+                                )
+
+                                :
+
+                                null;
+
+
+                            setAttendanceMessage(
+                                ''
+                            );
+
+
+                            await loadAttendanceRecords();
+
+                        }
+
+                    );
+
+
+                createAttendanceEvent
+                    .addEventListener(
+                        'click',
+                        createEvent
+                    );
+
+
+                saveAttendance
+                    .addEventListener(
+                        'click',
+                        saveAttendanceRecords
+                    );
+
+
+                deleteAttendanceEvent
+                    .addEventListener(
+                        'click',
+                        deleteEvent
+                    );
+
+
+                refreshAttendance
+                    .addEventListener(
+
+                        'click',
+
+                        async () => {
+
+
+                            setAttendanceMessage(
+                                'Refreshing attendance...'
+                            );
+
+
+                            await loadMembers();
+
+
+                            await loadAttendanceEvents(
+                                true
+                            );
+
+
+                            setAttendanceMessage(
+                                'Attendance refreshed.',
+                                'success'
+                            );
+
+                        }
+
+                    );
+
+
+                /*
+                 * Set today's date automatically.
+                 */
+
+                attendanceEventDate.value =
+                    new Date()
+                        .toISOString()
+                        .slice(
+                            0,
+                            10
+                        );
+
+
+                /* =========================================
+                   MEMBER SEARCH
                    ========================================= */
 
                 search.addEventListener(
@@ -2421,11 +3307,9 @@
 
                         if (!query) {
 
-
                             renderMembers(
                                 allMembers
                             );
-
 
                             return;
 
@@ -2434,7 +3318,6 @@
 
                         const results =
                             allMembers.filter(
-
                                 member => {
 
 
@@ -2466,7 +3349,6 @@
                                     );
 
                                 }
-
                             );
 
 
@@ -2480,14 +3362,20 @@
 
 
                 /* =========================================
-                   REFRESH
+                   REFRESH MEMBERS
                    ========================================= */
 
                 refresh.addEventListener(
 
                     'click',
 
-                    loadMembers
+                    async () => {
+
+                        await loadMembers();
+
+                        renderAttendanceRoster();
+
+                    }
 
                 );
 
@@ -2522,19 +3410,21 @@
                     !session?.user
                 ) {
 
-
                     showScreen(
                         'login'
                     );
-
 
                     return;
 
                 }
 
 
+                currentAdminUserId =
+                    session.user.id;
+
+
                 /* =========================================
-                   GET CURRENT ADMIN PROFILE
+                   GET ADMIN PROFILE
                    ========================================= */
 
                 const {
@@ -2551,9 +3441,7 @@
                             'member_profiles'
                         )
 
-                        .select(
-                            '*'
-                        )
+                        .select('*')
 
                         .eq(
                             'user_id',
@@ -2568,7 +3456,6 @@
                     ||
                     !profile
                 ) {
-
 
                     console.error(
                         'Admin profile error:',
@@ -2587,7 +3474,7 @@
 
 
                 /* =========================================
-                   CHECK ADMIN ACCESS
+                   CHECK ACCESS
                    ========================================= */
 
                 const authorized =
@@ -2603,11 +3490,9 @@
 
                 if (!authorized) {
 
-
                     showScreen(
                         'denied'
                     );
-
 
                     return;
 
@@ -2615,7 +3500,7 @@
 
 
                 /* =========================================
-                   LOAD ADMIN PORTAL
+                   START ADMIN PORTAL
                    ========================================= */
 
                 showScreen(
@@ -2624,6 +3509,11 @@
 
 
                 await loadMembers();
+
+
+                await loadAttendanceEvents(
+                    false
+                );
 
             }
 
