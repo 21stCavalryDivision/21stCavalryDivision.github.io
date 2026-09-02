@@ -1,6 +1,6 @@
 // =========================================================
 // 21ST CAVALRY DIVISION
-// MAIN WEBSITE JAVASCRIPT
+// WEBSITE JAVASCRIPT
 // =========================================================
 
 
@@ -24,6 +24,7 @@ if (toggle && nav) {
             const open =
                 nav.classList.toggle('open');
 
+
             toggle.setAttribute(
                 'aria-expanded',
                 open
@@ -36,7 +37,7 @@ if (toggle && nav) {
 
 
 // =========================================================
-// SCROLL REVEAL ANIMATIONS
+// SCROLL REVEAL
 // =========================================================
 
 const observer =
@@ -48,9 +49,7 @@ const observer =
 
                 entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    if (entry.isIntersecting) {
 
                         entry.target.classList.add(
                             'visible'
@@ -87,7 +86,7 @@ document
 
 
 // =========================================================
-// ENLISTMENT APPLICATION COPY SYSTEM
+// APPLICATION COPY SYSTEM
 // =========================================================
 
 const copyBtn =
@@ -153,6 +152,12 @@ ${get('appWhy')}`;
 
             catch (error) {
 
+                console.error(
+                    'Application copy failed:',
+                    error
+                );
+
+
                 if (status) {
 
                     status.textContent =
@@ -170,25 +175,24 @@ ${get('appWhy')}`;
 
 
 // =========================================================
-// SUPABASE + DISCORD LOGIN
+// SUPABASE CONFIGURATION
 // =========================================================
-
-
-// ---------------------------------------------------------
-// SUPABASE PROJECT CONFIGURATION
-// ---------------------------------------------------------
 
 const SUPABASE_URL =
     'https://uwtvgpeijygvjpcifkew.supabase.co';
 
 
-const SUPABASE_ANON_KEY =
+const SUPABASE_PUBLISHABLE_KEY =
     'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
 
-// ---------------------------------------------------------
-// AUTHENTICATION ELEMENTS
-// ---------------------------------------------------------
+const SITE_URL =
+    'https://21stcavalrydivision.github.io/';
+
+
+// =========================================================
+// MEMBER ELEMENTS
+// =========================================================
 
 const loginBtn =
     document.getElementById(
@@ -224,38 +228,26 @@ let supabaseClient = null;
 
 
 // =========================================================
-// GET RETURN URL
-// =========================================================
-
-function getReturnUrl() {
-
-    return (
-        window.location.origin +
-        window.location.pathname
-    );
-
-}
-
-
-// =========================================================
-// GET MEMBER DISPLAY NAME
+// MEMBER DISPLAY NAME
 // =========================================================
 
 function getDisplayName(user) {
 
-    const meta =
+    const metadata =
         user?.user_metadata || {};
 
 
     return (
 
-        meta.full_name ||
+        metadata.full_name ||
 
-        meta.name ||
+        metadata.name ||
 
-        meta.preferred_username ||
+        metadata.preferred_username ||
 
-        meta.user_name ||
+        metadata.user_name ||
+
+        metadata.username ||
 
         user?.email ||
 
@@ -267,20 +259,20 @@ function getDisplayName(user) {
 
 
 // =========================================================
-// GET DISCORD AVATAR
+// MEMBER AVATAR
 // =========================================================
 
 function getAvatarUrl(user) {
 
-    const meta =
+    const metadata =
         user?.user_metadata || {};
 
 
     return (
 
-        meta.avatar_url ||
+        metadata.avatar_url ||
 
-        meta.picture ||
+        metadata.picture ||
 
         ''
 
@@ -290,14 +282,10 @@ function getAvatarUrl(user) {
 
 
 // =========================================================
-// DISPLAY LOGIN STATE
+// UPDATE MEMBER INTERFACE
 // =========================================================
 
 function renderAuthState(session) {
-
-    const user =
-        session?.user;
-
 
     if (
         !loginBtn ||
@@ -309,137 +297,215 @@ function renderAuthState(session) {
     }
 
 
-    // =====================================================
-    // MEMBER LOGGED IN
-    // =====================================================
-
-    if (user) {
-
-        loginBtn.hidden =
-            true;
-
-
-        memberProfile.hidden =
-            false;
-
-
-        // DISPLAY MEMBER NAME
-
-        if (memberName) {
-
-            memberName.textContent =
-                getDisplayName(user);
-
-        }
-
-
-        // DISPLAY DISCORD AVATAR
-
-        if (memberAvatar) {
-
-            const avatar =
-                getAvatarUrl(user);
-
-
-            if (avatar) {
-
-                memberAvatar.src =
-                    avatar;
-
-
-                memberAvatar.alt =
-                    `${getDisplayName(user)} Discord avatar`;
-
-
-                memberAvatar.hidden =
-                    false;
-
-            }
-
-            else {
-
-                memberAvatar.removeAttribute(
-                    'src'
-                );
-
-
-                memberAvatar.alt =
-                    '';
-
-
-                memberAvatar.hidden =
-                    true;
-
-            }
-
-        }
-
-    }
+    const user =
+        session?.user || null;
 
 
     // =====================================================
-    // MEMBER LOGGED OUT
+    // LOGGED OUT
     // =====================================================
 
-    else {
+    if (!user) {
 
         loginBtn.hidden =
             false;
 
 
+        loginBtn.disabled =
+            false;
+
+
+        loginBtn.textContent =
+            'Login with Discord';
+
+
         memberProfile.hidden =
             true;
 
-    }
-
-}
-
-
-// =========================================================
-// LOGIN WITH DISCORD
-// =========================================================
-
-async function startDiscordLogin() {
-
-    if (!supabaseClient) {
-
-        console.error(
-            'Supabase client is not initialized.'
-        );
 
         return;
 
     }
 
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient.auth.signInWithOAuth({
+    // =====================================================
+    // LOGGED IN
+    // =====================================================
 
-            provider: 'discord',
-
-            options: {
-
-                redirectTo:
-                    getReturnUrl()
-
-            }
-
-        });
+    loginBtn.hidden =
+        true;
 
 
-    if (error) {
+    memberProfile.hidden =
+        false;
+
+
+    // MEMBER NAME
+
+    if (memberName) {
+
+        memberName.textContent =
+            getDisplayName(user);
+
+    }
+
+
+    // MEMBER AVATAR
+
+    if (memberAvatar) {
+
+        const avatar =
+            getAvatarUrl(user);
+
+
+        if (avatar) {
+
+            memberAvatar.src =
+                avatar;
+
+
+            memberAvatar.alt =
+                getDisplayName(user) +
+                ' Discord avatar';
+
+
+            memberAvatar.hidden =
+                false;
+
+        }
+
+        else {
+
+            memberAvatar.removeAttribute(
+                'src'
+            );
+
+
+            memberAvatar.hidden =
+                true;
+
+        }
+
+    }
+
+}
+
+
+// =========================================================
+// DISCORD LOGIN
+// =========================================================
+
+async function startDiscordLogin() {
+
+    console.log(
+        'Discord login button clicked.'
+    );
+
+
+    if (!supabaseClient) {
 
         console.error(
-            'Discord login error:',
-            error
+            'Supabase client has not initialized.'
         );
 
 
         alert(
-            'Discord login could not be started. Please try again.'
+            'The login system is still loading. Refresh the page and try again.'
+        );
+
+
+        return;
+
+    }
+
+
+    loginBtn.disabled =
+        true;
+
+
+    loginBtn.textContent =
+        'Connecting...';
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .auth
+                .signInWithOAuth({
+
+                    provider:
+                        'discord',
+
+                    options: {
+
+                        redirectTo:
+                            SITE_URL
+
+                    }
+
+                });
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        console.log(
+            'Discord OAuth response:',
+            data
+        );
+
+
+        /*
+         * Supabase normally redirects the browser
+         * automatically when skipBrowserRedirect is false.
+         *
+         * This fallback makes sure the browser still moves
+         * to the OAuth URL if a URL is returned.
+         */
+
+        if (
+            data?.url &&
+            window.location.href !== data.url
+        ) {
+
+            window.location.assign(
+                data.url
+            );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Discord OAuth failed:',
+            error
+        );
+
+
+        loginBtn.disabled =
+            false;
+
+
+        loginBtn.textContent =
+            'Login with Discord';
+
+
+        alert(
+            'Discord login failed: ' +
+            (
+                error?.message ||
+                'Unknown authentication error.'
+            )
         );
 
     }
@@ -448,7 +514,7 @@ async function startDiscordLogin() {
 
 
 // =========================================================
-// LOGOUT MEMBER
+// LOGOUT
 // =========================================================
 
 async function logoutMember() {
@@ -460,22 +526,48 @@ async function logoutMember() {
     }
 
 
-    const {
-        error
-    } =
-        await supabaseClient.auth.signOut();
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .auth
+                .signOut();
 
 
-    if (error) {
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        renderAuthState(
+            null
+        );
+
+
+        window.location.replace(
+            SITE_URL
+        );
+
+    }
+
+    catch (error) {
 
         console.error(
-            'Logout error:',
+            'Logout failed:',
             error
         );
 
 
         alert(
-            'Logout failed. Please try again.'
+            'Logout failed: ' +
+            (
+                error?.message ||
+                'Unknown error.'
+            )
         );
 
     }
@@ -484,25 +576,36 @@ async function logoutMember() {
 
 
 // =========================================================
-// INITIALIZE SUPABASE AUTHENTICATION
+// INITIALIZE SUPABASE
 // =========================================================
 
 async function initializeMemberAuth() {
 
-    // Only run authentication on pages
-    // containing the member login interface.
+    console.log(
+        'Starting 21st Cavalry authentication system...'
+    );
 
-    if (
-        !loginBtn &&
-        !memberProfile
-    ) {
+
+    /*
+     * Other pages may use script.js without containing
+     * the member-login HTML.
+     */
+
+    if (!loginBtn) {
+
+        console.log(
+            'No login button exists on this page.'
+        );
+
 
         return;
 
     }
 
 
-    // Make sure Supabase JavaScript loaded.
+    // =====================================================
+    // VERIFY SUPABASE LIBRARY
+    // =====================================================
 
     if (
         typeof window.supabase ===
@@ -510,88 +613,143 @@ async function initializeMemberAuth() {
     ) {
 
         console.error(
-            'Supabase library did not load.'
+            'Supabase JavaScript library did not load.'
         );
+
+
+        alert(
+            'The authentication library failed to load. Refresh the page and try again.'
+        );
+
 
         return;
 
     }
 
 
-    // =====================================================
-    // CREATE SUPABASE CLIENT
-    // =====================================================
+    try {
 
-    supabaseClient =
-        window.supabase.createClient(
+        // =================================================
+        // CREATE CLIENT
+        // =================================================
 
-            SUPABASE_URL,
+        supabaseClient =
+            window.supabase.createClient(
 
-            SUPABASE_ANON_KEY
+                SUPABASE_URL,
 
+                SUPABASE_PUBLISHABLE_KEY,
+
+                {
+
+                    auth: {
+
+                        persistSession:
+                            true,
+
+                        autoRefreshToken:
+                            true,
+
+                        detectSessionInUrl:
+                            true
+
+                    }
+
+                }
+
+            );
+
+
+        console.log(
+            'Supabase client initialized.'
         );
 
 
-    // =====================================================
-    // CHECK CURRENT LOGIN SESSION
-    // =====================================================
+        // =================================================
+        // GET CURRENT SESSION
+        // =================================================
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
-            .auth
-            .getSession();
-
-
-    if (error) {
-
-        console.error(
-            'Unable to read Supabase session:',
+        const {
+            data,
             error
+        } =
+            await supabaseClient
+                .auth
+                .getSession();
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        renderAuthState(
+            data?.session || null
         );
+
+
+        // =================================================
+        // WATCH AUTH CHANGES
+        // =================================================
+
+        supabaseClient
+            .auth
+            .onAuthStateChange(
+
+                (
+                    event,
+                    session
+                ) => {
+
+                    console.log(
+                        'Supabase authentication event:',
+                        event
+                    );
+
+
+                    renderAuthState(
+                        session
+                    );
+
+                }
+
+            );
 
     }
 
+    catch (error) {
 
-    renderAuthState(
-        data?.session || null
-    );
-
-
-    // =====================================================
-    // WATCH LOGIN / LOGOUT CHANGES
-    // =====================================================
-
-    supabaseClient
-        .auth
-        .onAuthStateChange(
-
-            (
-                event,
-                session
-            ) => {
-
-                console.log(
-                    'Authentication event:',
-                    event
-                );
-
-
-                renderAuthState(
-                    session
-                );
-
-            }
-
+        console.error(
+            'Supabase initialization failed:',
+            error
         );
+
+
+        loginBtn.disabled =
+            false;
+
+
+        loginBtn.textContent =
+            'Login with Discord';
+
+
+        alert(
+            'The login system could not initialize: ' +
+            (
+                error?.message ||
+                'Unknown error.'
+            )
+        );
+
+    }
 
 }
 
 
 // =========================================================
-// LOGIN BUTTON
+// LOGIN BUTTON EVENT
 // =========================================================
 
 if (loginBtn) {
@@ -608,7 +766,7 @@ if (loginBtn) {
 
 
 // =========================================================
-// LOGOUT BUTTON
+// LOGOUT BUTTON EVENT
 // =========================================================
 
 if (logoutBtn) {
