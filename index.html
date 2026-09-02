@@ -15,9 +15,7 @@
         content="21st Cavalry Division — Swift, Silent, Relentless."
     >
 
-    <title>
-        21st Cavalry Division | Home
-    </title>
+    <title>21st Cavalry Division | Home</title>
 
 
     <!-- GOOGLE FONTS -->
@@ -47,15 +45,9 @@
     >
 
 
-    <!-- ================================================= -->
-    <!-- HOMEPAGE BANNER STYLING -->
-    <!-- ================================================= -->
+    <!-- HOMEPAGE BANNER -->
 
     <style>
-
-        /* ============================================= */
-        /* HERO SECTION */
-        /* ============================================= */
 
         .hero {
             position: relative;
@@ -72,22 +64,14 @@
                 url("assets/screenshots/21stBanner.png") !important;
 
             background-size: cover !important;
-
             background-position: center center !important;
-
             background-repeat: no-repeat !important;
         }
 
 
-        /* ============================================= */
-        /* DARK OVERLAY */
-        /* ============================================= */
-
         .hero-overlay {
             position: absolute;
-
             inset: 0;
-
             z-index: 1;
 
             background:
@@ -102,46 +86,25 @@
         }
 
 
-        /* ============================================= */
-        /* EXISTING GRID EFFECT */
-        /* ============================================= */
-
         .hero-grid {
             position: absolute;
-
             inset: 0;
-
             z-index: 2;
-
             opacity: 0.15;
-
             pointer-events: none;
         }
 
 
-        /* ============================================= */
-        /* HERO CONTENT */
-        /* ============================================= */
-
         .hero-content {
             position: relative;
-
             z-index: 5;
         }
 
-
-        /* ============================================= */
-        /* HERO BADGE */
-        /* ============================================= */
 
         .hero-badge {
             z-index: 5;
         }
 
-
-        /* ============================================= */
-        /* TABLET */
-        /* ============================================= */
 
         @media (max-width: 1000px) {
 
@@ -155,22 +118,13 @@
                     ),
                     url("assets/screenshots/21stBanner.png") !important;
 
-                background-size:
-                    cover !important;
-
-                background-position:
-                    center center !important;
-
-                background-repeat:
-                    no-repeat !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
             }
 
         }
 
-
-        /* ============================================= */
-        /* MOBILE */
-        /* ============================================= */
 
         @media (max-width: 700px) {
 
@@ -182,14 +136,9 @@
                     ),
                     url("assets/screenshots/21stBanner.png") !important;
 
-                background-size:
-                    cover !important;
-
-                background-position:
-                    center center !important;
-
-                background-repeat:
-                    no-repeat !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
             }
 
         }
@@ -236,7 +185,7 @@
         </a>
 
 
-        <!-- MOBILE NAVIGATION BUTTON -->
+        <!-- MOBILE NAVIGATION -->
 
         <button
             class="nav-toggle"
@@ -276,9 +225,12 @@
             </a>
 
 
-            <!-- MEMBER AUTHENTICATION -->
+            <!-- DISCORD LOGIN -->
 
-            <div class="member-auth" id="memberAuth">
+            <div
+                class="member-auth"
+                id="memberAuth"
+            >
 
                 <button
                     class="member-login-btn"
@@ -289,6 +241,8 @@
                 </button>
 
 
+                <!-- LOGGED-IN MEMBER -->
+
                 <div
                     class="member-profile"
                     id="memberProfile"
@@ -297,9 +251,10 @@
 
                     <img
                         id="memberAvatar"
+                        class="member-avatar"
                         src=""
                         alt=""
-                        class="member-avatar"
+                        hidden
                     >
 
 
@@ -343,33 +298,22 @@
 
 
     <!-- ================================================= -->
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <!-- ================================================= -->
 
     <main>
 
 
-        <!-- ================================================= -->
-        <!-- HERO / MAIN BANNER -->
-        <!-- ================================================= -->
+        <!-- HERO -->
 
         <section class="hero">
 
-
-            <!-- DARK OVERLAY -->
-
             <div class="hero-overlay"></div>
-
-
-            <!-- GRID EFFECT -->
 
             <div class="hero-grid"></div>
 
 
-            <!-- HERO CONTENT -->
-
             <div class="hero-content reveal">
-
 
                 <p class="eyebrow">
                     21ST CAVALRY DIVISION
@@ -401,7 +345,6 @@
 
                 <div class="hero-actions">
 
-
                     <a
                         class="btn btn-primary"
                         href="recruitment.html"
@@ -417,14 +360,10 @@
                         View Unit Resources
                     </a>
 
-
                 </div>
-
 
             </div>
 
-
-            <!-- HERO BADGE -->
 
             <div
                 class="hero-badge"
@@ -441,7 +380,6 @@
 
             </div>
 
-
         </section>
 
 
@@ -450,7 +388,6 @@
         <!-- ================================================= -->
 
         <section class="stats strip">
-
 
             <div>
 
@@ -502,7 +439,6 @@
                 </span>
 
             </div>
-
 
         </section>
 
@@ -585,7 +521,7 @@
 
 
         <!-- ================================================= -->
-        <!-- UNIT CAPABILITIES -->
+        <!-- CAPABILITIES -->
         <!-- ================================================= -->
 
         <section class="section">
@@ -607,8 +543,6 @@
             <div class="card-grid four">
 
 
-                <!-- GROUND -->
-
                 <article class="info-card reveal">
 
                     <span>
@@ -626,8 +560,6 @@
 
                 </article>
 
-
-                <!-- ARMOR -->
 
                 <article class="info-card reveal">
 
@@ -647,8 +579,6 @@
                 </article>
 
 
-                <!-- AVIATION -->
-
                 <article class="info-card reveal">
 
                     <span>
@@ -666,8 +596,6 @@
 
                 </article>
 
-
-                <!-- SUPPORT -->
 
                 <article class="info-card reveal">
 
@@ -716,8 +644,6 @@
             <div class="timeline">
 
 
-                <!-- STEP 1 -->
-
                 <div>
 
                     <b>
@@ -734,8 +660,6 @@
 
                 </div>
 
-
-                <!-- STEP 2 -->
 
                 <div>
 
@@ -754,8 +678,6 @@
                 </div>
 
 
-                <!-- STEP 3 -->
-
                 <div>
 
                     <b>
@@ -772,8 +694,6 @@
 
                 </div>
 
-
-                <!-- STEP 4 -->
 
                 <div>
 
@@ -799,7 +719,7 @@
 
 
         <!-- ================================================= -->
-        <!-- JOIN THE DIVISION -->
+        <!-- JOIN -->
         <!-- ================================================= -->
 
         <section class="section join">
@@ -865,11 +785,9 @@
 
         <div class="brand footer-brand">
 
-
             <div class="brand-mark">
                 21
             </div>
-
 
             <div>
 
@@ -883,7 +801,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -894,16 +811,13 @@
 
         <div class="footer-links">
 
-
             <a href="recruitment.html">
                 Recruitment
             </a>
 
-
             <a href="resources.html">
                 Unit Resources
             </a>
-
 
             <a
                 href="https://discord.gg/PCxE5jTYZ"
@@ -912,7 +826,6 @@
             >
                 Discord
             </a>
-
 
         </div>
 
@@ -930,12 +843,9 @@
     <!-- JAVASCRIPT -->
     <!-- ================================================= -->
 
-    <!-- SUPABASE AUTH LIBRARY -->
+    <!-- Supabase MUST load before script.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-    <!-- MAIN WEBSITE JAVASCRIPT -->
 
     <script src="script.js"></script>
 
