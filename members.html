@@ -641,6 +641,30 @@
         }
 
 
+
+
+        /* ========================================= */
+        /* LEAVE OF ABSENCE */
+        /* ========================================= */
+
+        .loa-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+        .loa-field { display:grid; gap:7px; }
+        .loa-field.wide { grid-column:1 / -1; }
+        .loa-field label { color:#7e8a90; font:600 9px Oswald,sans-serif; letter-spacing:1px; text-transform:uppercase; }
+        .loa-field input, .loa-field textarea { width:100%; box-sizing:border-box; border:1px solid #30383d; background:#090f12; color:#fff; padding:11px 12px; font:400 12px Roboto,sans-serif; }
+        .loa-field textarea { min-height:95px; resize:vertical; }
+        .loa-submit { padding:11px 16px; border:1px solid #c5a75b; background:#c5a75b; color:#111; cursor:pointer; font:600 9px Oswald,sans-serif; letter-spacing:1px; text-transform:uppercase; }
+        .loa-submit:disabled { opacity:.55; cursor:not-allowed; }
+        .loa-message { min-height:18px; margin-top:10px; color:#9da9ae; font-size:12px; }
+        .loa-list { display:grid; gap:9px; margin-top:18px; }
+        .loa-card { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:14px 15px; border:1px solid #30383d; background:#090f12; }
+        .loa-card.current { border-color:#78683b; }
+        .loa-card-title { color:#fff; font:600 14px Oswald,sans-serif; text-transform:uppercase; }
+        .loa-card-reason { margin-top:5px; color:#8c999f; font-size:12px; line-height:1.5; white-space:pre-wrap; }
+        .loa-card-status { color:#d9be6a; font:600 9px Oswald,sans-serif; text-transform:uppercase; text-align:right; }
+        .loa-cancel { margin-top:8px; padding:7px 10px; border:1px solid #794242; background:transparent; color:#df7474; cursor:pointer; font:600 8px Oswald,sans-serif; text-transform:uppercase; }
+        .loa-empty { padding:20px; border:1px dashed #394349; color:#7e8a90; font-size:12px; text-align:center; }
+
         /* ========================================= */
         /* ACCOUNT */
         /* ========================================= */
@@ -745,7 +769,8 @@
 
             .service-grid,
             .training-summary,
-            .account-grid {
+            .account-grid,
+            .loa-form-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1454,6 +1479,41 @@
             </article>
 
 
+
+
+            <!-- ========================================= -->
+            <!-- LEAVE OF ABSENCE -->
+            <!-- ========================================= -->
+
+            <article class="portal-panel">
+                <div class="portal-panel-header">
+                    <h2>Leave of Absence</h2>
+                    <span class="panel-tag">Automatically Approved</span>
+                </div>
+                <div class="portal-panel-body">
+                    <div class="loa-form-grid">
+                        <div class="loa-field">
+                            <label for="loaStartDate">Start Date</label>
+                            <input id="loaStartDate" type="date">
+                        </div>
+                        <div class="loa-field">
+                            <label for="loaEndDate">End Date</label>
+                            <input id="loaEndDate" type="date">
+                        </div>
+                        <div class="loa-field wide">
+                            <label for="loaReason">Reason</label>
+                            <textarea id="loaReason" maxlength="1000" placeholder="Enter the reason for your leave of absence..."></textarea>
+                        </div>
+                    </div>
+                    <button id="submitLoaButton" class="loa-submit" type="button">Submit LOA</button>
+                    <div id="loaMessage" class="loa-message"></div>
+                    <div id="loaList" class="loa-list">
+                        <div class="loa-empty">Loading leave of absence records...</div>
+                    </div>
+                </div>
+            </article>
+
+
             <!-- ========================================= -->
             <!-- ATTENDANCE HISTORY -->
             <!-- ========================================= -->
@@ -1654,6 +1714,85 @@
                     );
 
 
+
+
+                /* =========================================
+                   LEAVE OF ABSENCE
+                ========================================= */
+
+                function todayLocalDate() {
+                    const d = new Date();
+                    const y = d.getFullYear();
+                    const m = String(d.getMonth() + 1).padStart(2, '0');
+                    const day = String(d.getDate()).padStart(2, '0');
+                    return `${y}-${m}-${day}`;
+                }
+
+                function renderLoas(records) {
+                    if (!records.length) {
+                        loaList.innerHTML = '<div class="loa-empty">No leave of absence records have been submitted.</div>';
+                        return;
+                    }
+                    const today = todayLocalDate();
+                    loaList.innerHTML = records.map(record => {
+                        const current = record.status === 'Approved' && record.start_date <= today && record.end_date >= today;
+                        const upcoming = record.status === 'Approved' && record.start_date > today;
+                        const canCancel = record.status === 'Approved' && record.end_date >= today;
+                        const label = record.status === 'Cancelled' ? 'Cancelled' : current ? 'Approved · Current LOA' : upcoming ? 'Approved · Upcoming' : 'Approved · Completed';
+                        return `
+                            <div class="loa-card ${current ? 'current' : ''}">
+                                <div>
+                                    <div class="loa-card-title">${escapeHtml(formatDate(record.start_date))} — ${escapeHtml(formatDate(record.end_date))}</div>
+                                    <div class="loa-card-reason">${escapeHtml(record.reason || 'No reason provided')}</div>
+                                </div>
+                                <div>
+                                    <div class="loa-card-status">${escapeHtml(label)}</div>
+                                    ${canCancel ? `<button class="loa-cancel" type="button" data-loa-id="${record.id}">Cancel LOA</button>` : ''}
+                                </div>
+                            </div>`;
+                    }).join('');
+
+                    loaList.querySelectorAll('.loa-cancel').forEach(button => {
+                        button.addEventListener('click', async () => {
+                            const id = button.dataset.loaId;
+                            button.disabled = true;
+                            const { error } = await client.from('leave_of_absence').update({ status: 'Cancelled' }).eq('id', id).eq('user_id', currentPortalUserId);
+                            if (error) { alert('LOA could not be cancelled: ' + error.message); button.disabled = false; return; }
+                            await loadLoas(currentPortalUserId);
+                        });
+                    });
+                }
+
+                async function loadLoas(userId) {
+                    const { data, error } = await client.from('leave_of_absence').select('id,user_id,start_date,end_date,reason,status,created_at').eq('user_id', userId).order('start_date', { ascending: false });
+                    if (error) {
+                        console.error('LOA load error:', error);
+                        loaList.innerHTML = '<div class="loa-empty">Leave of absence records could not be loaded.</div>';
+                        return;
+                    }
+                    renderLoas(data || []);
+                }
+
+                submitLoaButton.addEventListener('click', async () => {
+                    if (!currentPortalUserId) return;
+                    const start = loaStartDate.value;
+                    const end = loaEndDate.value;
+                    const reason = loaReason.value.trim();
+                    loaMessage.textContent = '';
+                    if (!start || !end || !reason) { loaMessage.textContent = 'Start date, end date, and reason are required.'; return; }
+                    if (end < start) { loaMessage.textContent = 'End date cannot be before the start date.'; return; }
+                    submitLoaButton.disabled = true;
+                    submitLoaButton.textContent = 'Submitting...';
+                    const { error } = await client.from('leave_of_absence').insert({ user_id: currentPortalUserId, start_date: start, end_date: end, reason: reason, status: 'Approved' });
+                    submitLoaButton.disabled = false;
+                    submitLoaButton.textContent = 'Submit LOA';
+                    if (error) { loaMessage.textContent = 'LOA could not be submitted: ' + error.message; return; }
+                    loaStartDate.value = ''; loaEndDate.value = ''; loaReason.value = '';
+                    loaMessage.textContent = 'LOA submitted and automatically approved.';
+                    await loadLoas(currentPortalUserId);
+                    await loadAttendance(currentPortalUserId);
+                });
+
                 /* =========================================
                    QUALIFICATIONS
                 ========================================= */
@@ -1819,6 +1958,17 @@
                     document.getElementById(
                         'upcomingOperations'
                     );
+
+
+
+
+                const loaStartDate = document.getElementById('loaStartDate');
+                const loaEndDate = document.getElementById('loaEndDate');
+                const loaReason = document.getElementById('loaReason');
+                const submitLoaButton = document.getElementById('submitLoaButton');
+                const loaMessage = document.getElementById('loaMessage');
+                const loaList = document.getElementById('loaList');
+                let currentPortalUserId = null;
 
 
                 /* =========================================
@@ -3668,6 +3818,8 @@
                     const user =
                         session.user;
 
+                    currentPortalUserId = user.id;
+
 
                     const {
                         data:
@@ -3758,6 +3910,10 @@
                         ),
 
                         loadAttendance(
+                            user.id
+                        ),
+
+                        loadLoas(
                             user.id
                         )
 
