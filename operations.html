@@ -3130,25 +3130,19 @@
         Edit Operation
     </button>
 
-    ${
-        operation.status !== 'Cancelled'
-        ?
-        `
-        <button
-            class="delete-operation"
-            data-delete-operation="${operation.id}"
-            type="button"
-        >
-            ${
-                operation.status === 'Completed'
-                    ? 'Delete Archived Operation'
+    <button
+        class="delete-operation"
+        data-delete-operation="${operation.id}"
+        type="button"
+    >
+        ${
+            operation.status === 'Completed'
+                ? 'Delete Archived Operation'
+                : operation.status === 'Cancelled'
+                    ? 'Delete Cancelled Operation'
                     : 'Cancel Operation'
-            }
-        </button>
-        `
-        :
-        ''
-    }
+        }
+    </button>
 
 </div>
                                             `
@@ -5733,6 +5727,11 @@ if (attendanceEventError) {
                                             'Completed';
 
 
+                                        const isCancelled =
+                                            operation.status ===
+                                            'Cancelled';
+
+
                                         /*
                                             Active/scheduled operations are CANCELLED,
                                             not deleted. This preserves the operation row
@@ -5740,7 +5739,7 @@ if (attendanceEventError) {
                                             an "Operation Cancelled" Discord announcement
                                             and cancel any pending member reminders.
                                         */
-                                        if (!isArchived) {
+                                        if (!isArchived && !isCancelled) {
 
                                             const confirmed =
                                                 confirm(
@@ -5811,15 +5810,18 @@ if (attendanceEventError) {
 
 
                                         /*
-                                            Completed archive entries can still be
-                                            permanently deleted. Remove private AAR
-                                            screenshot files first, then delete the
-                                            operation. Database cascades remove the AAR
-                                            and screenshot metadata rows.
+                                            Completed archive entries and already-cancelled
+                                            operations can be permanently deleted. Completed
+                                            operations clean up private AAR screenshots first.
+                                            Cancelled operations were already announced when
+                                            their status changed, so deleting them here does
+                                            not create another cancellation notification.
                                         */
                                         const confirmed =
                                             confirm(
-                                                'Permanently delete this archived operation and its AAR? This cannot be undone.'
+                                                isCancelled
+                                                    ? 'Permanently delete this cancelled operation? This cannot be undone.'
+                                                    : 'Permanently delete this archived operation and its AAR? This cannot be undone.'
                                             );
 
 
@@ -5837,13 +5839,17 @@ if (attendanceEventError) {
 
 
                                         button.textContent =
-                                            'Deleting Archive...';
+                                            isCancelled
+                                                ? 'Deleting...'
+                                                : 'Deleting Archive...';
 
 
                                         const aar =
-                                            getAarForOperation(
-                                                id
-                                            );
+                                            isArchived
+                                                ? getAarForOperation(
+                                                    id
+                                                )
+                                                : null;
 
 
                                         if (aar) {
