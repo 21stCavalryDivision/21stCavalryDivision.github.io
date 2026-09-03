@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -18,7 +19,6 @@
         21st Cavalry Division | Administration
     </title>
 
-    <!-- GOOGLE FONTS -->
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -35,21 +35,24 @@
         rel="stylesheet"
     >
 
-    <!-- MAIN WEBSITE CSS -->
     <link
         rel="stylesheet"
-        href="styles.css?v=10"
+        href="styles.css?v=17"
     >
 
     <style>
 
         body {
-            background: #090d10;
+            background: #080d10;
         }
+
+        /* =================================================
+           HERO
+           ================================================= */
 
         .admin-hero {
             padding:
-                70px
+                65px
                 clamp(24px, 6vw, 110px)
                 55px;
 
@@ -59,35 +62,65 @@
             background:
                 linear-gradient(
                     120deg,
-                    #0a1014,
-                    #141710
+                    #091014,
+                    #11150e
                 );
         }
 
+        .admin-hero-inner {
+            max-width: 900px;
+        }
+
         .admin-hero h1 {
-            margin: 10px 0;
+            margin: 8px 0 10px;
+
+            color: #ffffff;
 
             font:
-                700 clamp(46px, 7vw, 88px)
+                700
+                clamp(48px, 7vw, 84px)
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            line-height: 1;
+
+            text-transform:
+                uppercase;
         }
 
-        .admin-hero p:last-child {
-            max-width: 750px;
-            color: #abb4b8;
+        .admin-hero-description {
+            max-width: 720px;
+
+            margin: 0;
+
+            color: #9ba7ac;
+
+            font-size: 14px;
+
+            line-height: 1.7;
         }
+
+        /* =================================================
+           PAGE
+           ================================================= */
+
+        .admin-container {
+            padding:
+                32px
+                clamp(24px, 5vw, 80px)
+                100px;
+        }
+
+        /* =================================================
+           LOADING / ACCESS
+           ================================================= */
 
         .admin-message {
-            max-width: 700px;
+            max-width: 750px;
 
-            margin: 80px auto;
+            margin: 60px auto;
 
             padding: 40px;
-
-            text-align: center;
 
             border:
                 1px solid #30383d;
@@ -95,32 +128,35 @@
             border-top:
                 3px solid #c5a75b;
 
-            background: #11171a;
+            background: #101619;
+
+            text-align: center;
         }
 
         .admin-message h2 {
+            margin: 5px 0 10px;
+
+            color: #ffffff;
+
             font:
-                600 34px
+                600
+                31px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
         }
 
         .admin-message p {
-            color: #9ca6aa;
+            color: #8f9ca1;
+
+            line-height: 1.6;
         }
 
-        .admin-container {
-            padding:
-                45px
-                clamp(24px, 6vw, 110px)
-                100px;
-        }
-
-        /* =========================================
+        /* =================================================
            SUMMARY
-           ========================================= */
+           ================================================= */
 
         .admin-summary {
             display: grid;
@@ -128,379 +164,155 @@
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 14px;
+            gap: 12px;
 
             margin-bottom: 25px;
         }
 
         .summary-card {
-            padding: 22px;
+            padding: 19px;
 
             border:
                 1px solid #30383d;
 
-            background: #11171a;
+            border-top:
+                2px solid #c5a75b;
+
+            background: #101619;
         }
 
         .summary-card span {
             display: block;
 
-            color: #858f94;
+            margin-bottom: 7px;
+
+            color: #75838a;
 
             font:
-                500 10px
+                500
+                9px
                 Oswald,
                 sans-serif;
 
             letter-spacing: 1px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
         }
 
         .summary-card strong {
-            display: block;
-
-            margin-top: 5px;
-
-            color: #fff;
+            color: #ffffff;
 
             font:
-                600 28px
+                600
+                31px
                 Oswald,
                 sans-serif;
         }
 
-        /* =========================================
-           ATTENDANCE
-           ========================================= */
+        /* =================================================
+           SECTION HEADERS
+           ================================================= */
 
-        .attendance-panel {
-            margin-bottom: 35px;
-
-            border:
-                1px solid #30383d;
-
-            background: #11171a;
-        }
-
-        .attendance-panel-header {
+        .admin-section-heading {
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
-            align-items: flex-start;
+            align-items: center;
 
             gap: 20px;
 
-            padding: 24px;
-
-            border-bottom:
-                1px solid #30383d;
-
-            background: #0e1417;
+            margin:
+                30px 0
+                15px;
         }
 
-        .attendance-panel-header h2 {
-            margin: 4px 0 0;
+        .admin-section-heading h2 {
+            margin: 0;
 
-            color: #fff;
+            color: #ffffff;
 
             font:
-                600 28px
+                600
+                27px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
         }
 
-        .attendance-panel-header p {
-            margin: 8px 0 0;
-
-            color: #8f999e;
-
-            font-size: 13px;
-        }
-
-        .attendance-create {
-            display: grid;
-
-            grid-template-columns:
-                2fr 1fr 1fr auto;
-
-            gap: 12px;
-
-            padding: 20px 24px;
-
-            border-bottom:
-                1px solid #30383d;
-        }
-
-        .attendance-create input,
-        .attendance-create select,
-        .attendance-event-select {
-            width: 100%;
-
-            min-height: 44px;
-
-            padding: 0 11px;
-
-            border:
-                1px solid #384147;
-
-            background: #090e11;
-
-            color: #fff;
+        .admin-section-heading span {
+            color: #c5a75b;
 
             font:
-                400 13px
-                Roboto,
-                sans-serif;
-        }
-
-        .attendance-create input:focus,
-        .attendance-create select:focus,
-        .attendance-event-select:focus {
-            outline: none;
-
-            border-color: #c5a75b;
-        }
-
-        .attendance-action-btn {
-            min-height: 44px;
-
-            padding: 0 18px;
-
-            border:
-                1px solid #c5a75b;
-
-            background: #c5a75b;
-
-            color: #111;
-
-            cursor: pointer;
-
-            font:
-                600 12px
+                600
+                9px
                 Oswald,
                 sans-serif;
-
-            text-transform: uppercase;
 
             letter-spacing: 1px;
+
+            text-transform:
+                uppercase;
         }
 
-        .attendance-action-btn.secondary {
-            background: transparent;
-
-            color: #c5a75b;
-        }
-
-        .attendance-action-btn:hover {
-            background: #dac171;
-
-            color: #111;
-        }
-
-        .attendance-action-btn:disabled {
-            opacity: 0.55;
-
-            cursor: wait;
-        }
-
-        .attendance-workspace {
-            padding: 24px;
-        }
-
-        .attendance-event-bar {
-            display: grid;
-
-            grid-template-columns:
-                1fr auto;
-
-            gap: 12px;
-
-            align-items: center;
-
-            margin-bottom: 18px;
-        }
-
-        .attendance-event-details {
-            margin-bottom: 18px;
-
-            padding: 14px 16px;
-
-            border-left:
-                3px solid #c5a75b;
-
-            background: #0c1114;
-
-            color: #9ca6aa;
-
-            font-size: 13px;
-        }
-
-        .attendance-roster {
-            display: grid;
-
-            gap: 10px;
-        }
-
-        .attendance-row {
-            display: grid;
-
-            grid-template-columns:
-                minmax(220px, 1fr)
-                auto;
-
-            gap: 18px;
-
-            align-items: center;
-
-            padding: 16px;
-
-            border:
-                1px solid #293036;
-
-            background: #0c1114;
-        }
-
-        .attendance-member-name {
-            color: #fff;
-
-            font:
-                600 17px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-        }
-
-        .attendance-member-meta {
-            margin-top: 3px;
-
-            color: #778187;
-
-            font-size: 11px;
-        }
-
-        .attendance-status-group {
-            display: flex;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-        }
-
-        .attendance-status {
-            min-height: 36px;
-
-            padding: 0 13px;
-
-            border:
-                1px solid #384147;
-
-            background: #11171a;
-
-            color: #aeb7bb;
-
-            cursor: pointer;
-
-            font:
-                600 10px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.7px;
-        }
-
-        .attendance-status.active {
-            border-color: #c5a75b;
-
-            background: #c5a75b;
-
-            color: #111;
-        }
-
-        .attendance-footer {
-            display: flex;
-
-            justify-content: flex-end;
-
-            align-items: center;
-
-            gap: 14px;
-
-            margin-top: 18px;
-
-            padding-top: 18px;
-
-            border-top:
-                1px solid #293036;
-        }
-
-        .attendance-message {
-            margin-right: auto;
-
-            color: #8f999e;
-
-            font-size: 12px;
-        }
-
-        .attendance-message.success {
-            color: #75d48c;
-        }
-
-        .attendance-message.error {
-            color: #e47b7b;
-        }
-
-        /* =========================================
-           MEMBER MANAGEMENT
-           ========================================= */
+        /* =================================================
+           EXISTING SEARCH TOOLBAR
+           ================================================= */
 
         .admin-toolbar {
             display: grid;
 
             grid-template-columns:
-                1fr auto;
+                minmax(0, 1fr)
+                auto;
 
-            gap: 18px;
+            gap: 10px;
 
-            margin-bottom: 25px;
+            margin-bottom: 8px;
         }
 
         .admin-search {
             width: 100%;
 
-            min-height: 48px;
+            box-sizing:
+                border-box;
 
-            padding: 0 16px;
+            min-height: 47px;
 
-            background: #0c1114;
-
-            color: #fff;
+            padding:
+                0 15px;
 
             border:
-                1px solid #384147;
+                1px solid #374147;
 
-            font:
-                400 14px
+            outline: none;
+
+            background: #080e11;
+
+            color: #ffffff;
+
+            font-family:
                 Roboto,
                 sans-serif;
         }
 
         .admin-search:focus {
-            outline: none;
-
             border-color: #c5a75b;
         }
 
-        .admin-refresh {
-            min-height: 48px;
+        .admin-search::placeholder {
+            color: #69777d;
+        }
 
-            padding: 0 20px;
+        .admin-refresh {
+            min-height: 47px;
+
+            padding:
+                0 18px;
 
             border:
                 1px solid #c5a75b;
@@ -512,92 +324,253 @@
             cursor: pointer;
 
             font:
-                600 12px
+                600
+                10px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
-
             letter-spacing: 1px;
+
+            text-transform:
+                uppercase;
         }
 
         .admin-refresh:hover {
             background: #c5a75b;
 
-            color: #111;
+            color: #111111;
         }
+
+        .member-count-line {
+            margin:
+                4px 0
+                13px;
+
+            color: #708087;
+
+            font-size: 10px;
+        }
+
+        /* =================================================
+           MEMBER LIST
+           ================================================= */
 
         .member-admin-list {
             display: grid;
 
-            gap: 18px;
+            gap: 9px;
         }
 
         .member-admin-card {
+            overflow: hidden;
+
             border:
                 1px solid #30383d;
 
-            background: #11171a;
+            background: #101619;
         }
 
-        .member-admin-header {
-            display: flex;
+        .member-admin-card.open {
+            border-color: #756438;
+        }
 
-            justify-content: space-between;
+        /* =================================================
+           COLLAPSED MEMBER DROPDOWN
+           ================================================= */
 
-            gap: 20px;
+        .member-dropdown-header {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(170px, 1.5fr)
+                minmax(150px, 1fr)
+                minmax(150px, 1fr)
+                minmax(110px, .65fr)
+                32px;
+
+            gap: 15px;
 
             align-items: center;
 
-            padding: 20px 24px;
+            min-height: 68px;
+
+            padding:
+                12px
+                20px;
+
+            border: 0;
+
+            background: #0e1417;
+
+            color: #ffffff;
+
+            cursor: pointer;
+
+            text-align: left;
+        }
+
+        .member-dropdown-header:hover {
+            background: #131a1e;
+        }
+
+        .member-admin-card.open
+        .member-dropdown-header {
+            background: #12191c;
 
             border-bottom:
                 1px solid #30383d;
-
-            background: #0e1417;
         }
 
-        .member-admin-name {
-            margin: 0;
+        .member-dropdown-name {
+            min-width: 0;
+        }
 
-            color: #fff;
+        .member-dropdown-name strong {
+            display: block;
+
+            overflow: hidden;
+
+            color: #ffffff;
 
             font:
-                600 22px
+                600
+                19px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            text-overflow: ellipsis;
+
+            text-transform:
+                uppercase;
+
+            white-space: nowrap;
         }
 
-        .member-admin-id {
-            color: #778187;
+        .member-dropdown-name small {
+            display: block;
 
-            font-size: 10px;
+            margin-top: 3px;
 
-            word-break: break-all;
+            overflow: hidden;
+
+            color: #607179;
+
+            font-size: 9px;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
         }
 
-        .access-badge {
-            padding: 7px 11px;
+        .member-dropdown-field {
+            min-width: 0;
+        }
+
+        .member-dropdown-field span {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #6e7d84;
+
+            font:
+                500
+                8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .8px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .member-dropdown-field strong {
+            display: block;
+
+            overflow: hidden;
+
+            color: #c8d0d3;
+
+            font:
+                500
+                11px
+                Oswald,
+                sans-serif;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+        .dropdown-access {
+            display: inline-flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 28px;
+
+            padding:
+                0 10px;
 
             border:
-                1px solid #c5a75b;
+                1px solid #6e5e32;
+
+            color: #d4b95f;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .8px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .member-dropdown-arrow {
+            display: grid;
+
+            place-items: center;
+
+            width: 30px;
+
+            height: 30px;
 
             color: #c5a75b;
 
-            font:
-                600 10px
-                Oswald,
-                sans-serif;
+            font-size: 15px;
 
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
+            transition:
+                transform
+                .2s ease;
         }
 
+        .member-admin-card.open
+        .member-dropdown-arrow {
+            transform:
+                rotate(180deg);
+        }
+
+        /* =================================================
+           MEMBER EXPANDED PROFILE
+           ================================================= */
+
         .member-admin-body {
+            display: none;
+
             padding: 24px;
+        }
+
+        .member-admin-card.open
+        .member-admin-body {
+            display: block;
         }
 
         .admin-form-grid {
@@ -615,215 +588,218 @@
             gap: 6px;
         }
 
-        .admin-field.wide {
-            grid-column: span 2;
-        }
-
-        .admin-field.full {
-            grid-column: 1 / -1;
-        }
-
         .admin-field label {
             color: #c5a75b;
 
             font:
-                500 10px
+                600
+                9px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            letter-spacing: .8px;
 
-            letter-spacing: 1px;
+            text-transform:
+                uppercase;
         }
 
         .admin-field input,
         .admin-field select {
             width: 100%;
 
+            box-sizing:
+                border-box;
+
             min-height: 42px;
 
-            padding: 0 11px;
+            padding:
+                0 12px;
 
             border:
-                1px solid #384147;
+                1px solid #384248;
 
-            background: #090e11;
+            outline: none;
 
-            color: #fff;
+            background: #080e11;
 
-            font-size: 13px;
+            color: #ffffff;
+
+            font-family:
+                Roboto,
+                sans-serif;
         }
 
         .admin-field input:focus,
         .admin-field select:focus {
-            outline: none;
-
             border-color: #c5a75b;
         }
 
-        .admin-field select {
-            cursor: pointer;
-        }
+        .attendance-display {
+            display: flex;
 
-        .admin-field input:disabled {
-            opacity: 0.75;
+            align-items: center;
 
-            cursor: not-allowed;
+            min-height: 42px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid #384248;
+
+            background: #080e11;
 
             color: #c5a75b;
+
+            font:
+                500
+                12px
+                Oswald,
+                sans-serif;
         }
 
-        /* =========================================
+        /* =================================================
            QUALIFICATIONS
-           ========================================= */
+           ================================================= */
 
-        .qualification-section {
-            margin-top: 8px;
+        .qualification-panel {
+            margin-top: 23px;
 
             padding: 18px;
 
             border:
                 1px solid #30383d;
 
-            background: #0b1013;
+            background: #090f12;
         }
 
-        .qualification-title-row {
+        .qualification-heading {
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             align-items: center;
 
-            gap: 15px;
+            gap: 20px;
 
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
-        .qualification-title {
-            color: #c5a75b;
+        .qualification-heading h3 {
+            margin: 0;
+
+            color: #d5b85e;
 
             font:
-                600 12px
+                600
+                14px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .8px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .qualification-heading span {
+            color: #66808d;
+
+            font-size: 10px;
+        }
+
+        .qualification-group {
+            margin-top: 16px;
+        }
+
+        .qualification-group-title {
+            margin-bottom: 8px;
+
+            padding-bottom: 7px;
+
+            border-bottom:
+                1px solid #293238;
+
+            color: #6f8390;
+
+            font:
+                600
+                9px
                 Oswald,
                 sans-serif;
 
             letter-spacing: 1px;
 
-            text-transform: uppercase;
-        }
-
-        .qualification-help {
-            color: #778187;
-
-            font-size: 11px;
+            text-transform:
+                uppercase;
         }
 
         .qualification-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(4, minmax(160px, 1fr));
+                repeat(4, 1fr);
 
             gap: 8px;
         }
 
         .qualification-option {
-            position: relative;
-
             display: flex;
 
             align-items: center;
 
             gap: 9px;
 
-            min-height: 42px;
+            min-height: 40px;
 
-            padding: 10px 12px;
+            padding:
+                0 12px;
 
             border:
                 1px solid #30383d;
 
             background: #11171a;
 
-            color: #aab3b7;
+            color: #c5a75b;
 
             cursor: pointer;
 
             font:
-                500 11px
+                600
+                9px
                 Oswald,
                 sans-serif;
 
-            letter-spacing: 0.4px;
+            letter-spacing: .5px;
 
-            text-transform: uppercase;
-
-            transition:
-                border-color 0.15s ease,
-                background 0.15s ease,
-                color 0.15s ease;
+            text-transform:
+                uppercase;
         }
 
-        .qualification-option:hover {
-            border-color: #77704f;
+        .qualification-option.selected {
+            border-color: #a58b3a;
 
-            color: #fff;
-        }
-
-        .qualification-option:has(input:checked) {
-            border-color: #c5a75b;
-
-            background: rgba(197, 167, 91, 0.12);
-
-            color: #d7bd73;
+            background:
+                rgba(
+                    197,
+                    167,
+                    91,
+                    .11
+                );
         }
 
         .qualification-option input {
             width: 16px;
 
-            min-height: 16px;
-
             height: 16px;
 
-            margin: 0;
-
-            padding: 0;
-
             accent-color: #c5a75b;
-
-            cursor: pointer;
         }
 
-        .qualification-category {
-            grid-column: 1 / -1;
-
-            margin-top: 8px;
-
-            padding-bottom: 5px;
-
-            border-bottom:
-                1px solid #252d31;
-
-            color: #737e83;
-
-            font:
-                600 10px
-                Oswald,
-                sans-serif;
-
-            letter-spacing: 1.2px;
-
-            text-transform: uppercase;
-        }
-
-        .qualification-category:first-child {
-            margin-top: 0;
-        }
-
-        /* =========================================
-           MEMBER SAVE
-           ========================================= */
+        /* =================================================
+           SAVE BUTTON
+           ================================================= */
 
         .admin-form-actions {
             display: flex;
@@ -832,47 +808,9 @@
 
             align-items: center;
 
-            gap: 12px;
+            gap: 15px;
 
-            margin-top: 22px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid #293036;
-        }
-
-        .save-member-btn {
-            min-height: 42px;
-
-            padding: 0 22px;
-
-            border: 0;
-
-            background: #c5a75b;
-
-            color: #111;
-
-            cursor: pointer;
-
-            font:
-                600 12px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-        .save-member-btn:hover {
-            background: #dac171;
-        }
-
-        .save-member-btn:disabled {
-            opacity: 0.6;
-
-            cursor: wait;
+            margin-top: 18px;
         }
 
         .save-status {
@@ -889,22 +827,252 @@
             color: #e47b7b;
         }
 
-        .admin-empty {
-            padding: 45px 20px;
+        .save-member-btn {
+            min-height: 40px;
 
-            text-align: center;
+            padding:
+                0 20px;
+
+            border:
+                1px solid #c5a75b;
+
+            background: #c5a75b;
+
+            color: #111111;
+
+            cursor: pointer;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .save-member-btn:disabled {
+            opacity: .5;
+
+            cursor: not-allowed;
+        }
+
+        /* =================================================
+           ATTENDANCE MANAGEMENT
+           ================================================= */
+
+        .attendance-panel {
+            padding: 22px;
 
             border:
                 1px solid #30383d;
 
-            color: #7e888d;
-
-            background: #11171a;
+            background: #101619;
         }
 
-        /* =========================================
+        .attendance-create-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(220px, 2fr)
+                1fr
+                1fr
+                auto;
+
+            gap: 10px;
+
+            margin-bottom: 18px;
+        }
+
+        .attendance-create-grid input,
+        .attendance-create-grid select,
+        .attendance-event-toolbar select {
+            width: 100%;
+
+            min-height: 42px;
+
+            box-sizing:
+                border-box;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid #39444a;
+
+            outline: none;
+
+            background: #080e11;
+
+            color: #ffffff;
+        }
+
+        .attendance-button {
+            min-height: 42px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid #c5a75b;
+
+            background: transparent;
+
+            color: #c5a75b;
+
+            cursor: pointer;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .8px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .attendance-button.primary {
+            background: #c5a75b;
+
+            color: #111111;
+        }
+
+        .attendance-button.danger {
+            border-color: #744343;
+
+            color: #e17b7b;
+        }
+
+        .attendance-event-toolbar {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                auto
+                auto;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .attendance-list {
+            display: grid;
+
+            gap: 7px;
+        }
+
+        .attendance-row {
+            display: grid;
+
+            grid-template-columns:
+                minmax(180px, 1fr)
+                170px
+                minmax(180px, 1fr);
+
+            gap: 12px;
+
+            align-items: center;
+
+            padding:
+                12px 14px;
+
+            border:
+                1px solid #30383d;
+
+            background: #090f12;
+        }
+
+        .attendance-name strong {
+            display: block;
+
+            color: #ffffff;
+
+            font:
+                600
+                13px
+                Oswald,
+                sans-serif;
+        }
+
+        .attendance-name small {
+            color: #69787e;
+
+            font-size: 9px;
+        }
+
+        .attendance-row select,
+        .attendance-row input {
+            width: 100%;
+
+            box-sizing:
+                border-box;
+
+            min-height: 37px;
+
+            padding:
+                0 10px;
+
+            border:
+                1px solid #384248;
+
+            background: #080e11;
+
+            color: #ffffff;
+        }
+
+        .attendance-actions {
+            display: flex;
+
+            justify-content: flex-end;
+
+            margin-top: 15px;
+        }
+
+        .attendance-message {
+            min-height: 20px;
+
+            margin-top: 10px;
+
+            color: #819096;
+
+            font-size: 11px;
+        }
+
+        .attendance-message.success {
+            color: #75d48c;
+        }
+
+        .attendance-message.error {
+            color: #e47b7b;
+        }
+
+        /* =================================================
+           EMPTY
+           ================================================= */
+
+        .admin-empty {
+            padding: 50px 20px;
+
+            border:
+                1px dashed #30383d;
+
+            background: #101619;
+
+            color: #77858b;
+
+            text-align: center;
+        }
+
+        /* =================================================
            RESPONSIVE
-           ========================================= */
+           ================================================= */
 
         @media (max-width: 1150px) {
 
@@ -922,7 +1090,24 @@
 
         @media (max-width: 900px) {
 
-            .attendance-create {
+            .admin-summary {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .member-dropdown-header {
+                grid-template-columns:
+                    minmax(160px, 1.4fr)
+                    minmax(130px, 1fr)
+                    minmax(100px, .7fr)
+                    32px;
+            }
+
+            .dropdown-section-column {
+                display: none;
+            }
+
+            .attendance-create-grid {
                 grid-template-columns:
                     1fr 1fr;
             }
@@ -932,52 +1117,13 @@
                     1fr;
             }
 
-            .qualification-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
         }
 
-        @media (max-width: 800px) {
-
-            .admin-summary {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+        @media (max-width: 650px) {
 
             .admin-toolbar {
                 grid-template-columns:
                     1fr;
-            }
-
-            .member-admin-header {
-                align-items: flex-start;
-
-                flex-direction: column;
-            }
-
-        }
-
-        @media (max-width: 600px) {
-
-            .admin-form-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .admin-field.wide {
-                grid-column: span 1;
-            }
-
-            .attendance-create,
-            .attendance-event-bar {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .attendance-panel-header {
-                flex-direction: column;
             }
 
             .admin-summary {
@@ -985,15 +1131,38 @@
                     1fr 1fr;
             }
 
-            .qualification-grid {
+            .member-dropdown-header {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    auto;
+            }
+
+            .dropdown-rank-column,
+            .dropdown-section-column,
+            .dropdown-access-column {
+                display: none;
+            }
+
+            .admin-form-grid {
                 grid-template-columns:
                     1fr;
             }
 
-            .qualification-title-row {
+            .qualification-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .qualification-heading {
                 align-items: flex-start;
 
                 flex-direction: column;
+            }
+
+            .attendance-create-grid,
+            .attendance-event-toolbar {
+                grid-template-columns:
+                    1fr;
             }
 
         }
@@ -1006,9 +1175,9 @@
 <body>
 
 
-    <!-- =========================================
+    <!-- =================================================
          HEADER
-         ========================================= -->
+         ================================================= -->
 
     <header class="site-header">
 
@@ -1038,6 +1207,7 @@
 
         <button
             class="nav-toggle"
+            id="navToggle"
             aria-label="Toggle navigation"
             aria-expanded="false"
         >
@@ -1045,7 +1215,10 @@
         </button>
 
 
-        <nav class="main-nav">
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
 
             <a href="index.html">
                 Home
@@ -1053,6 +1226,10 @@
 
             <a href="orbat.html">
                 ORBAT
+            </a>
+
+            <a href="operations.html">
+                OPBOARD
             </a>
 
             <a href="training.html">
@@ -1065,6 +1242,10 @@
 
             <a href="server.html">
                 Server
+            </a>
+
+            <a href="media.html">
+                Media
             </a>
 
             <a href="members.html">
@@ -1114,11 +1295,10 @@
                         </span>
 
                         <small>
-                            Authenticated Member
+                            Administrator
                         </small>
 
                     </div>
-
 
                     <button
                         class="member-logout-btn"
@@ -1137,55 +1317,62 @@
     </header>
 
 
-    <!-- =========================================
+    <!-- =================================================
          HERO
-         ========================================= -->
+         ================================================= -->
 
     <section class="admin-hero">
 
-        <p class="eyebrow">
-            COMMAND ACCESS
-        </p>
+        <div class="admin-hero-inner">
 
-        <h1>
-            Administration
-        </h1>
+            <p class="eyebrow">
+                COMMAND PERSONNEL SYSTEM
+            </p>
 
-        <p>
-            Manage member assignments, ranks, billets,
-            sections, qualifications, attendance,
-            status and portal access.
-        </p>
+            <h1>
+                Administration
+            </h1>
+
+            <p class="admin-hero-description">
+                Manage personnel records, ranks, assignments,
+                qualifications, access levels and attendance.
+            </p>
+
+        </div>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          LOADING
-         ========================================= -->
+         ================================================= -->
 
     <section
         id="adminLoading"
         class="admin-message"
     >
 
+        <p class="eyebrow">
+            SECURE ACCESS
+        </p>
+
         <h2>
             Loading Administration
         </h2>
 
         <p>
-            Verifying command authorization...
+            Verifying administrator permissions.
         </p>
 
     </section>
 
 
-    <!-- =========================================
-         LOGIN REQUIRED
-         ========================================= -->
+    <!-- =================================================
+         LOGIN
+         ================================================= -->
 
     <section
-        id="adminLoginRequired"
+        id="adminLogin"
         class="admin-message"
         hidden
     >
@@ -1195,27 +1382,27 @@
         </p>
 
         <h2>
-            Discord Login Required
+            Administrator Login Required
         </h2>
 
         <p>
-            You must authenticate before accessing
-            the administrative portal.
+            Sign in with your authorized Discord account.
         </p>
 
-        <a
-            href="index.html"
-            class="btn btn-primary"
+        <button
+            id="adminLoginButton"
+            class="attendance-button primary"
+            type="button"
         >
-            Return Home
-        </a>
+            Login with Discord
+        </button>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          ACCESS DENIED
-         ========================================= -->
+         ================================================= -->
 
     <section
         id="adminDenied"
@@ -1224,11 +1411,11 @@
     >
 
         <p class="eyebrow">
-            ACCESS DENIED
+            ACCESS RESTRICTED
         </p>
 
         <h2>
-            Command Authorization Required
+            Access Denied
         </h2>
 
         <p>
@@ -1236,19 +1423,12 @@
             the 21st Cavalry Division Administration Portal.
         </p>
 
-        <a
-            href="members.html"
-            class="btn btn-secondary"
-        >
-            Member Portal
-        </a>
-
     </section>
 
 
-    <!-- =========================================
-         ADMIN CONTENT
-         ========================================= -->
+    <!-- =================================================
+         ADMIN DASHBOARD
+         ================================================= -->
 
     <main
         id="adminContent"
@@ -1273,7 +1453,6 @@
 
             </div>
 
-
             <div class="summary-card">
 
                 <span>
@@ -1286,7 +1465,6 @@
 
             </div>
 
-
             <div class="summary-card">
 
                 <span>
@@ -1298,7 +1476,6 @@
                 </strong>
 
             </div>
-
 
             <div class="summary-card">
 
@@ -1315,51 +1492,87 @@
         </section>
 
 
-        <!-- =========================================
+        <!-- =================================================
+             MEMBER MANAGEMENT
+             ================================================= -->
+
+        <div class="admin-section-heading">
+
+            <h2>
+                Member Management
+            </h2>
+
+            <span>
+                Personnel Records
+            </span>
+
+        </div>
+
+
+        <!-- EXISTING SEARCH BAR -->
+
+        <section class="admin-toolbar">
+
+            <input
+                id="memberSearch"
+                class="admin-search"
+                type="search"
+                placeholder="Search members by name, rank, billet, section..."
+                autocomplete="off"
+            >
+
+            <button
+                id="refreshMembers"
+                class="admin-refresh"
+                type="button"
+            >
+                Refresh Members
+            </button>
+
+        </section>
+
+
+        <div
+            id="memberCountLine"
+            class="member-count-line"
+        ></div>
+
+
+        <!-- MEMBER DROPDOWN LIST -->
+
+        <section
+            id="memberAdminList"
+            class="member-admin-list"
+        ></section>
+
+
+        <!-- =================================================
              ATTENDANCE MANAGEMENT
-             ========================================= -->
+             ================================================= -->
+
+        <div class="admin-section-heading">
+
+            <h2>
+                Attendance Management
+            </h2>
+
+            <span>
+                Personnel Accountability
+            </span>
+
+        </div>
+
 
         <section class="attendance-panel">
 
-            <div class="attendance-panel-header">
 
-                <div>
-
-                    <p class="eyebrow">
-                        PERSONNEL ACCOUNTABILITY
-                    </p>
-
-                    <h2>
-                        Attendance Management
-                    </h2>
-
-                    <p>
-                        Create an official event and mark each
-                        member Present, Excused or Absent.
-                    </p>
-
-                </div>
-
-
-                <button
-                    id="refreshAttendance"
-                    class="attendance-action-btn secondary"
-                    type="button"
-                >
-                    Refresh Attendance
-                </button>
-
-            </div>
-
-
-            <div class="attendance-create">
+            <div class="attendance-create-grid">
 
                 <input
                     id="attendanceEventTitle"
                     type="text"
-                    placeholder="Event name — Example: Weekly Training"
+                    placeholder="Event name"
                 >
-
 
                 <select id="attendanceEventType">
 
@@ -1373,10 +1586,6 @@
 
                     <option value="FTX">
                         FTX
-                    </option>
-
-                    <option value="BCT">
-                        BCT
                     </option>
 
                     <option value="Qualification">
@@ -1402,7 +1611,7 @@
 
                 <button
                     id="createAttendanceEvent"
-                    class="attendance-action-btn"
+                    class="attendance-button primary"
                     type="button"
                 >
                     Create Event
@@ -1411,113 +1620,75 @@
             </div>
 
 
-            <div class="attendance-workspace">
+            <div class="attendance-event-toolbar">
 
-                <div class="attendance-event-bar">
+                <select id="attendanceEventSelect">
 
-                    <select
-                        id="attendanceEventSelect"
-                        class="attendance-event-select"
-                    >
+                    <option value="">
+                        Select attendance event
+                    </option>
 
-                        <option value="">
-                            Select an attendance event...
-                        </option>
+                </select>
 
-                    </select>
-
-
-                    <button
-                        id="deleteAttendanceEvent"
-                        class="attendance-action-btn secondary"
-                        type="button"
-                        disabled
-                    >
-                        Delete Event
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="attendanceEventDetails"
-                    class="attendance-event-details"
-                    hidden
-                ></div>
-
-
-                <div
-                    id="attendanceRoster"
-                    class="attendance-roster"
+                <button
+                    id="refreshAttendance"
+                    class="attendance-button"
+                    type="button"
                 >
+                    Refresh
+                </button>
 
-                    <div class="admin-empty">
-                        Create or select an event to begin attendance.
-                    </div>
+                <button
+                    id="deleteAttendanceEvent"
+                    class="attendance-button danger"
+                    type="button"
+                >
+                    Delete Event
+                </button>
 
-                </div>
-
-
-                <div class="attendance-footer">
-
-                    <span
-                        id="attendanceMessage"
-                        class="attendance-message"
-                    ></span>
+            </div>
 
 
-                    <button
-                        id="saveAttendance"
-                        class="attendance-action-btn"
-                        type="button"
-                        disabled
-                    >
-                        Save Attendance
-                    </button>
+            <div
+                id="attendanceMemberList"
+                class="attendance-list"
+            >
 
+                <div class="admin-empty">
+                    Select an attendance event.
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="attendance-actions">
+
+                <button
+                    id="saveAttendance"
+                    class="attendance-button primary"
+                    type="button"
+                >
+                    Save Attendance
+                </button>
+
+            </div>
 
 
-        <!-- =========================================
-             MEMBER MANAGEMENT
-             ========================================= -->
+            <div
+                id="attendanceMessage"
+                class="attendance-message"
+            ></div>
 
-        <section class="admin-toolbar">
-
-            <input
-                id="memberSearch"
-                class="admin-search"
-                type="search"
-                placeholder="Search members by name, rank, billet, section..."
-            >
-
-
-            <button
-                id="refreshMembers"
-                class="admin-refresh"
-                type="button"
-            >
-                Refresh Members
-            </button>
 
         </section>
 
-
-        <section
-            id="memberAdminList"
-            class="member-admin-list"
-        ></section>
 
     </main>
 
 
-    <!-- =========================================
+    <!-- =================================================
          FOOTER
-         ========================================= -->
+         ================================================= -->
 
     <footer>
 
@@ -1541,11 +1712,9 @@
 
         </div>
 
-
         <p>
             Swift. Silent. Relentless.
         </p>
-
 
         <div class="footer-links">
 
@@ -1563,7 +1732,6 @@
 
         </div>
 
-
         <p class="fineprint">
             Administrative access is restricted to authorized
             21st Cavalry Division personnel.
@@ -1572,19 +1740,14 @@
     </footer>
 
 
-    <!-- SUPABASE -->
+    <!-- =================================================
+         SUPABASE
+         ================================================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
-
-    <script src="script.js?v=10"></script>
-
-
-    <!-- =========================================
-         ADMIN JAVASCRIPT
-         ========================================= -->
 
     <script>
 
@@ -1594,9 +1757,9 @@
             async () => {
 
 
-                /* =========================================
-                   SUPABASE CONFIGURATION
-                   ========================================= */
+                /* =================================================
+                   SUPABASE
+                   ================================================= */
 
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
@@ -1613,20 +1776,181 @@
                     );
 
 
-                let allMembers = [];
+                /* =================================================
+                   STATE
+                   ================================================= */
 
-                let attendanceEvents = [];
-
-                let attendanceRecords = [];
-
-                let selectedAttendanceEventId = null;
-
-                let currentAdminUserId = null;
+                let allMembers =
+                    [];
 
 
-                /* =========================================
-                   RANK OPTIONS
-                   ========================================= */
+                let currentAdminUserId =
+                    null;
+
+
+                let attendanceEvents =
+                    [];
+
+
+                let selectedAttendanceEventId =
+                    null;
+
+
+                let openMemberId =
+                    null;
+
+
+                /* =================================================
+                   ELEMENTS
+                   ================================================= */
+
+                const adminLoading =
+                    document.getElementById(
+                        'adminLoading'
+                    );
+
+
+                const adminLogin =
+                    document.getElementById(
+                        'adminLogin'
+                    );
+
+
+                const adminDenied =
+                    document.getElementById(
+                        'adminDenied'
+                    );
+
+
+                const adminContent =
+                    document.getElementById(
+                        'adminContent'
+                    );
+
+
+                const memberList =
+                    document.getElementById(
+                        'memberAdminList'
+                    );
+
+
+                const memberSearch =
+                    document.getElementById(
+                        'memberSearch'
+                    );
+
+
+                const refreshMembers =
+                    document.getElementById(
+                        'refreshMembers'
+                    );
+
+
+                const memberCountLine =
+                    document.getElementById(
+                        'memberCountLine'
+                    );
+
+
+                const discordLoginBtn =
+                    document.getElementById(
+                        'discordLoginBtn'
+                    );
+
+
+                const adminLoginButton =
+                    document.getElementById(
+                        'adminLoginButton'
+                    );
+
+
+                const discordLogoutBtn =
+                    document.getElementById(
+                        'discordLogoutBtn'
+                    );
+
+
+                const memberProfile =
+                    document.getElementById(
+                        'memberProfile'
+                    );
+
+
+                const memberName =
+                    document.getElementById(
+                        'memberName'
+                    );
+
+
+                const memberAvatar =
+                    document.getElementById(
+                        'memberAvatar'
+                    );
+
+
+                const attendanceEventTitle =
+                    document.getElementById(
+                        'attendanceEventTitle'
+                    );
+
+
+                const attendanceEventType =
+                    document.getElementById(
+                        'attendanceEventType'
+                    );
+
+
+                const attendanceEventDate =
+                    document.getElementById(
+                        'attendanceEventDate'
+                    );
+
+
+                const attendanceEventSelect =
+                    document.getElementById(
+                        'attendanceEventSelect'
+                    );
+
+
+                const attendanceMemberList =
+                    document.getElementById(
+                        'attendanceMemberList'
+                    );
+
+
+                const attendanceMessage =
+                    document.getElementById(
+                        'attendanceMessage'
+                    );
+
+
+                const createAttendanceEvent =
+                    document.getElementById(
+                        'createAttendanceEvent'
+                    );
+
+
+                const refreshAttendance =
+                    document.getElementById(
+                        'refreshAttendance'
+                    );
+
+
+                const deleteAttendanceEvent =
+                    document.getElementById(
+                        'deleteAttendanceEvent'
+                    );
+
+
+                const saveAttendance =
+                    document.getElementById(
+                        'saveAttendance'
+                    );
+
+
+                /* =================================================
+                   RANKS
+                   ================================================= */
 
                 const RANK_OPTIONS = [
 
@@ -1748,350 +2072,162 @@
                 ];
 
 
-                /* =========================================
-                   BILLET OPTIONS
-                   ========================================= */
+                /* =================================================
+                   BILLETS
+                   ================================================= */
 
                 const BILLET_OPTIONS = [
 
                     'Unassigned',
-
                     'Division Commander',
-
                     'Executive Officer',
-
                     'Command Sergeant Major',
-
                     'First Sergeant',
-
                     'Platoon Leader',
-
                     'Platoon Sergeant',
-
                     'Squad Leader',
-
                     'Team Leader',
-
                     'Rifleman',
-
                     'Automatic Rifleman',
-
                     'Grenadier',
-
                     'Combat Medic',
-
                     'Radio Telephone Operator',
-
                     'Forward Observer',
-
                     'Crew Chief',
-
                     'Pilot',
-
                     'Copilot',
-
                     'Vehicle Commander',
-
                     'Gunner',
-
                     'Driver',
-
                     'Crewman',
-
                     'Instructor',
-
                     'Training NCO',
-
                     'Recruiter'
 
                 ];
 
 
-                /* =========================================
-                   SECTION OPTIONS
-                   ========================================= */
+                /* =================================================
+                   SECTIONS
+                   ================================================= */
 
                 const SECTION_OPTIONS = [
 
                     'Unassigned',
-
                     'Division HQ',
-
                     'Command Staff',
-
                     '1st Platoon',
-
                     '2nd Platoon',
-
                     '1st Squad',
-
                     '2nd Squad',
-
                     '3rd Squad',
-
                     'Weapons Squad',
-
                     'Aviation Detachment',
-
                     'Armor Section',
-
                     'Recon Section',
-
                     'Medical Section',
-
                     'Training Section',
-
                     'Recruitment Section'
 
                 ];
 
 
-                /* =========================================
-                   QUALIFICATION OPTIONS
-                   ========================================= */
+                /* =================================================
+                   QUALIFICATIONS
+                   ================================================= */
 
                 const QUALIFICATION_GROUPS = [
 
                     {
-                        name: 'Core Training',
 
-                        options: [
+                        title:
+                            'Core Training',
+
+                        values: [
 
                             'BCT',
-
                             'Rifle Qualification',
-
                             'CLS'
 
                         ]
+
                     },
 
-
                     {
-                        name: 'Infantry Qualifications',
 
-                        options: [
+                        title:
+                            'Infantry Qualifications',
+
+                        values: [
 
                             'Rifleman',
-
                             'Automatic Rifleman',
-
                             'Grenadier',
-
                             'Machine Gunner',
-
                             'RTO',
-
                             'Forward Observer',
-
                             'Combat Medic',
-
                             'Marksman',
-
                             'Sniper'
 
                         ]
+
                     },
 
-
                     {
-                        name: 'Vehicle Qualifications',
 
-                        options: [
+                        title:
+                            'Vehicle Qualifications',
+
+                        values: [
 
                             'Driver',
-
                             'Crewman',
-
                             'Gunner',
-
                             'Vehicle Commander'
 
                         ]
+
                     },
 
-
                     {
-                        name: 'Aviation Qualifications',
 
-                        options: [
+                        title:
+                            'Aviation Qualifications',
+
+                        values: [
 
                             'Pilot',
-
                             'Copilot',
-
                             'Crew Chief'
 
                         ]
+
                     },
 
-
                     {
-                        name: 'Leadership & Training',
 
-                        options: [
+                        title:
+                            'Leadership & Training',
+
+                        values: [
 
                             'Team Leader',
-
                             'Squad Leader',
-
                             'Platoon Leadership',
-
                             'Instructor',
-
                             'Training Staff'
 
                         ]
+
                     }
 
                 ];
 
 
-                /* =========================================
-                   ELEMENTS
-                   ========================================= */
-
-                const loading =
-                    document.getElementById(
-                        'adminLoading'
-                    );
-
-
-                const loginRequired =
-                    document.getElementById(
-                        'adminLoginRequired'
-                    );
-
-
-                const denied =
-                    document.getElementById(
-                        'adminDenied'
-                    );
-
-
-                const content =
-                    document.getElementById(
-                        'adminContent'
-                    );
-
-
-                const memberList =
-                    document.getElementById(
-                        'memberAdminList'
-                    );
-
-
-                const search =
-                    document.getElementById(
-                        'memberSearch'
-                    );
-
-
-                const refresh =
-                    document.getElementById(
-                        'refreshMembers'
-                    );
-
-
-                const attendanceEventTitle =
-                    document.getElementById(
-                        'attendanceEventTitle'
-                    );
-
-
-                const attendanceEventType =
-                    document.getElementById(
-                        'attendanceEventType'
-                    );
-
-
-                const attendanceEventDate =
-                    document.getElementById(
-                        'attendanceEventDate'
-                    );
-
-
-                const createAttendanceEvent =
-                    document.getElementById(
-                        'createAttendanceEvent'
-                    );
-
-
-                const attendanceEventSelect =
-                    document.getElementById(
-                        'attendanceEventSelect'
-                    );
-
-
-                const attendanceEventDetails =
-                    document.getElementById(
-                        'attendanceEventDetails'
-                    );
-
-
-                const attendanceRoster =
-                    document.getElementById(
-                        'attendanceRoster'
-                    );
-
-
-                const attendanceMessage =
-                    document.getElementById(
-                        'attendanceMessage'
-                    );
-
-
-                const saveAttendance =
-                    document.getElementById(
-                        'saveAttendance'
-                    );
-
-
-                const deleteAttendanceEvent =
-                    document.getElementById(
-                        'deleteAttendanceEvent'
-                    );
-
-
-                const refreshAttendance =
-                    document.getElementById(
-                        'refreshAttendance'
-                    );
-
-
-                /* =========================================
-                   SCREEN HANDLER
-                   ========================================= */
-
-                function showScreen(
-                    screen
-                ) {
-
-                    loading.hidden =
-                        screen !==
-                        'loading';
-
-
-                    loginRequired.hidden =
-                        screen !==
-                        'login';
-
-
-                    denied.hidden =
-                        screen !==
-                        'denied';
-
-
-                    content.hidden =
-                        screen !==
-                        'admin';
-
-                }
-
-
-                /* =========================================
-                   ESCAPE HTML
-                   ========================================= */
+                /* =================================================
+                   HELPERS
+                   ================================================= */
 
                 function escapeHtml(
                     value
@@ -2101,314 +2237,422 @@
                         value ?? ''
                     )
 
-                        .replaceAll(
-                            '&',
-                            '&amp;'
-                        )
-
-                        .replaceAll(
-                            '<',
-                            '&lt;'
-                        )
-
-                        .replaceAll(
-                            '>',
-                            '&gt;'
-                        )
-
-                        .replaceAll(
-                            '"',
-                            '&quot;'
-                        )
-
-                        .replaceAll(
-                            "'",
-                            '&#039;'
-                        );
-
-                }
-
-
-                /* =========================================
-                   SELECT OPTIONS
-                   ========================================= */
-
-                function optionList(
-                    options,
-                    selected
-                ) {
-
-                    return options
-
-                        .map(
-                            value => {
-
-                                const isSelected =
-                                    value ===
-                                    selected
-
-                                        ?
-
-                                        'selected'
-
-                                        :
-
-                                        '';
-
-
-                                return `
-
-                                    <option
-                                        value="${escapeHtml(
-                                            value
-                                        )}"
-                                        ${isSelected}
-                                    >
-
-                                        ${escapeHtml(
-                                            value
-                                        )}
-
-                                    </option>
-
-                                `;
-
-                            }
-                        )
-
-                        .join('');
-
-                }
-
-
-                /* =========================================
-                   RANK OPTIONS
-                   ========================================= */
-
-                function rankOptionList(
-                    selected
-                ) {
-
-                    return RANK_OPTIONS
-
-                        .map(
-                            rank => {
-
-                                const isSelected =
-                                    rank.value ===
-                                    selected
-
-                                        ?
-
-                                        'selected'
-
-                                        :
-
-                                        '';
-
-
-                                return `
-
-                                    <option
-                                        value="${escapeHtml(
-                                            rank.value
-                                        )}"
-                                        ${isSelected}
-                                    >
-
-                                        ${escapeHtml(
-                                            rank.label
-                                        )}
-
-                                    </option>
-
-                                `;
-
-                            }
-                        )
-
-                        .join('');
-
-                }
-
-
-                /* =========================================
-                   QUALIFICATION HTML
-                   ========================================= */
-
-                function qualificationHtml(
-                    memberQualifications
-                ) {
-
-                    const selected =
-                        Array.isArray(
-                            memberQualifications
-                        )
-
-                            ?
-
-                            memberQualifications
-
-                            :
-
-                            [];
-
-
-                    let html =
-                        '';
-
-
-                    const standardQualifications =
-                        QUALIFICATION_GROUPS
-                            .flatMap(
-                                group =>
-                                    group.options
-                            );
-
-
-                    QUALIFICATION_GROUPS.forEach(
-
-                        group => {
-
-
-                            html += `
-
-                                <div class="qualification-category">
-
-                                    ${escapeHtml(
-                                        group.name
-                                    )}
-
-                                </div>
-
-                            `;
-
-
-                            group.options.forEach(
-
-                                qualification => {
-
-
-                                    const checked =
-                                        selected.includes(
-                                            qualification
-                                        )
-
-                                            ?
-
-                                            'checked'
-
-                                            :
-
-                                            '';
-
-
-                                    html += `
-
-                                        <label class="qualification-option">
-
-                                            <input
-                                                type="checkbox"
-                                                data-qualification
-                                                value="${escapeHtml(
-                                                    qualification
-                                                )}"
-                                                ${checked}
-                                            >
-
-                                            <span>
-
-                                                ${escapeHtml(
-                                                    qualification
-                                                )}
-
-                                            </span>
-
-                                        </label>
-
-                                    `;
-
-                                }
-
-                            );
-
-                        }
-
+                    .replaceAll(
+                        '&',
+                        '&amp;'
+                    )
+
+                    .replaceAll(
+                        '<',
+                        '&lt;'
+                    )
+
+                    .replaceAll(
+                        '>',
+                        '&gt;'
+                    )
+
+                    .replaceAll(
+                        '"',
+                        '&quot;'
+                    )
+
+                    .replaceAll(
+                        "'",
+                        '&#039;'
                     );
 
+                }
 
-                    const customQualifications =
-                        selected.filter(
 
-                            qualification =>
+                function showScreen(
+                    screen
+                ) {
 
-                                !standardQualifications.includes(
-                                    qualification
-                                )
+                    adminLoading.hidden =
+                        screen !==
+                        'loading';
 
+
+                    adminLogin.hidden =
+                        screen !==
+                        'login';
+
+
+                    adminDenied.hidden =
+                        screen !==
+                        'denied';
+
+
+                    adminContent.hidden =
+                        screen !==
+                        'admin';
+
+                }
+
+
+                function normalizeDate(
+                    value
+                ) {
+
+                    if (!value) {
+
+                        return '';
+
+                    }
+
+
+                    return String(
+                        value
+                    )
+                    .slice(
+                        0,
+                        10
+                    );
+
+                }
+
+
+                function localToday() {
+
+                    const now =
+                        new Date();
+
+
+                    const year =
+                        now.getFullYear();
+
+
+                    const month =
+                        String(
+                            now.getMonth() + 1
+                        )
+                        .padStart(
+                            2,
+                            '0'
                         );
+
+
+                    const day =
+                        String(
+                            now.getDate()
+                        )
+                        .padStart(
+                            2,
+                            '0'
+                        );
+
+
+                    return `${year}-${month}-${day}`;
+
+                }
+
+
+                function optionList(
+                    values,
+                    selected
+                ) {
+
+                    const options =
+                        [...values];
 
 
                     if (
-                        customQualifications.length
+                        selected
+                        &&
+                        !options.includes(
+                            selected
+                        )
                     ) {
 
-                        html += `
-
-                            <div class="qualification-category">
-
-                                Existing / Custom Qualifications
-
-                            </div>
-
-                        `;
-
-
-                        customQualifications.forEach(
-
-                            qualification => {
-
-
-                                html += `
-
-                                    <label class="qualification-option">
-
-                                        <input
-                                            type="checkbox"
-                                            data-qualification
-                                            value="${escapeHtml(
-                                                qualification
-                                            )}"
-                                            checked
-                                        >
-
-                                        <span>
-
-                                            ${escapeHtml(
-                                                qualification
-                                            )}
-
-                                        </span>
-
-                                    </label>
-
-                                `;
-
-                            }
-
+                        options.unshift(
+                            selected
                         );
 
                     }
 
 
-                    return html;
+                    return options
+                        .map(
+
+                            value => {
+
+                                const selectedText =
+                                    value ===
+                                    selected
+                                        ?
+                                        'selected'
+                                        :
+                                        '';
+
+
+                                return `
+
+                                    <option
+                                        value="${escapeHtml(
+                                            value
+                                        )}"
+                                        ${selectedText}
+                                    >
+                                        ${escapeHtml(
+                                            value
+                                        )}
+                                    </option>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
 
                 }
 
 
-                /* =========================================
+                function rankOptionList(
+                    selected
+                ) {
+
+                    const options =
+                        [...RANK_OPTIONS];
+
+
+                    if (
+                        selected
+                        &&
+                        !options.some(
+                            item =>
+                                item.value ===
+                                selected
+                        )
+                    ) {
+
+                        options.unshift({
+
+                            label:
+                                selected,
+
+                            value:
+                                selected
+
+                        });
+
+                    }
+
+
+                    return options
+                        .map(
+
+                            item => {
+
+                                const selectedText =
+                                    item.value ===
+                                    selected
+                                        ?
+                                        'selected'
+                                        :
+                                        '';
+
+
+                                return `
+
+                                    <option
+                                        value="${escapeHtml(
+                                            item.value
+                                        )}"
+                                        ${selectedText}
+                                    >
+                                        ${escapeHtml(
+                                            item.label
+                                        )}
+                                    </option>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
+
+                }
+
+
+                /* =================================================
+                   MOBILE NAV
+                   ================================================= */
+
+                const navToggle =
+                    document.getElementById(
+                        'navToggle'
+                    );
+
+
+                const mainNav =
+                    document.getElementById(
+                        'mainNav'
+                    );
+
+
+                navToggle.addEventListener(
+
+                    'click',
+
+                    () => {
+
+                        const open =
+                            mainNav.classList.toggle(
+                                'open'
+                            );
+
+
+                        navToggle.setAttribute(
+                            'aria-expanded',
+                            open
+                                ?
+                                'true'
+                                :
+                                'false'
+                        );
+
+                    }
+
+                );
+
+
+                /* =================================================
+                   LOGIN / LOGOUT
+                   ================================================= */
+
+                async function loginWithDiscord() {
+
+                    const {
+                        error
+                    } =
+                        await client.auth
+                            .signInWithOAuth({
+
+                                provider:
+                                    'discord',
+
+                                options: {
+
+                                    redirectTo:
+                                        window.location.href
+
+                                }
+
+                            });
+
+
+                    if (error) {
+
+                        alert(
+                            error.message
+                        );
+
+                    }
+
+                }
+
+
+                discordLoginBtn.addEventListener(
+                    'click',
+                    loginWithDiscord
+                );
+
+
+                adminLoginButton.addEventListener(
+                    'click',
+                    loginWithDiscord
+                );
+
+
+                discordLogoutBtn.addEventListener(
+
+                    'click',
+
+                    async () => {
+
+                        await client.auth
+                            .signOut();
+
+
+                        window.location.href =
+                            'index.html';
+
+                    }
+
+                );
+
+
+                /* =================================================
+                   HEADER USER
+                   ================================================= */
+
+                function renderHeaderUser(
+                    user,
+                    profile
+                ) {
+
+                    discordLoginBtn.hidden =
+                        true;
+
+
+                    memberProfile.hidden =
+                        false;
+
+
+                    memberName.textContent =
+
+                        profile.display_name
+
+                        ||
+
+                        user.user_metadata
+                            ?.global_name
+
+                        ||
+
+                        user.user_metadata
+                            ?.name
+
+                        ||
+
+                        'Administrator';
+
+
+                    const avatar =
+
+                        user.user_metadata
+                            ?.avatar_url
+
+                        ||
+
+                        user.user_metadata
+                            ?.picture
+
+                        ||
+
+                        '';
+
+
+                    if (avatar) {
+
+                        memberAvatar.src =
+                            avatar;
+
+
+                        memberAvatar.hidden =
+                            false;
+
+                    }
+
+                }
+
+
+                /* =================================================
                    SUMMARY
-                   ========================================= */
+                   ================================================= */
 
                 function updateSummary() {
 
@@ -2420,7 +2664,6 @@
                         allMembers.filter(
 
                             member =>
-
                                 member.member_status ===
                                 'Active'
 
@@ -2444,40 +2687,41 @@
 
 
                     const attendance =
+
                         total
 
-                            ?
+                        ?
 
-                            Math.round(
+                        Math.round(
 
-                                allMembers.reduce(
+                            allMembers.reduce(
 
-                                    (
-                                        totalValue,
-                                        member
-                                    ) =>
+                                (
+                                    totalValue,
+                                    member
+                                ) =>
 
-                                        totalValue +
+                                    totalValue
+                                    +
+                                    Number(
+                                        member.attendance_rate
+                                        ||
+                                        0
+                                    ),
 
-                                        Number(
-                                            member.attendance_rate
-                                            ||
-                                            0
-                                        ),
-
-                                    0
-
-                                )
-
-                                /
-
-                                total
+                                0
 
                             )
 
-                            :
+                            /
 
-                            0;
+                            total
+
+                        )
+
+                        :
+
+                        0;
 
 
                     document
@@ -2515,9 +2759,280 @@
                 }
 
 
-                /* =========================================
+                /* =================================================
+                   QUALIFICATION HTML
+                   ================================================= */
+
+                function qualificationHtml(
+                    member
+                ) {
+
+                    const selected =
+
+                        Array.isArray(
+                            member.qualifications
+                        )
+
+                        ?
+
+                        member.qualifications
+
+                        :
+
+                        [];
+
+
+                    let html =
+                        '';
+
+
+                    QUALIFICATION_GROUPS.forEach(
+
+                        group => {
+
+                            html += `
+
+                                <div class="qualification-group">
+
+                                    <div class="qualification-group-title">
+
+                                        ${escapeHtml(
+                                            group.title
+                                        )}
+
+                                    </div>
+
+
+                                    <div class="qualification-grid">
+
+                                        ${group.values.map(
+
+                                            qualification => {
+
+
+                                                const checked =
+                                                    selected.includes(
+                                                        qualification
+                                                    );
+
+
+                                                return `
+
+                                                    <label
+                                                        class="qualification-option ${
+                                                            checked
+                                                                ?
+                                                                'selected'
+                                                                :
+                                                                ''
+                                                        }"
+                                                    >
+
+                                                        <input
+                                                            type="checkbox"
+                                                            data-qualification="${escapeHtml(
+                                                                qualification
+                                                            )}"
+                                                            ${
+                                                                checked
+                                                                ?
+                                                                'checked'
+                                                                :
+                                                                ''
+                                                            }
+                                                        >
+
+                                                        <span>
+                                                            ${escapeHtml(
+                                                                qualification
+                                                            )}
+                                                        </span>
+
+                                                    </label>
+
+                                                `;
+
+                                            }
+
+                                        ).join('')}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+
+                    );
+
+
+                    const known =
+                        QUALIFICATION_GROUPS
+                            .flatMap(
+                                group =>
+                                    group.values
+                            );
+
+
+                    const custom =
+                        selected.filter(
+
+                            value =>
+                                !known.includes(
+                                    value
+                                )
+
+                        );
+
+
+                    if (
+                        custom.length
+                    ) {
+
+                        html += `
+
+                            <div class="qualification-group">
+
+                                <div class="qualification-group-title">
+                                    Additional Qualifications
+                                </div>
+
+                                <div class="qualification-grid">
+
+                                    ${custom.map(
+
+                                        qualification => `
+
+                                            <label class="qualification-option selected">
+
+                                                <input
+                                                    type="checkbox"
+                                                    data-qualification="${escapeHtml(
+                                                        qualification
+                                                    )}"
+                                                    checked
+                                                >
+
+                                                <span>
+                                                    ${escapeHtml(
+                                                        qualification
+                                                    )}
+                                                </span>
+
+                                            </label>
+
+                                        `
+
+                                    ).join('')}
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+                    return html;
+
+                }
+
+
+                /* =================================================
+                   MEMBER DROPDOWN
+                   ================================================= */
+
+                function toggleMemberCard(
+                    card
+                ) {
+
+                    const memberId =
+                        card.dataset.memberId;
+
+
+                    const wasOpen =
+                        card.classList.contains(
+                            'open'
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            '.member-admin-card.open'
+                        )
+                        .forEach(
+
+                            existingCard => {
+
+                                existingCard
+                                    .classList
+                                    .remove(
+                                        'open'
+                                    );
+
+
+                                const existingButton =
+                                    existingCard.querySelector(
+                                        '[data-member-toggle]'
+                                    );
+
+
+                                if (
+                                    existingButton
+                                ) {
+
+                                    existingButton
+                                        .setAttribute(
+                                            'aria-expanded',
+                                            'false'
+                                        );
+
+                                }
+
+                            }
+
+                        );
+
+
+                    if (
+                        wasOpen
+                    ) {
+
+                        openMemberId =
+                            null;
+
+
+                        return;
+
+                    }
+
+
+                    card.classList.add(
+                        'open'
+                    );
+
+
+                    card
+                        .querySelector(
+                            '[data-member-toggle]'
+                        )
+                        .setAttribute(
+                            'aria-expanded',
+                            'true'
+                        );
+
+
+                    openMemberId =
+                        memberId;
+
+                }
+
+
+                /* =================================================
                    RENDER MEMBERS
-                   ========================================= */
+                   ================================================= */
 
                 function renderMembers(
                     members
@@ -2525,6 +3040,11 @@
 
                     memberList.innerHTML =
                         '';
+
+
+                    memberCountLine.textContent =
+
+                        `${members.length} of ${allMembers.length} members shown`;
 
 
                     if (
@@ -2562,61 +3082,54 @@
                                 'member-admin-card';
 
 
-                            /* PRESERVE CUSTOM BILLET */
-
-                            let billetOptions =
-                                [
-                                    ...BILLET_OPTIONS
-                                ];
+                            card.dataset.memberId =
+                                member.user_id;
 
 
                             if (
-                                member.billet
-                                &&
-                                !billetOptions.includes(
-                                    member.billet
-                                )
+                                openMemberId ===
+                                member.user_id
                             ) {
 
-                                billetOptions.push(
-                                    member.billet
+                                card.classList.add(
+                                    'open'
                                 );
 
                             }
 
 
-                            /* PRESERVE CUSTOM SECTION */
-
-                            let sectionOptions =
-                                [
-                                    ...SECTION_OPTIONS
-                                ];
-
-
-                            if (
-                                member.section
-                                &&
-                                !sectionOptions.includes(
-                                    member.section
-                                )
-                            ) {
-
-                                sectionOptions.push(
-                                    member.section
+                            const attendance =
+                                Number(
+                                    member.attendance_rate
+                                    ||
+                                    0
                                 );
-
-                            }
 
 
                             card.innerHTML = `
 
 
-                                <div class="member-admin-header">
+                                <!-- =================================
+                                     COLLAPSED MEMBER HEADER
+                                     ================================= -->
+
+                                <button
+                                    class="member-dropdown-header"
+                                    type="button"
+                                    data-member-toggle
+                                    aria-expanded="${
+                                        openMemberId === member.user_id
+                                        ?
+                                        'true'
+                                        :
+                                        'false'
+                                    }"
+                                >
 
 
-                                    <div>
+                                    <div class="member-dropdown-name">
 
-                                        <h2 class="member-admin-name">
+                                        <strong>
 
                                             ${escapeHtml(
                                                 member.display_name
@@ -2624,13 +3137,65 @@
                                                 'Member'
                                             )}
 
-                                        </h2>
+                                        </strong>
 
-
-                                        <div class="member-admin-id">
+                                        <small>
 
                                             ${escapeHtml(
                                                 member.user_id
+                                            )}
+
+                                        </small>
+
+                                    </div>
+
+
+                                    <div class="member-dropdown-field dropdown-rank-column">
+
+                                        <span>
+                                            Rank
+                                        </span>
+
+                                        <strong>
+
+                                            ${escapeHtml(
+                                                member.rank
+                                                ||
+                                                'Recruit'
+                                            )}
+
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="member-dropdown-field dropdown-section-column">
+
+                                        <span>
+                                            Section
+                                        </span>
+
+                                        <strong>
+
+                                            ${escapeHtml(
+                                                member.section
+                                                ||
+                                                'Unassigned'
+                                            )}
+
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="dropdown-access-column">
+
+                                        <div class="dropdown-access">
+
+                                            ${escapeHtml(
+                                                member.access_level
+                                                ||
+                                                'Member'
                                             )}
 
                                         </div>
@@ -2638,18 +3203,17 @@
                                     </div>
 
 
-                                    <div class="access-badge">
-
-                                        ${escapeHtml(
-                                            member.access_level
-                                            ||
-                                            'Member'
-                                        )}
-
+                                    <div class="member-dropdown-arrow">
+                                        ▼
                                     </div>
 
-                                </div>
 
+                                </button>
+
+
+                                <!-- =================================
+                                     FULL MEMBER PROFILE
+                                     ================================= -->
 
                                 <div class="member-admin-body">
 
@@ -2713,7 +3277,7 @@
                                             >
 
                                                 ${optionList(
-                                                    billetOptions,
+                                                    BILLET_OPTIONS,
                                                     member.billet
                                                     ||
                                                     'Unassigned'
@@ -2737,7 +3301,7 @@
                                             >
 
                                                 ${optionList(
-                                                    sectionOptions,
+                                                    SECTION_OPTIONS,
                                                     member.section
                                                     ||
                                                     'Unassigned'
@@ -2767,7 +3331,6 @@
                                                         'Officer',
                                                         'Command'
                                                     ],
-
                                                     member.member_role
                                                     ||
                                                     'Member'
@@ -2797,7 +3360,6 @@
                                                         'Reserve',
                                                         'Inactive'
                                                     ],
-
                                                     member.member_status
                                                     ||
                                                     'Active'
@@ -2808,7 +3370,7 @@
                                         </div>
 
 
-                                        <!-- ACCESS LEVEL -->
+                                        <!-- ACCESS -->
 
                                         <div class="admin-field">
 
@@ -2828,7 +3390,6 @@
                                                         'Admin',
                                                         'Super Admin'
                                                     ],
-
                                                     member.access_level
                                                     ||
                                                     'Member'
@@ -2847,14 +3408,11 @@
                                                 Attendance
                                             </label>
 
-                                            <input
-                                                value="${escapeHtml(
-                                                    member.attendance_rate
-                                                    ??
-                                                    0
-                                                )}%"
-                                                disabled
-                                            >
+                                            <div class="attendance-display">
+
+                                                ${attendance}%
+
+                                            </div>
 
                                         </div>
 
@@ -2871,56 +3429,48 @@
                                                 data-field="join_date"
                                                 type="date"
                                                 value="${escapeHtml(
-                                                    member.join_date
-                                                    ||
-                                                    ''
+                                                    normalizeDate(
+                                                        member.join_date
+                                                    )
                                                 )}"
                                             >
 
                                         </div>
 
 
-                                        <!-- QUALIFICATIONS -->
-
-                                        <div class="admin-field full">
-
-                                            <div class="qualification-section">
-
-                                                <div class="qualification-title-row">
-
-                                                    <div class="qualification-title">
-
-                                                        Member Qualifications
-
-                                                    </div>
-
-                                                    <div class="qualification-help">
-
-                                                        Select every qualification earned by this member.
-
-                                                    </div>
-
-                                                </div>
+                                    </div>
 
 
-                                                <div
-                                                    class="qualification-grid"
-                                                    data-qualification-grid
-                                                >
+                                    <!-- =================================
+                                         QUALIFICATIONS
+                                         ================================= -->
 
-                                                    ${qualificationHtml(
-                                                        member.qualifications
-                                                    )}
+                                    <div class="qualification-panel">
 
-                                                </div>
+                                        <div class="qualification-heading">
 
-                                            </div>
+                                            <h3>
+                                                Member Qualifications
+                                            </h3>
+
+                                            <span>
+                                                Select every qualification earned by this member.
+                                            </span>
 
                                         </div>
 
 
+                                        ${qualificationHtml(
+                                            member
+                                        )}
+
+
                                     </div>
 
+
+                                    <!-- =================================
+                                         SAVE
+                                         ================================= -->
 
                                     <div class="admin-form-actions">
 
@@ -2935,17 +3485,82 @@
                                             type="button"
                                             data-save-member
                                         >
-
                                             Save Member
-
                                         </button>
 
                                     </div>
+
 
                                 </div>
 
                             `;
 
+
+                            /* =============================
+                               DROPDOWN
+                               ============================= */
+
+                            const toggle =
+                                card.querySelector(
+                                    '[data-member-toggle]'
+                                );
+
+
+                            toggle.addEventListener(
+
+                                'click',
+
+                                () => {
+
+                                    toggleMemberCard(
+                                        card
+                                    );
+
+                                }
+
+                            );
+
+
+                            /* =============================
+                               QUALIFICATION CHECKBOXES
+                               ============================= */
+
+                            card
+                                .querySelectorAll(
+                                    '[data-qualification]'
+                                )
+                                .forEach(
+
+                                    checkbox => {
+
+                                        checkbox.addEventListener(
+
+                                            'change',
+
+                                            () => {
+
+                                                checkbox
+                                                    .closest(
+                                                        '.qualification-option'
+                                                    )
+                                                    .classList
+                                                    .toggle(
+                                                        'selected',
+                                                        checkbox.checked
+                                                    );
+
+                                            }
+
+                                        );
+
+                                    }
+
+                                );
+
+
+                            /* =============================
+                               SAVE BUTTON
+                               ============================= */
 
                             const saveButton =
                                 card.querySelector(
@@ -2981,9 +3596,9 @@
                 }
 
 
-                /* =========================================
+                /* =================================================
                    SAVE MEMBER
-                   ========================================= */
+                   ================================================= */
 
                 async function saveMember(
                     userId,
@@ -2991,104 +3606,87 @@
                     button
                 ) {
 
-                    const status =
+                    const saveStatus =
                         card.querySelector(
                             '[data-save-status]'
                         );
 
 
                     const getValue =
-                        field =>
+                        field => {
 
-                            card.querySelector(
-                                `[data-field="${field}"]`
-                            )?.value
+                            return card
+                                .querySelector(
+                                    `[data-field="${field}"]`
+                                )
+                                ?.value
+                                ??
+                                '';
 
-                            ??
-
-                            '';
+                        };
 
 
-                    /* COLLECT CHECKED QUALIFICATIONS */
+                    const qualifications =
+                        Array.from(
 
-                    const qualifications = [
+                            card.querySelectorAll(
+                                '[data-qualification]:checked'
+                            )
 
-                        ...card.querySelectorAll(
-                            '[data-qualification]:checked'
                         )
-
-                    ]
-
                         .map(
                             checkbox =>
-                                checkbox.value
-                        )
-
-                        .filter(
-                            Boolean
+                                checkbox.dataset
+                                    .qualification
                         );
 
 
                     const updateData = {
-
 
                         display_name:
                             getValue(
                                 'display_name'
                             ),
 
-
                         rank:
                             getValue(
                                 'rank'
                             ),
-
 
                         billet:
                             getValue(
                                 'billet'
                             ),
 
-
                         section:
                             getValue(
                                 'section'
                             ),
-
 
                         member_role:
                             getValue(
                                 'member_role'
                             ),
 
-
                         member_status:
                             getValue(
                                 'member_status'
                             ),
-
 
                         access_level:
                             getValue(
                                 'access_level'
                             ),
 
+                        qualifications:
+                            qualifications,
 
                         join_date:
                             getValue(
                                 'join_date'
                             )
                             ||
-                            null,
-
-
-                        qualifications:
-                            qualifications,
-
-
-                        updated_at:
-                            new Date()
-                                .toISOString()
+                            null
 
                     };
 
@@ -3097,11 +3695,11 @@
                         true;
 
 
-                    status.className =
+                    saveStatus.className =
                         'save-status';
 
 
-                    status.textContent =
+                    saveStatus.textContent =
                         'Saving...';
 
 
@@ -3124,24 +3722,26 @@
                             );
 
 
-                    button.disabled =
-                        false;
-
-
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
-                            'Member update failed:',
+                            'Member save failed:',
                             error
                         );
 
 
-                        status.className =
+                        saveStatus.className =
                             'save-status error';
 
 
-                        status.textContent =
+                        saveStatus.textContent =
                             error.message;
+
+
+                        button.disabled =
+                            false;
 
 
                         return;
@@ -3149,25 +3749,30 @@
                     }
 
 
-                    status.className =
+                    saveStatus.className =
                         'save-status success';
 
 
-                    status.textContent =
+                    saveStatus.textContent =
                         'Saved successfully';
+
+
+                    button.disabled =
+                        false;
+
+
+                    openMemberId =
+                        userId;
 
 
                     await loadMembers();
 
-
-                    renderAttendanceRoster();
-
                 }
 
 
-                /* =========================================
+                /* =================================================
                    LOAD MEMBERS
-                   ========================================= */
+                   ================================================= */
 
                 async function loadMembers() {
 
@@ -3186,12 +3791,15 @@
                             .order(
                                 'display_name',
                                 {
-                                    ascending: true
+                                    ascending:
+                                        true
                                 }
                             );
 
 
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
                             'Could not load members:',
@@ -3222,16 +3830,104 @@
                     updateSummary();
 
 
+                    applyMemberSearch();
+
+                }
+
+
+                /* =================================================
+                   EXISTING SEARCH BAR
+                   ================================================= */
+
+                function applyMemberSearch() {
+
+                    const query =
+                        memberSearch
+                            .value
+                            .trim()
+                            .toLowerCase();
+
+
+                    if (
+                        !query
+                    ) {
+
+                        renderMembers(
+                            allMembers
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    const results =
+                        allMembers.filter(
+
+                            member => {
+
+
+                                const searchableText = [
+
+                                    member.display_name,
+                                    member.rank,
+                                    member.billet,
+                                    member.section,
+                                    member.member_role,
+                                    member.member_status,
+                                    member.access_level
+
+                                ]
+
+                                .filter(
+                                    Boolean
+                                )
+
+                                .join(' ')
+
+                                .toLowerCase();
+
+
+                                return searchableText
+                                    .includes(
+                                        query
+                                    );
+
+                            }
+
+                        );
+
+
                     renderMembers(
-                        allMembers
+                        results
                     );
 
                 }
 
 
-                /* =========================================
-                   ATTENDANCE MESSAGE
-                   ========================================= */
+                memberSearch.addEventListener(
+                    'input',
+                    applyMemberSearch
+                );
+
+
+                refreshMembers.addEventListener(
+
+                    'click',
+
+                    async () => {
+
+                        await loadMembers();
+
+                    }
+
+                );
+
+
+                /* =================================================
+                   ATTENDANCE MESSAGES
+                   ================================================= */
 
                 function setAttendanceMessage(
                     message,
@@ -3239,490 +3935,41 @@
                 ) {
 
                     attendanceMessage.className =
-                        'attendance-message'
-
-                        +
-
-                        (
-                            type
-
-                                ?
-
-                                ' ' + type
-
-                                :
-
-                                ''
-                        );
-
-
-                    attendanceMessage.textContent =
-                        message || '';
-
-                }
-
-
-                /* =========================================
-                   FORMAT EVENT DATE
-                   ========================================= */
-
-                function formatAttendanceDate(
-                    value
-                ) {
-
-                    if (!value) {
-
-                        return '';
-
-                    }
-
-
-                    const date =
-                        new Date(
-                            value +
-                            'T00:00:00'
-                        );
-
-
-                    return date.toLocaleDateString(
-                        undefined,
-                        {
-
-                            year: 'numeric',
-
-                            month: 'long',
-
-                            day: 'numeric'
-
-                        }
-                    );
-
-                }
-
-
-                /* =========================================
-                   ATTENDANCE EVENT OPTIONS
-                   ========================================= */
-
-                function renderAttendanceEventOptions() {
-
-                    const currentValue =
-                        selectedAttendanceEventId
-
-                            ?
-
-                            String(
-                                selectedAttendanceEventId
-                            )
-
-                            :
-
-                            '';
-
-
-                    attendanceEventSelect.innerHTML =
-
-                        '<option value="">Select an attendance event...</option>'
-
-                        +
-
-                        attendanceEvents
-
-                            .map(
-                                event => `
-
-                                    <option
-                                        value="${event.id}"
-
-                                        ${
-                                            String(
-                                                event.id
-                                            ) ===
-                                            currentValue
-
-                                                ?
-
-                                                'selected'
-
-                                                :
-
-                                                ''
-                                        }
-                                    >
-
-                                        ${escapeHtml(
-                                            event.event_date
-                                        )}
-
-                                        —
-
-                                        ${escapeHtml(
-                                            event.title
-                                        )}
-
-                                    </option>
-
-                                `
-                            )
-
-                            .join('');
-
-                }
-
-
-                /* =========================================
-                   RENDER ATTENDANCE ROSTER
-                   ========================================= */
-
-                function renderAttendanceRoster() {
-
-                    const event =
-                        attendanceEvents.find(
-
-                            item =>
-
-                                String(
-                                    item.id
-                                )
-
-                                ===
-
-                                String(
-                                    selectedAttendanceEventId
-                                )
-
-                        );
-
-
-                    if (!event) {
-
-                        attendanceEventDetails.hidden =
-                            true;
-
-
-                        attendanceRoster.innerHTML = `
-
-                            <div class="admin-empty">
-
-                                Create or select an event to begin attendance.
-
-                            </div>
-
-                        `;
-
-
-                        saveAttendance.disabled =
-                            true;
-
-
-                        deleteAttendanceEvent.disabled =
-                            true;
-
-
-                        return;
-
-                    }
-
-
-                    attendanceEventDetails.hidden =
-                        false;
-
-
-                    attendanceEventDetails.innerHTML = `
-
-                        <strong>
-
-                            ${escapeHtml(
-                                event.title
-                            )}
-
-                        </strong>
-
-                        &nbsp;•&nbsp;
-
-                        ${escapeHtml(
-                            event.event_type
-                        )}
-
-                        &nbsp;•&nbsp;
-
-                        ${escapeHtml(
-                            formatAttendanceDate(
-                                event.event_date
-                            )
-                        )}
-
-                    `;
-
-
-                    deleteAttendanceEvent.disabled =
-                        false;
+                        'attendance-message';
 
 
                     if (
-                        !allMembers.length
+                        type
                     ) {
 
-                        attendanceRoster.innerHTML = `
-
-                            <div class="admin-empty">
-
-                                No members are available.
-
-                            </div>
-
-                        `;
-
-
-                        saveAttendance.disabled =
-                            true;
-
-
-                        return;
+                        attendanceMessage
+                            .classList
+                            .add(
+                                type
+                            );
 
                     }
 
 
-                    attendanceRoster.innerHTML =
-
-                        allMembers
-
-                            .map(
-
-                                member => {
-
-
-                                    const record =
-                                        attendanceRecords.find(
-
-                                            item =>
-
-                                                item.user_id ===
-                                                member.user_id
-
-                                        );
-
-
-                                    const attendanceStatus =
-                                        record?.status
-
-                                        ||
-
-                                        'Absent';
-
-
-                                    return `
-
-                                        <div
-                                            class="attendance-row"
-
-                                            data-attendance-user="${escapeHtml(
-                                                member.user_id
-                                            )}"
-
-                                            data-attendance-status="${escapeHtml(
-                                                attendanceStatus
-                                            )}"
-                                        >
-
-
-                                            <div>
-
-
-                                                <div class="attendance-member-name">
-
-                                                    ${escapeHtml(
-                                                        member.rank
-                                                        ||
-                                                        'Recruit'
-                                                    )}
-
-                                                    ${escapeHtml(
-                                                        member.display_name
-                                                        ||
-                                                        'Member'
-                                                    )}
-
-                                                </div>
-
-
-                                                <div class="attendance-member-meta">
-
-                                                    ${escapeHtml(
-                                                        member.section
-                                                        ||
-                                                        'Unassigned'
-                                                    )}
-
-                                                    •
-
-                                                    ${escapeHtml(
-                                                        member.billet
-                                                        ||
-                                                        'Unassigned'
-                                                    )}
-
-                                                    •
-
-                                                    Current Rate:
-
-                                                    ${escapeHtml(
-                                                        member.attendance_rate
-                                                        ??
-                                                        0
-                                                    )}%
-
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div class="attendance-status-group">
-
-
-                                                ${
-                                                    [
-                                                        'Present',
-                                                        'Excused',
-                                                        'Absent'
-                                                    ]
-
-                                                        .map(
-
-                                                            option => `
-
-                                                                <button
-                                                                    class="attendance-status ${
-                                                                        attendanceStatus ===
-                                                                        option
-
-                                                                            ?
-
-                                                                            'active'
-
-                                                                            :
-
-                                                                            ''
-                                                                    }"
-
-                                                                    type="button"
-
-                                                                    data-attendance-choice="${option}"
-                                                                >
-
-                                                                    ${option}
-
-                                                                </button>
-
-                                                            `
-
-                                                        )
-
-                                                        .join('')
-                                                }
-
-
-                                            </div>
-
-
-                                        </div>
-
-                                    `;
-
-                                }
-
-                            )
-
-                            .join('');
-
-
-                    attendanceRoster
-
-                        .querySelectorAll(
-                            '[data-attendance-choice]'
-                        )
-
-                        .forEach(
-
-                            button => {
-
-
-                                button.addEventListener(
-
-                                    'click',
-
-                                    () => {
-
-
-                                        const row =
-                                            button.closest(
-                                                '[data-attendance-user]'
-                                            );
-
-
-                                        row.dataset.attendanceStatus =
-                                            button.dataset.attendanceChoice;
-
-
-                                        row
-
-                                            .querySelectorAll(
-                                                '[data-attendance-choice]'
-                                            )
-
-                                            .forEach(
-
-                                                item =>
-
-                                                    item.classList.remove(
-                                                        'active'
-                                                    )
-
-                                            );
-
-
-                                        button.classList.add(
-                                            'active'
-                                        );
-
-
-                                        setAttendanceMessage(
-                                            'Unsaved attendance changes.'
-                                        );
-
-                                    }
-
-                                );
-
-                            }
-
-                        );
-
-
-                    saveAttendance.disabled =
-                        false;
+                    attendanceMessage.textContent =
+                        message;
 
                 }
 
 
-                /* =========================================
+                /* =================================================
                    LOAD ATTENDANCE EVENTS
-                   ========================================= */
+                   ================================================= */
 
                 async function loadAttendanceEvents(
                     preserveSelection = true
                 ) {
 
-                    const previous =
+                    const previousSelection =
                         preserveSelection
-
                             ?
-
                             selectedAttendanceEventId
-
                             :
-
                             null;
 
 
@@ -3741,22 +3988,18 @@
                             .order(
                                 'event_date',
                                 {
-                                    ascending: false
-                                }
-                            )
-
-                            .order(
-                                'id',
-                                {
-                                    ascending: false
+                                    ascending:
+                                        false
                                 }
                             );
 
 
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
-                            'Could not load attendance events:',
+                            'Attendance events error:',
                             error
                         );
 
@@ -3776,122 +4019,96 @@
                         data || [];
 
 
+                    attendanceEventSelect.innerHTML = `
+
+                        <option value="">
+                            Select attendance event
+                        </option>
+
+                        ${attendanceEvents.map(
+
+                            event => `
+
+                                <option
+                                    value="${escapeHtml(
+                                        event.id
+                                    )}"
+                                >
+                                    ${escapeHtml(
+                                        event.event_date
+                                        ||
+                                        ''
+                                    )}
+                                    —
+                                    ${escapeHtml(
+                                        event.title
+                                        ||
+                                        'Event'
+                                    )}
+                                </option>
+
+                            `
+
+                        ).join('')}
+
+                    `;
+
+
                     if (
-                        previous
+                        previousSelection
                         &&
                         attendanceEvents.some(
 
                             event =>
-
                                 String(
                                     event.id
                                 )
-
                                 ===
-
                                 String(
-                                    previous
+                                    previousSelection
                                 )
 
                         )
                     ) {
 
                         selectedAttendanceEventId =
-                            previous;
+                            previousSelection;
+
+
+                        attendanceEventSelect.value =
+                            String(
+                                previousSelection
+                            );
+
+
+                        await loadAttendanceRecords();
 
                     }
 
                     else {
 
                         selectedAttendanceEventId =
-                            attendanceEvents[0]?.id
-
-                            ||
-
                             null;
 
+
+                        attendanceMemberList.innerHTML = `
+
+                            <div class="admin-empty">
+
+                                Select an attendance event.
+
+                            </div>
+
+                        `;
+
                     }
-
-
-                    renderAttendanceEventOptions();
-
-
-                    await loadAttendanceRecords();
 
                 }
 
 
-                /* =========================================
-                   LOAD ATTENDANCE RECORDS
-                   ========================================= */
-
-                async function loadAttendanceRecords() {
-
-                    if (
-                        !selectedAttendanceEventId
-                    ) {
-
-                        attendanceRecords =
-                            [];
-
-
-                        renderAttendanceRoster();
-
-
-                        return;
-
-                    }
-
-
-                    const {
-                        data,
-                        error
-                    } =
-                        await client
-
-                            .from(
-                                'attendance_records'
-                            )
-
-                            .select('*')
-
-                            .eq(
-                                'event_id',
-                                selectedAttendanceEventId
-                            );
-
-
-                    if (error) {
-
-                        console.error(
-                            'Could not load attendance records:',
-                            error
-                        );
-
-
-                        setAttendanceMessage(
-                            error.message,
-                            'error'
-                        );
-
-
-                        return;
-
-                    }
-
-
-                    attendanceRecords =
-                        data || [];
-
-
-                    renderAttendanceRoster();
-
-                }
-
-
-                /* =========================================
+                /* =================================================
                    CREATE ATTENDANCE EVENT
-                   ========================================= */
+                   ================================================= */
 
                 async function createEvent() {
 
@@ -3911,31 +4128,16 @@
                             .value;
 
 
-                    if (!title) {
+                    if (
+                        !title
+                        ||
+                        !eventDate
+                    ) {
 
                         setAttendanceMessage(
-                            'Enter an event name.',
+                            'Event name and date are required.',
                             'error'
                         );
-
-
-                        attendanceEventTitle.focus();
-
-
-                        return;
-
-                    }
-
-
-                    if (!eventDate) {
-
-                        setAttendanceMessage(
-                            'Select an event date.',
-                            'error'
-                        );
-
-
-                        attendanceEventDate.focus();
 
 
                         return;
@@ -3990,10 +4192,12 @@
                         false;
 
 
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
-                            'Attendance event creation failed:',
+                            'Create event error:',
                             error
                         );
 
@@ -4022,17 +4226,240 @@
                     );
 
 
+                    attendanceEventSelect.value =
+                        String(
+                            data.id
+                        );
+
+
+                    selectedAttendanceEventId =
+                        data.id;
+
+
+                    await loadAttendanceRecords();
+
+
                     setAttendanceMessage(
-                        'Event created. Mark the roster and save attendance.',
+                        'Attendance event created.',
                         'success'
                     );
 
                 }
 
 
-                /* =========================================
+                /* =================================================
+                   LOAD ATTENDANCE RECORDS
+                   ================================================= */
+
+                async function loadAttendanceRecords() {
+
+                    if (
+                        !selectedAttendanceEventId
+                    ) {
+
+                        attendanceMemberList.innerHTML = `
+
+                            <div class="admin-empty">
+
+                                Select an attendance event.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    attendanceMemberList.innerHTML = `
+
+                        <div class="admin-empty">
+
+                            Loading attendance...
+
+                        </div>
+
+                    `;
+
+
+                    const {
+                        data:
+                            records,
+
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_records'
+                            )
+
+                            .select(
+                                'id,event_id,user_id,status,notes'
+                            )
+
+                            .eq(
+                                'event_id',
+                                selectedAttendanceEventId
+                            );
+
+
+                    if (
+                        error
+                    ) {
+
+                        console.error(
+                            'Attendance records error:',
+                            error
+                        );
+
+
+                        attendanceMemberList.innerHTML = `
+
+                            <div class="admin-empty">
+
+                                Unable to load attendance.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const recordMap =
+                        new Map();
+
+
+                    (
+                        records || []
+                    )
+                    .forEach(
+
+                        record => {
+
+                            recordMap.set(
+                                record.user_id,
+                                record
+                            );
+
+                        }
+
+                    );
+
+
+                    attendanceMemberList.innerHTML =
+                        allMembers
+                            .map(
+
+                                member => {
+
+
+                                    const record =
+                                        recordMap.get(
+                                            member.user_id
+                                        );
+
+
+                                    const status =
+                                        record?.status
+                                        ||
+                                        'Present';
+
+
+                                    const notes =
+                                        record?.notes
+                                        ||
+                                        '';
+
+
+                                    return `
+
+                                        <div
+                                            class="attendance-row"
+                                            data-attendance-user="${escapeHtml(
+                                                member.user_id
+                                            )}"
+                                        >
+
+                                            <div class="attendance-name">
+
+                                                <strong>
+
+                                                    ${escapeHtml(
+                                                        member.display_name
+                                                        ||
+                                                        'Member'
+                                                    )}
+
+                                                </strong>
+
+                                                <small>
+
+                                                    ${escapeHtml(
+                                                        member.rank
+                                                        ||
+                                                        'Recruit'
+                                                    )}
+
+                                                    •
+
+                                                    ${escapeHtml(
+                                                        member.section
+                                                        ||
+                                                        'Unassigned'
+                                                    )}
+
+                                                </small>
+
+                                            </div>
+
+
+                                            <select
+                                                data-attendance-status
+                                            >
+
+                                                ${optionList(
+                                                    [
+                                                        'Present',
+                                                        'Excused',
+                                                        'Absent'
+                                                    ],
+                                                    status
+                                                )}
+
+                                            </select>
+
+
+                                            <input
+                                                type="text"
+                                                data-attendance-notes
+                                                placeholder="Notes"
+                                                value="${escapeHtml(
+                                                    notes
+                                                )}"
+                                            >
+
+                                        </div>
+
+                                    `;
+
+                                }
+
+                            )
+                            .join('');
+
+                }
+
+
+                /* =================================================
                    SAVE ATTENDANCE
-                   ========================================= */
+                   ================================================= */
 
                 async function saveAttendanceRecords() {
 
@@ -4040,19 +4467,26 @@
                         !selectedAttendanceEventId
                     ) {
 
+                        setAttendanceMessage(
+                            'Select an attendance event first.',
+                            'error'
+                        );
+
+
                         return;
 
                     }
 
 
-                    const rows = [
+                    const rows =
+                        Array.from(
 
-                        ...attendanceRoster
-                            .querySelectorAll(
-                                '[data-attendance-user]'
-                            )
+                            attendanceMemberList
+                                .querySelectorAll(
+                                    '[data-attendance-user]'
+                                )
 
-                    ];
+                        );
 
 
                     if (
@@ -4088,19 +4522,19 @@
                                         .attendanceUser,
 
                                 status:
-                                    row.dataset
-                                        .attendanceStatus
+                                    row.querySelector(
+                                        '[data-attendance-status]'
+                                    )
+                                    .value,
 
+                                notes:
+                                    row.querySelector(
+                                        '[data-attendance-notes]'
+                                    )
+                                    .value
+                                    .trim()
                                     ||
-
-                                    'Absent',
-
-                                marked_by:
-                                    currentAdminUserId,
-
-                                updated_at:
-                                    new Date()
-                                        .toISOString()
+                                    null
 
                             })
 
@@ -4125,10 +4559,12 @@
                             );
 
 
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
-                            'Attendance save failed:',
+                            'Attendance save error:',
                             error
                         );
 
@@ -4166,9 +4602,9 @@
                 }
 
 
-                /* =========================================
+                /* =================================================
                    DELETE ATTENDANCE EVENT
-                   ========================================= */
+                   ================================================= */
 
                 async function deleteEvent() {
 
@@ -4185,13 +4621,10 @@
                         attendanceEvents.find(
 
                             item =>
-
                                 String(
                                     item.id
                                 )
-
                                 ===
-
                                 String(
                                     selectedAttendanceEventId
                                 )
@@ -4199,7 +4632,9 @@
                         );
 
 
-                    if (!event) {
+                    if (
+                        !event
+                    ) {
 
                         return;
 
@@ -4249,10 +4684,12 @@
                             );
 
 
-                    if (error) {
+                    if (
+                        error
+                    ) {
 
                         console.error(
-                            'Attendance event deletion failed:',
+                            'Delete event error:',
                             error
                         );
 
@@ -4276,6 +4713,11 @@
                         null;
 
 
+                    /*
+                     * Recalculate member attendance after
+                     * deleting an event.
+                     */
+
                     for (
                         const member
                         of allMembers
@@ -4290,17 +4732,21 @@
                                 'refresh_member_attendance',
 
                                 {
+
                                     p_user_id:
                                         member.user_id
+
                                 }
 
                             );
 
 
-                        if (refreshError) {
+                        if (
+                            refreshError
+                        ) {
 
                             console.error(
-                                'Attendance refresh failed:',
+                                'Attendance refresh error:',
                                 refreshError
                             );
 
@@ -4317,6 +4763,10 @@
                     );
 
 
+                    deleteAttendanceEvent.disabled =
+                        false;
+
+
                     setAttendanceMessage(
                         'Attendance event deleted.',
                         'success'
@@ -4325,227 +4775,83 @@
                 }
 
 
-                /* =========================================
-                   ATTENDANCE BUTTONS
-                   ========================================= */
+                /* =================================================
+                   ATTENDANCE EVENTS
+                   ================================================= */
 
-                attendanceEventSelect
-                    .addEventListener(
+                attendanceEventSelect.addEventListener(
 
-                        'change',
+                    'change',
 
-                        async () => {
+                    async () => {
 
+                        selectedAttendanceEventId =
 
-                            selectedAttendanceEventId =
+                            attendanceEventSelect.value
 
+                            ?
+
+                            Number(
                                 attendanceEventSelect.value
+                            )
 
-                                    ?
+                            :
 
-                                    Number(
-                                        attendanceEventSelect.value
-                                    )
+                            null;
 
-                                    :
 
-                                    null;
+                        setAttendanceMessage(
+                            ''
+                        );
 
 
-                            setAttendanceMessage(
-                                ''
-                            );
+                        await loadAttendanceRecords();
 
+                    }
 
-                            await loadAttendanceRecords();
+                );
 
-                        }
 
-                    );
+                createAttendanceEvent.addEventListener(
+                    'click',
+                    createEvent
+                );
 
 
-                createAttendanceEvent
-                    .addEventListener(
+                saveAttendance.addEventListener(
+                    'click',
+                    saveAttendanceRecords
+                );
 
-                        'click',
 
-                        createEvent
+                deleteAttendanceEvent.addEventListener(
+                    'click',
+                    deleteEvent
+                );
 
-                    );
 
+                refreshAttendance.addEventListener(
 
-                saveAttendance
-                    .addEventListener(
+                    'click',
 
-                        'click',
+                    async () => {
 
-                        saveAttendanceRecords
+                        setAttendanceMessage(
+                            'Refreshing attendance...'
+                        );
 
-                    );
 
+                        await loadMembers();
 
-                deleteAttendanceEvent
-                    .addEventListener(
 
-                        'click',
+                        await loadAttendanceEvents(
+                            true
+                        );
 
-                        deleteEvent
 
-                    );
-
-
-                refreshAttendance
-                    .addEventListener(
-
-                        'click',
-
-                        async () => {
-
-
-                            setAttendanceMessage(
-                                'Refreshing attendance...'
-                            );
-
-
-                            await loadMembers();
-
-
-                            await loadAttendanceEvents(
-                                true
-                            );
-
-
-                            setAttendanceMessage(
-                                'Attendance refreshed.',
-                                'success'
-                            );
-
-                        }
-
-                    );
-
-
-                /* =========================================
-                   LOCAL DEFAULT EVENT DATE
-                   ========================================= */
-
-                const now =
-                    new Date();
-
-
-                const localDate = [
-
-                    now.getFullYear(),
-
-                    String(
-                        now.getMonth() + 1
-                    ).padStart(
-                        2,
-                        '0'
-                    ),
-
-                    String(
-                        now.getDate()
-                    ).padStart(
-                        2,
-                        '0'
-                    )
-
-                ].join('-');
-
-
-                attendanceEventDate.value =
-                    localDate;
-
-
-                /* =========================================
-                   MEMBER SEARCH
-                   ========================================= */
-
-                search.addEventListener(
-
-                    'input',
-
-                    () => {
-
-
-                        const query =
-                            search.value
-
-                                .trim()
-
-                                .toLowerCase();
-
-
-                        if (!query) {
-
-                            renderMembers(
-                                allMembers
-                            );
-
-
-                            return;
-
-                        }
-
-
-                        const results =
-                            allMembers.filter(
-
-                                member => {
-
-
-                                    const qualificationText =
-                                        Array.isArray(
-                                            member.qualifications
-                                        )
-
-                                            ?
-
-                                            member.qualifications
-                                                .join(' ')
-
-                                            :
-
-                                            '';
-
-
-                                    const text = [
-
-                                        member.display_name,
-
-                                        member.rank,
-
-                                        member.billet,
-
-                                        member.section,
-
-                                        member.member_role,
-
-                                        member.member_status,
-
-                                        member.access_level,
-
-                                        qualificationText
-
-                                    ]
-
-                                        .join(' ')
-
-                                        .toLowerCase();
-
-
-                                    return text.includes(
-                                        query
-                                    );
-
-                                }
-
-                            );
-
-
-                        renderMembers(
-                            results
+                        setAttendanceMessage(
+                            'Attendance refreshed.',
+                            'success'
                         );
 
                     }
@@ -4553,30 +4859,13 @@
                 );
 
 
-                /* =========================================
-                   REFRESH MEMBERS
-                   ========================================= */
-
-                refresh.addEventListener(
-
-                    'click',
-
-                    async () => {
+                attendanceEventDate.value =
+                    localToday();
 
 
-                        await loadMembers();
-
-
-                        renderAttendanceRoster();
-
-                    }
-
-                );
-
-
-                /* =========================================
+                /* =================================================
                    AUTHORIZATION
-                   ========================================= */
+                   ================================================= */
 
                 showScreen(
                     'loading'
@@ -4593,8 +4882,7 @@
                         sessionError
 
                 } =
-                    await client
-                        .auth
+                    await client.auth
                         .getSession();
 
 
@@ -4689,9 +4977,15 @@
                 }
 
 
-                /* =========================================
-                   LOAD ADMIN PORTAL
-                   ========================================= */
+                /* =================================================
+                   LOAD ADMIN
+                   ================================================= */
+
+                renderHeaderUser(
+                    session.user,
+                    profile
+                );
+
 
                 showScreen(
                     'admin'
@@ -4710,7 +5004,6 @@
         );
 
     </script>
-
 
 </body>
 
