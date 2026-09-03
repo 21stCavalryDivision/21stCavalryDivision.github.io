@@ -19,6 +19,7 @@
         21st Cavalry Division | Member Portal
     </title>
 
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -40,11 +41,17 @@
         href="styles.css?v=11"
     >
 
+
     <style>
 
         body {
             background: #080d10;
         }
+
+
+        /* ========================================= */
+        /* HERO */
+        /* ========================================= */
 
         .portal-hero {
             padding: 65px clamp(24px, 6vw, 110px) 55px;
@@ -72,12 +79,28 @@
             line-height: 1.7;
         }
 
+
+        /* ========================================= */
+        /* PORTAL LAYOUT */
+        /* ========================================= */
+
         .portal-shell {
             display: grid;
             grid-template-columns: 270px minmax(0, 1fr);
             gap: 20px;
             padding: 32px clamp(24px, 6vw, 110px) 90px;
         }
+
+        .portal-content {
+            display: grid;
+            gap: 18px;
+            min-width: 0;
+        }
+
+
+        /* ========================================= */
+        /* PROFILE CARD */
+        /* ========================================= */
 
         .profile-card {
             align-self: start;
@@ -157,11 +180,10 @@
             color: #d46e6e;
         }
 
-        .portal-content {
-            display: grid;
-            gap: 18px;
-            min-width: 0;
-        }
+
+        /* ========================================= */
+        /* PANELS */
+        /* ========================================= */
 
         .portal-panel {
             border: 1px solid #30383d;
@@ -194,6 +216,229 @@
             padding: 0 22px 22px;
         }
 
+
+        /* ========================================= */
+        /* UPCOMING OPERATIONS */
+        /* ========================================= */
+
+        .upcoming-operations {
+            display: grid;
+            gap: 10px;
+        }
+
+        .upcoming-operation {
+            display: grid;
+            grid-template-columns:
+                95px
+                minmax(0, 1fr)
+                auto;
+
+            align-items: stretch;
+
+            border: 1px solid #30383d;
+            background: #090f12;
+        }
+
+        .upcoming-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 110px;
+
+            padding: 14px;
+
+            border-right: 1px solid #30383d;
+
+            background: #080d10;
+
+            text-align: center;
+        }
+
+        .upcoming-month {
+            color: #c5a75b;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .upcoming-day {
+            margin: 3px 0;
+
+            color: #fff;
+
+            font:
+                700
+                31px
+                Oswald,
+                sans-serif;
+
+            line-height: 1;
+        }
+
+        .upcoming-time {
+            color: #748188;
+
+            font:
+                500
+                9px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+        }
+
+        .upcoming-details {
+            padding: 16px 18px;
+        }
+
+        .upcoming-type {
+            color: #c5a75b;
+
+            font:
+                600
+                8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .upcoming-title {
+            margin: 4px 0 7px;
+
+            color: #fff;
+
+            font:
+                600
+                20px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+        }
+
+        .upcoming-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .upcoming-meta span {
+            padding: 5px 8px;
+
+            border: 1px solid #30383d;
+
+            color: #849197;
+
+            font:
+                500
+                8px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+        }
+
+        .upcoming-action {
+            min-width: 180px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 15px 17px;
+        }
+
+        .signup-state {
+            min-width: 105px;
+
+            padding: 6px 9px;
+
+            border: 1px solid #5a6469;
+
+            color: #9aa5aa;
+
+            text-align: center;
+
+            font:
+                600
+                8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .7px;
+            text-transform: uppercase;
+        }
+
+        .signup-state.signed-up {
+            border-color: #417a50;
+            color: #75d88f;
+        }
+
+        .signup-state.not-signed-up {
+            border-color: #77683e;
+            color: #d5bc71;
+        }
+
+        .opboard-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 34px;
+
+            padding: 0 12px;
+
+            border: 1px solid #c5a75b;
+
+            background: transparent;
+            color: #c5a75b;
+
+            text-decoration: none;
+
+            font:
+                600
+                8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .opboard-button:hover {
+            background: #c5a75b;
+            color: #111;
+        }
+
+        .upcoming-empty {
+            padding: 28px;
+
+            border: 1px dashed #394349;
+
+            color: #7e8a90;
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+
+        /* ========================================= */
+        /* SERVICE RECORD */
+        /* ========================================= */
+
         .service-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -221,6 +466,11 @@
             color: #fff;
             font: 600 17px Oswald, sans-serif;
         }
+
+
+        /* ========================================= */
+        /* TRAINING */
+        /* ========================================= */
 
         .training-summary {
             display: grid;
@@ -260,6 +510,11 @@
         .training-stat.absent strong {
             color: #df7474;
         }
+
+
+        /* ========================================= */
+        /* QUALIFICATIONS */
+        /* ========================================= */
 
         .qualification-groups {
             display: grid;
@@ -302,6 +557,11 @@
             text-align: center;
         }
 
+
+        /* ========================================= */
+        /* ATTENDANCE */
+        /* ========================================= */
+
         .attendance-history {
             display: grid;
             gap: 8px;
@@ -309,11 +569,19 @@
 
         .attendance-history-row {
             display: grid;
-            grid-template-columns: 110px 120px minmax(0,1fr) 100px;
+            grid-template-columns:
+                110px
+                120px
+                minmax(0,1fr)
+                100px;
+
             gap: 12px;
             align-items: center;
+
             padding: 13px 15px;
+
             border: 1px solid #30383d;
+
             background: #090f12;
         }
 
@@ -331,11 +599,21 @@
 
         .attendance-status-badge {
             justify-self: end;
+
             min-width: 70px;
+
             padding: 6px 8px;
+
             border: 1px solid #4a555b;
+
             text-align: center;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
@@ -362,15 +640,10 @@
             text-align: center;
         }
 
-        /*
-         * ACCOUNT INFORMATION
-         *
-         * Email has intentionally been removed.
-         * The grid now contains:
-         * Discord Account
-         * Member ID
-         * Authentication
-         */
+
+        /* ========================================= */
+        /* ACCOUNT */
+        /* ========================================= */
 
         .account-grid {
             display: grid;
@@ -401,12 +674,19 @@
             font: 500 11px Oswald, sans-serif;
         }
 
+
+        /* ========================================= */
+        /* PORTAL STATES */
+        /* ========================================= */
+
         .portal-state {
             margin: 50px auto;
             max-width: 700px;
             padding: 40px;
+
             border: 1px solid #30383d;
             border-top: 2px solid #c5a75b;
+
             background: #101619;
             text-align: center;
         }
@@ -435,6 +715,11 @@
             text-transform: uppercase;
         }
 
+
+        /* ========================================= */
+        /* MOBILE */
+        /* ========================================= */
+
         @media (max-width: 1000px) {
 
             .portal-shell {
@@ -455,6 +740,7 @@
 
         }
 
+
         @media (max-width: 700px) {
 
             .service-grid,
@@ -471,13 +757,37 @@
                 justify-self: start;
             }
 
+            .upcoming-operation {
+                grid-template-columns: 80px minmax(0, 1fr);
+            }
+
+            .upcoming-action {
+                grid-column: span 2;
+
+                width: auto;
+
+                align-items: stretch;
+
+                border-top: 1px solid #30383d;
+            }
+
+            .signup-state {
+                width: auto;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+    <!-- ========================================= -->
+    <!-- HEADER -->
+    <!-- ========================================= -->
 
     <header class="site-header">
 
@@ -490,6 +800,7 @@
             <div class="brand-mark">
                 21
             </div>
+
 
             <div>
 
@@ -505,6 +816,7 @@
 
         </a>
 
+
         <button
             class="nav-toggle"
             id="navToggle"
@@ -513,6 +825,7 @@
         >
             ☰
         </button>
+
 
         <nav
             class="main-nav"
@@ -568,6 +881,7 @@
                 Admin
             </a>
 
+
             <div
                 class="member-auth"
                 id="memberAuth"
@@ -580,6 +894,7 @@
                 >
                     Login with Discord
                 </button>
+
 
                 <div
                     class="member-profile"
@@ -595,6 +910,7 @@
                         hidden
                     >
 
+
                     <div class="member-profile-text">
 
                         <span id="memberName">
@@ -606,6 +922,7 @@
                         </small>
 
                     </div>
+
 
                     <button
                         class="member-logout-btn"
@@ -623,6 +940,11 @@
 
     </header>
 
+
+    <!-- ========================================= -->
+    <!-- HERO -->
+    <!-- ========================================= -->
+
     <section class="portal-hero">
 
         <div class="portal-hero-inner">
@@ -636,13 +958,18 @@
             </h1>
 
             <p class="portal-hero-description">
-                View your personnel record, qualifications,
-                training information and attendance history.
+                View your personnel record, upcoming operations,
+                qualifications, training information and attendance history.
             </p>
 
         </div>
 
     </section>
+
+
+    <!-- ========================================= -->
+    <!-- LOADING -->
+    <!-- ========================================= -->
 
     <section
         id="portalLoading"
@@ -663,6 +990,11 @@
         </p>
 
     </section>
+
+
+    <!-- ========================================= -->
+    <!-- LOGIN -->
+    <!-- ========================================= -->
 
     <section
         id="portalLogin"
@@ -693,6 +1025,11 @@
 
     </section>
 
+
+    <!-- ========================================= -->
+    <!-- ERROR -->
+    <!-- ========================================= -->
+
     <section
         id="portalError"
         class="portal-state"
@@ -713,11 +1050,19 @@
 
     </section>
 
+
+    <!-- ========================================= -->
+    <!-- PORTAL -->
+    <!-- ========================================= -->
+
     <main
         id="portalMain"
         class="portal-shell"
         hidden
     >
+
+
+        <!-- PROFILE -->
 
         <aside class="profile-card">
 
@@ -752,6 +1097,7 @@
 
             <div class="profile-divider"></div>
 
+
             <div class="profile-data-row">
 
                 <span>
@@ -763,6 +1109,7 @@
                 </strong>
 
             </div>
+
 
             <div class="profile-data-row">
 
@@ -776,6 +1123,7 @@
 
             </div>
 
+
             <div class="profile-data-row">
 
                 <span>
@@ -787,6 +1135,7 @@
                 </strong>
 
             </div>
+
 
             <div class="profile-data-row">
 
@@ -802,9 +1151,50 @@
 
         </aside>
 
+
         <div class="portal-content">
 
+
+            <!-- ========================================= -->
+            <!-- UPCOMING OPERATIONS -->
+            <!-- ========================================= -->
+
+            <article class="portal-panel">
+
+                <div class="portal-panel-header">
+
+                    <h2>
+                        Upcoming Operations
+                    </h2>
+
+                    <span class="panel-tag">
+                        OPBOARD
+                    </span>
+
+                </div>
+
+
+                <div class="portal-panel-body">
+
+                    <div
+                        id="upcomingOperations"
+                        class="upcoming-operations"
+                    >
+
+                        <div class="upcoming-empty">
+                            Loading upcoming operations...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ========================================= -->
             <!-- SERVICE RECORD -->
+            <!-- ========================================= -->
 
             <article class="portal-panel">
 
@@ -820,9 +1210,11 @@
 
                 </div>
 
+
                 <div class="portal-panel-body">
 
                     <div class="service-grid">
+
 
                         <div class="service-item">
 
@@ -836,6 +1228,7 @@
 
                         </div>
 
+
                         <div class="service-item">
 
                             <span>
@@ -847,6 +1240,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="service-item">
 
@@ -860,6 +1254,7 @@
 
                         </div>
 
+
                         <div class="service-item">
 
                             <span>
@@ -871,6 +1266,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="service-item">
 
@@ -884,6 +1280,7 @@
 
                         </div>
 
+
                         <div class="service-item">
 
                             <span>
@@ -895,6 +1292,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="service-item">
 
@@ -908,6 +1306,7 @@
 
                         </div>
 
+
                         <div class="service-item">
 
                             <span>
@@ -920,13 +1319,17 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
 
             </article>
 
+
+            <!-- ========================================= -->
             <!-- TRAINING RECORD -->
+            <!-- ========================================= -->
 
             <article class="portal-panel">
 
@@ -942,9 +1345,11 @@
 
                 </div>
 
+
                 <div class="portal-panel-body">
 
                     <div class="training-summary">
+
 
                         <div class="training-stat">
 
@@ -958,6 +1363,7 @@
 
                         </div>
 
+
                         <div class="training-stat">
 
                             <span>
@@ -969,6 +1375,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="training-stat present">
 
@@ -982,6 +1389,7 @@
 
                         </div>
 
+
                         <div class="training-stat excused">
 
                             <span>
@@ -993,6 +1401,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="training-stat absent">
 
@@ -1006,13 +1415,17 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
 
             </article>
 
+
+            <!-- ========================================= -->
             <!-- QUALIFICATIONS -->
+            <!-- ========================================= -->
 
             <article class="portal-panel">
 
@@ -1028,6 +1441,7 @@
 
                 </div>
 
+
                 <div class="portal-panel-body">
 
                     <div
@@ -1039,7 +1453,10 @@
 
             </article>
 
+
+            <!-- ========================================= -->
             <!-- ATTENDANCE HISTORY -->
+            <!-- ========================================= -->
 
             <article class="portal-panel">
 
@@ -1055,6 +1472,7 @@
 
                 </div>
 
+
                 <div class="portal-panel-body">
 
                     <div
@@ -1066,10 +1484,10 @@
 
             </article>
 
-            <!-- =====================================
-                 ACCOUNT INFORMATION
-                 EMAIL REMOVED
-                 ===================================== -->
+
+            <!-- ========================================= -->
+            <!-- ACCOUNT INFORMATION -->
+            <!-- ========================================= -->
 
             <article class="portal-panel">
 
@@ -1085,9 +1503,11 @@
 
                 </div>
 
+
                 <div class="portal-panel-body">
 
                     <div class="account-grid">
+
 
                         <div class="account-item">
 
@@ -1101,6 +1521,7 @@
 
                         </div>
 
+
                         <div class="account-item">
 
                             <span>
@@ -1112,6 +1533,7 @@
                             </strong>
 
                         </div>
+
 
                         <div class="account-item">
 
@@ -1125,15 +1547,22 @@
 
                         </div>
 
+
                     </div>
 
                 </div>
 
             </article>
 
+
         </div>
 
     </main>
+
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
 
     <footer>
 
@@ -1157,9 +1586,11 @@
 
         </div>
 
+
         <p>
             Swift. Silent. Relentless.
         </p>
+
 
         <div class="footer-links">
 
@@ -1177,6 +1608,7 @@
 
         </div>
 
+
         <p class="fineprint">
             This is a gaming/military simulation community website
             and is not affiliated with the United States Department
@@ -1185,25 +1617,35 @@
 
     </footer>
 
+
+    <!-- ========================================= -->
+    <!-- SUPABASE -->
+    <!-- ========================================= -->
+
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
+
 
     <script>
 
         document.addEventListener(
             'DOMContentLoaded',
+
             async () => {
+
 
                 /* =========================================
                    SUPABASE
-                   ========================================= */
+                ========================================= */
 
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
 
+
                 const SUPABASE_KEY =
                     'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
 
                 const client =
                     window.supabase.createClient(
@@ -1211,14 +1653,16 @@
                         SUPABASE_KEY
                     );
 
+
                 /* =========================================
                    QUALIFICATIONS
-                   ========================================= */
+                ========================================= */
 
                 const qualificationDefinitions = [
 
                     {
-                        name: 'Core Training',
+                        name:
+                            'Core Training',
 
                         qualifications: [
                             'BCT',
@@ -1228,7 +1672,8 @@
                     },
 
                     {
-                        name: 'Infantry Qualifications',
+                        name:
+                            'Infantry Qualifications',
 
                         qualifications: [
                             'Rifleman',
@@ -1244,7 +1689,8 @@
                     },
 
                     {
-                        name: 'Vehicle Qualifications',
+                        name:
+                            'Vehicle Qualifications',
 
                         qualifications: [
                             'Driver',
@@ -1255,7 +1701,8 @@
                     },
 
                     {
-                        name: 'Aviation Qualifications',
+                        name:
+                            'Aviation Qualifications',
 
                         qualifications: [
                             'Pilot',
@@ -1265,7 +1712,8 @@
                     },
 
                     {
-                        name: 'Leadership & Training',
+                        name:
+                            'Leadership & Training',
 
                         qualifications: [
                             'Team Leader',
@@ -1278,107 +1726,127 @@
 
                 ];
 
+
                 /* =========================================
                    ELEMENTS
-                   ========================================= */
+                ========================================= */
 
                 const portalLoading =
                     document.getElementById(
                         'portalLoading'
                     );
 
+
                 const portalLogin =
                     document.getElementById(
                         'portalLogin'
                     );
+
 
                 const portalError =
                     document.getElementById(
                         'portalError'
                     );
 
+
                 const portalErrorText =
                     document.getElementById(
                         'portalErrorText'
                     );
+
 
                 const portalMain =
                     document.getElementById(
                         'portalMain'
                     );
 
+
                 const loginButton =
                     document.getElementById(
                         'discordLoginBtn'
                     );
+
 
                 const portalLoginButton =
                     document.getElementById(
                         'portalLoginButton'
                     );
 
+
                 const logoutButton =
                     document.getElementById(
                         'discordLogoutBtn'
                     );
+
 
                 const memberProfile =
                     document.getElementById(
                         'memberProfile'
                     );
 
+
                 const memberAvatar =
                     document.getElementById(
                         'memberAvatar'
                     );
+
 
                 const memberName =
                     document.getElementById(
                         'memberName'
                     );
 
+
                 const memberPortalLink =
                     document.getElementById(
                         'memberPortalLink'
                     );
+
 
                 const operationsPortalLink =
                     document.getElementById(
                         'operationsPortalLink'
                     );
 
+
                 const adminPortalLink =
                     document.getElementById(
                         'adminPortalLink'
                     );
 
-                /*
-                 * Notice:
-                 * There is intentionally NO accountEmail
-                 * element anymore.
-                 */
+
+                const upcomingOperations =
+                    document.getElementById(
+                        'upcomingOperations'
+                    );
+
 
                 /* =========================================
                    MOBILE NAVIGATION
-                   ========================================= */
+                ========================================= */
 
                 const navToggle =
                     document.getElementById(
                         'navToggle'
                     );
 
+
                 const mainNav =
                     document.getElementById(
                         'mainNav'
                     );
 
+
                 if (
-                    navToggle &&
+                    navToggle
+                    &&
                     mainNav
                 ) {
 
                     navToggle.addEventListener(
+
                         'click',
+
                         () => {
 
                             const open =
@@ -1386,21 +1854,29 @@
                                     'open'
                                 );
 
+
                             navToggle.setAttribute(
+
                                 'aria-expanded',
+
                                 open
-                                    ? 'true'
-                                    : 'false'
+                                    ?
+                                    'true'
+                                    :
+                                    'false'
+
                             );
 
                         }
+
                     );
 
                 }
 
+
                 /* =========================================
                    HELPERS
-                   ========================================= */
+                ========================================= */
 
                 function escapeHtml(value) {
 
@@ -1435,24 +1911,40 @@
 
                 }
 
+
                 function getDiscordName(user) {
 
                     const metadata =
-                        user?.user_metadata || {};
+                        user?.user_metadata
+                        ||
+                        {};
+
 
                     return (
 
-                        metadata.global_name ||
+                        metadata.global_name
 
-                        metadata.full_name ||
+                        ||
 
-                        metadata.name ||
+                        metadata.full_name
 
-                        metadata.preferred_username ||
+                        ||
 
-                        metadata.user_name ||
+                        metadata.name
 
-                        metadata.username ||
+                        ||
+
+                        metadata.preferred_username
+
+                        ||
+
+                        metadata.user_name
+
+                        ||
+
+                        metadata.username
+
+                        ||
 
                         'Member'
 
@@ -1460,16 +1952,24 @@
 
                 }
 
+
                 function getAvatar(user) {
 
                     const metadata =
-                        user?.user_metadata || {};
+                        user?.user_metadata
+                        ||
+                        {};
+
 
                     return (
 
-                        metadata.avatar_url ||
+                        metadata.avatar_url
 
-                        metadata.picture ||
+                        ||
+
+                        metadata.picture
+
+                        ||
 
                         ''
 
@@ -1477,55 +1977,80 @@
 
                 }
 
+
                 function formatDate(value) {
 
                     if (!value) {
+
                         return '—';
+
                     }
+
 
                     const date =
                         new Date(
                             `${value}T00:00:00`
                         );
 
+
                     if (
                         Number.isNaN(
                             date.getTime()
                         )
                     ) {
+
                         return value;
+
                     }
 
+
                     return date.toLocaleDateString(
+
                         undefined,
+
                         {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
+                            year:
+                                'numeric',
+
+                            month:
+                                'short',
+
+                            day:
+                                'numeric'
                         }
+
                     );
 
                 }
 
+
                 function showScreen(screen) {
 
                     portalLoading.hidden =
-                        screen !== 'loading';
+                        screen !==
+                        'loading';
+
 
                     portalLogin.hidden =
-                        screen !== 'login';
+                        screen !==
+                        'login';
+
 
                     portalError.hidden =
-                        screen !== 'error';
+                        screen !==
+                        'error';
+
 
                     portalMain.hidden =
-                        screen !== 'portal';
+                        screen !==
+                        'portal';
 
                 }
 
+
                 /* =========================================
-                   HEADER AUTH STATE
-                   ========================================= */
+                   HEADER AUTH
+                ========================================= */
 
                 async function renderHeader(
                     user,
@@ -1537,55 +2062,78 @@
                         loginButton.hidden =
                             false;
 
+
                         memberProfile.hidden =
                             true;
+
 
                         memberPortalLink.hidden =
                             true;
 
-                        if (operationsPortalLink) {
+
+                        if (
+                            operationsPortalLink
+                        ) {
+
                             operationsPortalLink.hidden =
                                 true;
+
                         }
+
 
                         adminPortalLink.hidden =
                             true;
+
 
                         return;
 
                     }
 
+
                     loginButton.hidden =
                         true;
+
 
                     memberProfile.hidden =
                         false;
 
+
                     memberPortalLink.hidden =
                         false;
 
-                    if (operationsPortalLink) {
+
+                    if (
+                        operationsPortalLink
+                    ) {
+
                         operationsPortalLink.hidden =
                             false;
+
                     }
+
 
                     memberName.textContent =
 
-                        profile?.display_name ||
+                        profile?.display_name
+
+                        ||
 
                         getDiscordName(
                             user
                         );
+
 
                     const avatar =
                         getAvatar(
                             user
                         );
 
+
                     if (avatar) {
 
                         memberAvatar.src =
                             avatar;
+
 
                         memberAvatar.hidden =
                             false;
@@ -1598,26 +2146,39 @@
                             'src'
                         );
 
+
                         memberAvatar.hidden =
                             true;
 
                     }
 
+
                     const access =
-                        profile?.access_level ||
+                        profile?.access_level
+                        ||
                         'Member';
 
+
                     adminPortalLink.hidden =
+
                         !(
-                            access === 'Admin' ||
-                            access === 'Super Admin'
+
+                            access ===
+                            'Admin'
+
+                            ||
+
+                            access ===
+                            'Super Admin'
+
                         );
 
                 }
 
+
                 /* =========================================
                    LOGIN
-                   ========================================= */
+                ========================================= */
 
                 async function loginWithDiscord() {
 
@@ -1639,12 +2200,14 @@
 
                             });
 
+
                     if (error) {
 
                         console.error(
                             'Discord login error:',
                             error
                         );
+
 
                         alert(
                             'Discord login failed: ' +
@@ -1655,22 +2218,27 @@
 
                 }
 
+
                 loginButton.addEventListener(
                     'click',
                     loginWithDiscord
                 );
+
 
                 portalLoginButton.addEventListener(
                     'click',
                     loginWithDiscord
                 );
 
+
                 /* =========================================
                    LOGOUT
-                   ========================================= */
+                ========================================= */
 
                 logoutButton.addEventListener(
+
                     'click',
+
                     async () => {
 
                         const {
@@ -1679,6 +2247,7 @@
                             await client.auth
                                 .signOut();
 
+
                         if (error) {
 
                             console.error(
@@ -1686,24 +2255,465 @@
                                 error
                             );
 
+
                             alert(
                                 'Logout failed: ' +
                                 error.message
                             );
 
+
                             return;
 
                         }
+
 
                         window.location.href =
                             'index.html';
 
                     }
+
                 );
+
+
+                /* =========================================
+                   UPCOMING OPERATIONS
+                ========================================= */
+
+                function renderUpcomingOperations(
+                    operations,
+                    signups
+                ) {
+
+                    if (!operations.length) {
+
+                        upcomingOperations.innerHTML = `
+
+                            <div class="upcoming-empty">
+
+                                There are currently no upcoming
+                                operations posted to OPBOARD.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const signedUpOperationIds =
+                        new Set(
+
+                            signups.map(
+
+                                signup =>
+                                    Number(
+                                        signup.operation_id
+                                    )
+
+                            )
+
+                        );
+
+
+                    upcomingOperations.innerHTML =
+
+                        operations.map(
+
+                            operation => {
+
+
+                                const date =
+                                    new Date(
+                                        operation.operation_date
+                                    );
+
+
+                                const signedUp =
+                                    signedUpOperationIds.has(
+                                        Number(
+                                            operation.id
+                                        )
+                                    );
+
+
+                                const month =
+                                    date
+                                        .toLocaleDateString(
+                                            undefined,
+                                            {
+                                                month:
+                                                    'short'
+                                            }
+                                        )
+                                        .toUpperCase();
+
+
+                                const day =
+                                    date
+                                        .toLocaleDateString(
+                                            undefined,
+                                            {
+                                                day:
+                                                    '2-digit'
+                                            }
+                                        );
+
+
+                                const time =
+                                    date
+                                        .toLocaleTimeString(
+                                            undefined,
+                                            {
+                                                hour:
+                                                    'numeric',
+
+                                                minute:
+                                                    '2-digit'
+                                            }
+                                        );
+
+
+                                return `
+
+                                    <div class="upcoming-operation">
+
+
+                                        <div class="upcoming-date">
+
+                                            <div class="upcoming-month">
+
+                                                ${escapeHtml(
+                                                    month
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="upcoming-day">
+
+                                                ${escapeHtml(
+                                                    day
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="upcoming-time">
+
+                                                ${escapeHtml(
+                                                    time
+                                                )}
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="upcoming-details">
+
+                                            <div class="upcoming-type">
+
+                                                ${escapeHtml(
+                                                    operation.operation_type
+                                                    ||
+                                                    'Operation'
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="upcoming-title">
+
+                                                ${escapeHtml(
+                                                    operation.title
+                                                    ||
+                                                    'Untitled Operation'
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="upcoming-meta">
+
+                                                <span>
+
+                                                    AO / MAP:
+                                                    ${escapeHtml(
+                                                        operation.map_location
+                                                        ||
+                                                        'TBD'
+                                                    )}
+
+                                                </span>
+
+
+                                                <span>
+
+                                                    Required:
+                                                    ${escapeHtml(
+                                                        operation.required_section
+                                                        ||
+                                                        'All Personnel'
+                                                    )}
+
+                                                </span>
+
+
+                                                <span>
+
+                                                    ${escapeHtml(
+                                                        operation.status
+                                                    )}
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="upcoming-action">
+
+                                            <div
+                                                class="signup-state ${
+                                                    signedUp
+                                                        ?
+                                                        'signed-up'
+                                                        :
+                                                        'not-signed-up'
+                                                }"
+                                            >
+
+                                                ${
+                                                    signedUp
+                                                        ?
+                                                        'Signed Up'
+                                                        :
+                                                        'Not Signed Up'
+                                                }
+
+                                            </div>
+
+
+                                            <a
+                                                href="operations.html"
+                                                class="opboard-button"
+                                            >
+                                                View on OPBOARD
+                                            </a>
+
+                                        </div>
+
+
+                                    </div>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
+
+                }
+
+
+                async function loadUpcomingOperations(
+                    userId
+                ) {
+
+                    upcomingOperations.innerHTML = `
+
+                        <div class="upcoming-empty">
+
+                            Loading upcoming operations...
+
+                        </div>
+
+                    `;
+
+
+                    /*
+                        Load future operations.
+
+                        Completed and Cancelled events are excluded.
+                    */
+
+                    const now =
+                        new Date()
+                            .toISOString();
+
+
+                    const {
+                        data:
+                            operationData,
+
+                        error:
+                            operationError
+                    } =
+                        await client
+
+                            .from(
+                                'operations_board'
+                            )
+
+                            .select(
+                                'id,title,operation_type,operation_date,map_location,required_section,status'
+                            )
+
+                            .gte(
+                                'operation_date',
+                                now
+                            )
+
+                            .not(
+                                'status',
+                                'in',
+                                '("Completed","Cancelled")'
+                            )
+
+                            .order(
+                                'operation_date',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            )
+
+                            .limit(
+                                3
+                            );
+
+
+                    if (
+                        operationError
+                    ) {
+
+                        console.error(
+                            'Upcoming operations error:',
+                            operationError
+                        );
+
+
+                        upcomingOperations.innerHTML = `
+
+                            <div class="upcoming-empty">
+
+                                Upcoming operations could not be loaded.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const operations =
+                        operationData
+                        ||
+                        [];
+
+
+                    if (!operations.length) {
+
+                        renderUpcomingOperations(
+                            [],
+                            []
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    const operationIds =
+                        operations.map(
+                            operation =>
+                                operation.id
+                        );
+
+
+                    /*
+                        Load ONLY this member's signups for the
+                        operations being displayed.
+                    */
+
+                    const {
+                        data:
+                            signupData,
+
+                        error:
+                            signupError
+                    } =
+                        await client
+
+                            .from(
+                                'operation_signups'
+                            )
+
+                            .select(
+                                'operation_id,user_id'
+                            )
+
+                            .eq(
+                                'user_id',
+                                userId
+                            )
+
+                            .in(
+                                'operation_id',
+                                operationIds
+                            );
+
+
+                    if (
+                        signupError
+                    ) {
+
+                        console.error(
+                            'Upcoming signup error:',
+                            signupError
+                        );
+
+
+                        /*
+                            Operations can still be shown even if
+                            signup status could not be loaded.
+                        */
+
+                        renderUpcomingOperations(
+                            operations,
+                            []
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    renderUpcomingOperations(
+
+                        operations,
+
+                        signupData
+                        ||
+                        []
+
+                    );
+
+                }
+
 
                 /* =========================================
                    QUALIFICATIONS
-                   ========================================= */
+                ========================================= */
 
                 function renderQualifications(
                     qualifications
@@ -1714,20 +2724,29 @@
                             'qualificationGroups'
                         );
 
+
                     const qualificationCount =
                         document.getElementById(
                             'qualificationCount'
                         );
 
+
                     const values =
+
                         Array.isArray(
                             qualifications
                         )
-                            ? qualifications
-                            : [];
+
+                            ?
+                            qualifications
+
+                            :
+                            [];
+
 
                     qualificationCount.textContent =
                         values.length;
+
 
                     if (!values.length) {
 
@@ -1742,38 +2761,54 @@
 
                         `;
 
+
                         return;
 
                     }
 
+
                     const known =
                         new Set();
+
 
                     let html =
                         '';
 
+
                     qualificationDefinitions.forEach(
+
                         group => {
 
                             const matched =
                                 group.qualifications.filter(
+
                                     qualification =>
                                         values.includes(
                                             qualification
                                         )
+
                                 );
 
+
                             if (!matched.length) {
+
                                 return;
+
                             }
 
+
                             matched.forEach(
+
                                 qualification => {
+
                                     known.add(
                                         qualification
                                     );
+
                                 }
+
                             );
+
 
                             html += `
 
@@ -1786,6 +2821,7 @@
                                         )}
 
                                     </div>
+
 
                                     <div class="qualification-list">
 
@@ -1810,15 +2846,20 @@
                             `;
 
                         }
+
                     );
+
 
                     const custom =
                         values.filter(
+
                             qualification =>
                                 !known.has(
                                     qualification
                                 )
+
                         );
+
 
                     if (custom.length) {
 
@@ -1827,8 +2868,11 @@
                             <div class="qualification-group">
 
                                 <div class="qualification-group-title">
+
                                     Additional Qualifications
+
                                 </div>
+
 
                                 <div class="qualification-list">
 
@@ -1854,14 +2898,16 @@
 
                     }
 
+
                     container.innerHTML =
                         html;
 
                 }
 
+
                 /* =========================================
                    PROFILE
-                   ========================================= */
+                ========================================= */
 
                 function populateProfile(
                     user,
@@ -1870,73 +2916,87 @@
 
                     const displayName =
 
-                        profile.display_name ||
+                        profile.display_name
+
+                        ||
 
                         getDiscordName(
                             user
                         );
+
 
                     const avatar =
                         getAvatar(
                             user
                         );
 
+
+                    const profileAvatar =
+                        document.getElementById(
+                            'profileAvatar'
+                        );
+
+
                     if (avatar) {
 
-                        document
-                            .getElementById(
-                                'profileAvatar'
-                            )
-                            .src =
-                                avatar;
+                        profileAvatar.src =
+                            avatar;
 
-                        document
-                            .getElementById(
-                                'profileAvatar'
-                            )
-                            .hidden =
-                                false;
+
+                        profileAvatar.hidden =
+                            false;
 
                     }
 
                     else {
 
-                        document
-                            .getElementById(
-                                'profileAvatar'
-                            )
-                            .hidden =
-                                true;
+                        profileAvatar.hidden =
+                            true;
 
                     }
 
+
                     const rank =
-                        profile.rank ||
+                        profile.rank
+                        ||
                         'Unassigned';
+
 
                     const billet =
-                        profile.billet ||
+                        profile.billet
+                        ||
                         'Unassigned';
+
 
                     const section =
-                        profile.section ||
+                        profile.section
+                        ||
                         'Unassigned';
 
+
                     const role =
-                        profile.member_role ||
+                        profile.member_role
+                        ||
                         'Member';
+
 
                     const status =
-                        profile.member_status ||
+                        profile.member_status
+                        ||
                         'Active';
 
+
                     const access =
-                        profile.access_level ||
+                        profile.access_level
+                        ||
                         'Member';
 
+
                     const attendance =
-                        profile.attendance_rate ??
+                        profile.attendance_rate
+                        ??
                         0;
+
 
                     document
                         .getElementById(
@@ -1945,12 +3005,14 @@
                         .textContent =
                             rank;
 
+
                     document
                         .getElementById(
                             'profileName'
                         )
                         .textContent =
                             displayName;
+
 
                     document
                         .getElementById(
@@ -1959,12 +3021,14 @@
                         .textContent =
                             billet;
 
+
                     document
                         .getElementById(
                             'profileSection'
                         )
                         .textContent =
                             section;
+
 
                     document
                         .getElementById(
@@ -1973,16 +3037,20 @@
                         .textContent =
                             role;
 
+
                     const profileStatus =
                         document.getElementById(
                             'profileStatus'
                         );
 
+
                     profileStatus.textContent =
                         status;
 
+
                     profileStatus.className =
                         '';
+
 
                     const statusClass =
                         status
@@ -1992,8 +3060,10 @@
                                 '-'
                             );
 
+
                     if (
-                        statusClass === 'active'
+                        statusClass ===
+                        'active'
                     ) {
 
                         profileStatus.classList.add(
@@ -2003,10 +3073,15 @@
                     }
 
                     else if (
-                        statusClass === 'loa'
-                        ||
+
                         statusClass ===
-                            'leave-of-absence'
+                        'loa'
+
+                        ||
+
+                        statusClass ===
+                        'leave-of-absence'
+
                     ) {
 
                         profileStatus.classList.add(
@@ -2023,12 +3098,14 @@
 
                     }
 
+
                     document
                         .getElementById(
                             'profileAccess'
                         )
                         .textContent =
                             access;
+
 
                     document
                         .getElementById(
@@ -2037,12 +3114,14 @@
                         .textContent =
                             rank;
 
+
                     document
                         .getElementById(
                             'serviceBillet'
                         )
                         .textContent =
                             billet;
+
 
                     document
                         .getElementById(
@@ -2051,12 +3130,14 @@
                         .textContent =
                             section;
 
+
                     document
                         .getElementById(
                             'serviceAttendance'
                         )
                         .textContent =
                             `${attendance}%`;
+
 
                     document
                         .getElementById(
@@ -2065,6 +3146,7 @@
                         .textContent =
                             role;
 
+
                     document
                         .getElementById(
                             'serviceStatus'
@@ -2072,12 +3154,14 @@
                         .textContent =
                             status;
 
+
                     document
                         .getElementById(
                             'serviceAccess'
                         )
                         .textContent =
                             access;
+
 
                     document
                         .getElementById(
@@ -2088,12 +3172,6 @@
                                 profile.join_date
                             );
 
-                    /*
-                     * ACCOUNT INFORMATION
-                     *
-                     * Email is intentionally NOT
-                     * displayed or populated.
-                     */
 
                     document
                         .getElementById(
@@ -2104,18 +3182,28 @@
                                 user
                             );
 
+
                     document
                         .getElementById(
                             'accountMemberId'
                         )
                         .textContent =
-                            profile.user_id ||
-                            user.id ||
+
+                            profile.user_id
+
+                            ||
+
+                            user.id
+
+                            ||
+
                             '—';
+
 
                     renderQualifications(
                         profile.qualifications
                     );
+
 
                     renderHeader(
                         user,
@@ -2124,9 +3212,10 @@
 
                 }
 
+
                 /* =========================================
                    ATTENDANCE
-                   ========================================= */
+                ========================================= */
 
                 async function loadAttendance(
                     userId
@@ -2137,25 +3226,30 @@
                             'attendanceHistory'
                         );
 
+
                     const eventCount =
                         document.getElementById(
                             'attendanceEventCount'
                         );
+
 
                     const presentCount =
                         document.getElementById(
                             'attendancePresentCount'
                         );
 
+
                     const excusedCount =
                         document.getElementById(
                             'attendanceExcusedCount'
                         );
 
+
                     const absentCount =
                         document.getElementById(
                             'attendanceAbsentCount'
                         );
+
 
                     container.innerHTML = `
 
@@ -2166,6 +3260,7 @@
                         </div>
 
                     `;
+
 
                     const {
                         data:
@@ -2189,12 +3284,16 @@
                                 userId
                             );
 
-                    if (attendanceError) {
+
+                    if (
+                        attendanceError
+                    ) {
 
                         console.error(
                             'Attendance load error:',
                             attendanceError
                         );
+
 
                         container.innerHTML = `
 
@@ -2207,37 +3306,51 @@
 
                         `;
 
+
                         return;
 
                     }
 
+
                     const records =
-                        attendanceRecords ||
+                        attendanceRecords
+                        ||
                         [];
+
 
                     eventCount.textContent =
                         records.length;
 
+
                     presentCount.textContent =
                         records.filter(
+
                             record =>
                                 record.status ===
                                 'Present'
+
                         ).length;
+
 
                     excusedCount.textContent =
                         records.filter(
+
                             record =>
                                 record.status ===
                                 'Excused'
+
                         ).length;
+
 
                     absentCount.textContent =
                         records.filter(
+
                             record =>
                                 record.status ===
                                 'Absent'
+
                         ).length;
+
 
                     if (!records.length) {
 
@@ -2252,19 +3365,27 @@
 
                         `;
 
+
                         return;
 
                     }
 
-                    const eventIds =
-                        [
-                            ...new Set(
-                                records.map(
-                                    record =>
-                                        record.event_id
-                                )
+
+                    const eventIds = [
+
+                        ...new Set(
+
+                            records.map(
+
+                                record =>
+                                    record.event_id
+
                             )
-                        ];
+
+                        )
+
+                    ];
+
 
                     const {
                         data:
@@ -2288,12 +3409,16 @@
                                 eventIds
                             );
 
-                    if (eventsError) {
+
+                    if (
+                        eventsError
+                    ) {
 
                         console.error(
                             'Attendance event load error:',
                             eventsError
                         );
+
 
                         container.innerHTML = `
 
@@ -2306,147 +3431,183 @@
 
                         `;
 
+
                         return;
 
                     }
 
+
                     const eventMap =
                         new Map();
 
+
                     (
-                        events ||
+                        events
+                        ||
                         []
                     ).forEach(
+
                         event => {
 
                             eventMap.set(
+
                                 String(
                                     event.id
                                 ),
+
                                 event
+
                             );
 
                         }
+
                     );
+
 
                     const history =
                         records
 
-                        .map(
-                            record => ({
+                            .map(
 
-                                ...record,
+                                record => ({
 
-                                event:
-                                    eventMap.get(
-                                        String(
-                                            record.event_id
+                                    ...record,
+
+                                    event:
+                                        eventMap.get(
+
+                                            String(
+                                                record.event_id
+                                            )
+
                                         )
-                                    )
-                                    ||
-                                    null
 
-                            })
-                        )
+                                        ||
 
-                        .sort(
-                            (
-                                a,
-                                b
-                            ) => {
+                                        null
 
-                                const dateA =
-                                    a.event?.event_date ||
-                                    '';
+                                })
 
-                                const dateB =
-                                    b.event?.event_date ||
-                                    '';
+                            )
 
-                                return dateB.localeCompare(
-                                    dateA
-                                );
+                            .sort(
 
-                            }
-                        );
+                                (
+                                    a,
+                                    b
+                                ) => {
+
+                                    const dateA =
+                                        a.event?.event_date
+                                        ||
+                                        '';
+
+
+                                    const dateB =
+                                        b.event?.event_date
+                                        ||
+                                        '';
+
+
+                                    return dateB.localeCompare(
+                                        dateA
+                                    );
+
+                                }
+
+                            );
+
 
                     container.innerHTML =
                         history
 
-                        .map(
-                            record => {
+                            .map(
 
-                                const event =
-                                    record.event;
+                                record => {
 
-                                const status =
-                                    record.status ||
-                                    'Absent';
+                                    const event =
+                                        record.event;
 
-                                return `
 
-                                    <div class="attendance-history-row">
+                                    const status =
+                                        record.status
+                                        ||
+                                        'Absent';
 
-                                        <div class="attendance-date">
 
-                                            ${escapeHtml(
-                                                formatDate(
-                                                    event?.event_date
-                                                )
-                                            )}
+                                    return `
+
+                                        <div class="attendance-history-row">
+
+                                            <div class="attendance-date">
+
+                                                ${escapeHtml(
+                                                    formatDate(
+                                                        event?.event_date
+                                                    )
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="attendance-type">
+
+                                                ${escapeHtml(
+                                                    event?.event_type
+                                                    ||
+                                                    'Event'
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="attendance-title">
+
+                                                ${escapeHtml(
+                                                    event?.title
+                                                    ||
+                                                    'Attendance Event'
+                                                )}
+
+                                            </div>
+
+
+                                            <div
+                                                class="attendance-status-badge ${escapeHtml(
+                                                    status.toLowerCase()
+                                                )}"
+                                            >
+
+                                                ${escapeHtml(
+                                                    status
+                                                )}
+
+                                            </div>
+
 
                                         </div>
 
-                                        <div class="attendance-type">
+                                    `;
 
-                                            ${escapeHtml(
-                                                event?.event_type ||
-                                                'Event'
-                                            )}
+                                }
 
-                                        </div>
+                            )
 
-                                        <div class="attendance-title">
-
-                                            ${escapeHtml(
-                                                event?.title ||
-                                                'Attendance Event'
-                                            )}
-
-                                        </div>
-
-                                        <div
-                                            class="attendance-status-badge ${escapeHtml(
-                                                status.toLowerCase()
-                                            )}"
-                                        >
-
-                                            ${escapeHtml(
-                                                status
-                                            )}
-
-                                        </div>
-
-                                    </div>
-
-                                `;
-
-                            }
-                        )
-
-                        .join('');
+                            .join('');
 
                 }
 
+
                 /* =========================================
-                   LOAD MEMBER PORTAL
-                   ========================================= */
+                   LOAD PORTAL
+                ========================================= */
 
                 async function loadPortal() {
 
                     showScreen(
                         'loading'
                     );
+
 
                     const {
                         data: {
@@ -2459,41 +3620,54 @@
                         await client.auth
                             .getSession();
 
-                    if (sessionError) {
+
+                    if (
+                        sessionError
+                    ) {
 
                         console.error(
                             'Session error:',
                             sessionError
                         );
 
+
                         portalErrorText.textContent =
                             'Unable to verify your login session.';
+
 
                         showScreen(
                             'error'
                         );
 
+
                         return;
 
                     }
 
-                    if (!session?.user) {
+
+                    if (
+                        !session?.user
+                    ) {
 
                         await renderHeader(
                             null,
                             null
                         );
 
+
                         showScreen(
                             'login'
                         );
+
 
                         return;
 
                     }
 
+
                     const user =
                         session.user;
+
 
                     const {
                         data:
@@ -2517,62 +3691,93 @@
 
                             .maybeSingle();
 
-                    if (profileError) {
+
+                    if (
+                        profileError
+                    ) {
 
                         console.error(
                             'Profile load error:',
                             profileError
                         );
 
+
                         portalErrorText.textContent =
                             profileError.message;
+
 
                         showScreen(
                             'error'
                         );
 
+
                         return;
 
                     }
+
 
                     if (!profile) {
 
                         portalErrorText.textContent =
                             'No personnel record was found for your Discord account.';
 
+
                         showScreen(
                             'error'
                         );
 
+
                         return;
 
                     }
+
 
                     populateProfile(
                         user,
                         profile
                     );
 
+
                     showScreen(
                         'portal'
                     );
 
-                    await loadAttendance(
-                        user.id
-                    );
+
+                    /*
+                        Load upcoming operations and attendance
+                        independently.
+
+                        If one fails, it does not prevent the other
+                        portal sections from loading.
+                    */
+
+                    await Promise.all([
+
+                        loadUpcomingOperations(
+                            user.id
+                        ),
+
+                        loadAttendance(
+                            user.id
+                        )
+
+                    ]);
 
                 }
 
+
                 /* =========================================
                    AUTH CHANGES
-                   ========================================= */
+                ========================================= */
 
                 client.auth
                     .onAuthStateChange(
+
                         async (
                             event,
                             session
                         ) => {
+
 
                             if (
                                 event ===
@@ -2584,19 +3789,26 @@
                                     null
                                 );
 
+
                                 showScreen(
                                     'login'
                                 );
+
 
                                 return;
 
                             }
 
+
                             if (
+
                                 event ===
                                 'SIGNED_IN'
+
                                 &&
+
                                 session?.user
+
                             ) {
 
                                 await loadPortal();
@@ -2604,18 +3816,22 @@
                             }
 
                         }
+
                     );
+
 
                 /* =========================================
                    INITIALIZE
-                   ========================================= */
+                ========================================= */
 
                 await loadPortal();
 
             }
+
         );
 
     </script>
+
 
 </body>
 
