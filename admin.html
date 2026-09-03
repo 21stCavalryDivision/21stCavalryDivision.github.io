@@ -1166,7 +1166,171 @@
             }
 
         }
+/* =================================================
+   ATTENDANCE WARNINGS
+   ================================================= */
 
+.attendance-warning-heading {
+    margin-top: 28px;
+}
+
+.attendance-warning-heading span {
+    color: #df7474;
+}
+
+.attendance-warning-panel {
+    display: grid;
+    gap: 10px;
+
+    margin-bottom: 28px;
+    padding: 18px;
+
+    border: 1px solid #633636;
+    border-top: 2px solid #df4747;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(120, 25, 25, 0.12),
+            rgba(16, 22, 25, 0.95)
+        );
+}
+
+
+/* INDIVIDUAL WARNING */
+
+.attendance-warning-card {
+    display: grid;
+
+    grid-template-columns:
+        minmax(200px, 1fr)
+        minmax(160px, 1fr)
+        100px;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #653838;
+
+    background: #120d0e;
+}
+
+
+/* MEMBER */
+
+.attendance-warning-member {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.attendance-warning-label {
+    color: #df7474;
+
+    font:
+        600
+        8px
+        Oswald,
+        sans-serif;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+.attendance-warning-name {
+    color: #ffffff;
+
+    font:
+        600
+        17px
+        Oswald,
+        sans-serif;
+
+    text-transform: uppercase;
+}
+
+
+/* SECTION */
+
+.attendance-warning-section {
+    color: #9ca7ac;
+
+    font:
+        500
+        10px
+        Oswald,
+        sans-serif;
+
+    text-transform: uppercase;
+}
+
+
+/* ATTENDANCE PERCENTAGE */
+
+.attendance-warning-rate {
+    justify-self: end;
+
+    color: #ff6767;
+
+    font:
+        700
+        25px
+        Oswald,
+        sans-serif;
+}
+
+
+/* NO WARNINGS */
+
+.attendance-warning-clear {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 17px;
+
+    border: 1px solid #354139;
+
+    background: #0b110e;
+}
+
+.attendance-warning-clear strong {
+    color: #75d88f;
+
+    font:
+        600
+        12px
+        Oswald,
+        sans-serif;
+
+    text-transform: uppercase;
+}
+
+.attendance-warning-clear span {
+    color: #7f8d93;
+
+    font-size: 11px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .attendance-warning-card {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-warning-rate {
+        justify-self: start;
+    }
+
+}
     </style>
 
 </head>
@@ -1491,7 +1655,49 @@
 
         </section>
 
+        </section>
 
+
+        <!-- =================================================
+             ATTENDANCE WARNINGS
+             ================================================= -->
+
+        <div class="admin-section-heading attendance-warning-heading">
+
+            <h2>
+                Attendance Warnings
+            </h2>
+
+            <span>
+                Threshold: Below 65%
+            </span>
+
+        </div>
+
+
+        <section
+            id="attendanceWarningPanel"
+            class="attendance-warning-panel"
+        >
+
+            <div class="attendance-warning-clear">
+
+                <strong>
+                    No Attendance Warnings
+                </strong>
+
+                <span>
+                    All active personnel are currently at or above the attendance threshold.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MEMBER MANAGEMENT
+             ================================================= -->
         <!-- =================================================
              MEMBER MANAGEMENT
              ================================================= -->
@@ -3773,7 +3979,179 @@
                 /* =================================================
                    LOAD MEMBERS
                    ================================================= */
+function renderAttendanceWarnings() {
 
+    const warningPanel =
+        document.getElementById(
+            'attendanceWarningPanel'
+        );
+
+
+    if (!warningPanel) {
+        return;
+    }
+
+
+    const ATTENDANCE_THRESHOLD =
+        65;
+
+
+    /*
+        Only active members below 65%
+        are shown in the warning panel.
+    */
+
+    const warningMembers =
+        allMembers
+            .filter(
+
+                member =>
+
+                    member.member_status ===
+                    'Active'
+
+                    &&
+
+                    Number(
+                        member.attendance_rate
+                        ||
+                        0
+                    )
+                    <
+                    ATTENDANCE_THRESHOLD
+
+            )
+
+            .sort(
+
+                (
+                    a,
+                    b
+                ) =>
+
+                    Number(
+                        a.attendance_rate
+                        ||
+                        0
+                    )
+
+                    -
+
+                    Number(
+                        b.attendance_rate
+                        ||
+                        0
+                    )
+
+            );
+
+
+    /*
+        Nobody below threshold.
+    */
+
+    if (!warningMembers.length) {
+
+        warningPanel.innerHTML = `
+
+            <div class="attendance-warning-clear">
+
+                <strong>
+                    No Attendance Warnings
+                </strong>
+
+                <span>
+                    All active personnel are currently at or above the 65% attendance threshold.
+                </span>
+
+            </div>
+
+        `;
+
+
+        return;
+    }
+
+
+    /*
+        Build one red warning box
+        for each member below threshold.
+    */
+
+    warningPanel.innerHTML =
+        warningMembers
+
+            .map(
+
+                member => {
+
+                    const attendance =
+                        Number(
+                            member.attendance_rate
+                            ||
+                            0
+                        );
+
+
+                    return `
+
+                        <div class="attendance-warning-card">
+
+                            <div class="attendance-warning-member">
+
+                                <span class="attendance-warning-label">
+                                    ⚠ Attendance Warning
+                                </span>
+
+                                <strong class="attendance-warning-name">
+
+                                    ${escapeHtml(
+                                        member.display_name
+                                        ||
+                                        'Member'
+                                    )}
+
+                                </strong>
+
+                            </div>
+
+
+                            <div class="attendance-warning-section">
+
+                                ${escapeHtml(
+                                    member.rank
+                                    ||
+                                    'Recruit'
+                                )}
+
+                                ·
+
+                                ${escapeHtml(
+                                    member.section
+                                    ||
+                                    'Unassigned'
+                                )}
+
+                            </div>
+
+
+                            <div class="attendance-warning-rate">
+
+                                ${attendance}%
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+
+            )
+
+            .join('');
+
+}
                 async function loadMembers() {
 
                     const {
@@ -3828,7 +4206,8 @@
 
 
                     updateSummary();
-
+                    
+                    renderAttendanceWarnings();
 
                     applyMemberSearch();
 
