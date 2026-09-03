@@ -48,6 +48,11 @@
             background: #080d10;
         }
 
+        /* Keep portal state sections truly hidden when JavaScript toggles them. */
+        [hidden] {
+            display: none !important;
+        }
+
 
         /* ========================================= */
         /* HERO */
@@ -1716,6 +1721,17 @@
 
 
 
+
+
+
+                const loaStartDate = document.getElementById('loaStartDate');
+                const loaEndDate = document.getElementById('loaEndDate');
+                const loaReason = document.getElementById('loaReason');
+                const submitLoaButton = document.getElementById('submitLoaButton');
+                const loaMessage = document.getElementById('loaMessage');
+                const loaList = document.getElementById('loaList');
+                let currentPortalUserId = null;
+
                 /* =========================================
                    LEAVE OF ABSENCE
                 ========================================= */
@@ -1959,16 +1975,6 @@
                         'upcomingOperations'
                     );
 
-
-
-
-                const loaStartDate = document.getElementById('loaStartDate');
-                const loaEndDate = document.getElementById('loaEndDate');
-                const loaReason = document.getElementById('loaReason');
-                const submitLoaButton = document.getElementById('submitLoaButton');
-                const loaMessage = document.getElementById('loaMessage');
-                const loaList = document.getElementById('loaList');
-                let currentPortalUserId = null;
 
 
                 /* =========================================
