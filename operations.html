@@ -2700,27 +2700,49 @@
 
                                             `
 
-                                                <div class="operation-admin-controls">
+                                               <div class="operation-admin-controls">
 
-                                                    <button
-                                                        class="edit-operation"
-                                                        data-edit-operation="${operation.id}"
-                                                        type="button"
-                                                    >
-                                                        Edit Operation
-                                                    </button>
+    ${
+        operation.status !== 'Completed'
+        &&
+        operation.status !== 'Cancelled'
 
+        ?
 
-                                                    <button
-                                                        class="delete-operation"
-                                                        data-delete-operation="${operation.id}"
-                                                        type="button"
-                                                    >
-                                                        Delete
-                                                    </button>
+        `
 
-                                                </div>
+        <button
+            class="edit-operation"
+            data-complete-operation="${operation.id}"
+            type="button"
+        >
+            Complete Operation
+        </button>
 
+        `
+
+        :
+
+        ''
+    }
+
+    <button
+        class="edit-operation"
+        data-edit-operation="${operation.id}"
+        type="button"
+    >
+        Edit Operation
+    </button>
+
+    <button
+        class="delete-operation"
+        data-delete-operation="${operation.id}"
+        type="button"
+    >
+        Delete
+    </button>
+
+</div>
                                             `
 
                                             :
@@ -4052,7 +4074,127 @@
                 // EDIT / DELETE
                 // =========================================
 
-                function attachOperationButtons() {
+                function attachOperationButtons() {document
+    .querySelectorAll(
+        '[data-complete-operation]'
+    )
+    .forEach(
+
+        button => {
+
+            button.addEventListener(
+
+                'click',
+
+                async () => {
+
+
+                    const id =
+                        Number(
+                            button.dataset
+                                .completeOperation
+                        );
+
+
+                    const operation =
+                        operations.find(
+
+                            item =>
+                                Number(
+                                    item.id
+                                )
+                                ===
+                                id
+
+                        );
+
+
+                    if (!operation) {
+
+                        return;
+
+                    }
+
+
+                    const confirmed =
+                        confirm(
+                            `Mark "${operation.title}" as Completed?`
+                        );
+
+
+                    if (!confirmed) {
+
+                        return;
+
+                    }
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.textContent =
+                        'Completing...';
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operations_board'
+                            )
+
+                            .update({
+
+                                status:
+                                    'Completed'
+
+                            })
+
+                            .eq(
+                                'id',
+                                id
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Complete operation error:',
+                            error
+                        );
+
+
+                        alert(
+                            'Unable to complete operation: ' +
+                            error.message
+                        );
+
+
+                        button.disabled =
+                            false;
+
+
+                        button.textContent =
+                            'Complete Operation';
+
+
+                        return;
+
+                    }
+
+
+                    await loadOperations();
+
+                }
+
+            );
+
+        }
+
+    );
 
 
                     document
