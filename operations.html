@@ -892,6 +892,94 @@
 
 
         /* ============================================= */
+        /* OPERATION ARCHIVE / AAR */
+        /* ============================================= */
+
+        .operation-archive-section {
+            margin-top: 42px;
+        }
+
+        .aar-area {
+            padding: 0 20px 20px;
+            background: #0b1114;
+        }
+
+        .aar-toggle-button {
+            width: 100%;
+            min-height: 40px;
+            padding: 0 15px;
+            border: 1px solid #6d805e;
+            background: #0d1417;
+            color: #a9c28e;
+            cursor: pointer;
+            font: 600 10px Oswald, sans-serif;
+            letter-spacing: .9px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .aar-toggle-button:hover {
+            border-color: #c5a75b;
+        }
+
+        .aar-panel {
+            margin-top: 10px;
+            border: 1px solid #30383d;
+            background: #090f12;
+        }
+
+        .aar-panel-header {
+            padding: 15px 16px;
+            border-bottom: 1px solid #30383d;
+        }
+
+        .aar-panel-header strong {
+            display: block;
+            color: #fff;
+            font: 600 14px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .aar-panel-header span {
+            display: block;
+            margin-top: 4px;
+            color: #77858b;
+            font-size: 10px;
+        }
+
+        .aar-content { padding: 16px; }
+        .aar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .aar-field { display: grid; gap: 6px; }
+        .aar-field.wide { grid-column: span 2; }
+        .aar-field label, .aar-read-label {
+            color: #859197;
+            font: 500 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+        .aar-field textarea {
+            width: 100%; box-sizing: border-box; min-height: 105px; padding: 11px 12px;
+            border: 1px solid #374147; outline: none; background: #080e11; color: #fff;
+            font-family: Roboto, sans-serif; resize: vertical;
+        }
+        .aar-field textarea:focus { border-color: #c5a75b; }
+        .aar-read-block { margin-bottom: 15px; }
+        .aar-read-text { margin-top: 6px; color: #c4cccf; font-size: 12px; line-height: 1.7; white-space: pre-line; }
+        .aar-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:15px; }
+        .aar-save-button { min-height:38px; padding:0 16px; border:1px solid #c5a75b; background:#c5a75b; color:#111; cursor:pointer; font:600 9px Oswald,sans-serif; letter-spacing:.8px; text-transform:uppercase; }
+        .aar-message { color:#819096; font-size:11px; }
+        .aar-message.success { color:#77d292; }
+        .aar-message.error { color:#e17777; }
+        .aar-screenshot-input { color:#aab3b7; font-size:11px; max-width:100%; }
+        .aar-screenshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:10px; margin-top:14px; }
+        .aar-shot { border:1px solid #30383d; background:#0d1417; padding:8px; }
+        .aar-shot img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#050809; }
+        .aar-shot-caption { margin-top:7px; color:#879399; font-size:10px; line-height:1.4; }
+        .aar-shot-delete { margin-top:7px; border:1px solid #744242; background:transparent; color:#df7474; cursor:pointer; font:600 8px Oswald,sans-serif; text-transform:uppercase; padding:5px 8px; }
+        .aar-empty { color:#819096; font-size:11px; line-height:1.6; }
+
+        /* ============================================= */
         /* ATTENDANCE */
         /* ============================================= */
 
@@ -1239,6 +1327,9 @@
             .roster-admin-detail {
                 text-align: left;
             }
+
+            .aar-grid { grid-template-columns: 1fr; }
+            .aar-field.wide { grid-column: auto; }
         }
     </style>
 </head>
@@ -1781,6 +1872,13 @@
 
         </section>
 
+        <section class="operation-archive-section">
+            <div class="board-heading">
+                <h2>Operation Archive</h2>
+            </div>
+            <div id="operationArchiveGrid" class="operations-grid"></div>
+        </section>
+
     </main>
 
 
@@ -1898,6 +1996,15 @@
                 let isAdmin =
                     false;
 
+                let canManageAars =
+                    false;
+
+                let aarReports =
+                    [];
+
+                let aarScreenshots =
+                    [];
+
 
                 // =========================================
                 // ELEMENTS
@@ -1936,6 +2043,11 @@
                 const operationsGrid =
                     document.getElementById(
                         'operationsGrid'
+                    );
+
+                const operationArchiveGrid =
+                    document.getElementById(
+                        'operationArchiveGrid'
                     );
 
 
@@ -2675,7 +2787,11 @@
 
                                 return `
 
-                                    <article class="operation-card">
+                                    <article
+                                        class="operation-card"
+                                        data-operation-card="${operation.id}"
+                                        data-operation-status="${escapeHtml(operation.status)}"
+                                    >
 
 
                                         <div class="operation-card-top">
@@ -2933,6 +3049,43 @@
                                         </div>
 
 
+                                        ${
+                                            operation.status === 'Completed'
+
+                                            ?
+
+                                            `
+                                                <div class="aar-area">
+                                                    <button
+                                                        class="aar-toggle-button"
+                                                        data-toggle-aar="${operation.id}"
+                                                        type="button"
+                                                        aria-expanded="false"
+                                                    >
+                                                        ${
+                                                            aarReports.some(r => Number(r.operation_id) === Number(operation.id))
+                                                                ? 'View After Action Report ▼'
+                                                                : (canManageAars ? 'Create After Action Report ▼' : 'After Action Report — Pending ▼')
+                                                        }
+                                                    </button>
+                                                    <div class="aar-panel" data-aar-panel="${operation.id}" hidden>
+                                                        <div class="aar-panel-header">
+                                                            <strong>After Action Report</strong>
+                                                            <span>${canManageAars ? 'SGT+ AAR management access.' : 'Read-only operation archive.'}</span>
+                                                        </div>
+                                                        <div class="aar-content" data-aar-content="${operation.id}">
+                                                            <div class="aar-empty">Open AAR to load report.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `
+
+                                            :
+
+                                            ''
+                                        }
+
+
                                         ${attendanceArea}
 
 
@@ -3012,8 +3165,303 @@
 
                     attachAttendanceButtons();
 
+                    attachAarButtons();
+
+                    moveCompletedOperationsToArchive();
+
                 }
 
+
+                // =========================================
+                // AFTER ACTION REPORTS / ARCHIVE
+                // =========================================
+
+                function getAarForOperation(operationId) {
+                    return aarReports.find(
+                        report => Number(report.operation_id) === Number(operationId)
+                    ) || null;
+                }
+
+                function getAarScreenshots(aarId) {
+                    return aarScreenshots.filter(
+                        shot => Number(shot.aar_id) === Number(aarId)
+                    );
+                }
+
+                function moveCompletedOperationsToArchive() {
+                    if (!operationArchiveGrid) return;
+
+                    operationArchiveGrid.innerHTML = '';
+
+                    const cards = Array.from(
+                        operationsGrid.querySelectorAll('[data-operation-card]')
+                    );
+
+                    cards.forEach(card => {
+                        if (card.dataset.operationStatus === 'Completed') {
+                            operationArchiveGrid.appendChild(card);
+                        }
+                    });
+
+                    if (!operationsGrid.children.length) {
+                        operationsGrid.innerHTML = `
+                            <div class="empty-board">
+                                <h3>No Active Missions</h3>
+                                There are currently no active or scheduled missions on OPBOARD.
+                            </div>
+                        `;
+                    }
+
+                    if (!operationArchiveGrid.children.length) {
+                        operationArchiveGrid.innerHTML = `
+                            <div class="empty-board">
+                                <h3>No Archived Operations</h3>
+                                Completed operations will appear here automatically.
+                            </div>
+                        `;
+                    }
+                }
+
+                async function loadAarData() {
+                    const [{ data: reports, error: reportError }, { data: shots, error: shotError }] =
+                        await Promise.all([
+                            client.from('after_action_reports').select('*').order('created_at', { ascending: false }),
+                            client.from('aar_screenshots').select('*').order('created_at', { ascending: true })
+                        ]);
+
+                    if (reportError) {
+                        console.error('AAR load error:', reportError);
+                        aarReports = [];
+                    } else {
+                        aarReports = reports || [];
+                    }
+
+                    if (shotError) {
+                        console.error('AAR screenshot metadata error:', shotError);
+                        aarScreenshots = [];
+                    } else {
+                        aarScreenshots = shots || [];
+                    }
+                }
+
+                async function buildSignedScreenshotHtml(aarId) {
+                    const shots = getAarScreenshots(aarId);
+                    if (!shots.length) return '<div class="aar-empty">No screenshots attached.</div>';
+
+                    const items = await Promise.all(shots.map(async shot => {
+                        const { data, error } = await client.storage
+                            .from('aar-screenshots')
+                            .createSignedUrl(shot.storage_path, 3600);
+
+                        if (error || !data?.signedUrl) {
+                            return `<div class="aar-shot"><div class="aar-empty">Screenshot unavailable.</div></div>`;
+                        }
+
+                        return `
+                            <div class="aar-shot">
+                                <a href="${escapeHtml(data.signedUrl)}" target="_blank" rel="noopener">
+                                    <img src="${escapeHtml(data.signedUrl)}" alt="AAR screenshot">
+                                </a>
+                                ${shot.caption ? `<div class="aar-shot-caption">${escapeHtml(shot.caption)}</div>` : ''}
+                                ${canManageAars ? `<button class="aar-shot-delete" data-delete-aar-shot="${shot.id}" data-shot-path="${escapeHtml(shot.storage_path)}" type="button">Delete Screenshot</button>` : ''}
+                            </div>
+                        `;
+                    }));
+
+                    return `<div class="aar-screenshots">${items.join('')}</div>`;
+                }
+
+                async function renderAar(operationId) {
+                    const container = document.querySelector(`[data-aar-content="${operationId}"]`);
+                    if (!container) return;
+
+                    const report = getAarForOperation(operationId);
+
+                    if (!report && !canManageAars) {
+                        container.innerHTML = '<div class="aar-empty">No After Action Report has been filed for this operation yet.</div>';
+                        return;
+                    }
+
+                    if (canManageAars) {
+                        container.innerHTML = `
+                            <div class="aar-grid">
+                                <div class="aar-field wide">
+                                    <label>Outcome</label>
+                                    <textarea data-aar-outcome="${operationId}" placeholder="Overall mission outcome...">${escapeHtml(report?.outcome || '')}</textarea>
+                                </div>
+                                <div class="aar-field">
+                                    <label>Casualties / Losses</label>
+                                    <textarea data-aar-casualties="${operationId}" placeholder="Personnel, vehicles, equipment or other losses...">${escapeHtml(report?.casualties_losses || '')}</textarea>
+                                </div>
+                                <div class="aar-field">
+                                    <label>Objectives Completed</label>
+                                    <textarea data-aar-objectives="${operationId}" placeholder="Objectives completed, failed or partially completed...">${escapeHtml(report?.objectives_completed || '')}</textarea>
+                                </div>
+                                <div class="aar-field wide">
+                                    <label>Notes</label>
+                                    <textarea data-aar-notes="${operationId}" placeholder="Command notes, lessons learned, recommendations...">${escapeHtml(report?.notes || '')}</textarea>
+                                </div>
+                                <div class="aar-field wide">
+                                    <label>Screenshots</label>
+                                    <input class="aar-screenshot-input" data-aar-files="${operationId}" type="file" accept="image/*" multiple>
+                                </div>
+                            </div>
+                            <div class="aar-actions">
+                                <button class="aar-save-button" data-save-aar="${operationId}" type="button">${report ? 'Save AAR Changes' : 'Submit AAR'}</button>
+                                <span class="aar-message" data-aar-message="${operationId}">${report ? 'Existing AAR loaded.' : 'No AAR has been submitted.'}</span>
+                            </div>
+                            <div data-aar-screenshots="${operationId}"></div>
+                        `;
+                    } else {
+                        container.innerHTML = `
+                            <div class="aar-read-block"><div class="aar-read-label">Outcome</div><div class="aar-read-text">${escapeHtml(report.outcome || 'Not recorded.')}</div></div>
+                            <div class="aar-read-block"><div class="aar-read-label">Casualties / Losses</div><div class="aar-read-text">${escapeHtml(report.casualties_losses || 'None recorded.')}</div></div>
+                            <div class="aar-read-block"><div class="aar-read-label">Objectives Completed</div><div class="aar-read-text">${escapeHtml(report.objectives_completed || 'Not recorded.')}</div></div>
+                            <div class="aar-read-block"><div class="aar-read-label">Notes</div><div class="aar-read-text">${escapeHtml(report.notes || 'No additional notes.')}</div></div>
+                            <div data-aar-screenshots="${operationId}"></div>
+                        `;
+                    }
+
+                    if (report) {
+                        const shotContainer = container.querySelector(`[data-aar-screenshots="${operationId}"]`);
+                        if (shotContainer) shotContainer.innerHTML = await buildSignedScreenshotHtml(report.id);
+                    }
+
+                    attachAarActionButtons();
+                }
+
+                async function uploadAarScreenshots(operationId, aarId, files) {
+                    for (const file of files) {
+                        const safeName = String(file.name || 'screenshot')
+                            .replace(/[^a-zA-Z0-9._-]/g, '_');
+                        const storagePath = `${operationId}/${aarId}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
+
+                        const { error: uploadError } = await client.storage
+                            .from('aar-screenshots')
+                            .upload(storagePath, file, { upsert: false, contentType: file.type || undefined });
+                        if (uploadError) throw uploadError;
+
+                        const { error: metaError } = await client.from('aar_screenshots').insert({
+                            aar_id: aarId,
+                            uploaded_by: currentUser.id,
+                            storage_path: storagePath,
+                            caption: file.name || null
+                        });
+                        if (metaError) {
+                            await client.storage.from('aar-screenshots').remove([storagePath]);
+                            throw metaError;
+                        }
+                    }
+                }
+
+                async function saveAar(operationId, button) {
+                    if (!canManageAars || !currentUser) return;
+
+                    const outcome = document.querySelector(`[data-aar-outcome="${operationId}"]`)?.value.trim() || '';
+                    const casualties = document.querySelector(`[data-aar-casualties="${operationId}"]`)?.value.trim() || '';
+                    const objectives = document.querySelector(`[data-aar-objectives="${operationId}"]`)?.value.trim() || '';
+                    const notes = document.querySelector(`[data-aar-notes="${operationId}"]`)?.value.trim() || '';
+                    const fileInput = document.querySelector(`[data-aar-files="${operationId}"]`);
+                    const message = document.querySelector(`[data-aar-message="${operationId}"]`);
+
+                    if (!outcome) {
+                        if (message) { message.textContent = 'Outcome is required.'; message.className = 'aar-message error'; }
+                        return;
+                    }
+
+                    button.disabled = true;
+                    button.textContent = 'Saving AAR...';
+                    if (message) { message.textContent = 'Saving report...'; message.className = 'aar-message'; }
+
+                    try {
+                        let report = getAarForOperation(operationId);
+
+                        if (report) {
+                            const { error } = await client.from('after_action_reports').update({
+                                outcome,
+                                casualties_losses: casualties || null,
+                                objectives_completed: objectives || null,
+                                notes: notes || null,
+                                updated_at: new Date().toISOString()
+                            }).eq('id', report.id);
+                            if (error) throw error;
+                        } else {
+                            const { data, error } = await client.from('after_action_reports').insert({
+                                operation_id: Number(operationId),
+                                author_user_id: currentUser.id,
+                                outcome,
+                                casualties_losses: casualties || null,
+                                objectives_completed: objectives || null,
+                                notes: notes || null
+                            }).select('*').single();
+                            if (error) throw error;
+                            report = data;
+                        }
+
+                        const files = Array.from(fileInput?.files || []);
+                        if (files.length) await uploadAarScreenshots(operationId, report.id, files);
+
+                        await loadAarData();
+                        await renderAar(operationId);
+
+                        const updatedMessage = document.querySelector(`[data-aar-message="${operationId}"]`);
+                        if (updatedMessage) { updatedMessage.textContent = 'AAR saved successfully.'; updatedMessage.className = 'aar-message success'; }
+
+                        const toggle = document.querySelector(`[data-toggle-aar="${operationId}"]`);
+                        if (toggle) toggle.textContent = 'Hide After Action Report ▲';
+                    } catch (error) {
+                        console.error('AAR save error:', error);
+                        if (message) { message.textContent = 'Unable to save AAR: ' + (error.message || 'Unknown error'); message.className = 'aar-message error'; }
+                        button.disabled = false;
+                        button.textContent = 'Save AAR';
+                    }
+                }
+
+                function attachAarActionButtons() {
+                    document.querySelectorAll('[data-save-aar]').forEach(button => {
+                        button.onclick = () => saveAar(Number(button.dataset.saveAar), button);
+                    });
+
+                    document.querySelectorAll('[data-delete-aar-shot]').forEach(button => {
+                        button.onclick = async () => {
+                            if (!canManageAars || !confirm('Delete this AAR screenshot?')) return;
+                            const shotId = Number(button.dataset.deleteAarShot);
+                            const path = button.dataset.shotPath;
+                            const { error: storageError } = await client.storage.from('aar-screenshots').remove([path]);
+                            if (storageError) { alert(storageError.message); return; }
+                            const { error } = await client.from('aar_screenshots').delete().eq('id', shotId);
+                            if (error) { alert(error.message); return; }
+                            await loadAarData();
+                            const report = aarScreenshots.find(s => Number(s.id) === shotId);
+                            const panel = button.closest('[data-aar-content]');
+                            const opId = Number(panel?.dataset.aarContent);
+                            if (opId) await renderAar(opId);
+                        };
+                    });
+                }
+
+                function attachAarButtons() {
+                    document.querySelectorAll('[data-toggle-aar]').forEach(button => {
+                        button.addEventListener('click', async () => {
+                            const operationId = Number(button.dataset.toggleAar);
+                            const panel = document.querySelector(`[data-aar-panel="${operationId}"]`);
+                            if (!panel) return;
+
+                            if (!panel.hidden) {
+                                panel.hidden = true;
+                                button.setAttribute('aria-expanded', 'false');
+                                const exists = !!getAarForOperation(operationId);
+                                button.textContent = exists ? 'View After Action Report ▼' : (canManageAars ? 'Create After Action Report ▼' : 'After Action Report — Pending ▼');
+                                return;
+                            }
+
+                            panel.hidden = false;
+                            button.setAttribute('aria-expanded', 'true');
+                            button.textContent = 'Hide After Action Report ▲';
+                            await renderAar(operationId);
+                        });
+                    });
+                }
 
                 // =========================================
                 // LOAD OPERATIONS
@@ -3067,6 +3515,8 @@
 
 
                     await loadSignups();
+
+                    await loadAarData();
 
 
                     boardStatus.textContent =
@@ -5374,7 +5824,7 @@ if (attendanceEventError) {
                             )
 
                             .select(
-                                'display_name,access_level,member_status'
+                                'display_name,access_level,member_status,rank'
                             )
 
                             .eq(
@@ -5420,6 +5870,24 @@ if (attendanceEventError) {
 
                         profile.access_level ===
                         'Super Admin';
+
+
+                    const {
+                        data: aarPermission,
+                        error: aarPermissionError
+                    } = await client.rpc(
+                        'can_manage_aars',
+                        { p_user_id: currentUser.id }
+                    );
+
+                    if (aarPermissionError) {
+                        console.error('AAR permission check error:', aarPermissionError);
+                    }
+
+                    canManageAars =
+                        !aarPermissionError
+                        &&
+                        aarPermission === true;
 
 
                     commandPanel.hidden =
