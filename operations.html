@@ -3135,7 +3135,11 @@
         data-delete-operation="${operation.id}"
         type="button"
     >
-        Delete
+        ${
+            operation.status === 'Completed'
+                ? 'Delete Archived Operation'
+                : 'Delete'
+        }
     </button>
 
 </div>
@@ -5699,15 +5703,113 @@ if (attendanceEventError) {
                                             );
 
 
+                                        const operation =
+                                            operations.find(
+                                                item => Number(item.id) === id
+                                            );
+
+
+                                        const isArchived =
+                                            operation?.status ===
+                                            'Completed';
+
+
                                         const confirmed =
                                             confirm(
-                                                'Delete this operation?'
+                                                isArchived
+                                                    ? 'Permanently delete this archived operation and its AAR? This cannot be undone.'
+                                                    : 'Delete this operation? This cannot be undone.'
                                             );
 
 
                                         if (!confirmed) {
 
                                             return;
+
+                                        }
+
+
+                                        button.disabled =
+                                            true;
+
+
+                                        const originalText =
+                                            button.textContent;
+
+
+                                        button.textContent =
+                                            isArchived
+                                                ? 'Deleting Archive...'
+                                                : 'Deleting...';
+
+
+                                        /*
+                                            Remove private AAR screenshot files first.
+                                            Deleting the operation cascades the AAR and
+                                            screenshot database rows, but Storage files
+                                            must be removed separately.
+                                        */
+
+                                        const aar =
+                                            getAarForOperation(
+                                                id
+                                            );
+
+
+                                        if (aar) {
+
+                                            const screenshotPaths =
+                                                getAarScreenshots(
+                                                    aar.id
+                                                )
+                                                .map(
+                                                    screenshot =>
+                                                        screenshot.storage_path
+                                                )
+                                                .filter(Boolean);
+
+
+                                            if (screenshotPaths.length) {
+
+                                                const {
+                                                    error: storageError
+                                                } =
+                                                    await client.storage
+                                                        .from(
+                                                            'aar-screenshots'
+                                                        )
+                                                        .remove(
+                                                            screenshotPaths
+                                                        );
+
+
+                                                if (storageError) {
+
+                                                    console.error(
+                                                        'AAR screenshot cleanup error:',
+                                                        storageError
+                                                    );
+
+
+                                                    alert(
+                                                        'The archived operation was not deleted because its AAR screenshots could not be removed: ' +
+                                                        storageError.message
+                                                    );
+
+
+                                                    button.disabled =
+                                                        false;
+
+
+                                                    button.textContent =
+                                                        originalText;
+
+
+                                                    return;
+
+                                                }
+
+                                            }
 
                                         }
 
@@ -5734,6 +5836,14 @@ if (attendanceEventError) {
                                             alert(
                                                 error.message
                                             );
+
+
+                                            button.disabled =
+                                                false;
+
+
+                                            button.textContent =
+                                                originalText;
 
 
                                             return;
