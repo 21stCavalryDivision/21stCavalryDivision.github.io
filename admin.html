@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -20,7 +19,6 @@
     </title>
 
     <!-- GOOGLE FONTS -->
-
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -38,10 +36,9 @@
     >
 
     <!-- MAIN WEBSITE CSS -->
-
     <link
         rel="stylesheet"
-        href="styles.css?v=9"
+        href="styles.css?v=10"
     >
 
     <style>
@@ -121,6 +118,10 @@
                 100px;
         }
 
+        /* =========================================
+           SUMMARY
+           ========================================= */
+
         .admin-summary {
             display: grid;
 
@@ -168,6 +169,10 @@
                 Oswald,
                 sans-serif;
         }
+
+        /* =========================================
+           ATTENDANCE
+           ========================================= */
 
         .attendance-panel {
             margin-bottom: 35px;
@@ -451,6 +456,10 @@
             color: #e47b7b;
         }
 
+        /* =========================================
+           MEMBER MANAGEMENT
+           ========================================= */
+
         .admin-toolbar {
             display: grid;
 
@@ -610,6 +619,10 @@
             grid-column: span 2;
         }
 
+        .admin-field.full {
+            grid-column: 1 / -1;
+        }
+
         .admin-field label {
             color: #c5a75b;
 
@@ -659,6 +672,158 @@
 
             color: #c5a75b;
         }
+
+        /* =========================================
+           QUALIFICATIONS
+           ========================================= */
+
+        .qualification-section {
+            margin-top: 8px;
+
+            padding: 18px;
+
+            border:
+                1px solid #30383d;
+
+            background: #0b1013;
+        }
+
+        .qualification-title-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 14px;
+        }
+
+        .qualification-title {
+            color: #c5a75b;
+
+            font:
+                600 12px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .qualification-help {
+            color: #778187;
+
+            font-size: 11px;
+        }
+
+        .qualification-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(160px, 1fr));
+
+            gap: 8px;
+        }
+
+        .qualification-option {
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            min-height: 42px;
+
+            padding: 10px 12px;
+
+            border:
+                1px solid #30383d;
+
+            background: #11171a;
+
+            color: #aab3b7;
+
+            cursor: pointer;
+
+            font:
+                500 11px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.4px;
+
+            text-transform: uppercase;
+
+            transition:
+                border-color 0.15s ease,
+                background 0.15s ease,
+                color 0.15s ease;
+        }
+
+        .qualification-option:hover {
+            border-color: #77704f;
+
+            color: #fff;
+        }
+
+        .qualification-option:has(input:checked) {
+            border-color: #c5a75b;
+
+            background: rgba(197, 167, 91, 0.12);
+
+            color: #d7bd73;
+        }
+
+        .qualification-option input {
+            width: 16px;
+
+            min-height: 16px;
+
+            height: 16px;
+
+            margin: 0;
+
+            padding: 0;
+
+            accent-color: #c5a75b;
+
+            cursor: pointer;
+        }
+
+        .qualification-category {
+            grid-column: 1 / -1;
+
+            margin-top: 8px;
+
+            padding-bottom: 5px;
+
+            border-bottom:
+                1px solid #252d31;
+
+            color: #737e83;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+        }
+
+        .qualification-category:first-child {
+            margin-top: 0;
+        }
+
+        /* =========================================
+           MEMBER SAVE
+           ========================================= */
 
         .admin-form-actions {
             display: flex;
@@ -737,11 +902,20 @@
             background: #11171a;
         }
 
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
         @media (max-width: 1150px) {
 
             .admin-form-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
+            }
+
+            .qualification-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
             }
 
         }
@@ -756,6 +930,11 @@
             .attendance-row {
                 grid-template-columns:
                     1fr;
+            }
+
+            .qualification-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
         }
@@ -806,6 +985,17 @@
                     1fr 1fr;
             }
 
+            .qualification-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .qualification-title-row {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
         }
 
     </style>
@@ -816,7 +1006,9 @@
 <body>
 
 
-    <!-- HEADER -->
+    <!-- =========================================
+         HEADER
+         ========================================= -->
 
     <header class="site-header">
 
@@ -945,7 +1137,9 @@
     </header>
 
 
-    <!-- HERO -->
+    <!-- =========================================
+         HERO
+         ========================================= -->
 
     <section class="admin-hero">
 
@@ -959,14 +1153,16 @@
 
         <p>
             Manage member assignments, ranks, billets,
-            sections, attendance, qualifications, status
-            and portal access.
+            sections, qualifications, attendance,
+            status and portal access.
         </p>
 
     </section>
 
 
-    <!-- LOADING -->
+    <!-- =========================================
+         LOADING
+         ========================================= -->
 
     <section
         id="adminLoading"
@@ -984,7 +1180,9 @@
     </section>
 
 
-    <!-- LOGIN REQUIRED -->
+    <!-- =========================================
+         LOGIN REQUIRED
+         ========================================= -->
 
     <section
         id="adminLoginRequired"
@@ -1015,7 +1213,9 @@
     </section>
 
 
-    <!-- ACCESS DENIED -->
+    <!-- =========================================
+         ACCESS DENIED
+         ========================================= -->
 
     <section
         id="adminDenied"
@@ -1046,13 +1246,16 @@
     </section>
 
 
-    <!-- ADMIN DASHBOARD -->
+    <!-- =========================================
+         ADMIN CONTENT
+         ========================================= -->
 
     <main
         id="adminContent"
         class="admin-container"
         hidden
     >
+
 
         <!-- SUMMARY -->
 
@@ -1112,7 +1315,9 @@
         </section>
 
 
-        <!-- ATTENDANCE MANAGEMENT -->
+        <!-- =========================================
+             ATTENDANCE MANAGEMENT
+             ========================================= -->
 
         <section class="attendance-panel">
 
@@ -1129,8 +1334,8 @@
                     </h2>
 
                     <p>
-                        Create an official event and mark each member
-                        Present, Excused or Absent.
+                        Create an official event and mark each
+                        member Present, Excused or Absent.
                     </p>
 
                 </div>
@@ -1277,7 +1482,9 @@
         </section>
 
 
-        <!-- MEMBER MANAGEMENT -->
+        <!-- =========================================
+             MEMBER MANAGEMENT
+             ========================================= -->
 
         <section class="admin-toolbar">
 
@@ -1308,7 +1515,9 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
 
     <footer>
 
@@ -1370,10 +1579,12 @@
     ></script>
 
 
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=10"></script>
 
 
-    <!-- ADMIN JAVASCRIPT -->
+    <!-- =========================================
+         ADMIN JAVASCRIPT
+         ========================================= -->
 
     <script>
 
@@ -1402,24 +1613,15 @@
                     );
 
 
-                let allMembers =
-                    [];
+                let allMembers = [];
 
+                let attendanceEvents = [];
 
-                let attendanceEvents =
-                    [];
+                let attendanceRecords = [];
 
+                let selectedAttendanceEventId = null;
 
-                let attendanceRecords =
-                    [];
-
-
-                let selectedAttendanceEventId =
-                    null;
-
-
-                let currentAdminUserId =
-                    null;
+                let currentAdminUserId = null;
 
 
                 /* =========================================
@@ -1645,6 +1847,107 @@
 
 
                 /* =========================================
+                   QUALIFICATION OPTIONS
+                   ========================================= */
+
+                const QUALIFICATION_GROUPS = [
+
+                    {
+                        name: 'Core Training',
+
+                        options: [
+
+                            'BCT',
+
+                            'Rifle Qualification',
+
+                            'CLS'
+
+                        ]
+                    },
+
+
+                    {
+                        name: 'Infantry Qualifications',
+
+                        options: [
+
+                            'Rifleman',
+
+                            'Automatic Rifleman',
+
+                            'Grenadier',
+
+                            'Machine Gunner',
+
+                            'RTO',
+
+                            'Forward Observer',
+
+                            'Combat Medic',
+
+                            'Marksman',
+
+                            'Sniper'
+
+                        ]
+                    },
+
+
+                    {
+                        name: 'Vehicle Qualifications',
+
+                        options: [
+
+                            'Driver',
+
+                            'Crewman',
+
+                            'Gunner',
+
+                            'Vehicle Commander'
+
+                        ]
+                    },
+
+
+                    {
+                        name: 'Aviation Qualifications',
+
+                        options: [
+
+                            'Pilot',
+
+                            'Copilot',
+
+                            'Crew Chief'
+
+                        ]
+                    },
+
+
+                    {
+                        name: 'Leadership & Training',
+
+                        options: [
+
+                            'Team Leader',
+
+                            'Squad Leader',
+
+                            'Platoon Leadership',
+
+                            'Instructor',
+
+                            'Training Staff'
+
+                        ]
+                    }
+
+                ];
+
+
+                /* =========================================
                    ELEMENTS
                    ========================================= */
 
@@ -1798,36 +2101,36 @@
                         value ?? ''
                     )
 
-                    .replaceAll(
-                        '&',
-                        '&amp;'
-                    )
+                        .replaceAll(
+                            '&',
+                            '&amp;'
+                        )
 
-                    .replaceAll(
-                        '<',
-                        '&lt;'
-                    )
+                        .replaceAll(
+                            '<',
+                            '&lt;'
+                        )
 
-                    .replaceAll(
-                        '>',
-                        '&gt;'
-                    )
+                        .replaceAll(
+                            '>',
+                            '&gt;'
+                        )
 
-                    .replaceAll(
-                        '"',
-                        '&quot;'
-                    )
+                        .replaceAll(
+                            '"',
+                            '&quot;'
+                        )
 
-                    .replaceAll(
-                        "'",
-                        '&#039;'
-                    );
+                        .replaceAll(
+                            "'",
+                            '&#039;'
+                        );
 
                 }
 
 
                 /* =========================================
-                   STANDARD SELECT OPTIONS
+                   SELECT OPTIONS
                    ========================================= */
 
                 function optionList(
@@ -1844,13 +2147,13 @@
                                     value ===
                                     selected
 
-                                    ?
+                                        ?
 
-                                    'selected'
+                                        'selected'
 
-                                    :
+                                        :
 
-                                    '';
+                                        '';
 
 
                                 return `
@@ -1879,7 +2182,7 @@
 
 
                 /* =========================================
-                   RANK SELECT OPTIONS
+                   RANK OPTIONS
                    ========================================= */
 
                 function rankOptionList(
@@ -1895,13 +2198,13 @@
                                     rank.value ===
                                     selected
 
-                                    ?
+                                        ?
 
-                                    'selected'
+                                        'selected'
 
-                                    :
+                                        :
 
-                                    '';
+                                        '';
 
 
                                 return `
@@ -1925,6 +2228,180 @@
                         )
 
                         .join('');
+
+                }
+
+
+                /* =========================================
+                   QUALIFICATION HTML
+                   ========================================= */
+
+                function qualificationHtml(
+                    memberQualifications
+                ) {
+
+                    const selected =
+                        Array.isArray(
+                            memberQualifications
+                        )
+
+                            ?
+
+                            memberQualifications
+
+                            :
+
+                            [];
+
+
+                    let html =
+                        '';
+
+
+                    const standardQualifications =
+                        QUALIFICATION_GROUPS
+                            .flatMap(
+                                group =>
+                                    group.options
+                            );
+
+
+                    QUALIFICATION_GROUPS.forEach(
+
+                        group => {
+
+
+                            html += `
+
+                                <div class="qualification-category">
+
+                                    ${escapeHtml(
+                                        group.name
+                                    )}
+
+                                </div>
+
+                            `;
+
+
+                            group.options.forEach(
+
+                                qualification => {
+
+
+                                    const checked =
+                                        selected.includes(
+                                            qualification
+                                        )
+
+                                            ?
+
+                                            'checked'
+
+                                            :
+
+                                            '';
+
+
+                                    html += `
+
+                                        <label class="qualification-option">
+
+                                            <input
+                                                type="checkbox"
+                                                data-qualification
+                                                value="${escapeHtml(
+                                                    qualification
+                                                )}"
+                                                ${checked}
+                                            >
+
+                                            <span>
+
+                                                ${escapeHtml(
+                                                    qualification
+                                                )}
+
+                                            </span>
+
+                                        </label>
+
+                                    `;
+
+                                }
+
+                            );
+
+                        }
+
+                    );
+
+
+                    const customQualifications =
+                        selected.filter(
+
+                            qualification =>
+
+                                !standardQualifications.includes(
+                                    qualification
+                                )
+
+                        );
+
+
+                    if (
+                        customQualifications.length
+                    ) {
+
+                        html += `
+
+                            <div class="qualification-category">
+
+                                Existing / Custom Qualifications
+
+                            </div>
+
+                        `;
+
+
+                        customQualifications.forEach(
+
+                            qualification => {
+
+
+                                html += `
+
+                                    <label class="qualification-option">
+
+                                        <input
+                                            type="checkbox"
+                                            data-qualification
+                                            value="${escapeHtml(
+                                                qualification
+                                            )}"
+                                            checked
+                                        >
+
+                                        <span>
+
+                                            ${escapeHtml(
+                                                qualification
+                                            )}
+
+                                        </span>
+
+                                    </label>
+
+                                `;
+
+                            }
+
+                        );
+
+                    }
+
+
+                    return html;
 
                 }
 
@@ -1969,38 +2446,38 @@
                     const attendance =
                         total
 
-                        ?
+                            ?
 
-                        Math.round(
+                            Math.round(
 
-                            allMembers.reduce(
+                                allMembers.reduce(
 
-                                (
-                                    totalValue,
-                                    member
-                                ) =>
+                                    (
+                                        totalValue,
+                                        member
+                                    ) =>
 
-                                    totalValue +
+                                        totalValue +
 
-                                    Number(
-                                        member.attendance_rate
-                                        ||
-                                        0
-                                    ),
+                                        Number(
+                                            member.attendance_rate
+                                            ||
+                                            0
+                                        ),
 
-                                0
+                                    0
+
+                                )
+
+                                /
+
+                                total
 
                             )
 
-                            /
+                            :
 
-                            total
-
-                        )
-
-                        :
-
-                        0;
+                            0;
 
 
                     document
@@ -2083,21 +2560,6 @@
 
                             card.className =
                                 'member-admin-card';
-
-
-                            const qualifications =
-                                Array.isArray(
-                                    member.qualifications
-                                )
-
-                                ?
-
-                                member.qualifications
-                                    .join(', ')
-
-                                :
-
-                                '';
 
 
                             /* PRESERVE CUSTOM BILLET */
@@ -2420,19 +2882,39 @@
 
                                         <!-- QUALIFICATIONS -->
 
-                                        <div class="admin-field wide">
+                                        <div class="admin-field full">
 
-                                            <label>
-                                                Qualifications
-                                            </label>
+                                            <div class="qualification-section">
 
-                                            <input
-                                                data-field="qualifications"
-                                                placeholder="Example: BCT, CLS, Rifleman, Crewman"
-                                                value="${escapeHtml(
-                                                    qualifications
-                                                )}"
-                                            >
+                                                <div class="qualification-title-row">
+
+                                                    <div class="qualification-title">
+
+                                                        Member Qualifications
+
+                                                    </div>
+
+                                                    <div class="qualification-help">
+
+                                                        Select every qualification earned by this member.
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div
+                                                    class="qualification-grid"
+                                                    data-qualification-grid
+                                                >
+
+                                                    ${qualificationHtml(
+                                                        member.qualifications
+                                                    )}
+
+                                                </div>
+
+                                            </div>
 
                                         </div>
 
@@ -2527,28 +3009,28 @@
                             '';
 
 
-                    const qualificationText =
-                        getValue(
-                            'qualifications'
+                    /* COLLECT CHECKED QUALIFICATIONS */
+
+                    const qualifications = [
+
+                        ...card.querySelectorAll(
+                            '[data-qualification]:checked'
+                        )
+
+                    ]
+
+                        .map(
+                            checkbox =>
+                                checkbox.value
+                        )
+
+                        .filter(
+                            Boolean
                         );
 
 
-                    const qualifications =
-                        qualificationText
-
-                            .split(',')
-
-                            .map(
-                                value =>
-                                    value.trim()
-                            )
-
-                            .filter(
-                                Boolean
-                            );
-
-
                     const updateData = {
+
 
                         display_name:
                             getValue(
@@ -2764,13 +3246,13 @@
                         (
                             type
 
-                            ?
+                                ?
 
-                            ' ' + type
+                                ' ' + type
 
-                            :
+                                :
 
-                            ''
+                                ''
                         );
 
 
@@ -2819,7 +3301,7 @@
 
 
                 /* =========================================
-                   RENDER ATTENDANCE EVENT OPTIONS
+                   ATTENDANCE EVENT OPTIONS
                    ========================================= */
 
                 function renderAttendanceEventOptions() {
@@ -2827,15 +3309,15 @@
                     const currentValue =
                         selectedAttendanceEventId
 
-                        ?
+                            ?
 
-                        String(
-                            selectedAttendanceEventId
-                        )
+                            String(
+                                selectedAttendanceEventId
+                            )
 
-                        :
+                            :
 
-                        '';
+                            '';
 
 
                     attendanceEventSelect.innerHTML =
@@ -2858,13 +3340,13 @@
                                             ) ===
                                             currentValue
 
-                                            ?
+                                                ?
 
-                                            'selected'
+                                                'selected'
 
-                                            :
+                                                :
 
-                                            ''
+                                                ''
                                         }
                                     >
 
@@ -3106,38 +3588,38 @@
                                                         'Absent'
                                                     ]
 
-                                                    .map(
+                                                        .map(
 
-                                                        option => `
+                                                            option => `
 
-                                                            <button
-                                                                class="attendance-status ${
-                                                                    attendanceStatus ===
-                                                                    option
+                                                                <button
+                                                                    class="attendance-status ${
+                                                                        attendanceStatus ===
+                                                                        option
 
-                                                                    ?
+                                                                            ?
 
-                                                                    'active'
+                                                                            'active'
 
-                                                                    :
+                                                                            :
 
-                                                                    ''
-                                                                }"
+                                                                            ''
+                                                                    }"
 
-                                                                type="button"
+                                                                    type="button"
 
-                                                                data-attendance-choice="${option}"
-                                                            >
+                                                                    data-attendance-choice="${option}"
+                                                                >
 
-                                                                ${option}
+                                                                    ${option}
 
-                                                            </button>
+                                                                </button>
 
-                                                        `
+                                                            `
 
-                                                    )
+                                                        )
 
-                                                    .join('')
+                                                        .join('')
                                                 }
 
 
@@ -3235,13 +3717,13 @@
                     const previous =
                         preserveSelection
 
-                        ?
+                            ?
 
-                        selectedAttendanceEventId
+                            selectedAttendanceEventId
 
-                        :
+                            :
 
-                        null;
+                            null;
 
 
                     const {
@@ -3844,7 +4326,7 @@
 
 
                 /* =========================================
-                   ATTENDANCE EVENT SELECT
+                   ATTENDANCE BUTTONS
                    ========================================= */
 
                 attendanceEventSelect
@@ -3859,15 +4341,15 @@
 
                                 attendanceEventSelect.value
 
-                                ?
+                                    ?
 
-                                Number(
-                                    attendanceEventSelect.value
-                                )
+                                    Number(
+                                        attendanceEventSelect.value
+                                    )
 
-                                :
+                                    :
 
-                                null;
+                                    null;
 
 
                             setAttendanceMessage(
@@ -3944,16 +4426,36 @@
 
 
                 /* =========================================
-                   DEFAULT EVENT DATE
+                   LOCAL DEFAULT EVENT DATE
                    ========================================= */
 
+                const now =
+                    new Date();
+
+
+                const localDate = [
+
+                    now.getFullYear(),
+
+                    String(
+                        now.getMonth() + 1
+                    ).padStart(
+                        2,
+                        '0'
+                    ),
+
+                    String(
+                        now.getDate()
+                    ).padStart(
+                        2,
+                        '0'
+                    )
+
+                ].join('-');
+
+
                 attendanceEventDate.value =
-                    new Date()
-                        .toISOString()
-                        .slice(
-                            0,
-                            10
-                        );
+                    localDate;
 
 
                 /* =========================================
@@ -3993,6 +4495,21 @@
                                 member => {
 
 
+                                    const qualificationText =
+                                        Array.isArray(
+                                            member.qualifications
+                                        )
+
+                                            ?
+
+                                            member.qualifications
+                                                .join(' ')
+
+                                            :
+
+                                            '';
+
+
                                     const text = [
 
                                         member.display_name,
@@ -4007,13 +4524,15 @@
 
                                         member.member_status,
 
-                                        member.access_level
+                                        member.access_level,
+
+                                        qualificationText
 
                                     ]
 
-                                    .join(' ')
+                                        .join(' ')
 
-                                    .toLowerCase();
+                                        .toLowerCase();
 
 
                                     return text.includes(
@@ -4170,7 +4689,9 @@
                 }
 
 
-                /* LOAD ADMIN PORTAL */
+                /* =========================================
+                   LOAD ADMIN PORTAL
+                   ========================================= */
 
                 showScreen(
                     'admin'
