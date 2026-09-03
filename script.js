@@ -191,6 +191,124 @@ const SITE_URL =
 
 
 // =========================================================
+// AUTOMATIC OPBOARD NAVIGATION LINK
+// =========================================================
+
+function createOperationsNavigationLink() {
+
+    const mainNav =
+        document.querySelector(
+            '.main-nav'
+        );
+
+
+    if (!mainNav) {
+
+        return null;
+
+    }
+
+
+    let operationsLink =
+        document.getElementById(
+            'operationsPortalLink'
+        );
+
+
+    if (operationsLink) {
+
+        return operationsLink;
+
+    }
+
+
+    operationsLink =
+        document.createElement(
+            'a'
+        );
+
+
+    operationsLink.href =
+        'operations.html';
+
+
+    operationsLink.id =
+        'operationsPortalLink';
+
+
+    operationsLink.textContent =
+        'OPBOARD';
+
+
+    operationsLink.hidden =
+        true;
+
+
+    const orbatLink =
+        Array.from(
+            mainNav.querySelectorAll(
+                'a'
+            )
+        )
+        .find(
+
+            link => {
+
+                const href =
+                    link.getAttribute(
+                        'href'
+                    );
+
+                return (
+                    href ===
+                    'orbat.html'
+                );
+
+            }
+
+        );
+
+
+    if (
+        orbatLink
+        &&
+        orbatLink.nextSibling
+    ) {
+
+        mainNav.insertBefore(
+            operationsLink,
+            orbatLink.nextSibling
+        );
+
+    }
+
+    else if (orbatLink) {
+
+        mainNav.appendChild(
+            operationsLink
+        );
+
+    }
+
+    else {
+
+        mainNav.prepend(
+            operationsLink
+        );
+
+    }
+
+
+    return operationsLink;
+
+}
+
+
+const operationsPortalLink =
+    createOperationsNavigationLink();
+
+
+// =========================================================
 // MEMBER ELEMENTS
 // =========================================================
 
@@ -343,6 +461,14 @@ async function renderAuthState(session) {
         }
 
 
+        if (operationsPortalLink) {
+
+            operationsPortalLink.hidden =
+                true;
+
+        }
+
+
         if (adminPortalLink) {
 
             adminPortalLink.hidden =
@@ -368,7 +494,9 @@ async function renderAuthState(session) {
         false;
 
 
-    // Every authenticated user gets the Member Portal link.
+    // =====================================================
+    // MEMBER PORTAL ACCESS
+    // =====================================================
 
     if (memberPortalLink) {
 
@@ -378,7 +506,21 @@ async function renderAuthState(session) {
     }
 
 
-    // Hide Admin by default until access is verified.
+    // =====================================================
+    // OPBOARD ACCESS
+    // =====================================================
+
+    if (operationsPortalLink) {
+
+        operationsPortalLink.hidden =
+            false;
+
+    }
+
+
+    // =====================================================
+    // ADMIN ACCESS
+    // =====================================================
 
     if (adminPortalLink) {
 
@@ -388,7 +530,9 @@ async function renderAuthState(session) {
     }
 
 
+    // =====================================================
     // MEMBER NAME
+    // =====================================================
 
     if (memberName) {
 
@@ -398,7 +542,9 @@ async function renderAuthState(session) {
     }
 
 
+    // =====================================================
     // DISCORD AVATAR
+    // =====================================================
 
     if (memberAvatar) {
 
@@ -438,7 +584,7 @@ async function renderAuthState(session) {
 
 
     // =====================================================
-    // CHECK MEMBER ACCESS LEVEL
+    // CHECK MEMBER PROFILE
     // =====================================================
 
     if (supabaseClient) {
@@ -448,16 +594,20 @@ async function renderAuthState(session) {
             error
         } =
             await supabaseClient
+
                 .from(
                     'member_profiles'
                 )
+
                 .select(
-                    'access_level'
+                    'access_level,member_status'
                 )
+
                 .eq(
                     'user_id',
                     user.id
                 )
+
                 .maybeSingle();
 
 
@@ -468,25 +618,74 @@ async function renderAuthState(session) {
                 error
             );
 
+
+            if (operationsPortalLink) {
+
+                operationsPortalLink.hidden =
+                    true;
+
+            }
+
+
+            return;
+
+        }
+
+
+        // No unit member profile means
+        // OPBOARD should remain restricted.
+
+        if (!profile) {
+
+            if (operationsPortalLink) {
+
+                operationsPortalLink.hidden =
+                    true;
+
+            }
+
+
+            if (memberPortalLink) {
+
+                memberPortalLink.hidden =
+                    true;
+
+            }
+
+
             return;
 
         }
 
 
         const accessLevel =
-            profile?.access_level ||
+            profile.access_level ||
             'Member';
 
 
         const hasAdminAccess =
-            accessLevel === 'Admin' ||
-            accessLevel === 'Super Admin';
+
+            accessLevel ===
+            'Admin'
+
+            ||
+
+            accessLevel ===
+            'Super Admin';
 
 
         if (adminPortalLink) {
 
             adminPortalLink.hidden =
                 !hasAdminAccess;
+
+        }
+
+
+        if (operationsPortalLink) {
+
+            operationsPortalLink.hidden =
+                false;
 
         }
 
@@ -538,7 +737,9 @@ async function startDiscordLogin() {
             error
         } =
             await supabaseClient
+
                 .auth
+
                 .signInWithOAuth({
 
                     provider:
@@ -566,14 +767,6 @@ async function startDiscordLogin() {
             data
         );
 
-
-        /*
-         * Supabase normally redirects the browser
-         * automatically when skipBrowserRedirect is false.
-         *
-         * This fallback makes sure the browser still moves
-         * to the OAuth URL if a URL is returned.
-         */
 
         if (
             data?.url &&
@@ -636,7 +829,9 @@ async function logoutMember() {
             error
         } =
             await supabaseClient
+
                 .auth
+
                 .signOut();
 
 
@@ -691,8 +886,8 @@ async function initializeMemberAuth() {
 
 
     /*
-     * Other pages may use script.js without containing
-     * the member-login HTML.
+     * Some pages use script.js without
+     * member authentication controls.
      */
 
     if (!loginBtn) {
@@ -778,7 +973,9 @@ async function initializeMemberAuth() {
             error
         } =
             await supabaseClient
+
                 .auth
+
                 .getSession();
 
 
@@ -799,7 +996,9 @@ async function initializeMemberAuth() {
         // =================================================
 
         supabaseClient
+
             .auth
+
             .onAuthStateChange(
 
                 async (
