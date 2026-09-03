@@ -3130,17 +3130,25 @@
         Edit Operation
     </button>
 
-    <button
-        class="delete-operation"
-        data-delete-operation="${operation.id}"
-        type="button"
-    >
-        ${
-            operation.status === 'Completed'
-                ? 'Delete Archived Operation'
-                : 'Delete'
-        }
-    </button>
+    ${
+        operation.status !== 'Cancelled'
+        ?
+        `
+        <button
+            class="delete-operation"
+            data-delete-operation="${operation.id}"
+            type="button"
+        >
+            ${
+                operation.status === 'Completed'
+                    ? 'Delete Archived Operation'
+                    : 'Cancel Operation'
+            }
+        </button>
+        `
+        :
+        ''
+    }
 
 </div>
                                             `
@@ -5709,23 +5717,114 @@ if (attendanceEventError) {
                                             );
 
 
+                                        if (!operation) {
+
+                                            alert(
+                                                'Operation could not be found.'
+                                            );
+
+                                            return;
+
+                                        }
+
+
                                         const isArchived =
-                                            operation?.status ===
+                                            operation.status ===
                                             'Completed';
 
 
+                                        /*
+                                            Active/scheduled operations are CANCELLED,
+                                            not deleted. This preserves the operation row
+                                            so the database notification trigger can queue
+                                            an "Operation Cancelled" Discord announcement
+                                            and cancel any pending member reminders.
+                                        */
+                                        if (!isArchived) {
+
+                                            const confirmed =
+                                                confirm(
+                                                    'Cancel this operation? Signed-up members will have their pending reminder cancelled and Discord will be notified.'
+                                                );
+
+
+                                            if (!confirmed) {
+                                                return;
+                                            }
+
+
+                                            button.disabled =
+                                                true;
+
+
+                                            const originalText =
+                                                button.textContent;
+
+
+                                            button.textContent =
+                                                'Cancelling...';
+
+
+                                            const {
+                                                error
+                                            } =
+                                                await client
+
+                                                    .from(
+                                                        'operations_board'
+                                                    )
+
+                                                    .update({
+                                                        status: 'Cancelled'
+                                                    })
+
+                                                    .eq(
+                                                        'id',
+                                                        id
+                                                    );
+
+
+                                            if (error) {
+
+                                                alert(
+                                                    error.message
+                                                );
+
+
+                                                button.disabled =
+                                                    false;
+
+
+                                                button.textContent =
+                                                    originalText;
+
+
+                                                return;
+
+                                            }
+
+
+                                            await loadOperations();
+                                            return;
+
+                                        }
+
+
+                                        /*
+                                            Completed archive entries can still be
+                                            permanently deleted. Remove private AAR
+                                            screenshot files first, then delete the
+                                            operation. Database cascades remove the AAR
+                                            and screenshot metadata rows.
+                                        */
                                         const confirmed =
                                             confirm(
-                                                isArchived
-                                                    ? 'Permanently delete this archived operation and its AAR? This cannot be undone.'
-                                                    : 'Delete this operation? This cannot be undone.'
+                                                'Permanently delete this archived operation and its AAR? This cannot be undone.'
                                             );
 
 
                                         if (!confirmed) {
-
                                             return;
-
                                         }
 
 
@@ -5738,17 +5837,8 @@ if (attendanceEventError) {
 
 
                                         button.textContent =
-                                            isArchived
-                                                ? 'Deleting Archive...'
-                                                : 'Deleting...';
+                                            'Deleting Archive...';
 
-
-                                        /*
-                                            Remove private AAR screenshot files first.
-                                            Deleting the operation cascades the AAR and
-                                            screenshot database rows, but Storage files
-                                            must be removed separately.
-                                        */
 
                                         const aar =
                                             getAarForOperation(
