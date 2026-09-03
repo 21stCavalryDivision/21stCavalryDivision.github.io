@@ -39,324 +39,168 @@
     >
 
 
-    <!-- MAIN SITE CSS -->
+    <!-- WEBSITE CSS -->
 
     <link
         rel="stylesheet"
-        href="styles.css?v=5"
+        href="styles.css?v=11"
     >
 
 
-    <!-- MEMBER PORTAL STYLES -->
-
     <style>
 
-        .portal-page {
-            min-height: 100vh;
+        /* =========================================
+           PAGE
+           ========================================= */
 
-            background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(197, 167, 91, 0.08),
-                    transparent 35%
-                ),
-                #0a0e12;
+        body {
+            background: #080d10;
         }
 
 
         .portal-hero {
+
             padding:
-                80px
-                clamp(24px, 8vw, 140px)
+                65px
+                clamp(24px, 6vw, 110px)
                 55px;
 
-            border-bottom: 1px solid #293036;
+            border-bottom:
+                1px solid #30383d;
 
             background:
                 linear-gradient(
                     120deg,
-                    #0a0f13,
-                    #111815
+                    #091014,
+                    #10150f
                 );
+
+        }
+
+
+        .portal-hero-inner {
+
+            max-width: 850px;
+
         }
 
 
         .portal-hero h1 {
-            margin: 10px 0;
+
+            margin:
+                8px 0
+                10px;
+
+            color: #f4f6f7;
 
             font:
-                700 clamp(48px, 7vw, 90px)
+                700 clamp(
+                    48px,
+                    7vw,
+                    84px
+                )
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
             line-height: 1;
+
         }
 
 
-        .portal-hero > p:last-child {
-            max-width: 700px;
+        .portal-hero-description {
 
-            color: #aeb7bb;
+            max-width: 650px;
 
-            font-size: 17px;
+            margin: 0;
+
+            color: #adb7bb;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
         }
 
 
-        /* LOGIN REQUIRED */
+        .portal-shell {
 
-        .portal-auth-required {
-            max-width: 700px;
-
-            margin: 90px auto;
-
-            padding: 45px;
-
-            text-align: center;
-
-            background: #11171a;
-
-            border: 1px solid #30383d;
-
-            border-top: 3px solid #c5a75b;
-        }
-
-
-        .portal-auth-required h2 {
-            margin-top: 0;
-
-            font:
-                600 36px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-        }
-
-
-        .portal-auth-required p {
-            color: #aeb7bb;
-        }
-
-
-        .portal-login-large {
-            margin-top: 20px;
-
-            min-height: 48px;
-
-            padding: 0 24px;
-
-            border: 0;
-
-            background: #5865f2;
-
-            color: #fff;
-
-            cursor: pointer;
-
-            font:
-                600 14px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-
-        .portal-login-large:hover {
-            background: #6d78f5;
-        }
-
-
-        /* MAIN PORTAL */
-
-        .portal-container {
-            padding:
-                55px
-                clamp(24px, 8vw, 140px)
-                100px;
-        }
-
-
-        .portal-grid {
             display: grid;
 
             grid-template-columns:
-                340px
-                1fr;
-
-            gap: 24px;
-
-            align-items: start;
-        }
-
-
-        /* MEMBER CARD */
-
-        .member-id-card {
-            position: sticky;
-
-            top: 105px;
-
-            padding: 30px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #12191d,
-                    #0d1215
+                270px
+                minmax(
+                    0,
+                    1fr
                 );
 
-            border: 1px solid #30383d;
+            gap: 20px;
 
-            border-top: 3px solid #c5a75b;
+            padding:
+                32px
+                clamp(
+                    24px,
+                    6vw,
+                    110px
+                )
+                90px;
+
         }
 
 
-        .portal-avatar {
-            width: 100px;
-            height: 100px;
+        /* =========================================
+           PROFILE CARD
+           ========================================= */
 
-            object-fit: cover;
+        .profile-card {
+
+            align-self:
+                start;
+
+            border:
+                1px solid #30383d;
+
+            border-top:
+                2px solid #c5a75b;
+
+            background:
+                #101619;
+
+            padding: 22px;
+
+            position: sticky;
+
+            top: 20px;
+
+        }
+
+
+        .profile-avatar {
+
+            width: 78px;
+
+            height: 78px;
 
             border-radius: 50%;
 
-            border: 2px solid #c5a75b;
+            object-fit: cover;
 
-            background: #20262b;
+            border:
+                2px solid #d3b966;
 
-            margin-bottom: 20px;
+            background:
+                #080d10;
+
         }
 
 
-        .portal-member-rank {
-            color: #c5a75b;
+        .profile-rank {
 
-            font:
-                600 13px
-                Oswald,
-                sans-serif;
+            margin-top:
+                18px;
 
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .portal-member-name {
-            margin: 4px 0 2px;
-
-            font:
-                700 30px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-        }
-
-
-        .portal-member-billet {
-            margin: 0;
-
-            color: #9ca6aa;
-        }
-
-
-        .member-id-divider {
-            height: 1px;
-
-            margin: 25px 0;
-
-            background: #30383d;
-        }
-
-
-        .member-id-row {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding: 10px 0;
-
-            border-bottom: 1px solid #22292e;
-        }
-
-
-        .member-id-row span {
-            color: #7f898e;
-
-            font-size: 12px;
-
-            text-transform: uppercase;
-        }
-
-
-        .member-id-row strong {
-            text-align: right;
-
-            color: #fff;
-
-            font:
-                500 13px
-                Oswald,
-                sans-serif;
-        }
-
-
-        .status-active {
-            color: #7cd992 !important;
-        }
-
-
-        /* DASHBOARD */
-
-        .portal-dashboard {
-            display: grid;
-
-            gap: 24px;
-        }
-
-
-        .portal-section {
-            padding: 30px;
-
-            background: #11171a;
-
-            border: 1px solid #30383d;
-        }
-
-
-        .portal-section-title {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
-
-            margin-bottom: 25px;
-        }
-
-
-        .portal-section-title h2 {
-            margin: 0;
-
-            font:
-                600 28px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-        }
-
-
-        .portal-section-title span {
             color: #c5a75b;
 
             font:
@@ -364,74 +208,627 @@
                 Oswald,
                 sans-serif;
 
-            letter-spacing: 2px;
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
         }
 
 
-        /* STATS */
+        .profile-name {
 
-        .member-stats {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 14px;
-        }
-
-
-        .member-stat {
-            padding: 22px;
-
-            background: #0b1013;
-
-            border: 1px solid #283036;
-        }
-
-
-        .member-stat small {
-            display: block;
-
-            color: #7f898e;
-
-            font:
-                500 10px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-
-        .member-stat strong {
-            display: block;
-
-            margin-top: 7px;
+            margin:
+                4px 0
+                2px;
 
             color: #fff;
 
             font:
-                600 22px
+                600 25px
                 Oswald,
                 sans-serif;
+
+            text-transform:
+                uppercase;
+
         }
 
 
-        /* QUALIFICATIONS */
+        .profile-billet {
+
+            color: #9da9ae;
+
+            font-size: 13px;
+
+        }
+
+
+        .profile-divider {
+
+            height: 1px;
+
+            background: #364047;
+
+            margin: 21px 0;
+
+        }
+
+
+        .profile-data-row {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 15px;
+
+            padding:
+                10px 0;
+
+            border-bottom:
+                1px solid #293137;
+
+        }
+
+
+        .profile-data-row span {
+
+            color: #7e8a90;
+
+            font:
+                500 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                0.7px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .profile-data-row strong {
+
+            color: #fff;
+
+            font:
+                500 11px
+                Oswald,
+                sans-serif;
+
+            text-align: right;
+
+        }
+
+
+        .profile-data-row strong.active {
+
+            color:
+                #6bd58c;
+
+        }
+
+
+        .profile-data-row strong.loa {
+
+            color:
+                #d9be6a;
+
+        }
+
+
+        .profile-data-row strong.inactive {
+
+            color:
+                #d46e6e;
+
+        }
+
+
+        /* =========================================
+           CONTENT
+           ========================================= */
+
+        .portal-content {
+
+            display: grid;
+
+            gap: 18px;
+
+            min-width: 0;
+
+        }
+
+
+        .portal-panel {
+
+            border:
+                1px solid #30383d;
+
+            background:
+                #101619;
+
+        }
+
+
+        .portal-panel-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap: 20px;
+
+            padding:
+                20px 22px;
+
+        }
+
+
+        .portal-panel-header h2 {
+
+            margin: 0;
+
+            color: #fff;
+
+            font:
+                600 24px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .panel-tag {
+
+            color: #c5a75b;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .portal-panel-body {
+
+            padding:
+                0
+                22px
+                22px;
+
+        }
+
+
+        /* =========================================
+           SERVICE RECORD
+           ========================================= */
+
+        .service-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 10px;
+
+        }
+
+
+        .service-item {
+
+            min-height: 82px;
+
+            padding:
+                16px;
+
+            border:
+                1px solid #30383d;
+
+            background:
+                #090f12;
+
+        }
+
+
+        .service-item span {
+
+            display: block;
+
+            margin-bottom:
+                8px;
+
+            color: #6f7e85;
+
+            font:
+                500 8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .service-item strong {
+
+            display: block;
+
+            color: #fff;
+
+            font:
+                600 17px
+                Oswald,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           TRAINING STATS
+           ========================================= */
+
+        .training-summary {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    5,
+                    1fr
+                );
+
+            gap: 10px;
+
+        }
+
+
+        .training-stat {
+
+            padding:
+                17px;
+
+            border:
+                1px solid #30383d;
+
+            background:
+                #090f12;
+
+        }
+
+
+        .training-stat span {
+
+            display: block;
+
+            margin-bottom:
+                8px;
+
+            color: #748188;
+
+            font:
+                500 8px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .training-stat strong {
+
+            display: block;
+
+            color: #fff;
+
+            font:
+                600 25px
+                Oswald,
+                sans-serif;
+
+        }
+
+
+        .training-stat.present strong {
+
+            color:
+                #79d693;
+
+        }
+
+
+        .training-stat.excused strong {
+
+            color:
+                #d9be6a;
+
+        }
+
+
+        .training-stat.absent strong {
+
+            color:
+                #df7474;
+
+        }
+
+
+        /* =========================================
+           QUALIFICATIONS
+           ========================================= */
+
+        .qualification-groups {
+
+            display: grid;
+
+            gap: 20px;
+
+        }
+
+
+        .qualification-group {
+
+            display: grid;
+
+            gap: 10px;
+
+        }
+
+
+        .qualification-group-title {
+
+            color: #7c898f;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
 
         .qualification-list {
+
             display: flex;
 
             flex-wrap: wrap;
 
-            gap: 10px;
+            gap: 8px;
+
         }
 
 
         .qualification-badge {
-            padding: 9px 13px;
+
+            padding:
+                8px
+                12px;
+
+            border:
+                1px solid #766439;
+
+            background:
+                rgba(
+                    197,
+                    167,
+                    91,
+                    0.07
+                );
+
+            color: #d2b55f;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                0.5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .qualification-empty {
+
+            padding:
+                18px;
+
+            border:
+                1px dashed #30383d;
+
+            color: #778389;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================================
+           ATTENDANCE HISTORY
+           ========================================= */
+
+        .attendance-history {
+
+            display: grid;
+
+            gap: 8px;
+
+        }
+
+
+        .attendance-history-row {
+
+            display: grid;
+
+            grid-template-columns:
+                105px
+                110px
+                minmax(
+                    200px,
+                    1fr
+                )
+                110px;
+
+            align-items:
+                center;
+
+            gap: 15px;
+
+            min-height: 58px;
+
+            padding:
+                11px
+                15px;
+
+            border:
+                1px solid #2d353a;
+
+            background:
+                #090f12;
+
+        }
+
+
+        .attendance-date {
+
+            color: #8d989d;
+
+            font:
+                500 11px
+                Oswald,
+                sans-serif;
+
+        }
+
+
+        .attendance-type {
+
+            color: #718087;
+
+            font:
+                500 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                0.7px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .attendance-title {
+
+            color: #fff;
+
+            font:
+                600 14px
+                Oswald,
+                sans-serif;
+
+        }
+
+
+        .attendance-status-badge {
+
+            justify-self:
+                end;
+
+            min-width:
+                85px;
+
+            padding:
+                7px 9px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid #3b454a;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.8px;
+
+        }
+
+
+        .attendance-status-badge.present {
+
+            color:
+                #79d693;
+
+            border-color:
+                #3f7650;
+
+            background:
+                rgba(
+                    73,
+                    150,
+                    94,
+                    0.08
+                );
+
+        }
+
+
+        .attendance-status-badge.excused {
+
+            color:
+                #d9be6a;
+
+            border-color:
+                #71643e;
 
             background:
                 rgba(
@@ -441,133 +838,352 @@
                     0.08
                 );
 
-            border: 1px solid #66572f;
-
-            color: #d6ba70;
-
-            font:
-                500 12px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.5px;
         }
 
 
-        .qualification-empty {
-            color: #7f898e;
+        .attendance-status-badge.absent {
 
-            font-style: italic;
+            color:
+                #e17b7b;
+
+            border-color:
+                #764444;
+
+            background:
+                rgba(
+                    174,
+                    65,
+                    65,
+                    0.08
+                );
+
         }
 
 
-        /* ACCOUNT */
+        .attendance-empty {
+
+            padding:
+                25px;
+
+            text-align:
+                center;
+
+            border:
+                1px dashed #30383d;
+
+            color: #748087;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================================
+           ACCOUNT INFORMATION
+           ========================================= */
 
         .account-grid {
+
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(
+                    2,
+                    1fr
+                );
 
-            gap: 14px;
+            gap: 10px;
+
         }
 
 
-        .account-field {
-            padding: 18px;
+        .account-item {
 
-            background: #0c1114;
+            padding:
+                15px;
 
-            border: 1px solid #293036;
+            border:
+                1px solid #30383d;
+
+            background:
+                #090f12;
+
         }
 
 
-        .account-field span {
+        .account-item span {
+
             display: block;
 
-            margin-bottom: 4px;
+            margin-bottom:
+                6px;
 
-            color: #7f898e;
+            color: #6c7b82;
 
             font:
-                500 10px
+                500 8px
                 Oswald,
                 sans-serif;
 
-            text-transform: uppercase;
+            letter-spacing:
+                1px;
 
-            letter-spacing: 1px;
+            text-transform:
+                uppercase;
+
         }
 
 
-        .account-field strong {
+        .account-item strong {
+
+            display: block;
+
             color: #fff;
 
-            font-size: 14px;
-
-            word-break: break-word;
-        }
-
-
-        /* LOADING */
-
-        .portal-loading {
-            padding: 100px 20px;
-
-            text-align: center;
-
-            color: #aeb7bb;
-
             font:
-                500 16px
+                500 11px
                 Oswald,
                 sans-serif;
 
-            letter-spacing: 1px;
+            word-break:
+                break-word;
 
-            text-transform: uppercase;
         }
 
 
-        /* RESPONSIVE */
+        /* =========================================
+           LOGIN / ERROR
+           ========================================= */
 
-        @media (max-width: 1000px) {
+        .portal-message {
 
-            .portal-grid {
-                grid-template-columns: 1fr;
-            }
+            max-width:
+                700px;
+
+            margin:
+                80px auto;
+
+            padding:
+                40px;
+
+            border:
+                1px solid #30383d;
+
+            border-top:
+                3px solid #c5a75b;
+
+            background:
+                #101619;
+
+            text-align:
+                center;
+
+        }
 
 
-            .member-id-card {
-                position: static;
-            }
+        .portal-message h2 {
+
+            margin:
+                5px 0
+                10px;
+
+            color: #fff;
+
+            font:
+                600 32px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+        }
 
 
-            .member-stats {
+        .portal-message p {
+
+            color: #909ca1;
+
+            line-height: 1.6;
+
+        }
+
+
+        .portal-button {
+
+            display:
+                inline-flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            min-height:
+                43px;
+
+            margin-top:
+                12px;
+
+            padding:
+                0
+                20px;
+
+            border:
+                1px solid #c5a75b;
+
+            background:
+                #c5a75b;
+
+            color: #111;
+
+            cursor: pointer;
+
+            text-decoration:
+                none;
+
+            font:
+                600 11px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (
+            max-width: 1150px
+        ) {
+
+            .service-grid {
+
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(
+                        2,
+                        1fr
+                    );
+
+            }
+
+
+            .training-summary {
+
+                grid-template-columns:
+                    repeat(
+                        3,
+                        1fr
+                    );
+
             }
 
         }
 
 
-        @media (max-width: 650px) {
+        @media (
+            max-width: 850px
+        ) {
 
-            .member-stats,
+            .portal-shell {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .profile-card {
+
+                position: static;
+
+            }
+
+
+            .attendance-history-row {
+
+                grid-template-columns:
+                    90px
+                    1fr
+                    90px;
+
+            }
+
+
+            .attendance-type {
+
+                display: none;
+
+            }
+
+        }
+
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .service-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .training-summary {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+
+            }
+
+
             .account-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
 
-            .portal-section {
-                padding: 22px;
+            .attendance-history-row {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 5px;
+
             }
 
 
-            .member-id-card {
-                padding: 24px;
+            .attendance-status-badge {
+
+                justify-self:
+                    start;
+
+            }
+
+
+            .portal-panel-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
             }
 
         }
@@ -577,18 +1193,18 @@
 </head>
 
 
-<body class="portal-page">
+<body>
 
 
-    <!-- HEADER -->
+    <!-- =========================================
+         HEADER
+         ========================================= -->
 
     <header class="site-header">
-
 
         <a
             class="brand"
             href="index.html"
-            aria-label="21st Cavalry Division home"
         >
 
             <div class="brand-mark">
@@ -613,6 +1229,7 @@
 
         <button
             class="nav-toggle"
+            id="navToggle"
             aria-label="Toggle navigation"
             aria-expanded="false"
         >
@@ -620,7 +1237,10 @@
         </button>
 
 
-        <nav class="main-nav">
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
 
             <a href="index.html">
                 Home
@@ -653,6 +1273,14 @@
                 Member Portal
             </a>
 
+            <a
+                href="admin.html"
+                id="adminNavLink"
+                hidden
+            >
+                Admin
+            </a>
+
 
             <div
                 class="member-auth"
@@ -675,7 +1303,7 @@
                 >
 
                     <img
-                        id="memberAvatar"
+                        id="memberHeaderAvatar"
                         class="member-avatar"
                         src=""
                         alt=""
@@ -685,7 +1313,7 @@
 
                     <div class="member-profile-text">
 
-                        <span id="memberName">
+                        <span id="memberHeaderName">
                             Member
                         </span>
 
@@ -713,41 +1341,65 @@
     </header>
 
 
-    <!-- HERO -->
+    <!-- =========================================
+         HERO
+         ========================================= -->
 
     <section class="portal-hero">
 
+        <div class="portal-hero-inner">
+
+            <p class="eyebrow">
+                SECURE MEMBER AREA
+            </p>
+
+            <h1>
+                Member Portal
+            </h1>
+
+            <p class="portal-hero-description">
+                View your current assignment, rank, qualifications,
+                attendance history, training record, membership status,
+                and unit profile.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LOADING
+         ========================================= -->
+
+    <section
+        id="portalLoading"
+        class="portal-message"
+    >
+
         <p class="eyebrow">
-            SECURE MEMBER AREA
+            PERSONNEL SYSTEM
         </p>
 
-        <h1>
-            Member Portal
-        </h1>
+        <h2>
+            Loading Service Record
+        </h2>
 
         <p>
-            View your current assignment, rank, qualifications,
-            attendance, membership status, and unit profile.
+            Verifying your Discord account and retrieving
+            your personnel record.
         </p>
 
     </section>
 
 
-    <!-- LOADING -->
-
-    <div
-        id="portalLoading"
-        class="portal-loading"
-    >
-        Loading member profile...
-    </div>
-
-
-    <!-- LOGIN REQUIRED -->
+    <!-- =========================================
+         LOGIN REQUIRED
+         ========================================= -->
 
     <section
-        id="portalLoggedOut"
-        class="portal-auth-required"
+        id="portalLogin"
+        class="portal-message"
         hidden
     >
 
@@ -760,13 +1412,13 @@
         </h2>
 
         <p>
-            You must authenticate with Discord before accessing
-            your 21st Cavalry Division profile.
+            Sign in using your Discord account to access
+            your 21st Cavalry Division personnel record.
         </p>
 
         <button
-            id="portalDiscordLogin"
-            class="portal-login-large"
+            id="portalLoginButton"
+            class="portal-button"
             type="button"
         >
             Login with Discord
@@ -775,188 +1427,267 @@
     </section>
 
 
-    <!-- MEMBER PORTAL -->
+    <!-- =========================================
+         ERROR
+         ========================================= -->
+
+    <section
+        id="portalError"
+        class="portal-message"
+        hidden
+    >
+
+        <p class="eyebrow">
+            PERSONNEL RECORD
+        </p>
+
+        <h2>
+            Record Unavailable
+        </h2>
+
+        <p id="portalErrorText">
+            Your member profile could not be loaded.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         MEMBER PORTAL
+         ========================================= -->
 
     <main
         id="portalContent"
-        class="portal-container"
+        class="portal-shell"
         hidden
     >
 
 
-        <div class="portal-grid">
+        <!-- =========================================
+             LEFT PROFILE
+             ========================================= -->
+
+        <aside class="profile-card">
 
 
-            <!-- MEMBER ID CARD -->
-
-            <aside class="member-id-card">
-
-
-                <img
-                    id="portalAvatar"
-                    class="portal-avatar"
-                    src=""
-                    alt="Member avatar"
-                >
+            <img
+                id="profileAvatar"
+                class="profile-avatar"
+                src=""
+                alt="Member Avatar"
+            >
 
 
-                <div
-                    id="portalRank"
-                    class="portal-member-rank"
-                >
-                    Recruit
-                </div>
+            <div
+                id="profileRank"
+                class="profile-rank"
+            >
+                Recruit
+            </div>
 
 
-                <h2
-                    id="portalName"
-                    class="portal-member-name"
-                >
-                    Member
-                </h2>
+            <h2
+                id="profileName"
+                class="profile-name"
+            >
+                Member
+            </h2>
 
 
-                <p
-                    id="portalBillet"
-                    class="portal-member-billet"
-                >
+            <div
+                id="profileBillet"
+                class="profile-billet"
+            >
+                Unassigned
+            </div>
+
+
+            <div class="profile-divider"></div>
+
+
+            <div class="profile-data-row">
+
+                <span>
+                    Section
+                </span>
+
+                <strong id="profileSection">
                     Unassigned
-                </p>
+                </strong>
+
+            </div>
 
 
-                <div class="member-id-divider"></div>
+            <div class="profile-data-row">
+
+                <span>
+                    Role
+                </span>
+
+                <strong id="profileRole">
+                    Member
+                </strong>
+
+            </div>
 
 
-                <div class="member-id-row">
+            <div class="profile-data-row">
 
-                    <span>
-                        Section
+                <span>
+                    Status
+                </span>
+
+                <strong id="profileStatus">
+                    Active
+                </strong>
+
+            </div>
+
+
+            <div class="profile-data-row">
+
+                <span>
+                    Access
+                </span>
+
+                <strong id="profileAccess">
+                    Member
+                </strong>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================================
+             RIGHT SIDE
+             ========================================= -->
+
+        <section class="portal-content">
+
+
+            <!-- =====================================
+                 SERVICE RECORD
+                 ===================================== -->
+
+            <article class="portal-panel">
+
+                <div class="portal-panel-header">
+
+                    <h2>
+                        Service Record
+                    </h2>
+
+                    <span class="panel-tag">
+                        Member Status
                     </span>
-
-                    <strong id="portalSection">
-                        Unassigned
-                    </strong>
 
                 </div>
 
 
-                <div class="member-id-row">
+                <div class="portal-panel-body">
 
-                    <span>
-                        Role
-                    </span>
-
-                    <strong id="portalRole">
-                        Member
-                    </strong>
-
-                </div>
+                    <div class="service-grid">
 
 
-                <div class="member-id-row">
+                        <div class="service-item">
 
-                    <span>
-                        Status
-                    </span>
-
-                    <strong
-                        id="portalStatus"
-                        class="status-active"
-                    >
-                        Active
-                    </strong>
-
-                </div>
-
-
-                <div class="member-id-row">
-
-                    <span>
-                        Access
-                    </span>
-
-                    <strong id="portalAccess">
-                        Member
-                    </strong>
-
-                </div>
-
-
-            </aside>
-
-
-            <!-- DASHBOARD -->
-
-            <div class="portal-dashboard">
-
-
-                <!-- SERVICE RECORD -->
-
-                <section class="portal-section">
-
-
-                    <div class="portal-section-title">
-
-                        <h2>
-                            Service Record
-                        </h2>
-
-                        <span>
-                            MEMBER STATUS
-                        </span>
-
-                    </div>
-
-
-                    <div class="member-stats">
-
-
-                        <div class="member-stat">
-
-                            <small>
+                            <span>
                                 Rank
-                            </small>
+                            </span>
 
-                            <strong id="statRank">
+                            <strong id="serviceRank">
                                 Recruit
                             </strong>
 
                         </div>
 
 
-                        <div class="member-stat">
+                        <div class="service-item">
 
-                            <small>
-                                Section
-                            </small>
+                            <span>
+                                Billet
+                            </span>
 
-                            <strong id="statSection">
+                            <strong id="serviceBillet">
                                 Unassigned
                             </strong>
 
                         </div>
 
 
-                        <div class="member-stat">
+                        <div class="service-item">
 
-                            <small>
+                            <span>
+                                Section
+                            </span>
+
+                            <strong id="serviceSection">
+                                Unassigned
+                            </strong>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <span>
                                 Attendance
-                            </small>
+                            </span>
 
-                            <strong id="statAttendance">
+                            <strong id="serviceAttendance">
                                 0%
                             </strong>
 
                         </div>
 
 
-                        <div class="member-stat">
+                        <div class="service-item">
 
-                            <small>
+                            <span>
+                                Member Role
+                            </span>
+
+                            <strong id="serviceRole">
+                                Member
+                            </strong>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <span>
+                                Membership Status
+                            </span>
+
+                            <strong id="serviceStatus">
+                                Active
+                            </strong>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <span>
+                                Access Level
+                            </span>
+
+                            <strong id="serviceAccess">
+                                Member
+                            </strong>
+
+                        </div>
+
+
+                        <div class="service-item">
+
+                            <span>
                                 Join Date
-                            </small>
+                            </span>
 
-                            <strong id="statJoinDate">
+                            <strong id="serviceJoinDate">
                                 —
                             </strong>
 
@@ -965,65 +1696,200 @@
 
                     </div>
 
+                </div>
 
-                </section>
-
-
-                <!-- QUALIFICATIONS -->
-
-                <section class="portal-section">
+            </article>
 
 
-                    <div class="portal-section-title">
+            <!-- =====================================
+                 TRAINING RECORD
+                 ===================================== -->
 
-                        <h2>
-                            Qualifications
-                        </h2>
+            <article class="portal-panel">
 
-                        <span>
-                            TRAINING RECORD
-                        </span>
+                <div class="portal-panel-header">
+
+                    <h2>
+                        Training Record
+                    </h2>
+
+                    <span class="panel-tag">
+                        Performance Summary
+                    </span>
+
+                </div>
+
+
+                <div class="portal-panel-body">
+
+                    <div class="training-summary">
+
+
+                        <div class="training-stat">
+
+                            <span>
+                                Qualifications
+                            </span>
+
+                            <strong id="trainingQualificationCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="training-stat">
+
+                            <span>
+                                Recorded Events
+                            </span>
+
+                            <strong id="trainingEventCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="training-stat present">
+
+                            <span>
+                                Present
+                            </span>
+
+                            <strong id="trainingPresentCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="training-stat excused">
+
+                            <span>
+                                Excused
+                            </span>
+
+                            <strong id="trainingExcusedCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="training-stat absent">
+
+                            <span>
+                                Absent
+                            </span>
+
+                            <strong id="trainingAbsentCount">
+                                0
+                            </strong>
+
+                        </div>
+
 
                     </div>
 
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 QUALIFICATIONS
+                 ===================================== -->
+
+            <article class="portal-panel">
+
+                <div class="portal-panel-header">
+
+                    <h2>
+                        Qualifications
+                    </h2>
+
+                    <span class="panel-tag">
+                        Training Record
+                    </span>
+
+                </div>
+
+
+                <div class="portal-panel-body">
 
                     <div
-                        id="qualificationList"
-                        class="qualification-list"
+                        id="qualificationGroups"
+                        class="qualification-groups"
+                    ></div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 ATTENDANCE HISTORY
+                 ===================================== -->
+
+            <article class="portal-panel">
+
+                <div class="portal-panel-header">
+
+                    <h2>
+                        Attendance History
+                    </h2>
+
+                    <span class="panel-tag">
+                        Personnel Accountability
+                    </span>
+
+                </div>
+
+
+                <div class="portal-panel-body">
+
+                    <div
+                        id="attendanceHistory"
+                        class="attendance-history"
                     >
 
-                        <span class="qualification-empty">
-                            No qualifications recorded.
-                        </span>
+                        <div class="attendance-empty">
+                            Loading attendance history...
+                        </div>
 
                     </div>
 
+                </div>
 
-                </section>
-
-
-                <!-- ACCOUNT INFO -->
-
-                <section class="portal-section">
+            </article>
 
 
-                    <div class="portal-section-title">
+            <!-- =====================================
+                 ACCOUNT INFORMATION
+                 ===================================== -->
 
-                        <h2>
-                            Account Information
-                        </h2>
+            <article class="portal-panel">
 
-                        <span>
-                            DISCORD AUTH
-                        </span>
+                <div class="portal-panel-header">
 
-                    </div>
+                    <h2>
+                        Account Information
+                    </h2>
 
+                    <span class="panel-tag">
+                        Discord Auth
+                    </span>
+
+                </div>
+
+
+                <div class="portal-panel-body">
 
                     <div class="account-grid">
 
 
-                        <div class="account-field">
+                        <div class="account-item">
 
                             <span>
                                 Discord Account
@@ -1036,7 +1902,7 @@
                         </div>
 
 
-                        <div class="account-field">
+                        <div class="account-item">
 
                             <span>
                                 Email
@@ -1049,7 +1915,7 @@
                         </div>
 
 
-                        <div class="account-field">
+                        <div class="account-item">
 
                             <span>
                                 Member ID
@@ -1062,7 +1928,7 @@
                         </div>
 
 
-                        <div class="account-field">
+                        <div class="account-item">
 
                             <span>
                                 Authentication
@@ -1077,20 +1943,19 @@
 
                     </div>
 
+                </div>
 
-                </section>
-
-
-            </div>
+            </article>
 
 
-        </div>
-
+        </section>
 
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
 
     <footer>
 
@@ -1122,16 +1987,20 @@
 
         <div class="footer-links">
 
-            <a href="index.html">
-                Home
+            <a href="recruitment.html">
+                Recruitment
             </a>
 
             <a href="resources.html">
                 Unit Resources
             </a>
 
-            <a href="members.html">
-                Member Portal
+            <a
+                href="https://discord.gg/PCxE5jTYZ"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Discord
             </a>
 
         </div>
@@ -1146,19 +2015,14 @@
     </footer>
 
 
-    <!-- SUPABASE -->
+    <!-- =========================================
+         SUPABASE
+         ========================================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
-
-    <!-- EXISTING SITE JAVASCRIPT -->
-
-    <script src="script.js?v=5"></script>
-
-
-    <!-- MEMBER PORTAL JAVASCRIPT -->
 
     <script>
 
@@ -1168,99 +2032,178 @@
             async () => {
 
 
-                const loading =
+                /* =========================================
+                   SUPABASE
+                   ========================================= */
+
+                const SUPABASE_URL =
+                    'https://uwtvgpeijygvjpcifkew.supabase.co';
+
+
+                const SUPABASE_KEY =
+                    'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
+
+                const client =
+                    window.supabase.createClient(
+                        SUPABASE_URL,
+                        SUPABASE_KEY
+                    );
+
+
+                /* =========================================
+                   ELEMENTS
+                   ========================================= */
+
+                const portalLoading =
                     document.getElementById(
                         'portalLoading'
                     );
 
 
-                const loggedOut =
+                const portalLogin =
                     document.getElementById(
-                        'portalLoggedOut'
+                        'portalLogin'
                     );
 
 
-                const content =
+                const portalError =
+                    document.getElementById(
+                        'portalError'
+                    );
+
+
+                const portalErrorText =
+                    document.getElementById(
+                        'portalErrorText'
+                    );
+
+
+                const portalContent =
                     document.getElementById(
                         'portalContent'
                     );
 
 
-                const portalLogin =
+                const discordLoginBtn =
                     document.getElementById(
-                        'portalDiscordLogin'
+                        'discordLoginBtn'
                     );
 
 
-                function showLoggedOut() {
-
-                    loading.hidden = true;
-
-                    content.hidden = true;
-
-                    loggedOut.hidden = false;
-
-                }
-
-
-                function showPortal() {
-
-                    loading.hidden = true;
-
-                    loggedOut.hidden = true;
-
-                    content.hidden = false;
-
-                }
-
-
-                function discordName(user) {
-
-                    const meta =
-                        user?.user_metadata || {};
-
-
-                    return (
-
-                        meta.full_name ||
-
-                        meta.name ||
-
-                        meta.preferred_username ||
-
-                        meta.user_name ||
-
-                        meta.username ||
-
-                        user?.email ||
-
-                        '21st Cavalry Member'
-
+                const portalLoginButton =
+                    document.getElementById(
+                        'portalLoginButton'
                     );
 
-                }
 
-
-                function discordAvatar(user) {
-
-                    const meta =
-                        user?.user_metadata || {};
-
-
-                    return (
-
-                        meta.avatar_url ||
-
-                        meta.picture ||
-
-                        ''
-
+                const discordLogoutBtn =
+                    document.getElementById(
+                        'discordLogoutBtn'
                     );
 
+
+                const memberProfile =
+                    document.getElementById(
+                        'memberProfile'
+                    );
+
+
+                const memberHeaderName =
+                    document.getElementById(
+                        'memberHeaderName'
+                    );
+
+
+                const memberHeaderAvatar =
+                    document.getElementById(
+                        'memberHeaderAvatar'
+                    );
+
+
+                const adminNavLink =
+                    document.getElementById(
+                        'adminNavLink'
+                    );
+
+
+                /* =========================================
+                   SCREEN CONTROL
+                   ========================================= */
+
+                function showScreen(
+                    screen
+                ) {
+
+                    portalLoading.hidden =
+                        screen !==
+                        'loading';
+
+
+                    portalLogin.hidden =
+                        screen !==
+                        'login';
+
+
+                    portalError.hidden =
+                        screen !==
+                        'error';
+
+
+                    portalContent.hidden =
+                        screen !==
+                        'portal';
+
                 }
 
 
-                function formatDate(value) {
+                /* =========================================
+                   ESCAPE HTML
+                   ========================================= */
+
+                function escapeHtml(
+                    value
+                ) {
+
+                    return String(
+                        value ?? ''
+                    )
+
+                        .replaceAll(
+                            '&',
+                            '&amp;'
+                        )
+
+                        .replaceAll(
+                            '<',
+                            '&lt;'
+                        )
+
+                        .replaceAll(
+                            '>',
+                            '&gt;'
+                        )
+
+                        .replaceAll(
+                            '"',
+                            '&quot;'
+                        )
+
+                        .replaceAll(
+                            "'",
+                            '&#039;'
+                        );
+
+                }
+
+
+                /* =========================================
+                   DATE
+                   ========================================= */
+
+                function formatDate(
+                    value
+                ) {
 
                     if (!value) {
 
@@ -1271,182 +2214,1500 @@
 
                     const date =
                         new Date(
-                            value + 'T00:00:00'
+                            value +
+                            'T00:00:00'
                         );
-
-
-                    return date.toLocaleDateString(
-
-                        undefined,
-
-                        {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                        }
-
-                    );
-
-                }
-
-
-                function setText(
-                    id,
-                    value
-                ) {
-
-                    const element =
-                        document.getElementById(id);
-
-
-                    if (element) {
-
-                        element.textContent =
-                            value ?? '—';
-
-                    }
-
-                }
-
-
-                function renderQualifications(
-                    qualifications
-                ) {
-
-                    const list =
-                        document.getElementById(
-                            'qualificationList'
-                        );
-
-
-                    if (!list) {
-
-                        return;
-
-                    }
-
-
-                    list.innerHTML = '';
 
 
                     if (
-                        !Array.isArray(
-                            qualifications
+                        Number.isNaN(
+                            date.getTime()
                         )
-                        ||
-                        qualifications.length === 0
                     ) {
 
-                        const empty =
-                            document.createElement(
-                                'span'
-                            );
-
-
-                        empty.className =
-                            'qualification-empty';
-
-
-                        empty.textContent =
-                            'No qualifications recorded.';
-
-
-                        list.appendChild(
-                            empty
-                        );
-
-
-                        return;
+                        return value;
 
                     }
 
 
-                    qualifications.forEach(
+                    return date.toLocaleDateString(
+                        undefined,
+                        {
 
-                        qualification => {
+                            year:
+                                'numeric',
 
-                            const badge =
-                                document.createElement(
-                                    'span'
-                                );
+                            month:
+                                'short',
 
-
-                            badge.className =
-                                'qualification-badge';
-
-
-                            badge.textContent =
-                                qualification;
-
-
-                            list.appendChild(
-                                badge
-                            );
+                            day:
+                                'numeric'
 
                         }
-
                     );
 
                 }
 
 
-                if (
-                    typeof window.supabase ===
-                    'undefined'
+                /* =========================================
+                   DISCORD USER INFORMATION
+                   ========================================= */
+
+                function getDiscordName(
+                    user
                 ) {
 
-                    loading.textContent =
-                        'Authentication system failed to load.';
+                    return (
+                        user.user_metadata
+                            ?.global_name
 
-                    return;
+                        ||
+
+                        user.user_metadata
+                            ?.full_name
+
+                        ||
+
+                        user.user_metadata
+                            ?.name
+
+                        ||
+
+                        user.user_metadata
+                            ?.preferred_username
+
+                        ||
+
+                        user.email
+
+                        ||
+
+                        'Member'
+                    );
 
                 }
 
 
-                const client =
-                    window.supabase.createClient(
+                function getDiscordUsername(
+                    user
+                ) {
 
-                        'https://uwtvgpeijygvjpcifkew.supabase.co',
+                    return (
+                        user.user_metadata
+                            ?.preferred_username
 
-                        'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ'
+                        ||
 
+                        user.user_metadata
+                            ?.user_name
+
+                        ||
+
+                        user.user_metadata
+                            ?.name
+
+                        ||
+
+                        getDiscordName(
+                            user
+                        )
+                    );
+
+                }
+
+
+                function getAvatar(
+                    user
+                ) {
+
+                    return (
+                        user.user_metadata
+                            ?.avatar_url
+
+                        ||
+
+                        user.user_metadata
+                            ?.picture
+
+                        ||
+
+                        ''
+                    );
+
+                }
+
+
+                /* =========================================
+                   LOGIN
+                   ========================================= */
+
+                async function loginWithDiscord() {
+
+                    await client.auth
+                        .signInWithOAuth({
+
+                            provider:
+                                'discord',
+
+                            options: {
+
+                                redirectTo:
+                                    window.location.href
+
+                            }
+
+                        });
+
+                }
+
+
+                discordLoginBtn
+                    .addEventListener(
+                        'click',
+                        loginWithDiscord
                     );
 
 
-                if (portalLogin) {
+                portalLoginButton
+                    .addEventListener(
+                        'click',
+                        loginWithDiscord
+                    );
 
-                    portalLogin.addEventListener(
+
+                discordLogoutBtn
+                    .addEventListener(
 
                         'click',
 
                         async () => {
 
-                            const {
-                                error
-                            } =
-                                await client
-                                    .auth
-                                    .signInWithOAuth({
+                            await client.auth
+                                .signOut();
 
-                                        provider:
-                                            'discord',
 
-                                        options: {
+                            window.location.href =
+                                'index.html';
 
-                                            redirectTo:
-                                                'https://21stcavalrydivision.github.io/members.html'
+                        }
 
+                    );
+
+
+                /* =========================================
+                   MOBILE NAV
+                   ========================================= */
+
+                const navToggle =
+                    document.getElementById(
+                        'navToggle'
+                    );
+
+
+                const mainNav =
+                    document.getElementById(
+                        'mainNav'
+                    );
+
+
+                navToggle
+                    ?.addEventListener(
+
+                        'click',
+
+                        () => {
+
+                            const open =
+                                mainNav.classList.toggle(
+                                    'open'
+                                );
+
+
+                            navToggle.setAttribute(
+                                'aria-expanded',
+                                open
+                                    ?
+                                    'true'
+                                    :
+                                    'false'
+                            );
+
+                        }
+
+                    );
+
+
+                /* =========================================
+                   QUALIFICATION GROUPS
+                   ========================================= */
+
+                const qualificationDefinitions = [
+
+                    {
+
+                        name:
+                            'Core Training',
+
+                        qualifications: [
+
+                            'BCT',
+
+                            'Rifle Qualification',
+
+                            'CLS'
+
+                        ]
+
+                    },
+
+
+                    {
+
+                        name:
+                            'Infantry Qualifications',
+
+                        qualifications: [
+
+                            'Rifleman',
+
+                            'Automatic Rifleman',
+
+                            'Grenadier',
+
+                            'Machine Gunner',
+
+                            'RTO',
+
+                            'Forward Observer',
+
+                            'Combat Medic',
+
+                            'Marksman',
+
+                            'Sniper'
+
+                        ]
+
+                    },
+
+
+                    {
+
+                        name:
+                            'Vehicle Qualifications',
+
+                        qualifications: [
+
+                            'Driver',
+
+                            'Crewman',
+
+                            'Gunner',
+
+                            'Vehicle Commander'
+
+                        ]
+
+                    },
+
+
+                    {
+
+                        name:
+                            'Aviation Qualifications',
+
+                        qualifications: [
+
+                            'Pilot',
+
+                            'Copilot',
+
+                            'Crew Chief'
+
+                        ]
+
+                    },
+
+
+                    {
+
+                        name:
+                            'Leadership & Training',
+
+                        qualifications: [
+
+                            'Team Leader',
+
+                            'Squad Leader',
+
+                            'Platoon Leadership',
+
+                            'Instructor',
+
+                            'Training Staff'
+
+                        ]
+
+                    }
+
+                ];
+
+
+                /* =========================================
+                   RENDER QUALIFICATIONS
+                   ========================================= */
+
+                function renderQualifications(
+                    qualifications
+                ) {
+
+                    const container =
+                        document.getElementById(
+                            'qualificationGroups'
+                        );
+
+
+                    const selected =
+                        Array.isArray(
+                            qualifications
+                        )
+
+                            ?
+
+                            qualifications
+
+                            :
+
+                            [];
+
+
+                    if (
+                        !selected.length
+                    ) {
+
+                        container.innerHTML = `
+
+                            <div class="qualification-empty">
+
+                                No qualifications are currently
+                                recorded for this member.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const knownQualifications =
+                        qualificationDefinitions
+                            .flatMap(
+                                group =>
+                                    group.qualifications
+                            );
+
+
+                    let html =
+                        '';
+
+
+                    qualificationDefinitions.forEach(
+
+                        group => {
+
+
+                            const earned =
+                                group.qualifications.filter(
+
+                                    qualification =>
+
+                                        selected.includes(
+                                            qualification
+                                        )
+
+                                );
+
+
+                            if (
+                                !earned.length
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            html += `
+
+                                <div class="qualification-group">
+
+                                    <div class="qualification-group-title">
+
+                                        ${escapeHtml(
+                                            group.name
+                                        )}
+
+                                    </div>
+
+
+                                    <div class="qualification-list">
+
+                                        ${earned
+
+                                            .map(
+
+                                                qualification => `
+
+                                                    <span class="qualification-badge">
+
+                                                        ${escapeHtml(
+                                                            qualification
+                                                        )}
+
+                                                    </span>
+
+                                                `
+
+                                            )
+
+                                            .join('')
                                         }
 
-                                    });
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+
+                    );
 
 
-                            if (error) {
+                    const customQualifications =
+                        selected.filter(
 
-                                alert(
-                                    'Discord login failed: ' +
-                                    error.message
+                            qualification =>
+
+                                !knownQualifications.includes(
+                                    qualification
+                                )
+
+                        );
+
+
+                    if (
+                        customQualifications.length
+                    ) {
+
+                        html += `
+
+                            <div class="qualification-group">
+
+                                <div class="qualification-group-title">
+
+                                    Additional Qualifications
+
+                                </div>
+
+
+                                <div class="qualification-list">
+
+                                    ${customQualifications
+
+                                        .map(
+
+                                            qualification => `
+
+                                                <span class="qualification-badge">
+
+                                                    ${escapeHtml(
+                                                        qualification
+                                                    )}
+
+                                                </span>
+
+                                            `
+
+                                        )
+
+                                        .join('')
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+                    container.innerHTML =
+                        html;
+
+                }
+
+
+                /* =========================================
+                   PROFILE DISPLAY
+                   ========================================= */
+
+                function populateProfile(
+                    user,
+                    profile
+                ) {
+
+                    const displayName =
+                        profile.display_name
+
+                        ||
+
+                        getDiscordName(
+                            user
+                        );
+
+
+                    const rank =
+                        profile.rank
+
+                        ||
+
+                        'Recruit';
+
+
+                    const billet =
+                        profile.billet
+
+                        ||
+
+                        'Unassigned';
+
+
+                    const section =
+                        profile.section
+
+                        ||
+
+                        'Unassigned';
+
+
+                    const role =
+                        profile.member_role
+
+                        ||
+
+                        'Member';
+
+
+                    const status =
+                        profile.member_status
+
+                        ||
+
+                        'Active';
+
+
+                    const access =
+                        profile.access_level
+
+                        ||
+
+                        'Member';
+
+
+                    const attendance =
+                        Number(
+                            profile.attendance_rate
+                            ||
+                            0
+                        );
+
+
+                    const avatar =
+                        getAvatar(
+                            user
+                        );
+
+
+                    /* HEADER */
+
+                    memberHeaderName.textContent =
+                        displayName;
+
+
+                    discordLoginBtn.hidden =
+                        true;
+
+
+                    memberProfile.hidden =
+                        false;
+
+
+                    if (avatar) {
+
+                        memberHeaderAvatar.src =
+                            avatar;
+
+
+                        memberHeaderAvatar.hidden =
+                            false;
+
+                    }
+
+
+                    if (
+                        access ===
+                        'Admin'
+
+                        ||
+
+                        access ===
+                        'Super Admin'
+                    ) {
+
+                        adminNavLink.hidden =
+                            false;
+
+                    }
+
+
+                    /* PROFILE CARD */
+
+                    document
+                        .getElementById(
+                            'profileName'
+                        )
+                        .textContent =
+                            displayName;
+
+
+                    document
+                        .getElementById(
+                            'profileRank'
+                        )
+                        .textContent =
+                            rank;
+
+
+                    document
+                        .getElementById(
+                            'profileBillet'
+                        )
+                        .textContent =
+                            billet;
+
+
+                    document
+                        .getElementById(
+                            'profileSection'
+                        )
+                        .textContent =
+                            section;
+
+
+                    document
+                        .getElementById(
+                            'profileRole'
+                        )
+                        .textContent =
+                            role;
+
+
+                    document
+                        .getElementById(
+                            'profileAccess'
+                        )
+                        .textContent =
+                            access;
+
+
+                    const statusElement =
+                        document.getElementById(
+                            'profileStatus'
+                        );
+
+
+                    statusElement.textContent =
+                        status;
+
+
+                    statusElement.className =
+                        '';
+
+
+                    if (
+                        status ===
+                        'Active'
+                    ) {
+
+                        statusElement.classList.add(
+                            'active'
+                        );
+
+                    }
+
+                    else if (
+                        status ===
+                        'LOA'
+                    ) {
+
+                        statusElement.classList.add(
+                            'loa'
+                        );
+
+                    }
+
+                    else {
+
+                        statusElement.classList.add(
+                            'inactive'
+                        );
+
+                    }
+
+
+                    if (avatar) {
+
+                        document
+                            .getElementById(
+                                'profileAvatar'
+                            )
+                            .src =
+                                avatar;
+
+                    }
+
+
+                    /* SERVICE RECORD */
+
+                    document
+                        .getElementById(
+                            'serviceRank'
+                        )
+                        .textContent =
+                            rank;
+
+
+                    document
+                        .getElementById(
+                            'serviceBillet'
+                        )
+                        .textContent =
+                            billet;
+
+
+                    document
+                        .getElementById(
+                            'serviceSection'
+                        )
+                        .textContent =
+                            section;
+
+
+                    document
+                        .getElementById(
+                            'serviceAttendance'
+                        )
+                        .textContent =
+                            attendance +
+                            '%';
+
+
+                    document
+                        .getElementById(
+                            'serviceRole'
+                        )
+                        .textContent =
+                            role;
+
+
+                    document
+                        .getElementById(
+                            'serviceStatus'
+                        )
+                        .textContent =
+                            status;
+
+
+                    document
+                        .getElementById(
+                            'serviceAccess'
+                        )
+                        .textContent =
+                            access;
+
+
+                    document
+                        .getElementById(
+                            'serviceJoinDate'
+                        )
+                        .textContent =
+                            formatDate(
+                                profile.join_date
+                            );
+
+
+                    /* ACCOUNT */
+
+                    document
+                        .getElementById(
+                            'accountDiscord'
+                        )
+                        .textContent =
+                            getDiscordUsername(
+                                user
+                            );
+
+
+                    document
+                        .getElementById(
+                            'accountEmail'
+                        )
+                        .textContent =
+                            user.email
+                            ||
+                            'Not available';
+
+
+                    document
+                        .getElementById(
+                            'accountMemberId'
+                        )
+                        .textContent =
+                            user.id;
+
+
+                    /* QUALIFICATIONS */
+
+                    renderQualifications(
+                        profile.qualifications
+                    );
+
+
+                    document
+                        .getElementById(
+                            'trainingQualificationCount'
+                        )
+                        .textContent =
+
+                            Array.isArray(
+                                profile.qualifications
+                            )
+
+                                ?
+
+                                profile.qualifications.length
+
+                                :
+
+                                0;
+
+                }
+
+
+                /* =========================================
+                   ATTENDANCE HISTORY
+                   ========================================= */
+
+                async function loadAttendance(
+                    userId
+                ) {
+
+                    const container =
+                        document.getElementById(
+                            'attendanceHistory'
+                        );
+
+
+                    const {
+                        data:
+                            records,
+
+                        error:
+                            recordError
+
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_records'
+                            )
+
+                            .select(
+                                'id,event_id,status,notes,created_at,updated_at'
+                            )
+
+                            .eq(
+                                'user_id',
+                                userId
+                            );
+
+
+                    if (
+                        recordError
+                    ) {
+
+                        console.error(
+                            'Attendance records error:',
+                            recordError
+                        );
+
+
+                        container.innerHTML = `
+
+                            <div class="attendance-empty">
+
+                                Attendance history could not be loaded.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const attendanceRecords =
+                        records || [];
+
+
+                    document
+                        .getElementById(
+                            'trainingEventCount'
+                        )
+                        .textContent =
+                            attendanceRecords.length;
+
+
+                    const presentCount =
+                        attendanceRecords.filter(
+
+                            record =>
+                                record.status ===
+                                'Present'
+
+                        ).length;
+
+
+                    const excusedCount =
+                        attendanceRecords.filter(
+
+                            record =>
+                                record.status ===
+                                'Excused'
+
+                        ).length;
+
+
+                    const absentCount =
+                        attendanceRecords.filter(
+
+                            record =>
+                                record.status ===
+                                'Absent'
+
+                        ).length;
+
+
+                    document
+                        .getElementById(
+                            'trainingPresentCount'
+                        )
+                        .textContent =
+                            presentCount;
+
+
+                    document
+                        .getElementById(
+                            'trainingExcusedCount'
+                        )
+                        .textContent =
+                            excusedCount;
+
+
+                    document
+                        .getElementById(
+                            'trainingAbsentCount'
+                        )
+                        .textContent =
+                            absentCount;
+
+
+                    if (
+                        !attendanceRecords.length
+                    ) {
+
+                        container.innerHTML = `
+
+                            <div class="attendance-empty">
+
+                                No attendance events have been
+                                recorded for this member yet.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const eventIds = [
+
+                        ...new Set(
+
+                            attendanceRecords
+                                .map(
+                                    record =>
+                                        record.event_id
+                                )
+
+                                .filter(
+                                    Boolean
+                                )
+
+                        )
+
+                    ];
+
+
+                    if (
+                        !eventIds.length
+                    ) {
+
+                        container.innerHTML = `
+
+                            <div class="attendance-empty">
+
+                                No attendance event information
+                                is available.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const {
+                        data:
+                            events,
+
+                        error:
+                            eventsError
+
+                    } =
+                        await client
+
+                            .from(
+                                'attendance_events'
+                            )
+
+                            .select(
+                                'id,title,event_type,event_date,counts_for_attendance'
+                            )
+
+                            .in(
+                                'id',
+                                eventIds
+                            );
+
+
+                    if (
+                        eventsError
+                    ) {
+
+                        console.error(
+                            'Attendance events error:',
+                            eventsError
+                        );
+
+
+                        container.innerHTML = `
+
+                            <div class="attendance-empty">
+
+                                Attendance event details could not
+                                be loaded.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const eventMap =
+                        new Map();
+
+
+                    (
+                        events
+                        ||
+                        []
+                    ).forEach(
+
+                        event => {
+
+                            eventMap.set(
+                                String(
+                                    event.id
+                                ),
+                                event
+                            );
+
+                        }
+
+                    );
+
+
+                    const history =
+                        attendanceRecords
+
+                            .map(
+
+                                record => ({
+
+                                    ...record,
+
+                                    event:
+                                        eventMap.get(
+                                            String(
+                                                record.event_id
+                                            )
+                                        )
+
+                                        ||
+
+                                        null
+
+                                })
+
+                            )
+
+                            .sort(
+
+                                (
+                                    a,
+                                    b
+                                ) => {
+
+                                    const dateA =
+                                        a.event
+                                            ?.event_date
+
+                                        ||
+
+                                        '';
+
+
+                                    const dateB =
+                                        b.event
+                                            ?.event_date
+
+                                        ||
+
+                                        '';
+
+
+                                    return dateB.localeCompare(
+                                        dateA
+                                    );
+
+                                }
+
+                            );
+
+
+                    container.innerHTML =
+
+                        history
+
+                            .map(
+
+                                record => {
+
+
+                                    const event =
+                                        record.event;
+
+
+                                    const status =
+                                        record.status
+
+                                        ||
+
+                                        'Absent';
+
+
+                                    return `
+
+                                        <div class="attendance-history-row">
+
+
+                                            <div class="attendance-date">
+
+                                                ${escapeHtml(
+                                                    formatDate(
+                                                        event
+                                                            ?.event_date
+                                                    )
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="attendance-type">
+
+                                                ${escapeHtml(
+                                                    event
+                                                        ?.event_type
+                                                    ||
+                                                    'Event'
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="attendance-title">
+
+                                                ${escapeHtml(
+                                                    event
+                                                        ?.title
+                                                    ||
+                                                    'Attendance Event'
+                                                )}
+
+                                            </div>
+
+
+                                            <div
+                                                class="attendance-status-badge ${escapeHtml(
+                                                    status
+                                                        .toLowerCase()
+                                                )}"
+                                            >
+
+                                                ${escapeHtml(
+                                                    status
+                                                )}
+
+                                            </div>
+
+
+                                        </div>
+
+                                    `;
+
+                                }
+
+                            )
+
+                            .join('');
+
+                }
+
+
+                /* =========================================
+                   LOAD PORTAL
+                   ========================================= */
+
+                async function loadPortal() {
+
+                    showScreen(
+                        'loading'
+                    );
+
+
+                    const {
+                        data:
+                        {
+                            session
+                        },
+
+                        error:
+                            sessionError
+
+                    } =
+                        await client.auth
+                            .getSession();
+
+
+                    if (
+                        sessionError
+                    ) {
+
+                        console.error(
+                            'Session error:',
+                            sessionError
+                        );
+
+
+                        portalErrorText.textContent =
+                            'Unable to verify your login session.';
+
+
+                        showScreen(
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !session?.user
+                    ) {
+
+                        showScreen(
+                            'login'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    const user =
+                        session.user;
+
+
+                    const {
+                        data:
+                            profile,
+
+                        error:
+                            profileError
+
+                    } =
+                        await client
+
+                            .from(
+                                'member_profiles'
+                            )
+
+                            .select('*')
+
+                            .eq(
+                                'user_id',
+                                user.id
+                            )
+
+                            .maybeSingle();
+
+
+                    if (
+                        profileError
+                    ) {
+
+                        console.error(
+                            'Profile load error:',
+                            profileError
+                        );
+
+
+                        portalErrorText.textContent =
+                            profileError.message;
+
+
+                        showScreen(
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !profile
+                    ) {
+
+                        portalErrorText.textContent =
+                            'No personnel record was found for your Discord account.';
+
+
+                        showScreen(
+                            'error'
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    populateProfile(
+                        user,
+                        profile
+                    );
+
+
+                    showScreen(
+                        'portal'
+                    );
+
+
+                    await loadAttendance(
+                        user.id
+                    );
+
+                }
+
+
+                /* =========================================
+                   AUTH CHANGE
+                   ========================================= */
+
+                client.auth
+                    .onAuthStateChange(
+
+                        async (
+                            event,
+                            session
+                        ) => {
+
+                            if (
+                                event ===
+                                'SIGNED_OUT'
+                            ) {
+
+                                showScreen(
+                                    'login'
                                 );
+
+
+                                return;
+
+                            }
+
+
+                            if (
+                                event ===
+                                'SIGNED_IN'
+                                &&
+                                session?.user
+                            ) {
+
+                                await loadPortal();
 
                             }
 
@@ -1454,203 +3715,12 @@
 
                     );
 
-                }
 
+                /* =========================================
+                   INITIALIZE
+                   ========================================= */
 
-                const {
-                    data:
-                    {
-                        session
-                    },
-                    error:
-                        sessionError
-                } =
-                    await client
-                        .auth
-                        .getSession();
-
-
-                if (sessionError) {
-
-                    console.error(
-                        'Session error:',
-                        sessionError
-                    );
-
-                }
-
-
-                if (!session?.user) {
-
-                    showLoggedOut();
-
-                    return;
-
-                }
-
-
-                const user =
-                    session.user;
-
-
-                const {
-                    data: profile,
-                    error
-                } =
-                    await client
-
-                        .from(
-                            'member_profiles'
-                        )
-
-                        .select(
-                            '*'
-                        )
-
-                        .eq(
-                            'user_id',
-                            user.id
-                        )
-
-                        .maybeSingle();
-
-
-                if (error) {
-
-                    console.error(
-                        'Member profile error:',
-                        error
-                    );
-
-                }
-
-
-                const displayName =
-                    profile?.display_name ||
-                    discordName(user);
-
-
-                const avatar =
-                    discordAvatar(user);
-
-
-                if (avatar) {
-
-                    document
-                        .getElementById(
-                            'portalAvatar'
-                        )
-                        .src =
-                            avatar;
-
-                }
-
-
-                setText(
-                    'portalName',
-                    displayName
-                );
-
-
-                setText(
-                    'portalRank',
-                    profile?.rank ||
-                    'Recruit'
-                );
-
-
-                setText(
-                    'portalBillet',
-                    profile?.billet ||
-                    'Unassigned'
-                );
-
-
-                setText(
-                    'portalSection',
-                    profile?.section ||
-                    'Unassigned'
-                );
-
-
-                setText(
-                    'portalRole',
-                    profile?.member_role ||
-                    'Member'
-                );
-
-
-                setText(
-                    'portalStatus',
-                    profile?.member_status ||
-                    'Active'
-                );
-
-
-                setText(
-                    'portalAccess',
-                    profile?.access_level ||
-                    'Member'
-                );
-
-
-                setText(
-                    'statRank',
-                    profile?.rank ||
-                    'Recruit'
-                );
-
-
-                setText(
-                    'statSection',
-                    profile?.section ||
-                    'Unassigned'
-                );
-
-
-                setText(
-                    'statAttendance',
-                    (
-                        profile?.attendance_rate ??
-                        0
-                    ) + '%'
-                );
-
-
-                setText(
-                    'statJoinDate',
-                    formatDate(
-                        profile?.join_date
-                    )
-                );
-
-
-                setText(
-                    'accountDiscord',
-                    discordName(user)
-                );
-
-
-                setText(
-                    'accountEmail',
-                    user.email ||
-                    'Not provided'
-                );
-
-
-                setText(
-                    'accountMemberId',
-                    user.id
-                );
-
-
-                renderQualifications(
-                    profile?.qualifications ||
-                    []
-                );
-
-
-                showPortal();
+                await loadPortal();
 
             }
 
