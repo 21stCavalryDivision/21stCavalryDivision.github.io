@@ -706,6 +706,191 @@
             cursor: not-allowed;
         }
 
+
+        /* ============================================= */
+        /* OPERATION ROSTER */
+        /* ============================================= */
+
+        .operation-roster-area {
+            padding: 0 20px 18px;
+            background: #0b1114;
+        }
+
+        .roster-toggle-button {
+            width: 100%;
+            min-height: 40px;
+            padding: 0 15px;
+
+            border: 1px solid #3a454a;
+            background: #0d1417;
+            color: #c5a75b;
+
+            cursor: pointer;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.9px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .roster-toggle-button:hover {
+            border-color: #c5a75b;
+            background: #11191c;
+        }
+
+        .roster-panel {
+            margin-top: 10px;
+            border: 1px solid #30383d;
+            background: #090f12;
+        }
+
+        .roster-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+
+            padding: 14px 16px;
+            border-bottom: 1px solid #30383d;
+        }
+
+        .roster-panel-header strong {
+            color: #ffffff;
+
+            font:
+                600
+                13px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .roster-panel-header span {
+            color: #77858b;
+            font-size: 10px;
+        }
+
+        .roster-loading,
+        .roster-empty,
+        .roster-error {
+            padding: 18px 16px;
+            color: #819096;
+            font-size: 11px;
+        }
+
+        .roster-error {
+            color: #e17777;
+        }
+
+        .roster-section {
+            border-top: 1px solid #252d31;
+        }
+
+        .roster-section:first-child {
+            border-top: 0;
+        }
+
+        .roster-section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+
+            padding: 11px 16px;
+
+            background: #0d1417;
+            color: #c5a75b;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+        }
+
+        .roster-section-title span {
+            color: #718087;
+            font-size: 9px;
+        }
+
+        .roster-member {
+            display: grid;
+            grid-template-columns:
+                minmax(220px, 1.4fr)
+                minmax(180px, 1fr)
+                minmax(170px, 1fr);
+
+            gap: 14px;
+            align-items: center;
+
+            padding: 12px 16px;
+            border-top: 1px solid #20282c;
+        }
+
+        .roster-member-name strong {
+            display: block;
+
+            color: #ffffff;
+
+            font:
+                600
+                12px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+        }
+
+        .roster-member-name span,
+        .roster-member-detail,
+        .roster-admin-detail {
+            color: #7f8d93;
+            font-size: 10px;
+        }
+
+        .roster-member-name span {
+            display: block;
+            margin-top: 3px;
+        }
+
+        .roster-admin-detail {
+            text-align: right;
+        }
+
+        .roster-admin-badge {
+            display: inline-block;
+            margin-left: 5px;
+            padding: 4px 7px;
+
+            border: 1px solid #4e5a60;
+            color: #a9b3b7;
+
+            font:
+                600
+                8px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .roster-admin-badge.loa {
+            border-color: #77683e;
+            color: #d5bc71;
+        }
+
+
         /* ============================================= */
         /* ATTENDANCE */
         /* ============================================= */
@@ -1045,6 +1230,14 @@
 
             .attendance-toggle-button {
                 width: 100%;
+            }
+
+            .roster-member {
+                grid-template-columns: 1fr;
+            }
+
+            .roster-admin-detail {
+                text-align: left;
             }
         }
     </style>
@@ -2690,6 +2883,56 @@
                                         </div>
 
 
+                                        <div class="operation-roster-area">
+
+                                            <button
+                                                class="roster-toggle-button"
+                                                data-toggle-roster="${operation.id}"
+                                                type="button"
+                                                aria-expanded="false"
+                                            >
+                                                View Roster (${operationSignups.length}) ▼
+                                            </button>
+
+                                            <div
+                                                class="roster-panel"
+                                                data-roster-panel="${operation.id}"
+                                                hidden
+                                            >
+
+                                                <div class="roster-panel-header">
+
+                                                    <strong>
+                                                        Operation Roster
+                                                    </strong>
+
+                                                    <span>
+                                                        ${operationSignups.length}
+                                                        member${
+                                                            operationSignups.length === 1
+                                                                ?
+                                                                ''
+                                                                :
+                                                                's'
+                                                        }
+                                                        signed up
+                                                    </span>
+
+                                                </div>
+
+                                                <div
+                                                    data-roster-content="${operation.id}"
+                                                >
+                                                    <div class="roster-loading">
+                                                        Open roster to load personnel.
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
                                         ${attendanceArea}
 
 
@@ -2764,6 +3007,8 @@
                     attachOperationButtons();
 
                     attachSignupButtons();
+
+                    attachRosterButtons();
 
                     attachAttendanceButtons();
 
@@ -3117,6 +3362,616 @@
 
 
                                         await cancelOperationSignup(
+                                            id,
+                                            button
+                                        );
+
+                                    }
+
+                                );
+
+                            }
+
+                        );
+
+                }
+
+
+
+                // =========================================
+                // OPERATION ROSTER
+                // =========================================
+
+                function getLocalDateString(value) {
+
+                    const date =
+                        new Date(
+                            value
+                        );
+
+
+                    const year =
+                        date.getFullYear();
+
+
+                    const month =
+                        String(
+                            date.getMonth() + 1
+                        )
+                        .padStart(
+                            2,
+                            '0'
+                        );
+
+
+                    const day =
+                        String(
+                            date.getDate()
+                        )
+                        .padStart(
+                            2,
+                            '0'
+                        );
+
+
+                    return `${year}-${month}-${day}`;
+
+                }
+
+
+                async function loadOperationRoster(
+                    operationId
+                ) {
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client.rpc(
+
+                            'get_operation_roster',
+
+                            {
+                                p_operation_id:
+                                    Number(
+                                        operationId
+                                    )
+                            }
+
+                        );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Operation roster error:',
+                            error
+                        );
+
+
+                        throw error;
+
+                    }
+
+
+                    const roster =
+                        data || [];
+
+
+                    if (
+                        !isAdmin
+                        ||
+                        !roster.length
+                    ) {
+
+                        return roster;
+
+                    }
+
+
+                    const operation =
+                        operations.find(
+
+                            item =>
+                                Number(
+                                    item.id
+                                )
+                                ===
+                                Number(
+                                    operationId
+                                )
+
+                        );
+
+
+                    if (!operation) {
+
+                        return roster;
+
+                    }
+
+
+                    const userIds =
+                        roster
+                            .map(
+                                member =>
+                                    member.user_id
+                            )
+                            .filter(
+                                Boolean
+                            );
+
+
+                    if (!userIds.length) {
+
+                        return roster;
+
+                    }
+
+
+                    const operationDay =
+                        getLocalDateString(
+                            operation.operation_date
+                        );
+
+
+                    const {
+                        data:
+                            loaRows,
+                        error:
+                            loaError
+                    } =
+                        await client
+
+                            .from(
+                                'leave_of_absence'
+                            )
+
+                            .select(
+                                'user_id,start_date,end_date,status'
+                            )
+
+                            .eq(
+                                'status',
+                                'Approved'
+                            )
+
+                            .lte(
+                                'start_date',
+                                operationDay
+                            )
+
+                            .gte(
+                                'end_date',
+                                operationDay
+                            )
+
+                            .in(
+                                'user_id',
+                                userIds
+                            );
+
+
+                    if (loaError) {
+
+                        console.error(
+                            'Roster LOA lookup error:',
+                            loaError
+                        );
+
+
+                        return roster;
+
+                    }
+
+
+                    const loaUsers =
+                        new Set(
+
+                            (loaRows || [])
+                                .map(
+                                    row =>
+                                        row.user_id
+                                )
+
+                        );
+
+
+                    return roster.map(
+
+                        member => ({
+
+                            ...member,
+
+                            on_approved_loa:
+                                loaUsers.has(
+                                    member.user_id
+                                )
+
+                        })
+
+                    );
+
+                }
+
+
+                function renderOperationRoster(
+                    operationId,
+                    roster
+                ) {
+
+                    const container =
+                        document.querySelector(
+                            `[data-roster-content="${operationId}"]`
+                        );
+
+
+                    if (!container) {
+
+                        return;
+
+                    }
+
+
+                    if (!roster.length) {
+
+                        container.innerHTML = `
+
+                            <div class="roster-empty">
+                                No members are currently signed up for this operation.
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    const groups =
+                        new Map();
+
+
+                    roster.forEach(
+
+                        member => {
+
+                            const section =
+                                member.section
+                                ||
+                                'Unassigned';
+
+
+                            if (
+                                !groups.has(
+                                    section
+                                )
+                            ) {
+
+                                groups.set(
+                                    section,
+                                    []
+                                );
+
+                            }
+
+
+                            groups
+                                .get(
+                                    section
+                                )
+                                .push(
+                                    member
+                                );
+
+                        }
+
+                    );
+
+
+                    container.innerHTML =
+                        Array
+                            .from(
+                                groups.entries()
+                            )
+                            .map(
+
+                                (
+                                    [
+                                        section,
+                                        members
+                                    ]
+                                ) => `
+
+                                    <section class="roster-section">
+
+                                        <div class="roster-section-title">
+
+                                            <strong>
+                                                ${escapeHtml(
+                                                    section
+                                                )}
+                                            </strong>
+
+                                            <span>
+                                                ${members.length}
+                                                member${
+                                                    members.length === 1
+                                                        ?
+                                                        ''
+                                                        :
+                                                        's'
+                                                }
+                                            </span>
+
+                                        </div>
+
+
+                                        ${members.map(
+
+                                            member => `
+
+                                                <div class="roster-member">
+
+                                                    <div class="roster-member-name">
+
+                                                        <strong>
+                                                            ${escapeHtml(
+                                                                member.rank
+                                                                ||
+                                                                'No Rank'
+                                                            )}
+                                                            —
+                                                            ${escapeHtml(
+                                                                member.display_name
+                                                                ||
+                                                                'Member'
+                                                            )}
+                                                        </strong>
+
+                                                        <span>
+                                                            ${escapeHtml(
+                                                                member.billet
+                                                                ||
+                                                                'Unassigned'
+                                                            )}
+                                                        </span>
+
+                                                    </div>
+
+
+                                                    <div class="roster-member-detail">
+
+                                                        Section:
+                                                        ${escapeHtml(
+                                                            member.section
+                                                            ||
+                                                            'Unassigned'
+                                                        )}
+
+                                                    </div>
+
+
+                                                    ${
+                                                        isAdmin
+
+                                                        ?
+
+                                                        `
+
+                                                            <div class="roster-admin-detail">
+
+                                                                <span class="roster-admin-badge">
+                                                                    ${escapeHtml(
+                                                                        member.member_status
+                                                                        ||
+                                                                        'Unknown Status'
+                                                                    )}
+                                                                </span>
+
+                                                                <span class="roster-admin-badge">
+                                                                    ${escapeHtml(
+                                                                        member.access_level
+                                                                        ||
+                                                                        'Member'
+                                                                    )}
+                                                                </span>
+
+                                                                ${
+                                                                    member.on_approved_loa
+
+                                                                    ?
+
+                                                                    `
+
+                                                                        <span class="roster-admin-badge loa">
+                                                                            Approved LOA
+                                                                        </span>
+
+                                                                    `
+
+                                                                    :
+
+                                                                    ''
+                                                                }
+
+                                                            </div>
+
+                                                        `
+
+                                                        :
+
+                                                        `
+
+                                                            <div class="roster-member-detail">
+                                                                Signed Up
+                                                            </div>
+
+                                                        `
+                                                    }
+
+                                                </div>
+
+                                            `
+
+                                        ).join('')}
+
+                                    </section>
+
+                                `
+
+                            )
+                            .join('');
+
+                }
+
+
+                async function toggleOperationRoster(
+                    operationId,
+                    button
+                ) {
+
+                    const panel =
+                        document.querySelector(
+                            `[data-roster-panel="${operationId}"]`
+                        );
+
+
+                    const container =
+                        document.querySelector(
+                            `[data-roster-content="${operationId}"]`
+                        );
+
+
+                    if (
+                        !panel
+                        ||
+                        !container
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (!panel.hidden) {
+
+                        panel.hidden =
+                            true;
+
+
+                        button.setAttribute(
+                            'aria-expanded',
+                            'false'
+                        );
+
+
+                        const count =
+                            getOperationSignups(
+                                operationId
+                            )
+                                .length;
+
+
+                        button.textContent =
+                            `View Roster (${count}) ▼`;
+
+
+                        return;
+
+                    }
+
+
+                    panel.hidden =
+                        false;
+
+
+                    button.setAttribute(
+                        'aria-expanded',
+                        'true'
+                    );
+
+
+                    const count =
+                        getOperationSignups(
+                            operationId
+                        )
+                            .length;
+
+
+                    button.textContent =
+                        `Hide Roster (${count}) ▲`;
+
+
+                    container.innerHTML = `
+
+                        <div class="roster-loading">
+                            Loading operation roster...
+                        </div>
+
+                    `;
+
+
+                    try {
+
+                        const roster =
+                            await loadOperationRoster(
+                                operationId
+                            );
+
+
+                        renderOperationRoster(
+                            operationId,
+                            roster
+                        );
+
+                    }
+
+                    catch (error) {
+
+                        container.innerHTML = `
+
+                            <div class="roster-error">
+                                Unable to load the operation roster:
+                                ${escapeHtml(
+                                    error.message
+                                    ||
+                                    'Unknown error'
+                                )}
+                            </div>
+
+                        `;
+
+                    }
+
+                }
+
+
+                function attachRosterButtons() {
+
+                    document
+                        .querySelectorAll(
+                            '[data-toggle-roster]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .toggleRoster
+                                            );
+
+
+                                        await toggleOperationRoster(
                                             id,
                                             button
                                         );
