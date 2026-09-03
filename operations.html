@@ -21,10 +21,6 @@
     </title>
 
 
-    <!-- ================================================= -->
-    <!-- GOOGLE FONTS -->
-    <!-- ================================================= -->
-
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -42,13 +38,9 @@
     >
 
 
-    <!-- ================================================= -->
-    <!-- SITE CSS -->
-    <!-- ================================================= -->
-
     <link
         rel="stylesheet"
-        href="styles.css?v=14"
+        href="styles.css?v=15"
     >
 
 
@@ -62,9 +54,9 @@
         }
 
 
-        /* =================================================
-           HERO
-           ================================================= */
+        /* ============================================= */
+        /* HERO */
+        /* ============================================= */
 
         .opboard-hero {
 
@@ -136,9 +128,9 @@
         }
 
 
-        /* =================================================
-           MAIN
-           ================================================= */
+        /* ============================================= */
+        /* MAIN */
+        /* ============================================= */
 
         .opboard-shell {
 
@@ -150,9 +142,9 @@
         }
 
 
-        /* =================================================
-           STATUS BAR
-           ================================================= */
+        /* ============================================= */
+        /* STATUS BAR */
+        /* ============================================= */
 
         .opboard-status {
 
@@ -224,8 +216,7 @@
                 38px;
 
             padding:
-                0
-                17px;
+                0 17px;
 
             border:
                 1px solid #c5a75b;
@@ -265,9 +256,9 @@
         }
 
 
-        /* =================================================
-           ACCESS MESSAGES
-           ================================================= */
+        /* ============================================= */
+        /* MESSAGES */
+        /* ============================================= */
 
         .board-message {
 
@@ -298,8 +289,7 @@
         .board-message h2 {
 
             margin:
-                5px 0
-                10px;
+                5px 0 10px;
 
             color:
                 #ffffff;
@@ -327,14 +317,17 @@
         }
 
 
+        /* ============================================= */
+        /* BUTTONS */
+        /* ============================================= */
+
         .primary-button {
 
             min-height:
                 42px;
 
             padding:
-                0
-                18px;
+                0 18px;
 
             border:
                 1px solid #c5a75b;
@@ -363,9 +356,44 @@
         }
 
 
-        /* =================================================
-           ADMIN POSTING PANEL
-           ================================================= */
+        .secondary-button {
+
+            min-height:
+                42px;
+
+            padding:
+                0 18px;
+
+            border:
+                1px solid #586369;
+
+            background:
+                transparent;
+
+            color:
+                #d9dfe1;
+
+            cursor:
+                pointer;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        /* ============================================= */
+        /* COMMAND PANEL */
+        /* ============================================= */
 
         .command-panel {
 
@@ -399,8 +427,7 @@
                 20px;
 
             padding:
-                20px
-                22px;
+                20px 22px;
 
             border-bottom:
                 1px solid #30383d;
@@ -523,8 +550,7 @@
                 border-box;
 
             padding:
-                11px
-                12px;
+                11px 12px;
 
             border:
                 1px solid #374147;
@@ -583,42 +609,6 @@
         }
 
 
-        .secondary-button {
-
-            min-height:
-                42px;
-
-            padding:
-                0
-                18px;
-
-            border:
-                1px solid #586369;
-
-            background:
-                transparent;
-
-            color:
-                #d9dfe1;
-
-            cursor:
-                pointer;
-
-            font:
-                600
-                10px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-        }
-
-
         .form-message {
 
             margin-top:
@@ -649,9 +639,9 @@
         }
 
 
-        /* =================================================
-           MISSION BOARD HEADING
-           ================================================= */
+        /* ============================================= */
+        /* BOARD HEADING */
+        /* ============================================= */
 
         .board-heading {
 
@@ -707,9 +697,9 @@
         }
 
 
-        /* =================================================
-           OPERATION CARDS
-           ================================================= */
+        /* ============================================= */
+        /* OPERATION CARDS */
+        /* ============================================= */
 
         .operations-grid {
 
@@ -841,8 +831,7 @@
         .operation-title-area {
 
             padding:
-                19px
-                20px;
+                19px 20px;
 
         }
 
@@ -924,8 +913,7 @@
         .operation-status {
 
             padding:
-                7px
-                11px;
+                7px 11px;
 
             border:
                 1px solid #596268;
@@ -1018,14 +1006,6 @@
         }
 
 
-        .operation-info-section {
-
-            min-width:
-                0;
-
-        }
-
-
         .operation-info-title {
 
             margin-bottom:
@@ -1078,9 +1058,7 @@
                 8px;
 
             padding:
-                0
-                20px
-                19px;
+                0 20px 18px;
 
         }
 
@@ -1088,8 +1066,7 @@
         .operation-meta-tag {
 
             padding:
-                7px
-                10px;
+                7px 10px;
 
             border:
                 1px solid #30383d;
@@ -1115,9 +1092,163 @@
         }
 
 
-        /* =================================================
-           ADMIN BUTTONS
-           ================================================= */
+        /* ============================================= */
+        /* SIGNUP AREA */
+        /* ============================================= */
+
+        .operation-signup-area {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid #30383d;
+
+            background:
+                #0b1114;
+
+        }
+
+
+        .signup-information {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                3px;
+
+        }
+
+
+        .signup-information strong {
+
+            color:
+                #ffffff;
+
+            font:
+                600
+                11px
+                Oswald,
+                sans-serif;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.7px;
+
+        }
+
+
+        .signup-information span {
+
+            color:
+                #78858b;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .signup-count {
+
+            color:
+                #c5a75b !important;
+
+        }
+
+
+        .signup-button {
+
+            min-height:
+                38px;
+
+            min-width:
+                120px;
+
+            padding:
+                0 16px;
+
+            border:
+                1px solid #c5a75b;
+
+            background:
+                #c5a75b;
+
+            color:
+                #111111;
+
+            cursor:
+                pointer;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .signup-button:hover {
+
+            filter:
+                brightness(1.1);
+
+        }
+
+
+        .signup-button.signed-up {
+
+            border-color:
+                #688f72;
+
+            background:
+                transparent;
+
+            color:
+                #7ed594;
+
+        }
+
+
+        .signup-button:disabled {
+
+            opacity:
+                0.45;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        /* ============================================= */
+        /* ADMIN CONTROLS */
+        /* ============================================= */
 
         .operation-admin-controls {
 
@@ -1128,9 +1259,7 @@
                 7px;
 
             padding:
-                0
-                20px
-                20px;
+                15px 20px 20px;
 
         }
 
@@ -1142,8 +1271,7 @@
                 34px;
 
             padding:
-                0
-                13px;
+                0 13px;
 
             cursor:
                 pointer;
@@ -1191,15 +1319,14 @@
         }
 
 
-        /* =================================================
-           EMPTY BOARD
-           ================================================= */
+        /* ============================================= */
+        /* EMPTY */
+        /* ============================================= */
 
         .empty-board {
 
             padding:
-                50px
-                25px;
+                50px 25px;
 
             border:
                 1px dashed #30383d;
@@ -1236,9 +1363,9 @@
         }
 
 
-        /* =================================================
-           MOBILE
-           ================================================= */
+        /* ============================================= */
+        /* MOBILE */
+        /* ============================================= */
 
         @media (
             max-width: 900px
@@ -1327,18 +1454,21 @@
             }
 
 
-            .operation-date {
+            .operation-signup-area {
 
-                padding:
-                    14px;
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
 
             }
 
 
-            .operation-title {
+            .signup-button {
 
-                font-size:
-                    21px;
+                width:
+                    100%;
 
             }
 
@@ -1352,17 +1482,15 @@
 <body>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- HEADER -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <header class="site-header">
-
 
         <a
             class="brand"
             href="index.html"
-            aria-label="21st Cavalry Division home"
         >
 
             <div class="brand-mark">
@@ -1404,11 +1532,9 @@
                 Home
             </a>
 
-
             <a href="orbat.html">
                 ORBAT
             </a>
-
 
             <a
                 href="operations.html"
@@ -1419,26 +1545,21 @@
                 OPBOARD
             </a>
 
-
             <a href="training.html">
                 Training
             </a>
-
 
             <a href="resources.html">
                 SOPs
             </a>
 
-
             <a href="server.html">
                 Server
             </a>
 
-
             <a href="media.html">
                 Media
             </a>
-
 
             <a
                 href="members.html"
@@ -1447,7 +1568,6 @@
             >
                 Member Portal
             </a>
-
 
             <a
                 href="admin.html"
@@ -1517,9 +1637,9 @@
     </header>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- HERO -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <section class="opboard-hero">
 
@@ -1536,9 +1656,8 @@
 
 
             <p class="opboard-hero-description">
-                Secure member operations board for upcoming
-                missions, training exercises, deployments and
-                command briefings.
+                Secure member mission board for current operations,
+                field exercises, training missions and command events.
             </p>
 
         </div>
@@ -1546,9 +1665,9 @@
     </section>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- LOADING -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <section
         id="boardLoading"
@@ -1566,16 +1685,16 @@
 
 
         <p>
-            Verifying unit membership and retrieving
+            Verifying member credentials and retrieving
             current mission information.
         </p>
 
     </section>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- LOGIN REQUIRED -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <section
         id="loginRequired"
@@ -1594,8 +1713,8 @@
 
 
         <p>
-            The Operations Board is restricted to authenticated
-            members of the 21st Cavalry Division.
+            OPBOARD is restricted to authenticated
+            21st Cavalry Division members.
         </p>
 
 
@@ -1610,9 +1729,9 @@
     </section>
 
 
-    <!-- ================================================= -->
-    <!-- MEMBER ACCESS DENIED -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
+    <!-- MEMBERSHIP REQUIRED -->
+    <!-- ============================================= -->
 
     <section
         id="membershipRequired"
@@ -1631,24 +1750,16 @@
 
 
         <p>
-            Your Discord account is authenticated, but no
-            21st Cavalry Division member profile was found.
+            Your Discord account is authenticated,
+            but no unit member profile was found.
         </p>
-
-
-        <a
-            href="index.html"
-            class="btn btn-secondary"
-        >
-            Return Home
-        </a>
 
     </section>
 
 
-    <!-- ================================================= -->
-    <!-- OPBOARD CONTENT -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
+    <!-- BOARD -->
+    <!-- ============================================= -->
 
     <main
         id="boardContent"
@@ -1656,10 +1767,6 @@
         hidden
     >
 
-
-        <!-- =================================================
-             STATUS
-             ================================================= -->
 
         <div class="opboard-status">
 
@@ -1687,9 +1794,9 @@
         </div>
 
 
-        <!-- =================================================
-             COMMAND POSTING PANEL
-             ================================================= -->
+        <!-- ========================================= -->
+        <!-- ADMIN POST OPERATION -->
+        <!-- ========================================= -->
 
         <section
             id="commandPanel"
@@ -1705,13 +1812,14 @@
 
 
                 <span class="command-access">
-                    Admin / Command Access
+                    Command Access
                 </span>
 
             </div>
 
 
             <div class="command-panel-body">
+
 
                 <input
                     id="operationId"
@@ -1722,14 +1830,11 @@
                 <div class="operation-form-grid">
 
 
-                    <!-- OPERATION NAME -->
-
                     <div class="operation-field">
 
                         <label for="operationTitle">
                             Operation Name
                         </label>
-
 
                         <input
                             id="operationTitle"
@@ -1740,62 +1845,33 @@
                     </div>
 
 
-                    <!-- OPERATION TYPE -->
-
                     <div class="operation-field">
 
                         <label for="operationType">
                             Operation Type
                         </label>
 
-
                         <select id="operationType">
 
-                            <option>
-                                Operation
-                            </option>
-
-                            <option>
-                                Training
-                            </option>
-
-                            <option>
-                                FTX
-                            </option>
-
-                            <option>
-                                Patrol
-                            </option>
-
-                            <option>
-                                Deployment
-                            </option>
-
-                            <option>
-                                Qualification
-                            </option>
-
-                            <option>
-                                Meeting
-                            </option>
-
-                            <option>
-                                Other
-                            </option>
+                            <option>Operation</option>
+                            <option>Training</option>
+                            <option>FTX</option>
+                            <option>Patrol</option>
+                            <option>Deployment</option>
+                            <option>Qualification</option>
+                            <option>Meeting</option>
+                            <option>Other</option>
 
                         </select>
 
                     </div>
 
 
-                    <!-- DATE -->
-
                     <div class="operation-field">
 
                         <label for="operationDate">
                             Date & Time
                         </label>
-
 
                         <input
                             id="operationDate"
@@ -1805,14 +1881,11 @@
                     </div>
 
 
-                    <!-- LOCATION -->
-
                     <div class="operation-field">
 
                         <label for="operationLocation">
-                            Map / Area of Operations
+                            Map / AO
                         </label>
-
 
                         <input
                             id="operationLocation"
@@ -1823,119 +1896,53 @@
                     </div>
 
 
-                    <!-- REQUIRED SECTION -->
-
                     <div class="operation-field">
 
                         <label for="operationSection">
                             Required Section
                         </label>
 
-
                         <select id="operationSection">
 
-                            <option>
-                                All Personnel
-                            </option>
-
-                            <option>
-                                Division HQ
-                            </option>
-
-                            <option>
-                                Command Staff
-                            </option>
-
-                            <option>
-                                1st Platoon
-                            </option>
-
-                            <option>
-                                2nd Platoon
-                            </option>
-
-                            <option>
-                                1st Squad
-                            </option>
-
-                            <option>
-                                2nd Squad
-                            </option>
-
-                            <option>
-                                3rd Squad
-                            </option>
-
-                            <option>
-                                Weapons Squad
-                            </option>
-
-                            <option>
-                                Aviation Detachment
-                            </option>
-
-                            <option>
-                                Armor Section
-                            </option>
-
-                            <option>
-                                Recon Section
-                            </option>
-
-                            <option>
-                                Medical Section
-                            </option>
-
-                            <option>
-                                Training Section
-                            </option>
-
-                            <option>
-                                Recruitment Section
-                            </option>
+                            <option>All Personnel</option>
+                            <option>Division HQ</option>
+                            <option>Command Staff</option>
+                            <option>1st Platoon</option>
+                            <option>2nd Platoon</option>
+                            <option>1st Squad</option>
+                            <option>2nd Squad</option>
+                            <option>3rd Squad</option>
+                            <option>Weapons Squad</option>
+                            <option>Aviation Detachment</option>
+                            <option>Armor Section</option>
+                            <option>Recon Section</option>
+                            <option>Medical Section</option>
+                            <option>Training Section</option>
+                            <option>Recruitment Section</option>
 
                         </select>
 
                     </div>
 
-
-                    <!-- STATUS -->
 
                     <div class="operation-field">
 
                         <label for="operationStatus">
-                            Mission Status
+                            Status
                         </label>
-
 
                         <select id="operationStatus">
 
-                            <option>
-                                Scheduled
-                            </option>
-
-                            <option>
-                                Briefing
-                            </option>
-
-                            <option>
-                                Active
-                            </option>
-
-                            <option>
-                                Completed
-                            </option>
-
-                            <option>
-                                Cancelled
-                            </option>
+                            <option>Scheduled</option>
+                            <option>Briefing</option>
+                            <option>Active</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
 
                         </select>
 
                     </div>
 
-
-                    <!-- BRIEFING -->
 
                     <div class="operation-field wide">
 
@@ -1943,16 +1950,13 @@
                             Mission Briefing
                         </label>
 
-
                         <textarea
                             id="operationBriefing"
-                            placeholder="Situation, enemy forces, friendly forces, mission and execution information..."
+                            placeholder="Mission information..."
                         ></textarea>
 
                     </div>
 
-
-                    <!-- OBJECTIVES -->
 
                     <div class="operation-field wide">
 
@@ -1960,18 +1964,15 @@
                             Mission Objectives
                         </label>
 
-
                         <textarea
                             id="operationObjectives"
-                            placeholder="Primary objective, secondary objectives and commander's intent..."
+                            placeholder="Primary and secondary objectives..."
                         ></textarea>
 
                     </div>
 
                 </div>
 
-
-                <!-- ACTIONS -->
 
                 <div class="form-actions">
 
@@ -2006,9 +2007,9 @@
         </section>
 
 
-        <!-- =================================================
-             MISSION BOARD
-             ================================================= -->
+        <!-- ========================================= -->
+        <!-- MISSIONS -->
+        <!-- ========================================= -->
 
         <section>
 
@@ -2031,9 +2032,9 @@
     </main>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- FOOTER -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <footer>
 
@@ -2070,44 +2071,32 @@
                 Member Portal
             </a>
 
-
             <a href="resources.html">
                 Unit Resources
             </a>
 
-
-            <a
-                href="https://discord.gg/PCxE5jTYZ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Discord
+            <a href="index.html">
+                Home
             </a>
 
         </div>
 
 
         <p class="fineprint">
-            This is a gaming/military simulation community website
-            and is not affiliated with the United States Department
-            of Defense.
+            Secure member operations system.
         </p>
 
     </footer>
 
 
-    <!-- ================================================= -->
+    <!-- ============================================= -->
     <!-- SUPABASE -->
-    <!-- ================================================= -->
+    <!-- ============================================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
-
-    <!-- ================================================= -->
-    <!-- OPBOARD JAVASCRIPT -->
-    <!-- ================================================= -->
 
     <script>
 
@@ -2118,9 +2107,9 @@
             async () => {
 
 
-                // =============================================
-                // SUPABASE CONFIGURATION
-                // =============================================
+                // =========================================
+                // SUPABASE
+                // =========================================
 
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
@@ -2132,34 +2121,14 @@
 
                 const client =
                     window.supabase.createClient(
-
                         SUPABASE_URL,
-
-                        SUPABASE_KEY,
-
-                        {
-
-                            auth: {
-
-                                persistSession:
-                                    true,
-
-                                autoRefreshToken:
-                                    true,
-
-                                detectSessionInUrl:
-                                    true
-
-                            }
-
-                        }
-
+                        SUPABASE_KEY
                     );
 
 
-                // =============================================
+                // =========================================
                 // STATE
-                // =============================================
+                // =========================================
 
                 let currentUser =
                     null;
@@ -2173,13 +2142,17 @@
                     [];
 
 
+                let signups =
+                    [];
+
+
                 let isAdmin =
                     false;
 
 
-                // =============================================
+                // =========================================
                 // ELEMENTS
-                // =============================================
+                // =========================================
 
                 const boardLoading =
                     document.getElementById(
@@ -2228,56 +2201,6 @@
                         'formMessage'
                     );
 
-
-                // =============================================
-                // NAVIGATION ELEMENTS
-                // =============================================
-
-                const loginButton =
-                    document.getElementById(
-                        'discordLoginBtn'
-                    );
-
-
-                const memberProfile =
-                    document.getElementById(
-                        'memberProfile'
-                    );
-
-
-                const memberName =
-                    document.getElementById(
-                        'memberName'
-                    );
-
-
-                const memberAvatar =
-                    document.getElementById(
-                        'memberAvatar'
-                    );
-
-
-                const memberPortalLink =
-                    document.getElementById(
-                        'memberPortalLink'
-                    );
-
-
-                const operationsPortalLink =
-                    document.getElementById(
-                        'operationsPortalLink'
-                    );
-
-
-                const adminPortalLink =
-                    document.getElementById(
-                        'adminPortalLink'
-                    );
-
-
-                // =============================================
-                // FORM ELEMENTS
-                // =============================================
 
                 const operationId =
                     document.getElementById(
@@ -2345,83 +2268,65 @@
                     );
 
 
-                // =============================================
+                // =========================================
                 // ESCAPE HTML
-                // =============================================
+                // =========================================
 
-                function escapeHtml(
-                    value
-                ) {
+                function escapeHtml(value) {
 
                     return String(
                         value ?? ''
                     )
 
-                        .replaceAll(
-                            '&',
-                            '&amp;'
-                        )
+                    .replaceAll(
+                        '&',
+                        '&amp;'
+                    )
 
-                        .replaceAll(
-                            '<',
-                            '&lt;'
-                        )
+                    .replaceAll(
+                        '<',
+                        '&lt;'
+                    )
 
-                        .replaceAll(
-                            '>',
-                            '&gt;'
-                        )
+                    .replaceAll(
+                        '>',
+                        '&gt;'
+                    )
 
-                        .replaceAll(
-                            '"',
-                            '&quot;'
-                        )
+                    .replaceAll(
+                        '"',
+                        '&quot;'
+                    )
 
-                        .replaceAll(
-                            "'",
-                            '&#039;'
-                        );
+                    .replaceAll(
+                        "'",
+                        '&#039;'
+                    );
 
                 }
 
 
-                // =============================================
-                // DISCORD USER NAME
-                // =============================================
+                // =========================================
+                // USER INFO
+                // =========================================
 
-                function getUserName(
-                    user
-                ) {
+                function getUserName(user) {
 
                     return (
 
-                        user?.user_metadata
-                            ?.global_name
+                        user?.user_metadata?.global_name
 
                         ||
 
-                        user?.user_metadata
-                            ?.full_name
+                        user?.user_metadata?.name
 
                         ||
 
-                        user?.user_metadata
-                            ?.name
+                        user?.user_metadata?.preferred_username
 
                         ||
 
-                        user?.user_metadata
-                            ?.preferred_username
-
-                        ||
-
-                        user?.user_metadata
-                            ?.user_name
-
-                        ||
-
-                        user?.user_metadata
-                            ?.username
+                        user?.user_metadata?.username
 
                         ||
 
@@ -2432,23 +2337,15 @@
                 }
 
 
-                // =============================================
-                // DISCORD AVATAR
-                // =============================================
-
-                function getAvatar(
-                    user
-                ) {
+                function getAvatar(user) {
 
                     return (
 
-                        user?.user_metadata
-                            ?.avatar_url
+                        user?.user_metadata?.avatar_url
 
                         ||
 
-                        user?.user_metadata
-                            ?.picture
+                        user?.user_metadata?.picture
 
                         ||
 
@@ -2459,11 +2356,53 @@
                 }
 
 
-                // =============================================
+                // =========================================
                 // HEADER
-                // =============================================
+                // =========================================
 
                 function renderHeader() {
+
+                    const loginButton =
+                        document.getElementById(
+                            'discordLoginBtn'
+                        );
+
+
+                    const memberProfile =
+                        document.getElementById(
+                            'memberProfile'
+                        );
+
+
+                    const memberName =
+                        document.getElementById(
+                            'memberName'
+                        );
+
+
+                    const memberAvatar =
+                        document.getElementById(
+                            'memberAvatar'
+                        );
+
+
+                    const memberPortalLink =
+                        document.getElementById(
+                            'memberPortalLink'
+                        );
+
+
+                    const operationsPortalLink =
+                        document.getElementById(
+                            'operationsPortalLink'
+                        );
+
+
+                    const adminPortalLink =
+                        document.getElementById(
+                            'adminPortalLink'
+                        );
+
 
                     if (!currentUser) {
 
@@ -2514,8 +2453,7 @@
 
                     memberName.textContent =
 
-                        currentProfile
-                            ?.display_name
+                        currentProfile?.display_name
 
                         ||
 
@@ -2536,23 +2474,12 @@
                             avatar;
 
 
-                        memberAvatar.alt =
-                            getUserName(
-                                currentUser
-                            );
-
-
                         memberAvatar.hidden =
                             false;
 
                     }
 
                     else {
-
-                        memberAvatar.removeAttribute(
-                            'src'
-                        );
-
 
                         memberAvatar.hidden =
                             true;
@@ -2562,49 +2489,38 @@
                 }
 
 
-                // =============================================
+                // =========================================
                 // LOGIN
-                // =============================================
+                // =========================================
 
                 async function login() {
 
-                    const {
-                        error
-                    } =
-                        await client.auth
-                            .signInWithOAuth({
+                    await client.auth
+                        .signInWithOAuth({
 
-                                provider:
-                                    'discord',
+                            provider:
+                                'discord',
 
-                                options: {
+                            options: {
 
-                                    redirectTo:
-                                        window.location.href
+                                redirectTo:
+                                    window.location.href
 
-                                }
+                            }
 
-                            });
-
-
-                    if (error) {
-
-                        alert(
-                            error.message
-                        );
-
-                    }
+                        });
 
                 }
 
 
-                loginButton.addEventListener(
-
-                    'click',
-
-                    login
-
-                );
+                document
+                    .getElementById(
+                        'discordLoginBtn'
+                    )
+                    .addEventListener(
+                        'click',
+                        login
+                    );
 
 
                 document
@@ -2612,17 +2528,14 @@
                         'boardLoginButton'
                     )
                     .addEventListener(
-
                         'click',
-
                         login
-
                     );
 
 
-                // =============================================
+                // =========================================
                 // LOGOUT
-                // =============================================
+                // =========================================
 
                 document
                     .getElementById(
@@ -2646,9 +2559,9 @@
                     );
 
 
-                // =============================================
-                // MOBILE NAVIGATION
-                // =============================================
+                // =========================================
+                // MOBILE NAV
+                // =========================================
 
                 const navToggle =
                     document.getElementById(
@@ -2688,13 +2601,11 @@
                 );
 
 
-                // =============================================
+                // =========================================
                 // DATE FORMAT
-                // =============================================
+                // =========================================
 
-                function getDateParts(
-                    value
-                ) {
+                function getDateParts(value) {
 
                     const date =
                         new Date(
@@ -2707,46 +2618,35 @@
                         month:
                             date
                                 .toLocaleDateString(
-
                                     undefined,
-
                                     {
                                         month:
                                             'short'
                                     }
-
                                 )
                                 .toUpperCase(),
 
                         day:
                             date
                                 .toLocaleDateString(
-
                                     undefined,
-
                                     {
                                         day:
                                             '2-digit'
                                     }
-
                                 ),
 
                         time:
                             date
                                 .toLocaleTimeString(
-
                                     undefined,
-
                                     {
-
                                         hour:
                                             'numeric',
 
                                         minute:
                                             '2-digit'
-
                                     }
-
                                 )
 
                     };
@@ -2754,9 +2654,59 @@
                 }
 
 
-                // =============================================
+                // =========================================
+                // SIGNUP INFORMATION
+                // =========================================
+
+                function getOperationSignups(
+                    operationId
+                ) {
+
+                    return signups.filter(
+
+                        signup =>
+                            Number(
+                                signup.operation_id
+                            )
+                            ===
+                            Number(
+                                operationId
+                            )
+
+                    );
+
+                }
+
+
+                function isCurrentUserSignedUp(
+                    operationId
+                ) {
+
+                    return signups.some(
+
+                        signup =>
+
+                            Number(
+                                signup.operation_id
+                            )
+                            ===
+                            Number(
+                                operationId
+                            )
+
+                            &&
+
+                            signup.user_id ===
+                            currentUser.id
+
+                    );
+
+                }
+
+
+                // =========================================
                 // RENDER OPERATIONS
-                // =============================================
+                // =========================================
 
                 function renderOperations() {
 
@@ -2771,15 +2721,11 @@
                                 </h3>
 
                                 There are currently no missions
-                                posted to the Operations Board.
+                                posted to OPBOARD.
 
                             </div>
 
                         `;
-
-
-                        boardStatus.textContent =
-                            'No operations currently posted.';
 
 
                         return;
@@ -2787,264 +2733,365 @@
                     }
 
 
-                    boardStatus.textContent =
-
-                        `${operations.length} operation${
-                            operations.length === 1
-                                ?
-                                ''
-                                :
-                                's'
-                        } posted.`;
-
-
                     operationsGrid.innerHTML =
 
-                        operations
+                        operations.map(
 
-                            .map(
+                            operation => {
 
-                                operation => {
 
+                                const date =
+                                    getDateParts(
+                                        operation.operation_date
+                                    );
 
-                                    const date =
-                                        getDateParts(
-                                            operation.operation_date
-                                        );
 
+                                const operationSignups =
+                                    getOperationSignups(
+                                        operation.id
+                                    );
 
-                                    const statusClass =
-                                        String(
-                                            operation.status
-                                            ||
-                                            ''
-                                        )
-                                        .toLowerCase();
 
+                                const signedUp =
+                                    isCurrentUserSignedUp(
+                                        operation.id
+                                    );
 
-                                    return `
 
-                                        <article class="operation-card">
+                                const signupsClosed =
 
+                                    operation.status ===
+                                    'Completed'
 
-                                            <div class="operation-card-top">
+                                    ||
 
+                                    operation.status ===
+                                    'Cancelled';
 
-                                                <div class="operation-date">
 
+                                const signupButton =
 
-                                                    <div class="operation-date-month">
+                                    signupsClosed
 
-                                                        ${escapeHtml(
-                                                            date.month
-                                                        )}
+                                    ?
 
-                                                    </div>
+                                    `
 
+                                        <button
+                                            class="signup-button"
+                                            type="button"
+                                            disabled
+                                        >
+                                            Sign-Ups Closed
+                                        </button>
 
-                                                    <div class="operation-date-day">
+                                    `
 
-                                                        ${escapeHtml(
-                                                            date.day
-                                                        )}
+                                    :
 
-                                                    </div>
+                                    signedUp
 
+                                    ?
 
-                                                    <div class="operation-date-time">
+                                    `
 
-                                                        ${escapeHtml(
-                                                            date.time
-                                                        )}
+                                        <button
+                                            class="signup-button signed-up"
+                                            data-cancel-signup="${operation.id}"
+                                            type="button"
+                                        >
+                                            Cancel Sign-Up
+                                        </button>
 
-                                                    </div>
+                                    `
 
+                                    :
 
-                                                </div>
+                                    `
 
+                                        <button
+                                            class="signup-button"
+                                            data-operation-signup="${operation.id}"
+                                            type="button"
+                                        >
+                                            Sign Up
+                                        </button>
 
-                                                <div class="operation-title-area">
+                                    `;
 
 
-                                                    <div class="operation-type">
+                                const statusClass =
+                                    String(
+                                        operation.status
+                                        ||
+                                        ''
+                                    )
+                                    .toLowerCase();
 
-                                                        ${escapeHtml(
-                                                            operation.operation_type
-                                                            ||
-                                                            'Operation'
-                                                        )}
 
-                                                    </div>
+                                return `
 
+                                    <article class="operation-card">
 
-                                                    <h3 class="operation-title">
 
-                                                        ${escapeHtml(
-                                                            operation.title
-                                                        )}
+                                        <div class="operation-card-top">
 
-                                                    </h3>
 
+                                            <div class="operation-date">
 
-                                                    <div class="operation-location">
+                                                <div class="operation-date-month">
 
-                                                        AO / MAP:
-                                                        ${escapeHtml(
-                                                            operation.map_location
-                                                            ||
-                                                            'TBD'
-                                                        )}
-
-                                                    </div>
-
-
-                                                </div>
-
-
-                                                <div class="operation-status-area">
-
-                                                    <span
-                                                        class="operation-status ${escapeHtml(
-                                                            statusClass
-                                                        )}"
-                                                    >
-
-                                                        ${escapeHtml(
-                                                            operation.status
-                                                        )}
-
-                                                    </span>
-
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div class="operation-card-body">
-
-
-                                                <div class="operation-info-section">
-
-                                                    <div class="operation-info-title">
-                                                        Mission Briefing
-                                                    </div>
-
-
-                                                    <div class="operation-info-text">${escapeHtml(
-                                                        operation.briefing
-                                                        ||
-                                                        'Briefing pending.'
-                                                    )}</div>
-
-                                                </div>
-
-
-                                                <div class="operation-info-section">
-
-                                                    <div class="operation-info-title">
-                                                        Objectives
-                                                    </div>
-
-
-                                                    <div class="operation-info-text">${escapeHtml(
-                                                        operation.objectives
-                                                        ||
-                                                        'Objectives pending.'
-                                                    )}</div>
-
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div class="operation-meta">
-
-
-                                                <span class="operation-meta-tag">
-
-                                                    Required:
                                                     ${escapeHtml(
-                                                        operation.required_section
-                                                        ||
-                                                        'All Personnel'
+                                                        date.month
                                                     )}
 
-                                                </span>
+                                                </div>
 
 
-                                                <span class="operation-meta-tag">
+                                                <div class="operation-date-day">
 
-                                                    Status:
+                                                    ${escapeHtml(
+                                                        date.day
+                                                    )}
+
+                                                </div>
+
+
+                                                <div class="operation-date-time">
+
+                                                    ${escapeHtml(
+                                                        date.time
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="operation-title-area">
+
+                                                <div class="operation-type">
+
+                                                    ${escapeHtml(
+                                                        operation.operation_type
+                                                    )}
+
+                                                </div>
+
+
+                                                <h3 class="operation-title">
+
+                                                    ${escapeHtml(
+                                                        operation.title
+                                                    )}
+
+                                                </h3>
+
+
+                                                <div class="operation-location">
+
+                                                    AO / MAP:
+                                                    ${escapeHtml(
+                                                        operation.map_location
+                                                        ||
+                                                        'TBD'
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="operation-status-area">
+
+                                                <span
+                                                    class="operation-status ${escapeHtml(
+                                                        statusClass
+                                                    )}"
+                                                >
+
                                                     ${escapeHtml(
                                                         operation.status
                                                     )}
 
                                                 </span>
 
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="operation-card-body">
+
+
+                                            <div>
+
+                                                <div class="operation-info-title">
+                                                    Mission Briefing
+                                                </div>
+
+
+                                                <div class="operation-info-text">${escapeHtml(
+                                                    operation.briefing
+                                                    ||
+                                                    'Briefing pending.'
+                                                )}</div>
 
                                             </div>
 
 
-                                            ${
-                                                isAdmin
+                                            <div>
 
-                                                ?
-
-                                                `
-
-                                                    <div class="operation-admin-controls">
+                                                <div class="operation-info-title">
+                                                    Objectives
+                                                </div>
 
 
-                                                        <button
-                                                            class="edit-operation"
-                                                            data-edit-operation="${operation.id}"
-                                                            type="button"
-                                                        >
-                                                            Edit Operation
-                                                        </button>
+                                                <div class="operation-info-text">${escapeHtml(
+                                                    operation.objectives
+                                                    ||
+                                                    'Objectives pending.'
+                                                )}</div>
+
+                                            </div>
 
 
-                                                        <button
-                                                            class="delete-operation"
-                                                            data-delete-operation="${operation.id}"
-                                                            type="button"
-                                                        >
-                                                            Delete
-                                                        </button>
+                                        </div>
 
 
-                                                    </div>
+                                        <div class="operation-meta">
 
-                                                `
+                                            <span class="operation-meta-tag">
 
-                                                :
+                                                Required:
+                                                ${escapeHtml(
+                                                    operation.required_section
+                                                )}
 
-                                                ''
-
-                                            }
+                                            </span>
 
 
-                                        </article>
+                                            <span class="operation-meta-tag">
 
-                                    `;
+                                                Status:
+                                                ${escapeHtml(
+                                                    operation.status
+                                                )}
 
-                                }
+                                            </span>
 
-                            )
+                                        </div>
 
-                            .join('');
+
+                                        <div class="operation-signup-area">
+
+                                            <div class="signup-information">
+
+                                                <strong>
+                                                    Mission Sign-Up
+                                                </strong>
+
+
+                                                <span class="signup-count">
+
+                                                    ${operationSignups.length}
+                                                    member${
+                                                        operationSignups.length === 1
+                                                            ?
+                                                            ''
+                                                            :
+                                                            's'
+                                                    }
+                                                    signed up
+
+                                                </span>
+
+
+                                                ${
+                                                    signedUp
+
+                                                    ?
+
+                                                    `
+
+                                                        <span>
+                                                            You are currently signed up for this event.
+                                                        </span>
+
+                                                    `
+
+                                                    :
+
+                                                    ''
+
+                                                }
+
+                                            </div>
+
+
+                                            ${signupButton}
+
+                                        </div>
+
+
+                                        ${
+                                            isAdmin
+
+                                            ?
+
+                                            `
+
+                                                <div class="operation-admin-controls">
+
+                                                    <button
+                                                        class="edit-operation"
+                                                        data-edit-operation="${operation.id}"
+                                                        type="button"
+                                                    >
+                                                        Edit Operation
+                                                    </button>
+
+
+                                                    <button
+                                                        class="delete-operation"
+                                                        data-delete-operation="${operation.id}"
+                                                        type="button"
+                                                    >
+                                                        Delete
+                                                    </button>
+
+                                                </div>
+
+                                            `
+
+                                            :
+
+                                            ''
+
+                                        }
+
+
+                                    </article>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
 
 
                     attachOperationButtons();
 
+                    attachSignupButtons();
+
                 }
 
 
-                // =============================================
+                // =========================================
                 // LOAD OPERATIONS
-                // =============================================
+                // =========================================
 
                 async function loadOperations() {
 
@@ -3076,30 +3123,12 @@
                     if (error) {
 
                         console.error(
-                            'Operation load error:',
                             error
                         );
 
 
                         boardStatus.textContent =
-                            'Unable to load operations.';
-
-
-                        operationsGrid.innerHTML = `
-
-                            <div class="empty-board">
-
-                                <h3>
-                                    OPBOARD Unavailable
-                                </h3>
-
-                                ${escapeHtml(
-                                    error.message
-                                )}
-
-                            </div>
-
-                        `;
+                            'Unable to load missions.';
 
 
                         return;
@@ -3111,14 +3140,311 @@
                         data || [];
 
 
+                    await loadSignups();
+
+
+                    boardStatus.textContent =
+
+                        `${operations.length} mission${
+                            operations.length === 1
+                                ?
+                                ''
+                                :
+                                's'
+                        } posted.`;
+
+
                     renderOperations();
 
                 }
 
 
-                // =============================================
-                // RESET POSTING FORM
-                // =============================================
+                // =========================================
+                // LOAD SIGNUPS
+                // =========================================
+
+                async function loadSignups() {
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operation_signups'
+                            )
+
+                            .select(
+                                'id,operation_id,user_id,created_at'
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Signup load error:',
+                            error
+                        );
+
+
+                        signups =
+                            [];
+
+
+                        return;
+
+                    }
+
+
+                    signups =
+                        data || [];
+
+                }
+
+
+                // =========================================
+                // SIGN UP
+                // =========================================
+
+                async function signupForOperation(
+                    operationId,
+                    button
+                ) {
+
+                    if (!currentUser) {
+
+                        return;
+
+                    }
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.textContent =
+                        'Signing Up...';
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operation_signups'
+                            )
+
+                            .insert({
+
+                                operation_id:
+                                    operationId,
+
+                                user_id:
+                                    currentUser.id
+
+                            });
+
+
+                    if (error) {
+
+                        console.error(
+                            'Signup error:',
+                            error
+                        );
+
+
+                        alert(
+                            'Unable to sign up: ' +
+                            error.message
+                        );
+
+
+                        button.disabled =
+                            false;
+
+
+                        button.textContent =
+                            'Sign Up';
+
+
+                        return;
+
+                    }
+
+
+                    await loadSignups();
+
+
+                    renderOperations();
+
+                }
+
+
+                // =========================================
+                // CANCEL SIGNUP
+                // =========================================
+
+                async function cancelOperationSignup(
+                    operationId,
+                    button
+                ) {
+
+                    if (!currentUser) {
+
+                        return;
+
+                    }
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.textContent =
+                        'Cancelling...';
+
+
+                    const {
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operation_signups'
+                            )
+
+                            .delete()
+
+                            .eq(
+                                'operation_id',
+                                operationId
+                            )
+
+                            .eq(
+                                'user_id',
+                                currentUser.id
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            'Cancel signup error:',
+                            error
+                        );
+
+
+                        alert(
+                            'Unable to cancel signup: ' +
+                            error.message
+                        );
+
+
+                        button.disabled =
+                            false;
+
+
+                        button.textContent =
+                            'Cancel Sign-Up';
+
+
+                        return;
+
+                    }
+
+
+                    await loadSignups();
+
+
+                    renderOperations();
+
+                }
+
+
+                // =========================================
+                // ATTACH SIGNUP BUTTONS
+                // =========================================
+
+                function attachSignupButtons() {
+
+
+                    document
+                        .querySelectorAll(
+                            '[data-operation-signup]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .operationSignup
+                                            );
+
+
+                                        await signupForOperation(
+                                            id,
+                                            button
+                                        );
+
+                                    }
+
+                                );
+
+                            }
+
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            '[data-cancel-signup]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .cancelSignup
+                                            );
+
+
+                                        await cancelOperationSignup(
+                                            id,
+                                            button
+                                        );
+
+                                    }
+
+                                );
+
+                            }
+
+                        );
+
+                }
+
+
+                // =========================================
+                // RESET ADMIN FORM
+                // =========================================
 
                 function resetForm() {
 
@@ -3169,16 +3495,12 @@
                     formMessage.textContent =
                         '';
 
-
-                    formMessage.className =
-                        'form-message';
-
                 }
 
 
-                // =============================================
-                // SAVE / UPDATE OPERATION
-                // =============================================
+                // =========================================
+                // SAVE OPERATION
+                // =========================================
 
                 saveOperation.addEventListener(
 
@@ -3212,7 +3534,7 @@
                         ) {
 
                             formMessage.textContent =
-                                'Operation name and date/time are required.';
+                                'Operation name and date are required.';
 
 
                             formMessage.className =
@@ -3222,18 +3544,6 @@
                             return;
 
                         }
-
-
-                        saveOperation.disabled =
-                            true;
-
-
-                        formMessage.textContent =
-                            'Saving operation...';
-
-
-                        formMessage.className =
-                            'form-message';
 
 
                         const payload = {
@@ -3283,13 +3593,7 @@
                         let error;
 
 
-                        const editing =
-                            Boolean(
-                                operationId.value
-                            );
-
-
-                        if (editing) {
+                        if (operationId.value) {
 
                             const response =
                                 await client
@@ -3337,17 +3641,7 @@
                         }
 
 
-                        saveOperation.disabled =
-                            false;
-
-
                         if (error) {
-
-                            console.error(
-                                'Operation save error:',
-                                error
-                            );
-
 
                             formMessage.textContent =
                                 error.message;
@@ -3365,41 +3659,20 @@
                         resetForm();
 
 
-                        formMessage.textContent =
-                            editing
-                                ?
-                                'Operation updated successfully.'
-                                :
-                                'Operation posted successfully.';
-
-
-                        formMessage.className =
-                            'form-message success';
-
-
                         await loadOperations();
 
-                    }
+                });
 
-                );
-
-
-                // =============================================
-                // CANCEL EDIT
-                // =============================================
 
                 cancelEdit.addEventListener(
-
                     'click',
-
                     resetForm
-
                 );
 
 
-                // =============================================
-                // EDIT / DELETE CONTROLS
-                // =============================================
+                // =========================================
+                // EDIT / DELETE
+                // =========================================
 
                 function attachOperationButtons() {
 
@@ -3451,31 +3724,27 @@
 
 
                                         operationTitle.value =
-                                            operation.title
-                                            ||
-                                            '';
+                                            operation.title;
 
 
                                         operationType.value =
-                                            operation.operation_type
-                                            ||
-                                            'Operation';
+                                            operation.operation_type;
 
 
-                                        const originalDate =
+                                        const date =
                                             new Date(
                                                 operation.operation_date
                                             );
 
 
-                                        const correctedDate =
+                                        const local =
                                             new Date(
 
-                                                originalDate.getTime()
+                                                date.getTime()
 
                                                 -
 
-                                                originalDate
+                                                date
                                                     .getTimezoneOffset()
                                                 *
                                                 60000
@@ -3484,7 +3753,7 @@
 
 
                                         operationDate.value =
-                                            correctedDate
+                                            local
                                                 .toISOString()
                                                 .slice(
                                                     0,
@@ -3499,15 +3768,11 @@
 
 
                                         operationSection.value =
-                                            operation.required_section
-                                            ||
-                                            'All Personnel';
+                                            operation.required_section;
 
 
                                         operationStatus.value =
-                                            operation.status
-                                            ||
-                                            'Scheduled';
+                                            operation.status;
 
 
                                         operationBriefing.value =
@@ -3530,22 +3795,11 @@
                                             false;
 
 
-                                        formMessage.textContent =
-                                            `Editing ${operation.title}`;
-
-
-                                        formMessage.className =
-                                            'form-message';
-
-
                                         commandPanel
                                             .scrollIntoView({
 
                                                 behavior:
-                                                    'smooth',
-
-                                                block:
-                                                    'start'
+                                                    'smooth'
 
                                             });
 
@@ -3580,31 +3834,9 @@
                                             );
 
 
-                                        const operation =
-                                            operations.find(
-
-                                                item =>
-                                                    Number(
-                                                        item.id
-                                                    )
-                                                    ===
-                                                    id
-
-                                            );
-
-
-                                        if (!operation) {
-
-                                            return;
-
-                                        }
-
-
                                         const confirmed =
-                                            window.confirm(
-
-                                                `Delete "${operation.title}" from OPBOARD?`
-
+                                            confirm(
+                                                'Delete this operation?'
                                             );
 
 
@@ -3613,10 +3845,6 @@
                                             return;
 
                                         }
-
-
-                                        button.disabled =
-                                            true;
 
 
                                         const {
@@ -3638,19 +3866,9 @@
 
                                         if (error) {
 
-                                            console.error(
-                                                'Operation delete error:',
-                                                error
-                                            );
-
-
                                             alert(
                                                 error.message
                                             );
-
-
-                                            button.disabled =
-                                                false;
 
 
                                             return;
@@ -3671,9 +3889,9 @@
                 }
 
 
-                // =============================================
+                // =========================================
                 // REFRESH
-                // =============================================
+                // =========================================
 
                 document
                     .getElementById(
@@ -3688,36 +3906,18 @@
                     );
 
 
-                // =============================================
-                // INITIALIZE OPBOARD
-                // =============================================
+                // =========================================
+                // INITIALIZE
+                // =========================================
 
                 async function initialize() {
-
-                    boardLoading.hidden =
-                        false;
-
-
-                    loginRequired.hidden =
-                        true;
-
-
-                    membershipRequired.hidden =
-                        true;
-
-
-                    boardContent.hidden =
-                        true;
 
 
                     const {
                         data:
                         {
                             session
-                        },
-
-                        error:
-                            sessionError
+                        }
                     } =
                         await client.auth
                             .getSession();
@@ -3727,33 +3927,7 @@
                         true;
 
 
-                    if (sessionError) {
-
-                        console.error(
-                            'Session error:',
-                            sessionError
-                        );
-
-                    }
-
-
-                    // =========================================
-                    // NOT LOGGED IN
-                    // =========================================
-
                     if (!session?.user) {
-
-                        currentUser =
-                            null;
-
-
-                        currentProfile =
-                            null;
-
-
-                        isAdmin =
-                            false;
-
 
                         loginRequired.hidden =
                             false;
@@ -3770,10 +3944,6 @@
                     currentUser =
                         session.user;
 
-
-                    // =========================================
-                    // VERIFY MEMBER PROFILE
-                    // =========================================
 
                     const {
                         data:
@@ -3800,39 +3970,11 @@
                             .maybeSingle();
 
 
-                    if (profileError) {
-
-                        console.error(
-                            'Profile error:',
-                            profileError
-                        );
-
-
-                        membershipRequired.hidden =
-                            false;
-
-
-                        renderHeader();
-
-
-                        return;
-
-                    }
-
-
-                    // =========================================
-                    // AUTHENTICATED BUT NOT UNIT MEMBER
-                    // =========================================
-
-                    if (!profile) {
-
-                        currentProfile =
-                            null;
-
-
-                        isAdmin =
-                            false;
-
+                    if (
+                        profileError
+                        ||
+                        !profile
+                    ) {
 
                         membershipRequired.hidden =
                             false;
@@ -3850,35 +3992,19 @@
                         profile;
 
 
-                    // =========================================
-                    // ADMIN PERMISSION
-                    // =========================================
-
                     isAdmin =
 
                         profile.access_level ===
-                            'Admin'
+                        'Admin'
 
                         ||
 
                         profile.access_level ===
-                            'Super Admin';
+                        'Super Admin';
 
-
-                    // =========================================
-                    // SHOW MEMBER BOARD
-                    // =========================================
 
                     commandPanel.hidden =
                         !isAdmin;
-
-
-                    loginRequired.hidden =
-                        true;
-
-
-                    membershipRequired.hidden =
-                        true;
 
 
                     boardContent.hidden =
@@ -3892,64 +4018,6 @@
 
                 }
 
-
-                // =============================================
-                // AUTH CHANGE WATCHER
-                // =============================================
-
-                client.auth
-                    .onAuthStateChange(
-
-                        async (
-                            event,
-                            session
-                        ) => {
-
-                            if (
-                                event ===
-                                'SIGNED_OUT'
-                            ) {
-
-                                currentUser =
-                                    null;
-
-
-                                currentProfile =
-                                    null;
-
-
-                                isAdmin =
-                                    false;
-
-
-                                boardContent.hidden =
-                                    true;
-
-
-                                commandPanel.hidden =
-                                    true;
-
-
-                                membershipRequired.hidden =
-                                    true;
-
-
-                                loginRequired.hidden =
-                                    false;
-
-
-                                renderHeader();
-
-                            }
-
-                        }
-
-                    );
-
-
-                // =============================================
-                // START
-                // =============================================
 
                 await initialize();
 
