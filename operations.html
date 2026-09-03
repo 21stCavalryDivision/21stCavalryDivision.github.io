@@ -1,0 +1,3399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="21st Cavalry Division Operations Board"
+    >
+
+    <title>
+        21st Cavalry Division | OPBOARD
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- WEBSITE CSS -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css?v=13"
+    >
+
+
+    <style>
+
+        body {
+            background: #080d10;
+        }
+
+
+        /* =========================================
+           HERO
+           ========================================= */
+
+        .opboard-hero {
+
+            padding:
+                70px
+                clamp(24px, 6vw, 110px)
+                60px;
+
+            border-bottom:
+                1px solid #30383d;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #080e12,
+                    #11160f
+                );
+
+        }
+
+
+        .opboard-hero-inner {
+
+            max-width: 900px;
+
+        }
+
+
+        .opboard-hero h1 {
+
+            margin:
+                8px 0
+                12px;
+
+            color: #fff;
+
+            font:
+                700 clamp(
+                    50px,
+                    7vw,
+                    88px
+                )
+                Oswald,
+                sans-serif;
+
+            line-height: 1;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .opboard-hero-description {
+
+            max-width: 700px;
+
+            color: #9ca7ac;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           MAIN
+           ========================================= */
+
+        .opboard-shell {
+
+            padding:
+                35px
+                clamp(24px, 6vw, 110px)
+                100px;
+
+        }
+
+
+        /* =========================================
+           TOP STATUS BAR
+           ========================================= */
+
+        .opboard-status {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 22px;
+
+            padding:
+                15px
+                18px;
+
+            border:
+                1px solid #30383d;
+
+            background: #0e1417;
+
+        }
+
+
+        .opboard-status strong {
+
+            display: block;
+
+            color: #c5a75b;
+
+            font:
+                600 11px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .opboard-status span {
+
+            color: #7f8d93;
+
+            font-size: 11px;
+
+        }
+
+
+        .refresh-button {
+
+            min-height: 38px;
+
+            padding:
+                0
+                17px;
+
+            border:
+                1px solid #c5a75b;
+
+            background: transparent;
+
+            color: #c5a75b;
+
+            cursor: pointer;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .refresh-button:hover {
+
+            background: #c5a75b;
+
+            color: #111;
+
+        }
+
+
+        /* =========================================
+           LOGIN MESSAGE
+           ========================================= */
+
+        .board-message {
+
+            max-width: 750px;
+
+            margin:
+                50px auto;
+
+            padding:
+                40px;
+
+            border:
+                1px solid #30383d;
+
+            border-top:
+                3px solid #c5a75b;
+
+            background: #101619;
+
+            text-align: center;
+
+        }
+
+
+        .board-message h2 {
+
+            margin:
+                5px 0
+                10px;
+
+            color: #fff;
+
+            font:
+                600 31px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .board-message p {
+
+            color: #89959a;
+
+            line-height: 1.6;
+
+        }
+
+
+        .primary-button {
+
+            min-height: 42px;
+
+            padding:
+                0 18px;
+
+            border:
+                1px solid #c5a75b;
+
+            background: #c5a75b;
+
+            color: #111;
+
+            cursor: pointer;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           ADMIN PANEL
+           ========================================= */
+
+        .command-panel {
+
+            margin-bottom: 28px;
+
+            border:
+                1px solid #30383d;
+
+            border-top:
+                2px solid #c5a75b;
+
+            background: #101619;
+
+        }
+
+
+        .command-panel-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding:
+                20px
+                22px;
+
+            border-bottom:
+                1px solid #30383d;
+
+        }
+
+
+        .command-panel-header h2 {
+
+            margin: 0;
+
+            color: #fff;
+
+            font:
+                600 25px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .command-access {
+
+            color: #c5a75b;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .command-panel-body {
+
+            padding: 22px;
+
+        }
+
+
+        .operation-form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap: 13px;
+
+        }
+
+
+        .operation-field {
+
+            display: grid;
+
+            gap: 6px;
+
+        }
+
+
+        .operation-field.wide {
+
+            grid-column:
+                span 3;
+
+        }
+
+
+        .operation-field label {
+
+            color: #859197;
+
+            font:
+                500 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.8px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-field input,
+        .operation-field select,
+        .operation-field textarea {
+
+            width: 100%;
+
+            padding:
+                11px
+                12px;
+
+            border:
+                1px solid #374147;
+
+            outline: none;
+
+            background: #080e11;
+
+            color: #fff;
+
+            font-family:
+                Roboto,
+                sans-serif;
+
+        }
+
+
+        .operation-field input:focus,
+        .operation-field select:focus,
+        .operation-field textarea:focus {
+
+            border-color: #c5a75b;
+
+        }
+
+
+        .operation-field textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+
+        }
+
+
+        .form-actions {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 18px;
+
+        }
+
+
+        .secondary-button {
+
+            min-height: 42px;
+
+            padding:
+                0 18px;
+
+            border:
+                1px solid #586369;
+
+            background: transparent;
+
+            color: #d9dfe1;
+
+            cursor: pointer;
+
+            font:
+                600 10px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .form-message {
+
+            margin-top: 13px;
+
+            color: #879399;
+
+            font-size: 12px;
+
+        }
+
+
+        .form-message.success {
+
+            color: #77d292;
+
+        }
+
+
+        .form-message.error {
+
+            color: #e17777;
+
+        }
+
+
+        /* =========================================
+           BOARD HEADING
+           ========================================= */
+
+        .board-heading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .board-heading::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #30383d;
+
+        }
+
+
+        .board-heading h2 {
+
+            margin: 0;
+
+            color: #fff;
+
+            font:
+                600 27px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           OPERATION CARDS
+           ========================================= */
+
+        .operations-grid {
+
+            display: grid;
+
+            gap: 15px;
+
+        }
+
+
+        .operation-card {
+
+            overflow: hidden;
+
+            border:
+                1px solid #30383d;
+
+            background: #101619;
+
+        }
+
+
+        .operation-card-top {
+
+            display: grid;
+
+            grid-template-columns:
+                150px
+                minmax(
+                    0,
+                    1fr
+                )
+                auto;
+
+            align-items: stretch;
+
+            border-bottom:
+                1px solid #30383d;
+
+        }
+
+
+        .operation-date {
+
+            display: grid;
+
+            place-items: center;
+
+            padding: 20px;
+
+            border-right:
+                1px solid #30383d;
+
+            background: #090f12;
+
+            text-align: center;
+
+        }
+
+
+        .operation-date-month {
+
+            color: #c5a75b;
+
+            font:
+                600 11px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-date-day {
+
+            color: #fff;
+
+            font:
+                700 39px
+                Oswald,
+                sans-serif;
+
+            line-height: 1;
+
+        }
+
+
+        .operation-date-time {
+
+            margin-top: 4px;
+
+            color: #7e8a90;
+
+            font:
+                500 10px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-title-area {
+
+            padding:
+                19px
+                20px;
+
+        }
+
+
+        .operation-type {
+
+            margin-bottom: 5px;
+
+            color: #c5a75b;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-title {
+
+            margin: 0;
+
+            color: #fff;
+
+            font:
+                600 26px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-location {
+
+            margin-top: 5px;
+
+            color: #879399;
+
+            font-size: 11px;
+
+        }
+
+
+        .operation-status-area {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: flex-end;
+
+            padding:
+                18px;
+
+        }
+
+
+        .operation-status {
+
+            padding:
+                7px
+                11px;
+
+            border:
+                1px solid #596268;
+
+            color: #cbd3d6;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-status.scheduled {
+
+            color: #d5bc71;
+
+            border-color: #77683e;
+
+        }
+
+
+        .operation-status.briefing {
+
+            color: #7cb4e4;
+
+            border-color: #44627c;
+
+        }
+
+
+        .operation-status.active {
+
+            color: #75d88f;
+
+            border-color: #417a50;
+
+        }
+
+
+        .operation-status.completed {
+
+            color: #8f9ba0;
+
+        }
+
+
+        .operation-status.cancelled {
+
+            color: #e47b7b;
+
+            border-color: #7e4545;
+
+        }
+
+
+        .operation-card-body {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+
+            padding: 20px;
+
+        }
+
+
+        .operation-info-section {
+
+            min-width: 0;
+
+        }
+
+
+        .operation-info-title {
+
+            margin-bottom: 7px;
+
+            color: #718087;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .operation-info-text {
+
+            color: #c4cccf;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            white-space: pre-line;
+
+        }
+
+
+        .operation-meta {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            padding:
+                0
+                20px
+                19px;
+
+        }
+
+
+        .operation-meta-tag {
+
+            padding:
+                7px
+                10px;
+
+            border:
+                1px solid #30383d;
+
+            background: #090f12;
+
+            color: #8e999e;
+
+            font:
+                500 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           ADMIN CARD CONTROLS
+           ========================================= */
+
+        .operation-admin-controls {
+
+            display: flex;
+
+            gap: 7px;
+
+            padding:
+                0
+                20px
+                20px;
+
+        }
+
+
+        .edit-operation,
+        .delete-operation {
+
+            min-height: 34px;
+
+            padding:
+                0
+                13px;
+
+            cursor: pointer;
+
+            font:
+                600 9px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 0.7px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .edit-operation {
+
+            border:
+                1px solid #c5a75b;
+
+            background: transparent;
+
+            color: #c5a75b;
+
+        }
+
+
+        .delete-operation {
+
+            border:
+                1px solid #744242;
+
+            background: transparent;
+
+            color: #df7474;
+
+        }
+
+
+        /* =========================================
+           EMPTY BOARD
+           ========================================= */
+
+        .empty-board {
+
+            padding:
+                50px
+                25px;
+
+            border:
+                1px dashed #30383d;
+
+            background: #0e1417;
+
+            text-align: center;
+
+            color: #77858b;
+
+        }
+
+
+        .empty-board h3 {
+
+            margin:
+                0 0 6px;
+
+            color: #fff;
+
+            font:
+                600 24px
+                Oswald,
+                sans-serif;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (
+            max-width: 900px
+        ) {
+
+            .operation-form-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+
+            }
+
+
+            .operation-field.wide {
+
+                grid-column:
+                    span 2;
+
+            }
+
+
+            .operation-card-body {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .opboard-status {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .operation-form-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .operation-field.wide {
+
+                grid-column:
+                    span 1;
+
+            }
+
+
+            .operation-card-top {
+
+                grid-template-columns:
+                    100px
+                    1fr;
+
+            }
+
+
+            .operation-status-area {
+
+                grid-column:
+                    span 2;
+
+                justify-content:
+                    flex-start;
+
+                padding-top: 0;
+
+            }
+
+
+            .operation-date {
+
+                padding: 14px;
+
+            }
+
+
+            .operation-title {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="site-header">
+
+        <a
+            class="brand"
+            href="index.html"
+        >
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="orbat.html">
+                ORBAT
+            </a>
+
+            <a
+                href="operations.html"
+                style="color:#c5a75b;"
+            >
+                OPBOARD
+            </a>
+
+            <a href="training.html">
+                Training
+            </a>
+
+            <a href="resources.html">
+                SOPs
+            </a>
+
+            <a href="server.html">
+                Server
+            </a>
+
+            <a href="media.html">
+                Media
+            </a>
+
+
+            <a
+                href="members.html"
+                id="memberPortalLink"
+                hidden
+            >
+                Member Portal
+            </a>
+
+
+            <a
+                href="admin.html"
+                id="adminPortalLink"
+                hidden
+            >
+                Admin
+            </a>
+
+
+            <div
+                class="member-auth"
+                id="memberAuth"
+            >
+
+                <button
+                    class="member-login-btn"
+                    id="discordLoginBtn"
+                    type="button"
+                >
+                    Login with Discord
+                </button>
+
+
+                <div
+                    class="member-profile"
+                    id="memberProfile"
+                    hidden
+                >
+
+                    <img
+                        id="memberAvatar"
+                        class="member-avatar"
+                        src=""
+                        alt=""
+                        hidden
+                    >
+
+
+                    <div class="member-profile-text">
+
+                        <span id="memberName">
+                            Member
+                        </span>
+
+                        <small>
+                            Authenticated Member
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        class="member-logout-btn"
+                        id="discordLogoutBtn"
+                        type="button"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="opboard-hero">
+
+        <div class="opboard-hero-inner">
+
+            <p class="eyebrow">
+                OPERATIONS COMMAND
+            </p>
+
+
+            <h1>
+                OPBOARD
+            </h1>
+
+
+            <p class="opboard-hero-description">
+                Current missions, training operations, field exercises
+                and command briefings for the 21st Cavalry Division.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LOADING
+         ========================================= -->
+
+    <section
+        id="boardLoading"
+        class="board-message"
+    >
+
+        <p class="eyebrow">
+            OPERATIONS SYSTEM
+        </p>
+
+        <h2>
+            Loading OPBOARD
+        </h2>
+
+        <p>
+            Verifying member authentication and retrieving
+            current operations.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         LOGIN REQUIRED
+         ========================================= -->
+
+    <section
+        id="loginRequired"
+        class="board-message"
+        hidden
+    >
+
+        <p class="eyebrow">
+            AUTHENTICATION REQUIRED
+        </p>
+
+        <h2>
+            Member Access Required
+        </h2>
+
+        <p>
+            You must authenticate with Discord before
+            viewing the Operations Board.
+        </p>
+
+
+        <button
+            id="boardLoginButton"
+            class="primary-button"
+            type="button"
+        >
+            Login with Discord
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         BOARD
+         ========================================= -->
+
+    <main
+        id="boardContent"
+        class="opboard-shell"
+        hidden
+    >
+
+
+        <!-- STATUS -->
+
+        <div class="opboard-status">
+
+            <div>
+
+                <strong>
+                    Operations Network
+                </strong>
+
+                <span id="boardStatus">
+                    Connected.
+                </span>
+
+            </div>
+
+
+            <button
+                id="refreshOperations"
+                class="refresh-button"
+                type="button"
+            >
+                Refresh OPBOARD
+            </button>
+
+        </div>
+
+
+        <!-- =====================================
+             ADMIN COMMAND PANEL
+             ===================================== -->
+
+        <section
+            id="commandPanel"
+            class="command-panel"
+            hidden
+        >
+
+            <div class="command-panel-header">
+
+                <h2>
+                    Post Operation
+                </h2>
+
+                <span class="command-access">
+                    Command Access
+                </span>
+
+            </div>
+
+
+            <div class="command-panel-body">
+
+                <input
+                    id="operationId"
+                    type="hidden"
+                >
+
+
+                <div class="operation-form-grid">
+
+
+                    <div class="operation-field">
+
+                        <label for="operationTitle">
+                            Operation Name
+                        </label>
+
+                        <input
+                            id="operationTitle"
+                            type="text"
+                            placeholder="Operation Iron Horse"
+                        >
+
+                    </div>
+
+
+                    <div class="operation-field">
+
+                        <label for="operationType">
+                            Operation Type
+                        </label>
+
+                        <select id="operationType">
+
+                            <option>
+                                Operation
+                            </option>
+
+                            <option>
+                                Training
+                            </option>
+
+                            <option>
+                                FTX
+                            </option>
+
+                            <option>
+                                Patrol
+                            </option>
+
+                            <option>
+                                Deployment
+                            </option>
+
+                            <option>
+                                Qualification
+                            </option>
+
+                            <option>
+                                Meeting
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="operation-field">
+
+                        <label for="operationDate">
+                            Date & Time
+                        </label>
+
+                        <input
+                            id="operationDate"
+                            type="datetime-local"
+                        >
+
+                    </div>
+
+
+                    <div class="operation-field">
+
+                        <label for="operationLocation">
+                            Map / AO
+                        </label>
+
+                        <input
+                            id="operationLocation"
+                            type="text"
+                            placeholder="Everon"
+                        >
+
+                    </div>
+
+
+                    <div class="operation-field">
+
+                        <label for="operationSection">
+                            Required Section
+                        </label>
+
+                        <select id="operationSection">
+
+                            <option>
+                                All Personnel
+                            </option>
+
+                            <option>
+                                Division HQ
+                            </option>
+
+                            <option>
+                                Command Staff
+                            </option>
+
+                            <option>
+                                1st Platoon
+                            </option>
+
+                            <option>
+                                2nd Platoon
+                            </option>
+
+                            <option>
+                                1st Squad
+                            </option>
+
+                            <option>
+                                2nd Squad
+                            </option>
+
+                            <option>
+                                3rd Squad
+                            </option>
+
+                            <option>
+                                Weapons Squad
+                            </option>
+
+                            <option>
+                                Aviation Detachment
+                            </option>
+
+                            <option>
+                                Armor Section
+                            </option>
+
+                            <option>
+                                Recon Section
+                            </option>
+
+                            <option>
+                                Medical Section
+                            </option>
+
+                            <option>
+                                Training Section
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="operation-field">
+
+                        <label for="operationStatus">
+                            Status
+                        </label>
+
+                        <select id="operationStatus">
+
+                            <option>
+                                Scheduled
+                            </option>
+
+                            <option>
+                                Briefing
+                            </option>
+
+                            <option>
+                                Active
+                            </option>
+
+                            <option>
+                                Completed
+                            </option>
+
+                            <option>
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="operation-field wide">
+
+                        <label for="operationBriefing">
+                            Mission Briefing
+                        </label>
+
+                        <textarea
+                            id="operationBriefing"
+                            placeholder="Mission situation, enemy activity, friendly forces, execution details..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="operation-field wide">
+
+                        <label for="operationObjectives">
+                            Mission Objectives
+                        </label>
+
+                        <textarea
+                            id="operationObjectives"
+                            placeholder="Primary and secondary objectives..."
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        id="saveOperation"
+                        class="primary-button"
+                        type="button"
+                    >
+                        Post Operation
+                    </button>
+
+
+                    <button
+                        id="cancelEdit"
+                        class="secondary-button"
+                        type="button"
+                        hidden
+                    >
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             MISSION BOARD
+             ===================================== -->
+
+        <section>
+
+            <div class="board-heading">
+
+                <h2>
+                    Mission Board
+                </h2>
+
+            </div>
+
+
+            <div
+                id="operationsGrid"
+                class="operations-grid"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer>
+
+        <div class="brand footer-brand">
+
+            <div class="brand-mark">
+                21
+            </div>
+
+
+            <div>
+
+                <span>
+                    21ST CAVALRY
+                </span>
+
+                <small>
+                    DIVISION
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Swift. Silent. Relentless.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="recruitment.html">
+                Recruitment
+            </a>
+
+            <a href="resources.html">
+                Unit Resources
+            </a>
+
+            <a
+                href="https://discord.gg/PCxE5jTYZ"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Discord
+            </a>
+
+        </div>
+
+
+        <p class="fineprint">
+            This is a gaming/military simulation community website
+            and is not affiliated with the United States Department
+            of Defense.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         SUPABASE
+         ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script>
+
+        document.addEventListener(
+            'DOMContentLoaded',
+
+            async () => {
+
+
+                /* =========================================
+                   SUPABASE
+                   ========================================= */
+
+                const SUPABASE_URL =
+                    'https://uwtvgpeijygvjpcifkew.supabase.co';
+
+
+                const SUPABASE_KEY =
+                    'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
+
+                const client =
+                    window.supabase.createClient(
+                        SUPABASE_URL,
+                        SUPABASE_KEY
+                    );
+
+
+                /* =========================================
+                   STATE
+                   ========================================= */
+
+                let currentUser = null;
+
+                let currentProfile = null;
+
+                let operations = [];
+
+                let isAdmin = false;
+
+
+                /* =========================================
+                   ELEMENTS
+                   ========================================= */
+
+                const boardLoading =
+                    document.getElementById(
+                        'boardLoading'
+                    );
+
+
+                const loginRequired =
+                    document.getElementById(
+                        'loginRequired'
+                    );
+
+
+                const boardContent =
+                    document.getElementById(
+                        'boardContent'
+                    );
+
+
+                const commandPanel =
+                    document.getElementById(
+                        'commandPanel'
+                    );
+
+
+                const operationsGrid =
+                    document.getElementById(
+                        'operationsGrid'
+                    );
+
+
+                const boardStatus =
+                    document.getElementById(
+                        'boardStatus'
+                    );
+
+
+                const formMessage =
+                    document.getElementById(
+                        'formMessage'
+                    );
+
+
+                /* =========================================
+                   FORM ELEMENTS
+                   ========================================= */
+
+                const operationId =
+                    document.getElementById(
+                        'operationId'
+                    );
+
+
+                const operationTitle =
+                    document.getElementById(
+                        'operationTitle'
+                    );
+
+
+                const operationType =
+                    document.getElementById(
+                        'operationType'
+                    );
+
+
+                const operationDate =
+                    document.getElementById(
+                        'operationDate'
+                    );
+
+
+                const operationLocation =
+                    document.getElementById(
+                        'operationLocation'
+                    );
+
+
+                const operationSection =
+                    document.getElementById(
+                        'operationSection'
+                    );
+
+
+                const operationStatus =
+                    document.getElementById(
+                        'operationStatus'
+                    );
+
+
+                const operationBriefing =
+                    document.getElementById(
+                        'operationBriefing'
+                    );
+
+
+                const operationObjectives =
+                    document.getElementById(
+                        'operationObjectives'
+                    );
+
+
+                const saveOperation =
+                    document.getElementById(
+                        'saveOperation'
+                    );
+
+
+                const cancelEdit =
+                    document.getElementById(
+                        'cancelEdit'
+                    );
+
+
+                /* =========================================
+                   HTML ESCAPE
+                   ========================================= */
+
+                function escapeHtml(
+                    value
+                ) {
+
+                    return String(
+                        value ?? ''
+                    )
+
+                        .replaceAll(
+                            '&',
+                            '&amp;'
+                        )
+
+                        .replaceAll(
+                            '<',
+                            '&lt;'
+                        )
+
+                        .replaceAll(
+                            '>',
+                            '&gt;'
+                        )
+
+                        .replaceAll(
+                            '"',
+                            '&quot;'
+                        )
+
+                        .replaceAll(
+                            "'",
+                            '&#039;'
+                        );
+
+                }
+
+
+                /* =========================================
+                   AUTH HEADER
+                   ========================================= */
+
+                function getUserName(
+                    user
+                ) {
+
+                    return (
+
+                        user.user_metadata
+                            ?.global_name
+
+                        ||
+
+                        user.user_metadata
+                            ?.name
+
+                        ||
+
+                        user.user_metadata
+                            ?.preferred_username
+
+                        ||
+
+                        'Member'
+
+                    );
+
+                }
+
+
+                function getAvatar(
+                    user
+                ) {
+
+                    return (
+
+                        user.user_metadata
+                            ?.avatar_url
+
+                        ||
+
+                        user.user_metadata
+                            ?.picture
+
+                        ||
+
+                        ''
+
+                    );
+
+                }
+
+
+                function renderHeader() {
+
+                    const loginButton =
+                        document.getElementById(
+                            'discordLoginBtn'
+                        );
+
+
+                    const memberProfile =
+                        document.getElementById(
+                            'memberProfile'
+                        );
+
+
+                    const memberName =
+                        document.getElementById(
+                            'memberName'
+                        );
+
+
+                    const memberAvatar =
+                        document.getElementById(
+                            'memberAvatar'
+                        );
+
+
+                    const memberPortalLink =
+                        document.getElementById(
+                            'memberPortalLink'
+                        );
+
+
+                    const adminPortalLink =
+                        document.getElementById(
+                            'adminPortalLink'
+                        );
+
+
+                    if (
+                        !currentUser
+                    ) {
+
+                        loginButton.hidden =
+                            false;
+
+
+                        memberProfile.hidden =
+                            true;
+
+
+                        memberPortalLink.hidden =
+                            true;
+
+
+                        adminPortalLink.hidden =
+                            true;
+
+
+                        return;
+
+                    }
+
+
+                    loginButton.hidden =
+                        true;
+
+
+                    memberProfile.hidden =
+                        false;
+
+
+                    memberPortalLink.hidden =
+                        false;
+
+
+                    memberName.textContent =
+                        currentProfile
+                            ?.display_name
+
+                        ||
+
+                        getUserName(
+                            currentUser
+                        );
+
+
+                    const avatar =
+                        getAvatar(
+                            currentUser
+                        );
+
+
+                    if (
+                        avatar
+                    ) {
+
+                        memberAvatar.src =
+                            avatar;
+
+
+                        memberAvatar.hidden =
+                            false;
+
+                    }
+
+
+                    adminPortalLink.hidden =
+                        !isAdmin;
+
+                }
+
+
+                /* =========================================
+                   LOGIN
+                   ========================================= */
+
+                async function login() {
+
+                    await client.auth
+                        .signInWithOAuth({
+
+                            provider:
+                                'discord',
+
+                            options: {
+
+                                redirectTo:
+                                    window.location.href
+
+                            }
+
+                        });
+
+                }
+
+
+                document
+                    .getElementById(
+                        'discordLoginBtn'
+                    )
+                    .addEventListener(
+                        'click',
+                        login
+                    );
+
+
+                document
+                    .getElementById(
+                        'boardLoginButton'
+                    )
+                    .addEventListener(
+                        'click',
+                        login
+                    );
+
+
+                document
+                    .getElementById(
+                        'discordLogoutBtn'
+                    )
+                    .addEventListener(
+
+                        'click',
+
+                        async () => {
+
+                            await client.auth
+                                .signOut();
+
+
+                            window.location.href =
+                                'index.html';
+
+                        }
+
+                    );
+
+
+                /* =========================================
+                   MOBILE NAV
+                   ========================================= */
+
+                const navToggle =
+                    document.getElementById(
+                        'navToggle'
+                    );
+
+
+                const mainNav =
+                    document.getElementById(
+                        'mainNav'
+                    );
+
+
+                navToggle.addEventListener(
+
+                    'click',
+
+                    () => {
+
+                        const open =
+                            mainNav.classList.toggle(
+                                'open'
+                            );
+
+
+                        navToggle.setAttribute(
+                            'aria-expanded',
+                            open
+                                ?
+                                'true'
+                                :
+                                'false'
+                        );
+
+                    }
+
+                );
+
+
+                /* =========================================
+                   DATE FORMAT
+                   ========================================= */
+
+                function getDateParts(
+                    value
+                ) {
+
+                    const date =
+                        new Date(
+                            value
+                        );
+
+
+                    return {
+
+                        month:
+                            date
+                                .toLocaleDateString(
+                                    undefined,
+                                    {
+                                        month:
+                                            'short'
+                                    }
+                                )
+                                .toUpperCase(),
+
+                        day:
+                            date
+                                .toLocaleDateString(
+                                    undefined,
+                                    {
+                                        day:
+                                            '2-digit'
+                                    }
+                                ),
+
+                        time:
+                            date
+                                .toLocaleTimeString(
+                                    undefined,
+                                    {
+                                        hour:
+                                            'numeric',
+
+                                        minute:
+                                            '2-digit'
+                                    }
+                                )
+
+                    };
+
+                }
+
+
+                /* =========================================
+                   RENDER OPERATIONS
+                   ========================================= */
+
+                function renderOperations() {
+
+                    if (
+                        !operations.length
+                    ) {
+
+                        operationsGrid.innerHTML = `
+
+                            <div class="empty-board">
+
+                                <h3>
+                                    No Active Missions
+                                </h3>
+
+                                There are currently no missions
+                                posted to the Operations Board.
+
+                            </div>
+
+                        `;
+
+
+                        boardStatus.textContent =
+                            'No operations currently posted.';
+
+
+                        return;
+
+                    }
+
+
+                    boardStatus.textContent =
+
+                        `${operations.length} operation${
+                            operations.length === 1
+                                ?
+                                ''
+                                :
+                                's'
+                        } posted.`;
+
+
+
+                    operationsGrid.innerHTML =
+
+                        operations
+
+                            .map(
+
+                                operation => {
+
+
+                                    const date =
+                                        getDateParts(
+                                            operation.operation_date
+                                        );
+
+
+                                    const statusClass =
+                                        String(
+                                            operation.status
+                                            ||
+                                            ''
+                                        )
+                                        .toLowerCase();
+
+
+                                    return `
+
+                                        <article class="operation-card">
+
+
+                                            <div class="operation-card-top">
+
+
+                                                <div class="operation-date">
+
+                                                    <div class="operation-date-month">
+
+                                                        ${escapeHtml(
+                                                            date.month
+                                                        )}
+
+                                                    </div>
+
+
+                                                    <div class="operation-date-day">
+
+                                                        ${escapeHtml(
+                                                            date.day
+                                                        )}
+
+                                                    </div>
+
+
+                                                    <div class="operation-date-time">
+
+                                                        ${escapeHtml(
+                                                            date.time
+                                                        )}
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="operation-title-area">
+
+                                                    <div class="operation-type">
+
+                                                        ${escapeHtml(
+                                                            operation.operation_type
+                                                        )}
+
+                                                    </div>
+
+
+                                                    <h3 class="operation-title">
+
+                                                        ${escapeHtml(
+                                                            operation.title
+                                                        )}
+
+                                                    </h3>
+
+
+                                                    <div class="operation-location">
+
+                                                        AO / MAP:
+                                                        ${escapeHtml(
+                                                            operation.map_location
+                                                            ||
+                                                            'TBD'
+                                                        )}
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="operation-status-area">
+
+                                                    <span
+                                                        class="operation-status ${escapeHtml(
+                                                            statusClass
+                                                        )}"
+                                                    >
+
+                                                        ${escapeHtml(
+                                                            operation.status
+                                                        )}
+
+                                                    </span>
+
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="operation-card-body">
+
+
+                                                <div class="operation-info-section">
+
+                                                    <div class="operation-info-title">
+                                                        Mission Briefing
+                                                    </div>
+
+
+                                                    <div class="operation-info-text">
+
+                                                        ${escapeHtml(
+                                                            operation.briefing
+                                                            ||
+                                                            'Briefing pending.'
+                                                        )}
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="operation-info-section">
+
+                                                    <div class="operation-info-title">
+                                                        Objectives
+                                                    </div>
+
+
+                                                    <div class="operation-info-text">
+
+                                                        ${escapeHtml(
+                                                            operation.objectives
+                                                            ||
+                                                            'Objectives pending.'
+                                                        )}
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="operation-meta">
+
+                                                <span class="operation-meta-tag">
+
+                                                    Required:
+                                                    ${escapeHtml(
+                                                        operation.required_section
+                                                        ||
+                                                        'All Personnel'
+                                                    )}
+
+                                                </span>
+
+
+                                                <span class="operation-meta-tag">
+
+                                                    Status:
+                                                    ${escapeHtml(
+                                                        operation.status
+                                                    )}
+
+                                                </span>
+
+                                            </div>
+
+
+                                            ${
+                                                isAdmin
+
+                                                ?
+
+                                                `
+
+                                                    <div class="operation-admin-controls">
+
+                                                        <button
+                                                            class="edit-operation"
+                                                            data-edit-operation="${operation.id}"
+                                                            type="button"
+                                                        >
+                                                            Edit Operation
+                                                        </button>
+
+
+                                                        <button
+                                                            class="delete-operation"
+                                                            data-delete-operation="${operation.id}"
+                                                            type="button"
+                                                        >
+                                                            Delete
+                                                        </button>
+
+                                                    </div>
+
+                                                `
+
+                                                :
+
+                                                ''
+
+                                            }
+
+
+                                        </article>
+
+                                    `;
+
+                                }
+
+                            )
+
+                            .join('');
+
+
+                    attachOperationButtons();
+
+                }
+
+
+                /* =========================================
+                   LOAD OPERATIONS
+                   ========================================= */
+
+                async function loadOperations() {
+
+                    boardStatus.textContent =
+                        'Refreshing mission board...';
+
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operations_board'
+                            )
+
+                            .select('*')
+
+                            .order(
+                                'operation_date',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            );
+
+
+                    if (
+                        error
+                    ) {
+
+                        console.error(
+                            'Operation load error:',
+                            error
+                        );
+
+
+                        boardStatus.textContent =
+                            'Unable to load operations.';
+
+
+                        operationsGrid.innerHTML = `
+
+                            <div class="empty-board">
+
+                                <h3>
+                                    OPBOARD Unavailable
+                                </h3>
+
+                                ${escapeHtml(
+                                    error.message
+                                )}
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    operations =
+                        data || [];
+
+
+                    renderOperations();
+
+                }
+
+
+                /* =========================================
+                   RESET FORM
+                   ========================================= */
+
+                function resetForm() {
+
+                    operationId.value =
+                        '';
+
+
+                    operationTitle.value =
+                        '';
+
+
+                    operationType.value =
+                        'Operation';
+
+
+                    operationDate.value =
+                        '';
+
+
+                    operationLocation.value =
+                        '';
+
+
+                    operationSection.value =
+                        'All Personnel';
+
+
+                    operationStatus.value =
+                        'Scheduled';
+
+
+                    operationBriefing.value =
+                        '';
+
+
+                    operationObjectives.value =
+                        '';
+
+
+                    saveOperation.textContent =
+                        'Post Operation';
+
+
+                    cancelEdit.hidden =
+                        true;
+
+
+                    formMessage.textContent =
+                        '';
+
+
+                    formMessage.className =
+                        'form-message';
+
+                }
+
+
+                /* =========================================
+                   SAVE OPERATION
+                   ========================================= */
+
+                saveOperation.addEventListener(
+
+                    'click',
+
+                    async () => {
+
+
+                        if (
+                            !isAdmin
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const title =
+                            operationTitle
+                                .value
+                                .trim();
+
+
+                        const date =
+                            operationDate
+                                .value;
+
+
+                        if (
+                            !title
+                            ||
+                            !date
+                        ) {
+
+                            formMessage.textContent =
+                                'Operation name and date/time are required.';
+
+
+                            formMessage.className =
+                                'form-message error';
+
+
+                            return;
+
+                        }
+
+
+                        saveOperation.disabled =
+                            true;
+
+
+                        formMessage.textContent =
+                            'Saving operation...';
+
+
+                        formMessage.className =
+                            'form-message';
+
+
+                        const payload = {
+
+                            title:
+                                title,
+
+                            operation_type:
+                                operationType.value,
+
+                            operation_date:
+                                new Date(
+                                    date
+                                )
+                                .toISOString(),
+
+                            map_location:
+                                operationLocation
+                                    .value
+                                    .trim()
+                                ||
+                                null,
+
+                            required_section:
+                                operationSection.value,
+
+                            status:
+                                operationStatus.value,
+
+                            briefing:
+                                operationBriefing
+                                    .value
+                                    .trim()
+                                ||
+                                null,
+
+                            objectives:
+                                operationObjectives
+                                    .value
+                                    .trim()
+                                ||
+                                null
+
+                        };
+
+
+                        let error;
+
+
+                        if (
+                            operationId.value
+                        ) {
+
+                            const response =
+                                await client
+
+                                    .from(
+                                        'operations_board'
+                                    )
+
+                                    .update(
+                                        payload
+                                    )
+
+                                    .eq(
+                                        'id',
+                                        operationId.value
+                                    );
+
+
+                            error =
+                                response.error;
+
+                        }
+
+                        else {
+
+                            payload.created_by =
+                                currentUser.id;
+
+
+                            const response =
+                                await client
+
+                                    .from(
+                                        'operations_board'
+                                    )
+
+                                    .insert(
+                                        payload
+                                    );
+
+
+                            error =
+                                response.error;
+
+                        }
+
+
+                        saveOperation.disabled =
+                            false;
+
+
+                        if (
+                            error
+                        ) {
+
+                            console.error(
+                                'Operation save error:',
+                                error
+                            );
+
+
+                            formMessage.textContent =
+                                error.message;
+
+
+                            formMessage.className =
+                                'form-message error';
+
+
+                            return;
+
+                        }
+
+
+                        formMessage.textContent =
+                            operationId.value
+                                ?
+                                'Operation updated.'
+                                :
+                                'Operation posted to OPBOARD.';
+
+
+                        formMessage.className =
+                            'form-message success';
+
+
+                        resetForm();
+
+
+                        await loadOperations();
+
+                    }
+
+                );
+
+
+                /* =========================================
+                   CANCEL EDIT
+                   ========================================= */
+
+                cancelEdit.addEventListener(
+
+                    'click',
+
+                    resetForm
+
+                );
+
+
+                /* =========================================
+                   EDIT / DELETE BUTTONS
+                   ========================================= */
+
+                function attachOperationButtons() {
+
+
+                    document
+                        .querySelectorAll(
+                            '[data-edit-operation]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    () => {
+
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .editOperation
+                                            );
+
+
+                                        const operation =
+                                            operations.find(
+
+                                                item =>
+                                                    item.id ===
+                                                    id
+
+                                            );
+
+
+                                        if (
+                                            !operation
+                                        ) {
+
+                                            return;
+
+                                        }
+
+
+                                        operationId.value =
+                                            operation.id;
+
+
+                                        operationTitle.value =
+                                            operation.title
+                                            ||
+                                            '';
+
+
+                                        operationType.value =
+                                            operation.operation_type
+                                            ||
+                                            'Operation';
+
+
+                                        const operationDateValue =
+                                            new Date(
+                                                operation.operation_date
+                                            );
+
+
+                                        const localTime =
+                                            new Date(
+                                                operationDateValue
+                                                    .getTime()
+
+                                                -
+
+                                                operationDateValue
+                                                    .getTimezoneOffset()
+                                                *
+                                                60000
+                                            );
+
+
+                                        operationDate.value =
+                                            localTime
+                                                .toISOString()
+                                                .slice(
+                                                    0,
+                                                    16
+                                                );
+
+
+                                        operationLocation.value =
+                                            operation.map_location
+                                            ||
+                                            '';
+
+
+                                        operationSection.value =
+                                            operation.required_section
+                                            ||
+                                            'All Personnel';
+
+
+                                        operationStatus.value =
+                                            operation.status
+                                            ||
+                                            'Scheduled';
+
+
+                                        operationBriefing.value =
+                                            operation.briefing
+                                            ||
+                                            '';
+
+
+                                        operationObjectives.value =
+                                            operation.objectives
+                                            ||
+                                            '';
+
+
+                                        saveOperation.textContent =
+                                            'Save Changes';
+
+
+                                        cancelEdit.hidden =
+                                            false;
+
+
+                                        commandPanel
+                                            .scrollIntoView({
+
+                                                behavior:
+                                                    'smooth'
+
+                                            });
+
+                                    }
+
+                                );
+
+                            }
+
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            '[data-delete-operation]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .deleteOperation
+                                            );
+
+
+                                        const operation =
+                                            operations.find(
+
+                                                item =>
+                                                    item.id ===
+                                                    id
+
+                                            );
+
+
+                                        if (
+                                            !operation
+                                        ) {
+
+                                            return;
+
+                                        }
+
+
+                                        const confirmed =
+                                            window.confirm(
+
+                                                `Delete "${operation.title}" from OPBOARD?`
+
+                                            );
+
+
+                                        if (
+                                            !confirmed
+                                        ) {
+
+                                            return;
+
+                                        }
+
+
+                                        const {
+                                            error
+                                        } =
+                                            await client
+
+                                                .from(
+                                                    'operations_board'
+                                                )
+
+                                                .delete()
+
+                                                .eq(
+                                                    'id',
+                                                    id
+                                                );
+
+
+                                        if (
+                                            error
+                                        ) {
+
+                                            alert(
+                                                error.message
+                                            );
+
+
+                                            return;
+
+                                        }
+
+
+                                        await loadOperations();
+
+                                    }
+
+                                );
+
+                            }
+
+                        );
+
+                }
+
+
+                /* =========================================
+                   REFRESH
+                   ========================================= */
+
+                document
+                    .getElementById(
+                        'refreshOperations'
+                    )
+                    .addEventListener(
+
+                        'click',
+
+                        loadOperations
+
+                    );
+
+
+                /* =========================================
+                   INITIALIZE
+                   ========================================= */
+
+                async function initialize() {
+
+                    const {
+                        data:
+                        {
+                            session
+                        },
+
+                        error
+                    } =
+                        await client.auth
+                            .getSession();
+
+
+                    boardLoading.hidden =
+                        true;
+
+
+                    if (
+                        error
+                    ) {
+
+                        console.error(
+                            error
+                        );
+
+                    }
+
+
+                    if (
+                        !session?.user
+                    ) {
+
+                        loginRequired.hidden =
+                            false;
+
+
+                        boardContent.hidden =
+                            true;
+
+
+                        renderHeader();
+
+
+                        return;
+
+                    }
+
+
+                    currentUser =
+                        session.user;
+
+
+                    const {
+                        data:
+                            profile,
+
+                        error:
+                            profileError
+
+                    } =
+                        await client
+
+                            .from(
+                                'member_profiles'
+                            )
+
+                            .select(
+                                'display_name,access_level,member_status'
+                            )
+
+                            .eq(
+                                'user_id',
+                                currentUser.id
+                            )
+
+                            .maybeSingle();
+
+
+                    if (
+                        profileError
+                    ) {
+
+                        console.error(
+                            'Profile error:',
+                            profileError
+                        );
+
+                    }
+
+
+                    currentProfile =
+                        profile;
+
+
+                    isAdmin =
+
+                        profile
+                            ?.access_level ===
+                            'Admin'
+
+                        ||
+
+                        profile
+                            ?.access_level ===
+                            'Super Admin';
+
+
+                    commandPanel.hidden =
+                        !isAdmin;
+
+
+                    loginRequired.hidden =
+                        true;
+
+
+                    boardContent.hidden =
+                        false;
+
+
+                    renderHeader();
+
+
+                    await loadOperations();
+
+                }
+
+
+                await initialize();
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
