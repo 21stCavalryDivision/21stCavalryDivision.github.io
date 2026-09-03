@@ -1183,6 +1183,9 @@
     gap: 10px;
 
     margin-bottom: 28px;
+}
+
+.attendance-warning-panel.has-warnings {
     padding: 18px;
 
     border: 1px solid #633636;
@@ -4052,6 +4055,10 @@ function renderAttendanceWarnings() {
 
     if (!warningMembers.length) {
 
+        warningPanel.classList.remove(
+            'has-warnings'
+        );
+
         warningPanel.innerHTML = `
 
             <div class="attendance-warning-clear">
@@ -4077,6 +4084,10 @@ function renderAttendanceWarnings() {
         Build one red warning box
         for each member below threshold.
     */
+
+    warningPanel.classList.add(
+        'has-warnings'
+    );
 
     warningPanel.innerHTML =
         warningMembers
