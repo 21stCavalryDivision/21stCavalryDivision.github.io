@@ -19,9 +19,6 @@
         21st Cavalry Division | Member Portal
     </title>
 
-
-    <!-- GOOGLE FONTS -->
-
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -38,1152 +35,440 @@
         rel="stylesheet"
     >
 
-
-    <!-- WEBSITE CSS -->
-
     <link
         rel="stylesheet"
         href="styles.css?v=11"
     >
 
-
     <style>
-
-        /* =========================================
-           PAGE
-           ========================================= */
 
         body {
             background: #080d10;
         }
 
-
         .portal-hero {
-
-            padding:
-                65px
-                clamp(24px, 6vw, 110px)
-                55px;
-
-            border-bottom:
-                1px solid #30383d;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    #091014,
-                    #10150f
-                );
-
+            padding: 65px clamp(24px, 6vw, 110px) 55px;
+            border-bottom: 1px solid #30383d;
+            background: linear-gradient(120deg, #091014, #10150f);
         }
-
 
         .portal-hero-inner {
-
             max-width: 850px;
-
         }
-
 
         .portal-hero h1 {
-
-            margin:
-                8px 0
-                10px;
-
+            margin: 8px 0 10px;
             color: #f4f6f7;
-
-            font:
-                700 clamp(
-                    48px,
-                    7vw,
-                    84px
-                )
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
+            font: 700 clamp(48px, 7vw, 84px) Oswald, sans-serif;
+            text-transform: uppercase;
             line-height: 1;
-
         }
-
 
         .portal-hero-description {
-
             max-width: 650px;
-
             margin: 0;
-
             color: #adb7bb;
-
             font-size: 14px;
-
             line-height: 1.7;
-
         }
-
 
         .portal-shell {
-
             display: grid;
-
-            grid-template-columns:
-                270px
-                minmax(
-                    0,
-                    1fr
-                );
-
+            grid-template-columns: 270px minmax(0, 1fr);
             gap: 20px;
-
-            padding:
-                32px
-                clamp(
-                    24px,
-                    6vw,
-                    110px
-                )
-                90px;
-
+            padding: 32px clamp(24px, 6vw, 110px) 90px;
         }
-
-
-        /* =========================================
-           PROFILE CARD
-           ========================================= */
 
         .profile-card {
-
-            align-self:
-                start;
-
-            border:
-                1px solid #30383d;
-
-            border-top:
-                2px solid #c5a75b;
-
-            background:
-                #101619;
-
+            align-self: start;
+            border: 1px solid #30383d;
+            border-top: 2px solid #c5a75b;
+            background: #101619;
             padding: 22px;
-
             position: sticky;
-
             top: 20px;
-
         }
-
 
         .profile-avatar {
-
             width: 78px;
-
             height: 78px;
-
             border-radius: 50%;
-
             object-fit: cover;
-
-            border:
-                2px solid #d3b966;
-
-            background:
-                #080d10;
-
+            border: 2px solid #d3b966;
+            background: #080d10;
         }
-
 
         .profile-rank {
-
-            margin-top:
-                18px;
-
+            margin-top: 18px;
             color: #c5a75b;
-
-            font:
-                600 11px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                1px;
-
-            text-transform:
-                uppercase;
-
+            font: 600 11px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-
 
         .profile-name {
-
-            margin:
-                4px 0
-                2px;
-
+            margin: 4px 0 2px;
             color: #fff;
-
-            font:
-                600 25px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
+            font: 600 25px Oswald, sans-serif;
+            text-transform: uppercase;
         }
-
 
         .profile-billet {
-
             color: #9da9ae;
-
             font-size: 13px;
-
         }
-
 
         .profile-divider {
-
             height: 1px;
-
             background: #364047;
-
             margin: 21px 0;
-
         }
-
 
         .profile-data-row {
-
             display: flex;
-
-            justify-content:
-                space-between;
-
+            justify-content: space-between;
             gap: 15px;
-
-            padding:
-                10px 0;
-
-            border-bottom:
-                1px solid #293137;
-
+            padding: 10px 0;
+            border-bottom: 1px solid #293137;
         }
-
 
         .profile-data-row span {
-
             color: #7e8a90;
-
-            font:
-                500 9px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                0.7px;
-
-            text-transform:
-                uppercase;
-
+            font: 500 9px Oswald, sans-serif;
+            letter-spacing: .7px;
+            text-transform: uppercase;
         }
-
 
         .profile-data-row strong {
-
             color: #fff;
-
-            font:
-                500 11px
-                Oswald,
-                sans-serif;
-
+            font: 500 11px Oswald, sans-serif;
             text-align: right;
-
         }
-
 
         .profile-data-row strong.active {
-
-            color:
-                #6bd58c;
-
+            color: #6bd58c;
         }
-
 
         .profile-data-row strong.loa {
-
-            color:
-                #d9be6a;
-
+            color: #d9be6a;
         }
-
 
         .profile-data-row strong.inactive {
-
-            color:
-                #d46e6e;
-
+            color: #d46e6e;
         }
-
-
-        /* =========================================
-           CONTENT
-           ========================================= */
 
         .portal-content {
-
             display: grid;
-
             gap: 18px;
-
             min-width: 0;
-
         }
-
 
         .portal-panel {
-
-            border:
-                1px solid #30383d;
-
-            background:
-                #101619;
-
+            border: 1px solid #30383d;
+            background: #101619;
         }
-
 
         .portal-panel-header {
-
             display: flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                center;
-
+            justify-content: space-between;
+            align-items: center;
             gap: 20px;
-
-            padding:
-                20px 22px;
-
+            padding: 20px 22px;
         }
-
 
         .portal-panel-header h2 {
-
             margin: 0;
-
             color: #fff;
-
-            font:
-                600 24px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
+            font: 600 24px Oswald, sans-serif;
+            text-transform: uppercase;
         }
-
 
         .panel-tag {
-
             color: #c5a75b;
-
-            font:
-                600 9px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                1.5px;
-
-            text-transform:
-                uppercase;
-
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
-
 
         .portal-panel-body {
-
-            padding:
-                0
-                22px
-                22px;
-
+            padding: 0 22px 22px;
         }
-
-
-        /* =========================================
-           SERVICE RECORD
-           ========================================= */
 
         .service-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    4,
-                    1fr
-                );
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-
         }
-
 
         .service-item {
-
             min-height: 82px;
-
-            padding:
-                16px;
-
-            border:
-                1px solid #30383d;
-
-            background:
-                #090f12;
-
+            padding: 16px;
+            border: 1px solid #30383d;
+            background: #090f12;
         }
-
 
         .service-item span {
-
             display: block;
-
-            margin-bottom:
-                8px;
-
+            margin-bottom: 8px;
             color: #6f7e85;
-
-            font:
-                500 8px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                1px;
-
-            text-transform:
-                uppercase;
-
+            font: 500 8px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-
 
         .service-item strong {
-
             display: block;
-
             color: #fff;
-
-            font:
-                600 17px
-                Oswald,
-                sans-serif;
-
+            font: 600 17px Oswald, sans-serif;
         }
-
-
-        /* =========================================
-           TRAINING STATS
-           ========================================= */
 
         .training-summary {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    5,
-                    1fr
-                );
-
+            grid-template-columns: repeat(5, 1fr);
             gap: 10px;
-
         }
-
 
         .training-stat {
-
-            padding:
-                17px;
-
-            border:
-                1px solid #30383d;
-
-            background:
-                #090f12;
-
+            padding: 17px;
+            border: 1px solid #30383d;
+            background: #090f12;
         }
-
 
         .training-stat span {
-
             display: block;
-
-            margin-bottom:
-                8px;
-
+            margin-bottom: 8px;
             color: #748188;
-
-            font:
-                500 8px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
+            font: 500 8px Oswald, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
 
         .training-stat strong {
-
             display: block;
-
             color: #fff;
-
-            font:
-                600 25px
-                Oswald,
-                sans-serif;
-
+            font: 600 25px Oswald, sans-serif;
         }
-
 
         .training-stat.present strong {
-
-            color:
-                #79d693;
-
+            color: #79d693;
         }
-
 
         .training-stat.excused strong {
-
-            color:
-                #d9be6a;
-
+            color: #d9be6a;
         }
-
 
         .training-stat.absent strong {
-
-            color:
-                #df7474;
-
+            color: #df7474;
         }
-
-
-        /* =========================================
-           QUALIFICATIONS
-           ========================================= */
 
         .qualification-groups {
-
             display: grid;
-
             gap: 20px;
-
         }
-
 
         .qualification-group {
-
             display: grid;
-
             gap: 10px;
-
         }
-
 
         .qualification-group-title {
-
             color: #7c898f;
-
-            font:
-                600 9px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                1.3px;
-
-            text-transform:
-                uppercase;
-
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
         }
-
 
         .qualification-list {
-
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 8px;
-
         }
-
 
         .qualification-badge {
-
-            padding:
-                8px
-                12px;
-
-            border:
-                1px solid #766439;
-
-            background:
-                rgba(
-                    197,
-                    167,
-                    91,
-                    0.07
-                );
-
+            padding: 8px 12px;
+            border: 1px solid #766439;
+            background: rgba(197,167,91,.07);
             color: #d2b55f;
-
-            font:
-                600 10px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                0.5px;
-
-            text-transform:
-                uppercase;
-
+            font: 500 10px Oswald, sans-serif;
+            letter-spacing: .6px;
+            text-transform: uppercase;
         }
-
 
         .qualification-empty {
-
-            padding:
-                18px;
-
-            border:
-                1px dashed #30383d;
-
-            color: #778389;
-
+            padding: 20px;
+            border: 1px dashed #394349;
+            color: #7e8a90;
             font-size: 12px;
-
+            text-align: center;
         }
-
-
-        /* =========================================
-           ATTENDANCE HISTORY
-           ========================================= */
 
         .attendance-history {
-
             display: grid;
-
             gap: 8px;
-
         }
-
 
         .attendance-history-row {
-
             display: grid;
-
-            grid-template-columns:
-                105px
-                110px
-                minmax(
-                    200px,
-                    1fr
-                )
-                110px;
-
-            align-items:
-                center;
-
-            gap: 15px;
-
-            min-height: 58px;
-
-            padding:
-                11px
-                15px;
-
-            border:
-                1px solid #2d353a;
-
-            background:
-                #090f12;
-
+            grid-template-columns: 110px 120px minmax(0,1fr) 100px;
+            gap: 12px;
+            align-items: center;
+            padding: 13px 15px;
+            border: 1px solid #30383d;
+            background: #090f12;
         }
 
-
-        .attendance-date {
-
-            color: #8d989d;
-
-            font:
-                500 11px
-                Oswald,
-                sans-serif;
-
-        }
-
-
+        .attendance-date,
         .attendance-type {
-
-            color: #718087;
-
-            font:
-                500 9px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                0.7px;
-
-            text-transform:
-                uppercase;
-
+            color: #8c999f;
+            font: 500 10px Oswald, sans-serif;
+            text-transform: uppercase;
         }
-
 
         .attendance-title {
-
             color: #fff;
-
-            font:
-                600 14px
-                Oswald,
-                sans-serif;
-
+            font: 500 12px Oswald, sans-serif;
         }
-
 
         .attendance-status-badge {
-
-            justify-self:
-                end;
-
-            min-width:
-                85px;
-
-            padding:
-                7px 9px;
-
-            text-align:
-                center;
-
-            border:
-                1px solid #3b454a;
-
-            font:
-                600 9px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                0.8px;
-
+            justify-self: end;
+            min-width: 70px;
+            padding: 6px 8px;
+            border: 1px solid #4a555b;
+            text-align: center;
+            font: 600 9px Oswald, sans-serif;
+            text-transform: uppercase;
         }
-
 
         .attendance-status-badge.present {
-
-            color:
-                #79d693;
-
-            border-color:
-                #3f7650;
-
-            background:
-                rgba(
-                    73,
-                    150,
-                    94,
-                    0.08
-                );
-
+            color: #79d693;
+            border-color: #3e714c;
         }
-
 
         .attendance-status-badge.excused {
-
-            color:
-                #d9be6a;
-
-            border-color:
-                #71643e;
-
-            background:
-                rgba(
-                    197,
-                    167,
-                    91,
-                    0.08
-                );
-
+            color: #d9be6a;
+            border-color: #78683b;
         }
-
 
         .attendance-status-badge.absent {
-
-            color:
-                #e17b7b;
-
-            border-color:
-                #764444;
-
-            background:
-                rgba(
-                    174,
-                    65,
-                    65,
-                    0.08
-                );
-
+            color: #df7474;
+            border-color: #794242;
         }
-
 
         .attendance-empty {
-
-            padding:
-                25px;
-
-            text-align:
-                center;
-
-            border:
-                1px dashed #30383d;
-
-            color: #748087;
-
+            padding: 22px;
+            border: 1px dashed #394349;
+            color: #7e8a90;
             font-size: 12px;
-
+            text-align: center;
         }
 
-
-        /* =========================================
-           ACCOUNT INFORMATION
-           ========================================= */
+        /*
+         * ACCOUNT INFORMATION
+         *
+         * Email has intentionally been removed.
+         * The grid now contains:
+         * Discord Account
+         * Member ID
+         * Authentication
+         */
 
         .account-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    2,
-                    1fr
-                );
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-
         }
-
 
         .account-item {
-
-            padding:
-                15px;
-
-            border:
-                1px solid #30383d;
-
-            background:
-                #090f12;
-
+            min-width: 0;
+            padding: 15px;
+            border: 1px solid #30383d;
+            background: #090f12;
         }
-
 
         .account-item span {
-
             display: block;
-
-            margin-bottom:
-                6px;
-
-            color: #6c7b82;
-
-            font:
-                500 8px
-                Oswald,
-                sans-serif;
-
-            letter-spacing:
-                1px;
-
-            text-transform:
-                uppercase;
-
+            margin-bottom: 7px;
+            color: #728087;
+            font: 500 8px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-
 
         .account-item strong {
-
             display: block;
-
+            overflow-wrap: anywhere;
             color: #fff;
-
-            font:
-                500 11px
-                Oswald,
-                sans-serif;
-
-            word-break:
-                break-word;
-
+            font: 500 11px Oswald, sans-serif;
         }
 
-
-        /* =========================================
-           LOGIN / ERROR
-           ========================================= */
-
-        .portal-message {
-
-            max-width:
-                700px;
-
-            margin:
-                80px auto;
-
-            padding:
-                40px;
-
-            border:
-                1px solid #30383d;
-
-            border-top:
-                3px solid #c5a75b;
-
-            background:
-                #101619;
-
-            text-align:
-                center;
-
+        .portal-state {
+            margin: 50px auto;
+            max-width: 700px;
+            padding: 40px;
+            border: 1px solid #30383d;
+            border-top: 2px solid #c5a75b;
+            background: #101619;
+            text-align: center;
         }
 
-
-        .portal-message h2 {
-
-            margin:
-                5px 0
-                10px;
-
+        .portal-state h2 {
+            margin: 7px 0;
             color: #fff;
-
-            font:
-                600 32px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
+            font: 600 30px Oswald, sans-serif;
+            text-transform: uppercase;
         }
 
-
-        .portal-message p {
-
-            color: #909ca1;
-
+        .portal-state p {
+            color: #8f9ba0;
             line-height: 1.6;
-
         }
 
-
-        .portal-button {
-
-            display:
-                inline-flex;
-
-            justify-content:
-                center;
-
-            align-items:
-                center;
-
-            min-height:
-                43px;
-
-            margin-top:
-                12px;
-
-            padding:
-                0
-                20px;
-
-            border:
-                1px solid #c5a75b;
-
-            background:
-                #c5a75b;
-
+        .portal-login-button {
+            margin-top: 15px;
+            padding: 12px 18px;
+            border: 1px solid #c5a75b;
+            background: #c5a75b;
             color: #111;
-
             cursor: pointer;
-
-            text-decoration:
-                none;
-
-            font:
-                600 11px
-                Oswald,
-                sans-serif;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
+            font: 600 10px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-
-        /* =========================================
-           MOBILE
-           ========================================= */
-
-        @media (
-            max-width: 1150px
-        ) {
-
-            .service-grid {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        1fr
-                    );
-
-            }
-
-
-            .training-summary {
-
-                grid-template-columns:
-                    repeat(
-                        3,
-                        1fr
-                    );
-
-            }
-
-        }
-
-
-        @media (
-            max-width: 850px
-        ) {
+        @media (max-width: 1000px) {
 
             .portal-shell {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .profile-card {
-
                 position: static;
-
             }
 
-
-            .attendance-history-row {
-
-                grid-template-columns:
-                    90px
-                    1fr
-                    90px;
-
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-
-            .attendance-type {
-
-                display: none;
-
+            .training-summary {
+                grid-template-columns: repeat(3, 1fr);
             }
 
         }
 
+        @media (max-width: 700px) {
 
-        @media (
-            max-width: 650px
-        ) {
-
-            .service-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .training-summary {
-
-                grid-template-columns:
-                    repeat(
-                        2,
-                        1fr
-                    );
-
-            }
-
-
+            .service-grid,
+            .training-summary,
             .account-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .attendance-history-row {
-
-                grid-template-columns:
-                    1fr;
-
-                gap: 5px;
-
+                grid-template-columns: 1fr;
             }
-
 
             .attendance-status-badge {
-
-                justify-self:
-                    start;
-
-            }
-
-
-            .portal-panel-header {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
+                justify-self: start;
             }
 
         }
@@ -1192,25 +477,19 @@
 
 </head>
 
-
 <body>
-
-
-    <!-- =========================================
-         HEADER
-         ========================================= -->
 
     <header class="site-header">
 
         <a
             class="brand"
             href="index.html"
+            aria-label="21st Cavalry Division home"
         >
 
             <div class="brand-mark">
                 21
             </div>
-
 
             <div>
 
@@ -1226,7 +505,6 @@
 
         </a>
 
-
         <button
             class="nav-toggle"
             id="navToggle"
@@ -1235,7 +513,6 @@
         >
             ☰
         </button>
-
 
         <nav
             class="main-nav"
@@ -1248,6 +525,14 @@
 
             <a href="orbat.html">
                 ORBAT
+            </a>
+
+            <a
+                href="operations.html"
+                id="operationsPortalLink"
+                hidden
+            >
+                OPBOARD
             </a>
 
             <a href="training.html">
@@ -1268,19 +553,20 @@
 
             <a
                 href="members.html"
+                id="memberPortalLink"
                 style="color:#c5a75b;"
+                hidden
             >
                 Member Portal
             </a>
 
             <a
                 href="admin.html"
-                id="adminNavLink"
+                id="adminPortalLink"
                 hidden
             >
                 Admin
             </a>
-
 
             <div
                 class="member-auth"
@@ -1295,7 +581,6 @@
                     Login with Discord
                 </button>
 
-
                 <div
                     class="member-profile"
                     id="memberProfile"
@@ -1303,17 +588,16 @@
                 >
 
                     <img
-                        id="memberHeaderAvatar"
+                        id="memberAvatar"
                         class="member-avatar"
                         src=""
                         alt=""
                         hidden
                     >
 
-
                     <div class="member-profile-text">
 
-                        <span id="memberHeaderName">
+                        <span id="memberName">
                             Member
                         </span>
 
@@ -1322,7 +606,6 @@
                         </small>
 
                     </div>
-
 
                     <button
                         class="member-logout-btn"
@@ -1340,11 +623,6 @@
 
     </header>
 
-
-    <!-- =========================================
-         HERO
-         ========================================= -->
-
     <section class="portal-hero">
 
         <div class="portal-hero-inner">
@@ -1354,27 +632,21 @@
             </p>
 
             <h1>
-                Member Portal
+                MEMBER PORTAL
             </h1>
 
             <p class="portal-hero-description">
-                View your current assignment, rank, qualifications,
-                attendance history, training record, membership status,
-                and unit profile.
+                View your personnel record, qualifications,
+                training information and attendance history.
             </p>
 
         </div>
 
     </section>
 
-
-    <!-- =========================================
-         LOADING
-         ========================================= -->
-
     <section
         id="portalLoading"
-        class="portal-message"
+        class="portal-state"
     >
 
         <p class="eyebrow">
@@ -1382,24 +654,19 @@
         </p>
 
         <h2>
-            Loading Service Record
+            Loading Personnel Record
         </h2>
 
         <p>
             Verifying your Discord account and retrieving
-            your personnel record.
+            your 21st Cavalry Division member profile.
         </p>
 
     </section>
 
-
-    <!-- =========================================
-         LOGIN REQUIRED
-         ========================================= -->
-
     <section
         id="portalLogin"
-        class="portal-message"
+        class="portal-state"
         hidden
     >
 
@@ -1412,13 +679,13 @@
         </h2>
 
         <p>
-            Sign in using your Discord account to access
+            Sign in with your Discord account to access
             your 21st Cavalry Division personnel record.
         </p>
 
         <button
             id="portalLoginButton"
-            class="portal-button"
+            class="portal-login-button"
             type="button"
         >
             Login with Discord
@@ -1426,19 +693,14 @@
 
     </section>
 
-
-    <!-- =========================================
-         ERROR
-         ========================================= -->
-
     <section
         id="portalError"
-        class="portal-message"
+        class="portal-state"
         hidden
     >
 
         <p class="eyebrow">
-            PERSONNEL RECORD
+            PERSONNEL SYSTEM
         </p>
 
         <h2>
@@ -1446,64 +708,49 @@
         </h2>
 
         <p id="portalErrorText">
-            Your member profile could not be loaded.
+            Your personnel record could not be loaded.
         </p>
 
     </section>
 
-
-    <!-- =========================================
-         MEMBER PORTAL
-         ========================================= -->
-
     <main
-        id="portalContent"
+        id="portalMain"
         class="portal-shell"
         hidden
     >
 
-
-        <!-- =========================================
-             LEFT PROFILE
-             ========================================= -->
-
         <aside class="profile-card">
-
 
             <img
                 id="profileAvatar"
                 class="profile-avatar"
                 src=""
-                alt="Member Avatar"
+                alt="Member avatar"
+                hidden
             >
-
 
             <div
                 id="profileRank"
                 class="profile-rank"
             >
-                Recruit
+                —
             </div>
 
-
-            <h2
+            <div
                 id="profileName"
                 class="profile-name"
             >
-                Member
-            </h2>
-
+                —
+            </div>
 
             <div
                 id="profileBillet"
                 class="profile-billet"
             >
-                Unassigned
+                —
             </div>
 
-
             <div class="profile-divider"></div>
-
 
             <div class="profile-data-row">
 
@@ -1512,11 +759,10 @@
                 </span>
 
                 <strong id="profileSection">
-                    Unassigned
+                    —
                 </strong>
 
             </div>
-
 
             <div class="profile-data-row">
 
@@ -1525,11 +771,10 @@
                 </span>
 
                 <strong id="profileRole">
-                    Member
+                    —
                 </strong>
 
             </div>
-
 
             <div class="profile-data-row">
 
@@ -1538,11 +783,10 @@
                 </span>
 
                 <strong id="profileStatus">
-                    Active
+                    —
                 </strong>
 
             </div>
-
 
             <div class="profile-data-row">
 
@@ -1551,24 +795,16 @@
                 </span>
 
                 <strong id="profileAccess">
-                    Member
+                    —
                 </strong>
 
             </div>
 
         </aside>
 
+        <div class="portal-content">
 
-        <!-- =========================================
-             RIGHT SIDE
-             ========================================= -->
-
-        <section class="portal-content">
-
-
-            <!-- =====================================
-                 SERVICE RECORD
-                 ===================================== -->
+            <!-- SERVICE RECORD -->
 
             <article class="portal-panel">
 
@@ -1579,16 +815,14 @@
                     </h2>
 
                     <span class="panel-tag">
-                        Member Status
+                        Personnel
                     </span>
 
                 </div>
 
-
                 <div class="portal-panel-body">
 
                     <div class="service-grid">
-
 
                         <div class="service-item">
 
@@ -1597,11 +831,10 @@
                             </span>
 
                             <strong id="serviceRank">
-                                Recruit
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1610,11 +843,10 @@
                             </span>
 
                             <strong id="serviceBillet">
-                                Unassigned
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1623,11 +855,10 @@
                             </span>
 
                             <strong id="serviceSection">
-                                Unassigned
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1641,7 +872,6 @@
 
                         </div>
 
-
                         <div class="service-item">
 
                             <span>
@@ -1649,11 +879,10 @@
                             </span>
 
                             <strong id="serviceRole">
-                                Member
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1662,11 +891,10 @@
                             </span>
 
                             <strong id="serviceStatus">
-                                Active
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1675,11 +903,10 @@
                             </span>
 
                             <strong id="serviceAccess">
-                                Member
+                                —
                             </strong>
 
                         </div>
-
 
                         <div class="service-item">
 
@@ -1693,17 +920,13 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
 
             </article>
 
-
-            <!-- =====================================
-                 TRAINING RECORD
-                 ===================================== -->
+            <!-- TRAINING RECORD -->
 
             <article class="portal-panel">
 
@@ -1714,16 +937,14 @@
                     </h2>
 
                     <span class="panel-tag">
-                        Performance Summary
+                        Training
                     </span>
 
                 </div>
 
-
                 <div class="portal-panel-body">
 
                     <div class="training-summary">
-
 
                         <div class="training-stat">
 
@@ -1731,12 +952,11 @@
                                 Qualifications
                             </span>
 
-                            <strong id="trainingQualificationCount">
+                            <strong id="qualificationCount">
                                 0
                             </strong>
 
                         </div>
-
 
                         <div class="training-stat">
 
@@ -1744,12 +964,11 @@
                                 Recorded Events
                             </span>
 
-                            <strong id="trainingEventCount">
+                            <strong id="attendanceEventCount">
                                 0
                             </strong>
 
                         </div>
-
 
                         <div class="training-stat present">
 
@@ -1757,12 +976,11 @@
                                 Present
                             </span>
 
-                            <strong id="trainingPresentCount">
+                            <strong id="attendancePresentCount">
                                 0
                             </strong>
 
                         </div>
-
 
                         <div class="training-stat excused">
 
@@ -1770,12 +988,11 @@
                                 Excused
                             </span>
 
-                            <strong id="trainingExcusedCount">
+                            <strong id="attendanceExcusedCount">
                                 0
                             </strong>
 
                         </div>
-
 
                         <div class="training-stat absent">
 
@@ -1783,12 +1000,11 @@
                                 Absent
                             </span>
 
-                            <strong id="trainingAbsentCount">
+                            <strong id="attendanceAbsentCount">
                                 0
                             </strong>
 
                         </div>
-
 
                     </div>
 
@@ -1796,10 +1012,7 @@
 
             </article>
 
-
-            <!-- =====================================
-                 QUALIFICATIONS
-                 ===================================== -->
+            <!-- QUALIFICATIONS -->
 
             <article class="portal-panel">
 
@@ -1810,11 +1023,10 @@
                     </h2>
 
                     <span class="panel-tag">
-                        Training Record
+                        Certifications
                     </span>
 
                 </div>
-
 
                 <div class="portal-panel-body">
 
@@ -1827,10 +1039,7 @@
 
             </article>
 
-
-            <!-- =====================================
-                 ATTENDANCE HISTORY
-                 ===================================== -->
+            <!-- ATTENDANCE HISTORY -->
 
             <article class="portal-panel">
 
@@ -1841,32 +1050,25 @@
                     </h2>
 
                     <span class="panel-tag">
-                        Personnel Accountability
+                        Unit Events
                     </span>
 
                 </div>
-
 
                 <div class="portal-panel-body">
 
                     <div
                         id="attendanceHistory"
                         class="attendance-history"
-                    >
-
-                        <div class="attendance-empty">
-                            Loading attendance history...
-                        </div>
-
-                    </div>
+                    ></div>
 
                 </div>
 
             </article>
 
-
             <!-- =====================================
                  ACCOUNT INFORMATION
+                 EMAIL REMOVED
                  ===================================== -->
 
             <article class="portal-panel">
@@ -1883,11 +1085,9 @@
 
                 </div>
 
-
                 <div class="portal-panel-body">
 
                     <div class="account-grid">
-
 
                         <div class="account-item">
 
@@ -1901,20 +1101,6 @@
 
                         </div>
 
-
-                        <div class="account-item">
-
-                            <span>
-                                Email
-                            </span>
-
-                            <strong id="accountEmail">
-                                —
-                            </strong>
-
-                        </div>
-
-
                         <div class="account-item">
 
                             <span>
@@ -1926,7 +1112,6 @@
                             </strong>
 
                         </div>
-
 
                         <div class="account-item">
 
@@ -1940,22 +1125,15 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
 
             </article>
 
-
-        </section>
+        </div>
 
     </main>
-
-
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
 
     <footer>
 
@@ -1979,32 +1157,25 @@
 
         </div>
 
-
         <p>
             Swift. Silent. Relentless.
         </p>
 
-
         <div class="footer-links">
 
-            <a href="recruitment.html">
-                Recruitment
+            <a href="members.html">
+                Member Portal
             </a>
 
             <a href="resources.html">
                 Unit Resources
             </a>
 
-            <a
-                href="https://discord.gg/PCxE5jTYZ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Discord
+            <a href="index.html">
+                Home
             </a>
 
         </div>
-
 
         <p class="fineprint">
             This is a gaming/military simulation community website
@@ -2014,23 +1185,15 @@
 
     </footer>
 
-
-    <!-- =========================================
-         SUPABASE
-         ========================================= -->
-
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
-
 
     <script>
 
         document.addEventListener(
             'DOMContentLoaded',
-
             async () => {
-
 
                 /* =========================================
                    SUPABASE
@@ -2039,10 +1202,8 @@
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
 
-
                 const SUPABASE_KEY =
                     'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
-
 
                 const client =
                     window.supabase.createClient(
@@ -2050,6 +1211,72 @@
                         SUPABASE_KEY
                     );
 
+                /* =========================================
+                   QUALIFICATIONS
+                   ========================================= */
+
+                const qualificationDefinitions = [
+
+                    {
+                        name: 'Core Training',
+
+                        qualifications: [
+                            'BCT',
+                            'Rifle Qualification',
+                            'CLS'
+                        ]
+                    },
+
+                    {
+                        name: 'Infantry Qualifications',
+
+                        qualifications: [
+                            'Rifleman',
+                            'Automatic Rifleman',
+                            'Grenadier',
+                            'Machine Gunner',
+                            'RTO',
+                            'Forward Observer',
+                            'Combat Medic',
+                            'Marksman',
+                            'Sniper'
+                        ]
+                    },
+
+                    {
+                        name: 'Vehicle Qualifications',
+
+                        qualifications: [
+                            'Driver',
+                            'Crewman',
+                            'Gunner',
+                            'Vehicle Commander'
+                        ]
+                    },
+
+                    {
+                        name: 'Aviation Qualifications',
+
+                        qualifications: [
+                            'Pilot',
+                            'Copilot',
+                            'Crew Chief'
+                        ]
+                    },
+
+                    {
+                        name: 'Leadership & Training',
+
+                        qualifications: [
+                            'Team Leader',
+                            'Squad Leader',
+                            'Platoon Leadership',
+                            'Instructor',
+                            'Training Staff'
+                        ]
+                    }
+
+                ];
 
                 /* =========================================
                    ELEMENTS
@@ -2060,342 +1287,79 @@
                         'portalLoading'
                     );
 
-
                 const portalLogin =
                     document.getElementById(
                         'portalLogin'
                     );
-
 
                 const portalError =
                     document.getElementById(
                         'portalError'
                     );
 
-
                 const portalErrorText =
                     document.getElementById(
                         'portalErrorText'
                     );
 
-
-                const portalContent =
+                const portalMain =
                     document.getElementById(
-                        'portalContent'
+                        'portalMain'
                     );
 
-
-                const discordLoginBtn =
+                const loginButton =
                     document.getElementById(
                         'discordLoginBtn'
                     );
-
 
                 const portalLoginButton =
                     document.getElementById(
                         'portalLoginButton'
                     );
 
-
-                const discordLogoutBtn =
+                const logoutButton =
                     document.getElementById(
                         'discordLogoutBtn'
                     );
-
 
                 const memberProfile =
                     document.getElementById(
                         'memberProfile'
                     );
 
-
-                const memberHeaderName =
+                const memberAvatar =
                     document.getElementById(
-                        'memberHeaderName'
+                        'memberAvatar'
                     );
 
-
-                const memberHeaderAvatar =
+                const memberName =
                     document.getElementById(
-                        'memberHeaderAvatar'
+                        'memberName'
                     );
 
-
-                const adminNavLink =
+                const memberPortalLink =
                     document.getElementById(
-                        'adminNavLink'
+                        'memberPortalLink'
                     );
 
+                const operationsPortalLink =
+                    document.getElementById(
+                        'operationsPortalLink'
+                    );
+
+                const adminPortalLink =
+                    document.getElementById(
+                        'adminPortalLink'
+                    );
+
+                /*
+                 * Notice:
+                 * There is intentionally NO accountEmail
+                 * element anymore.
+                 */
 
                 /* =========================================
-                   SCREEN CONTROL
-                   ========================================= */
-
-                function showScreen(
-                    screen
-                ) {
-
-                    portalLoading.hidden =
-                        screen !==
-                        'loading';
-
-
-                    portalLogin.hidden =
-                        screen !==
-                        'login';
-
-
-                    portalError.hidden =
-                        screen !==
-                        'error';
-
-
-                    portalContent.hidden =
-                        screen !==
-                        'portal';
-
-                }
-
-
-                /* =========================================
-                   ESCAPE HTML
-                   ========================================= */
-
-                function escapeHtml(
-                    value
-                ) {
-
-                    return String(
-                        value ?? ''
-                    )
-
-                        .replaceAll(
-                            '&',
-                            '&amp;'
-                        )
-
-                        .replaceAll(
-                            '<',
-                            '&lt;'
-                        )
-
-                        .replaceAll(
-                            '>',
-                            '&gt;'
-                        )
-
-                        .replaceAll(
-                            '"',
-                            '&quot;'
-                        )
-
-                        .replaceAll(
-                            "'",
-                            '&#039;'
-                        );
-
-                }
-
-
-                /* =========================================
-                   DATE
-                   ========================================= */
-
-                function formatDate(
-                    value
-                ) {
-
-                    if (!value) {
-
-                        return '—';
-
-                    }
-
-
-                    const date =
-                        new Date(
-                            value +
-                            'T00:00:00'
-                        );
-
-
-                    if (
-                        Number.isNaN(
-                            date.getTime()
-                        )
-                    ) {
-
-                        return value;
-
-                    }
-
-
-                    return date.toLocaleDateString(
-                        undefined,
-                        {
-
-                            year:
-                                'numeric',
-
-                            month:
-                                'short',
-
-                            day:
-                                'numeric'
-
-                        }
-                    );
-
-                }
-
-
-                /* =========================================
-                   DISCORD USER INFORMATION
-                   ========================================= */
-
-                function getDiscordName(
-                    user
-                ) {
-
-                    return (
-                        user.user_metadata
-                            ?.global_name
-
-                        ||
-
-                        user.user_metadata
-                            ?.full_name
-
-                        ||
-
-                        user.user_metadata
-                            ?.name
-
-                        ||
-
-                        user.user_metadata
-                            ?.preferred_username
-
-                        ||
-
-                        user.email
-
-                        ||
-
-                        'Member'
-                    );
-
-                }
-
-
-                function getDiscordUsername(
-                    user
-                ) {
-
-                    return (
-                        user.user_metadata
-                            ?.preferred_username
-
-                        ||
-
-                        user.user_metadata
-                            ?.user_name
-
-                        ||
-
-                        user.user_metadata
-                            ?.name
-
-                        ||
-
-                        getDiscordName(
-                            user
-                        )
-                    );
-
-                }
-
-
-                function getAvatar(
-                    user
-                ) {
-
-                    return (
-                        user.user_metadata
-                            ?.avatar_url
-
-                        ||
-
-                        user.user_metadata
-                            ?.picture
-
-                        ||
-
-                        ''
-                    );
-
-                }
-
-
-                /* =========================================
-                   LOGIN
-                   ========================================= */
-
-                async function loginWithDiscord() {
-
-                    await client.auth
-                        .signInWithOAuth({
-
-                            provider:
-                                'discord',
-
-                            options: {
-
-                                redirectTo:
-                                    window.location.href
-
-                            }
-
-                        });
-
-                }
-
-
-                discordLoginBtn
-                    .addEventListener(
-                        'click',
-                        loginWithDiscord
-                    );
-
-
-                portalLoginButton
-                    .addEventListener(
-                        'click',
-                        loginWithDiscord
-                    );
-
-
-                discordLogoutBtn
-                    .addEventListener(
-
-                        'click',
-
-                        async () => {
-
-                            await client.auth
-                                .signOut();
-
-
-                            window.location.href =
-                                'index.html';
-
-                        }
-
-                    );
-
-
-                /* =========================================
-                   MOBILE NAV
+                   MOBILE NAVIGATION
                    ========================================= */
 
                 const navToggle =
@@ -2403,18 +1367,18 @@
                         'navToggle'
                     );
 
-
                 const mainNav =
                     document.getElementById(
                         'mainNav'
                     );
 
+                if (
+                    navToggle &&
+                    mainNav
+                ) {
 
-                navToggle
-                    ?.addEventListener(
-
+                    navToggle.addEventListener(
                         'click',
-
                         () => {
 
                             const open =
@@ -2422,139 +1386,323 @@
                                     'open'
                                 );
 
-
                             navToggle.setAttribute(
                                 'aria-expanded',
                                 open
-                                    ?
-                                    'true'
-                                    :
-                                    'false'
+                                    ? 'true'
+                                    : 'false'
                             );
 
                         }
+                    );
+
+                }
+
+                /* =========================================
+                   HELPERS
+                   ========================================= */
+
+                function escapeHtml(value) {
+
+                    return String(
+                        value ?? ''
+                    )
+
+                    .replaceAll(
+                        '&',
+                        '&amp;'
+                    )
+
+                    .replaceAll(
+                        '<',
+                        '&lt;'
+                    )
+
+                    .replaceAll(
+                        '>',
+                        '&gt;'
+                    )
+
+                    .replaceAll(
+                        '"',
+                        '&quot;'
+                    )
+
+                    .replaceAll(
+                        "'",
+                        '&#039;'
+                    );
+
+                }
+
+                function getDiscordName(user) {
+
+                    const metadata =
+                        user?.user_metadata || {};
+
+                    return (
+
+                        metadata.global_name ||
+
+                        metadata.full_name ||
+
+                        metadata.name ||
+
+                        metadata.preferred_username ||
+
+                        metadata.user_name ||
+
+                        metadata.username ||
+
+                        'Member'
 
                     );
 
+                }
+
+                function getAvatar(user) {
+
+                    const metadata =
+                        user?.user_metadata || {};
+
+                    return (
+
+                        metadata.avatar_url ||
+
+                        metadata.picture ||
+
+                        ''
+
+                    );
+
+                }
+
+                function formatDate(value) {
+
+                    if (!value) {
+                        return '—';
+                    }
+
+                    const date =
+                        new Date(
+                            `${value}T00:00:00`
+                        );
+
+                    if (
+                        Number.isNaN(
+                            date.getTime()
+                        )
+                    ) {
+                        return value;
+                    }
+
+                    return date.toLocaleDateString(
+                        undefined,
+                        {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        }
+                    );
+
+                }
+
+                function showScreen(screen) {
+
+                    portalLoading.hidden =
+                        screen !== 'loading';
+
+                    portalLogin.hidden =
+                        screen !== 'login';
+
+                    portalError.hidden =
+                        screen !== 'error';
+
+                    portalMain.hidden =
+                        screen !== 'portal';
+
+                }
 
                 /* =========================================
-                   QUALIFICATION GROUPS
+                   HEADER AUTH STATE
                    ========================================= */
 
-                const qualificationDefinitions = [
+                async function renderHeader(
+                    user,
+                    profile
+                ) {
 
-                    {
+                    if (!user) {
 
-                        name:
-                            'Core Training',
+                        loginButton.hidden =
+                            false;
 
-                        qualifications: [
+                        memberProfile.hidden =
+                            true;
 
-                            'BCT',
+                        memberPortalLink.hidden =
+                            true;
 
-                            'Rifle Qualification',
+                        if (operationsPortalLink) {
+                            operationsPortalLink.hidden =
+                                true;
+                        }
 
-                            'CLS'
+                        adminPortalLink.hidden =
+                            true;
 
-                        ]
-
-                    },
-
-
-                    {
-
-                        name:
-                            'Infantry Qualifications',
-
-                        qualifications: [
-
-                            'Rifleman',
-
-                            'Automatic Rifleman',
-
-                            'Grenadier',
-
-                            'Machine Gunner',
-
-                            'RTO',
-
-                            'Forward Observer',
-
-                            'Combat Medic',
-
-                            'Marksman',
-
-                            'Sniper'
-
-                        ]
-
-                    },
-
-
-                    {
-
-                        name:
-                            'Vehicle Qualifications',
-
-                        qualifications: [
-
-                            'Driver',
-
-                            'Crewman',
-
-                            'Gunner',
-
-                            'Vehicle Commander'
-
-                        ]
-
-                    },
-
-
-                    {
-
-                        name:
-                            'Aviation Qualifications',
-
-                        qualifications: [
-
-                            'Pilot',
-
-                            'Copilot',
-
-                            'Crew Chief'
-
-                        ]
-
-                    },
-
-
-                    {
-
-                        name:
-                            'Leadership & Training',
-
-                        qualifications: [
-
-                            'Team Leader',
-
-                            'Squad Leader',
-
-                            'Platoon Leadership',
-
-                            'Instructor',
-
-                            'Training Staff'
-
-                        ]
+                        return;
 
                     }
 
-                ];
+                    loginButton.hidden =
+                        true;
 
+                    memberProfile.hidden =
+                        false;
+
+                    memberPortalLink.hidden =
+                        false;
+
+                    if (operationsPortalLink) {
+                        operationsPortalLink.hidden =
+                            false;
+                    }
+
+                    memberName.textContent =
+
+                        profile?.display_name ||
+
+                        getDiscordName(
+                            user
+                        );
+
+                    const avatar =
+                        getAvatar(
+                            user
+                        );
+
+                    if (avatar) {
+
+                        memberAvatar.src =
+                            avatar;
+
+                        memberAvatar.hidden =
+                            false;
+
+                    }
+
+                    else {
+
+                        memberAvatar.removeAttribute(
+                            'src'
+                        );
+
+                        memberAvatar.hidden =
+                            true;
+
+                    }
+
+                    const access =
+                        profile?.access_level ||
+                        'Member';
+
+                    adminPortalLink.hidden =
+                        !(
+                            access === 'Admin' ||
+                            access === 'Super Admin'
+                        );
+
+                }
 
                 /* =========================================
-                   RENDER QUALIFICATIONS
+                   LOGIN
+                   ========================================= */
+
+                async function loginWithDiscord() {
+
+                    const {
+                        error
+                    } =
+                        await client.auth
+                            .signInWithOAuth({
+
+                                provider:
+                                    'discord',
+
+                                options: {
+
+                                    redirectTo:
+                                        window.location.href
+
+                                }
+
+                            });
+
+                    if (error) {
+
+                        console.error(
+                            'Discord login error:',
+                            error
+                        );
+
+                        alert(
+                            'Discord login failed: ' +
+                            error.message
+                        );
+
+                    }
+
+                }
+
+                loginButton.addEventListener(
+                    'click',
+                    loginWithDiscord
+                );
+
+                portalLoginButton.addEventListener(
+                    'click',
+                    loginWithDiscord
+                );
+
+                /* =========================================
+                   LOGOUT
+                   ========================================= */
+
+                logoutButton.addEventListener(
+                    'click',
+                    async () => {
+
+                        const {
+                            error
+                        } =
+                            await client.auth
+                                .signOut();
+
+                        if (error) {
+
+                            console.error(
+                                'Logout error:',
+                                error
+                            );
+
+                            alert(
+                                'Logout failed: ' +
+                                error.message
+                            );
+
+                            return;
+
+                        }
+
+                        window.location.href =
+                            'index.html';
+
+                    }
+                );
+
+                /* =========================================
+                   QUALIFICATIONS
                    ========================================= */
 
                 function renderQualifications(
@@ -2566,79 +1714,66 @@
                             'qualificationGroups'
                         );
 
+                    const qualificationCount =
+                        document.getElementById(
+                            'qualificationCount'
+                        );
 
-                    const selected =
+                    const values =
                         Array.isArray(
                             qualifications
                         )
+                            ? qualifications
+                            : [];
 
-                            ?
+                    qualificationCount.textContent =
+                        values.length;
 
-                            qualifications
-
-                            :
-
-                            [];
-
-
-                    if (
-                        !selected.length
-                    ) {
+                    if (!values.length) {
 
                         container.innerHTML = `
 
                             <div class="qualification-empty">
 
                                 No qualifications are currently
-                                recorded for this member.
+                                recorded on your personnel file.
 
                             </div>
 
                         `;
 
-
                         return;
 
                     }
 
-
-                    const knownQualifications =
-                        qualificationDefinitions
-                            .flatMap(
-                                group =>
-                                    group.qualifications
-                            );
-
+                    const known =
+                        new Set();
 
                     let html =
                         '';
 
-
                     qualificationDefinitions.forEach(
-
                         group => {
 
-
-                            const earned =
+                            const matched =
                                 group.qualifications.filter(
-
                                     qualification =>
-
-                                        selected.includes(
+                                        values.includes(
                                             qualification
                                         )
-
                                 );
 
-
-                            if (
-                                !earned.length
-                            ) {
-
+                            if (!matched.length) {
                                 return;
-
                             }
 
+                            matched.forEach(
+                                qualification => {
+                                    known.add(
+                                        qualification
+                                    );
+                                }
+                            );
 
                             html += `
 
@@ -2652,74 +1787,9 @@
 
                                     </div>
 
-
                                     <div class="qualification-list">
 
-                                        ${earned
-
-                                            .map(
-
-                                                qualification => `
-
-                                                    <span class="qualification-badge">
-
-                                                        ${escapeHtml(
-                                                            qualification
-                                                        )}
-
-                                                    </span>
-
-                                                `
-
-                                            )
-
-                                            .join('')
-                                        }
-
-                                    </div>
-
-                                </div>
-
-                            `;
-
-                        }
-
-                    );
-
-
-                    const customQualifications =
-                        selected.filter(
-
-                            qualification =>
-
-                                !knownQualifications.includes(
-                                    qualification
-                                )
-
-                        );
-
-
-                    if (
-                        customQualifications.length
-                    ) {
-
-                        html += `
-
-                            <div class="qualification-group">
-
-                                <div class="qualification-group-title">
-
-                                    Additional Qualifications
-
-                                </div>
-
-
-                                <div class="qualification-list">
-
-                                    ${customQualifications
-
-                                        .map(
-
+                                        ${matched.map(
                                             qualification => `
 
                                                 <span class="qualification-badge">
@@ -2731,11 +1801,50 @@
                                                 </span>
 
                                             `
+                                        ).join('')}
 
-                                        )
+                                    </div>
 
-                                        .join('')
-                                    }
+                                </div>
+
+                            `;
+
+                        }
+                    );
+
+                    const custom =
+                        values.filter(
+                            qualification =>
+                                !known.has(
+                                    qualification
+                                )
+                        );
+
+                    if (custom.length) {
+
+                        html += `
+
+                            <div class="qualification-group">
+
+                                <div class="qualification-group-title">
+                                    Additional Qualifications
+                                </div>
+
+                                <div class="qualification-list">
+
+                                    ${custom.map(
+                                        qualification => `
+
+                                            <span class="qualification-badge">
+
+                                                ${escapeHtml(
+                                                    qualification
+                                                )}
+
+                                            </span>
+
+                                        `
+                                    ).join('')}
 
                                 </div>
 
@@ -2745,15 +1854,13 @@
 
                     }
 
-
                     container.innerHTML =
                         html;
 
                 }
 
-
                 /* =========================================
-                   PROFILE DISPLAY
+                   PROFILE
                    ========================================= */
 
                 function populateProfile(
@@ -2762,213 +1869,17 @@
                 ) {
 
                     const displayName =
-                        profile.display_name
 
-                        ||
+                        profile.display_name ||
 
                         getDiscordName(
                             user
                         );
 
-
-                    const rank =
-                        profile.rank
-
-                        ||
-
-                        'Recruit';
-
-
-                    const billet =
-                        profile.billet
-
-                        ||
-
-                        'Unassigned';
-
-
-                    const section =
-                        profile.section
-
-                        ||
-
-                        'Unassigned';
-
-
-                    const role =
-                        profile.member_role
-
-                        ||
-
-                        'Member';
-
-
-                    const status =
-                        profile.member_status
-
-                        ||
-
-                        'Active';
-
-
-                    const access =
-                        profile.access_level
-
-                        ||
-
-                        'Member';
-
-
-                    const attendance =
-                        Number(
-                            profile.attendance_rate
-                            ||
-                            0
-                        );
-
-
                     const avatar =
                         getAvatar(
                             user
                         );
-
-
-                    /* HEADER */
-
-                    memberHeaderName.textContent =
-                        displayName;
-
-
-                    discordLoginBtn.hidden =
-                        true;
-
-
-                    memberProfile.hidden =
-                        false;
-
-
-                    if (avatar) {
-
-                        memberHeaderAvatar.src =
-                            avatar;
-
-
-                        memberHeaderAvatar.hidden =
-                            false;
-
-                    }
-
-
-                    if (
-                        access ===
-                        'Admin'
-
-                        ||
-
-                        access ===
-                        'Super Admin'
-                    ) {
-
-                        adminNavLink.hidden =
-                            false;
-
-                    }
-
-
-                    /* PROFILE CARD */
-
-                    document
-                        .getElementById(
-                            'profileName'
-                        )
-                        .textContent =
-                            displayName;
-
-
-                    document
-                        .getElementById(
-                            'profileRank'
-                        )
-                        .textContent =
-                            rank;
-
-
-                    document
-                        .getElementById(
-                            'profileBillet'
-                        )
-                        .textContent =
-                            billet;
-
-
-                    document
-                        .getElementById(
-                            'profileSection'
-                        )
-                        .textContent =
-                            section;
-
-
-                    document
-                        .getElementById(
-                            'profileRole'
-                        )
-                        .textContent =
-                            role;
-
-
-                    document
-                        .getElementById(
-                            'profileAccess'
-                        )
-                        .textContent =
-                            access;
-
-
-                    const statusElement =
-                        document.getElementById(
-                            'profileStatus'
-                        );
-
-
-                    statusElement.textContent =
-                        status;
-
-
-                    statusElement.className =
-                        '';
-
-
-                    if (
-                        status ===
-                        'Active'
-                    ) {
-
-                        statusElement.classList.add(
-                            'active'
-                        );
-
-                    }
-
-                    else if (
-                        status ===
-                        'LOA'
-                    ) {
-
-                        statusElement.classList.add(
-                            'loa'
-                        );
-
-                    }
-
-                    else {
-
-                        statusElement.classList.add(
-                            'inactive'
-                        );
-
-                    }
-
 
                     if (avatar) {
 
@@ -2979,10 +1890,145 @@
                             .src =
                                 avatar;
 
+                        document
+                            .getElementById(
+                                'profileAvatar'
+                            )
+                            .hidden =
+                                false;
+
                     }
 
+                    else {
 
-                    /* SERVICE RECORD */
+                        document
+                            .getElementById(
+                                'profileAvatar'
+                            )
+                            .hidden =
+                                true;
+
+                    }
+
+                    const rank =
+                        profile.rank ||
+                        'Unassigned';
+
+                    const billet =
+                        profile.billet ||
+                        'Unassigned';
+
+                    const section =
+                        profile.section ||
+                        'Unassigned';
+
+                    const role =
+                        profile.member_role ||
+                        'Member';
+
+                    const status =
+                        profile.member_status ||
+                        'Active';
+
+                    const access =
+                        profile.access_level ||
+                        'Member';
+
+                    const attendance =
+                        profile.attendance_rate ??
+                        0;
+
+                    document
+                        .getElementById(
+                            'profileRank'
+                        )
+                        .textContent =
+                            rank;
+
+                    document
+                        .getElementById(
+                            'profileName'
+                        )
+                        .textContent =
+                            displayName;
+
+                    document
+                        .getElementById(
+                            'profileBillet'
+                        )
+                        .textContent =
+                            billet;
+
+                    document
+                        .getElementById(
+                            'profileSection'
+                        )
+                        .textContent =
+                            section;
+
+                    document
+                        .getElementById(
+                            'profileRole'
+                        )
+                        .textContent =
+                            role;
+
+                    const profileStatus =
+                        document.getElementById(
+                            'profileStatus'
+                        );
+
+                    profileStatus.textContent =
+                        status;
+
+                    profileStatus.className =
+                        '';
+
+                    const statusClass =
+                        status
+                            .toLowerCase()
+                            .replaceAll(
+                                ' ',
+                                '-'
+                            );
+
+                    if (
+                        statusClass === 'active'
+                    ) {
+
+                        profileStatus.classList.add(
+                            'active'
+                        );
+
+                    }
+
+                    else if (
+                        statusClass === 'loa'
+                        ||
+                        statusClass ===
+                            'leave-of-absence'
+                    ) {
+
+                        profileStatus.classList.add(
+                            'loa'
+                        );
+
+                    }
+
+                    else {
+
+                        profileStatus.classList.add(
+                            'inactive'
+                        );
+
+                    }
+
+                    document
+                        .getElementById(
+                            'profileAccess'
+                        )
+                        .textContent =
+                            access;
 
                     document
                         .getElementById(
@@ -2991,14 +2037,12 @@
                         .textContent =
                             rank;
 
-
                     document
                         .getElementById(
                             'serviceBillet'
                         )
                         .textContent =
                             billet;
-
 
                     document
                         .getElementById(
@@ -3007,15 +2051,12 @@
                         .textContent =
                             section;
 
-
                     document
                         .getElementById(
                             'serviceAttendance'
                         )
                         .textContent =
-                            attendance +
-                            '%';
-
+                            `${attendance}%`;
 
                     document
                         .getElementById(
@@ -3024,7 +2065,6 @@
                         .textContent =
                             role;
 
-
                     document
                         .getElementById(
                             'serviceStatus'
@@ -3032,14 +2072,12 @@
                         .textContent =
                             status;
 
-
                     document
                         .getElementById(
                             'serviceAccess'
                         )
                         .textContent =
                             access;
-
 
                     document
                         .getElementById(
@@ -3050,67 +2088,44 @@
                                 profile.join_date
                             );
 
-
-                    /* ACCOUNT */
+                    /*
+                     * ACCOUNT INFORMATION
+                     *
+                     * Email is intentionally NOT
+                     * displayed or populated.
+                     */
 
                     document
                         .getElementById(
                             'accountDiscord'
                         )
                         .textContent =
-                            getDiscordUsername(
+                            getDiscordName(
                                 user
                             );
-
-
-                    document
-                        .getElementById(
-                            'accountEmail'
-                        )
-                        .textContent =
-                            user.email
-                            ||
-                            'Not available';
-
 
                     document
                         .getElementById(
                             'accountMemberId'
                         )
                         .textContent =
-                            user.id;
-
-
-                    /* QUALIFICATIONS */
+                            profile.user_id ||
+                            user.id ||
+                            '—';
 
                     renderQualifications(
                         profile.qualifications
                     );
 
-
-                    document
-                        .getElementById(
-                            'trainingQualificationCount'
-                        )
-                        .textContent =
-
-                            Array.isArray(
-                                profile.qualifications
-                            )
-
-                                ?
-
-                                profile.qualifications.length
-
-                                :
-
-                                0;
+                    renderHeader(
+                        user,
+                        profile
+                    );
 
                 }
 
-
                 /* =========================================
-                   ATTENDANCE HISTORY
+                   ATTENDANCE
                    ========================================= */
 
                 async function loadAttendance(
@@ -3122,14 +2137,42 @@
                             'attendanceHistory'
                         );
 
+                    const eventCount =
+                        document.getElementById(
+                            'attendanceEventCount'
+                        );
+
+                    const presentCount =
+                        document.getElementById(
+                            'attendancePresentCount'
+                        );
+
+                    const excusedCount =
+                        document.getElementById(
+                            'attendanceExcusedCount'
+                        );
+
+                    const absentCount =
+                        document.getElementById(
+                            'attendanceAbsentCount'
+                        );
+
+                    container.innerHTML = `
+
+                        <div class="attendance-empty">
+
+                            Loading attendance history...
+
+                        </div>
+
+                    `;
 
                     const {
                         data:
-                            records,
+                            attendanceRecords,
 
                         error:
-                            recordError
-
+                            attendanceError
                     } =
                         await client
 
@@ -3146,159 +2189,82 @@
                                 userId
                             );
 
-
-                    if (
-                        recordError
-                    ) {
+                    if (attendanceError) {
 
                         console.error(
-                            'Attendance records error:',
-                            recordError
+                            'Attendance load error:',
+                            attendanceError
                         );
-
 
                         container.innerHTML = `
 
                             <div class="attendance-empty">
 
-                                Attendance history could not be loaded.
+                                Attendance history could not
+                                be loaded.
 
                             </div>
 
                         `;
 
-
                         return;
 
                     }
 
+                    const records =
+                        attendanceRecords ||
+                        [];
 
-                    const attendanceRecords =
-                        records || [];
+                    eventCount.textContent =
+                        records.length;
 
-
-                    document
-                        .getElementById(
-                            'trainingEventCount'
-                        )
-                        .textContent =
-                            attendanceRecords.length;
-
-
-                    const presentCount =
-                        attendanceRecords.filter(
-
+                    presentCount.textContent =
+                        records.filter(
                             record =>
                                 record.status ===
                                 'Present'
-
                         ).length;
 
-
-                    const excusedCount =
-                        attendanceRecords.filter(
-
+                    excusedCount.textContent =
+                        records.filter(
                             record =>
                                 record.status ===
                                 'Excused'
-
                         ).length;
 
-
-                    const absentCount =
-                        attendanceRecords.filter(
-
+                    absentCount.textContent =
+                        records.filter(
                             record =>
                                 record.status ===
                                 'Absent'
-
                         ).length;
 
-
-                    document
-                        .getElementById(
-                            'trainingPresentCount'
-                        )
-                        .textContent =
-                            presentCount;
-
-
-                    document
-                        .getElementById(
-                            'trainingExcusedCount'
-                        )
-                        .textContent =
-                            excusedCount;
-
-
-                    document
-                        .getElementById(
-                            'trainingAbsentCount'
-                        )
-                        .textContent =
-                            absentCount;
-
-
-                    if (
-                        !attendanceRecords.length
-                    ) {
+                    if (!records.length) {
 
                         container.innerHTML = `
 
                             <div class="attendance-empty">
 
-                                No attendance events have been
-                                recorded for this member yet.
+                                No attendance records have been
+                                recorded yet.
 
                             </div>
 
                         `;
 
-
                         return;
 
                     }
 
-
-                    const eventIds = [
-
-                        ...new Set(
-
-                            attendanceRecords
-                                .map(
+                    const eventIds =
+                        [
+                            ...new Set(
+                                records.map(
                                     record =>
                                         record.event_id
                                 )
-
-                                .filter(
-                                    Boolean
-                                )
-
-                        )
-
-                    ];
-
-
-                    if (
-                        !eventIds.length
-                    ) {
-
-                        container.innerHTML = `
-
-                            <div class="attendance-empty">
-
-                                No attendance event information
-                                is available.
-
-                            </div>
-
-                        `;
-
-
-                        return;
-
-                    }
-
+                            )
+                        ];
 
                     const {
                         data:
@@ -3306,7 +2272,6 @@
 
                         error:
                             eventsError
-
                     } =
                         await client
 
@@ -3323,16 +2288,12 @@
                                 eventIds
                             );
 
-
-                    if (
-                        eventsError
-                    ) {
+                    if (eventsError) {
 
                         console.error(
-                            'Attendance events error:',
+                            'Attendance event load error:',
                             eventsError
                         );
-
 
                         container.innerHTML = `
 
@@ -3345,22 +2306,17 @@
 
                         `;
 
-
                         return;
 
                     }
 
-
                     const eventMap =
                         new Map();
 
-
                     (
-                        events
-                        ||
+                        events ||
                         []
                     ).forEach(
-
                         event => {
 
                             eventMap.set(
@@ -3371,159 +2327,119 @@
                             );
 
                         }
-
                     );
 
-
                     const history =
-                        attendanceRecords
+                        records
 
-                            .map(
+                        .map(
+                            record => ({
 
-                                record => ({
+                                ...record,
 
-                                    ...record,
-
-                                    event:
-                                        eventMap.get(
-                                            String(
-                                                record.event_id
-                                            )
+                                event:
+                                    eventMap.get(
+                                        String(
+                                            record.event_id
                                         )
+                                    )
+                                    ||
+                                    null
 
-                                        ||
+                            })
+                        )
 
-                                        null
+                        .sort(
+                            (
+                                a,
+                                b
+                            ) => {
 
-                                })
+                                const dateA =
+                                    a.event?.event_date ||
+                                    '';
 
-                            )
+                                const dateB =
+                                    b.event?.event_date ||
+                                    '';
 
-                            .sort(
+                                return dateB.localeCompare(
+                                    dateA
+                                );
 
-                                (
-                                    a,
-                                    b
-                                ) => {
-
-                                    const dateA =
-                                        a.event
-                                            ?.event_date
-
-                                        ||
-
-                                        '';
-
-
-                                    const dateB =
-                                        b.event
-                                            ?.event_date
-
-                                        ||
-
-                                        '';
-
-
-                                    return dateB.localeCompare(
-                                        dateA
-                                    );
-
-                                }
-
-                            );
-
+                            }
+                        );
 
                     container.innerHTML =
-
                         history
 
-                            .map(
+                        .map(
+                            record => {
 
-                                record => {
+                                const event =
+                                    record.event;
 
+                                const status =
+                                    record.status ||
+                                    'Absent';
 
-                                    const event =
-                                        record.event;
+                                return `
 
+                                    <div class="attendance-history-row">
 
-                                    const status =
-                                        record.status
+                                        <div class="attendance-date">
 
-                                        ||
-
-                                        'Absent';
-
-
-                                    return `
-
-                                        <div class="attendance-history-row">
-
-
-                                            <div class="attendance-date">
-
-                                                ${escapeHtml(
-                                                    formatDate(
-                                                        event
-                                                            ?.event_date
-                                                    )
-                                                )}
-
-                                            </div>
-
-
-                                            <div class="attendance-type">
-
-                                                ${escapeHtml(
-                                                    event
-                                                        ?.event_type
-                                                    ||
-                                                    'Event'
-                                                )}
-
-                                            </div>
-
-
-                                            <div class="attendance-title">
-
-                                                ${escapeHtml(
-                                                    event
-                                                        ?.title
-                                                    ||
-                                                    'Attendance Event'
-                                                )}
-
-                                            </div>
-
-
-                                            <div
-                                                class="attendance-status-badge ${escapeHtml(
-                                                    status
-                                                        .toLowerCase()
-                                                )}"
-                                            >
-
-                                                ${escapeHtml(
-                                                    status
-                                                )}
-
-                                            </div>
-
+                                            ${escapeHtml(
+                                                formatDate(
+                                                    event?.event_date
+                                                )
+                                            )}
 
                                         </div>
 
-                                    `;
+                                        <div class="attendance-type">
 
-                                }
+                                            ${escapeHtml(
+                                                event?.event_type ||
+                                                'Event'
+                                            )}
 
-                            )
+                                        </div>
 
-                            .join('');
+                                        <div class="attendance-title">
+
+                                            ${escapeHtml(
+                                                event?.title ||
+                                                'Attendance Event'
+                                            )}
+
+                                        </div>
+
+                                        <div
+                                            class="attendance-status-badge ${escapeHtml(
+                                                status.toLowerCase()
+                                            )}"
+                                        >
+
+                                            ${escapeHtml(
+                                                status
+                                            )}
+
+                                        </div>
+
+                                    </div>
+
+                                `;
+
+                            }
+                        )
+
+                        .join('');
 
                 }
 
-
                 /* =========================================
-                   LOAD PORTAL
+                   LOAD MEMBER PORTAL
                    ========================================= */
 
                 async function loadPortal() {
@@ -3532,62 +2448,52 @@
                         'loading'
                     );
 
-
                     const {
-                        data:
-                        {
+                        data: {
                             session
                         },
 
                         error:
                             sessionError
-
                     } =
                         await client.auth
                             .getSession();
 
-
-                    if (
-                        sessionError
-                    ) {
+                    if (sessionError) {
 
                         console.error(
                             'Session error:',
                             sessionError
                         );
 
-
                         portalErrorText.textContent =
                             'Unable to verify your login session.';
-
 
                         showScreen(
                             'error'
                         );
 
-
                         return;
 
                     }
 
+                    if (!session?.user) {
 
-                    if (
-                        !session?.user
-                    ) {
+                        await renderHeader(
+                            null,
+                            null
+                        );
 
                         showScreen(
                             'login'
                         );
 
-
                         return;
 
                     }
 
-
                     const user =
                         session.user;
-
 
                     const {
                         data:
@@ -3595,7 +2501,6 @@
 
                         error:
                             profileError
-
                     } =
                         await client
 
@@ -3612,59 +2517,45 @@
 
                             .maybeSingle();
 
-
-                    if (
-                        profileError
-                    ) {
+                    if (profileError) {
 
                         console.error(
                             'Profile load error:',
                             profileError
                         );
 
-
                         portalErrorText.textContent =
                             profileError.message;
-
 
                         showScreen(
                             'error'
                         );
 
-
                         return;
 
                     }
 
-
-                    if (
-                        !profile
-                    ) {
+                    if (!profile) {
 
                         portalErrorText.textContent =
                             'No personnel record was found for your Discord account.';
 
-
                         showScreen(
                             'error'
                         );
 
-
                         return;
 
                     }
-
 
                     populateProfile(
                         user,
                         profile
                     );
 
-
                     showScreen(
                         'portal'
                     );
-
 
                     await loadAttendance(
                         user.id
@@ -3672,14 +2563,12 @@
 
                 }
 
-
                 /* =========================================
-                   AUTH CHANGE
+                   AUTH CHANGES
                    ========================================= */
 
                 client.auth
                     .onAuthStateChange(
-
                         async (
                             event,
                             session
@@ -3690,15 +2579,18 @@
                                 'SIGNED_OUT'
                             ) {
 
+                                await renderHeader(
+                                    null,
+                                    null
+                                );
+
                                 showScreen(
                                     'login'
                                 );
 
-
                                 return;
 
                             }
-
 
                             if (
                                 event ===
@@ -3712,9 +2604,7 @@
                             }
 
                         }
-
                     );
-
 
                 /* =========================================
                    INITIALIZE
@@ -3723,11 +2613,9 @@
                 await loadPortal();
 
             }
-
         );
 
     </script>
-
 
 </body>
 
