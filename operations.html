@@ -42,17 +42,14 @@
             background: #080d10;
         }
 
-        [hidden] {
-            display: none !important;
-        }
-
-        /* ================================================== */
+        /* ============================================= */
         /* HERO */
-        /* ================================================== */
+        /* ============================================= */
 
         .opboard-hero {
             padding: 70px clamp(24px, 6vw, 110px) 60px;
             border-bottom: 1px solid #30383d;
+
             background:
                 linear-gradient(
                     120deg,
@@ -68,7 +65,13 @@
         .opboard-hero h1 {
             margin: 8px 0 12px;
             color: #ffffff;
-            font: 700 clamp(50px, 7vw, 88px) Oswald, sans-serif;
+
+            font:
+                700
+                clamp(50px, 7vw, 88px)
+                Oswald,
+                sans-serif;
+
             line-height: 1;
             text-transform: uppercase;
         }
@@ -79,25 +82,27 @@
             line-height: 1.7;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* MAIN */
-        /* ================================================== */
+        /* ============================================= */
 
         .opboard-shell {
             padding: 35px clamp(24px, 6vw, 110px) 100px;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* STATUS BAR */
-        /* ================================================== */
+        /* ============================================= */
 
         .opboard-status {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 20px;
             margin-bottom: 22px;
             padding: 15px 18px;
+
             border: 1px solid #30383d;
             background: #0e1417;
         }
@@ -105,7 +110,13 @@
         .opboard-status strong {
             display: block;
             color: #c5a75b;
-            font: 600 11px Oswald, sans-serif;
+
+            font:
+                600
+                11px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -118,11 +129,19 @@
         .refresh-button {
             min-height: 38px;
             padding: 0 17px;
+
             border: 1px solid #c5a75b;
             background: transparent;
             color: #c5a75b;
+
             cursor: pointer;
-            font: 600 10px Oswald, sans-serif;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -132,16 +151,18 @@
             color: #111111;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* MESSAGES */
-        /* ================================================== */
+        /* ============================================= */
 
         .board-message {
             max-width: 750px;
             margin: 50px auto;
             padding: 40px;
+
             border: 1px solid #30383d;
             border-top: 3px solid #c5a75b;
+
             background: #101619;
             text-align: center;
         }
@@ -149,7 +170,13 @@
         .board-message h2 {
             margin: 5px 0 10px;
             color: #ffffff;
-            font: 600 31px Oswald, sans-serif;
+
+            font:
+                600
+                31px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
@@ -158,53 +185,60 @@
             line-height: 1.6;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* BUTTONS */
-        /* ================================================== */
+        /* ============================================= */
 
-        .primary-button,
-        .secondary-button {
+        .primary-button {
             min-height: 42px;
             padding: 0 18px;
+
+            border: 1px solid #c5a75b;
+            background: #c5a75b;
+            color: #111111;
+
             cursor: pointer;
-            font: 600 10px Oswald, sans-serif;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .primary-button {
-            border: 1px solid #c5a75b;
-            background: #c5a75b;
-            color: #111111;
-        }
-
-        .primary-button:hover {
-            filter: brightness(1.08);
-        }
-
         .secondary-button {
+            min-height: 42px;
+            padding: 0 18px;
+
             border: 1px solid #586369;
             background: transparent;
             color: #d9dfe1;
+
+            cursor: pointer;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .secondary-button:hover {
-            border-color: #8a969b;
-        }
-
-        button:disabled {
-            opacity: 0.45;
-            cursor: not-allowed;
-        }
-
-        /* ================================================== */
+        /* ============================================= */
         /* COMMAND PANEL */
-        /* ================================================== */
+        /* ============================================= */
 
         .command-panel {
             margin-bottom: 28px;
+
             border: 1px solid #30383d;
             border-top: 2px solid #c5a75b;
+
             background: #101619;
         }
 
@@ -212,21 +246,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 20px;
             padding: 20px 22px;
+
             border-bottom: 1px solid #30383d;
         }
 
         .command-panel-header h2 {
             margin: 0;
             color: #ffffff;
-            font: 600 25px Oswald, sans-serif;
+
+            font:
+                600
+                25px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
         .command-access {
             color: #c5a75b;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -252,7 +300,13 @@
 
         .operation-field label {
             color: #859197;
-            font: 500 9px Oswald, sans-serif;
+
+            font:
+                500
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
@@ -262,11 +316,15 @@
         .operation-field textarea {
             width: 100%;
             box-sizing: border-box;
+
             padding: 11px 12px;
+
             border: 1px solid #374147;
             outline: none;
+
             background: #080e11;
             color: #ffffff;
+
             font-family: Roboto, sans-serif;
         }
 
@@ -284,6 +342,7 @@
         .form-actions {
             display: flex;
             flex-wrap: wrap;
+
             gap: 10px;
             margin-top: 18px;
         }
@@ -302,13 +361,14 @@
             color: #e17777;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* BOARD HEADING */
-        /* ================================================== */
+        /* ============================================= */
 
         .board-heading {
             display: flex;
             align-items: center;
+
             gap: 15px;
             margin-bottom: 15px;
         }
@@ -316,6 +376,7 @@
         .board-heading::after {
             content: "";
             flex: 1;
+
             height: 1px;
             background: #30383d;
         }
@@ -323,13 +384,19 @@
         .board-heading h2 {
             margin: 0;
             color: #ffffff;
-            font: 600 27px Oswald, sans-serif;
+
+            font:
+                600
+                27px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
-        /* ================================================== */
-        /* OPERATIONS */
-        /* ================================================== */
+        /* ============================================= */
+        /* OPERATION CARDS */
+        /* ============================================= */
 
         .operations-grid {
             display: grid;
@@ -338,43 +405,71 @@
 
         .operation-card {
             overflow: hidden;
+
             border: 1px solid #30383d;
             background: #101619;
         }
 
         .operation-card-top {
             display: grid;
-            grid-template-columns: 150px minmax(0, 1fr) auto;
+
+            grid-template-columns:
+                150px
+                minmax(0, 1fr)
+                auto;
+
             align-items: stretch;
+
             border-bottom: 1px solid #30383d;
         }
 
         .operation-date {
             display: grid;
             place-items: center;
+
             padding: 20px;
+
             border-right: 1px solid #30383d;
+
             background: #090f12;
             text-align: center;
         }
 
         .operation-date-month {
             color: #c5a75b;
-            font: 600 11px Oswald, sans-serif;
+
+            font:
+                600
+                11px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .operation-date-day {
             color: #ffffff;
-            font: 700 39px Oswald, sans-serif;
+
+            font:
+                700
+                39px
+                Oswald,
+                sans-serif;
+
             line-height: 1;
         }
 
         .operation-date-time {
             margin-top: 4px;
             color: #7e8a90;
-            font: 500 10px Oswald, sans-serif;
+
+            font:
+                500
+                10px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
@@ -385,7 +480,13 @@
         .operation-type {
             margin-bottom: 5px;
             color: #c5a75b;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1.3px;
             text-transform: uppercase;
         }
@@ -393,7 +494,13 @@
         .operation-title {
             margin: 0;
             color: #ffffff;
-            font: 600 26px Oswald, sans-serif;
+
+            font:
+                600
+                26px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
@@ -405,16 +512,26 @@
 
         .operation-status-area {
             display: flex;
+
             align-items: flex-start;
             justify-content: flex-end;
+
             padding: 18px;
         }
 
         .operation-status {
             padding: 7px 11px;
+
             border: 1px solid #596268;
+
             color: #cbd3d6;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -445,7 +562,11 @@
 
         .operation-card-body {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
             gap: 20px;
             padding: 20px;
         }
@@ -453,7 +574,13 @@
         .operation-info-title {
             margin-bottom: 7px;
             color: #718087;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -461,6 +588,7 @@
         .operation-info-text {
             color: #c4cccf;
             font-size: 12px;
+
             line-height: 1.7;
             white-space: pre-line;
         }
@@ -468,31 +596,46 @@
         .operation-meta {
             display: flex;
             flex-wrap: wrap;
+
             gap: 8px;
+
             padding: 0 20px 18px;
         }
 
         .operation-meta-tag {
             padding: 7px 10px;
+
             border: 1px solid #30383d;
+
             background: #090f12;
             color: #8e999e;
-            font: 500 9px Oswald, sans-serif;
+
+            font:
+                500
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        /* ================================================== */
-        /* SIGNUPS */
-        /* ================================================== */
+        /* ============================================= */
+        /* SIGNUP AREA */
+        /* ============================================= */
 
         .operation-signup-area {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
+
             gap: 15px;
+
             padding: 16px 20px;
+
             border-top: 1px solid #30383d;
+
             background: #0b1114;
         }
 
@@ -504,7 +647,13 @@
 
         .signup-information strong {
             color: #ffffff;
-            font: 600 11px Oswald, sans-serif;
+
+            font:
+                600
+                11px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
             letter-spacing: 0.7px;
         }
@@ -521,29 +670,45 @@
         .signup-button {
             min-height: 38px;
             min-width: 120px;
+
             padding: 0 16px;
+
             border: 1px solid #c5a75b;
+
             background: #c5a75b;
             color: #111111;
+
             cursor: pointer;
-            font: 600 10px Oswald, sans-serif;
+
+            font:
+                600
+                10px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .signup-button:hover:not(:disabled) {
+        .signup-button:hover {
             filter: brightness(1.1);
         }
 
         .signup-button.signed-up {
             border-color: #688f72;
+
             background: transparent;
             color: #7ed594;
         }
 
-        /* ================================================== */
+        .signup-button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        /* ============================================= */
         /* ATTENDANCE */
-        /* ================================================== */
+        /* ============================================= */
 
         .operation-attendance-area {
             padding: 0 20px 20px;
@@ -551,14 +716,22 @@
         }
 
         .attendance-toggle-button {
-            width: auto;
             min-height: 38px;
-            padding: 0 15px;
+            padding: 0 16px;
+
             border: 1px solid #6d805e;
+
             background: transparent;
             color: #a9c28e;
+
             cursor: pointer;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
@@ -569,6 +742,7 @@
 
         .attendance-panel {
             margin-top: 12px;
+
             border: 1px solid #30383d;
             background: #0b1114;
         }
@@ -580,48 +754,74 @@
 
         .attendance-panel-header strong {
             display: block;
+
             color: #ffffff;
-            font: 600 13px Oswald, sans-serif;
+
+            font:
+                600
+                13px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
 
         .attendance-panel-header span {
             display: block;
+
             margin-top: 4px;
+
             color: #77858b;
             font-size: 10px;
             line-height: 1.5;
         }
 
-        .attendance-roster {
-            display: grid;
+        .attendance-warning {
+            margin: 12px 16px;
+
+            padding: 10px 12px;
+
+            border-left: 3px solid #c5a75b;
+
+            background: #111711;
+            color: #9fa9ad;
+
+            font-size: 10px;
+            line-height: 1.6;
         }
 
         .attendance-row {
             display: grid;
+
             grid-template-columns:
                 minmax(180px, 1fr)
                 180px
                 minmax(180px, 1fr);
+
             gap: 12px;
             align-items: center;
-            padding: 13px 16px;
-            border-bottom: 1px solid #252d31;
-        }
 
-        .attendance-row:last-child {
-            border-bottom: none;
+            padding: 13px 16px;
+
+            border-bottom: 1px solid #252d31;
         }
 
         .attendance-member-name {
             color: #ffffff;
-            font: 600 11px Oswald, sans-serif;
+
+            font:
+                600
+                11px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
         .attendance-member-meta {
             margin-top: 3px;
+
             color: #78858b;
             font-size: 10px;
         }
@@ -630,12 +830,17 @@
         .attendance-row input {
             width: 100%;
             box-sizing: border-box;
+
             min-height: 38px;
+
             padding: 9px 10px;
+
             border: 1px solid #374147;
             outline: none;
+
             background: #080e11;
             color: #ffffff;
+
             font-family: Roboto, sans-serif;
         }
 
@@ -648,26 +853,43 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+
             gap: 10px;
+
             padding: 15px 16px;
+
             border-top: 1px solid #30383d;
         }
 
         .attendance-save-button {
             min-height: 38px;
             padding: 0 15px;
+
             border: 1px solid #c5a75b;
+
             background: #c5a75b;
             color: #111111;
+
             cursor: pointer;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
 
-        .attendance-message {
+        .attendance-message,
+        .attendance-empty {
             color: #819096;
             font-size: 11px;
+        }
+
+        .attendance-empty {
+            padding: 18px 16px;
         }
 
         .attendance-message.success {
@@ -678,30 +900,14 @@
             color: #e17777;
         }
 
-        .attendance-empty {
-            padding: 18px 16px;
-            color: #7f8b90;
-            font-size: 11px;
-        }
-
-        .attendance-warning {
-            margin: 12px 16px;
-            padding: 10px 12px;
-            border-left: 3px solid #c5a75b;
-            background: #111711;
-            color: #9fa9ad;
-            font-size: 10px;
-            line-height: 1.6;
-        }
-
-        /* ================================================== */
+        /* ============================================= */
         /* ADMIN CONTROLS */
-        /* ================================================== */
+        /* ============================================= */
 
         .operation-admin-controls {
             display: flex;
-            flex-wrap: wrap;
             gap: 7px;
+
             padding: 15px 20px 20px;
         }
 
@@ -709,46 +915,65 @@
         .delete-operation {
             min-height: 34px;
             padding: 0 13px;
+
             cursor: pointer;
-            font: 600 9px Oswald, sans-serif;
+
+            font:
+                600
+                9px
+                Oswald,
+                sans-serif;
+
             letter-spacing: 0.7px;
             text-transform: uppercase;
         }
 
         .edit-operation {
             border: 1px solid #c5a75b;
+
             background: transparent;
             color: #c5a75b;
         }
 
         .delete-operation {
             border: 1px solid #744242;
+
             background: transparent;
             color: #df7474;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* EMPTY */
-        /* ================================================== */
+        /* ============================================= */
 
         .empty-board {
             padding: 50px 25px;
+
             border: 1px dashed #30383d;
+
             background: #0e1417;
+
             text-align: center;
             color: #77858b;
         }
 
         .empty-board h3 {
             margin: 0 0 6px;
+
             color: #ffffff;
-            font: 600 24px Oswald, sans-serif;
+
+            font:
+                600
+                24px
+                Oswald,
+                sans-serif;
+
             text-transform: uppercase;
         }
 
-        /* ================================================== */
+        /* ============================================= */
         /* MOBILE */
-        /* ================================================== */
+        /* ============================================= */
 
         @media (max-width: 900px) {
             .operation-form-grid {
@@ -764,10 +989,12 @@
             }
 
             .attendance-row {
-                grid-template-columns: 1fr 150px;
+                grid-template-columns:
+                    minmax(180px, 1fr)
+                    180px;
             }
 
-            .attendance-notes-column {
+            .attendance-row input {
                 grid-column: span 2;
             }
         }
@@ -787,11 +1014,14 @@
             }
 
             .operation-card-top {
-                grid-template-columns: 100px 1fr;
+                grid-template-columns:
+                    100px
+                    1fr;
             }
 
             .operation-status-area {
                 grid-column: span 2;
+
                 justify-content: flex-start;
                 padding-top: 0;
             }
@@ -809,7 +1039,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .attendance-notes-column {
+            .attendance-row input {
                 grid-column: auto;
             }
 
@@ -822,9 +1052,9 @@
 
 <body>
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- HEADER -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <header class="site-header">
 
@@ -832,11 +1062,13 @@
             class="brand"
             href="index.html"
         >
+
             <div class="brand-mark">
                 21
             </div>
 
             <div>
+
                 <span>
                     21ST CAVALRY
                 </span>
@@ -844,7 +1076,9 @@
                 <small>
                     DIVISION
                 </small>
+
             </div>
+
         </a>
 
 
@@ -972,9 +1206,9 @@
     </header>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- HERO -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <section class="opboard-hero">
 
@@ -998,9 +1232,9 @@
     </section>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- LOADING -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <section
         id="boardLoading"
@@ -1023,9 +1257,9 @@
     </section>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- LOGIN REQUIRED -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <section
         id="loginRequired"
@@ -1057,9 +1291,9 @@
     </section>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- MEMBERSHIP REQUIRED -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <section
         id="membershipRequired"
@@ -1083,9 +1317,9 @@
     </section>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- BOARD -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <main
         id="boardContent"
@@ -1093,9 +1327,11 @@
         hidden
     >
 
+
         <div class="opboard-status">
 
             <div>
+
                 <strong>
                     Secure Operations Network
                 </strong>
@@ -1103,6 +1339,7 @@
                 <span id="boardStatus">
                     Connected.
                 </span>
+
             </div>
 
 
@@ -1117,9 +1354,9 @@
         </div>
 
 
-        <!-- ============================================== -->
-        <!-- ADMIN OPERATION FORM -->
-        <!-- ============================================== -->
+        <!-- ========================================= -->
+        <!-- ADMIN POST OPERATION -->
+        <!-- ========================================= -->
 
         <section
             id="commandPanel"
@@ -1142,6 +1379,7 @@
 
             <div class="command-panel-body">
 
+
                 <input
                     id="operationId"
                     type="hidden"
@@ -1149,6 +1387,7 @@
 
 
                 <div class="operation-form-grid">
+
 
                     <div class="operation-field">
 
@@ -1172,6 +1411,7 @@
                         </label>
 
                         <select id="operationType">
+
                             <option>Operation</option>
                             <option>Training</option>
                             <option>FTX</option>
@@ -1180,6 +1420,7 @@
                             <option>Qualification</option>
                             <option>Meeting</option>
                             <option>Other</option>
+
                         </select>
 
                     </div>
@@ -1221,6 +1462,7 @@
                         </label>
 
                         <select id="operationSection">
+
                             <option>All Personnel</option>
                             <option>Division HQ</option>
                             <option>Command Staff</option>
@@ -1236,6 +1478,7 @@
                             <option>Medical Section</option>
                             <option>Training Section</option>
                             <option>Recruitment Section</option>
+
                         </select>
 
                     </div>
@@ -1248,11 +1491,13 @@
                         </label>
 
                         <select id="operationStatus">
+
                             <option>Scheduled</option>
                             <option>Briefing</option>
                             <option>Active</option>
                             <option>Completed</option>
                             <option>Cancelled</option>
+
                         </select>
 
                     </div>
@@ -1321,16 +1566,18 @@
         </section>
 
 
-        <!-- ============================================== -->
-        <!-- MISSION BOARD -->
-        <!-- ============================================== -->
+        <!-- ========================================= -->
+        <!-- MISSIONS -->
+        <!-- ========================================= -->
 
         <section>
 
             <div class="board-heading">
+
                 <h2>
                     Mission Board
                 </h2>
+
             </div>
 
 
@@ -1344,9 +1591,9 @@
     </main>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- FOOTER -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <footer>
 
@@ -1355,7 +1602,6 @@
             <div class="brand-mark">
                 21
             </div>
-
 
             <div>
 
@@ -1401,9 +1647,9 @@
     </footer>
 
 
-    <!-- ================================================== -->
+    <!-- ============================================= -->
     <!-- SUPABASE -->
-    <!-- ================================================== -->
+    <!-- ============================================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
@@ -1413,17 +1659,21 @@
     <script>
         document.addEventListener(
             'DOMContentLoaded',
+
             async () => {
 
-                /* ==================================================
-                   SUPABASE
-                ================================================== */
+
+                // =========================================
+                // SUPABASE
+                // =========================================
 
                 const SUPABASE_URL =
                     'https://uwtvgpeijygvjpcifkew.supabase.co';
 
+
                 const SUPABASE_KEY =
                     'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
 
                 const client =
                     window.supabase.createClient(
@@ -1432,124 +1682,141 @@
                     );
 
 
-                /* ==================================================
-                   STATE
-                ================================================== */
+                // =========================================
+                // STATE
+                // =========================================
 
-                let currentUser = null;
-                let currentProfile = null;
-                let operations = [];
-                let signups = [];
-                let isAdmin = false;
-
-                /*
-                    Keeps loaded attendance rosters in memory.
-
-                    Shape:
-                    attendanceRosters[operationId] = [...]
-                */
-                const attendanceRosters = {};
-
-                /*
-                    Tracks open attendance panels so refreshing the
-                    OPBOARD doesn't randomly open them.
-                */
-                const openAttendancePanels = new Set();
+                let currentUser =
+                    null;
 
 
-                /* ==================================================
-                   ELEMENTS
-                ================================================== */
+                let currentProfile =
+                    null;
+
+
+                let operations =
+                    [];
+
+
+                let signups =
+                    [];
+
+
+                let isAdmin =
+                    false;
+
+
+                // =========================================
+                // ELEMENTS
+                // =========================================
 
                 const boardLoading =
                     document.getElementById(
                         'boardLoading'
                     );
 
+
                 const loginRequired =
                     document.getElementById(
                         'loginRequired'
                     );
+
 
                 const membershipRequired =
                     document.getElementById(
                         'membershipRequired'
                     );
 
+
                 const boardContent =
                     document.getElementById(
                         'boardContent'
                     );
+
 
                 const commandPanel =
                     document.getElementById(
                         'commandPanel'
                     );
 
+
                 const operationsGrid =
                     document.getElementById(
                         'operationsGrid'
                     );
+
 
                 const boardStatus =
                     document.getElementById(
                         'boardStatus'
                     );
 
+
                 const formMessage =
                     document.getElementById(
                         'formMessage'
                     );
+
 
                 const operationId =
                     document.getElementById(
                         'operationId'
                     );
 
+
                 const operationTitle =
                     document.getElementById(
                         'operationTitle'
                     );
+
 
                 const operationType =
                     document.getElementById(
                         'operationType'
                     );
 
+
                 const operationDate =
                     document.getElementById(
                         'operationDate'
                     );
+
 
                 const operationLocation =
                     document.getElementById(
                         'operationLocation'
                     );
 
+
                 const operationSection =
                     document.getElementById(
                         'operationSection'
                     );
+
 
                 const operationStatus =
                     document.getElementById(
                         'operationStatus'
                     );
 
+
                 const operationBriefing =
                     document.getElementById(
                         'operationBriefing'
                     );
+
 
                 const operationObjectives =
                     document.getElementById(
                         'operationObjectives'
                     );
 
+
                 const saveOperation =
                     document.getElementById(
                         'saveOperation'
                     );
+
 
                 const cancelEdit =
                     document.getElementById(
@@ -1557,82 +1824,354 @@
                     );
 
 
-                /* ==================================================
-                   HELPERS
-                ================================================== */
+                // =========================================
+                // ESCAPE HTML
+                // =========================================
 
                 function escapeHtml(value) {
+
                     return String(
                         value ?? ''
                     )
+
                     .replaceAll(
                         '&',
                         '&amp;'
                     )
+
                     .replaceAll(
                         '<',
                         '&lt;'
                     )
+
                     .replaceAll(
                         '>',
                         '&gt;'
                     )
+
                     .replaceAll(
                         '"',
                         '&quot;'
                     )
+
                     .replaceAll(
                         "'",
                         '&#039;'
                     );
+
                 }
 
 
+                // =========================================
+                // USER INFO
+                // =========================================
+
                 function getUserName(user) {
+
                     return (
+
                         user?.user_metadata?.global_name
+
                         ||
+
                         user?.user_metadata?.name
+
                         ||
+
                         user?.user_metadata?.preferred_username
+
                         ||
+
                         user?.user_metadata?.username
+
                         ||
+
                         'Member'
+
                     );
+
                 }
 
 
                 function getAvatar(user) {
+
                     return (
+
                         user?.user_metadata?.avatar_url
+
                         ||
+
                         user?.user_metadata?.picture
+
                         ||
+
                         ''
+
                     );
+
                 }
 
 
+                // =========================================
+                // HEADER
+                // =========================================
+
+                function renderHeader() {
+
+                    const loginButton =
+                        document.getElementById(
+                            'discordLoginBtn'
+                        );
+
+
+                    const memberProfile =
+                        document.getElementById(
+                            'memberProfile'
+                        );
+
+
+                    const memberName =
+                        document.getElementById(
+                            'memberName'
+                        );
+
+
+                    const memberAvatar =
+                        document.getElementById(
+                            'memberAvatar'
+                        );
+
+
+                    const memberPortalLink =
+                        document.getElementById(
+                            'memberPortalLink'
+                        );
+
+
+                    const operationsPortalLink =
+                        document.getElementById(
+                            'operationsPortalLink'
+                        );
+
+
+                    const adminPortalLink =
+                        document.getElementById(
+                            'adminPortalLink'
+                        );
+
+
+                    if (!currentUser) {
+
+                        loginButton.hidden =
+                            false;
+
+
+                        memberProfile.hidden =
+                            true;
+
+
+                        memberPortalLink.hidden =
+                            true;
+
+
+                        operationsPortalLink.hidden =
+                            true;
+
+
+                        adminPortalLink.hidden =
+                            true;
+
+
+                        return;
+
+                    }
+
+
+                    loginButton.hidden =
+                        true;
+
+
+                    memberProfile.hidden =
+                        false;
+
+
+                    memberPortalLink.hidden =
+                        !currentProfile;
+
+
+                    operationsPortalLink.hidden =
+                        !currentProfile;
+
+
+                    adminPortalLink.hidden =
+                        !isAdmin;
+
+
+                    memberName.textContent =
+
+                        currentProfile?.display_name
+
+                        ||
+
+                        getUserName(
+                            currentUser
+                        );
+
+
+                    const avatar =
+                        getAvatar(
+                            currentUser
+                        );
+
+
+                    if (avatar) {
+
+                        memberAvatar.src =
+                            avatar;
+
+
+                        memberAvatar.hidden =
+                            false;
+
+                    }
+
+                    else {
+
+                        memberAvatar.hidden =
+                            true;
+
+                    }
+
+                }
+
+
+                // =========================================
+                // LOGIN
+                // =========================================
+
+                async function login() {
+
+                    await client.auth
+                        .signInWithOAuth({
+
+                            provider:
+                                'discord',
+
+                            options: {
+
+                                redirectTo:
+                                    window.location.href
+
+                            }
+
+                        });
+
+                }
+
+
+                document
+                    .getElementById(
+                        'discordLoginBtn'
+                    )
+                    .addEventListener(
+                        'click',
+                        login
+                    );
+
+
+                document
+                    .getElementById(
+                        'boardLoginButton'
+                    )
+                    .addEventListener(
+                        'click',
+                        login
+                    );
+
+
+                // =========================================
+                // LOGOUT
+                // =========================================
+
+                document
+                    .getElementById(
+                        'discordLogoutBtn'
+                    )
+                    .addEventListener(
+
+                        'click',
+
+                        async () => {
+
+                            await client.auth
+                                .signOut();
+
+
+                            window.location.href =
+                                'index.html';
+
+                        }
+
+                    );
+
+
+                // =========================================
+                // MOBILE NAV
+                // =========================================
+
+                const navToggle =
+                    document.getElementById(
+                        'navToggle'
+                    );
+
+
+                const mainNav =
+                    document.getElementById(
+                        'mainNav'
+                    );
+
+
+                navToggle.addEventListener(
+
+                    'click',
+
+                    () => {
+
+                        const open =
+                            mainNav.classList.toggle(
+                                'open'
+                            );
+
+
+                        navToggle.setAttribute(
+                            'aria-expanded',
+
+                            open
+                                ?
+                                'true'
+                                :
+                                'false'
+                        );
+
+                    }
+
+                );
+
+
+                // =========================================
+                // DATE FORMAT
+                // =========================================
+
                 function getDateParts(value) {
+
                     const date =
                         new Date(
                             value
                         );
 
-                    if (
-                        Number.isNaN(
-                            date.getTime()
-                        )
-                    ) {
-                        return {
-                            month: 'TBD',
-                            day: '--',
-                            time: ''
-                        };
-                    }
 
                     return {
+
                         month:
                             date
                                 .toLocaleDateString(
@@ -1666,295 +2205,622 @@
                                             '2-digit'
                                     }
                                 )
+
                     };
+
                 }
 
 
-                function getOperationById(id) {
-                    return operations.find(
-                        operation =>
-                            Number(
-                                operation.id
-                            )
-                            ===
-                            Number(
-                                id
-                            )
-                    );
-                }
-
-
-                function statusClass(value) {
-                    return String(
-                        value || ''
-                    )
-                    .trim()
-                    .toLowerCase()
-                    .replaceAll(
-                        ' ',
-                        '-'
-                    );
-                }
-
-
-                /* ==================================================
-                   HEADER
-                ================================================== */
-
-                function renderHeader() {
-
-                    const loginButton =
-                        document.getElementById(
-                            'discordLoginBtn'
-                        );
-
-                    const memberProfile =
-                        document.getElementById(
-                            'memberProfile'
-                        );
-
-                    const memberName =
-                        document.getElementById(
-                            'memberName'
-                        );
-
-                    const memberAvatar =
-                        document.getElementById(
-                            'memberAvatar'
-                        );
-
-                    const memberPortalLink =
-                        document.getElementById(
-                            'memberPortalLink'
-                        );
-
-                    const operationsPortalLink =
-                        document.getElementById(
-                            'operationsPortalLink'
-                        );
-
-                    const adminPortalLink =
-                        document.getElementById(
-                            'adminPortalLink'
-                        );
-
-
-                    if (!currentUser) {
-
-                        loginButton.hidden =
-                            false;
-
-                        memberProfile.hidden =
-                            true;
-
-                        memberPortalLink.hidden =
-                            true;
-
-                        operationsPortalLink.hidden =
-                            true;
-
-                        adminPortalLink.hidden =
-                            true;
-
-                        return;
-                    }
-
-
-                    loginButton.hidden =
-                        true;
-
-                    memberProfile.hidden =
-                        false;
-
-                    memberPortalLink.hidden =
-                        !currentProfile;
-
-                    operationsPortalLink.hidden =
-                        !currentProfile;
-
-                    adminPortalLink.hidden =
-                        !isAdmin;
-
-
-                    memberName.textContent =
-                        currentProfile?.display_name
-                        ||
-                        getUserName(
-                            currentUser
-                        );
-
-
-                    const avatar =
-                        getAvatar(
-                            currentUser
-                        );
-
-
-                    if (avatar) {
-
-                        memberAvatar.src =
-                            avatar;
-
-                        memberAvatar.hidden =
-                            false;
-
-                    } else {
-
-                        memberAvatar.hidden =
-                            true;
-
-                    }
-                }
-
-
-                /* ==================================================
-                   LOGIN
-                ================================================== */
-
-                async function login() {
-                    const {
-                        error
-                    } =
-                        await client.auth
-                            .signInWithOAuth({
-
-                                provider:
-                                    'discord',
-
-                                options: {
-                                    redirectTo:
-                                        window.location.href
-                                }
-                            });
-
-                    if (error) {
-                        console.error(
-                            'Discord login error:',
-                            error
-                        );
-                    }
-                }
-
-
-                document
-                    .getElementById(
-                        'discordLoginBtn'
-                    )
-                    .addEventListener(
-                        'click',
-                        login
-                    );
-
-
-                document
-                    .getElementById(
-                        'boardLoginButton'
-                    )
-                    .addEventListener(
-                        'click',
-                        login
-                    );
-
-
-                /* ==================================================
-                   LOGOUT
-                ================================================== */
-
-                document
-                    .getElementById(
-                        'discordLogoutBtn'
-                    )
-                    .addEventListener(
-                        'click',
-                        async () => {
-
-                            await client.auth
-                                .signOut();
-
-                            window.location.href =
-                                'index.html';
-                        }
-                    );
-
-
-                /* ==================================================
-                   MOBILE NAV
-                ================================================== */
-
-                const navToggle =
-                    document.getElementById(
-                        'navToggle'
-                    );
-
-                const mainNav =
-                    document.getElementById(
-                        'mainNav'
-                    );
-
-
-                navToggle.addEventListener(
-                    'click',
-                    () => {
-
-                        const open =
-                            mainNav.classList.toggle(
-                                'open'
-                            );
-
-                        navToggle.setAttribute(
-                            'aria-expanded',
-                            open
-                                ?
-                                'true'
-                                :
-                                'false'
-                        );
-                    }
-                );
-
-
-                /* ==================================================
-                   SIGNUPS
-                ================================================== */
+                // =========================================
+                // SIGNUP INFORMATION
+                // =========================================
 
                 function getOperationSignups(
-                    id
+                    operationId
                 ) {
+
                     return signups.filter(
+
                         signup =>
                             Number(
                                 signup.operation_id
                             )
                             ===
                             Number(
-                                id
+                                operationId
                             )
+
                     );
+
                 }
 
 
                 function isCurrentUserSignedUp(
-                    id
+                    operationId
                 ) {
-                    if (!currentUser) {
-                        return false;
-                    }
 
                     return signups.some(
+
                         signup =>
+
                             Number(
                                 signup.operation_id
                             )
                             ===
                             Number(
-                                id
+                                operationId
                             )
+
                             &&
+
                             signup.user_id ===
                             currentUser.id
+
                     );
+
                 }
 
+
+                // =========================================
+                // RENDER OPERATIONS
+                // =========================================
+
+                function renderOperations() {
+
+                    if (!operations.length) {
+
+                        operationsGrid.innerHTML = `
+
+                            <div class="empty-board">
+
+                                <h3>
+                                    No Missions Posted
+                                </h3>
+
+                                There are currently no missions
+                                posted to OPBOARD.
+
+                            </div>
+
+                        `;
+
+
+                        return;
+
+                    }
+
+
+                    operationsGrid.innerHTML =
+
+                        operations.map(
+
+                            operation => {
+
+
+                                const date =
+                                    getDateParts(
+                                        operation.operation_date
+                                    );
+
+
+                                const operationSignups =
+                                    getOperationSignups(
+                                        operation.id
+                                    );
+
+
+                                const signedUp =
+                                    isCurrentUserSignedUp(
+                                        operation.id
+                                    );
+
+
+                                const signupsClosed =
+
+                                    operation.status ===
+                                    'Completed'
+
+                                    ||
+
+                                    operation.status ===
+                                    'Cancelled';
+
+
+                                const signupButton =
+
+                                    signupsClosed
+
+                                    ?
+
+                                    `
+
+                                        <button
+                                            class="signup-button"
+                                            type="button"
+                                            disabled
+                                        >
+                                            Sign-Ups Closed
+                                        </button>
+
+                                    `
+
+                                    :
+
+                                    signedUp
+
+                                    ?
+
+                                    `
+
+                                        <button
+                                            class="signup-button signed-up"
+                                            data-cancel-signup="${operation.id}"
+                                            type="button"
+                                        >
+                                            Cancel Sign-Up
+                                        </button>
+
+                                    `
+
+                                    :
+
+                                    `
+
+                                        <button
+                                            class="signup-button"
+                                            data-operation-signup="${operation.id}"
+                                            type="button"
+                                        >
+                                            Sign Up
+                                        </button>
+
+                                    `;
+
+
+                                const statusClass =
+                                    String(
+                                        operation.status
+                                        ||
+                                        ''
+                                    )
+                                    .toLowerCase();
+
+
+                                const attendanceArea =
+
+                                    isAdmin
+
+                                    &&
+
+                                    operation.status ===
+                                    'Completed'
+
+                                    ?
+
+                                    `
+
+                                        <div class="operation-attendance-area">
+
+                                            <button
+                                                class="attendance-toggle-button"
+                                                data-manage-attendance="${operation.id}"
+                                                type="button"
+                                            >
+                                                Manage Attendance
+                                            </button>
+
+
+                                            <div
+                                                class="attendance-panel"
+                                                data-attendance-panel="${operation.id}"
+                                                hidden
+                                            >
+
+                                                <div class="attendance-panel-header">
+
+                                                    <strong>
+                                                        Mission Attendance
+                                                    </strong>
+
+                                                    <span>
+                                                        Only members still signed up for this completed operation are shown.
+                                                    </span>
+
+                                                </div>
+
+
+                                                <div class="attendance-warning">
+
+                                                    Signing up does not automatically change attendance.
+                                                    A member who cancels before the operation is completed
+                                                    will not appear here and will not be counted.
+
+                                                </div>
+
+
+                                                <div
+                                                    data-attendance-roster="${operation.id}"
+                                                >
+
+                                                    <div class="attendance-empty">
+                                                        Open attendance to load the roster.
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="attendance-actions">
+
+                                                    <button
+                                                        class="attendance-save-button"
+                                                        data-save-attendance="${operation.id}"
+                                                        type="button"
+                                                    >
+                                                        Save Attendance
+                                                    </button>
+
+
+                                                    <span
+                                                        class="attendance-message"
+                                                        data-attendance-message="${operation.id}"
+                                                    >
+                                                        Attendance has not been loaded.
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    `
+
+                                    :
+
+                                    '';
+
+
+                                return `
+
+                                    <article class="operation-card">
+
+
+                                        <div class="operation-card-top">
+
+
+                                            <div class="operation-date">
+
+                                                <div class="operation-date-month">
+
+                                                    ${escapeHtml(
+                                                        date.month
+                                                    )}
+
+                                                </div>
+
+
+                                                <div class="operation-date-day">
+
+                                                    ${escapeHtml(
+                                                        date.day
+                                                    )}
+
+                                                </div>
+
+
+                                                <div class="operation-date-time">
+
+                                                    ${escapeHtml(
+                                                        date.time
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="operation-title-area">
+
+                                                <div class="operation-type">
+
+                                                    ${escapeHtml(
+                                                        operation.operation_type
+                                                    )}
+
+                                                </div>
+
+
+                                                <h3 class="operation-title">
+
+                                                    ${escapeHtml(
+                                                        operation.title
+                                                    )}
+
+                                                </h3>
+
+
+                                                <div class="operation-location">
+
+                                                    AO / MAP:
+
+                                                    ${escapeHtml(
+                                                        operation.map_location
+                                                        ||
+                                                        'TBD'
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="operation-status-area">
+
+                                                <span
+                                                    class="operation-status ${escapeHtml(
+                                                        statusClass
+                                                    )}"
+                                                >
+
+                                                    ${escapeHtml(
+                                                        operation.status
+                                                    )}
+
+                                                </span>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="operation-card-body">
+
+
+                                            <div>
+
+                                                <div class="operation-info-title">
+                                                    Mission Briefing
+                                                </div>
+
+
+                                                <div class="operation-info-text">${escapeHtml(
+                                                    operation.briefing
+                                                    ||
+                                                    'Briefing pending.'
+                                                )}</div>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <div class="operation-info-title">
+                                                    Objectives
+                                                </div>
+
+
+                                                <div class="operation-info-text">${escapeHtml(
+                                                    operation.objectives
+                                                    ||
+                                                    'Objectives pending.'
+                                                )}</div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="operation-meta">
+
+                                            <span class="operation-meta-tag">
+
+                                                Required:
+
+                                                ${escapeHtml(
+                                                    operation.required_section
+                                                )}
+
+                                            </span>
+
+
+                                            <span class="operation-meta-tag">
+
+                                                Status:
+
+                                                ${escapeHtml(
+                                                    operation.status
+                                                )}
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="operation-signup-area">
+
+                                            <div class="signup-information">
+
+                                                <strong>
+                                                    Mission Sign-Up
+                                                </strong>
+
+
+                                                <span class="signup-count">
+
+                                                    ${operationSignups.length}
+
+                                                    member${
+                                                        operationSignups.length === 1
+                                                            ?
+                                                            ''
+                                                            :
+                                                            's'
+                                                    }
+
+                                                    signed up
+
+                                                </span>
+
+
+                                                ${
+                                                    signedUp
+
+                                                    ?
+
+                                                    `
+
+                                                        <span>
+                                                            You are currently signed up for this event.
+                                                        </span>
+
+                                                    `
+
+                                                    :
+
+                                                    ''
+                                                }
+
+                                            </div>
+
+
+                                            ${signupButton}
+
+                                        </div>
+
+
+                                        ${attendanceArea}
+
+
+                                        ${
+                                            isAdmin
+
+                                            ?
+
+                                            `
+
+                                                <div class="operation-admin-controls">
+
+                                                    <button
+                                                        class="edit-operation"
+                                                        data-edit-operation="${operation.id}"
+                                                        type="button"
+                                                    >
+                                                        Edit Operation
+                                                    </button>
+
+
+                                                    <button
+                                                        class="delete-operation"
+                                                        data-delete-operation="${operation.id}"
+                                                        type="button"
+                                                    >
+                                                        Delete
+                                                    </button>
+
+                                                </div>
+
+                                            `
+
+                                            :
+
+                                            ''
+                                        }
+
+
+                                    </article>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
+
+
+                    attachOperationButtons();
+
+                    attachSignupButtons();
+
+                    attachAttendanceButtons();
+
+                }
+
+
+                // =========================================
+                // LOAD OPERATIONS
+                // =========================================
+
+                async function loadOperations() {
+
+                    boardStatus.textContent =
+                        'Refreshing mission board...';
+
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+
+                            .from(
+                                'operations_board'
+                            )
+
+                            .select('*')
+
+                            .order(
+                                'operation_date',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            );
+
+
+                    if (error) {
+
+                        console.error(
+                            error
+                        );
+
+
+                        boardStatus.textContent =
+                            'Unable to load missions.';
+
+
+                        return;
+
+                    }
+
+
+                    operations =
+                        data || [];
+
+
+                    await loadSignups();
+
+
+                    boardStatus.textContent =
+
+                        `${operations.length} mission${
+                            operations.length === 1
+                                ?
+                                ''
+                                :
+                                's'
+                        } posted.`;
+
+
+                    renderOperations();
+
+                }
+
+
+                // =========================================
+                // LOAD SIGNUPS
+                // =========================================
 
                 async function loadSignups() {
 
@@ -1963,9 +2829,11 @@
                         error
                     } =
                         await client
+
                             .from(
                                 'operation_signups'
                             )
+
                             .select(
                                 'id,operation_id,user_id,created_at'
                             );
@@ -1978,57 +2846,41 @@
                             error
                         );
 
+
                         signups =
                             [];
 
+
                         return;
+
                     }
 
 
                     signups =
                         data || [];
+
                 }
 
 
+                // =========================================
+                // SIGN UP
+                // =========================================
+
                 async function signupForOperation(
-                    id,
+                    operationId,
                     button
                 ) {
 
                     if (!currentUser) {
-                        return;
-                    }
-
-
-                    const operation =
-                        getOperationById(
-                            id
-                        );
-
-
-                    if (!operation) {
-                        return;
-                    }
-
-
-                    if (
-                        operation.status ===
-                            'Completed'
-                        ||
-                        operation.status ===
-                            'Cancelled'
-                    ) {
-
-                        alert(
-                            'Sign-ups are closed for this operation.'
-                        );
 
                         return;
+
                     }
 
 
                     button.disabled =
                         true;
+
 
                     button.textContent =
                         'Signing Up...';
@@ -2038,16 +2890,19 @@
                         error
                     } =
                         await client
+
                             .from(
                                 'operation_signups'
                             )
+
                             .insert({
 
                                 operation_id:
-                                    id,
+                                    operationId,
 
                                 user_id:
                                     currentUser.id
+
                             });
 
 
@@ -2058,80 +2913,53 @@
                             error
                         );
 
+
                         alert(
                             'Unable to sign up: ' +
                             error.message
                         );
 
+
                         button.disabled =
                             false;
+
 
                         button.textContent =
                             'Sign Up';
 
+
                         return;
+
                     }
 
 
                     await loadSignups();
 
+
                     renderOperations();
+
                 }
 
 
+                // =========================================
+                // CANCEL SIGNUP
+                // =========================================
+
                 async function cancelOperationSignup(
-                    id,
+                    operationId,
                     button
                 ) {
 
                     if (!currentUser) {
-                        return;
-                    }
-
-
-                    const operation =
-                        getOperationById(
-                            id
-                        );
-
-
-                    if (!operation) {
-                        return;
-                    }
-
-
-                    /*
-                        Once completed, signups are locked because
-                        attendance may already have been saved.
-                    */
-                    if (
-                        operation.status ===
-                        'Completed'
-                    ) {
-
-                        alert(
-                            'This operation has been completed. Sign-ups can no longer be changed.'
-                        );
 
                         return;
-                    }
 
-
-                    if (
-                        operation.status ===
-                        'Cancelled'
-                    ) {
-
-                        alert(
-                            'This operation has been cancelled.'
-                        );
-
-                        return;
                     }
 
 
                     button.disabled =
                         true;
+
 
                     button.textContent =
                         'Cancelling...';
@@ -2141,14 +2969,18 @@
                         error
                     } =
                         await client
+
                             .from(
                                 'operation_signups'
                             )
+
                             .delete()
+
                             .eq(
                                 'operation_id',
-                                id
+                                operationId
                             )
+
                             .eq(
                                 'user_id',
                                 currentUser.id
@@ -2162,78 +2994,147 @@
                             error
                         );
 
+
                         alert(
                             'Unable to cancel signup: ' +
                             error.message
                         );
 
+
                         button.disabled =
                             false;
+
 
                         button.textContent =
                             'Cancel Sign-Up';
 
+
                         return;
+
                     }
 
 
                     /*
                         IMPORTANT:
-                        No attendance record is created here.
-                        The user's signup is simply removed.
+
+                        Cancelling a signup ONLY removes the signup.
+
+                        Nothing is inserted or updated in
+                        attendance_records here.
                     */
 
                     await loadSignups();
 
+
                     renderOperations();
+
                 }
 
 
-                /* ==================================================
-                   ATTENDANCE
-                ================================================== */
+                // =========================================
+                // ATTACH SIGNUP BUTTONS
+                // =========================================
 
-                async function loadAttendanceRoster(
-                    id
-                ) {
-
-                    if (!isAdmin) {
-                        return [];
-                    }
+                function attachSignupButtons() {
 
 
-                    const operation =
-                        getOperationById(
-                            id
+                    document
+                        .querySelectorAll(
+                            '[data-operation-signup]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .operationSignup
+                                            );
+
+
+                                        await signupForOperation(
+                                            id,
+                                            button
+                                        );
+
+                                    }
+
+                                );
+
+                            }
+
                         );
 
 
-                    if (!operation) {
-                        return [];
-                    }
+                    document
+                        .querySelectorAll(
+                            '[data-cancel-signup]'
+                        )
+                        .forEach(
+
+                            button => {
+
+                                button.addEventListener(
+
+                                    'click',
+
+                                    async () => {
+
+                                        const id =
+                                            Number(
+                                                button.dataset
+                                                    .cancelSignup
+                                            );
 
 
-                    if (
-                        operation.status !==
-                        'Completed'
-                    ) {
+                                        await cancelOperationSignup(
+                                            id,
+                                            button
+                                        );
 
-                        return [];
-                    }
+                                    }
 
+                                );
+
+                            }
+
+                        );
+
+                }
+
+
+                // =========================================
+                // ATTENDANCE
+                // =========================================
+
+                async function loadAttendanceRoster(
+                    operationId
+                ) {
 
                     const {
                         data,
                         error
                     } =
                         await client.rpc(
+
                             'get_operation_attendance_roster',
+
                             {
+
                                 p_operation_id:
                                     Number(
-                                        id
+                                        operationId
                                     )
+
                             }
+
                         );
 
 
@@ -2244,293 +3145,242 @@
                             error
                         );
 
+
                         throw error;
+
                     }
 
 
-                    attendanceRosters[id] =
-                        data || [];
+                    return data || [];
 
-
-                    return attendanceRosters[id];
                 }
 
 
                 function renderAttendanceRoster(
-                    id
+                    operationId,
+                    roster
                 ) {
 
-                    const rosterContainer =
+                    const container =
                         document.querySelector(
-                            `[data-attendance-roster="${id}"]`
+                            `[data-attendance-roster="${operationId}"]`
                         );
 
 
-                    if (!rosterContainer) {
+                    if (!container) {
+
                         return;
+
                     }
-
-
-                    const roster =
-                        attendanceRosters[id]
-                        ||
-                        [];
 
 
                     if (!roster.length) {
 
-                        rosterContainer.innerHTML = `
+                        container.innerHTML = `
+
                             <div class="attendance-empty">
+
                                 No members are currently signed up for this operation.
                                 No attendance records will be created.
+
                             </div>
+
                         `;
 
+
                         return;
+
                     }
 
 
-                    rosterContainer.innerHTML =
-                        roster
-                            .map(
-                                member => {
+                    container.innerHTML =
 
-                                    const currentStatus =
-                                        member.attendance_status
-                                        ||
-                                        '';
+                        roster.map(
 
-                                    return `
-                                        <div
-                                            class="attendance-row"
-                                            data-attendance-user="${escapeHtml(
-                                                member.user_id
-                                            )}"
-                                        >
+                            member => {
 
-                                            <div>
 
-                                                <div class="attendance-member-name">
-                                                    ${escapeHtml(
-                                                        member.display_name
-                                                        ||
-                                                        'Member'
-                                                    )}
-                                                </div>
+                                const currentStatus =
+                                    member.attendance_status
+                                    ||
+                                    '';
 
-                                                <div class="attendance-member-meta">
 
-                                                    ${escapeHtml(
-                                                        member.rank
-                                                        ||
-                                                        'No Rank'
-                                                    )}
+                                return `
 
-                                                    ·
+                                    <div
+                                        class="attendance-row"
+                                        data-attendance-user="${escapeHtml(
+                                            member.user_id
+                                        )}"
+                                    >
 
-                                                    ${escapeHtml(
-                                                        member.section
-                                                        ||
-                                                        'Unassigned'
-                                                    )}
 
-                                                </div>
+                                        <div>
+
+                                            <div class="attendance-member-name">
+
+                                                ${escapeHtml(
+                                                    member.display_name
+                                                    ||
+                                                    'Member'
+                                                )}
 
                                             </div>
 
 
-                                            <div>
+                                            <div class="attendance-member-meta">
 
-                                                <select
-                                                    data-attendance-status
-                                                    aria-label="Attendance status"
-                                                >
+                                                ${escapeHtml(
+                                                    member.rank
+                                                    ||
+                                                    'No Rank'
+                                                )}
 
-                                                    <option
-                                                        value=""
-                                                        ${
-                                                            currentStatus ===
-                                                            ''
-                                                                ?
-                                                                'selected'
-                                                                :
-                                                                ''
-                                                        }
-                                                    >
-                                                        Select Status
-                                                    </option>
+                                                ·
 
-                                                    <option
-                                                        value="Present"
-                                                        ${
-                                                            currentStatus ===
-                                                            'Present'
-                                                                ?
-                                                                'selected'
-                                                                :
-                                                                ''
-                                                        }
-                                                    >
-                                                        Present
-                                                    </option>
-
-                                                    <option
-                                                        value="Absent"
-                                                        ${
-                                                            currentStatus ===
-                                                            'Absent'
-                                                                ?
-                                                                'selected'
-                                                                :
-                                                                ''
-                                                        }
-                                                    >
-                                                        Absent
-                                                    </option>
-
-                                                    <option
-                                                        value="Excused"
-                                                        ${
-                                                            currentStatus ===
-                                                            'Excused'
-                                                                ?
-                                                                'selected'
-                                                                :
-                                                                ''
-                                                        }
-                                                    >
-                                                        Excused
-                                                    </option>
-
-                                                </select>
-
-                                            </div>
-
-
-                                            <div class="attendance-notes-column">
-
-                                                <input
-                                                    type="text"
-                                                    data-attendance-notes
-                                                    value="${escapeHtml(
-                                                        member.attendance_notes
-                                                        ||
-                                                        ''
-                                                    )}"
-                                                    placeholder="Notes (optional)"
-                                                >
+                                                ${escapeHtml(
+                                                    member.section
+                                                    ||
+                                                    'Unassigned'
+                                                )}
 
                                             </div>
 
                                         </div>
-                                    `;
-                                }
-                            )
-                            .join('');
+
+
+                                        <select
+                                            data-attendance-status
+                                        >
+
+                                            <option
+                                                value=""
+                                                ${
+                                                    currentStatus === ''
+                                                        ?
+                                                        'selected'
+                                                        :
+                                                        ''
+                                                }
+                                            >
+                                                Select Status
+                                            </option>
+
+
+                                            <option
+                                                value="Present"
+                                                ${
+                                                    currentStatus === 'Present'
+                                                        ?
+                                                        'selected'
+                                                        :
+                                                        ''
+                                                }
+                                            >
+                                                Present
+                                            </option>
+
+
+                                            <option
+                                                value="Absent"
+                                                ${
+                                                    currentStatus === 'Absent'
+                                                        ?
+                                                        'selected'
+                                                        :
+                                                        ''
+                                                }
+                                            >
+                                                Absent
+                                            </option>
+
+
+                                            <option
+                                                value="Excused"
+                                                ${
+                                                    currentStatus === 'Excused'
+                                                        ?
+                                                        'selected'
+                                                        :
+                                                        ''
+                                                }
+                                            >
+                                                Excused
+                                            </option>
+
+                                        </select>
+
+
+                                        <input
+                                            type="text"
+                                            data-attendance-notes
+                                            value="${escapeHtml(
+                                                member.attendance_notes
+                                                ||
+                                                ''
+                                            )}"
+                                            placeholder="Notes (optional)"
+                                        >
+
+
+                                    </div>
+
+                                `;
+
+                            }
+
+                        )
+                        .join('');
+
                 }
 
 
-                async function openAttendancePanel(
-                    id
+                async function toggleAttendancePanel(
+                    operationId,
+                    button
                 ) {
 
                     const panel =
                         document.querySelector(
-                            `[data-attendance-panel="${id}"]`
-                        );
-
-
-                    const button =
-                        document.querySelector(
-                            `[data-manage-attendance="${id}"]`
-                        );
-
-
-                    if (
-                        !panel
-                        ||
-                        !button
-                    ) {
-                        return;
-                    }
-
-
-                    /*
-                        If already open, close it.
-                    */
-                    if (!panel.hidden) {
-
-                        panel.hidden =
-                            true;
-
-                        button.textContent =
-                            'Manage Attendance';
-
-                        openAttendancePanels.delete(
-                            Number(
-                                id
-                            )
-                        );
-
-                        return;
-                    }
-
-
-                    /*
-                        Close other attendance panels.
-                    */
-                    document
-                        .querySelectorAll(
-                            '[data-attendance-panel]'
-                        )
-                        .forEach(
-                            otherPanel => {
-
-                                otherPanel.hidden =
-                                    true;
-                            }
-                        );
-
-
-                    document
-                        .querySelectorAll(
-                            '[data-manage-attendance]'
-                        )
-                        .forEach(
-                            otherButton => {
-
-                                otherButton.textContent =
-                                    'Manage Attendance';
-                            }
-                        );
-
-
-                    openAttendancePanels.clear();
-
-
-                    panel.hidden =
-                        false;
-
-                    button.textContent =
-                        'Close Attendance';
-
-                    openAttendancePanels.add(
-                        Number(
-                            id
-                        )
-                    );
-
-
-                    const rosterContainer =
-                        document.querySelector(
-                            `[data-attendance-roster="${id}"]`
+                            `[data-attendance-panel="${operationId}"]`
                         );
 
 
                     const message =
                         document.querySelector(
-                            `[data-attendance-message="${id}"]`
+                            `[data-attendance-message="${operationId}"]`
                         );
+
+
+                    if (!panel) {
+
+                        return;
+
+                    }
+
+
+                    if (!panel.hidden) {
+
+                        panel.hidden =
+                            true;
+
+
+                        button.textContent =
+                            'Manage Attendance';
+
+
+                        return;
+
+                    }
+
+
+                    panel.hidden =
+                        false;
+
+
+                    button.textContent =
+                        'Close Attendance';
 
 
                     if (message) {
@@ -2538,199 +3388,170 @@
                         message.className =
                             'attendance-message';
 
+
                         message.textContent =
                             'Loading attendance roster...';
-                    }
 
-
-                    if (rosterContainer) {
-
-                        rosterContainer.innerHTML = `
-                            <div class="attendance-empty">
-                                Loading signed-up members...
-                            </div>
-                        `;
                     }
 
 
                     try {
 
-                        await loadAttendanceRoster(
-                            id
-                        );
+                        const roster =
+                            await loadAttendanceRoster(
+                                operationId
+                            );
+
 
                         renderAttendanceRoster(
-                            id
+                            operationId,
+                            roster
                         );
 
 
                         if (message) {
 
                             message.textContent =
-                                'Only members still signed up for the completed operation are shown.';
+                                'Roster loaded. Select Present, Absent, or Excused.';
+
                         }
 
-                    } catch (error) {
+                    }
+
+                    catch (error) {
 
                         if (message) {
 
                             message.className =
                                 'attendance-message error';
 
+
                             message.textContent =
                                 error.message
                                 ||
                                 'Unable to load attendance roster.';
+
                         }
 
-
-                        if (rosterContainer) {
-
-                            rosterContainer.innerHTML = `
-                                <div class="attendance-empty">
-                                    Unable to load attendance roster.
-                                </div>
-                            `;
-                        }
                     }
+
                 }
 
 
-                async function saveAttendance(
-                    id,
+                async function saveOperationAttendance(
+                    operationId,
                     button
                 ) {
 
-                    const operation =
-                        getOperationById(
-                            id
-                        );
-
-
-                    if (!operation) {
-                        return;
-                    }
-
-
-                    if (
-                        operation.status !==
-                        'Completed'
-                    ) {
-
-                        alert(
-                            'The operation must be marked Completed before attendance can be saved.'
-                        );
-
-                        return;
-                    }
-
-
                     const panel =
                         document.querySelector(
-                            `[data-attendance-panel="${id}"]`
+                            `[data-attendance-panel="${operationId}"]`
+                        );
+
+
+                    const message =
+                        document.querySelector(
+                            `[data-attendance-message="${operationId}"]`
                         );
 
 
                     if (!panel) {
+
                         return;
+
                     }
-
-
-                    const rows =
-                        Array.from(
-                            panel.querySelectorAll(
-                                '[data-attendance-user]'
-                            )
-                        );
 
 
                     const records =
                         [];
 
 
-                    /*
-                        IMPORTANT:
-                        We only send members whose admin selected
-                        Present / Absent / Excused.
+                    panel
+                        .querySelectorAll(
+                            '[data-attendance-user]'
+                        )
+                        .forEach(
 
-                        Blank means NOT YET MARKED and does not count
-                        as Absent.
-                    */
-                    rows.forEach(
-                        row => {
-
-                            const userId =
-                                row.dataset
-                                    .attendanceUser;
-
-                            const status =
-                                row
-                                    .querySelector(
-                                        '[data-attendance-status]'
-                                    )
-                                    ?.value
-                                    ||
-                                    '';
-
-                            const notes =
-                                row
-                                    .querySelector(
-                                        '[data-attendance-notes]'
-                                    )
-                                    ?.value
-                                    ?.trim()
-                                    ||
-                                    '';
+                            row => {
 
 
-                            if (
-                                status ===
+                                const status =
+                                    row
+                                        .querySelector(
+                                            '[data-attendance-status]'
+                                        )
+                                        .value;
+
+
+                                const notes =
+                                    row
+                                        .querySelector(
+                                            '[data-attendance-notes]'
+                                        )
+                                        .value
+                                        .trim();
+
+
+                                /*
+                                    Blank status is ignored.
+
+                                    This prevents an unmarked member from
+                                    automatically being counted absent.
+                                */
+
+                                if (
+
+                                    status ===
                                     'Present'
-                                ||
-                                status ===
+
+                                    ||
+
+                                    status ===
                                     'Absent'
-                                ||
-                                status ===
+
+                                    ||
+
+                                    status ===
                                     'Excused'
-                            ) {
 
-                                records.push({
-                                    user_id:
-                                        userId,
+                                ) {
 
-                                    status:
-                                        status,
+                                    records.push({
 
-                                    notes:
-                                        notes
-                                });
+                                        user_id:
+                                            row.dataset
+                                                .attendanceUser,
+
+                                        status:
+                                            status,
+
+                                        notes:
+                                            notes
+
+                                    });
+
+                                }
+
                             }
-                        }
-                    );
 
-
-                    const message =
-                        document.querySelector(
-                            `[data-attendance-message="${id}"]`
                         );
 
 
                     if (!records.length) {
 
-                        const confirmed =
-                            confirm(
-                                'No attendance statuses are selected. Nothing will be added or changed. Continue?'
-                            );
+                        alert(
+                            'Select at least one attendance status before saving.'
+                        );
 
 
-                        if (!confirmed) {
-                            return;
-                        }
+                        return;
+
                     }
 
 
                     button.disabled =
                         true;
+
 
                     button.textContent =
                         'Saving...';
@@ -2741,8 +3562,10 @@
                         message.className =
                             'attendance-message';
 
+
                         message.textContent =
                             'Saving attendance...';
+
                     }
 
 
@@ -2751,23 +3574,28 @@
                         error
                     } =
                         await client.rpc(
+
                             'save_operation_attendance',
+
                             {
+
                                 p_operation_id:
                                     Number(
-                                        id
+                                        operationId
                                     ),
 
                                 p_records:
                                     records
+
                             }
+
                         );
 
 
                     if (error) {
 
                         console.error(
-                            'Save attendance error:',
+                            'Attendance save error:',
                             error
                         );
 
@@ -2777,20 +3605,25 @@
                             message.className =
                                 'attendance-message error';
 
+
                             message.textContent =
                                 error.message
                                 ||
                                 'Unable to save attendance.';
+
                         }
 
 
                         button.disabled =
                             false;
 
+
                         button.textContent =
                             'Save Attendance';
 
+
                         return;
+
                     }
 
 
@@ -2799,539 +3632,77 @@
                         message.className =
                             'attendance-message success';
 
+
                         message.textContent =
+
                             `${Number(
                                 data || 0
                             )} attendance record${
-                                Number(
-                                    data || 0
-                                ) === 1
+                                Number(data || 0) === 1
                                     ?
                                     ''
                                     :
                                     's'
                             } saved.`;
-                    }
 
-
-                    /*
-                        Reload from database so the panel displays
-                        exactly what is currently stored.
-                    */
-                    try {
-
-                        await loadAttendanceRoster(
-                            id
-                        );
-
-                        renderAttendanceRoster(
-                            id
-                        );
-
-                    } catch (refreshError) {
-
-                        console.error(
-                            'Attendance refresh error:',
-                            refreshError
-                        );
                     }
 
 
                     button.disabled =
                         false;
 
+
                     button.textContent =
                         'Save Attendance';
-                }
 
 
-                /* ==================================================
-                   OPERATION RENDERING
-                ================================================== */
+                    /*
+                        Reload saved attendance so the controls
+                        immediately show the database values.
+                    */
 
-                function renderOperations() {
+                    try {
 
-                    if (!operations.length) {
+                        const roster =
+                            await loadAttendanceRoster(
+                                operationId
+                            );
 
-                        operationsGrid.innerHTML = `
-                            <div class="empty-board">
 
-                                <h3>
-                                    No Missions Posted
-                                </h3>
+                        renderAttendanceRoster(
+                            operationId,
+                            roster
+                        );
 
-                                There are currently no missions
-                                posted to OPBOARD.
-
-                            </div>
-                        `;
-
-                        return;
                     }
 
-
-                    operationsGrid.innerHTML =
-                        operations
-                            .map(
-                                operation => {
-
-                                    const date =
-                                        getDateParts(
-                                            operation.operation_date
-                                        );
-
-
-                                    const operationSignups =
-                                        getOperationSignups(
-                                            operation.id
-                                        );
-
-
-                                    const signedUp =
-                                        isCurrentUserSignedUp(
-                                            operation.id
-                                        );
-
-
-                                    const signupsClosed =
-                                        operation.status ===
-                                            'Completed'
-                                        ||
-                                        operation.status ===
-                                            'Cancelled';
-
-
-                                    let signupButton = '';
-
-
-                                    if (signupsClosed) {
-
-                                        signupButton = `
-                                            <button
-                                                class="signup-button"
-                                                type="button"
-                                                disabled
-                                            >
-                                                Sign-Ups Closed
-                                            </button>
-                                        `;
-
-                                    } else if (signedUp) {
-
-                                        signupButton = `
-                                            <button
-                                                class="signup-button signed-up"
-                                                data-cancel-signup="${operation.id}"
-                                                type="button"
-                                            >
-                                                Cancel Sign-Up
-                                            </button>
-                                        `;
-
-                                    } else {
-
-                                        signupButton = `
-                                            <button
-                                                class="signup-button"
-                                                data-operation-signup="${operation.id}"
-                                                type="button"
-                                            >
-                                                Sign Up
-                                            </button>
-                                        `;
-                                    }
-
-
-                                    const attendanceSection =
-                                        (
-                                            isAdmin
-                                            &&
-                                            operation.status ===
-                                                'Completed'
-                                        )
-                                        ?
-                                        `
-                                            <div class="operation-attendance-area">
-
-                                                <button
-                                                    class="attendance-toggle-button"
-                                                    data-manage-attendance="${operation.id}"
-                                                    type="button"
-                                                >
-                                                    Manage Attendance
-                                                </button>
-
-
-                                                <div
-                                                    class="attendance-panel"
-                                                    data-attendance-panel="${operation.id}"
-                                                    hidden
-                                                >
-
-                                                    <div class="attendance-panel-header">
-
-                                                        <strong>
-                                                            Mission Attendance
-                                                        </strong>
-
-                                                        <span>
-                                                            Only members still signed up when attendance is saved
-                                                            can receive attendance records.
-                                                        </span>
-
-                                                    </div>
-
-
-                                                    <div class="attendance-warning">
-                                                        A signup does not automatically count as attendance.
-                                                        Select Present, Absent, or Excused for each member you
-                                                        want to record. Leaving a status blank will not
-                                                        automatically mark that member absent.
-                                                    </div>
-
-
-                                                    <div
-                                                        class="attendance-roster"
-                                                        data-attendance-roster="${operation.id}"
-                                                    >
-
-                                                        <div class="attendance-empty">
-                                                            Open attendance to load the roster.
-                                                        </div>
-
-                                                    </div>
-
-
-                                                    <div class="attendance-actions">
-
-                                                        <button
-                                                            class="attendance-save-button"
-                                                            data-save-attendance="${operation.id}"
-                                                            type="button"
-                                                        >
-                                                            Save Attendance
-                                                        </button>
-
-
-                                                        <span
-                                                            class="attendance-message"
-                                                            data-attendance-message="${operation.id}"
-                                                        >
-                                                            Attendance has not been loaded.
-                                                        </span>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        `
-                                        :
-                                        '';
-
-
-                                    const adminControls =
-                                        isAdmin
-                                        ?
-                                        `
-                                            <div class="operation-admin-controls">
-
-                                                <button
-                                                    class="edit-operation"
-                                                    data-edit-operation="${operation.id}"
-                                                    type="button"
-                                                >
-                                                    Edit Operation
-                                                </button>
-
-
-                                                <button
-                                                    class="delete-operation"
-                                                    data-delete-operation="${operation.id}"
-                                                    type="button"
-                                                >
-                                                    Delete
-                                                </button>
-
-                                            </div>
-                                        `
-                                        :
-                                        '';
-
-
-                                    return `
-                                        <article class="operation-card">
-
-                                            <div class="operation-card-top">
-
-                                                <div class="operation-date">
-
-                                                    <div class="operation-date-month">
-                                                        ${escapeHtml(
-                                                            date.month
-                                                        )}
-                                                    </div>
-
-                                                    <div class="operation-date-day">
-                                                        ${escapeHtml(
-                                                            date.day
-                                                        )}
-                                                    </div>
-
-                                                    <div class="operation-date-time">
-                                                        ${escapeHtml(
-                                                            date.time
-                                                        )}
-                                                    </div>
-
-                                                </div>
-
-
-                                                <div class="operation-title-area">
-
-                                                    <div class="operation-type">
-                                                        ${escapeHtml(
-                                                            operation.operation_type
-                                                            ||
-                                                            'Operation'
-                                                        )}
-                                                    </div>
-
-                                                    <h3 class="operation-title">
-                                                        ${escapeHtml(
-                                                            operation.title
-                                                            ||
-                                                            'Untitled Operation'
-                                                        )}
-                                                    </h3>
-
-                                                    <div class="operation-location">
-                                                        AO / MAP:
-                                                        ${escapeHtml(
-                                                            operation.map_location
-                                                            ||
-                                                            'TBD'
-                                                        )}
-                                                    </div>
-
-                                                </div>
-
-
-                                                <div class="operation-status-area">
-
-                                                    <span
-                                                        class="operation-status ${escapeHtml(
-                                                            statusClass(
-                                                                operation.status
-                                                            )
-                                                        )}"
-                                                    >
-                                                        ${escapeHtml(
-                                                            operation.status
-                                                        )}
-                                                    </span>
-
-                                                </div>
-
-                                            </div>
-
-
-                                            <div class="operation-card-body">
-
-                                                <div>
-
-                                                    <div class="operation-info-title">
-                                                        Mission Briefing
-                                                    </div>
-
-                                                    <div class="operation-info-text">${escapeHtml(
-                                                        operation.briefing
-                                                        ||
-                                                        'Briefing pending.'
-                                                    )}</div>
-
-                                                </div>
-
-
-                                                <div>
-
-                                                    <div class="operation-info-title">
-                                                        Objectives
-                                                    </div>
-
-                                                    <div class="operation-info-text">${escapeHtml(
-                                                        operation.objectives
-                                                        ||
-                                                        'Objectives pending.'
-                                                    )}</div>
-
-                                                </div>
-
-                                            </div>
-
-
-                                            <div class="operation-meta">
-
-                                                <span class="operation-meta-tag">
-                                                    Required:
-                                                    ${escapeHtml(
-                                                        operation.required_section
-                                                        ||
-                                                        'All Personnel'
-                                                    )}
-                                                </span>
-
-                                                <span class="operation-meta-tag">
-                                                    Status:
-                                                    ${escapeHtml(
-                                                        operation.status
-                                                    )}
-                                                </span>
-
-                                            </div>
-
-
-                                            <div class="operation-signup-area">
-
-                                                <div class="signup-information">
-
-                                                    <strong>
-                                                        Mission Sign-Up
-                                                    </strong>
-
-                                                    <span class="signup-count">
-
-                                                        ${operationSignups.length}
-
-                                                        member${
-                                                            operationSignups.length ===
-                                                            1
-                                                                ?
-                                                                ''
-                                                                :
-                                                                's'
-                                                        }
-
-                                                        signed up
-
-                                                    </span>
-
-
-                                                    ${
-                                                        signedUp
-                                                        ?
-                                                        `
-                                                            <span>
-                                                                You are currently signed up for this event.
-                                                            </span>
-                                                        `
-                                                        :
-                                                        ''
-                                                    }
-
-                                                </div>
-
-
-                                                ${signupButton}
-
-                                            </div>
-
-
-                                            ${attendanceSection}
-
-                                            ${adminControls}
-
-                                        </article>
-                                    `;
-                                }
-                            )
-                            .join('');
-
-
-                    attachSignupButtons();
-
-                    attachAttendanceButtons();
-
-                    attachOperationButtons();
-                }
-
-
-                /* ==================================================
-                   ATTACH SIGNUP BUTTONS
-                ================================================== */
-
-                function attachSignupButtons() {
-
-                    document
-                        .querySelectorAll(
-                            '[data-operation-signup]'
-                        )
-                        .forEach(
-                            button => {
-
-                                button.addEventListener(
-                                    'click',
-                                    async () => {
-
-                                        const id =
-                                            Number(
-                                                button.dataset
-                                                    .operationSignup
-                                            );
-
-                                        await signupForOperation(
-                                            id,
-                                            button
-                                        );
-                                    }
-                                );
-                            }
+                    catch (error) {
+
+                        console.error(
+                            'Attendance refresh error:',
+                            error
                         );
 
+                    }
 
-                    document
-                        .querySelectorAll(
-                            '[data-cancel-signup]'
-                        )
-                        .forEach(
-                            button => {
-
-                                button.addEventListener(
-                                    'click',
-                                    async () => {
-
-                                        const id =
-                                            Number(
-                                                button.dataset
-                                                    .cancelSignup
-                                            );
-
-                                        await cancelOperationSignup(
-                                            id,
-                                            button
-                                        );
-                                    }
-                                );
-                            }
-                        );
                 }
 
-
-                /* ==================================================
-                   ATTACH ATTENDANCE BUTTONS
-                ================================================== */
 
                 function attachAttendanceButtons() {
+
 
                     document
                         .querySelectorAll(
                             '[data-manage-attendance]'
                         )
                         .forEach(
+
                             button => {
 
                                 button.addEventListener(
+
                                     'click',
+
                                     async () => {
 
                                         const id =
@@ -3340,12 +3711,18 @@
                                                     .manageAttendance
                                             );
 
-                                        await openAttendancePanel(
-                                            id
+
+                                        await toggleAttendancePanel(
+                                            id,
+                                            button
                                         );
+
                                     }
+
                                 );
+
                             }
+
                         );
 
 
@@ -3354,10 +3731,13 @@
                             '[data-save-attendance]'
                         )
                         .forEach(
+
                             button => {
 
                                 button.addEventListener(
+
                                     'click',
+
                                     async () => {
 
                                         const id =
@@ -3366,140 +3746,94 @@
                                                     .saveAttendance
                                             );
 
-                                        await saveAttendance(
+
+                                        await saveOperationAttendance(
                                             id,
                                             button
                                         );
+
                                     }
+
                                 );
+
                             }
+
                         );
+
                 }
 
 
-                /* ==================================================
-                   LOAD OPERATIONS
-                ================================================== */
-
-                async function loadOperations() {
-
-                    boardStatus.textContent =
-                        'Refreshing mission board...';
-
-
-                    const {
-                        data,
-                        error
-                    } =
-                        await client
-                            .from(
-                                'operations_board'
-                            )
-                            .select(
-                                '*'
-                            )
-                            .order(
-                                'operation_date',
-                                {
-                                    ascending:
-                                        true
-                                }
-                            );
-
-
-                    if (error) {
-
-                        console.error(
-                            'Operation load error:',
-                            error
-                        );
-
-                        boardStatus.textContent =
-                            'Unable to load missions.';
-
-                        return;
-                    }
-
-
-                    operations =
-                        data || [];
-
-
-                    await loadSignups();
-
-
-                    boardStatus.textContent =
-                        `${operations.length} mission${
-                            operations.length ===
-                            1
-                                ?
-                                ''
-                                :
-                                's'
-                        } posted.`;
-
-
-                    renderOperations();
-                }
-
-
-                /* ==================================================
-                   RESET FORM
-                ================================================== */
+                // =========================================
+                // RESET ADMIN FORM
+                // =========================================
 
                 function resetForm() {
 
                     operationId.value =
                         '';
 
+
                     operationTitle.value =
                         '';
+
 
                     operationType.value =
                         'Operation';
 
+
                     operationDate.value =
                         '';
+
 
                     operationLocation.value =
                         '';
 
+
                     operationSection.value =
                         'All Personnel';
+
 
                     operationStatus.value =
                         'Scheduled';
 
+
                     operationBriefing.value =
                         '';
+
 
                     operationObjectives.value =
                         '';
 
+
                     saveOperation.textContent =
                         'Post Operation';
+
 
                     cancelEdit.hidden =
                         true;
 
+
                     formMessage.textContent =
                         '';
 
-                    formMessage.className =
-                        'form-message';
                 }
 
 
-                /* ==================================================
-                   SAVE OPERATION
-                ================================================== */
+                // =========================================
+                // SAVE OPERATION
+                // =========================================
 
                 saveOperation.addEventListener(
+
                     'click',
+
                     async () => {
 
+
                         if (!isAdmin) {
+
                             return;
+
                         }
 
 
@@ -3515,60 +3849,25 @@
 
 
                         if (
+
                             !title
+
                             ||
+
                             !date
+
                         ) {
 
                             formMessage.textContent =
                                 'Operation name and date are required.';
 
+
                             formMessage.className =
                                 'form-message error';
 
+
                             return;
-                        }
 
-
-                        const previousOperation =
-                            operationId.value
-                                ?
-                                getOperationById(
-                                    Number(
-                                        operationId.value
-                                    )
-                                )
-                                :
-                                null;
-
-
-                        /*
-                            If an operation already has saved attendance,
-                            changing it away from Completed should be done
-                            intentionally.
-
-                            Cancelled operations are protected by the
-                            database function and don't count.
-                        */
-                        if (
-                            previousOperation
-                            &&
-                            previousOperation.status ===
-                                'Completed'
-                            &&
-                            operationStatus.value ===
-                                'Cancelled'
-                        ) {
-
-                            const confirmed =
-                                confirm(
-                                    'You are changing a completed operation to Cancelled. The linked attendance event will be set to not count for attendance. Continue?'
-                                );
-
-
-                            if (!confirmed) {
-                                return;
-                            }
                         }
 
 
@@ -3612,113 +3911,134 @@
                                     .trim()
                                 ||
                                 null
+
                         };
 
 
-                        formMessage.textContent =
-                            'Saving operation...';
-
-                        formMessage.className =
-                            'form-message';
-
-
-                        let response;
+                        let error;
 
 
                         if (operationId.value) {
 
-                            response =
+                            const response =
                                 await client
+
                                     .from(
                                         'operations_board'
                                     )
+
                                     .update(
                                         payload
                                     )
+
                                     .eq(
                                         'id',
-                                        Number(
-                                            operationId.value
-                                        )
+                                        operationId.value
                                     );
 
-                        } else {
+
+                            error =
+                                response.error;
+
+                        }
+
+                        else {
 
                             payload.created_by =
                                 currentUser.id;
 
 
-                            response =
+                            const response =
                                 await client
+
                                     .from(
                                         'operations_board'
                                     )
+
                                     .insert(
                                         payload
                                     );
+
+
+                            error =
+                                response.error;
+
                         }
 
 
-                        if (response.error) {
-
-                            console.error(
-                                'Operation save error:',
-                                response.error
-                            );
+                        if (error) {
 
                             formMessage.textContent =
-                                response.error.message;
+                                error.message;
+
 
                             formMessage.className =
                                 'form-message error';
 
+
                             return;
+
                         }
 
 
                         /*
-                            If an existing operation is explicitly
-                            cancelled, tell the attendance system that
-                            the linked event must not count.
+                            If an existing operation is changed to
+                            Cancelled, tell the linked attendance event
+                            not to count.
 
-                            No attendance records are created here.
+                            This does NOT create attendance records.
                         */
+
                         if (
+
                             operationId.value
+
                             &&
+
                             operationStatus.value ===
-                                'Cancelled'
+                            'Cancelled'
+
                         ) {
 
                             const {
                                 error:
-                                    attendanceEventError
+                                    attendanceSyncError
                             } =
                                 await client.rpc(
+
                                     'ensure_operation_attendance_event',
+
                                     {
+
                                         p_operation_id:
                                             Number(
                                                 operationId.value
                                             )
+
                                     }
+
                                 );
 
 
-                            if (attendanceEventError) {
+                            if (attendanceSyncError) {
 
                                 console.error(
-                                    'Cancelled attendance event sync error:',
-                                    attendanceEventError
+                                    'Cancelled attendance sync error:',
+                                    attendanceSyncError
                                 );
+
                             }
+
                         }
 
 
                         resetForm();
 
+
                         await loadOperations();
+
                     }
+
                 );
 
 
@@ -3728,22 +4048,27 @@
                 );
 
 
-                /* ==================================================
-                   EDIT / DELETE OPERATION
-                ================================================== */
+                // =========================================
+                // EDIT / DELETE
+                // =========================================
 
                 function attachOperationButtons() {
+
 
                     document
                         .querySelectorAll(
                             '[data-edit-operation]'
                         )
                         .forEach(
+
                             button => {
 
                                 button.addEventListener(
+
                                     'click',
+
                                     () => {
+
 
                                         const id =
                                             Number(
@@ -3753,13 +4078,22 @@
 
 
                                         const operation =
-                                            getOperationById(
-                                                id
+                                            operations.find(
+
+                                                item =>
+                                                    Number(
+                                                        item.id
+                                                    )
+                                                    ===
+                                                    id
+
                                             );
 
 
                                         if (!operation) {
+
                                             return;
+
                                         }
 
 
@@ -3768,15 +4102,11 @@
 
 
                                         operationTitle.value =
-                                            operation.title
-                                            ||
-                                            '';
+                                            operation.title;
 
 
                                         operationType.value =
-                                            operation.operation_type
-                                            ||
-                                            'Operation';
+                                            operation.operation_type;
 
 
                                         const date =
@@ -3787,11 +4117,16 @@
 
                                         const local =
                                             new Date(
+
                                                 date.getTime()
+
                                                 -
-                                                date.getTimezoneOffset()
+
+                                                date
+                                                    .getTimezoneOffset()
                                                 *
                                                 60000
+
                                             );
 
 
@@ -3811,15 +4146,11 @@
 
 
                                         operationSection.value =
-                                            operation.required_section
-                                            ||
-                                            'All Personnel';
+                                            operation.required_section;
 
 
                                         operationStatus.value =
-                                            operation.status
-                                            ||
-                                            'Scheduled';
+                                            operation.status;
 
 
                                         operationBriefing.value =
@@ -3842,22 +4173,20 @@
                                             false;
 
 
-                                        formMessage.textContent =
-                                            'Editing operation.';
-
-
-                                        formMessage.className =
-                                            'form-message';
-
-
                                         commandPanel
                                             .scrollIntoView({
+
                                                 behavior:
                                                     'smooth'
+
                                             });
+
                                     }
+
                                 );
+
                             }
+
                         );
 
 
@@ -3866,11 +4195,15 @@
                             '[data-delete-operation]'
                         )
                         .forEach(
+
                             button => {
 
                                 button.addEventListener(
+
                                     'click',
+
                                     async () => {
+
 
                                         const id =
                                             Number(
@@ -3879,40 +4212,30 @@
                                             );
 
 
-                                        const operation =
-                                            getOperationById(
-                                                id
-                                            );
-
-
-                                        if (!operation) {
-                                            return;
-                                        }
-
-
                                         const confirmed =
                                             confirm(
-                                                `Delete "${operation.title}"?`
+                                                'Delete this operation?'
                                             );
 
 
                                         if (!confirmed) {
+
                                             return;
+
                                         }
-
-
-                                        button.disabled =
-                                            true;
 
 
                                         const {
                                             error
                                         } =
                                             await client
+
                                                 .from(
                                                     'operations_board'
                                                 )
+
                                                 .delete()
+
                                                 .eq(
                                                     'id',
                                                     id
@@ -3921,87 +4244,58 @@
 
                                         if (error) {
 
-                                            console.error(
-                                                'Delete operation error:',
-                                                error
-                                            );
-
                                             alert(
                                                 error.message
                                             );
 
-                                            button.disabled =
-                                                false;
 
                                             return;
+
                                         }
 
 
-                                        delete attendanceRosters[
-                                            id
-                                        ];
-
-
-                                        openAttendancePanels.delete(
-                                            id
-                                        );
-
-
                                         await loadOperations();
+
                                     }
+
                                 );
+
                             }
+
                         );
+
                 }
 
 
-                /* ==================================================
-                   REFRESH
-                ================================================== */
+                // =========================================
+                // REFRESH
+                // =========================================
 
                 document
                     .getElementById(
                         'refreshOperations'
                     )
                     .addEventListener(
+
                         'click',
-                        async () => {
 
-                            openAttendancePanels.clear();
+                        loadOperations
 
-                            Object
-                                .keys(
-                                    attendanceRosters
-                                )
-                                .forEach(
-                                    key => {
-
-                                        delete attendanceRosters[
-                                            key
-                                        ];
-                                    }
-                                );
-
-
-                            await loadOperations();
-                        }
                     );
 
 
-                /* ==================================================
-                   INITIALIZE
-                ================================================== */
+                // =========================================
+                // INITIALIZE
+                // =========================================
 
                 async function initialize() {
+
 
                     const {
                         data:
                         {
                             session
-                        },
-
-                        error:
-                            sessionError
+                        }
                     } =
                         await client.auth
                             .getSession();
@@ -4011,23 +4305,17 @@
                         true;
 
 
-                    if (sessionError) {
-
-                        console.error(
-                            'Session error:',
-                            sessionError
-                        );
-                    }
-
-
                     if (!session?.user) {
 
                         loginRequired.hidden =
                             false;
 
+
                         renderHeader();
 
+
                         return;
+
                     }
 
 
@@ -4043,40 +4331,42 @@
                             profileError
                     } =
                         await client
+
                             .from(
                                 'member_profiles'
                             )
+
                             .select(
                                 'display_name,access_level,member_status'
                             )
+
                             .eq(
                                 'user_id',
                                 currentUser.id
                             )
+
                             .maybeSingle();
 
 
                     if (
+
                         profileError
+
                         ||
+
                         !profile
+
                     ) {
-
-                        if (profileError) {
-
-                            console.error(
-                                'Profile error:',
-                                profileError
-                            );
-                        }
-
 
                         membershipRequired.hidden =
                             false;
 
+
                         renderHeader();
 
+
                         return;
+
                     }
 
 
@@ -4085,11 +4375,14 @@
 
 
                     isAdmin =
+
                         profile.access_level ===
-                            'Admin'
+                        'Admin'
+
                         ||
+
                         profile.access_level ===
-                            'Super Admin';
+                        'Super Admin';
 
 
                     commandPanel.hidden =
@@ -4104,56 +4397,18 @@
 
 
                     await loadOperations();
+
                 }
 
 
-                /* ==================================================
-                   AUTH STATE CHANGES
-                ================================================== */
-
-                client.auth.onAuthStateChange(
-                    async (
-                        event,
-                        session
-                    ) => {
-
-                        if (
-                            event ===
-                            'SIGNED_OUT'
-                        ) {
-
-                            currentUser =
-                                null;
-
-                            currentProfile =
-                                null;
-
-                            isAdmin =
-                                false;
-
-                            renderHeader();
-                        }
-
-
-                        if (
-                            event ===
-                            'SIGNED_IN'
-                            &&
-                            session?.user
-                            &&
-                            !currentUser
-                        ) {
-
-                            window.location.reload();
-                        }
-                    }
-                );
-
-
                 await initialize();
+
             }
+
         );
+
     </script>
+
 
 </body>
 </html>
