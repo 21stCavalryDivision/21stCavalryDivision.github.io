@@ -4158,8 +4158,48 @@
                                 id
                             );
 
+const {
+    error:
+        attendanceEventError
+} =
+    await client.rpc(
 
-                    if (error) {
+        'ensure_operation_attendance_event',
+
+        {
+            p_operation_id:
+                id
+        }
+
+    );
+
+
+if (attendanceEventError) {
+
+    console.error(
+        'Attendance event creation error:',
+        attendanceEventError
+    );
+
+
+    alert(
+        'The operation was completed, but the attendance event could not be created: ' +
+        attendanceEventError.message
+    );
+
+
+    button.disabled =
+        false;
+
+
+    button.textContent =
+        'Complete Operation';
+
+
+    return;
+
+}
+                    if (error) {await loadOperations();
 
                         console.error(
                             'Complete operation error:',
