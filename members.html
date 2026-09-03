@@ -91,7 +91,7 @@
 
         .portal-shell {
             display: grid;
-            grid-template-columns: 270px minmax(0, 1fr);
+            grid-template-columns: 270px minmax(0, 1fr) 390px;
             gap: 20px;
             padding: 32px clamp(24px, 6vw, 110px) 90px;
         }
@@ -185,6 +185,29 @@
             color: #d46e6e;
         }
 
+
+
+
+        /* ========================================= */
+        /* PROMOTION SERVICE RECORD */
+        /* ========================================= */
+        .promotion-card { align-self:start; border:1px solid #30383d; border-top:2px solid #c5a75b; background:#101619; padding:22px; }
+        .promotion-card-header { padding-bottom:18px; border-bottom:1px solid #30383d; }
+        .promotion-card-header h2 { margin:0; color:#c5a75b; font:600 22px Oswald,sans-serif; text-transform:uppercase; }
+        .promotion-card-header p { margin:5px 0 0; color:#8c999f; font-size:12px; }
+        .promotion-current-label,.promotion-history-label { margin-top:18px; color:#748188; font:600 9px Oswald,sans-serif; letter-spacing:1.3px; text-transform:uppercase; }
+        .promotion-current { padding:14px 0 18px; border-bottom:1px solid #30383d; }
+        .promotion-current strong { display:block; color:#fff; font:600 19px Oswald,sans-serif; }
+        .promotion-current span { display:block; margin-top:5px; color:#9aa5aa; font-size:11px; }
+        .promotion-timeline { position:relative; display:grid; gap:8px; margin-top:14px; padding-left:31px; }
+        .promotion-timeline:before { content:''; position:absolute; left:11px; top:12px; bottom:12px; width:2px; background:#78683b; }
+        .promotion-entry { position:relative; padding:12px 13px; border:1px solid #30383d; background:#090f12; }
+        .promotion-entry:before { content:'✓'; position:absolute; left:-31px; top:12px; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; border:1px solid #417a50; background:#173821; color:#79d693; font:700 11px Roboto,sans-serif; }
+        .promotion-entry-top { display:flex; justify-content:space-between; gap:12px; align-items:start; }
+        .promotion-entry-rank { color:#fff; font:600 13px Oswald,sans-serif; }
+        .promotion-entry-date { flex:0 0 auto; color:#d9be6a; font:500 10px Oswald,sans-serif; }
+        .promotion-entry-time { margin-top:5px; color:#849197; font-size:10px; }
+        .promotion-empty { margin-top:14px; padding:18px; border:1px dashed #394349; color:#7e8a90; font-size:11px; text-align:center; }
 
         /* ========================================= */
         /* PANELS */
@@ -1621,6 +1644,23 @@
 
 
         </div>
+
+        <aside class="promotion-card" id="promotionServiceRecord">
+            <div class="promotion-card-header">
+                <h2>Service Record</h2>
+                <p>Your rank progression and promotion history</p>
+            </div>
+            <div class="promotion-current-label">Current Rank</div>
+            <div class="promotion-current">
+                <strong id="promotionCurrentRank">—</strong>
+                <span id="promotionCurrentAccess">—</span>
+                <span id="promotionCurrentDate">Promotion date unavailable</span>
+            </div>
+            <div class="promotion-history-label">Promotion History</div>
+            <div id="promotionTimeline" class="promotion-timeline">
+                <div class="promotion-empty">Loading promotion history...</div>
+            </div>
+        </aside>
 
     </main>
 
@@ -3369,6 +3409,65 @@
                 }
 
 
+
+
+                function calculateTimeInGrade(startDate, endDate) {
+                    if (!startDate) return 'Time in Grade: —';
+                    const start = new Date(`${startDate}T00:00:00`);
+                    const end = endDate ? new Date(`${endDate}T00:00:00`) : new Date();
+                    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return 'Time in Grade: —';
+                    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+                    let anchor = new Date(start); anchor.setMonth(anchor.getMonth() + months);
+                    if (anchor > end) { months--; anchor = new Date(start); anchor.setMonth(anchor.getMonth() + months); }
+                    const days = Math.max(0, Math.floor((end - anchor) / 86400000));
+                    const years = Math.floor(months / 12); const remMonths = months % 12;
+                    const parts = [];
+                    if (years) parts.push(`${years} Year${years === 1 ? '' : 's'}`);
+                    if (remMonths) parts.push(`${remMonths} Month${remMonths === 1 ? '' : 's'}`);
+                    if (days || !parts.length) parts.push(`${days} Day${days === 1 ? '' : 's'}`);
+                    return `Time in Grade: ${parts.join(', ')}`;
+                }
+
+                async function loadPromotionHistory(userId, profile) {
+                    const timeline = document.getElementById('promotionTimeline');
+                    const currentRank = document.getElementById('promotionCurrentRank');
+                    const currentAccess = document.getElementById('promotionCurrentAccess');
+                    const currentDate = document.getElementById('promotionCurrentDate');
+                    currentRank.textContent = profile?.rank || 'Unassigned';
+                    currentAccess.textContent = profile?.access_level || 'Member';
+                    const { data, error } = await client.from('promotion_history')
+                        .select('id,rank,promotion_date,notes,created_at')
+                        .eq('user_id', userId)
+                        .order('promotion_date', { ascending: false })
+                        .order('id', { ascending: false });
+                    if (error) {
+                        console.error('Promotion history load error:', error);
+                        timeline.innerHTML = '<div class="promotion-empty">Promotion history could not be loaded.</div>';
+                        currentDate.textContent = 'Promotion date unavailable';
+                        return;
+                    }
+                    const records = data || [];
+                    if (!records.length) {
+                        timeline.innerHTML = '<div class="promotion-empty">No promotion history has been recorded yet.</div>';
+                        currentDate.textContent = 'Promotion date unavailable';
+                        return;
+                    }
+                    const currentRecord = records.find(r => r.rank === profile?.rank) || records[0];
+                    currentDate.textContent = `Promoted on ${formatDate(currentRecord.promotion_date)}`;
+                    timeline.innerHTML = records.map((record, index) => {
+                        const nextNewer = index > 0 ? records[index - 1].promotion_date : null;
+                        const timeText = calculateTimeInGrade(record.promotion_date, nextNewer);
+                        return `<div class="promotion-entry">
+                            <div class="promotion-entry-top">
+                                <div class="promotion-entry-rank">${escapeHtml(record.rank || 'Unassigned')}</div>
+                                <div class="promotion-entry-date">${escapeHtml(formatDate(record.promotion_date))}</div>
+                            </div>
+                            <div class="promotion-entry-time">${escapeHtml(timeText)}</div>
+                        </div>`;
+                    }).join('');
+                }
+
+
                 /* =========================================
                    ATTENDANCE
                 ========================================= */
@@ -3921,6 +4020,11 @@
 
                         loadLoas(
                             user.id
+                        ),
+
+                        loadPromotionHistory(
+                            user.id,
+                            profile
                         )
 
                     ]);
