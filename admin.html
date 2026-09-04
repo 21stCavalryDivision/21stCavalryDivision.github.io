@@ -1587,6 +1587,317 @@
             }
         }
 
+    
+
+        /* =================================================
+           DISCHARGE RECORDS
+           ================================================= */
+
+        .discharge-panel {
+            padding: 20px;
+            border: 1px solid #30383d;
+            background: #101619;
+            margin-bottom: 28px;
+        }
+
+        .discharge-toolbar {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .discharge-list {
+            display: grid;
+            gap: 9px;
+        }
+
+        .discharge-card {
+            overflow: hidden;
+            border: 1px solid #30383d;
+            background: #090f12;
+        }
+
+        .discharge-card.open {
+            border-color: #756438;
+        }
+
+        .discharge-header {
+            width: 100%;
+            display: grid;
+            grid-template-columns:
+                minmax(170px, 1.4fr)
+                minmax(140px, .8fr)
+                minmax(150px, 1fr)
+                minmax(125px, .8fr)
+                minmax(125px, .8fr)
+                32px;
+            gap: 14px;
+            align-items: center;
+            min-height: 68px;
+            padding: 12px 18px;
+            border: 0;
+            background: #0e1417;
+            color: #fff;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .discharge-header:hover {
+            background: #131a1e;
+        }
+
+        .discharge-card.open .discharge-header {
+            border-bottom: 1px solid #30383d;
+            background: #12191c;
+        }
+
+        .discharge-name strong {
+            display: block;
+            overflow: hidden;
+            color: #fff;
+            font: 600 18px Oswald, sans-serif;
+            text-overflow: ellipsis;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .discharge-name small {
+            display: block;
+            margin-top: 3px;
+            overflow: hidden;
+            color: #607179;
+            font-size: 9px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .discharge-column span {
+            display: block;
+            margin-bottom: 3px;
+            color: #6e7d84;
+            font: 500 8px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-column strong {
+            display: block;
+            overflow: hidden;
+            color: #c8d0d3;
+            font: 500 11px Oswald, sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .discharge-arrow {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            color: #c5a75b;
+            font-size: 15px;
+            transition: transform .2s ease;
+        }
+
+        .discharge-card.open .discharge-arrow {
+            transform: rotate(180deg);
+        }
+
+        .discharge-body {
+            display: none;
+            padding: 22px;
+        }
+
+        .discharge-card.open .discharge-body {
+            display: block;
+        }
+
+        .discharge-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .discharge-detail {
+            padding: 11px 12px;
+            border: 1px solid #293238;
+            background: #0d1316;
+        }
+
+        .discharge-detail span {
+            display: block;
+            margin-bottom: 4px;
+            color: #6e7d84;
+            font: 500 8px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-detail strong {
+            display: block;
+            color: #d2dade;
+            font-size: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .discharge-subsection {
+            margin-top: 18px;
+            padding: 16px;
+            border: 1px solid #293238;
+            background: #080e11;
+        }
+
+        .discharge-subsection h3 {
+            margin: 0 0 12px;
+            color: #d5b85e;
+            font: 600 13px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-qualification-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .discharge-qualification {
+            padding: 6px 9px;
+            border: 1px solid #4a4f3a;
+            background: rgba(197, 167, 91, .07);
+            color: #d4b95f;
+            font: 600 8px Oswald, sans-serif;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+        }
+
+        .discharge-service-record {
+            display: grid;
+            gap: 8px;
+        }
+
+        .discharge-promotion-row {
+            display: grid;
+            grid-template-columns: minmax(160px, 1fr) 150px minmax(0, 1.4fr);
+            gap: 12px;
+            align-items: center;
+            padding: 10px 12px;
+            border-left: 2px solid #756438;
+            background: #101619;
+        }
+
+        .discharge-promotion-row strong {
+            color: #fff;
+            font: 600 11px Oswald, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .discharge-promotion-row span {
+            color: #89969b;
+            font-size: 10px;
+        }
+
+        .discharge-reason-row {
+            display: grid;
+            grid-template-columns: minmax(220px, 1fr) auto;
+            gap: 10px;
+            align-items: end;
+        }
+
+        .discharge-reason-row label {
+            display: grid;
+            gap: 6px;
+            color: #c5a75b;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-reason-row select {
+            width: 100%;
+            min-height: 42px;
+            box-sizing: border-box;
+            padding: 0 12px;
+            border: 1px solid #384248;
+            outline: none;
+            background: #080e11;
+            color: #fff;
+        }
+
+        .discharge-reason-row select:focus {
+            border-color: #c5a75b;
+        }
+
+        .discharge-save-btn {
+            min-height: 42px;
+            padding: 0 16px;
+            border: 1px solid #c5a75b;
+            background: #c5a75b;
+            color: #111;
+            cursor: pointer;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-save-btn:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .discharge-message {
+            min-height: 18px;
+            margin-top: 10px;
+            color: #819096;
+            font-size: 11px;
+        }
+
+        .discharge-message.success { color: #75d48c; }
+        .discharge-message.error { color: #e47b7b; }
+
+        @media (max-width: 1100px) {
+            .discharge-header {
+                grid-template-columns:
+                    minmax(160px, 1.3fr)
+                    minmax(130px, .8fr)
+                    minmax(130px, .8fr)
+                    minmax(120px, .7fr)
+                    32px;
+            }
+
+            .discharge-header-section {
+                display: none;
+            }
+
+            .discharge-detail-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .discharge-toolbar,
+            .discharge-reason-row {
+                grid-template-columns: 1fr;
+            }
+
+            .discharge-header {
+                grid-template-columns: minmax(0, 1fr) auto;
+            }
+
+            .discharge-header-rank,
+            .discharge-header-section,
+            .discharge-header-date,
+            .discharge-header-reason {
+                display: none;
+            }
+
+            .discharge-detail-grid,
+            .discharge-promotion-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 
 </head>
@@ -2062,6 +2373,62 @@
         ></section>
 
 
+
+        <!-- =================================================
+             DISCHARGE RECORDS
+             ================================================= -->
+
+        <div class="admin-section-heading">
+            <h2>Discharge Records</h2>
+            <span id="dischargeHeadingCount">0 Former Members</span>
+        </div>
+
+        <section class="discharge-panel">
+
+            <div class="discharge-toolbar">
+
+                <input
+                    id="dischargeSearch"
+                    class="admin-search"
+                    type="search"
+                    placeholder="Search discharge records by name, rank, billet, section, Discord ID or reason..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="refreshDischarges"
+                    class="admin-refresh"
+                    type="button"
+                >
+                    Refresh Records
+                </button>
+
+            </div>
+
+            <div
+                id="dischargeCountLine"
+                class="member-count-line"
+            >
+                Loading discharge records...
+            </div>
+
+            <div
+                id="dischargeList"
+                class="discharge-list"
+            >
+                <div class="admin-empty">
+                    Loading discharge records...
+                </div>
+            </div>
+
+            <div
+                id="dischargeMessage"
+                class="discharge-message"
+            ></div>
+
+        </section>
+
+
         <!-- =================================================
              ATTENDANCE MANAGEMENT
              ================================================= -->
@@ -2320,6 +2687,14 @@
                     [];
 
 
+                let dischargeRecords =
+                    [];
+
+
+                let openDischargeId =
+                    null;
+
+
                 /* =================================================
                    ELEMENTS
                    ================================================= */
@@ -2495,6 +2870,25 @@
 
                 const refreshPendingMembers =
                     document.getElementById('refreshPendingMembers');
+
+
+                const dischargeList =
+                    document.getElementById('dischargeList');
+
+                const dischargeSearch =
+                    document.getElementById('dischargeSearch');
+
+                const refreshDischarges =
+                    document.getElementById('refreshDischarges');
+
+                const dischargeCountLine =
+                    document.getElementById('dischargeCountLine');
+
+                const dischargeHeadingCount =
+                    document.getElementById('dischargeHeadingCount');
+
+                const dischargeMessage =
+                    document.getElementById('dischargeMessage');
 
 
                 /* =================================================
@@ -4787,6 +5181,885 @@
                 );
 
 
+
+                /* =================================================
+                   DISCHARGE RECORDS
+                   ================================================= */
+
+                const DISCHARGE_REASON_OPTIONS = [
+                    'Honorable Discharge',
+                    'General Discharge',
+                    'Administrative Separation',
+                    'Removed',
+                    'Left Discord Server',
+                    'Other'
+                ];
+
+
+                function setDischargeMessage(
+                    message,
+                    type = ''
+                ) {
+
+                    dischargeMessage.textContent =
+                        message || '';
+
+                    dischargeMessage.className =
+                        'discharge-message';
+
+                    if (type) {
+                        dischargeMessage.classList.add(type);
+                    }
+
+                }
+
+
+                function formatDischargeDate(
+                    value,
+                    includeTime = false
+                ) {
+
+                    if (!value) {
+                        return 'Unknown';
+                    }
+
+                    const date =
+                        new Date(value);
+
+                    if (Number.isNaN(date.getTime())) {
+                        return String(value);
+                    }
+
+                    if (includeTime) {
+                        return date.toLocaleString();
+                    }
+
+                    return date.toLocaleDateString();
+
+                }
+
+
+                function calculateServiceLength(
+                    joinDate,
+                    dischargeDate
+                ) {
+
+                    if (!joinDate || !dischargeDate) {
+                        return 'Unknown';
+                    }
+
+                    const start =
+                        new Date(`${String(joinDate).slice(0, 10)}T00:00:00`);
+
+                    const end =
+                        new Date(dischargeDate);
+
+                    if (
+                        Number.isNaN(start.getTime())
+                        ||
+                        Number.isNaN(end.getTime())
+                        ||
+                        end < start
+                    ) {
+                        return 'Unknown';
+                    }
+
+                    const totalDays =
+                        Math.floor(
+                            (
+                                end.getTime()
+                                -
+                                start.getTime()
+                            )
+                            /
+                            86400000
+                        );
+
+                    const years =
+                        Math.floor(totalDays / 365);
+
+                    const remainingAfterYears =
+                        totalDays - (years * 365);
+
+                    const months =
+                        Math.floor(
+                            remainingAfterYears / 30
+                        );
+
+                    const days =
+                        remainingAfterYears - (months * 30);
+
+                    const parts = [];
+
+                    if (years) {
+                        parts.push(
+                            `${years} yr${years === 1 ? '' : 's'}`
+                        );
+                    }
+
+                    if (months) {
+                        parts.push(
+                            `${months} mo`
+                        );
+                    }
+
+                    if (!years && !months) {
+                        parts.push(
+                            `${days} day${days === 1 ? '' : 's'}`
+                        );
+                    }
+
+                    return parts.join(' ');
+
+                }
+
+
+                function dischargeReasonOptionList(
+                    selected
+                ) {
+
+                    const values =
+                        [...DISCHARGE_REASON_OPTIONS];
+
+                    if (
+                        selected
+                        &&
+                        !values.includes(selected)
+                    ) {
+                        values.unshift(selected);
+                    }
+
+                    return values.map(
+                        value => {
+
+                            const selectedText =
+                                value === selected
+                                    ? 'selected'
+                                    : '';
+
+                            return `
+                                <option
+                                    value="${escapeHtml(value)}"
+                                    ${selectedText}
+                                >
+                                    ${escapeHtml(value)}
+                                </option>
+                            `;
+
+                        }
+                    ).join('');
+
+                }
+
+
+                function normalizePromotionSnapshot(
+                    value
+                ) {
+
+                    if (Array.isArray(value)) {
+                        return value;
+                    }
+
+                    if (!value) {
+                        return [];
+                    }
+
+                    if (typeof value === 'string') {
+                        try {
+                            const parsed =
+                                JSON.parse(value);
+
+                            return Array.isArray(parsed)
+                                ? parsed
+                                : [];
+                        }
+                        catch {
+                            return [];
+                        }
+                    }
+
+                    return [];
+
+                }
+
+
+                function renderDischargeQualifications(
+                    qualifications
+                ) {
+
+                    const list =
+                        Array.isArray(qualifications)
+                            ? qualifications
+                            : [];
+
+                    if (!list.length) {
+                        return `
+                            <div class="admin-empty">
+                                No qualifications were recorded at discharge.
+                            </div>
+                        `;
+                    }
+
+                    return `
+                        <div class="discharge-qualification-list">
+                            ${list.map(
+                                qualification => `
+                                    <span class="discharge-qualification">
+                                        ${escapeHtml(qualification)}
+                                    </span>
+                                `
+                            ).join('')}
+                        </div>
+                    `;
+
+                }
+
+
+                function renderDischargeServiceRecord(
+                    snapshot
+                ) {
+
+                    const promotions =
+                        normalizePromotionSnapshot(snapshot);
+
+                    if (!promotions.length) {
+                        return `
+                            <div class="admin-empty">
+                                No promotion history was recorded.
+                            </div>
+                        `;
+                    }
+
+                    return `
+                        <div class="discharge-service-record">
+
+                            ${promotions.map(
+                                promotion => `
+                                    <div class="discharge-promotion-row">
+
+                                        <strong>
+                                            ${escapeHtml(
+                                                promotion.rank
+                                                ||
+                                                'Unknown Rank'
+                                            )}
+                                        </strong>
+
+                                        <span>
+                                            ${escapeHtml(
+                                                formatDischargeDate(
+                                                    promotion.promotion_date
+                                                )
+                                            )}
+                                        </span>
+
+                                        <span>
+                                            ${escapeHtml(
+                                                promotion.notes
+                                                ||
+                                                'No notes'
+                                            )}
+                                        </span>
+
+                                    </div>
+                                `
+                            ).join('')}
+
+                        </div>
+                    `;
+
+                }
+
+
+                function filteredDischargeRecords() {
+
+                    const query =
+                        dischargeSearch.value
+                            .trim()
+                            .toLowerCase();
+
+                    if (!query) {
+                        return dischargeRecords;
+                    }
+
+                    return dischargeRecords.filter(
+                        record => {
+
+                            const haystack = [
+                                record.display_name,
+                                record.final_rank,
+                                record.final_billet,
+                                record.final_section,
+                                record.member_role,
+                                record.member_status,
+                                record.access_level,
+                                record.discord_id,
+                                record.discharge_reason,
+                                ...(Array.isArray(record.qualifications)
+                                    ? record.qualifications
+                                    : [])
+                            ]
+                            .filter(Boolean)
+                            .join(' ')
+                            .toLowerCase();
+
+                            return haystack.includes(query);
+
+                        }
+                    );
+
+                }
+
+
+                function renderDischargeRecords() {
+
+                    const records =
+                        filteredDischargeRecords();
+
+                    dischargeHeadingCount.textContent =
+                        `${dischargeRecords.length} Former Member${dischargeRecords.length === 1 ? '' : 's'}`;
+
+                    dischargeCountLine.textContent =
+                        `${records.length} record${records.length === 1 ? '' : 's'} shown`;
+
+                    if (!records.length) {
+
+                        dischargeList.innerHTML = `
+                            <div class="admin-empty">
+                                ${dischargeRecords.length
+                                    ? 'No discharge records match your search.'
+                                    : 'No former-member discharge records have been archived yet.'}
+                            </div>
+                        `;
+
+                        return;
+                    }
+
+                    dischargeList.innerHTML =
+                        records.map(
+                            record => {
+
+                                const open =
+                                    String(record.id)
+                                    ===
+                                    String(openDischargeId);
+
+                                return `
+                                    <article
+                                        class="discharge-card ${open ? 'open' : ''}"
+                                        data-discharge-id="${escapeHtml(record.id)}"
+                                    >
+
+                                        <button
+                                            class="discharge-header"
+                                            type="button"
+                                            data-discharge-toggle
+                                        >
+
+                                            <div class="discharge-name">
+
+                                                <strong>
+                                                    ${escapeHtml(
+                                                        record.display_name
+                                                        ||
+                                                        'Former Member'
+                                                    )}
+                                                </strong>
+
+                                                <small>
+                                                    Discord ID:
+                                                    ${escapeHtml(
+                                                        record.discord_id
+                                                        ||
+                                                        'Not recorded'
+                                                    )}
+                                                </small>
+
+                                            </div>
+
+                                            <div class="discharge-column discharge-header-rank">
+                                                <span>Final Rank</span>
+                                                <strong>
+                                                    ${escapeHtml(
+                                                        record.final_rank
+                                                        ||
+                                                        'Unknown'
+                                                    )}
+                                                </strong>
+                                            </div>
+
+                                            <div class="discharge-column discharge-header-section">
+                                                <span>Final Section</span>
+                                                <strong>
+                                                    ${escapeHtml(
+                                                        record.final_section
+                                                        ||
+                                                        'Unknown'
+                                                    )}
+                                                </strong>
+                                            </div>
+
+                                            <div class="discharge-column discharge-header-date">
+                                                <span>Discharged</span>
+                                                <strong>
+                                                    ${escapeHtml(
+                                                        formatDischargeDate(
+                                                            record.discharge_date
+                                                        )
+                                                    )}
+                                                </strong>
+                                            </div>
+
+                                            <div class="discharge-column discharge-header-reason">
+                                                <span>Reason</span>
+                                                <strong>
+                                                    ${escapeHtml(
+                                                        record.discharge_reason
+                                                        ||
+                                                        'Not specified'
+                                                    )}
+                                                </strong>
+                                            </div>
+
+                                            <span class="discharge-arrow">
+                                                ▼
+                                            </span>
+
+                                        </button>
+
+                                        <div class="discharge-body">
+
+                                            <div class="discharge-detail-grid">
+
+                                                <div class="discharge-detail">
+                                                    <span>Former User ID</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.former_user_id
+                                                            ||
+                                                            'Not recorded'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Rank</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.final_rank
+                                                            ||
+                                                            'Unknown'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Billet</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.final_billet
+                                                            ||
+                                                            'Unknown'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Section</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.final_section
+                                                            ||
+                                                            'Unknown'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Member Role</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.member_role
+                                                            ||
+                                                            'Unknown'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Status</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.member_status
+                                                            ||
+                                                            'Unknown'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Join Date</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            formatDischargeDate(
+                                                                record.join_date
+                                                            )
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Discharge Date</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            formatDischargeDate(
+                                                                record.discharge_date,
+                                                                true
+                                                            )
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Length of Service</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            calculateServiceLength(
+                                                                record.join_date,
+                                                                record.discharge_date
+                                                            )
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Attendance</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            String(
+                                                                record.attendance_rate
+                                                                ??
+                                                                0
+                                                            )
+                                                        )}%
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Final Access Level</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.access_level
+                                                            ||
+                                                            'Member'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Discord ID</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.discord_id
+                                                            ||
+                                                            'Not recorded'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="discharge-subsection">
+
+                                                <h3>
+                                                    Qualifications at Discharge
+                                                </h3>
+
+                                                ${renderDischargeQualifications(
+                                                    record.qualifications
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="discharge-subsection">
+
+                                                <h3>
+                                                    Service Record / Promotion History
+                                                </h3>
+
+                                                ${renderDischargeServiceRecord(
+                                                    record.promotion_history_snapshot
+                                                )}
+
+                                            </div>
+
+
+                                            <div class="discharge-subsection">
+
+                                                <h3>
+                                                    Discharge Classification
+                                                </h3>
+
+                                                <div class="discharge-reason-row">
+
+                                                    <label>
+                                                        Discharge Reason
+
+                                                        <select
+                                                            data-discharge-reason
+                                                        >
+                                                            ${dischargeReasonOptionList(
+                                                                record.discharge_reason
+                                                                ||
+                                                                'Left Discord Server'
+                                                            )}
+                                                        </select>
+
+                                                    </label>
+
+                                                    <button
+                                                        class="discharge-save-btn"
+                                                        type="button"
+                                                        data-save-discharge
+                                                    >
+                                                        Save Reason
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </article>
+                                `;
+
+                            }
+                        ).join('');
+
+
+                    dischargeList
+                        .querySelectorAll(
+                            '[data-discharge-toggle]'
+                        )
+                        .forEach(
+                            button => {
+
+                                button.addEventListener(
+                                    'click',
+                                    () => {
+
+                                        const card =
+                                            button.closest(
+                                                '[data-discharge-id]'
+                                            );
+
+                                        if (!card) {
+                                            return;
+                                        }
+
+                                        const id =
+                                            card.dataset.dischargeId;
+
+                                        openDischargeId =
+                                            String(openDischargeId)
+                                            ===
+                                            String(id)
+                                                ? null
+                                                : id;
+
+                                        renderDischargeRecords();
+
+                                    }
+                                );
+
+                            }
+                        );
+
+
+                    dischargeList
+                        .querySelectorAll(
+                            '[data-save-discharge]'
+                        )
+                        .forEach(
+                            button => {
+
+                                button.addEventListener(
+                                    'click',
+                                    async () => {
+
+                                        const card =
+                                            button.closest(
+                                                '[data-discharge-id]'
+                                            );
+
+                                        if (!card) {
+                                            return;
+                                        }
+
+                                        const id =
+                                            card.dataset.dischargeId;
+
+                                        const reasonSelect =
+                                            card.querySelector(
+                                                '[data-discharge-reason]'
+                                            );
+
+                                        const reason =
+                                            reasonSelect?.value
+                                            ||
+                                            'Left Discord Server';
+
+                                        button.disabled =
+                                            true;
+
+                                        setDischargeMessage(
+                                            'Saving discharge reason...'
+                                        );
+
+                                        const {
+                                            error
+                                        } =
+                                            await client
+                                                .from(
+                                                    'discharge_records'
+                                                )
+                                                .update({
+                                                    discharge_reason:
+                                                        reason
+                                                })
+                                                .eq(
+                                                    'id',
+                                                    id
+                                                );
+
+                                        if (error) {
+
+                                            console.error(
+                                                'Discharge record update error:',
+                                                error
+                                            );
+
+                                            setDischargeMessage(
+                                                'Could not update discharge reason: '
+                                                +
+                                                error.message,
+                                                'error'
+                                            );
+
+                                            button.disabled =
+                                                false;
+
+                                            return;
+                                        }
+
+                                        const record =
+                                            dischargeRecords.find(
+                                                item =>
+                                                    String(item.id)
+                                                    ===
+                                                    String(id)
+                                            );
+
+                                        if (record) {
+                                            record.discharge_reason =
+                                                reason;
+                                        }
+
+                                        setDischargeMessage(
+                                            'Discharge reason updated.',
+                                            'success'
+                                        );
+
+                                        renderDischargeRecords();
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                }
+
+
+                async function loadDischargeRecords() {
+
+                    dischargeList.innerHTML = `
+                        <div class="admin-empty">
+                            Loading discharge records...
+                        </div>
+                    `;
+
+                    setDischargeMessage('');
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+                            .from(
+                                'discharge_records'
+                            )
+                            .select(
+                                'id,former_user_id,display_name,final_rank,final_billet,final_section,member_role,member_status,access_level,qualifications,attendance_rate,join_date,discord_id,discharge_date,discharge_reason,profile_snapshot,promotion_history_snapshot,created_at'
+                            )
+                            .order(
+                                'discharge_date',
+                                {
+                                    ascending:
+                                        false
+                                }
+                            );
+
+                    if (error) {
+
+                        console.error(
+                            'Discharge records load error:',
+                            error
+                        );
+
+                        dischargeHeadingCount.textContent =
+                            'Unavailable';
+
+                        dischargeCountLine.textContent =
+                            'Discharge records unavailable';
+
+                        dischargeList.innerHTML = `
+                            <div class="admin-empty">
+                                Unable to load discharge records.
+                            </div>
+                        `;
+
+                        setDischargeMessage(
+                            error.message,
+                            'error'
+                        );
+
+                        return;
+                    }
+
+                    dischargeRecords =
+                        data || [];
+
+                    renderDischargeRecords();
+
+                }
+
+
+                dischargeSearch.addEventListener(
+                    'input',
+                    renderDischargeRecords
+                );
+
+
+                refreshDischarges.addEventListener(
+                    'click',
+                    loadDischargeRecords
+                );
+
+
                 /* =================================================
                    LOAD MEMBERS
                    ================================================= */
@@ -6289,6 +7562,9 @@ function renderAttendanceWarnings() {
 
 
                 await loadPendingMembers();
+
+
+                await loadDischargeRecords();
 
 
                 await loadMembers();
