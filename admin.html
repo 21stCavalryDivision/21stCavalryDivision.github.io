@@ -2821,6 +2821,126 @@
 
 
                 /* =================================================
+                   DISCORD RANK SYNC
+                   ================================================= */
+
+                async function syncDiscordRank(
+                    discordId,
+                    rank
+                ) {
+
+                    if (!discordId) {
+                        return {
+                            success: false,
+                            skipped: true,
+                            message:
+                                'No Discord ID is stored for this member.'
+                        };
+                    }
+
+
+                    try {
+
+                        const {
+                            data,
+                            error
+                        } =
+                            await client.functions.invoke(
+                                'discord-rank-sync',
+                                {
+                                    body: {
+                                        discord_id:
+                                            String(discordId),
+                                        rank:
+                                            rank
+                                    }
+                                }
+                            );
+
+
+                        if (error) {
+
+                            console.error(
+                                'Discord rank sync failed:',
+                                error
+                            );
+
+                            return {
+                                success: false,
+                                skipped: false,
+                                message:
+                                    error.message
+                                    ||
+                                    'Discord rank sync failed.'
+                            };
+
+                        }
+
+
+                        if (
+                            !data
+                            ||
+                            data.success !== true
+                        ) {
+
+                            console.error(
+                                'Discord rank sync returned an error:',
+                                data
+                            );
+
+                            return {
+                                success: false,
+                                skipped:
+                                    data?.skipped === true,
+                                message:
+                                    data?.error
+                                    ||
+                                    data?.message
+                                    ||
+                                    'Discord rank sync failed.'
+                            };
+
+                        }
+
+
+                        return {
+                            success: true,
+                            skipped:
+                                data.synced === false,
+                            message:
+                                data.message
+                                ||
+                                (
+                                    data.synced === false
+                                        ? 'Website rank saved. No Discord role is mapped for this rank.'
+                                        : 'Discord rank synchronized.'
+                                )
+                        };
+
+
+                    }
+                    catch (error) {
+
+                        console.error(
+                            'Discord rank sync exception:',
+                            error
+                        );
+
+                        return {
+                            success: false,
+                            skipped: false,
+                            message:
+                                error instanceof Error
+                                    ? error.message
+                                    : 'Discord rank sync failed.'
+                        };
+
+                    }
+
+                }
+
+
+                /* =================================================
                    STATE
                    ================================================= */
 
@@ -4853,12 +4973,92 @@
                     }
 
 
-                    saveStatus.className =
-                        'save-status success';
+                    const savedMember =
+                        allMembers.find(
+                            member =>
+                                String(member.user_id)
+                                ===
+                                String(userId)
+                        );
 
 
-                    saveStatus.textContent =
-                        'Saved successfully';
+                    const rankChanged =
+                        savedMember
+                        &&
+                        savedMember.rank
+                        !==
+                        updateData.rank;
+
+
+                    if (rankChanged) {
+
+                        saveStatus.className =
+                            'save-status';
+
+
+                        saveStatus.textContent =
+                            'Website saved. Syncing Discord rank...';
+
+
+                        const discordResult =
+                            await syncDiscordRank(
+                                savedMember.discord_id,
+                                updateData.rank
+                            );
+
+
+                        if (
+                            discordResult.success
+                            &&
+                            !discordResult.skipped
+                        ) {
+
+                            saveStatus.className =
+                                'save-status success';
+
+
+                            saveStatus.textContent =
+                                'Saved + Discord rank updated';
+
+                        }
+                        else if (
+                            discordResult.success
+                            &&
+                            discordResult.skipped
+                        ) {
+
+                            saveStatus.className =
+                                'save-status success';
+
+
+                            saveStatus.textContent =
+                                discordResult.message;
+
+                        }
+                        else {
+
+                            saveStatus.className =
+                                'save-status error';
+
+
+                            saveStatus.textContent =
+                                'Website saved, but Discord sync failed: '
+                                +
+                                discordResult.message;
+
+                        }
+
+                    }
+                    else {
+
+                        saveStatus.className =
+                            'save-status success';
+
+
+                        saveStatus.textContent =
+                            'Saved successfully';
+
+                    }
 
 
                     button.disabled =
@@ -5162,10 +5362,60 @@
                                             return;
                                         }
 
+                                        const approvedPending =
+                                            pendingMembers.find(
+                                                member =>
+                                                    String(member.user_id)
+                                                    ===
+                                                    String(userId)
+                                            );
+
+
                                         setPendingMemberMessage(
-                                            `${name} approved. Member Portal access is now enabled.`,
-                                            'success'
+                                            `${name} approved. Syncing Discord rank...`
                                         );
+
+
+                                        const discordResult =
+                                            await syncDiscordRank(
+                                                approvedPending?.discord_id,
+                                                rank
+                                            );
+
+
+                                        if (
+                                            discordResult.success
+                                            &&
+                                            !discordResult.skipped
+                                        ) {
+
+                                            setPendingMemberMessage(
+                                                `${name} approved. Member Portal access enabled and Discord rank assigned.`,
+                                                'success'
+                                            );
+
+                                        }
+                                        else if (
+                                            discordResult.success
+                                            &&
+                                            discordResult.skipped
+                                        ) {
+
+                                            setPendingMemberMessage(
+                                                `${name} approved. ${discordResult.message}`,
+                                                'success'
+                                            );
+
+                                        }
+                                        else {
+
+                                            setPendingMemberMessage(
+                                                `${name} approved and Member Portal access enabled, but Discord rank sync failed: ${discordResult.message}`,
+                                                'error'
+                                            );
+
+                                        }
+
 
                                         await loadPendingMembers();
                                         await loadMembers();
@@ -6393,10 +6643,62 @@
                                             return;
                                         }
 
+                                        const reinstatedPending =
+                                            pendingMembers.find(
+                                                member =>
+                                                    String(member.user_id)
+                                                    ===
+                                                    String(newUserId)
+                                            );
+
+
                                         setDischargeMessage(
-                                            `${record?.display_name || 'Former member'} has been reinstated into the unit.`,
-                                            'success'
+                                            'Member reinstated. Syncing Discord rank...'
                                         );
+
+
+                                        const discordResult =
+                                            await syncDiscordRank(
+                                                reinstatedPending?.discord_id
+                                                ||
+                                                record?.discord_id,
+                                                rank
+                                            );
+
+
+                                        if (
+                                            discordResult.success
+                                            &&
+                                            !discordResult.skipped
+                                        ) {
+
+                                            setDischargeMessage(
+                                                `${record?.display_name || 'Former member'} has been reinstated and their Discord rank has been assigned.`,
+                                                'success'
+                                            );
+
+                                        }
+                                        else if (
+                                            discordResult.success
+                                            &&
+                                            discordResult.skipped
+                                        ) {
+
+                                            setDischargeMessage(
+                                                `${record?.display_name || 'Former member'} has been reinstated. ${discordResult.message}`,
+                                                'success'
+                                            );
+
+                                        }
+                                        else {
+
+                                            setDischargeMessage(
+                                                `${record?.display_name || 'Former member'} has been reinstated, but Discord rank sync failed: ${discordResult.message}`,
+                                                'error'
+                                            );
+
+                                        }
+
 
                                         await loadPendingMembers();
                                         await loadMembers();
