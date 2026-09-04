@@ -1957,6 +1957,108 @@
             }
         }
 
+    
+
+        /* =================================================
+           MEMBER REINTEGRATION
+           ================================================= */
+
+        .reintegration-panel {
+            margin-top: 18px;
+            padding: 16px;
+            border: 1px solid #3b4b41;
+            border-left: 3px solid #75d48c;
+            background: #0a110d;
+        }
+
+        .reintegration-panel h3 {
+            margin: 0 0 8px;
+            color: #75d48c;
+            font: 600 13px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .reintegration-panel p {
+            margin: 0 0 14px;
+            color: #8f9ca1;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .reintegration-login-status {
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            border: 1px solid #293238;
+            background: #0d1316;
+            color: #aab4b8;
+            font-size: 10px;
+        }
+
+        .reintegration-login-status.ready {
+            border-color: #3f6a4a;
+            color: #75d48c;
+        }
+
+        .reintegration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .reintegration-grid label {
+            display: grid;
+            gap: 6px;
+            color: #75d48c;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .reintegration-grid select {
+            width: 100%;
+            min-height: 42px;
+            box-sizing: border-box;
+            padding: 0 12px;
+            border: 1px solid #384248;
+            outline: none;
+            background: #080e11;
+            color: #fff;
+        }
+
+        .reintegration-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 12px;
+        }
+
+        .reintegration-btn {
+            min-height: 42px;
+            padding: 0 18px;
+            border: 1px solid #75d48c;
+            background: #75d48c;
+            color: #071009;
+            cursor: pointer;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .reintegration-btn:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 700px) {
+            .reintegration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reintegration-actions {
+                justify-content: flex-start;
+            }
+        }
+
     </style>
 
 </head>
@@ -5969,6 +6071,102 @@
 
                                             </div>
 
+
+                                            <div class="reintegration-panel">
+
+                                                <h3>
+                                                    Reintegration Into Unit
+                                                </h3>
+
+                                                <p>
+                                                    The former member must rejoin the Discord and log into the website once. Their new pending Discord login will then be linked to this discharge record.
+                                                </p>
+
+                                                ${(() => {
+
+                                                    const matchingPending =
+                                                        pendingMembers.find(
+                                                            pending =>
+                                                                pending.discord_id
+                                                                &&
+                                                                record.discord_id
+                                                                &&
+                                                                String(pending.discord_id)
+                                                                ===
+                                                                String(record.discord_id)
+                                                                &&
+                                                                pending.status !== 'Approved'
+                                                        );
+
+                                                    return `
+                                                        <div
+                                                            class="reintegration-login-status ${matchingPending ? 'ready' : ''}"
+                                                        >
+                                                            ${
+                                                                matchingPending
+                                                                    ? `Ready to reintegrate: ${escapeHtml(matchingPending.display_name || record.display_name || 'Discord User')}`
+                                                                    : 'Waiting for this former member to rejoin Discord and log into the website.'
+                                                            }
+                                                        </div>
+
+                                                        <div class="reintegration-grid">
+
+                                                            <label>
+                                                                Reinstatement Rank
+                                                                <select data-reinstate-rank>
+                                                                    ${rankOptionList(
+                                                                        record.final_rank
+                                                                        ||
+                                                                        'Recruit'
+                                                                    )}
+                                                                </select>
+                                                            </label>
+
+                                                            <label>
+                                                                Reinstatement Billet
+                                                                <select data-reinstate-billet>
+                                                                    ${optionList(
+                                                                        BILLET_OPTIONS,
+                                                                        record.final_billet
+                                                                        ||
+                                                                        'Unassigned'
+                                                                    )}
+                                                                </select>
+                                                            </label>
+
+                                                            <label>
+                                                                Reinstatement Section
+                                                                <select data-reinstate-section>
+                                                                    ${optionList(
+                                                                        SECTION_OPTIONS,
+                                                                        record.final_section
+                                                                        ||
+                                                                        'Unassigned'
+                                                                    )}
+                                                                </select>
+                                                            </label>
+
+                                                        </div>
+
+                                                        <div class="reintegration-actions">
+
+                                                            <button
+                                                                class="reintegration-btn"
+                                                                type="button"
+                                                                data-reinstate-member
+                                                                data-pending-user-id="${escapeHtml(matchingPending?.user_id || '')}"
+                                                                ${matchingPending ? '' : 'disabled'}
+                                                            >
+                                                                Reinstate Member
+                                                            </button>
+
+                                                        </div>
+                                                    `;
+
+                                                })()}
+
+                                            </div>
+
                                         </div>
 
                                     </article>
@@ -6063,6 +6261,146 @@
                                         else if (characterization === 'Dishonorable') {
                                             preview.classList.add('dishonorable');
                                         }
+
+                                    }
+                                );
+
+                            }
+                        );
+
+
+                    dischargeList
+                        .querySelectorAll(
+                            '[data-reinstate-member]'
+                        )
+                        .forEach(
+                            button => {
+
+                                button.addEventListener(
+                                    'click',
+                                    async () => {
+
+                                        const card =
+                                            button.closest(
+                                                '[data-discharge-id]'
+                                            );
+
+                                        if (!card) {
+                                            return;
+                                        }
+
+                                        const dischargeId =
+                                            card.dataset.dischargeId;
+
+                                        const newUserId =
+                                            button.dataset.pendingUserId;
+
+                                        if (!newUserId) {
+                                            setDischargeMessage(
+                                                'The former member must rejoin Discord and log into the website before they can be reinstated.',
+                                                'error'
+                                            );
+                                            return;
+                                        }
+
+                                        const record =
+                                            dischargeRecords.find(
+                                                item =>
+                                                    String(item.id)
+                                                    ===
+                                                    String(dischargeId)
+                                            );
+
+                                        const rank =
+                                            card.querySelector(
+                                                '[data-reinstate-rank]'
+                                            )?.value
+                                            ||
+                                            record?.final_rank
+                                            ||
+                                            'Recruit';
+
+                                        const billet =
+                                            card.querySelector(
+                                                '[data-reinstate-billet]'
+                                            )?.value
+                                            ||
+                                            'Unassigned';
+
+                                        const section =
+                                            card.querySelector(
+                                                '[data-reinstate-section]'
+                                            )?.value
+                                            ||
+                                            'Unassigned';
+
+                                        const confirmed =
+                                            window.confirm(
+                                                `Reinstate "${record?.display_name || 'this former member'}" into the unit?\n\nRank: ${rank}\nBillet: ${billet}\nSection: ${section}\n\nTheir archived qualifications and prior promotion history will be restored to the new member account.`
+                                            );
+
+                                        if (!confirmed) {
+                                            return;
+                                        }
+
+                                        button.disabled =
+                                            true;
+
+                                        setDischargeMessage(
+                                            'Reinstating former member...'
+                                        );
+
+                                        const {
+                                            error
+                                        } =
+                                            await client.rpc(
+                                                'reinstate_discharged_member',
+                                                {
+                                                    p_discharge_id:
+                                                        Number(dischargeId),
+
+                                                    p_new_user_id:
+                                                        newUserId,
+
+                                                    p_rank:
+                                                        rank,
+
+                                                    p_billet:
+                                                        billet,
+
+                                                    p_section:
+                                                        section
+                                                }
+                                            );
+
+                                        if (error) {
+
+                                            console.error(
+                                                'Member reintegration failed:',
+                                                error
+                                            );
+
+                                            setDischargeMessage(
+                                                'Reintegration failed: '
+                                                +
+                                                error.message,
+                                                'error'
+                                            );
+
+                                            button.disabled =
+                                                false;
+
+                                            return;
+                                        }
+
+                                        setDischargeMessage(
+                                            `${record?.display_name || 'Former member'} has been reinstated into the unit.`,
+                                            'success'
+                                        );
+
+                                        await loadPendingMembers();
+                                        await loadMembers();
+                                        await loadDischargeRecords();
 
                                     }
                                 );
