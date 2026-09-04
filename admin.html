@@ -1388,6 +1388,205 @@
     }
 
 }
+    
+        /* =================================================
+           PENDING MEMBER APPROVALS
+           ================================================= */
+
+        .pending-member-panel {
+            padding: 20px;
+            border: 1px solid #30383d;
+            background: #101619;
+            margin-bottom: 28px;
+        }
+
+        .pending-member-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .pending-member-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .pending-member-card {
+            padding: 18px;
+            border: 1px solid #30383d;
+            border-left: 3px solid #c5a75b;
+            background: #090f12;
+        }
+
+        .pending-member-card.denied {
+            border-left-color: #744343;
+            opacity: .82;
+        }
+
+        .pending-member-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pending-member-name strong {
+            display: block;
+            color: #fff;
+            font: 600 18px Oswald, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .pending-member-name small {
+            display: block;
+            margin-top: 4px;
+            color: #77858b;
+            font-size: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .pending-status-badge {
+            padding: 6px 9px;
+            border: 1px solid #756438;
+            color: #d4b95f;
+            font: 600 8px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pending-status-badge.denied {
+            border-color: #744343;
+            color: #e17b7b;
+        }
+
+        .pending-member-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .pending-meta-item {
+            padding: 10px 12px;
+            border: 1px solid #293238;
+            background: #0d1316;
+        }
+
+        .pending-meta-item span {
+            display: block;
+            margin-bottom: 4px;
+            color: #6e7d84;
+            font: 500 8px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .pending-meta-item strong {
+            display: block;
+            color: #c8d0d3;
+            font-size: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .pending-approval-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pending-approval-grid input,
+        .pending-approval-grid select {
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 42px;
+            padding: 0 12px;
+            border: 1px solid #384248;
+            outline: none;
+            background: #080e11;
+            color: #fff;
+            font-family: Roboto, sans-serif;
+        }
+
+        .pending-approval-grid input:focus,
+        .pending-approval-grid select:focus {
+            border-color: #c5a75b;
+        }
+
+        .pending-member-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .pending-approve-btn,
+        .pending-deny-btn {
+            min-height: 39px;
+            padding: 0 16px;
+            cursor: pointer;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .pending-approve-btn {
+            border: 1px solid #c5a75b;
+            background: #c5a75b;
+            color: #111;
+        }
+
+        .pending-deny-btn {
+            border: 1px solid #744343;
+            background: transparent;
+            color: #e17b7b;
+        }
+
+        .pending-approve-btn:disabled,
+        .pending-deny-btn:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .pending-member-message {
+            min-height: 18px;
+            margin-top: 10px;
+            color: #819096;
+            font-size: 11px;
+        }
+
+        .pending-member-message.success { color: #75d48c; }
+        .pending-member-message.error { color: #e47b7b; }
+
+        @media (max-width: 900px) {
+            .pending-member-meta,
+            .pending-approval-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .pending-member-toolbar,
+            .pending-member-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .pending-member-meta,
+            .pending-approval-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pending-member-actions {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+        }
+
     </style>
 
 </head>
@@ -1771,6 +1970,44 @@
         </section>
 
 
+
+        <!-- =================================================
+             PENDING MEMBER APPROVALS
+             ================================================= -->
+
+        <div class="admin-section-heading">
+            <h2>Pending Member Approvals</h2>
+            <span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
+        </div>
+
+        <section class="pending-member-panel">
+            <div class="pending-member-toolbar">
+                <div id="pendingMemberCountLine" class="member-count-line">
+                    Loading Discord logins...
+                </div>
+
+                <button
+                    id="refreshPendingMembers"
+                    class="admin-refresh"
+                    type="button"
+                >
+                    Refresh Pending
+                </button>
+            </div>
+
+            <div id="pendingMemberList" class="pending-member-list">
+                <div class="admin-empty">
+                    Loading pending members...
+                </div>
+            </div>
+
+            <div
+                id="pendingMemberMessage"
+                class="pending-member-message"
+            ></div>
+        </section>
+
+
         <!-- =================================================
              MEMBER MANAGEMENT
              ================================================= -->
@@ -2079,6 +2316,10 @@
                     null;
 
 
+                let pendingMembers =
+                    [];
+
+
                 /* =================================================
                    ELEMENTS
                    ================================================= */
@@ -2238,6 +2479,22 @@
 
                 const refreshLoas =
                     document.getElementById('refreshLoas');
+
+
+                const pendingMemberList =
+                    document.getElementById('pendingMemberList');
+
+                const pendingMemberCountLine =
+                    document.getElementById('pendingMemberCountLine');
+
+                const pendingMemberHeadingCount =
+                    document.getElementById('pendingMemberHeadingCount');
+
+                const pendingMemberMessage =
+                    document.getElementById('pendingMemberMessage');
+
+                const refreshPendingMembers =
+                    document.getElementById('refreshPendingMembers');
 
 
                 /* =================================================
@@ -4062,6 +4319,474 @@
                 }
 
 
+
+                /* =================================================
+                   PENDING MEMBER APPROVALS
+                   ================================================= */
+
+                function formatPendingDate(value) {
+                    if (!value) {
+                        return 'Unknown';
+                    }
+
+                    const date = new Date(value);
+
+                    if (Number.isNaN(date.getTime())) {
+                        return String(value);
+                    }
+
+                    return date.toLocaleString();
+                }
+
+
+                function setPendingMemberMessage(
+                    message,
+                    type = ''
+                ) {
+                    pendingMemberMessage.textContent =
+                        message || '';
+
+                    pendingMemberMessage.className =
+                        'pending-member-message';
+
+                    if (type) {
+                        pendingMemberMessage.classList.add(type);
+                    }
+                }
+
+
+                function renderPendingMembers() {
+
+                    const visibleMembers =
+                        pendingMembers.filter(
+                            member =>
+                                member.status === 'Pending'
+                                ||
+                                member.status === 'Denied'
+                        );
+
+                    const awaitingCount =
+                        visibleMembers.filter(
+                            member =>
+                                member.status === 'Pending'
+                        ).length;
+
+                    pendingMemberHeadingCount.textContent =
+                        `${awaitingCount} Awaiting Approval`;
+
+                    pendingMemberCountLine.textContent =
+                        visibleMembers.length
+                            ? `${awaitingCount} pending approval${awaitingCount === 1 ? '' : 's'}`
+                            : 'No pending Discord logins';
+
+                    if (!visibleMembers.length) {
+                        pendingMemberList.innerHTML = `
+                            <div class="admin-empty">
+                                No pending members. New Discord logins that are not yet unit members will appear here automatically.
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    pendingMemberList.innerHTML =
+                        visibleMembers.map(
+                            member => {
+
+                                const denied =
+                                    member.status === 'Denied';
+
+                                return `
+                                    <article
+                                        class="pending-member-card ${denied ? 'denied' : ''}"
+                                        data-pending-user-id="${escapeHtml(member.user_id)}"
+                                    >
+                                        <div class="pending-member-top">
+
+                                            <div class="pending-member-name">
+                                                <strong>
+                                                    ${escapeHtml(member.display_name || 'Discord User')}
+                                                </strong>
+
+                                                <small>
+                                                    Discord ID: ${escapeHtml(member.discord_id || 'Not available')}
+                                                </small>
+                                            </div>
+
+                                            <span class="pending-status-badge ${denied ? 'denied' : ''}">
+                                                ${escapeHtml(member.status || 'Pending')}
+                                            </span>
+
+                                        </div>
+
+                                        <div class="pending-member-meta">
+
+                                            <div class="pending-meta-item">
+                                                <span>Email</span>
+                                                <strong>
+                                                    ${escapeHtml(member.email || 'Not provided')}
+                                                </strong>
+                                            </div>
+
+                                            <div class="pending-meta-item">
+                                                <span>First Login</span>
+                                                <strong>
+                                                    ${escapeHtml(formatPendingDate(member.first_login_at))}
+                                                </strong>
+                                            </div>
+
+                                            <div class="pending-meta-item">
+                                                <span>Last Login</span>
+                                                <strong>
+                                                    ${escapeHtml(formatPendingDate(member.last_login_at))}
+                                                </strong>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="pending-approval-grid">
+
+                                            <input
+                                                type="text"
+                                                data-pending-name
+                                                value="${escapeHtml(member.display_name || '')}"
+                                                placeholder="Display name"
+                                                aria-label="Display name"
+                                            >
+
+                                            <select
+                                                data-pending-rank
+                                                aria-label="Rank"
+                                            >
+                                                ${rankOptionList('Recruit')}
+                                            </select>
+
+                                            <select
+                                                data-pending-billet
+                                                aria-label="Billet"
+                                            >
+                                                ${optionList(BILLET_OPTIONS, 'Unassigned')}
+                                            </select>
+
+                                            <select
+                                                data-pending-section
+                                                aria-label="Section"
+                                            >
+                                                ${optionList(SECTION_OPTIONS, 'Unassigned')}
+                                            </select>
+
+                                        </div>
+
+                                        <div class="pending-member-actions">
+
+                                            <button
+                                                class="pending-deny-btn"
+                                                type="button"
+                                                data-deny-pending
+                                                ${denied ? 'disabled' : ''}
+                                            >
+                                                ${denied ? 'Denied' : 'Deny Access'}
+                                            </button>
+
+                                            <button
+                                                class="pending-approve-btn"
+                                                type="button"
+                                                data-approve-pending
+                                            >
+                                                Approve Member
+                                            </button>
+
+                                        </div>
+
+                                    </article>
+                                `;
+
+                            }
+                        ).join('');
+
+
+                    pendingMemberList
+                        .querySelectorAll('[data-approve-pending]')
+                        .forEach(
+                            button => {
+
+                                button.addEventListener(
+                                    'click',
+                                    async () => {
+
+                                        const card =
+                                            button.closest(
+                                                '[data-pending-user-id]'
+                                            );
+
+                                        if (!card) {
+                                            return;
+                                        }
+
+                                        const userId =
+                                            card.dataset.pendingUserId;
+
+                                        const name =
+                                            card.querySelector(
+                                                '[data-pending-name]'
+                                            ).value.trim();
+
+                                        const rank =
+                                            card.querySelector(
+                                                '[data-pending-rank]'
+                                            ).value;
+
+                                        const billet =
+                                            card.querySelector(
+                                                '[data-pending-billet]'
+                                            ).value;
+
+                                        const section =
+                                            card.querySelector(
+                                                '[data-pending-section]'
+                                            ).value;
+
+                                        if (!name) {
+                                            setPendingMemberMessage(
+                                                'Enter a display name before approving the member.',
+                                                'error'
+                                            );
+                                            return;
+                                        }
+
+                                        const confirmed =
+                                            window.confirm(
+                                                `Approve "${name}" as a unit member?\n\nRank: ${rank}\nBillet: ${billet}\nSection: ${section}`
+                                            );
+
+                                        if (!confirmed) {
+                                            return;
+                                        }
+
+                                        button.disabled = true;
+
+                                        setPendingMemberMessage(
+                                            `Approving ${name}...`
+                                        );
+
+                                        const {
+                                            error
+                                        } =
+                                            await client.rpc(
+                                                'approve_pending_member',
+                                                {
+                                                    p_user_id:
+                                                        userId,
+
+                                                    p_display_name:
+                                                        name,
+
+                                                    p_rank:
+                                                        rank,
+
+                                                    p_billet:
+                                                        billet,
+
+                                                    p_section:
+                                                        section
+                                                }
+                                            );
+
+                                        if (error) {
+                                            console.error(
+                                                'Pending member approval failed:',
+                                                error
+                                            );
+
+                                            setPendingMemberMessage(
+                                                'Approval failed: ' +
+                                                error.message,
+                                                'error'
+                                            );
+
+                                            button.disabled = false;
+                                            return;
+                                        }
+
+                                        setPendingMemberMessage(
+                                            `${name} approved. Member Portal access is now enabled.`,
+                                            'success'
+                                        );
+
+                                        await loadPendingMembers();
+                                        await loadMembers();
+                                    }
+                                );
+
+                            }
+                        );
+
+
+                    pendingMemberList
+                        .querySelectorAll('[data-deny-pending]')
+                        .forEach(
+                            button => {
+
+                                button.addEventListener(
+                                    'click',
+                                    async () => {
+
+                                        const card =
+                                            button.closest(
+                                                '[data-pending-user-id]'
+                                            );
+
+                                        if (!card) {
+                                            return;
+                                        }
+
+                                        const userId =
+                                            card.dataset.pendingUserId;
+
+                                        const member =
+                                            pendingMembers.find(
+                                                item =>
+                                                    item.user_id === userId
+                                            );
+
+                                        const displayName =
+                                            member?.display_name
+                                            ||
+                                            'this Discord user';
+
+                                        const confirmed =
+                                            window.confirm(
+                                                `Deny unit access for "${displayName}"?\n\nThey will still be able to authenticate with Discord, but they will not receive Member Portal access.`
+                                            );
+
+                                        if (!confirmed) {
+                                            return;
+                                        }
+
+                                        button.disabled = true;
+
+                                        setPendingMemberMessage(
+                                            `Denying access for ${displayName}...`
+                                        );
+
+                                        const {
+                                            error
+                                        } =
+                                            await client
+                                                .from('pending_members')
+                                                .update({
+                                                    status:
+                                                        'Denied'
+                                                })
+                                                .eq(
+                                                    'user_id',
+                                                    userId
+                                                );
+
+                                        if (error) {
+                                            console.error(
+                                                'Pending member denial failed:',
+                                                error
+                                            );
+
+                                            setPendingMemberMessage(
+                                                'Could not deny access: ' +
+                                                error.message,
+                                                'error'
+                                            );
+
+                                            button.disabled = false;
+                                            return;
+                                        }
+
+                                        setPendingMemberMessage(
+                                            `${displayName} was denied unit access.`,
+                                            'success'
+                                        );
+
+                                        await loadPendingMembers();
+                                    }
+                                );
+
+                            }
+                        );
+
+                }
+
+
+                async function loadPendingMembers() {
+
+                    pendingMemberList.innerHTML = `
+                        <div class="admin-empty">
+                            Loading pending members...
+                        </div>
+                    `;
+
+                    setPendingMemberMessage('');
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await client
+                            .from('pending_members')
+                            .select(
+                                'user_id,display_name,discord_id,email,status,first_login_at,last_login_at'
+                            )
+                            .in(
+                                'status',
+                                [
+                                    'Pending',
+                                    'Denied'
+                                ]
+                            )
+                            .order(
+                                'first_login_at',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            );
+
+                    if (error) {
+                        console.error(
+                            'Could not load pending members:',
+                            error
+                        );
+
+                        pendingMemberCountLine.textContent =
+                            'Pending members unavailable';
+
+                        pendingMemberHeadingCount.textContent =
+                            'Unavailable';
+
+                        pendingMemberList.innerHTML = `
+                            <div class="admin-empty">
+                                Unable to load pending Discord members.
+                            </div>
+                        `;
+
+                        setPendingMemberMessage(
+                            error.message,
+                            'error'
+                        );
+
+                        return;
+                    }
+
+                    pendingMembers =
+                        data || [];
+
+                    renderPendingMembers();
+
+                }
+
+
+                refreshPendingMembers.addEventListener(
+                    'click',
+                    loadPendingMembers
+                );
+
+
                 /* =================================================
                    LOAD MEMBERS
                    ================================================= */
@@ -5561,6 +6286,9 @@ function renderAttendanceWarnings() {
                 showScreen(
                     'admin'
                 );
+
+
+                await loadPendingMembers();
 
 
                 await loadMembers();
