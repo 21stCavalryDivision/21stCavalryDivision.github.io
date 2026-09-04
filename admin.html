@@ -2059,6 +2059,28 @@
             }
         }
 
+
+
+        /* =================================================
+           ARCHIVED MEMBER PORTAL SNAPSHOTS
+           ================================================= */
+        .archive-banner { margin-bottom:16px; padding:14px 16px; border:1px solid #756438; border-left:3px solid #c5a75b; background:rgba(197,167,91,.06); }
+        .archive-banner strong { display:block; color:#d5b85e; font:600 13px Oswald,sans-serif; letter-spacing:.9px; text-transform:uppercase; }
+        .archive-banner span { display:block; margin-top:4px; color:#8f9ca1; font-size:10px; line-height:1.5; }
+        .archive-stat-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:9px; }
+        .archive-stat { padding:12px; border:1px solid #293238; background:#0d1316; }
+        .archive-stat span { display:block; margin-bottom:5px; color:#6e7d84; font:500 8px Oswald,sans-serif; letter-spacing:.8px; text-transform:uppercase; }
+        .archive-stat strong { color:#fff; font:600 18px Oswald,sans-serif; }
+        .archive-history-list { display:grid; gap:8px; }
+        .archive-history-row { display:grid; grid-template-columns:minmax(150px,.9fr) minmax(180px,1.2fr) minmax(110px,.7fr) minmax(0,1.5fr); gap:12px; align-items:center; padding:11px 12px; border:1px solid #293238; background:#101619; }
+        .archive-history-row strong { color:#fff; font:600 11px Oswald,sans-serif; text-transform:uppercase; }
+        .archive-history-row span { color:#89969b; font-size:10px; overflow-wrap:anywhere; }
+        .archive-status-present { color:#75d48c !important; }
+        .archive-status-excused { color:#d4b95f !important; }
+        .archive-status-absent { color:#e47b7b !important; }
+        @media (max-width:900px) { .archive-stat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .archive-history-row { grid-template-columns:1fr 1fr; } }
+        @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
+
     </style>
 
 </head>
@@ -5882,6 +5904,105 @@
                 }
 
 
+
+
+                function normalizeSnapshotObject(value) {
+                    if (value && typeof value === 'object' && !Array.isArray(value)) return value;
+                    if (typeof value === 'string' && value.trim()) {
+                        try {
+                            const parsed = JSON.parse(value);
+                            return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+                        }
+                        catch { return {}; }
+                    }
+                    return {};
+                }
+
+                function normalizeSnapshotArray(value) {
+                    if (Array.isArray(value)) return value;
+                    if (typeof value === 'string' && value.trim()) {
+                        try {
+                            const parsed = JSON.parse(value);
+                            return Array.isArray(parsed) ? parsed : [];
+                        }
+                        catch { return []; }
+                    }
+                    return [];
+                }
+
+                function archivedPortal(record) {
+                    return normalizeSnapshotObject(record.member_portal_snapshot);
+                }
+
+                function archivedAttendance(record) {
+                    const direct = normalizeSnapshotArray(record.attendance_history_snapshot);
+                    if (direct.length) return direct;
+                    return normalizeSnapshotArray(archivedPortal(record).attendance_history);
+                }
+
+                function archivedLoas(record) {
+                    const direct = normalizeSnapshotArray(record.loa_history_snapshot);
+                    if (direct.length) return direct;
+                    return normalizeSnapshotArray(archivedPortal(record).loa_history);
+                }
+
+                function archivedOperations(record) {
+                    const direct = normalizeSnapshotArray(record.operation_history_snapshot);
+                    if (direct.length) return direct;
+                    return normalizeSnapshotArray(archivedPortal(record).operation_history);
+                }
+
+                function renderArchivedTrainingRecord(record) {
+                    const portal = archivedPortal(record);
+                    const training = normalizeSnapshotObject(portal.training_record);
+                    const qualifications = Array.isArray(record.qualifications) ? record.qualifications : normalizeSnapshotArray(portal.qualifications);
+                    const attendance = archivedAttendance(record);
+                    const statusValues = attendance.map(item => String(item?.attendance_record?.status || item?.status || '').toLowerCase());
+                    const present = training.present != null ? Number(training.present) : statusValues.filter(value => value === 'present').length;
+                    const excused = training.excused != null ? Number(training.excused) : statusValues.filter(value => value === 'excused').length;
+                    const absent = training.absent != null ? Number(training.absent) : statusValues.filter(value => value === 'absent').length;
+                    const recordedEvents = training.recorded_events != null ? Number(training.recorded_events) : attendance.length;
+                    const qualificationCount = training.qualification_count != null ? Number(training.qualification_count) : qualifications.length;
+                    return `
+                        <div class="archive-stat-grid">
+                            <div class="archive-stat"><span>Qualifications</span><strong>${escapeHtml(qualificationCount)}</strong></div>
+                            <div class="archive-stat"><span>Recorded Events</span><strong>${escapeHtml(recordedEvents)}</strong></div>
+                            <div class="archive-stat"><span>Present</span><strong>${escapeHtml(present)}</strong></div>
+                            <div class="archive-stat"><span>Excused</span><strong>${escapeHtml(excused)}</strong></div>
+                            <div class="archive-stat"><span>Absent</span><strong>${escapeHtml(absent)}</strong></div>
+                        </div>`;
+                }
+
+                function renderArchivedAttendanceHistory(record) {
+                    const history = archivedAttendance(record);
+                    if (!history.length) return `<div class="admin-empty">No attendance history was archived.</div>`;
+                    return `<div class="archive-history-list">${history.map(item => {
+                        const attendanceRecord = normalizeSnapshotObject(item.attendance_record || item);
+                        const attendanceEvent = normalizeSnapshotObject(item.attendance_event);
+                        const status = attendanceRecord.status || 'Unknown';
+                        const lowerStatus = String(status).toLowerCase();
+                        const statusClass = lowerStatus === 'present' ? 'archive-status-present' : lowerStatus === 'excused' ? 'archive-status-excused' : lowerStatus === 'absent' ? 'archive-status-absent' : '';
+                        return `<div class="archive-history-row"><span>${escapeHtml(formatDischargeDate(attendanceEvent.event_date || attendanceRecord.created_at))}</span><strong>${escapeHtml(attendanceEvent.title || attendanceEvent.event_type || 'Attendance Event')}</strong><strong class="${statusClass}">${escapeHtml(status)}</strong><span>${escapeHtml(attendanceRecord.notes || attendanceEvent.notes || 'No notes')}</span></div>`;
+                    }).join('')}</div>`;
+                }
+
+                function renderArchivedLoaHistory(record) {
+                    const history = archivedLoas(record);
+                    if (!history.length) return `<div class="admin-empty">No leave of absence history was archived.</div>`;
+                    return `<div class="archive-history-list">${history.map(loa => `<div class="archive-history-row"><span>${escapeHtml(formatDischargeDate(loa.start_date))} - ${escapeHtml(formatDischargeDate(loa.end_date))}</span><strong>${escapeHtml(loa.status || 'LOA')}</strong><span>${escapeHtml(loa.reason || 'No reason recorded')}</span><span>${escapeHtml(loa.notes || '')}</span></div>`).join('')}</div>`;
+                }
+
+                function renderArchivedOperationHistory(record) {
+                    const history = archivedOperations(record);
+                    if (!history.length) return `<div class="admin-empty">No operation signup history was archived.</div>`;
+                    return `<div class="archive-history-list">${history.map(item => {
+                        const signup = normalizeSnapshotObject(item.signup || item);
+                        const operation = normalizeSnapshotObject(item.operation);
+                        return `<div class="archive-history-row"><span>${escapeHtml(formatDischargeDate(operation.operation_date || signup.created_at))}</span><strong>${escapeHtml(operation.title || 'Operation')}</strong><span>${escapeHtml(operation.operation_type || 'Signed Up')}</span><span>${escapeHtml(signup.status || signup.role || 'Registered')}</span></div>`;
+                    }).join('')}</div>`;
+                }
+
+
                 function filteredDischargeRecords() {
 
                     const query =
@@ -6229,6 +6350,34 @@
                                                     record.promotion_history_snapshot
                                                 )}
 
+                                            </div>
+
+
+
+
+                                            <div class="archive-banner">
+                                                <strong>Archived Member Portal</strong>
+                                                <span>Frozen personnel, service, training, attendance, LOA and operation data captured at discharge.</span>
+                                            </div>
+
+                                            <div class="discharge-subsection">
+                                                <h3>Training Record at Discharge</h3>
+                                                ${renderArchivedTrainingRecord(record)}
+                                            </div>
+
+                                            <div class="discharge-subsection">
+                                                <h3>Attendance History</h3>
+                                                ${renderArchivedAttendanceHistory(record)}
+                                            </div>
+
+                                            <div class="discharge-subsection">
+                                                <h3>Leave of Absence History</h3>
+                                                ${renderArchivedLoaHistory(record)}
+                                            </div>
+
+                                            <div class="discharge-subsection">
+                                                <h3>Operation History</h3>
+                                                ${renderArchivedOperationHistory(record)}
                                             </div>
 
 
@@ -6877,7 +7026,7 @@
                                 'discharge_records'
                             )
                             .select(
-                                'id,former_user_id,display_name,final_rank,final_billet,final_section,member_role,member_status,access_level,qualifications,attendance_rate,join_date,discord_id,discharge_date,discharge_reason,command_notified,discharge_characterization,profile_snapshot,promotion_history_snapshot,created_at'
+                                'id,former_user_id,display_name,final_rank,final_billet,final_section,member_role,member_status,access_level,qualifications,attendance_rate,join_date,discord_id,discharge_date,discharge_reason,command_notified,discharge_characterization,profile_snapshot,promotion_history_snapshot,member_portal_snapshot,attendance_history_snapshot,loa_history_snapshot,operation_history_snapshot,created_at'
                             )
                             .order(
                                 'discharge_date',
