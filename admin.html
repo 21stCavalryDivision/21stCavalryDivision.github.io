@@ -1898,6 +1898,65 @@
             }
         }
 
+    
+
+        .discharge-characterization-row {
+            display: grid;
+            grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) auto;
+            gap: 10px;
+            align-items: end;
+            margin-top: 12px;
+        }
+
+        .discharge-characterization-row label {
+            display: grid;
+            gap: 6px;
+            color: #c5a75b;
+            font: 600 9px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-characterization-row select {
+            width: 100%;
+            min-height: 42px;
+            box-sizing: border-box;
+            padding: 0 12px;
+            border: 1px solid #384248;
+            outline: none;
+            background: #080e11;
+            color: #fff;
+        }
+
+        .discharge-characterization-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 42px;
+            padding: 0 14px;
+            border: 1px solid #4b565c;
+            background: #0d1316;
+            color: #c8d0d3;
+            font: 600 10px Oswald, sans-serif;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .discharge-characterization-badge.honorable {
+            border-color: #3f6a4a;
+            color: #75d48c;
+        }
+
+        .discharge-characterization-badge.dishonorable {
+            border-color: #744343;
+            color: #e17b7b;
+        }
+
+        @media (max-width: 700px) {
+            .discharge-characterization-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 
 </head>
@@ -5767,6 +5826,31 @@
                                                     </strong>
                                                 </div>
 
+
+                                                <div class="discharge-detail">
+                                                    <span>Command Notified</span>
+                                                    <strong>
+                                                        ${
+                                                            record.command_notified === true
+                                                                ? 'Yes'
+                                                                : record.command_notified === false
+                                                                    ? 'No'
+                                                                    : 'Not Reviewed'
+                                                        }
+                                                    </strong>
+                                                </div>
+
+                                                <div class="discharge-detail">
+                                                    <span>Discharge Characterization</span>
+                                                    <strong>
+                                                        ${escapeHtml(
+                                                            record.discharge_characterization
+                                                            ||
+                                                            'Pending Review'
+                                                        )}
+                                                    </strong>
+                                                </div>
+
                                             </div>
 
 
@@ -5819,12 +5903,66 @@
 
                                                     </label>
 
+                                                </div>
+
+                                                <div class="discharge-characterization-row">
+
+                                                    <label>
+                                                        Did Member Notify Command?
+
+                                                        <select data-command-notified>
+                                                            <option
+                                                                value=""
+                                                                ${record.command_notified == null ? 'selected' : ''}
+                                                            >
+                                                                Not Reviewed
+                                                            </option>
+
+                                                            <option
+                                                                value="true"
+                                                                ${record.command_notified === true ? 'selected' : ''}
+                                                            >
+                                                                Yes
+                                                            </option>
+
+                                                            <option
+                                                                value="false"
+                                                                ${record.command_notified === false ? 'selected' : ''}
+                                                            >
+                                                                No
+                                                            </option>
+                                                        </select>
+
+                                                    </label>
+
+                                                    <label>
+                                                        Characterization
+
+                                                        <span
+                                                            class="discharge-characterization-badge ${
+                                                                record.discharge_characterization === 'Honorable'
+                                                                    ? 'honorable'
+                                                                    : record.discharge_characterization === 'Dishonorable'
+                                                                        ? 'dishonorable'
+                                                                        : ''
+                                                            }"
+                                                            data-characterization-preview
+                                                        >
+                                                            ${escapeHtml(
+                                                                record.discharge_characterization
+                                                                ||
+                                                                'Pending Review'
+                                                            )}
+                                                        </span>
+
+                                                    </label>
+
                                                     <button
                                                         class="discharge-save-btn"
                                                         type="button"
                                                         data-save-discharge
                                                     >
-                                                        Save Reason
+                                                        Save Classification
                                                     </button>
 
                                                 </div>
@@ -5881,6 +6019,60 @@
 
                     dischargeList
                         .querySelectorAll(
+                            '[data-command-notified]'
+                        )
+                        .forEach(
+                            select => {
+
+                                select.addEventListener(
+                                    'change',
+                                    () => {
+
+                                        const card =
+                                            select.closest(
+                                                '[data-discharge-id]'
+                                            );
+
+                                        const preview =
+                                            card?.querySelector(
+                                                '[data-characterization-preview]'
+                                            );
+
+                                        if (!preview) {
+                                            return;
+                                        }
+
+                                        const characterization =
+                                            select.value === 'true'
+                                                ? 'Honorable'
+                                                : select.value === 'false'
+                                                    ? 'Dishonorable'
+                                                    : 'Pending Review';
+
+                                        preview.textContent =
+                                            characterization;
+
+                                        preview.classList.remove(
+                                            'honorable',
+                                            'dishonorable'
+                                        );
+
+                                        if (characterization === 'Honorable') {
+                                            preview.classList.add('honorable');
+                                        }
+                                        else if (characterization === 'Dishonorable') {
+                                            preview.classList.add('dishonorable');
+                                        }
+
+                                    }
+                                );
+
+                            }
+                        );
+
+
+                    dischargeList
+                        .querySelectorAll(
                             '[data-save-discharge]'
                         )
                         .forEach(
@@ -5912,11 +6104,43 @@
                                             ||
                                             'Left Discord Server';
 
+                                        const commandNotifiedSelect =
+                                            card.querySelector(
+                                                '[data-command-notified]'
+                                            );
+
+                                        let commandNotified =
+                                            null;
+
+                                        if (
+                                            commandNotifiedSelect?.value
+                                            ===
+                                            'true'
+                                        ) {
+                                            commandNotified =
+                                                true;
+                                        }
+                                        else if (
+                                            commandNotifiedSelect?.value
+                                            ===
+                                            'false'
+                                        ) {
+                                            commandNotified =
+                                                false;
+                                        }
+
+                                        const characterization =
+                                            commandNotified === true
+                                                ? 'Honorable'
+                                                : commandNotified === false
+                                                    ? 'Dishonorable'
+                                                    : 'Pending Review';
+
                                         button.disabled =
                                             true;
 
                                         setDischargeMessage(
-                                            'Saving discharge reason...'
+                                            'Saving discharge classification...'
                                         );
 
                                         const {
@@ -5928,7 +6152,11 @@
                                                 )
                                                 .update({
                                                     discharge_reason:
-                                                        reason
+                                                        reason,
+                                                    command_notified:
+                                                        commandNotified,
+                                                    discharge_characterization:
+                                                        characterization
                                                 })
                                                 .eq(
                                                     'id',
@@ -5966,10 +6194,16 @@
                                         if (record) {
                                             record.discharge_reason =
                                                 reason;
+
+                                            record.command_notified =
+                                                commandNotified;
+
+                                            record.discharge_characterization =
+                                                characterization;
                                         }
 
                                         setDischargeMessage(
-                                            'Discharge reason updated.',
+                                            `Discharge saved as ${characterization}.`,
                                             'success'
                                         );
 
@@ -6003,7 +6237,7 @@
                                 'discharge_records'
                             )
                             .select(
-                                'id,former_user_id,display_name,final_rank,final_billet,final_section,member_role,member_status,access_level,qualifications,attendance_rate,join_date,discord_id,discharge_date,discharge_reason,profile_snapshot,promotion_history_snapshot,created_at'
+                                'id,former_user_id,display_name,final_rank,final_billet,final_section,member_role,member_status,access_level,qualifications,attendance_rate,join_date,discord_id,discharge_date,discharge_reason,command_notified,discharge_characterization,profile_snapshot,promotion_history_snapshot,created_at'
                             )
                             .order(
                                 'discharge_date',
