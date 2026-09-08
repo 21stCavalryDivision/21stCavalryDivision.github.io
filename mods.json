@@ -238,5 +238,13 @@
   {
     "modId": "65213120F3802203",
     "name": "CM-PlayerStatsHUD"
+  },
+  {
+    "modId": "60B524F7A5AE96A8",
+    "name": "ArmaTerrainCore"
+  },
+  {
+    "modId": "5C9691EA7FD7A79F",
+    "name": "Kunar Province"
   }
 ]
