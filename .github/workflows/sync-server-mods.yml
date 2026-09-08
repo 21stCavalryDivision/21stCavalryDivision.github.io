@@ -22,6 +22,25 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass jq openssh-client
 
+      - name: Inspect SFTP folders
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          export SSHPASS="$SFTP_PASSWORD"
+
+          sshpass -e sftp \
+            -o StrictHostKeyChecking=accept-new \
+            -P "$SFTP_PORT" \
+            "$SFTP_USERNAME@$SFTP_HOST" <<EOF
+          pwd
+          ls
+          ls config
+          bye
+          EOF
+
       - name: Download live server config
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
@@ -31,18 +50,19 @@ jobs:
         run: |
           export SSHPASS="$SFTP_PASSWORD"
 
-          sshpass -e scp \
+          sshpass -e sftp \
             -o StrictHostKeyChecking=accept-new \
             -P "$SFTP_PORT" \
-            "$SFTP_USERNAME@$SFTP_HOST:config/serverconfig.json" \
-            /tmp/serverconfig.json
+            "$SFTP_USERNAME@$SFTP_HOST" <<EOF
+          get config/serverconfig.json serverconfig.json
+          bye
+          EOF
 
-          echo "Downloaded server config:"
-          ls -lh /tmp/serverconfig.json
+          ls -lh serverconfig.json
 
       - name: Extract server mod list
         run: |
-          jq '.mods' /tmp/serverconfig.json > mods.json
+          jq '.mods' serverconfig.json > mods.json
 
           echo "Live server mod count:"
           jq 'length' mods.json
