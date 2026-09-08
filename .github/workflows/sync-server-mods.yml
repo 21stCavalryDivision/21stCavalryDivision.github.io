@@ -37,47 +37,8 @@ jobs:
             "$SFTP_USERNAME@$SFTP_HOST" <<EOF
           pwd
           ls
-          ls config
+          cd *_7940
+          pwd
+          ls
           bye
           EOF
-
-      - name: Download live server config
-        env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_PORT: ${{ secrets.SFTP_PORT }}
-          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        run: |
-          export SSHPASS="$SFTP_PASSWORD"
-
-          sshpass -e sftp \
-            -o StrictHostKeyChecking=accept-new \
-            -P "$SFTP_PORT" \
-            "$SFTP_USERNAME@$SFTP_HOST" <<EOF
-          get config/serverconfig.json serverconfig.json
-          bye
-          EOF
-
-          ls -lh serverconfig.json
-
-      - name: Extract server mod list
-        run: |
-          jq '.mods' serverconfig.json > mods.json
-
-          echo "Live server mod count:"
-          jq 'length' mods.json
-
-      - name: Commit updated mod list
-        run: |
-          git config user.name "21st Cavalry Mod Sync"
-          git config user.email "actions@github.com"
-
-          git add mods.json
-
-          if git diff --cached --quiet; then
-            echo "No mod changes detected."
-            exit 0
-          fi
-
-          git commit -m "Auto-update server mod list"
-          git push
