@@ -20,7 +20,7 @@ jobs:
       - name: Install SFTP tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y sshpass jq
+          sudo apt-get install -y sshpass jq openssh-client
 
       - name: Download live server config
         env:
@@ -31,19 +31,20 @@ jobs:
         run: |
           export SSHPASS="$SFTP_PASSWORD"
 
-          sshpass -e sftp \
+          sshpass -e scp \
             -o StrictHostKeyChecking=accept-new \
             -P "$SFTP_PORT" \
-            "$SFTP_USERNAME@$SFTP_HOST" <<EOF
-          get config/serverconfig.json /tmp/serverconfig.json
-          bye
-          EOF
+            "$SFTP_USERNAME@$SFTP_HOST:config/serverconfig.json" \
+            /tmp/serverconfig.json
+
+          echo "Downloaded server config:"
+          ls -lh /tmp/serverconfig.json
 
       - name: Extract server mod list
         run: |
           jq '.mods' /tmp/serverconfig.json > mods.json
 
-          echo "Live server mods:"
+          echo "Live server mod count:"
           jq 'length' mods.json
 
       - name: Commit updated mod list
