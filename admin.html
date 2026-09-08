@@ -1600,6 +1600,55 @@
             margin-bottom: 28px;
         }
 
+        .member-heading-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .member-collapse-toggle {
+            min-height: 38px;
+            padding: 0 14px;
+            border: 1px solid #756438;
+            background: transparent;
+            color: #d5b85e;
+            cursor: pointer;
+            font: 600 10px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .member-collapse-toggle:hover {
+            background: #151b1e;
+            border-color: #c5a75b;
+            color: #ffffff;
+        }
+
+        .member-collapse-toggle::after {
+            content: ' ▼';
+            color: #c5a75b;
+        }
+
+        .member-collapse-toggle[aria-expanded="true"]::after {
+            content: ' ▲';
+        }
+
+        .member-management-panel[hidden] {
+            display: none;
+        }
+
+        @media (max-width: 650px) {
+            .member-heading-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .admin-section-heading.member-section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
         .discharge-heading-actions {
             display: flex;
             align-items: center;
@@ -2551,54 +2600,72 @@
              MEMBER MANAGEMENT
              ================================================= -->
 
-        <div class="admin-section-heading">
+        <div class="admin-section-heading member-section-heading">
 
             <h2>
                 Member Management
             </h2>
 
-            <span>
-                Personnel Records
-            </span>
+            <div class="member-heading-actions">
+                <span>Personnel Records</span>
+
+                <button
+                    id="toggleMembers"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="memberManagementPanel"
+                >
+                    Show Members
+                </button>
+            </div>
 
         </div>
 
 
-        <!-- EXISTING SEARCH BAR -->
+        <section
+            id="memberManagementPanel"
+            class="member-management-panel"
+            hidden
+        >
 
-        <section class="admin-toolbar">
+            <!-- EXISTING SEARCH BAR -->
 
-            <input
-                id="memberSearch"
-                class="admin-search"
-                type="search"
-                placeholder="Search members by name, rank, billet, section..."
-                autocomplete="off"
-            >
+            <section class="admin-toolbar">
 
-            <button
-                id="refreshMembers"
-                class="admin-refresh"
-                type="button"
-            >
-                Refresh Members
-            </button>
+                <input
+                    id="memberSearch"
+                    class="admin-search"
+                    type="search"
+                    placeholder="Search members by name, rank, billet, section..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="refreshMembers"
+                    class="admin-refresh"
+                    type="button"
+                >
+                    Refresh Members
+                </button>
+
+            </section>
+
+
+            <div
+                id="memberCountLine"
+                class="member-count-line"
+            ></div>
+
+
+            <!-- MEMBER DROPDOWN LIST -->
+
+            <section
+                id="memberAdminList"
+                class="member-admin-list"
+            ></section>
 
         </section>
-
-
-        <div
-            id="memberCountLine"
-            class="member-count-line"
-        ></div>
-
-
-        <!-- MEMBER DROPDOWN LIST -->
-
-        <section
-            id="memberAdminList"
-            class="member-admin-list"
-        ></section>
 
 
 
@@ -3109,6 +3176,18 @@
                 const memberCountLine =
                     document.getElementById(
                         'memberCountLine'
+                    );
+
+
+                const memberManagementPanel =
+                    document.getElementById(
+                        'memberManagementPanel'
+                    );
+
+
+                const toggleMembers =
+                    document.getElementById(
+                        'toggleMembers'
                     );
 
 
@@ -7490,6 +7569,30 @@ function renderAttendanceWarnings() {
                     );
 
                 }
+
+
+                toggleMembers.addEventListener(
+                    'click',
+                    () => {
+
+                        const isOpen =
+                            toggleMembers.getAttribute('aria-expanded')
+                            === 'true';
+
+                        toggleMembers.setAttribute(
+                            'aria-expanded',
+                            String(!isOpen)
+                        );
+
+                        memberManagementPanel.hidden = isOpen;
+
+                        toggleMembers.textContent =
+                            isOpen
+                                ? 'Show Members'
+                                : 'Hide Members';
+
+                    }
+                );
 
 
                 memberSearch.addEventListener(
