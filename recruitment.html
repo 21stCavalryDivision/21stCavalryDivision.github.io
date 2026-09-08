@@ -1,555 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21st Cavalry Division | Recruitment</title>
+<meta name="description" content="Join the 21st Cavalry Division. Review expectations, available roles and the enlistment process.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050706;--panel:#0d110e;--line:#293127;--line2:#3b4638;--gold:#c8aa5b;--gold2:#e1c778;--text:#f3f0e6;--muted:#a5aa9f;--green:#6ca47a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,Arial,sans-serif;background:
+linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
+radial-gradient(circle at 15% 0%,rgba(200,170,91,.08),transparent 34%),var(--bg);background-size:34px 34px,34px 34px,auto,auto}
+a{color:inherit;text-decoration:none}
+.site-header{position:sticky;top:0;z-index:50;min-height:76px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;gap:28px;background:rgba(4,7,5,.92);border-bottom:1px solid rgba(200,170,91,.26);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold2);font:700 24px/1 Oswald,sans-serif;background:linear-gradient(135deg,#11160f,#070907)}
+.brand span,.brand small{display:block;font-family:Oswald,sans-serif;letter-spacing:.09em}.brand span{font-size:17px;font-weight:700}.brand small{font-size:10px;color:var(--gold);margin-top:2px}
+.main-nav{display:flex;align-items:center;gap:22px}.main-nav>a{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#d6d8d1}.main-nav>a.active{color:var(--gold2)}.nav-cta{padding:11px 16px;border:1px solid var(--gold);color:#0c0f0c!important;background:var(--gold)}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--line2);color:var(--text);width:44px;height:40px;font-size:20px}
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+.page-hero{min-height:485px;padding:92px 5vw 68px;display:grid;align-items:end;position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+background:linear-gradient(90deg,rgba(3,5,4,.98),rgba(3,5,4,.84) 48%,rgba(3,5,4,.5)),url("assets/screenshots/TrainingShot.png") center/cover no-repeat}
+.page-hero::after{content:"JOIN";position:absolute;right:3vw;bottom:-50px;font:700 clamp(135px,21vw,315px)/1 Oswald,sans-serif;color:rgba(255,255,255,.025)}
+.hero-inner{position:relative;z-index:2;max-width:980px}.eyebrow{margin:0 0 14px;color:var(--gold2);font:600 12px/1.2 Oswald,sans-serif;letter-spacing:.25em;text-transform:uppercase}
+h1,h2,h3{font-family:Oswald,sans-serif;text-transform:uppercase;margin-top:0}h1{margin-bottom:18px;font-size:clamp(56px,8vw,108px);line-height:.88}h1 span{color:var(--gold)}
+.hero-copy{max-width:800px;color:#c9cec6;font-size:17px;line-height:1.75;margin:0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;padding:13px 18px;border:1px solid var(--gold);background:var(--gold);color:#111;font:700 11px/1 Oswald,sans-serif;letter-spacing:.09em;text-transform:uppercase}.btn.secondary{background:transparent;color:var(--gold2)}
 
-    <meta
-        name="description"
-        content="Apply to join the 21st Cavalry Division."
-    >
+.status-strip{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.status-item{padding:22px 24px;background:#090c0a;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.status-item small{display:block;color:var(--muted);font:600 10px/1 Oswald,sans-serif;letter-spacing:.17em;text-transform:uppercase;margin-bottom:8px}.status-item strong{font:600 22px/1.2 Oswald,sans-serif;text-transform:uppercase}
 
-    <title>21st Cavalry Division | Recruitment</title>
+.wrap{width:min(1480px,92vw);margin:auto}.section{padding:74px 0}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.section-top h2{margin:0;font-size:clamp(34px,4vw,58px);line-height:1}.section-code{color:var(--muted);font:600 11px/1 Oswald,sans-serif;letter-spacing:.2em;text-transform:uppercase}
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+.expect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.expect{padding:24px;border:1px solid var(--line);background:var(--panel);min-height:220px}.expect .num{font:700 44px/1 Oswald,sans-serif;color:rgba(200,170,91,.35);margin-bottom:18px}.expect h3{font-size:21px;margin-bottom:10px}.expect p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.role-card{padding:24px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(200,170,91,.05),transparent 46%),var(--panel)}.role-card h3{font-size:24px;margin-bottom:10px}.role-card p{color:var(--muted);font-size:13px;line-height:1.65}.role-tag{display:inline-block;margin-top:12px;padding:6px 8px;border:1px solid #30382f;color:var(--gold);font:600 9px Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em}
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{position:relative;padding:26px 22px;border:1px solid var(--line);background:#090c0a;min-height:230px}.step::before{content:"";position:absolute;left:0;top:0;right:0;height:2px;background:var(--gold)}.step b{display:block;color:rgba(200,170,91,.4);font:700 48px/1 Oswald,sans-serif;margin-bottom:20px}.step h3{font-size:21px;margin-bottom:10px}.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
 
-    <link
-        rel="stylesheet"
-        href="styles.css"
-    >
+.join-panel{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.join-card,.info-card{padding:32px;border:1px solid var(--line);background:var(--panel)}.join-card{border-color:rgba(200,170,91,.45);background:linear-gradient(135deg,rgba(200,170,91,.08),transparent 45%),var(--panel)}.join-card h3,.info-card h3{font-size:30px;margin-bottom:12px}.join-card p,.info-card p{color:var(--muted);line-height:1.7}
+.checks{display:grid;gap:10px;margin-top:18px}.check{padding:12px 14px;border:1px solid #20271f;background:#090c0a;font-size:13px}.check::before{content:"✓";color:var(--green);margin-right:10px}
+
+footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);background:#050705;color:var(--muted);font-size:12px}.footer-links{display:flex;gap:18px}.footer-links a:hover{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(18px);transition:.55s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1050px){.expect-grid,.roles,.process-grid{grid-template-columns:repeat(2,1fr)}.join-panel{grid-template-columns:1fr}}
+@media(max-width:820px){.nav-toggle{display:block}.main-nav{display:none;position:absolute;top:75px;left:0;right:0;padding:18px 5vw 24px;flex-direction:column;align-items:stretch;background:#070a08;border-bottom:1px solid var(--line)}.main-nav.open{display:flex}.main-nav>a{padding:10px 0}.status-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.site-header{padding:0 18px}.brand span{font-size:15px}.status-strip,.expect-grid,.roles,.process-grid{grid-template-columns:1fr}.section{padding:54px 0}.section-top{align-items:flex-start;flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
-
-
 <body>
-
-
-    <!-- ============================= -->
-    <!-- HEADER -->
-    <!-- ============================= -->
-
-    <header class="site-header">
-
-        <a
-            class="brand"
-            href="index.html"
-            aria-label="21st Cavalry Division home"
-        >
-
-            <div class="brand-mark">
-                21
-            </div>
-
-            <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
-            </div>
-
-        </a>
-
-
-        <button
-            class="nav-toggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
-        <nav class="main-nav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="media.html">
-                Media
-            </a>
-
-            <a
-                class="nav-cta"
-                href="recruitment.html"
-            >
-                Enlist
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- ============================= -->
-    <!-- MAIN CONTENT -->
-    <!-- ============================= -->
-
-    <main>
-
-
-        <!-- ============================= -->
-        <!-- PAGE HERO -->
-        <!-- ============================= -->
-
-        <section class="page-hero">
-
-            <p class="eyebrow">
-                RECRUITMENT
-            </p>
-
-            <h1>
-                JOIN THE 21ST
-            </h1>
-
-            <p>
-                Complete the application below and submit it directly to our recruiting staff.
-            </p>
-
-        </section>
-
-
-        <!-- ============================= -->
-        <!-- APPLICATION SECTION -->
-        <!-- ============================= -->
-
-        <section class="section application-layout">
-
-
-            <!-- ============================= -->
-            <!-- ENLISTMENT PROCESS -->
-            <!-- ============================= -->
-
-            <div>
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        ENLISTMENT PROCESS
-                    </p>
-
-                    <h2>
-                        Four steps to get started.
-                    </h2>
-
-                </div>
-
-
-                <div class="steps">
-
-
-                    <div>
-
-                        <b>
-                            1
-                        </b>
-
-                        <span>
-
-                            <strong>
-                                Join Discord
-                            </strong>
-
-                            <small>
-                                Enter the community and read the information channels.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <b>
-                            2
-                        </b>
-
-                        <span>
-
-                            <strong>
-                                Complete Application
-                            </strong>
-
-                            <small>
-                                Fill out and submit the application on this page.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <b>
-                            3
-                        </b>
-
-                        <span>
-
-                            <strong>
-                                Meet Recruiting Staff
-                            </strong>
-
-                            <small>
-                                Complete your entry interview or orientation.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <b>
-                            4
-                        </b>
-
-                        <span>
-
-                            <strong>
-                                Begin Training
-                            </strong>
-
-                            <small>
-                                Receive your assignment and start the training pipeline.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- ============================= -->
-            <!-- APPLICATION FORM -->
-            <!-- ============================= -->
-
-            <form
-                class="application-card"
-                id="applicationForm"
-                action="https://formspree.io/f/xjyvkzko"
-                method="POST"
-            >
-
-
-                <!-- APPLICATION TITLE -->
-
-                <input
-                    type="hidden"
-                    name="_subject"
-                    value="New 21st Cavalry Division Recruitment Application"
-                >
-
-
-                <!-- DISPLAY NAME -->
-
-                <label for="appName">
-
-                    Display Name / Callsign
-
-                    <input
-                        id="appName"
-                        name="Display Name / Callsign"
-                        type="text"
-                        required
-                        placeholder="Example: Rusty"
-                    >
-
-                </label>
-
-
-                <!-- AGE -->
-
-                <label for="appAge">
-
-                    Age
-
-                    <input
-                        id="appAge"
-                        name="Age"
-                        type="number"
-                        min="13"
-                        placeholder="Enter age"
-                    >
-
-                </label>
-
-
-                <!-- TIMEZONE -->
-
-                <label for="appTimezone">
-
-                    Timezone
-
-                    <input
-                        id="appTimezone"
-                        name="Timezone"
-                        type="text"
-                        placeholder="Example: EST"
-                    >
-
-                </label>
-
-
-                <!-- DISCORD USERNAME -->
-
-                <label for="appDiscord">
-
-                    Discord Username
-
-                    <input
-                        id="appDiscord"
-                        name="Discord Username"
-                        type="text"
-                        required
-                        placeholder="Example: rusty123"
-                    >
-
-                </label>
-
-
-                <!-- PREFERRED ROLE -->
-
-                <label for="appRole">
-
-                    Preferred Role
-
-                    <select
-                        id="appRole"
-                        name="Preferred Role"
-                    >
-
-                        <option value="Ground / Infantry">
-                            Ground / Infantry
-                        </option>
-
-                        <option value="Reconnaissance">
-                            Reconnaissance
-                        </option>
-
-                        <option value="Armor">
-                            Armor
-                        </option>
-
-                        <option value="Aviation">
-                            Aviation
-                        </option>
-
-                        <option value="Medical / Support">
-                            Medical / Support
-                        </option>
-
-                        <option value="Leadership">
-                            Leadership (experience required)
-                        </option>
-
-                    </select>
-
-                </label>
-
-
-                <!-- EXPERIENCE -->
-
-                <label for="appExp">
-
-                    Previous milsim experience
-
-                    <textarea
-                        id="appExp"
-                        name="Previous Milsim Experience"
-                        rows="4"
-                        placeholder="Briefly describe your experience."
-                    ></textarea>
-
-                </label>
-
-
-                <!-- WHY JOIN -->
-
-                <label for="appWhy">
-
-                    Why do you want to join the 21st?
-
-                    <textarea
-                        id="appWhy"
-                        name="Why They Want To Join"
-                        rows="4"
-                        required
-                        placeholder="Tell us what you're looking for in the unit."
-                    ></textarea>
-
-                </label>
-
-
-                <!-- AVAILABILITY -->
-
-                <label for="appAvailability">
-
-                    Typical Availability
-
-                    <textarea
-                        id="appAvailability"
-                        name="Typical Availability"
-                        rows="3"
-                        placeholder="Example: Friday and Saturday evenings after 7 PM EST."
-                    ></textarea>
-
-                </label>
-
-
-                <!-- RULE AGREEMENT -->
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        name="Agrees To Unit Rules"
-                        value="Yes"
-                        required
-                    >
-
-                    I understand that I am expected to follow unit rules, training standards, and community expectations.
-
-                </label>
-
-
-                <!-- FORM BUTTONS -->
-
-                <div class="form-actions">
-
-                    <button
-                        class="btn btn-primary"
-                        type="submit"
-                    >
-                        Submit Application
-                    </button>
-
-
-                    <a
-                        class="btn btn-secondary"
-                        href="https://discord.gg/PCxE5jTYZ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Open Discord
-                    </a>
-
-                </div>
-
-
-                <p class="form-note">
-                    Applications are submitted securely to the 21st Cavalry recruiting staff for review.
-                </p>
-
-
-            </form>
-
-
-        </section>
-
-
-    </main>
-
-
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
-
-    <footer>
-
-        <div class="brand footer-brand">
-
-            <div class="brand-mark">
-                21
-            </div>
-
-            <div>
-                <span>21ST CAVALRY</span>
-                <small>DIVISION</small>
-            </div>
-
-        </div>
-
-
-        <p>
-            Swift. Silent. Relentless.
-        </p>
-
-
-        <div class="footer-links">
-
-            <a href="recruitment.html">
-                Recruitment
-            </a>
-
-            <a href="resources.html">
-                Unit Resources
-            </a>
-
-            <a
-                href="https://discord.gg/PCxE5jTYZ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Discord
-            </a>
-
-        </div>
-
-
-        <p class="fineprint">
-            This is a gaming/military simulation community website and is not affiliated with the United States Department of Defense.
-        </p>
-
-    </footer>
-
-
-    <!-- ============================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ============================= -->
-
-    <script src="script.js"></script>
-
-
+<header class="site-header">
+<a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+<nav class="main-nav" id="mainNav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">SOPs</a><a href="server.html">Server</a><a href="media.html">Media</a><a class="nav-cta active" href="recruitment.html">Enlist</a></nav>
+</header>
+
+<main>
+<section class="page-hero">
+<div class="hero-inner reveal">
+<p class="eyebrow">21ST CAVALRY DIVISION // RECRUITMENT</p>
+<h1>EARN YOUR <span>PLACE</span></h1>
+<p class="hero-copy">Join a structured combined-arms community built around teamwork, leadership, training and mission-focused operations. New members enter through a clear process and develop into a permanent role within the division.</p>
+<div class="hero-actions"><a class="btn" href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Join Discord</a><a class="btn secondary" href="#process">View Enlistment Process</a></div>
+</div>
+</section>
+
+<section class="status-strip">
+<div class="status-item"><small>Environment</small><strong>Structured</strong></div>
+<div class="status-item"><small>Operations</small><strong>Combined Arms</strong></div>
+<div class="status-item"><small>Training</small><strong>Progressive</strong></div>
+<div class="status-item"><small>Community</small><strong>Team Focused</strong></div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="section-top reveal"><div><p class="eyebrow">01 // EXPECTATIONS</p><h2>What We Look For</h2></div><div class="section-code">Member Standards</div></div>
+<div class="expect-grid">
+<article class="expect reveal"><div class="num">01</div><h3>Teamwork</h3><p>Work with your element, communicate clearly and contribute to the success of the group.</p></article>
+<article class="expect reveal"><div class="num">02</div><h3>Reliability</h3><p>Show up prepared, communicate when unavailable and maintain a dependable presence within the unit.</p></article>
+<article class="expect reveal"><div class="num">03</div><h3>Professionalism</h3><p>Respect the chain of command, unit standards and other members while maintaining a mature attitude.</p></article>
+<article class="expect reveal"><div class="num">04</div><h3>Willingness to Learn</h3><p>Accept instruction, improve your skills and complete the training required for your assigned position.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal"><div><p class="eyebrow">02 // AVAILABLE PATHS</p><h2>Find Your Role</h2></div><div class="section-code">Combined Arms Opportunities</div></div>
+<div class="roles">
+<article class="role-card reveal"><h3>Ground</h3><p>Infantry and mechanized maneuver positions focused on coordinated small-unit operations.</p><span class="role-tag">Maneuver</span></article>
+<article class="role-card reveal"><h3>Armor</h3><p>Vehicle crews providing protected mobility, direct fire support and mounted combat power.</p><span class="role-tag">Mounted</span></article>
+<article class="role-card reveal"><h3>Aviation</h3><p>Aircrew positions supporting transport, reconnaissance, resupply and coordinated air operations.</p><span class="role-tag">Air</span></article>
+<article class="role-card reveal"><h3>Support</h3><p>Medical, communications, training, reconnaissance and staff functions that support the force.</p><span class="role-tag">Support</span></article>
+</div>
+</div>
+</section>
+
+<section class="section" id="process" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal"><div><p class="eyebrow">03 // ENLISTMENT PIPELINE</p><h2>Your Path Into the 21st</h2></div><div class="section-code">Entry Process</div></div>
+<div class="process-grid">
+<article class="step reveal"><b>01</b><h3>Join Discord</h3><p>Enter the community, review unit information and make contact with recruiting staff.</p></article>
+<article class="step reveal"><b>02</b><h3>Submit Application</h3><p>Complete the short enlistment application and provide the information needed for review.</p></article>
+<article class="step reveal"><b>03</b><h3>Basic Training</h3><p>Learn division standards, communications, movement and the core procedures expected of every member.</p></article>
+<article class="step reveal"><b>04</b><h3>Join Your Element</h3><p>Receive your assignment and begin role-specific training and qualifications with your section.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal"><div><p class="eyebrow">04 // READY TO ENLIST</p><h2>Start Your Application</h2></div><div class="section-code">Recruitment Access</div></div>
+<div class="join-panel">
+<article class="join-card reveal"><p class="eyebrow">RECRUITMENT CHANNEL</p><h3>Begin With Discord</h3><p>Recruiting staff will guide you through the current application process, answer questions about available roles and help you get started with the division.</p><a class="btn" href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Join the 21st Cavalry Discord</a></article>
+<aside class="info-card reveal"><p class="eyebrow">BEFORE APPLYING</p><h3>Come Prepared</h3><div class="checks"><div class="check">Review the unit structure and training pages</div><div class="check">Be ready to communicate with recruiting staff</div><div class="check">Choose the role or section that interests you most</div><div class="check">Be willing to complete required training</div></div></aside>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div><strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong><div style="margin-top:6px">Swift. Silent. Relentless.</div></div><div class="footer-links"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">Resources</a></div></footer>
+
+<script>
+const navToggle=document.getElementById('navToggle'),mainNav=document.getElementById('mainNav');
+navToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
-
 </html>
