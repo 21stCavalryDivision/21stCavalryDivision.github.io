@@ -706,279 +706,6 @@
             cursor: not-allowed;
         }
 
-
-        /* ============================================= */
-        /* OPERATION ROSTER */
-        /* ============================================= */
-
-        .operation-roster-area {
-            padding: 0 20px 18px;
-            background: #0b1114;
-        }
-
-        .roster-toggle-button {
-            width: 100%;
-            min-height: 40px;
-            padding: 0 15px;
-
-            border: 1px solid #3a454a;
-            background: #0d1417;
-            color: #c5a75b;
-
-            cursor: pointer;
-
-            font:
-                600
-                10px
-                Oswald,
-                sans-serif;
-
-            letter-spacing: 0.9px;
-            text-align: left;
-            text-transform: uppercase;
-        }
-
-        .roster-toggle-button:hover {
-            border-color: #c5a75b;
-            background: #11191c;
-        }
-
-        .roster-panel {
-            margin-top: 10px;
-            border: 1px solid #30383d;
-            background: #090f12;
-        }
-
-        .roster-panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 14px;
-
-            padding: 14px 16px;
-            border-bottom: 1px solid #30383d;
-        }
-
-        .roster-panel-header strong {
-            color: #ffffff;
-
-            font:
-                600
-                13px
-                Oswald,
-                sans-serif;
-
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-        }
-
-        .roster-panel-header span {
-            color: #77858b;
-            font-size: 10px;
-        }
-
-        .roster-loading,
-        .roster-empty,
-        .roster-error {
-            padding: 18px 16px;
-            color: #819096;
-            font-size: 11px;
-        }
-
-        .roster-error {
-            color: #e17777;
-        }
-
-        .roster-section {
-            border-top: 1px solid #252d31;
-        }
-
-        .roster-section:first-child {
-            border-top: 0;
-        }
-
-        .roster-section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-
-            padding: 11px 16px;
-
-            background: #0d1417;
-            color: #c5a75b;
-
-            font:
-                600
-                10px
-                Oswald,
-                sans-serif;
-
-            letter-spacing: 0.9px;
-            text-transform: uppercase;
-        }
-
-        .roster-section-title span {
-            color: #718087;
-            font-size: 9px;
-        }
-
-        .roster-member {
-            display: grid;
-            grid-template-columns:
-                minmax(220px, 1.4fr)
-                minmax(180px, 1fr)
-                minmax(170px, 1fr);
-
-            gap: 14px;
-            align-items: center;
-
-            padding: 12px 16px;
-            border-top: 1px solid #20282c;
-        }
-
-        .roster-member-name strong {
-            display: block;
-
-            color: #ffffff;
-
-            font:
-                600
-                12px
-                Oswald,
-                sans-serif;
-
-            text-transform: uppercase;
-        }
-
-        .roster-member-name span,
-        .roster-member-detail,
-        .roster-admin-detail {
-            color: #7f8d93;
-            font-size: 10px;
-        }
-
-        .roster-member-name span {
-            display: block;
-            margin-top: 3px;
-        }
-
-        .roster-admin-detail {
-            text-align: right;
-        }
-
-        .roster-admin-badge {
-            display: inline-block;
-            margin-left: 5px;
-            padding: 4px 7px;
-
-            border: 1px solid #4e5a60;
-            color: #a9b3b7;
-
-            font:
-                600
-                8px
-                Oswald,
-                sans-serif;
-
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-        }
-
-        .roster-admin-badge.loa {
-            border-color: #77683e;
-            color: #d5bc71;
-        }
-
-
-        /* ============================================= */
-        /* OPERATION ARCHIVE / AAR */
-        /* ============================================= */
-
-        .operation-archive-section {
-            margin-top: 42px;
-        }
-
-        .aar-area {
-            padding: 0 20px 20px;
-            background: #0b1114;
-        }
-
-        .aar-toggle-button {
-            width: 100%;
-            min-height: 40px;
-            padding: 0 15px;
-            border: 1px solid #6d805e;
-            background: #0d1417;
-            color: #a9c28e;
-            cursor: pointer;
-            font: 600 10px Oswald, sans-serif;
-            letter-spacing: .9px;
-            text-align: left;
-            text-transform: uppercase;
-        }
-
-        .aar-toggle-button:hover {
-            border-color: #c5a75b;
-        }
-
-        .aar-panel {
-            margin-top: 10px;
-            border: 1px solid #30383d;
-            background: #090f12;
-        }
-
-        .aar-panel-header {
-            padding: 15px 16px;
-            border-bottom: 1px solid #30383d;
-        }
-
-        .aar-panel-header strong {
-            display: block;
-            color: #fff;
-            font: 600 14px Oswald, sans-serif;
-            letter-spacing: .8px;
-            text-transform: uppercase;
-        }
-
-        .aar-panel-header span {
-            display: block;
-            margin-top: 4px;
-            color: #77858b;
-            font-size: 10px;
-        }
-
-        .aar-content { padding: 16px; }
-        .aar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .aar-field { display: grid; gap: 6px; }
-        .aar-field.wide { grid-column: span 2; }
-        .aar-field label, .aar-read-label {
-            color: #859197;
-            font: 500 9px Oswald, sans-serif;
-            letter-spacing: .8px;
-            text-transform: uppercase;
-        }
-        .aar-field textarea {
-            width: 100%; box-sizing: border-box; min-height: 105px; padding: 11px 12px;
-            border: 1px solid #374147; outline: none; background: #080e11; color: #fff;
-            font-family: Roboto, sans-serif; resize: vertical;
-        }
-        .aar-field textarea:focus { border-color: #c5a75b; }
-        .aar-read-block { margin-bottom: 15px; }
-        .aar-read-text { margin-top: 6px; color: #c4cccf; font-size: 12px; line-height: 1.7; white-space: pre-line; }
-        .aar-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:15px; }
-        .aar-save-button { min-height:38px; padding:0 16px; border:1px solid #c5a75b; background:#c5a75b; color:#111; cursor:pointer; font:600 9px Oswald,sans-serif; letter-spacing:.8px; text-transform:uppercase; }
-        .aar-message { color:#819096; font-size:11px; }
-        .aar-message.success { color:#77d292; }
-        .aar-message.error { color:#e17777; }
-        .aar-screenshot-input { color:#aab3b7; font-size:11px; max-width:100%; }
-        .aar-screenshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:10px; margin-top:14px; }
-        .aar-shot { border:1px solid #30383d; background:#0d1417; padding:8px; }
-        .aar-shot img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#050809; }
-        .aar-shot-caption { margin-top:7px; color:#879399; font-size:10px; line-height:1.4; }
-        .aar-shot-delete { margin-top:7px; border:1px solid #744242; background:transparent; color:#df7474; cursor:pointer; font:600 8px Oswald,sans-serif; text-transform:uppercase; padding:5px 8px; }
-        .aar-empty { color:#819096; font-size:11px; line-height:1.6; }
-
         /* ============================================= */
         /* ATTENDANCE */
         /* ============================================= */
@@ -1319,19 +1046,301 @@
             .attendance-toggle-button {
                 width: 100%;
             }
-
-            .roster-member {
-                grid-template-columns: 1fr;
-            }
-
-            .roster-admin-detail {
-                text-align: left;
-            }
-
-            .aar-grid { grid-template-columns: 1fr; }
-            .aar-field.wide { grid-column: auto; }
         }
     </style>
+
+<style id="command-center-opboard-redesign">
+:root{
+    --cc-bg:#050706;
+    --cc-panel:#0d110e;
+    --cc-panel2:#111713;
+    --cc-line:#293127;
+    --cc-line2:#3b4638;
+    --cc-gold:#c8aa5b;
+    --cc-gold2:#e1c778;
+    --cc-text:#f3f0e6;
+    --cc-muted:#9ca49a;
+    --cc-green:#78b985;
+    --cc-red:#c26f6f;
+}
+body{
+    background:
+        linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px),
+        radial-gradient(circle at 12% 0%,rgba(200,170,91,.08),transparent 34%),
+        var(--cc-bg) !important;
+    background-size:34px 34px,34px 34px,auto,auto !important;
+}
+.site-header{
+    position:sticky !important;
+    top:0;
+    z-index:80;
+    min-height:76px;
+    padding:0 4vw !important;
+    background:rgba(4,7,5,.94) !important;
+    border-bottom:1px solid rgba(200,170,91,.27) !important;
+    backdrop-filter:blur(12px);
+}
+.brand-mark{
+    border-color:var(--cc-gold) !important;
+    color:var(--cc-gold2) !important;
+    background:linear-gradient(135deg,#11160f,#070907) !important;
+}
+.main-nav a{
+    font-family:Oswald,sans-serif !important;
+    letter-spacing:.06em !important;
+}
+.opboard-hero{
+    min-height:440px !important;
+    padding:94px 5vw 62px !important;
+    display:grid !important;
+    align-items:end !important;
+    position:relative !important;
+    overflow:hidden !important;
+    border-bottom:1px solid var(--cc-line) !important;
+    background:
+        linear-gradient(90deg,rgba(3,5,4,.98),rgba(3,5,4,.82) 50%,rgba(3,5,4,.48)),
+        url("assets/screenshots/21stBanner.png") center/cover no-repeat !important;
+}
+.opboard-hero::after{
+    content:"OPBOARD";
+    position:absolute;
+    right:2vw;
+    bottom:-44px;
+    font:700 clamp(100px,17vw,250px)/1 Oswald,sans-serif;
+    color:rgba(255,255,255,.024);
+    pointer-events:none;
+}
+.opboard-hero-inner{
+    width:min(1480px,92vw) !important;
+    max-width:none !important;
+    margin:0 auto !important;
+    position:relative;
+    z-index:2;
+}
+.opboard-hero .eyebrow{
+    color:var(--cc-gold2) !important;
+    letter-spacing:.24em !important;
+}
+.opboard-hero h1{
+    margin:0 0 16px !important;
+    font-size:clamp(58px,8vw,104px) !important;
+    line-height:.9 !important;
+    color:var(--cc-text) !important;
+}
+.opboard-hero-description{
+    max-width:820px !important;
+    color:#c5cbc2 !important;
+    font-size:16px !important;
+    line-height:1.7 !important;
+}
+.opboard-command-strip{
+    width:min(1480px,92vw);
+    margin:0 auto 34px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-left:1px solid var(--cc-line);
+    border-top:1px solid var(--cc-line);
+}
+.opboard-command-strip .command-item{
+    padding:20px 22px;
+    background:#090c0a;
+    border-right:1px solid var(--cc-line);
+    border-bottom:1px solid var(--cc-line);
+}
+.opboard-command-strip small{
+    display:block;
+    margin-bottom:7px;
+    color:var(--cc-muted);
+    font:600 9px/1 Oswald,sans-serif;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+.opboard-command-strip strong{
+    color:var(--cc-text);
+    font:600 18px/1.2 Oswald,sans-serif;
+    text-transform:uppercase;
+}
+.opboard-shell{
+    width:min(1480px,92vw) !important;
+    max-width:none !important;
+}
+.opboard-status{
+    margin-bottom:22px !important;
+    padding:18px 20px !important;
+    border:1px solid var(--cc-line) !important;
+    border-left:4px solid var(--cc-gold) !important;
+    background:linear-gradient(90deg,rgba(200,170,91,.07),transparent 45%),#0b0f0c !important;
+    box-shadow:none !important;
+}
+.opboard-status strong{
+    color:#fff !important;
+    font-family:Oswald,sans-serif !important;
+    text-transform:uppercase !important;
+    letter-spacing:.05em !important;
+}
+.opboard-status span{color:var(--cc-muted) !important}
+.refresh-button{
+    border:1px solid var(--cc-gold) !important;
+    background:transparent !important;
+    color:var(--cc-gold2) !important;
+}
+.refresh-button:hover{
+    background:var(--cc-gold) !important;
+    color:#111 !important;
+}
+.command-panel{
+    border:1px solid rgba(200,170,91,.42) !important;
+    border-top:2px solid var(--cc-gold) !important;
+    background:linear-gradient(145deg,rgba(200,170,91,.06),transparent 42%),var(--cc-panel) !important;
+    box-shadow:none !important;
+}
+.command-panel-header{
+    padding:18px 20px !important;
+    border-bottom:1px solid var(--cc-line) !important;
+    background:#0b0f0c !important;
+}
+.command-panel-header h2{
+    color:#fff !important;
+    font-family:Oswald,sans-serif !important;
+    text-transform:uppercase !important;
+}
+.command-access{
+    border:1px solid #5c4c2b !important;
+    background:#090c0a !important;
+    color:var(--cc-gold2) !important;
+}
+.command-panel-body{padding:22px !important}
+.operation-field label{
+    color:var(--cc-gold2) !important;
+    font-family:Oswald,sans-serif !important;
+    text-transform:uppercase !important;
+    letter-spacing:.08em !important;
+}
+.operation-field input,
+.operation-field select,
+.operation-field textarea{
+    border:1px solid #333c31 !important;
+    background:#080b09 !important;
+    color:#fff !important;
+}
+.operation-field input:focus,
+.operation-field select:focus,
+.operation-field textarea:focus{
+    outline:none !important;
+    border-color:var(--cc-gold) !important;
+    box-shadow:0 0 0 1px rgba(200,170,91,.15) !important;
+}
+.primary-button{
+    border:1px solid var(--cc-gold) !important;
+    background:var(--cc-gold) !important;
+    color:#111 !important;
+}
+.secondary-button{
+    border:1px solid #4a5547 !important;
+    background:transparent !important;
+    color:#d7dbd3 !important;
+}
+.board-heading{
+    margin-top:34px !important;
+    padding:0 0 18px !important;
+    border-bottom:1px solid var(--cc-line) !important;
+}
+.board-heading::after{
+    background:var(--cc-gold) !important;
+}
+.board-heading h2{
+    color:#fff !important;
+    font-size:clamp(34px,4vw,58px) !important;
+}
+.operations-grid{
+    gap:16px !important;
+}
+.operation-card{
+    border:1px solid var(--cc-line) !important;
+    border-top:2px solid rgba(200,170,91,.65) !important;
+    background:
+        linear-gradient(145deg,rgba(200,170,91,.04),transparent 42%),
+        #0b0f0c !important;
+    box-shadow:none !important;
+    transition:transform .18s ease,border-color .18s ease !important;
+}
+.operation-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(200,170,91,.5) !important;
+}
+.operation-card-header{
+    border-bottom:1px solid var(--cc-line) !important;
+    background:#0a0d0b !important;
+}
+.operation-card h3,
+.operation-title{
+    color:#fff !important;
+    font-family:Oswald,sans-serif !important;
+    text-transform:uppercase !important;
+}
+.operation-status{
+    border-color:#4a5547 !important;
+    background:#090c0a !important;
+}
+.operation-meta,
+.operation-details,
+.operation-section,
+.operation-location{
+    color:var(--cc-muted) !important;
+}
+.operation-section strong,
+.operation-location strong,
+.operation-type{
+    color:var(--cc-gold2) !important;
+}
+.operation-card-body{
+    border-color:var(--cc-line) !important;
+}
+.operation-briefing,
+.operation-objectives{
+    border-color:#242d23 !important;
+    background:#090c0a !important;
+}
+.operation-briefing h4,
+.operation-objectives h4{
+    color:var(--cc-gold2) !important;
+    font-family:Oswald,sans-serif !important;
+    text-transform:uppercase !important;
+}
+.operation-admin-controls{
+    border-top:1px solid var(--cc-line) !important;
+    background:#090c0a !important;
+}
+.operation-admin-controls button{
+    border-color:#3c4639 !important;
+    background:transparent !important;
+}
+.operation-signup,
+.signup-button,
+.operation-action-button{
+    border-color:var(--cc-gold) !important;
+}
+.portal-message,
+.auth-message,
+.access-message{
+    border:1px solid var(--cc-line) !important;
+    border-top:2px solid var(--cc-gold) !important;
+    background:var(--cc-panel) !important;
+}
+footer{
+    border-top:1px solid var(--cc-line) !important;
+    background:#050705 !important;
+}
+@media(max-width:900px){
+    .opboard-command-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+    .opboard-hero{min-height:360px !important;padding:72px 18px 46px !important}
+    .opboard-command-strip{grid-template-columns:1fr;width:92vw}
+}
+</style>
+
 </head>
 
 <body>
@@ -1514,6 +1523,27 @@
         </div>
 
     </section>
+
+
+<section class="opboard-command-strip" aria-label="Operations board overview">
+    <div class="command-item">
+        <small>Network</small>
+        <strong>Secure OPBOARD</strong>
+    </div>
+    <div class="command-item">
+        <small>Mission Types</small>
+        <strong>Ops / Training / FTX</strong>
+    </div>
+    <div class="command-item">
+        <small>Planning</small>
+        <strong>Section Assigned</strong>
+    </div>
+    <div class="command-item">
+        <small>Command</small>
+        <strong>Live Mission Board</strong>
+    </div>
+</section>
+
 
 
     <!-- ============================================= -->
@@ -1748,27 +1778,20 @@
                         <select id="operationSection">
 
                             <option>All Personnel</option>
-
-                            <option>1st Cavalry Brigade</option>
-                            <option>Patriots</option>
-                            <option>Hellhounds</option>
-                            <option>Reapers</option>
-
-                            <option>2nd Cavalry Brigade</option>
-                            <option>Spartans</option>
-                            <option>Titans</option>
-                            <option>Raiders</option>
-
-                            <option>Combat Aviation Brigade</option>
-                            <option>Roughnecks</option>
-                            <option>Havoc</option>
-                            <option>Wolverine</option>
-
-                            <option>Special Troops Battalion (STB)</option>
-                            <option>Aviation Brigade</option>
-                            <option>IronEagle Company</option>
-                            <option>NightWing Company</option>
-                            <option>Guardian Company</option>
+                            <option>Division HQ</option>
+                            <option>Command Staff</option>
+                            <option>1st Platoon</option>
+                            <option>2nd Platoon</option>
+                            <option>1st Squad</option>
+                            <option>2nd Squad</option>
+                            <option>3rd Squad</option>
+                            <option>Weapons Squad</option>
+                            <option>Aviation Detachment</option>
+                            <option>Armor Section</option>
+                            <option>Recon Section</option>
+                            <option>Medical Section</option>
+                            <option>Training Section</option>
+                            <option>Recruitment Section</option>
 
                         </select>
 
@@ -1877,13 +1900,6 @@
                 class="operations-grid"
             ></div>
 
-        </section>
-
-        <section class="operation-archive-section">
-            <div class="board-heading">
-                <h2>Operation Archive</h2>
-            </div>
-            <div id="operationArchiveGrid" class="operations-grid"></div>
         </section>
 
     </main>
@@ -2003,15 +2019,6 @@
                 let isAdmin =
                     false;
 
-                let canManageAars =
-                    false;
-
-                let aarReports =
-                    [];
-
-                let aarScreenshots =
-                    [];
-
 
                 // =========================================
                 // ELEMENTS
@@ -2050,11 +2057,6 @@
                 const operationsGrid =
                     document.getElementById(
                         'operationsGrid'
-                    );
-
-                const operationArchiveGrid =
-                    document.getElementById(
-                        'operationArchiveGrid'
                     );
 
 
@@ -2794,11 +2796,7 @@
 
                                 return `
 
-                                    <article
-                                        class="operation-card"
-                                        data-operation-card="${operation.id}"
-                                        data-operation-status="${escapeHtml(operation.status)}"
-                                    >
+                                    <article class="operation-card">
 
 
                                         <div class="operation-card-top">
@@ -3006,93 +3004,6 @@
                                         </div>
 
 
-                                        <div class="operation-roster-area">
-
-                                            <button
-                                                class="roster-toggle-button"
-                                                data-toggle-roster="${operation.id}"
-                                                type="button"
-                                                aria-expanded="false"
-                                            >
-                                                View Roster (${operationSignups.length}) ▼
-                                            </button>
-
-                                            <div
-                                                class="roster-panel"
-                                                data-roster-panel="${operation.id}"
-                                                hidden
-                                            >
-
-                                                <div class="roster-panel-header">
-
-                                                    <strong>
-                                                        Operation Roster
-                                                    </strong>
-
-                                                    <span>
-                                                        ${operationSignups.length}
-                                                        member${
-                                                            operationSignups.length === 1
-                                                                ?
-                                                                ''
-                                                                :
-                                                                's'
-                                                        }
-                                                        signed up
-                                                    </span>
-
-                                                </div>
-
-                                                <div
-                                                    data-roster-content="${operation.id}"
-                                                >
-                                                    <div class="roster-loading">
-                                                        Open roster to load personnel.
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-
-                                        ${
-                                            operation.status === 'Completed'
-
-                                            ?
-
-                                            `
-                                                <div class="aar-area">
-                                                    <button
-                                                        class="aar-toggle-button"
-                                                        data-toggle-aar="${operation.id}"
-                                                        type="button"
-                                                        aria-expanded="false"
-                                                    >
-                                                        ${
-                                                            aarReports.some(r => Number(r.operation_id) === Number(operation.id))
-                                                                ? 'View After Action Report ▼'
-                                                                : (canManageAars ? 'Create After Action Report ▼' : 'After Action Report — Pending ▼')
-                                                        }
-                                                    </button>
-                                                    <div class="aar-panel" data-aar-panel="${operation.id}" hidden>
-                                                        <div class="aar-panel-header">
-                                                            <strong>After Action Report</strong>
-                                                            <span>${canManageAars ? 'SGT+ AAR management access.' : 'Read-only operation archive.'}</span>
-                                                        </div>
-                                                        <div class="aar-content" data-aar-content="${operation.id}">
-                                                            <div class="aar-empty">Open AAR to load report.</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            `
-
-                                            :
-
-                                            ''
-                                        }
-
-
                                         ${attendanceArea}
 
 
@@ -3142,13 +3053,7 @@
         data-delete-operation="${operation.id}"
         type="button"
     >
-        ${
-            operation.status === 'Completed'
-                ? 'Delete Archived Operation'
-                : operation.status === 'Cancelled'
-                    ? 'Delete Cancelled Operation'
-                    : 'Cancel Operation'
-        }
+        Delete
     </button>
 
 </div>
@@ -3174,307 +3079,10 @@
 
                     attachSignupButtons();
 
-                    attachRosterButtons();
-
                     attachAttendanceButtons();
 
-                    attachAarButtons();
-
-                    moveCompletedOperationsToArchive();
-
                 }
 
-
-                // =========================================
-                // AFTER ACTION REPORTS / ARCHIVE
-                // =========================================
-
-                function getAarForOperation(operationId) {
-                    return aarReports.find(
-                        report => Number(report.operation_id) === Number(operationId)
-                    ) || null;
-                }
-
-                function getAarScreenshots(aarId) {
-                    return aarScreenshots.filter(
-                        shot => Number(shot.aar_id) === Number(aarId)
-                    );
-                }
-
-                function moveCompletedOperationsToArchive() {
-                    if (!operationArchiveGrid) return;
-
-                    operationArchiveGrid.innerHTML = '';
-
-                    const cards = Array.from(
-                        operationsGrid.querySelectorAll('[data-operation-card]')
-                    );
-
-                    cards.forEach(card => {
-                        if (card.dataset.operationStatus === 'Completed') {
-                            operationArchiveGrid.appendChild(card);
-                        }
-                    });
-
-                    if (!operationsGrid.children.length) {
-                        operationsGrid.innerHTML = `
-                            <div class="empty-board">
-                                <h3>No Active Missions</h3>
-                                There are currently no active or scheduled missions on OPBOARD.
-                            </div>
-                        `;
-                    }
-
-                    if (!operationArchiveGrid.children.length) {
-                        operationArchiveGrid.innerHTML = `
-                            <div class="empty-board">
-                                <h3>No Archived Operations</h3>
-                                Completed operations will appear here automatically.
-                            </div>
-                        `;
-                    }
-                }
-
-                async function loadAarData() {
-                    const [{ data: reports, error: reportError }, { data: shots, error: shotError }] =
-                        await Promise.all([
-                            client.from('after_action_reports').select('*').order('created_at', { ascending: false }),
-                            client.from('aar_screenshots').select('*').order('created_at', { ascending: true })
-                        ]);
-
-                    if (reportError) {
-                        console.error('AAR load error:', reportError);
-                        aarReports = [];
-                    } else {
-                        aarReports = reports || [];
-                    }
-
-                    if (shotError) {
-                        console.error('AAR screenshot metadata error:', shotError);
-                        aarScreenshots = [];
-                    } else {
-                        aarScreenshots = shots || [];
-                    }
-                }
-
-                async function buildSignedScreenshotHtml(aarId) {
-                    const shots = getAarScreenshots(aarId);
-                    if (!shots.length) return '<div class="aar-empty">No screenshots attached.</div>';
-
-                    const items = await Promise.all(shots.map(async shot => {
-                        const { data, error } = await client.storage
-                            .from('aar-screenshots')
-                            .createSignedUrl(shot.storage_path, 3600);
-
-                        if (error || !data?.signedUrl) {
-                            return `<div class="aar-shot"><div class="aar-empty">Screenshot unavailable.</div></div>`;
-                        }
-
-                        return `
-                            <div class="aar-shot">
-                                <a href="${escapeHtml(data.signedUrl)}" target="_blank" rel="noopener">
-                                    <img src="${escapeHtml(data.signedUrl)}" alt="AAR screenshot">
-                                </a>
-                                ${shot.caption ? `<div class="aar-shot-caption">${escapeHtml(shot.caption)}</div>` : ''}
-                                ${canManageAars ? `<button class="aar-shot-delete" data-delete-aar-shot="${shot.id}" data-shot-path="${escapeHtml(shot.storage_path)}" type="button">Delete Screenshot</button>` : ''}
-                            </div>
-                        `;
-                    }));
-
-                    return `<div class="aar-screenshots">${items.join('')}</div>`;
-                }
-
-                async function renderAar(operationId) {
-                    const container = document.querySelector(`[data-aar-content="${operationId}"]`);
-                    if (!container) return;
-
-                    const report = getAarForOperation(operationId);
-
-                    if (!report && !canManageAars) {
-                        container.innerHTML = '<div class="aar-empty">No After Action Report has been filed for this operation yet.</div>';
-                        return;
-                    }
-
-                    if (canManageAars) {
-                        container.innerHTML = `
-                            <div class="aar-grid">
-                                <div class="aar-field wide">
-                                    <label>Outcome</label>
-                                    <textarea data-aar-outcome="${operationId}" placeholder="Overall mission outcome...">${escapeHtml(report?.outcome || '')}</textarea>
-                                </div>
-                                <div class="aar-field">
-                                    <label>Casualties / Losses</label>
-                                    <textarea data-aar-casualties="${operationId}" placeholder="Personnel, vehicles, equipment or other losses...">${escapeHtml(report?.casualties_losses || '')}</textarea>
-                                </div>
-                                <div class="aar-field">
-                                    <label>Objectives Completed</label>
-                                    <textarea data-aar-objectives="${operationId}" placeholder="Objectives completed, failed or partially completed...">${escapeHtml(report?.objectives_completed || '')}</textarea>
-                                </div>
-                                <div class="aar-field wide">
-                                    <label>Notes</label>
-                                    <textarea data-aar-notes="${operationId}" placeholder="Command notes, lessons learned, recommendations...">${escapeHtml(report?.notes || '')}</textarea>
-                                </div>
-                                <div class="aar-field wide">
-                                    <label>Screenshots</label>
-                                    <input class="aar-screenshot-input" data-aar-files="${operationId}" type="file" accept="image/*" multiple>
-                                </div>
-                            </div>
-                            <div class="aar-actions">
-                                <button class="aar-save-button" data-save-aar="${operationId}" type="button">${report ? 'Save AAR Changes' : 'Submit AAR'}</button>
-                                <span class="aar-message" data-aar-message="${operationId}">${report ? 'Existing AAR loaded.' : 'No AAR has been submitted.'}</span>
-                            </div>
-                            <div data-aar-screenshots="${operationId}"></div>
-                        `;
-                    } else {
-                        container.innerHTML = `
-                            <div class="aar-read-block"><div class="aar-read-label">Outcome</div><div class="aar-read-text">${escapeHtml(report.outcome || 'Not recorded.')}</div></div>
-                            <div class="aar-read-block"><div class="aar-read-label">Casualties / Losses</div><div class="aar-read-text">${escapeHtml(report.casualties_losses || 'None recorded.')}</div></div>
-                            <div class="aar-read-block"><div class="aar-read-label">Objectives Completed</div><div class="aar-read-text">${escapeHtml(report.objectives_completed || 'Not recorded.')}</div></div>
-                            <div class="aar-read-block"><div class="aar-read-label">Notes</div><div class="aar-read-text">${escapeHtml(report.notes || 'No additional notes.')}</div></div>
-                            <div data-aar-screenshots="${operationId}"></div>
-                        `;
-                    }
-
-                    if (report) {
-                        const shotContainer = container.querySelector(`[data-aar-screenshots="${operationId}"]`);
-                        if (shotContainer) shotContainer.innerHTML = await buildSignedScreenshotHtml(report.id);
-                    }
-
-                    attachAarActionButtons();
-                }
-
-                async function uploadAarScreenshots(operationId, aarId, files) {
-                    for (const file of files) {
-                        const safeName = String(file.name || 'screenshot')
-                            .replace(/[^a-zA-Z0-9._-]/g, '_');
-                        const storagePath = `${operationId}/${aarId}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
-
-                        const { error: uploadError } = await client.storage
-                            .from('aar-screenshots')
-                            .upload(storagePath, file, { upsert: false, contentType: file.type || undefined });
-                        if (uploadError) throw uploadError;
-
-                        const { error: metaError } = await client.from('aar_screenshots').insert({
-                            aar_id: aarId,
-                            uploaded_by: currentUser.id,
-                            storage_path: storagePath,
-                            caption: file.name || null
-                        });
-                        if (metaError) {
-                            await client.storage.from('aar-screenshots').remove([storagePath]);
-                            throw metaError;
-                        }
-                    }
-                }
-
-                async function saveAar(operationId, button) {
-                    if (!canManageAars || !currentUser) return;
-
-                    const outcome = document.querySelector(`[data-aar-outcome="${operationId}"]`)?.value.trim() || '';
-                    const casualties = document.querySelector(`[data-aar-casualties="${operationId}"]`)?.value.trim() || '';
-                    const objectives = document.querySelector(`[data-aar-objectives="${operationId}"]`)?.value.trim() || '';
-                    const notes = document.querySelector(`[data-aar-notes="${operationId}"]`)?.value.trim() || '';
-                    const fileInput = document.querySelector(`[data-aar-files="${operationId}"]`);
-                    const message = document.querySelector(`[data-aar-message="${operationId}"]`);
-
-                    if (!outcome) {
-                        if (message) { message.textContent = 'Outcome is required.'; message.className = 'aar-message error'; }
-                        return;
-                    }
-
-                    button.disabled = true;
-                    button.textContent = 'Saving AAR...';
-                    if (message) { message.textContent = 'Saving report...'; message.className = 'aar-message'; }
-
-                    try {
-                        let report = getAarForOperation(operationId);
-
-                        if (report) {
-                            const { error } = await client.from('after_action_reports').update({
-                                outcome,
-                                casualties_losses: casualties || null,
-                                objectives_completed: objectives || null,
-                                notes: notes || null,
-                                updated_at: new Date().toISOString()
-                            }).eq('id', report.id);
-                            if (error) throw error;
-                        } else {
-                            const { data, error } = await client.from('after_action_reports').insert({
-                                operation_id: Number(operationId),
-                                author_user_id: currentUser.id,
-                                outcome,
-                                casualties_losses: casualties || null,
-                                objectives_completed: objectives || null,
-                                notes: notes || null
-                            }).select('*').single();
-                            if (error) throw error;
-                            report = data;
-                        }
-
-                        const files = Array.from(fileInput?.files || []);
-                        if (files.length) await uploadAarScreenshots(operationId, report.id, files);
-
-                        await loadAarData();
-                        await renderAar(operationId);
-
-                        const updatedMessage = document.querySelector(`[data-aar-message="${operationId}"]`);
-                        if (updatedMessage) { updatedMessage.textContent = 'AAR saved successfully.'; updatedMessage.className = 'aar-message success'; }
-
-                        const toggle = document.querySelector(`[data-toggle-aar="${operationId}"]`);
-                        if (toggle) toggle.textContent = 'Hide After Action Report ▲';
-                    } catch (error) {
-                        console.error('AAR save error:', error);
-                        if (message) { message.textContent = 'Unable to save AAR: ' + (error.message || 'Unknown error'); message.className = 'aar-message error'; }
-                        button.disabled = false;
-                        button.textContent = 'Save AAR';
-                    }
-                }
-
-                function attachAarActionButtons() {
-                    document.querySelectorAll('[data-save-aar]').forEach(button => {
-                        button.onclick = () => saveAar(Number(button.dataset.saveAar), button);
-                    });
-
-                    document.querySelectorAll('[data-delete-aar-shot]').forEach(button => {
-                        button.onclick = async () => {
-                            if (!canManageAars || !confirm('Delete this AAR screenshot?')) return;
-                            const shotId = Number(button.dataset.deleteAarShot);
-                            const path = button.dataset.shotPath;
-                            const { error: storageError } = await client.storage.from('aar-screenshots').remove([path]);
-                            if (storageError) { alert(storageError.message); return; }
-                            const { error } = await client.from('aar_screenshots').delete().eq('id', shotId);
-                            if (error) { alert(error.message); return; }
-                            await loadAarData();
-                            const report = aarScreenshots.find(s => Number(s.id) === shotId);
-                            const panel = button.closest('[data-aar-content]');
-                            const opId = Number(panel?.dataset.aarContent);
-                            if (opId) await renderAar(opId);
-                        };
-                    });
-                }
-
-                function attachAarButtons() {
-                    document.querySelectorAll('[data-toggle-aar]').forEach(button => {
-                        button.addEventListener('click', async () => {
-                            const operationId = Number(button.dataset.toggleAar);
-                            const panel = document.querySelector(`[data-aar-panel="${operationId}"]`);
-                            if (!panel) return;
-
-                            if (!panel.hidden) {
-                                panel.hidden = true;
-                                button.setAttribute('aria-expanded', 'false');
-                                const exists = !!getAarForOperation(operationId);
-                                button.textContent = exists ? 'View After Action Report ▼' : (canManageAars ? 'Create After Action Report ▼' : 'After Action Report — Pending ▼');
-                                return;
-                            }
-
-                            panel.hidden = false;
-                            button.setAttribute('aria-expanded', 'true');
-                            button.textContent = 'Hide After Action Report ▲';
-                            await renderAar(operationId);
-                        });
-                    });
-                }
 
                 // =========================================
                 // LOAD OPERATIONS
@@ -3528,8 +3136,6 @@
 
 
                     await loadSignups();
-
-                    await loadAarData();
 
 
                     boardStatus.textContent =
@@ -3825,616 +3431,6 @@
 
 
                                         await cancelOperationSignup(
-                                            id,
-                                            button
-                                        );
-
-                                    }
-
-                                );
-
-                            }
-
-                        );
-
-                }
-
-
-
-                // =========================================
-                // OPERATION ROSTER
-                // =========================================
-
-                function getLocalDateString(value) {
-
-                    const date =
-                        new Date(
-                            value
-                        );
-
-
-                    const year =
-                        date.getFullYear();
-
-
-                    const month =
-                        String(
-                            date.getMonth() + 1
-                        )
-                        .padStart(
-                            2,
-                            '0'
-                        );
-
-
-                    const day =
-                        String(
-                            date.getDate()
-                        )
-                        .padStart(
-                            2,
-                            '0'
-                        );
-
-
-                    return `${year}-${month}-${day}`;
-
-                }
-
-
-                async function loadOperationRoster(
-                    operationId
-                ) {
-
-                    const {
-                        data,
-                        error
-                    } =
-                        await client.rpc(
-
-                            'get_operation_roster',
-
-                            {
-                                p_operation_id:
-                                    Number(
-                                        operationId
-                                    )
-                            }
-
-                        );
-
-
-                    if (error) {
-
-                        console.error(
-                            'Operation roster error:',
-                            error
-                        );
-
-
-                        throw error;
-
-                    }
-
-
-                    const roster =
-                        data || [];
-
-
-                    if (
-                        !isAdmin
-                        ||
-                        !roster.length
-                    ) {
-
-                        return roster;
-
-                    }
-
-
-                    const operation =
-                        operations.find(
-
-                            item =>
-                                Number(
-                                    item.id
-                                )
-                                ===
-                                Number(
-                                    operationId
-                                )
-
-                        );
-
-
-                    if (!operation) {
-
-                        return roster;
-
-                    }
-
-
-                    const userIds =
-                        roster
-                            .map(
-                                member =>
-                                    member.user_id
-                            )
-                            .filter(
-                                Boolean
-                            );
-
-
-                    if (!userIds.length) {
-
-                        return roster;
-
-                    }
-
-
-                    const operationDay =
-                        getLocalDateString(
-                            operation.operation_date
-                        );
-
-
-                    const {
-                        data:
-                            loaRows,
-                        error:
-                            loaError
-                    } =
-                        await client
-
-                            .from(
-                                'leave_of_absence'
-                            )
-
-                            .select(
-                                'user_id,start_date,end_date,status'
-                            )
-
-                            .eq(
-                                'status',
-                                'Approved'
-                            )
-
-                            .lte(
-                                'start_date',
-                                operationDay
-                            )
-
-                            .gte(
-                                'end_date',
-                                operationDay
-                            )
-
-                            .in(
-                                'user_id',
-                                userIds
-                            );
-
-
-                    if (loaError) {
-
-                        console.error(
-                            'Roster LOA lookup error:',
-                            loaError
-                        );
-
-
-                        return roster;
-
-                    }
-
-
-                    const loaUsers =
-                        new Set(
-
-                            (loaRows || [])
-                                .map(
-                                    row =>
-                                        row.user_id
-                                )
-
-                        );
-
-
-                    return roster.map(
-
-                        member => ({
-
-                            ...member,
-
-                            on_approved_loa:
-                                loaUsers.has(
-                                    member.user_id
-                                )
-
-                        })
-
-                    );
-
-                }
-
-
-                function renderOperationRoster(
-                    operationId,
-                    roster
-                ) {
-
-                    const container =
-                        document.querySelector(
-                            `[data-roster-content="${operationId}"]`
-                        );
-
-
-                    if (!container) {
-
-                        return;
-
-                    }
-
-
-                    if (!roster.length) {
-
-                        container.innerHTML = `
-
-                            <div class="roster-empty">
-                                No members are currently signed up for this operation.
-                            </div>
-
-                        `;
-
-
-                        return;
-
-                    }
-
-
-                    const groups =
-                        new Map();
-
-
-                    roster.forEach(
-
-                        member => {
-
-                            const section =
-                                member.section
-                                ||
-                                'Unassigned';
-
-
-                            if (
-                                !groups.has(
-                                    section
-                                )
-                            ) {
-
-                                groups.set(
-                                    section,
-                                    []
-                                );
-
-                            }
-
-
-                            groups
-                                .get(
-                                    section
-                                )
-                                .push(
-                                    member
-                                );
-
-                        }
-
-                    );
-
-
-                    container.innerHTML =
-                        Array
-                            .from(
-                                groups.entries()
-                            )
-                            .map(
-
-                                (
-                                    [
-                                        section,
-                                        members
-                                    ]
-                                ) => `
-
-                                    <section class="roster-section">
-
-                                        <div class="roster-section-title">
-
-                                            <strong>
-                                                ${escapeHtml(
-                                                    section
-                                                )}
-                                            </strong>
-
-                                            <span>
-                                                ${members.length}
-                                                member${
-                                                    members.length === 1
-                                                        ?
-                                                        ''
-                                                        :
-                                                        's'
-                                                }
-                                            </span>
-
-                                        </div>
-
-
-                                        ${members.map(
-
-                                            member => `
-
-                                                <div class="roster-member">
-
-                                                    <div class="roster-member-name">
-
-                                                        <strong>
-                                                            ${escapeHtml(
-                                                                member.rank
-                                                                ||
-                                                                'No Rank'
-                                                            )}
-                                                            —
-                                                            ${escapeHtml(
-                                                                member.display_name
-                                                                ||
-                                                                'Member'
-                                                            )}
-                                                        </strong>
-
-                                                        <span>
-                                                            ${escapeHtml(
-                                                                member.billet
-                                                                ||
-                                                                'Unassigned'
-                                                            )}
-                                                        </span>
-
-                                                    </div>
-
-
-                                                    <div class="roster-member-detail">
-
-                                                        Section:
-                                                        ${escapeHtml(
-                                                            member.section
-                                                            ||
-                                                            'Unassigned'
-                                                        )}
-
-                                                    </div>
-
-
-                                                    ${
-                                                        isAdmin
-
-                                                        ?
-
-                                                        `
-
-                                                            <div class="roster-admin-detail">
-
-                                                                <span class="roster-admin-badge">
-                                                                    ${escapeHtml(
-                                                                        member.member_status
-                                                                        ||
-                                                                        'Unknown Status'
-                                                                    )}
-                                                                </span>
-
-                                                                <span class="roster-admin-badge">
-                                                                    ${escapeHtml(
-                                                                        member.access_level
-                                                                        ||
-                                                                        'Member'
-                                                                    )}
-                                                                </span>
-
-                                                                ${
-                                                                    member.on_approved_loa
-
-                                                                    ?
-
-                                                                    `
-
-                                                                        <span class="roster-admin-badge loa">
-                                                                            Approved LOA
-                                                                        </span>
-
-                                                                    `
-
-                                                                    :
-
-                                                                    ''
-                                                                }
-
-                                                            </div>
-
-                                                        `
-
-                                                        :
-
-                                                        `
-
-                                                            <div class="roster-member-detail">
-                                                                Signed Up
-                                                            </div>
-
-                                                        `
-                                                    }
-
-                                                </div>
-
-                                            `
-
-                                        ).join('')}
-
-                                    </section>
-
-                                `
-
-                            )
-                            .join('');
-
-                }
-
-
-                async function toggleOperationRoster(
-                    operationId,
-                    button
-                ) {
-
-                    const panel =
-                        document.querySelector(
-                            `[data-roster-panel="${operationId}"]`
-                        );
-
-
-                    const container =
-                        document.querySelector(
-                            `[data-roster-content="${operationId}"]`
-                        );
-
-
-                    if (
-                        !panel
-                        ||
-                        !container
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (!panel.hidden) {
-
-                        panel.hidden =
-                            true;
-
-
-                        button.setAttribute(
-                            'aria-expanded',
-                            'false'
-                        );
-
-
-                        const count =
-                            getOperationSignups(
-                                operationId
-                            )
-                                .length;
-
-
-                        button.textContent =
-                            `View Roster (${count}) ▼`;
-
-
-                        return;
-
-                    }
-
-
-                    panel.hidden =
-                        false;
-
-
-                    button.setAttribute(
-                        'aria-expanded',
-                        'true'
-                    );
-
-
-                    const count =
-                        getOperationSignups(
-                            operationId
-                        )
-                            .length;
-
-
-                    button.textContent =
-                        `Hide Roster (${count}) ▲`;
-
-
-                    container.innerHTML = `
-
-                        <div class="roster-loading">
-                            Loading operation roster...
-                        </div>
-
-                    `;
-
-
-                    try {
-
-                        const roster =
-                            await loadOperationRoster(
-                                operationId
-                            );
-
-
-                        renderOperationRoster(
-                            operationId,
-                            roster
-                        );
-
-                    }
-
-                    catch (error) {
-
-                        container.innerHTML = `
-
-                            <div class="roster-error">
-                                Unable to load the operation roster:
-                                ${escapeHtml(
-                                    error.message
-                                    ||
-                                    'Unknown error'
-                                )}
-                            </div>
-
-                        `;
-
-                    }
-
-                }
-
-
-                function attachRosterButtons() {
-
-                    document
-                        .querySelectorAll(
-                            '[data-toggle-roster]'
-                        )
-                        .forEach(
-
-                            button => {
-
-                                button.addEventListener(
-
-                                    'click',
-
-                                    async () => {
-
-                                        const id =
-                                            Number(
-                                                button.dataset
-                                                    .toggleRoster
-                                            );
-
-
-                                        await toggleOperationRoster(
                                             id,
                                             button
                                         );
@@ -5712,207 +4708,15 @@ if (attendanceEventError) {
                                             );
 
 
-                                        const operation =
-                                            operations.find(
-                                                item => Number(item.id) === id
-                                            );
-
-
-                                        if (!operation) {
-
-                                            alert(
-                                                'Operation could not be found.'
-                                            );
-
-                                            return;
-
-                                        }
-
-
-                                        const isArchived =
-                                            operation.status ===
-                                            'Completed';
-
-
-                                        const isCancelled =
-                                            operation.status ===
-                                            'Cancelled';
-
-
-                                        /*
-                                            Active/scheduled operations are CANCELLED,
-                                            not deleted. This preserves the operation row
-                                            so the database notification trigger can queue
-                                            an "Operation Cancelled" Discord announcement
-                                            and cancel any pending member reminders.
-                                        */
-                                        if (!isArchived && !isCancelled) {
-
-                                            const confirmed =
-                                                confirm(
-                                                    'Cancel this operation? Signed-up members will have their pending reminder cancelled and Discord will be notified.'
-                                                );
-
-
-                                            if (!confirmed) {
-                                                return;
-                                            }
-
-
-                                            button.disabled =
-                                                true;
-
-
-                                            const originalText =
-                                                button.textContent;
-
-
-                                            button.textContent =
-                                                'Cancelling...';
-
-
-                                            const {
-                                                error
-                                            } =
-                                                await client
-
-                                                    .from(
-                                                        'operations_board'
-                                                    )
-
-                                                    .update({
-                                                        status: 'Cancelled'
-                                                    })
-
-                                                    .eq(
-                                                        'id',
-                                                        id
-                                                    );
-
-
-                                            if (error) {
-
-                                                alert(
-                                                    error.message
-                                                );
-
-
-                                                button.disabled =
-                                                    false;
-
-
-                                                button.textContent =
-                                                    originalText;
-
-
-                                                return;
-
-                                            }
-
-
-                                            await loadOperations();
-                                            return;
-
-                                        }
-
-
-                                        /*
-                                            Completed archive entries and already-cancelled
-                                            operations can be permanently deleted. Completed
-                                            operations clean up private AAR screenshots first.
-                                            Cancelled operations were already announced when
-                                            their status changed, so deleting them here does
-                                            not create another cancellation notification.
-                                        */
                                         const confirmed =
                                             confirm(
-                                                isCancelled
-                                                    ? 'Permanently delete this cancelled operation? This cannot be undone.'
-                                                    : 'Permanently delete this archived operation and its AAR? This cannot be undone.'
+                                                'Delete this operation?'
                                             );
 
 
                                         if (!confirmed) {
+
                                             return;
-                                        }
-
-
-                                        button.disabled =
-                                            true;
-
-
-                                        const originalText =
-                                            button.textContent;
-
-
-                                        button.textContent =
-                                            isCancelled
-                                                ? 'Deleting...'
-                                                : 'Deleting Archive...';
-
-
-                                        const aar =
-                                            isArchived
-                                                ? getAarForOperation(
-                                                    id
-                                                )
-                                                : null;
-
-
-                                        if (aar) {
-
-                                            const screenshotPaths =
-                                                getAarScreenshots(
-                                                    aar.id
-                                                )
-                                                .map(
-                                                    screenshot =>
-                                                        screenshot.storage_path
-                                                )
-                                                .filter(Boolean);
-
-
-                                            if (screenshotPaths.length) {
-
-                                                const {
-                                                    error: storageError
-                                                } =
-                                                    await client.storage
-                                                        .from(
-                                                            'aar-screenshots'
-                                                        )
-                                                        .remove(
-                                                            screenshotPaths
-                                                        );
-
-
-                                                if (storageError) {
-
-                                                    console.error(
-                                                        'AAR screenshot cleanup error:',
-                                                        storageError
-                                                    );
-
-
-                                                    alert(
-                                                        'The archived operation was not deleted because its AAR screenshots could not be removed: ' +
-                                                        storageError.message
-                                                    );
-
-
-                                                    button.disabled =
-                                                        false;
-
-
-                                                    button.textContent =
-                                                        originalText;
-
-
-                                                    return;
-
-                                                }
-
-                                            }
 
                                         }
 
@@ -5939,14 +4743,6 @@ if (attendanceEventError) {
                                             alert(
                                                 error.message
                                             );
-
-
-                                            button.disabled =
-                                                false;
-
-
-                                            button.textContent =
-                                                originalText;
 
 
                                             return;
@@ -6037,7 +4833,7 @@ if (attendanceEventError) {
                             )
 
                             .select(
-                                'display_name,access_level,member_status,rank'
+                                'display_name,access_level,member_status'
                             )
 
                             .eq(
@@ -6083,24 +4879,6 @@ if (attendanceEventError) {
 
                         profile.access_level ===
                         'Super Admin';
-
-
-                    const {
-                        data: aarPermission,
-                        error: aarPermissionError
-                    } = await client.rpc(
-                        'can_manage_aars',
-                        { p_user_id: currentUser.id }
-                    );
-
-                    if (aarPermissionError) {
-                        console.error('AAR permission check error:', aarPermissionError);
-                    }
-
-                    canManageAars =
-                        !aarPermissionError
-                        &&
-                        aarPermission === true;
 
 
                     commandPanel.hidden =
