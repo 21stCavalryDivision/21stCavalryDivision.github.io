@@ -22,7 +22,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass jq openssh-client
 
-      - name: Inspect SFTP folders
+      - name: Download live server config
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_PORT: ${{ secrets.SFTP_PORT }}
@@ -35,10 +35,32 @@ jobs:
             -o StrictHostKeyChecking=accept-new \
             -P "$SFTP_PORT" \
             "$SFTP_USERNAME@$SFTP_HOST" <<EOF
-          pwd
-          ls
-          cd *_7940
-          pwd
-          ls
+          get *_7940/config/serverconfig.json serverconfig.json
           bye
           EOF
+
+          echo "Checking server config..."
+          test -f serverconfig.json
+          ls -lh serverconfig.json
+
+      - name: Extract server mod list
+        run: |
+          jq '.mods' serverconfig.json > mods.json
+
+          echo "Live server mod count:"
+          jq 'length' mods.json
+
+      - name: Commit updated mod list
+        run: |
+          git config user.name "21st Cavalry Mod Sync"
+          git config user.email "actions@github.com"
+
+          git add mods.json
+
+          if git diff --cached --quiet; then
+            echo "No mod changes detected."
+            exit 0
+          fi
+
+          git commit -m "Auto-update server mod list"
+          git push
