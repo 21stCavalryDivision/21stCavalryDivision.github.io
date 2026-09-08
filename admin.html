@@ -2677,6 +2677,32 @@
 .main-nav a[hidden] { display:none !important; }
 .main-nav .nav-cta[hidden] { display:none !important; }
 </style>
+
+<style id="promotion-review-styles">
+.promotion-review-panel{margin-bottom:28px;padding:20px;border:1px solid #30383d;border-top:2px solid #c5a75b;background:#101619}
+.promotion-review-toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
+.promotion-review-rules{color:#829097;font-size:10px;line-height:1.6}
+.promotion-review-rules strong{color:#d4b95f;font:600 10px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase}
+.promotion-review-count{flex:0 0 auto;padding:7px 10px;border:1px solid #756438;color:#d4b95f;font:600 9px Oswald,sans-serif;letter-spacing:.8px;text-transform:uppercase}
+.promotion-review-list{display:grid;gap:9px}
+.promotion-review-card{display:grid;grid-template-columns:minmax(190px,1.25fr) minmax(150px,.8fr) minmax(150px,.85fr) minmax(150px,.85fr) auto;gap:14px;align-items:center;padding:15px 16px;border:1px solid #30383d;background:#090f12}
+.promotion-review-card.ready{border-left:3px solid #75d48c}
+.promotion-review-card.hold{border-left:3px solid #c5a75b}
+.promotion-review-card.blocked{border-left:3px solid #df7474}
+.promotion-review-name strong{display:block;color:#fff;font:600 16px Oswald,sans-serif;text-transform:uppercase}
+.promotion-review-name small{display:block;margin-top:3px;color:#718088;font-size:9px}
+.promotion-review-field span{display:block;margin-bottom:3px;color:#6e7d84;font:500 8px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase}
+.promotion-review-field strong{display:block;color:#cbd2d5;font:500 10px Oswald,sans-serif;line-height:1.35}
+.promotion-review-badge{justify-self:end;padding:6px 9px;border:1px solid #4b565c;color:#9ba7ac;font:600 8px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase;white-space:nowrap}
+.promotion-review-badge.ready{border-color:#3f6a4a;color:#75d48c}
+.promotion-review-badge.hold{border-color:#756438;color:#d4b95f}
+.promotion-review-badge.blocked{border-color:#744343;color:#e17b7b}
+.promotion-review-note{grid-column:1/-1;margin-top:-4px;padding-top:9px;border-top:1px solid #222d32;color:#75858c;font-size:10px;line-height:1.5}
+.promotion-review-empty{padding:25px 18px;border:1px dashed #30383d;color:#77858b;text-align:center}
+@media(max-width:1050px){.promotion-review-card{grid-template-columns:1fr 1fr 1fr}.promotion-review-badge{justify-self:start}}
+@media(max-width:700px){.promotion-review-toolbar{flex-direction:column}.promotion-review-card{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body>
 <!-- =================================================
@@ -2804,6 +2830,7 @@
 <div aria-label="Admin quick navigation" class="admin-jump-nav">
 <button class="admin-jump-btn" data-panel="loaManagementPanel" data-toggle="toggleLoas">Leave of Absence</button>
 <button class="admin-jump-btn" data-panel="pendingMemberPanel" data-toggle="togglePendingMembers">Pending Approvals</button>
+<button class="admin-jump-btn" data-panel="promotionReviewPanel" data-toggle="togglePromotionReview">Promotion Review</button>
 <button class="admin-jump-btn" data-panel="memberManagementPanel" data-toggle="toggleMembers">Member Management</button>
 <button class="admin-jump-btn" data-panel="dischargePanel" data-toggle="toggleDischarges">Discharge Records</button>
 <button class="admin-jump-btn" data-panel="attendanceManagementPanel" data-toggle="toggleAttendance">Attendance</button>
@@ -2864,6 +2891,31 @@
                 </span>
 </div>
 </section>
+
+<!-- =================================================
+             PROMOTION REVIEW / ELIGIBILITY
+             ================================================= -->
+<div class="admin-section-heading member-section-heading">
+<h2>Promotion Review</h2>
+<div class="member-heading-actions">
+<span id="promotionReviewHeadingCount">0 Ready for Review</span>
+<button aria-controls="promotionReviewPanel" aria-expanded="true" class="member-collapse-toggle" id="togglePromotionReview" type="button">Hide Promotion Review</button>
+</div>
+</div>
+<section class="promotion-review-panel" id="promotionReviewPanel">
+<div class="promotion-review-toolbar">
+<div class="promotion-review-rules">
+<strong>Automatic Screening</strong><br/>
+Active member • Attendance at or above the existing 65% standard • Current promotion record available • Next standard rank available.<br/>
+Time in grade and qualifications are displayed for command review; they are not automatically treated as pass/fail requirements.
+</div>
+<div class="promotion-review-count" id="promotionReviewCount">Loading...</div>
+</div>
+<div class="promotion-review-list" id="promotionReviewList">
+<div class="promotion-review-empty">Loading promotion review data...</div>
+</div>
+</section>
+
 <!-- =================================================
              LOA MANAGEMENT
              ================================================= -->
@@ -7659,6 +7711,177 @@ function renderAttendanceWarnings() {
             .join('');
 
 }
+
+                /* =================================================
+                   PROMOTION REVIEW / ELIGIBILITY
+                   ================================================= */
+                const PROMOTION_ATTENDANCE_THRESHOLD = 65;
+
+                const PROMOTION_NEXT_RANK = {
+                    'Recruit': 'Private (PVT)',
+                    'Private (PVT)': 'Private Second Class (PV2)',
+                    'Private Second Class (PV2)': 'Private First Class (PFC)',
+                    'Private First Class (PFC)': 'Specialist (SPC)',
+                    'Specialist (SPC)': 'Sergeant (SGT)',
+                    'Corporal (CPL)': 'Sergeant (SGT)',
+                    'Sergeant (SGT)': 'Staff Sergeant (SSG)',
+                    'Staff Sergeant (SSG)': 'Sergeant First Class (SFC)',
+                    'Sergeant First Class (SFC)': 'Master Sergeant (MSG)',
+                    'Master Sergeant (MSG)': 'Sergeant Major (SGM)',
+                    'First Sergeant (1SG)': 'Sergeant Major (SGM)',
+                    'Sergeant Major (SGM)': 'Command Sergeant Major (CSM)',
+                    'Warrant Officer 1 (WO1)': 'Chief Warrant Officer 2 (CW2)',
+                    'Chief Warrant Officer 2 (CW2)': 'Chief Warrant Officer 3 (CW3)',
+                    'Chief Warrant Officer 3 (CW3)': 'Chief Warrant Officer 4 (CW4)',
+                    'Chief Warrant Officer 4 (CW4)': 'Chief Warrant Officer 5 (CW5)',
+                    'Second Lieutenant (2LT)': 'First Lieutenant (1LT)',
+                    'First Lieutenant (1LT)': 'Captain (CPT)',
+                    'Captain (CPT)': 'Major (MAJ)',
+                    'Major (MAJ)': 'Lieutenant Colonel (LTC)',
+                    'Lieutenant Colonel (LTC)': 'Colonel (COL)',
+                    'Colonel (COL)': 'Brigadier General (BG)',
+                    'Brigadier General (BG)': 'Major General (MG)',
+                    'Major General (MG)': 'Lieutenant General (LTG)',
+                    'Lieutenant General (LTG)': 'General (GEN)'
+                };
+
+                function promotionDaysSince(value) {
+                    if (!value) return null;
+                    const start = new Date(`${String(value).slice(0,10)}T00:00:00`);
+                    const now = new Date();
+                    if (Number.isNaN(start.getTime())) return null;
+                    return Math.max(0, Math.floor((now.getTime() - start.getTime()) / 86400000));
+                }
+
+                function promotionTimeText(value) {
+                    const totalDays = promotionDaysSince(value);
+                    if (totalDays == null) return 'Unknown';
+                    const years = Math.floor(totalDays / 365);
+                    const months = Math.floor((totalDays % 365) / 30);
+                    const days = (totalDays % 365) % 30;
+                    const parts = [];
+                    if (years) parts.push(`${years} yr${years === 1 ? '' : 's'}`);
+                    if (months) parts.push(`${months} mo`);
+                    if (!years && !months) parts.push(`${days} day${days === 1 ? '' : 's'}`);
+                    return parts.join(' ');
+                }
+
+                function promotionNextRank(rank) {
+                    return PROMOTION_NEXT_RANK[String(rank || '').trim()] || null;
+                }
+
+                function promotionReviewStatus(member, promotionRecord) {
+                    const active = String(member.member_status || 'Active').toLowerCase() === 'active';
+                    const attendance = Number(member.attendance_rate || 0);
+                    const nextRank = promotionNextRank(member.rank);
+
+                    if (!active) {
+                        return {key:'blocked',label:'Not Eligible',reason:`Member status is ${member.member_status || 'not Active'}.`};
+                    }
+                    if (attendance < PROMOTION_ATTENDANCE_THRESHOLD) {
+                        return {key:'blocked',label:'Attendance Hold',reason:`Attendance is below the existing ${PROMOTION_ATTENDANCE_THRESHOLD}% command standard.`};
+                    }
+                    if (!nextRank) {
+                        return {key:'hold',label:'Command Review',reason:'No automatic next-rank path is assigned for the current rank.'};
+                    }
+                    if (!promotionRecord) {
+                        return {key:'hold',label:'Needs Rank Date',reason:'No promotion-history record matches the current rank, so time in grade cannot be verified.'};
+                    }
+                    return {key:'ready',label:'Ready for Review',reason:'Automatic screening passed. Final promotion decision remains with command.'};
+                }
+
+                async function loadPromotionReview() {
+                    const list = document.getElementById('promotionReviewList');
+                    const count = document.getElementById('promotionReviewCount');
+                    const headingCount = document.getElementById('promotionReviewHeadingCount');
+                    if (!list || !count || !headingCount) return;
+
+                    const members = (allMembers || []).filter(
+                        member => String(member.member_status || '').toLowerCase() !== 'discharged'
+                    );
+
+                    if (!members.length) {
+                        count.textContent = '0 Personnel';
+                        headingCount.textContent = '0 Ready for Review';
+                        list.innerHTML = '<div class="promotion-review-empty">No personnel are available for promotion review.</div>';
+                        return;
+                    }
+
+                    const ids = members.map(member => member.user_id).filter(Boolean);
+                    let history = [];
+
+                    if (ids.length) {
+                        const { data, error } = await client
+                            .from('promotion_history')
+                            .select('id,user_id,rank,promotion_date,notes,created_at')
+                            .in('user_id', ids)
+                            .order('promotion_date', { ascending: false })
+                            .order('id', { ascending: false });
+
+                        if (error) {
+                            console.error('Promotion review history load error:', error);
+                        } else {
+                            history = data || [];
+                        }
+                    }
+
+                    const historyByUser = new Map();
+                    history.forEach(record => {
+                        const key = String(record.user_id);
+                        if (!historyByUser.has(key)) historyByUser.set(key, []);
+                        historyByUser.get(key).push(record);
+                    });
+
+                    const reviewed = members.map(member => {
+                        const records = historyByUser.get(String(member.user_id)) || [];
+                        const currentRecord = records.find(record => record.rank === member.rank) || null;
+                        return {
+                            member,
+                            currentRecord,
+                            nextRank: promotionNextRank(member.rank),
+                            status: promotionReviewStatus(member, currentRecord)
+                        };
+                    });
+
+                    const weights = {ready:0, hold:1, blocked:2};
+                    reviewed.sort((a,b) => {
+                        const d = weights[a.status.key] - weights[b.status.key];
+                        return d || String(a.member.display_name || '').localeCompare(String(b.member.display_name || ''));
+                    });
+
+                    const readyCount = reviewed.filter(item => item.status.key === 'ready').length;
+                    count.textContent = `${readyCount} Ready / ${reviewed.length} Reviewed`;
+                    headingCount.textContent = `${readyCount} Ready for Review`;
+
+                    list.innerHTML = reviewed.map(item => {
+                        const m = item.member;
+                        const attendance = Number(m.attendance_rate || 0);
+                        const qCount = Array.isArray(m.qualifications) ? m.qualifications.length : 0;
+                        return `
+                            <article class="promotion-review-card ${item.status.key}">
+                                <div class="promotion-review-name">
+                                    <strong>${escapeHtml(m.display_name || 'Member')}</strong>
+                                    <small>${escapeHtml(m.rank || 'Recruit')} • ${escapeHtml(m.section || 'Unassigned')}</small>
+                                </div>
+                                <div class="promotion-review-field">
+                                    <span>Next Standard Rank</span>
+                                    <strong>${escapeHtml(item.nextRank || 'Command Determination')}</strong>
+                                </div>
+                                <div class="promotion-review-field">
+                                    <span>Time in Grade</span>
+                                    <strong>${item.currentRecord ? escapeHtml(promotionTimeText(item.currentRecord.promotion_date)) : 'Not Available'}</strong>
+                                </div>
+                                <div class="promotion-review-field">
+                                    <span>Readiness</span>
+                                    <strong>${attendance}% Attendance • ${qCount} Qualification${qCount === 1 ? '' : 's'}</strong>
+                                </div>
+                                <span class="promotion-review-badge ${item.status.key}">${escapeHtml(item.status.label)}</span>
+                                <div class="promotion-review-note">${escapeHtml(item.status.reason)}</div>
+                            </article>
+                        `;
+                    }).join('');
+                }
+
                 async function loadMembers() {
 
                     const {
@@ -7715,6 +7938,8 @@ function renderAttendanceWarnings() {
                     updateSummary();
                     
                     renderAttendanceWarnings();
+
+                    await loadPromotionReview();
 
                     applyMemberSearch();
 
@@ -7791,6 +8016,26 @@ function renderAttendanceWarnings() {
 
                 }
 
+
+
+                const togglePromotionReview =
+                    document.getElementById('togglePromotionReview');
+                const promotionReviewPanel =
+                    document.getElementById('promotionReviewPanel');
+
+                if (togglePromotionReview && promotionReviewPanel) {
+                    togglePromotionReview.addEventListener(
+                        'click',
+                        () => {
+                            const isOpen =
+                                togglePromotionReview.getAttribute('aria-expanded') === 'true';
+                            togglePromotionReview.setAttribute('aria-expanded', String(!isOpen));
+                            promotionReviewPanel.hidden = isOpen;
+                            togglePromotionReview.textContent =
+                                isOpen ? 'Show Promotion Review' : 'Hide Promotion Review';
+                        }
+                    );
+                }
 
                 toggleMembers.addEventListener(
                     'click',
