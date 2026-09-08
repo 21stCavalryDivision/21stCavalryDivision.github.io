@@ -1633,7 +1633,10 @@
             content: ' ▲';
         }
 
-        .member-management-panel[hidden] {
+        .member-management-panel[hidden],
+        .loa-admin-panel[hidden],
+        .pending-member-panel[hidden],
+        .attendance-panel[hidden] {
             display: none;
         }
 
@@ -2541,12 +2544,28 @@
              LOA MANAGEMENT
              ================================================= -->
 
-        <div class="admin-section-heading">
+        <div class="admin-section-heading member-section-heading">
             <h2>Leave of Absence Management</h2>
-            <span>Automatically Approved</span>
+
+            <div class="member-heading-actions">
+                <span>Automatically Approved</span>
+                <button
+                    id="toggleLoas"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="loaManagementPanel"
+                >
+                    Show LOAs
+                </button>
+            </div>
         </div>
 
-        <section class="loa-admin-panel">
+        <section
+            id="loaManagementPanel"
+            class="loa-admin-panel"
+            hidden
+        >
             <div class="loa-admin-toolbar">
                 <div id="loaCountLine" class="member-count-line">Loading LOA records...</div>
                 <button id="refreshLoas" class="admin-refresh" type="button">Refresh LOAs</button>
@@ -2563,12 +2582,28 @@
              PENDING MEMBER APPROVALS
              ================================================= -->
 
-        <div class="admin-section-heading">
+        <div class="admin-section-heading member-section-heading">
             <h2>Pending Member Approvals</h2>
-            <span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
+
+            <div class="member-heading-actions">
+                <span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
+                <button
+                    id="togglePendingMembers"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pendingMemberPanel"
+                >
+                    Show Pending
+                </button>
+            </div>
         </div>
 
-        <section class="pending-member-panel">
+        <section
+            id="pendingMemberPanel"
+            class="pending-member-panel"
+            hidden
+        >
             <div class="pending-member-toolbar">
                 <div id="pendingMemberCountLine" class="member-count-line">
                     Loading Discord logins...
@@ -2745,20 +2780,36 @@
              ATTENDANCE MANAGEMENT
              ================================================= -->
 
-        <div class="admin-section-heading">
+        <div class="admin-section-heading member-section-heading">
 
             <h2>
                 Attendance Management
             </h2>
 
-            <span>
-                Personnel Accountability
-            </span>
+            <div class="member-heading-actions">
+                <span>
+                    Personnel Accountability
+                </span>
+
+                <button
+                    id="toggleAttendance"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="attendanceManagementPanel"
+                >
+                    Show Attendance
+                </button>
+            </div>
 
         </div>
 
 
-        <section class="attendance-panel">
+        <section
+            id="attendanceManagementPanel"
+            class="attendance-panel"
+            hidden
+        >
 
 
             <div class="attendance-create-grid">
@@ -3286,6 +3337,16 @@
                         'saveAttendance'
                     );
 
+                const attendanceManagementPanel =
+                    document.getElementById(
+                        'attendanceManagementPanel'
+                    );
+
+                const toggleAttendance =
+                    document.getElementById(
+                        'toggleAttendance'
+                    );
+
 
                 const loaAdminList =
                     document.getElementById('loaAdminList');
@@ -3298,6 +3359,12 @@
 
                 const refreshLoas =
                     document.getElementById('refreshLoas');
+
+                const loaManagementPanel =
+                    document.getElementById('loaManagementPanel');
+
+                const toggleLoas =
+                    document.getElementById('toggleLoas');
 
 
                 const pendingMemberList =
@@ -3314,6 +3381,12 @@
 
                 const refreshPendingMembers =
                     document.getElementById('refreshPendingMembers');
+
+                const pendingMemberPanel =
+                    document.getElementById('pendingMemberPanel');
+
+                const togglePendingMembers =
+                    document.getElementById('togglePendingMembers');
 
 
                 const dischargeList =
@@ -7250,6 +7323,70 @@
                                 ? 'Show Records'
                                 : 'Hide Records';
 
+                    }
+                );
+
+
+                toggleLoas.addEventListener(
+                    'click',
+                    () => {
+                        const isOpen =
+                            toggleLoas.getAttribute('aria-expanded')
+                            === 'true';
+
+                        toggleLoas.setAttribute(
+                            'aria-expanded',
+                            String(!isOpen)
+                        );
+
+                        loaManagementPanel.hidden = isOpen;
+
+                        toggleLoas.textContent =
+                            isOpen
+                                ? 'Show LOAs'
+                                : 'Hide LOAs';
+                    }
+                );
+
+                togglePendingMembers.addEventListener(
+                    'click',
+                    () => {
+                        const isOpen =
+                            togglePendingMembers.getAttribute('aria-expanded')
+                            === 'true';
+
+                        togglePendingMembers.setAttribute(
+                            'aria-expanded',
+                            String(!isOpen)
+                        );
+
+                        pendingMemberPanel.hidden = isOpen;
+
+                        togglePendingMembers.textContent =
+                            isOpen
+                                ? 'Show Pending'
+                                : 'Hide Pending';
+                    }
+                );
+
+                toggleAttendance.addEventListener(
+                    'click',
+                    () => {
+                        const isOpen =
+                            toggleAttendance.getAttribute('aria-expanded')
+                            === 'true';
+
+                        toggleAttendance.setAttribute(
+                            'aria-expanded',
+                            String(!isOpen)
+                        );
+
+                        attendanceManagementPanel.hidden = isOpen;
+
+                        toggleAttendance.textContent =
+                            isOpen
+                                ? 'Show Attendance'
+                                : 'Hide Attendance';
                     }
                 );
 
