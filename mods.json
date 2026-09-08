@@ -1,1 +1,242 @@
-null
+[
+  {
+    "modId": "1337C0DE5DABBEEF",
+    "name": "RHS - Content Pack 01"
+  },
+  {
+    "modId": "BADC0DEDABBEDA5E",
+    "name": "RHS - Content Pack 02"
+  },
+  {
+    "modId": "595F2BF2F44836FB",
+    "name": "RHS - Status Quo"
+  },
+  {
+    "modId": "629B2BA37EFFD577",
+    "name": "WCS_Armaments"
+  },
+  {
+    "modId": "64610AFB74AA9842",
+    "name": "WCS_Core"
+  },
+  {
+    "modId": "68F006D910E7546F",
+    "name": "WCS_Weapon_Scripts"
+  },
+  {
+    "modId": "631C3C1AEE9C90BC",
+    "name": "WCS_Sounds"
+  },
+  {
+    "modId": "61C74A8B647617DA",
+    "name": "WCS_Attachments"
+  },
+  {
+    "modId": "62A668F513428630",
+    "name": "WCS_Scopes"
+  },
+  {
+    "modId": "6602C1EC7E5A4A87",
+    "name": "WCS_Clothing_Assets"
+  },
+  {
+    "modId": "6152CB0BD0684837",
+    "name": "WCS_Clothing"
+  },
+  {
+    "modId": "615806DC6C57AF02",
+    "name": "WCS_NATO"
+  },
+  {
+    "modId": "615818DA7C0343FD",
+    "name": "WCS_RU"
+  },
+  {
+    "modId": "65CF7AE8574E06D2",
+    "name": "WCS_Weapons"
+  },
+  {
+    "modId": "65F929DF622BAD50",
+    "name": "WCS_RHS_Weapons"
+  },
+  {
+    "modId": "612F512CD4CB21D5",
+    "name": "WCS_Earplugs"
+  },
+  {
+    "modId": "5E389BB9F58B79A6",
+    "name": "SpaceCore"
+  },
+  {
+    "modId": "6276E6E3CC97A22B",
+    "name": "AUS_CORE"
+  },
+  {
+    "modId": "62CCD69DD17E4F2F",
+    "name": "AKI_Core"
+  },
+  {
+    "modId": "64EE818E08AFCF94",
+    "name": "MFD Framework"
+  },
+  {
+    "modId": "66DF6C37335B0554",
+    "name": "AHC Fuel Systems"
+  },
+  {
+    "modId": "6A1A34CAC30229CF",
+    "name": "M240H"
+  },
+  {
+    "modId": "65DACC64CE785B6C",
+    "name": "GRS - Dev Framework"
+  },
+  {
+    "modId": "657B064AE0E231DF",
+    "name": "GRS - Patches"
+  },
+  {
+    "modId": "5D0551624969C92E",
+    "name": "Zeliks Character"
+  },
+  {
+    "modId": "5AB301290317994A",
+    "name": "Bacon Suppressors"
+  },
+  {
+    "modId": "5ABD0CB57F7E9EB1",
+    "name": "RIS Laser Attachments"
+  },
+  {
+    "modId": "5CA6BA2F63DE1174",
+    "name": "M17 Pistol"
+  },
+  {
+    "modId": "65157D09F042428A",
+    "name": "GRS - Apparel"
+  },
+  {
+    "modId": "651433ECBC794018",
+    "name": "GRS - Weapons"
+  },
+  {
+    "modId": "66D45759BD855397",
+    "name": "Gabagool Gears"
+  },
+  {
+    "modId": "696214A3D7FAD490",
+    "name": "Modern US Army Revamped 2026"
+  },
+  {
+    "modId": "5D1880C4AD410C14",
+    "name": "M1 Abrams"
+  },
+  {
+    "modId": "63120AE07E6C0966",
+    "name": "M2 Bradley Fighting Vehicle"
+  },
+  {
+    "modId": "5C721177A220B42F",
+    "name": "Joint Light Tactical Vehicle"
+  },
+  {
+    "modId": "6A2D41D3518240A4",
+    "name": "M1 Abrams Sound"
+  },
+  {
+    "modId": "6A26F10D504E0003",
+    "name": "SFD JLTV Sound Fix"
+  },
+  {
+    "modId": "6A2F132394AF5056",
+    "name": "MWH Vehicle Audio Compatiblity"
+  },
+  {
+    "modId": "6303360DA719E832",
+    "name": "WCS_AH-64D"
+  },
+  {
+    "modId": "6273146ADFE8241D",
+    "name": "WCS_AH-6M"
+  },
+  {
+    "modId": "694E575D2AD51736",
+    "name": "WCS Littlebird Maps"
+  },
+  {
+    "modId": "60ED3CC6E7E40221",
+    "name": "Sikorsky H60 Project"
+  },
+  {
+    "modId": "61957C5C6FB7A773",
+    "name": "H-47 Chinook"
+  },
+  {
+    "modId": "686AC479236F235D",
+    "name": "M777 Howitzer Artillery"
+  },
+  {
+    "modId": "6A20948448913FD7",
+    "name": "WCS_Hescos"
+  },
+  {
+    "modId": "606B100247F5C709",
+    "name": "Bacon Loadout Editor"
+  },
+  {
+    "modId": "68E62B31ACC625A3",
+    "name": "RHS_BaconLoadout"
+  },
+  {
+    "modId": "5B3ED33ADA805340",
+    "name": "Task Force Mattock Weapons"
+  },
+  {
+    "modId": "69156B5B321244C9",
+    "name": "Physics Rope"
+  },
+  {
+    "modId": "68D53E2C3E3F4436",
+    "name": "BFS - Rappel Reforged"
+  },
+  {
+    "modId": "6052A9DD45564825",
+    "name": "You can sit"
+  },
+  {
+    "modId": "5965550F24A0C152",
+    "name": "Where Am I"
+  },
+  {
+    "modId": "656AC01634459D8D",
+    "name": "Map Drawing"
+  },
+  {
+    "modId": "5994AD5A9F33BE57",
+    "name": "Game Master FX"
+  },
+  {
+    "modId": "6A49417788E13618",
+    "name": "Kova x ATAK"
+  },
+  {
+    "modId": "66D4117974B3F12F",
+    "name": "VRT CQB ShootHouse Modular"
+  },
+  {
+    "modId": "5C9758250C8C56F1",
+    "name": "Bon Action Animations"
+  },
+  {
+    "modId": "65AD7D0D9941A380",
+    "name": "ACE Core Dev"
+  },
+  {
+    "modId": "5964E0B3BB7410CE",
+    "name": "Game Master Enhanced"
+  },
+  {
+    "modId": "65213120F3802203",
+    "name": "CM-PlayerStatsHUD"
+  }
+]
