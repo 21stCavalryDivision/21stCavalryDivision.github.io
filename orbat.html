@@ -412,7 +412,172 @@
             .legend-row{grid-template-columns:1fr;gap:6px}
             footer{flex-direction:column;align-items:flex-start}
         }
-    </style>
+    
+/* =========================================================
+   LIVE ORBAT ROSTER
+   ========================================================= */
+.live-orbat-shell{
+    margin-top:28px;
+}
+.live-orbat-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:16px 18px;
+    border:1px solid rgba(200,170,91,.22);
+    background:rgba(255,255,255,.025);
+    margin-bottom:18px;
+}
+.live-orbat-state{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--muted);
+    font-size:13px;
+    letter-spacing:.04em;
+}
+.live-dot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:#7f8a78;
+    box-shadow:0 0 0 4px rgba(127,138,120,.10);
+}
+.live-dot.online{
+    background:#79a36c;
+    box-shadow:0 0 0 4px rgba(121,163,108,.12);
+}
+.live-dot.error{
+    background:#ad6e62;
+    box-shadow:0 0 0 4px rgba(173,110,98,.12);
+}
+.live-orbat-count{
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--gold2);
+    font-size:13px;
+}
+.live-orbat-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+}
+.live-element{
+    border:1px solid rgba(200,170,91,.18);
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));
+    min-width:0;
+}
+.live-element-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 20px;
+    border-bottom:1px solid rgba(200,170,91,.14);
+}
+.live-element-kicker{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--gold);
+    margin-bottom:4px;
+}
+.live-element h3{
+    margin:0;
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    font-size:24px;
+    color:var(--text);
+}
+.live-element-count{
+    flex:0 0 auto;
+    min-width:38px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(200,170,91,.30);
+    color:var(--gold2);
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+    font-size:14px;
+}
+.live-member-list{
+    display:flex;
+    flex-direction:column;
+}
+.live-member{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(140px,.7fr);
+    gap:14px;
+    align-items:center;
+    padding:14px 20px;
+    border-bottom:1px solid rgba(255,255,255,.055);
+}
+.live-member:last-child{
+    border-bottom:0;
+}
+.live-member-name{
+    min-width:0;
+}
+.live-member-name strong{
+    display:block;
+    color:var(--text);
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
+    font-size:18px;
+    letter-spacing:.025em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.live-member-name span{
+    display:block;
+    margin-top:3px;
+    color:var(--gold2);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+}
+.live-member-billet{
+    color:var(--muted);
+    text-align:right;
+    font-size:13px;
+    line-height:1.35;
+}
+.live-member-status{
+    display:inline-block;
+    margin-left:7px;
+    padding:2px 6px;
+    border:1px solid rgba(200,170,91,.22);
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:.08em;
+    vertical-align:2px;
+}
+.live-empty{
+    padding:20px;
+    color:var(--muted);
+    font-size:13px;
+}
+.live-orbat-message{
+    grid-column:1/-1;
+    padding:26px;
+    border:1px solid rgba(200,170,91,.18);
+    background:rgba(255,255,255,.02);
+    color:var(--muted);
+    line-height:1.65;
+}
+@media(max-width:900px){
+    .live-orbat-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+    .live-orbat-toolbar{align-items:flex-start;flex-direction:column}
+    .live-member{grid-template-columns:1fr}
+    .live-member-billet{text-align:left}
+}
+</style>
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -574,6 +739,30 @@
 <div class="status-item"><small>Maneuver</small><strong>Platoon / Squad</strong></div>
 <div class="status-item"><small>Support</small><strong>Multi-Section</strong></div>
 </section>
+<section class="section" id="liveOrbatSection">
+<div class="wrap">
+<div class="section-top reveal">
+<div>
+<p class="eyebrow">LIVE // PERSONNEL ASSIGNMENTS</p>
+<h2>Current Division Roster</h2>
+</div>
+<div class="section-code">Supabase Personnel System</div>
+</div>
+<div class="live-orbat-shell reveal">
+<div class="live-orbat-toolbar">
+<div class="live-orbat-state">
+<span class="live-dot" id="liveOrbatDot"></span>
+<span id="liveOrbatStatus">Loading current assignments...</span>
+</div>
+<div class="live-orbat-count" id="liveOrbatCount">0 Personnel</div>
+</div>
+<div class="live-orbat-grid" id="liveOrbatGrid">
+<div class="live-orbat-message">Loading the live division roster...</div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="section">
 <div class="wrap">
 <div class="section-top reveal">
@@ -760,7 +949,227 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script id="live-orbat-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
+    const rankOrder = [
+        'Recruit','PV1','PV2','PFC','SPC','CPL','SGT','SSG','SFC',
+        'MSG','1SG','SGM','CSM','2LT','1LT','CPT','MAJ','LTC','COL','BG','MG','LTG','GEN'
+    ];
+
+    const sectionOrder = [
+        'Division HQ',
+        'Command Staff',
+        '1st Platoon',
+        '1st Squad',
+        '2nd Squad',
+        'Weapons Squad',
+        '2nd Platoon',
+        '3rd Squad',
+        'Aviation Detachment',
+        'Armor Section',
+        'Recon Section',
+        'Medical Section',
+        'Training Section',
+        'Recruitment Section',
+        'Unassigned'
+    ];
+
+    const sectionLabels = {
+        'Division HQ': 'Command',
+        'Command Staff': 'Command',
+        '1st Platoon': 'Maneuver',
+        '2nd Platoon': 'Maneuver',
+        '1st Squad': 'Maneuver',
+        '2nd Squad': 'Maneuver',
+        '3rd Squad': 'Maneuver',
+        'Weapons Squad': 'Maneuver',
+        'Aviation Detachment': 'Combat Support',
+        'Armor Section': 'Combat Support',
+        'Recon Section': 'Combat Support',
+        'Medical Section': 'Combat Support',
+        'Training Section': 'Support',
+        'Recruitment Section': 'Support',
+        'Unassigned': 'Personnel'
+    };
+
+    function escapeHtml(value) {
+        return String(value ?? '')
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#039;');
+    }
+
+    function normalizeRank(rank) {
+        return String(rank || 'Recruit').trim();
+    }
+
+    function rankIndex(rank) {
+        const normalized = normalizeRank(rank).toUpperCase();
+        const idx = rankOrder.findIndex(r => r.toUpperCase() === normalized);
+        return idx === -1 ? -1 : idx;
+    }
+
+    function memberSort(a, b) {
+        const rankDiff = rankIndex(b.rank) - rankIndex(a.rank);
+        if (rankDiff !== 0) return rankDiff;
+
+        const billetA = String(a.billet || '');
+        const billetB = String(b.billet || '');
+        const billetDiff = billetA.localeCompare(billetB);
+        if (billetDiff !== 0) return billetDiff;
+
+        return String(a.display_name || '').localeCompare(String(b.display_name || ''));
+    }
+
+    function isVisibleMember(member) {
+        const status = String(member.member_status || 'Active').trim().toLowerCase();
+        return ![
+            'discharged',
+            'denied',
+            'rejected',
+            'pending',
+            'inactive'
+        ].includes(status);
+    }
+
+    function renderMember(member) {
+        const status = String(member.member_status || 'Active').trim();
+        const showStatus = status && status.toLowerCase() !== 'active';
+
+        return `
+            <div class="live-member">
+                <div class="live-member-name">
+                    <strong>${escapeHtml(member.display_name || 'Unnamed Member')}</strong>
+                    <span>
+                        ${escapeHtml(normalizeRank(member.rank))}
+                        ${showStatus ? `<span class="live-member-status">${escapeHtml(status)}</span>` : ''}
+                    </span>
+                </div>
+                <div class="live-member-billet">
+                    ${escapeHtml(member.billet || 'Unassigned')}
+                </div>
+            </div>
+        `;
+    }
+
+    function renderRoster(members) {
+        const grid = document.getElementById('liveOrbatGrid');
+        const count = document.getElementById('liveOrbatCount');
+        const status = document.getElementById('liveOrbatStatus');
+        const dot = document.getElementById('liveOrbatDot');
+
+        const visible = members.filter(isVisibleMember);
+
+        const grouped = new Map();
+
+        visible.forEach(member => {
+            const section = String(member.section || 'Unassigned').trim() || 'Unassigned';
+            if (!grouped.has(section)) grouped.set(section, []);
+            grouped.get(section).push(member);
+        });
+
+        const orderedSections = [
+            ...sectionOrder.filter(section => grouped.has(section)),
+            ...Array.from(grouped.keys())
+                .filter(section => !sectionOrder.includes(section))
+                .sort((a, b) => a.localeCompare(b))
+        ];
+
+        if (!orderedSections.length) {
+            grid.innerHTML = `
+                <div class="live-orbat-message">
+                    No active personnel assignments are currently available.
+                </div>
+            `;
+        } else {
+            grid.innerHTML = orderedSections.map(section => {
+                const sectionMembers = grouped.get(section).sort(memberSort);
+                return `
+                    <article class="live-element">
+                        <div class="live-element-head">
+                            <div>
+                                <div class="live-element-kicker">${escapeHtml(sectionLabels[section] || 'Assigned Element')}</div>
+                                <h3>${escapeHtml(section)}</h3>
+                            </div>
+                            <div class="live-element-count">${sectionMembers.length}</div>
+                        </div>
+                        <div class="live-member-list">
+                            ${sectionMembers.map(renderMember).join('')}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        count.textContent = `${visible.length} Personnel`;
+        status.textContent = 'Live personnel assignments loaded';
+        dot.classList.remove('error');
+        dot.classList.add('online');
+    }
+
+    function renderError(message) {
+        const grid = document.getElementById('liveOrbatGrid');
+        const count = document.getElementById('liveOrbatCount');
+        const status = document.getElementById('liveOrbatStatus');
+        const dot = document.getElementById('liveOrbatDot');
+
+        count.textContent = 'Roster Offline';
+        status.textContent = 'Live roster unavailable';
+        dot.classList.remove('online');
+        dot.classList.add('error');
+
+        grid.innerHTML = `
+            <div class="live-orbat-message">
+                The organizational structure below is still available, but the live personnel roster
+                could not be loaded. ${escapeHtml(message || '')}
+            </div>
+        `;
+    }
+
+    async function loadLiveOrbat() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            renderError('The personnel connection did not initialize.');
+            return;
+        }
+
+        try {
+            const client = window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY,
+                {
+                    auth: {
+                        persistSession: true,
+                        autoRefreshToken: true,
+                        detectSessionInUrl: true
+                    }
+                }
+            );
+
+            const { data, error } = await client
+                .from('member_profiles')
+                .select('display_name,rank,billet,section,member_status');
+
+            if (error) throw error;
+
+            renderRoster(Array.isArray(data) ? data : []);
+        } catch (error) {
+            console.warn('Live ORBAT load failed:', error);
+            renderError('Personnel permissions may need to allow roster viewing.');
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadLiveOrbat);
+    } else {
+        loadLiveOrbat();
+    }
+})();
+</script>
 <script id="auth-nav-direct-script">
 (function () {
     const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
