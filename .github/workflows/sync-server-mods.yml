@@ -1,0 +1,62 @@
+name: Sync Server Mods
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-mods:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+
+      - name: Install SFTP tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass jq
+
+      - name: Download live server config
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          export SSHPASS="$SFTP_PASSWORD"
+
+          sshpass -e sftp \
+            -o StrictHostKeyChecking=accept-new \
+            -P "$SFTP_PORT" \
+            "$SFTP_USERNAME@$SFTP_HOST" <<EOF
+          get config/serverconfig.json /tmp/serverconfig.json
+          bye
+          EOF
+
+      - name: Extract server mod list
+        run: |
+          jq '.mods' /tmp/serverconfig.json > mods.json
+
+          echo "Live server mods:"
+          jq 'length' mods.json
+
+      - name: Commit updated mod list
+        run: |
+          git config user.name "21st Cavalry Mod Sync"
+          git config user.email "actions@github.com"
+
+          git add mods.json
+
+          if git diff --cached --quiet; then
+            echo "No mod changes detected."
+            exit 0
+          fi
+
+          git commit -m "Auto-update server mod list"
+          git push
