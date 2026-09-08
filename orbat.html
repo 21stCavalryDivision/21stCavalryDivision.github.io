@@ -1014,14 +1014,92 @@
         return idx === -1 ? -1 : idx;
     }
 
+    const billetOrder = [
+        'Division Commander',
+        'Executive Officer',
+        'Command Sergeant Major',
+        'First Sergeant',
+        'Platoon Leader',
+        'Platoon Sergeant',
+        'Squad Leader',
+        'Team Leader',
+        'Forward Observer',
+        'Combat Medic',
+        'Radio Telephone Operator',
+        'Automatic Rifleman',
+        'Grenadier',
+        'Machine Gunner',
+        'Marksman',
+        'Sniper',
+        'Rifleman',
+        'Vehicle Commander',
+        'Gunner',
+        'Driver',
+        'Crewman',
+        'Pilot',
+        'Copilot',
+        'Crew Chief',
+        'Instructor',
+        'Training NCO',
+        'Recruiter'
+    ];
+
+    function billetIndex(billet) {
+        const value = String(billet || '').trim().toLowerCase();
+        const idx = billetOrder.findIndex(item => item.toLowerCase() === value);
+        return idx === -1 ? 999 : idx;
+    }
+
+    function rankIndex(rank) {
+        const value = String(rank || '').toUpperCase().trim();
+
+        // Prefer the abbreviation in parentheses, e.g. "LIEUTENANT COLONEL (LTC)".
+        const match = value.match(/\(([A-Z0-9]+)\)/);
+        const abbreviation = match ? match[1] : value;
+
+        const order = [
+            'RCT',
+            'PV1',
+            'PV2',
+            'PFC',
+            'SPC',
+            'CPL',
+            'SGT',
+            'SSG',
+            'SFC',
+            'MSG',
+            '1SG',
+            'SGM',
+            'CSM',
+            'WO1',
+            'CW2',
+            'CW3',
+            'CW4',
+            'CW5',
+            '2LT',
+            '1LT',
+            'CPT',
+            'MAJ',
+            'LTC',
+            'COL',
+            'BG',
+            'MG',
+            'LTG',
+            'GEN'
+        ];
+
+        const idx = order.indexOf(abbreviation);
+        return idx === -1 ? -1 : idx;
+    }
+
     function memberSort(a, b) {
+        // ORBAT position comes first: commander, XO, senior enlisted, then subordinate billets.
+        const billetDiff = billetIndex(a.billet) - billetIndex(b.billet);
+        if (billetDiff !== 0) return billetDiff;
+
+        // If two members hold the same billet, higher rank appears first.
         const rankDiff = rankIndex(b.rank) - rankIndex(a.rank);
         if (rankDiff !== 0) return rankDiff;
-
-        const billetA = String(a.billet || '');
-        const billetB = String(b.billet || '');
-        const billetDiff = billetA.localeCompare(billetB);
-        if (billetDiff !== 0) return billetDiff;
 
         return String(a.display_name || '').localeCompare(String(b.display_name || ''));
     }
