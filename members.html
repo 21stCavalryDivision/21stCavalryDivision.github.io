@@ -1,48 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="21st Cavalry Division Member Portal"
-    >
-
-    <title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="21st Cavalry Division Member Portal" name="description"/>
+<title>
         21st Cavalry Division | Member Portal
     </title>
-
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="styles.css?v=11"
-    >
-
-
-    <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=11" rel="stylesheet"/>
+<style>
 
         body {
             background: #080d10;
@@ -831,8 +801,6 @@
         }
 
     </style>
-
-
 <style id="command-center-member-redesign">
 :root{
     --cc-bg:#050706;
@@ -1074,8 +1042,6 @@ footer{
     .member-status-strip{grid-template-columns:1fr;width:92vw}
 }
 </style>
-
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -1186,929 +1152,546 @@ footer{
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
-
-
 <body>
-
-
-    <!-- ========================================= -->
-    <!-- HEADER -->
-    <!-- ========================================= -->
-
-    <header class="site-header">
-
-        <a
-            class="brand"
-            href="index.html"
-            aria-label="21st Cavalry Division home"
-        >
-
-            <div class="brand-mark">
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+<header class="site-header">
+<a aria-label="21st Cavalry Division home" class="brand" href="index.html">
+<div class="brand-mark">
                 21
             </div>
-
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </a>
-
-
-        <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-        >
+</div>
+</a>
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">
             ☰
         </button>
-
-
-        <nav
-            class="main-nav"
-            id="mainNav"
-        >
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a
-                href="operations.html"
-                id="operationsPortalLink"
-                hidden
-            >
-                OPBOARD
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="media.html">
-                Media
-            </a>
-
-            <a
-                href="members.html"
-                id="memberPortalLink"
-                style="color:#c5a75b;"
-                hidden
-             class="nav-current">
-                Member Portal
-            </a>
-
-            <a
-                href="admin.html"
-                id="adminPortalLink"
-                hidden
-            >
-                Admin
-            </a>
-
-
-            <div
-                class="member-auth"
-                id="memberAuth"
-            >
-
-                <button
-                    class="member-login-btn"
-                    id="discordLoginBtn"
-                    type="button"
-                >
+<nav class="main-nav" id="mainNav">
+<a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav nav-current" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a><div class="member-auth" id="memberAuth">
+<button class="member-login-btn" id="discordLoginBtn" type="button">
                     Login with Discord
                 </button>
-
-
-                <div
-                    class="member-profile"
-                    id="memberProfile"
-                    hidden
-                >
-
-                    <img
-                        id="memberAvatar"
-                        class="member-avatar"
-                        src=""
-                        alt=""
-                        hidden
-                    >
-
-
-                    <div class="member-profile-text">
-
-                        <span id="memberName">
+<div class="member-profile" hidden="" id="memberProfile">
+<img alt="" class="member-avatar" hidden="" id="memberAvatar" src=""/>
+<div class="member-profile-text">
+<span id="memberName">
                             Member
                         </span>
-
-                        <small>
+<small>
                             Authenticated Member
                         </small>
-
-                    </div>
-
-
-                    <button
-                        class="member-logout-btn"
-                        id="discordLogoutBtn"
-                        type="button"
-                    >
+</div>
+<button class="member-logout-btn" id="discordLogoutBtn" type="button">
                         Logout
                     </button>
-
-                </div>
-
-            </div>
-
-        </nav>
-
-    </header>
-
-
-    <!-- ========================================= -->
-    <!-- HERO -->
-    <!-- ========================================= -->
-
-    <section class="portal-hero">
-
-        <div class="portal-hero-inner">
-
-            <p class="eyebrow">
+</div>
+</div></nav>
+</header>
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+<section class="portal-hero">
+<div class="portal-hero-inner">
+<p class="eyebrow">
                 SECURE MEMBER AREA
             </p>
-
-            <h1>
+<h1>
                 MEMBER PORTAL
             </h1>
-
-            <p class="portal-hero-description">
+<p class="portal-hero-description">
                 View your personnel record, upcoming operations,
                 qualifications, training information and attendance history.
             </p>
-
-        </div>
-
-    </section>
-
-
-<section class="member-status-strip" aria-label="Member portal overview">
-    <div class="member-status-item">
-        <small>System</small>
-        <strong>Personnel Record</strong>
-    </div>
-    <div class="member-status-item">
-        <small>Access</small>
-        <strong>Discord Verified</strong>
-    </div>
-    <div class="member-status-item">
-        <small>Readiness</small>
-        <strong>Qualifications</strong>
-    </div>
-    <div class="member-status-item">
-        <small>Progress</small>
-        <strong>Promotion History</strong>
-    </div>
+</div>
 </section>
-
-
-
-    <!-- ========================================= -->
-    <!-- LOADING -->
-    <!-- ========================================= -->
-
-    <section
-        id="portalLoading"
-        class="portal-state"
-    >
-
-        <p class="eyebrow">
+<section aria-label="Member portal overview" class="member-status-strip">
+<div class="member-status-item">
+<small>System</small>
+<strong>Personnel Record</strong>
+</div>
+<div class="member-status-item">
+<small>Access</small>
+<strong>Discord Verified</strong>
+</div>
+<div class="member-status-item">
+<small>Readiness</small>
+<strong>Qualifications</strong>
+</div>
+<div class="member-status-item">
+<small>Progress</small>
+<strong>Promotion History</strong>
+</div>
+</section>
+<!-- ========================================= -->
+<!-- LOADING -->
+<!-- ========================================= -->
+<section class="portal-state" id="portalLoading">
+<p class="eyebrow">
             PERSONNEL SYSTEM
         </p>
-
-        <h2>
+<h2>
             Loading Personnel Record
         </h2>
-
-        <p>
+<p>
             Verifying your Discord account and retrieving
             your 21st Cavalry Division member profile.
         </p>
-
-    </section>
-
-
-    <!-- ========================================= -->
-    <!-- LOGIN -->
-    <!-- ========================================= -->
-
-    <section
-        id="portalLogin"
-        class="portal-state"
-        hidden
-    >
-
-        <p class="eyebrow">
+</section>
+<!-- ========================================= -->
+<!-- LOGIN -->
+<!-- ========================================= -->
+<section class="portal-state" hidden="" id="portalLogin">
+<p class="eyebrow">
             AUTHENTICATION REQUIRED
         </p>
-
-        <h2>
+<h2>
             Member Login Required
         </h2>
-
-        <p>
+<p>
             Sign in with your Discord account to access
             your 21st Cavalry Division personnel record.
         </p>
-
-        <button
-            id="portalLoginButton"
-            class="portal-login-button"
-            type="button"
-        >
+<button class="portal-login-button" id="portalLoginButton" type="button">
             Login with Discord
         </button>
-
-    </section>
-
-
-    <!-- ========================================= -->
-    <!-- ERROR -->
-    <!-- ========================================= -->
-
-    <section
-        id="portalError"
-        class="portal-state"
-        hidden
-    >
-
-        <p class="eyebrow">
+</section>
+<!-- ========================================= -->
+<!-- ERROR -->
+<!-- ========================================= -->
+<section class="portal-state" hidden="" id="portalError">
+<p class="eyebrow">
             PERSONNEL SYSTEM
         </p>
-
-        <h2>
+<h2>
             Record Unavailable
         </h2>
-
-        <p id="portalErrorText">
+<p id="portalErrorText">
             Your personnel record could not be loaded.
         </p>
-
-    </section>
-
-
-    <!-- ========================================= -->
-    <!-- PORTAL -->
-    <!-- ========================================= -->
-
-    <main
-        id="portalMain"
-        class="portal-shell"
-        hidden
-    >
-
-
-        <!-- PROFILE -->
-
-        <aside class="profile-card">
-
-            <img
-                id="profileAvatar"
-                class="profile-avatar"
-                src=""
-                alt="Member avatar"
-                hidden
-            >
-
-            <div
-                id="profileRank"
-                class="profile-rank"
-            >
+</section>
+<!-- ========================================= -->
+<!-- PORTAL -->
+<!-- ========================================= -->
+<main class="portal-shell" hidden="" id="portalMain">
+<!-- PROFILE -->
+<aside class="profile-card">
+<img alt="Member avatar" class="profile-avatar" hidden="" id="profileAvatar" src=""/>
+<div class="profile-rank" id="profileRank">
                 —
             </div>
-
-            <div
-                id="profileName"
-                class="profile-name"
-            >
+<div class="profile-name" id="profileName">
                 —
             </div>
-
-            <div
-                id="profileBillet"
-                class="profile-billet"
-            >
+<div class="profile-billet" id="profileBillet">
                 —
             </div>
-
-            <div class="profile-divider"></div>
-
-
-            <div class="profile-data-row">
-
-                <span>
+<div class="profile-divider"></div>
+<div class="profile-data-row">
+<span>
                     Section
                 </span>
-
-                <strong id="profileSection">
+<strong id="profileSection">
                     —
                 </strong>
-
-            </div>
-
-
-            <div class="profile-data-row">
-
-                <span>
+</div>
+<div class="profile-data-row">
+<span>
                     Role
                 </span>
-
-                <strong id="profileRole">
+<strong id="profileRole">
                     —
                 </strong>
-
-            </div>
-
-
-            <div class="profile-data-row">
-
-                <span>
+</div>
+<div class="profile-data-row">
+<span>
                     Status
                 </span>
-
-                <strong id="profileStatus">
+<strong id="profileStatus">
                     —
                 </strong>
-
-            </div>
-
-
-            <div class="profile-data-row">
-
-                <span>
+</div>
+<div class="profile-data-row">
+<span>
                     Access
                 </span>
-
-                <strong id="profileAccess">
+<strong id="profileAccess">
                     —
                 </strong>
-
-            </div>
-
-        </aside>
-
-
-        <div class="portal-content">
-
-
-            <!-- ========================================= -->
-            <!-- UPCOMING OPERATIONS -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+</aside>
+<div class="portal-content">
+<!-- ========================================= -->
+<!-- UPCOMING OPERATIONS -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Upcoming Operations
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         OPBOARD
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div
-                        id="upcomingOperations"
-                        class="upcoming-operations"
-                    >
-
-                        <div class="upcoming-empty">
+</div>
+<div class="portal-panel-body">
+<div class="upcoming-operations" id="upcomingOperations">
+<div class="upcoming-empty">
                             Loading upcoming operations...
                         </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- ========================================= -->
-            <!-- SERVICE RECORD -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- SERVICE RECORD -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Service Record
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         Personnel
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div class="service-grid">
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="portal-panel-body">
+<div class="service-grid">
+<div class="service-item">
+<span>
                                 Rank
                             </span>
-
-                            <strong id="serviceRank">
+<strong id="serviceRank">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Billet
                             </span>
-
-                            <strong id="serviceBillet">
+<strong id="serviceBillet">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Section
                             </span>
-
-                            <strong id="serviceSection">
+<strong id="serviceSection">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Attendance
                             </span>
-
-                            <strong id="serviceAttendance">
+<strong id="serviceAttendance">
                                 0%
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Member Role
                             </span>
-
-                            <strong id="serviceRole">
+<strong id="serviceRole">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Membership Status
                             </span>
-
-                            <strong id="serviceStatus">
+<strong id="serviceStatus">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Access Level
                             </span>
-
-                            <strong id="serviceAccess">
+<strong id="serviceAccess">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="service-item">
-
-                            <span>
+</div>
+<div class="service-item">
+<span>
                                 Join Date
                             </span>
-
-                            <strong id="serviceJoinDate">
+<strong id="serviceJoinDate">
                                 —
                             </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- ========================================= -->
-            <!-- TRAINING RECORD -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+</div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- TRAINING RECORD -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Training Record
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         Training
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div class="training-summary">
-
-
-                        <div class="training-stat">
-
-                            <span>
+</div>
+<div class="portal-panel-body">
+<div class="training-summary">
+<div class="training-stat">
+<span>
                                 Qualifications
                             </span>
-
-                            <strong id="qualificationCount">
+<strong id="qualificationCount">
                                 0
                             </strong>
-
-                        </div>
-
-
-                        <div class="training-stat">
-
-                            <span>
+</div>
+<div class="training-stat">
+<span>
                                 Recorded Events
                             </span>
-
-                            <strong id="attendanceEventCount">
+<strong id="attendanceEventCount">
                                 0
                             </strong>
-
-                        </div>
-
-
-                        <div class="training-stat present">
-
-                            <span>
+</div>
+<div class="training-stat present">
+<span>
                                 Present
                             </span>
-
-                            <strong id="attendancePresentCount">
+<strong id="attendancePresentCount">
                                 0
                             </strong>
-
-                        </div>
-
-
-                        <div class="training-stat excused">
-
-                            <span>
+</div>
+<div class="training-stat excused">
+<span>
                                 Excused
                             </span>
-
-                            <strong id="attendanceExcusedCount">
+<strong id="attendanceExcusedCount">
                                 0
                             </strong>
-
-                        </div>
-
-
-                        <div class="training-stat absent">
-
-                            <span>
+</div>
+<div class="training-stat absent">
+<span>
                                 Absent
                             </span>
-
-                            <strong id="attendanceAbsentCount">
+<strong id="attendanceAbsentCount">
                                 0
                             </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- ========================================= -->
-            <!-- QUALIFICATIONS -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+</div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- QUALIFICATIONS -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Qualifications
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         Certifications
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div
-                        id="qualificationGroups"
-                        class="qualification-groups"
-                    ></div>
-
-                </div>
-
-            </article>
-
-
-
-
-            <!-- ========================================= -->
-            <!-- LEAVE OF ABSENCE -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-                <div class="portal-panel-header">
-                    <h2>Leave of Absence</h2>
-                    <span class="panel-tag">Automatically Approved</span>
-                </div>
-                <div class="portal-panel-body">
-                    <div class="loa-form-grid">
-                        <div class="loa-field">
-                            <label for="loaStartDate">Start Date</label>
-                            <input id="loaStartDate" type="date">
-                        </div>
-                        <div class="loa-field">
-                            <label for="loaEndDate">End Date</label>
-                            <input id="loaEndDate" type="date">
-                        </div>
-                        <div class="loa-field wide">
-                            <label for="loaReason">Reason</label>
-                            <textarea id="loaReason" maxlength="1000" placeholder="Enter the reason for your leave of absence..."></textarea>
-                        </div>
-                    </div>
-                    <button id="submitLoaButton" class="loa-submit" type="button">Submit LOA</button>
-                    <div id="loaMessage" class="loa-message"></div>
-                    <div id="loaList" class="loa-list">
-                        <div class="loa-empty">Loading leave of absence records...</div>
-                    </div>
-                </div>
-            </article>
-
-
-            <!-- ========================================= -->
-            <!-- ATTENDANCE HISTORY -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+<div class="portal-panel-body">
+<div class="qualification-groups" id="qualificationGroups"></div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- LEAVE OF ABSENCE -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>Leave of Absence</h2>
+<span class="panel-tag">Automatically Approved</span>
+</div>
+<div class="portal-panel-body">
+<div class="loa-form-grid">
+<div class="loa-field">
+<label for="loaStartDate">Start Date</label>
+<input id="loaStartDate" type="date"/>
+</div>
+<div class="loa-field">
+<label for="loaEndDate">End Date</label>
+<input id="loaEndDate" type="date"/>
+</div>
+<div class="loa-field wide">
+<label for="loaReason">Reason</label>
+<textarea id="loaReason" maxlength="1000" placeholder="Enter the reason for your leave of absence..."></textarea>
+</div>
+</div>
+<button class="loa-submit" id="submitLoaButton" type="button">Submit LOA</button>
+<div class="loa-message" id="loaMessage"></div>
+<div class="loa-list" id="loaList">
+<div class="loa-empty">Loading leave of absence records...</div>
+</div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- ATTENDANCE HISTORY -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Attendance History
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         Unit Events
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div
-                        id="attendanceHistory"
-                        class="attendance-history"
-                    ></div>
-
-                </div>
-
-            </article>
-
-
-            <!-- ========================================= -->
-            <!-- ACCOUNT INFORMATION -->
-            <!-- ========================================= -->
-
-            <article class="portal-panel">
-
-                <div class="portal-panel-header">
-
-                    <h2>
+</div>
+<div class="portal-panel-body">
+<div class="attendance-history" id="attendanceHistory"></div>
+</div>
+</article>
+<!-- ========================================= -->
+<!-- ACCOUNT INFORMATION -->
+<!-- ========================================= -->
+<article class="portal-panel">
+<div class="portal-panel-header">
+<h2>
                         Account Information
                     </h2>
-
-                    <span class="panel-tag">
+<span class="panel-tag">
                         Discord Auth
                     </span>
-
-                </div>
-
-
-                <div class="portal-panel-body">
-
-                    <div class="account-grid">
-
-
-                        <div class="account-item">
-
-                            <span>
+</div>
+<div class="portal-panel-body">
+<div class="account-grid">
+<div class="account-item">
+<span>
                                 Discord Account
                             </span>
-
-                            <strong id="accountDiscord">
+<strong id="accountDiscord">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="account-item">
-
-                            <span>
+</div>
+<div class="account-item">
+<span>
                                 Member ID
                             </span>
-
-                            <strong id="accountMemberId">
+<strong id="accountMemberId">
                                 —
                             </strong>
-
-                        </div>
-
-
-                        <div class="account-item">
-
-                            <span>
+</div>
+<div class="account-item">
+<span>
                                 Authentication
                             </span>
-
-                            <strong>
+<strong>
                                 Discord / Supabase
                             </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-        <aside class="promotion-card" id="promotionServiceRecord">
-            <div class="promotion-card-header">
-                <h2>Service Record</h2>
-                <p>Your rank progression and promotion history</p>
-            </div>
-            <div class="promotion-current-label">Current Rank</div>
-            <div class="promotion-current">
-                <strong id="promotionCurrentRank">—</strong>
-                <span id="promotionCurrentAccess">—</span>
-                <span id="promotionCurrentDate">Promotion date unavailable</span>
-            </div>
-            <div class="promotion-history-label">Promotion History</div>
-            <div id="promotionTimeline" class="promotion-timeline">
-                <div class="promotion-empty">Loading promotion history...</div>
-            </div>
-        </aside>
-
-    </main>
-
-
-    <!-- ========================================= -->
-    <!-- FOOTER -->
-    <!-- ========================================= -->
-
-    <footer>
-
-        <div class="brand footer-brand">
-
-            <div class="brand-mark">
+</div>
+</div>
+</div>
+</article>
+</div>
+<aside class="promotion-card" id="promotionServiceRecord">
+<div class="promotion-card-header">
+<h2>Service Record</h2>
+<p>Your rank progression and promotion history</p>
+</div>
+<div class="promotion-current-label">Current Rank</div>
+<div class="promotion-current">
+<strong id="promotionCurrentRank">—</strong>
+<span id="promotionCurrentAccess">—</span>
+<span id="promotionCurrentDate">Promotion date unavailable</span>
+</div>
+<div class="promotion-history-label">Promotion History</div>
+<div class="promotion-timeline" id="promotionTimeline">
+<div class="promotion-empty">Loading promotion history...</div>
+</div>
+</aside>
+</main>
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+<footer>
+<div class="brand footer-brand">
+<div class="brand-mark">
                 21
             </div>
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </div>
-
-
-        <p>
+</div>
+</div>
+<p>
             Swift. Silent. Relentless.
         </p>
-
-
-        <div class="footer-links">
-
-            <a href="members.html">
+<div class="footer-links">
+<a href="members.html">
                 Member Portal
             </a>
-
-            <a href="resources.html">
+<a href="resources.html">
                 Unit Resources
             </a>
-
-            <a href="index.html">
+<a href="index.html">
                 Home
             </a>
-
-        </div>
-
-
-        <p class="fineprint">
+</div>
+<p class="fineprint">
             This is a gaming/military simulation community website
             and is not affiliated with the United States Department
             of Defense.
         </p>
-
-    </footer>
-
-
-    <!-- ========================================= -->
-    <!-- SUPABASE -->
-    <!-- ========================================= -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-    ></script>
-
-
-    <script>
+</footer>
+<!-- ========================================= -->
+<!-- SUPABASE -->
+<!-- ========================================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
 
         document.addEventListener(
             'DOMContentLoaded',
@@ -4474,7 +4057,90 @@ footer{
 
     </script>
 
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
+
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
+
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
+
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
+
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
+
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
+
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
+</script>
 </body>
-
 </html>

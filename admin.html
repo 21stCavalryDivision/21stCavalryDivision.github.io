@@ -1,46 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="21st Cavalry Division Administration Portal"
-    >
-
-    <title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="21st Cavalry Division Administration Portal" name="description"/>
+<title>
         21st Cavalry Division | Administration
     </title>
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="styles.css?v=17"
-    >
-
-    <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=17" rel="stylesheet"/>
+<style>
 
         body {
             background: #080d10;
@@ -2179,10 +2151,7 @@
         @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
 
     </style>
-
-
-
-    <style id="command-center-redesign">
+<style id="command-center-redesign">
         :root {
             --cc-bg: #05090b;
             --cc-panel: #0b1216;
@@ -2575,8 +2544,6 @@
             }
         }
     </style>
-
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -2687,846 +2654,452 @@
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
-
-
 <body>
-
-
-    <!-- =================================================
+<!-- =================================================
          HEADER
          ================================================= -->
-
-    <header class="site-header">
-
-        <a
-            class="brand"
-            href="index.html"
-        >
-
-            <div class="brand-mark">
+<header class="site-header">
+<a class="brand" href="index.html">
+<div class="brand-mark">
                 21
             </div>
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </a>
-
-
-        <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-        >
+</div>
+</a>
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">
             ☰
         </button>
-
-
-        <nav
-            class="main-nav"
-            id="mainNav"
-        >
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a href="operations.html">
-                OPBOARD
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="media.html">
-                Media
-            </a>
-
-            <a href="members.html">
-                Member Portal
-            </a>
-
-            <a
-                href="admin.html"
-                style="color:#c5a75b;"
-             class="nav-current">
-                Admin
-            </a>
-
-
-            <div
-                class="member-auth"
-                id="memberAuth"
-            >
-
-                <button
-                    class="member-login-btn"
-                    id="discordLoginBtn"
-                    type="button"
-                >
+<nav class="main-nav" id="mainNav">
+<a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav nav-current" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a><div class="member-auth" id="memberAuth">
+<button class="member-login-btn" id="discordLoginBtn" type="button">
                     Login with Discord
                 </button>
-
-
-                <div
-                    class="member-profile"
-                    id="memberProfile"
-                    hidden
-                >
-
-                    <img
-                        id="memberAvatar"
-                        class="member-avatar"
-                        src=""
-                        alt=""
-                        hidden
-                    >
-
-                    <div class="member-profile-text">
-
-                        <span id="memberName">
+<div class="member-profile" hidden="" id="memberProfile">
+<img alt="" class="member-avatar" hidden="" id="memberAvatar" src=""/>
+<div class="member-profile-text">
+<span id="memberName">
                             Member
                         </span>
-
-                        <small>
+<small>
                             Administrator
                         </small>
-
-                    </div>
-
-                    <button
-                        class="member-logout-btn"
-                        id="discordLogoutBtn"
-                        type="button"
-                    >
+</div>
+<button class="member-logout-btn" id="discordLogoutBtn" type="button">
                         Logout
                     </button>
-
-                </div>
-
-            </div>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =================================================
+</div>
+</div></nav>
+</header>
+<!-- =================================================
          HERO
          ================================================= -->
-
-    <section class="admin-hero">
-
-        <div class="admin-hero-inner">
-
-            <p class="eyebrow">
+<section class="admin-hero">
+<div class="admin-hero-inner">
+<p class="eyebrow">
                 COMMAND PERSONNEL SYSTEM
             </p>
-
-            <h1>
+<h1>
                 Administration
             </h1>
-
-            <p class="admin-hero-description">
+<p class="admin-hero-description">
                 Manage personnel records, ranks, assignments,
                 qualifications, access levels and attendance.
             </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
+</div>
+</section>
+<!-- =================================================
          LOADING
          ================================================= -->
-
-    <section
-        id="adminLoading"
-        class="admin-message"
-    >
-
-        <p class="eyebrow">
+<section class="admin-message" id="adminLoading">
+<p class="eyebrow">
             SECURE ACCESS
         </p>
-
-        <h2>
+<h2>
             Loading Administration
         </h2>
-
-        <p>
+<p>
             Verifying administrator permissions.
         </p>
-
-    </section>
-
-
-    <!-- =================================================
+</section>
+<!-- =================================================
          LOGIN
          ================================================= -->
-
-    <section
-        id="adminLogin"
-        class="admin-message"
-        hidden
-    >
-
-        <p class="eyebrow">
+<section class="admin-message" hidden="" id="adminLogin">
+<p class="eyebrow">
             AUTHENTICATION REQUIRED
         </p>
-
-        <h2>
+<h2>
             Administrator Login Required
         </h2>
-
-        <p>
+<p>
             Sign in with your authorized Discord account.
         </p>
-
-        <button
-            id="adminLoginButton"
-            class="attendance-button primary"
-            type="button"
-        >
+<button class="attendance-button primary" id="adminLoginButton" type="button">
             Login with Discord
         </button>
-
-    </section>
-
-
-    <!-- =================================================
+</section>
+<!-- =================================================
          ACCESS DENIED
          ================================================= -->
-
-    <section
-        id="adminDenied"
-        class="admin-message"
-        hidden
-    >
-
-        <p class="eyebrow">
+<section class="admin-message" hidden="" id="adminDenied">
+<p class="eyebrow">
             ACCESS RESTRICTED
         </p>
-
-        <h2>
+<h2>
             Access Denied
         </h2>
-
-        <p>
+<p>
             Your account does not have permission to access
             the 21st Cavalry Division Administration Portal.
         </p>
-
-    </section>
-
-
-    <!-- =================================================
+</section>
+<!-- =================================================
          ADMIN DASHBOARD
          ================================================= -->
-
-    <main
-        id="adminContent"
-        class="admin-container"
-        hidden
-    >
-
-        <section class="command-overview">
-            <div class="command-overview-copy">
-                <span class="command-kicker">21ST CAVALRY // COMMAND CENTER</span>
-                <h2>Unit Readiness Overview</h2>
-                <p>
+<main class="admin-container" hidden="" id="adminContent">
+<section class="command-overview">
+<div class="command-overview-copy">
+<span class="command-kicker">21ST CAVALRY // COMMAND CENTER</span>
+<h2>Unit Readiness Overview</h2>
+<p>
                     Personnel accountability, readiness, approvals, leave, discharge records and training attendance in one command workspace.
                 </p>
-            </div>
-            <div class="command-status-card">
-                <span class="command-status-label">Command System Online</span>
-                <strong id="commandDate">Administration Portal</strong>
-                <small>Authorized command personnel only</small>
-            </div>
-        </section>
-
-        <div class="admin-jump-nav" aria-label="Admin quick navigation">
-            <button class="admin-jump-btn" data-panel="loaManagementPanel" data-toggle="toggleLoas">Leave of Absence</button>
-            <button class="admin-jump-btn" data-panel="pendingMemberPanel" data-toggle="togglePendingMembers">Pending Approvals</button>
-            <button class="admin-jump-btn" data-panel="memberManagementPanel" data-toggle="toggleMembers">Member Management</button>
-            <button class="admin-jump-btn" data-panel="dischargePanel" data-toggle="toggleDischarges">Discharge Records</button>
-            <button class="admin-jump-btn" data-panel="attendanceManagementPanel" data-toggle="toggleAttendance">Attendance</button>
-        </div>
-
-
-        <!-- SUMMARY -->
-
-        <section class="admin-summary">
-
-            <div class="summary-card">
-
-                <span>
+</div>
+<div class="command-status-card">
+<span class="command-status-label">Command System Online</span>
+<strong id="commandDate">Administration Portal</strong>
+<small>Authorized command personnel only</small>
+</div>
+</section>
+<div aria-label="Admin quick navigation" class="admin-jump-nav">
+<button class="admin-jump-btn" data-panel="loaManagementPanel" data-toggle="toggleLoas">Leave of Absence</button>
+<button class="admin-jump-btn" data-panel="pendingMemberPanel" data-toggle="togglePendingMembers">Pending Approvals</button>
+<button class="admin-jump-btn" data-panel="memberManagementPanel" data-toggle="toggleMembers">Member Management</button>
+<button class="admin-jump-btn" data-panel="dischargePanel" data-toggle="toggleDischarges">Discharge Records</button>
+<button class="admin-jump-btn" data-panel="attendanceManagementPanel" data-toggle="toggleAttendance">Attendance</button>
+</div>
+<!-- SUMMARY -->
+<section class="admin-summary">
+<div class="summary-card">
+<span>
                     Total Members
                 </span>
-
-                <strong id="totalMembers">
+<strong id="totalMembers">
                     0
                 </strong>
-
-            </div>
-
-            <div class="summary-card">
-
-                <span>
+</div>
+<div class="summary-card">
+<span>
                     Active
                 </span>
-
-                <strong id="activeMembers">
+<strong id="activeMembers">
                     0
                 </strong>
-
-            </div>
-
-            <div class="summary-card">
-
-                <span>
+</div>
+<div class="summary-card">
+<span>
                     Admins
                 </span>
-
-                <strong id="adminMembers">
+<strong id="adminMembers">
                     0
                 </strong>
-
-            </div>
-
-            <div class="summary-card">
-
-                <span>
+</div>
+<div class="summary-card">
+<span>
                     Average Attendance
                 </span>
-
-                <strong id="averageAttendance">
+<strong id="averageAttendance">
                     0%
                 </strong>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
+</div>
+</section>
+<!-- =================================================
              ATTENDANCE WARNINGS
              ================================================= -->
-
-        <div class="admin-section-heading attendance-warning-heading">
-
-            <h2>
+<div class="admin-section-heading attendance-warning-heading">
+<h2>
                 Attendance Warnings
             </h2>
-
-            <span>
+<span>
                 Threshold: Below 65%
             </span>
-
-        </div>
-
-
-        <section
-            id="attendanceWarningPanel"
-            class="attendance-warning-panel"
-        >
-
-            <div class="attendance-warning-clear">
-
-                <strong>
+</div>
+<section class="attendance-warning-panel" id="attendanceWarningPanel">
+<div class="attendance-warning-clear">
+<strong>
                     No Attendance Warnings
                 </strong>
-
-                <span>
+<span>
                     All active personnel are currently at or above the attendance threshold.
                 </span>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
+</div>
+</section>
+<!-- =================================================
              LOA MANAGEMENT
              ================================================= -->
-
-        <div class="admin-section-heading member-section-heading">
-            <h2>Leave of Absence Management</h2>
-
-            <div class="member-heading-actions">
-                <span>Automatically Approved</span>
-                <button
-                    id="toggleLoas"
-                    class="member-collapse-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="loaManagementPanel"
-                >
+<div class="admin-section-heading member-section-heading">
+<h2>Leave of Absence Management</h2>
+<div class="member-heading-actions">
+<span>Automatically Approved</span>
+<button aria-controls="loaManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleLoas" type="button">
                     Show LOAs
                 </button>
-            </div>
-        </div>
-
-        <section
-            id="loaManagementPanel"
-            class="loa-admin-panel"
-            hidden
-        >
-            <div class="loa-admin-toolbar">
-                <div id="loaCountLine" class="member-count-line">Loading LOA records...</div>
-                <button id="refreshLoas" class="admin-refresh" type="button">Refresh LOAs</button>
-            </div>
-            <div id="loaAdminList" class="loa-admin-list">
-                <div class="admin-empty">Loading leave of absence records...</div>
-            </div>
-            <div id="loaAdminMessage" class="loa-admin-message"></div>
-        </section>
-
-
-
-        <!-- =================================================
+</div>
+</div>
+<section class="loa-admin-panel" hidden="" id="loaManagementPanel">
+<div class="loa-admin-toolbar">
+<div class="member-count-line" id="loaCountLine">Loading LOA records...</div>
+<button class="admin-refresh" id="refreshLoas" type="button">Refresh LOAs</button>
+</div>
+<div class="loa-admin-list" id="loaAdminList">
+<div class="admin-empty">Loading leave of absence records...</div>
+</div>
+<div class="loa-admin-message" id="loaAdminMessage"></div>
+</section>
+<!-- =================================================
              PENDING MEMBER APPROVALS
              ================================================= -->
-
-        <div class="admin-section-heading member-section-heading">
-            <h2>Pending Member Approvals</h2>
-
-            <div class="member-heading-actions">
-                <span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
-                <button
-                    id="togglePendingMembers"
-                    class="member-collapse-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="pendingMemberPanel"
-                >
+<div class="admin-section-heading member-section-heading">
+<h2>Pending Member Approvals</h2>
+<div class="member-heading-actions">
+<span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
+<button aria-controls="pendingMemberPanel" aria-expanded="false" class="member-collapse-toggle" id="togglePendingMembers" type="button">
                     Show Pending
                 </button>
-            </div>
-        </div>
-
-        <section
-            id="pendingMemberPanel"
-            class="pending-member-panel"
-            hidden
-        >
-            <div class="pending-member-toolbar">
-                <div id="pendingMemberCountLine" class="member-count-line">
+</div>
+</div>
+<section class="pending-member-panel" hidden="" id="pendingMemberPanel">
+<div class="pending-member-toolbar">
+<div class="member-count-line" id="pendingMemberCountLine">
                     Loading Discord logins...
                 </div>
-
-                <button
-                    id="refreshPendingMembers"
-                    class="admin-refresh"
-                    type="button"
-                >
+<button class="admin-refresh" id="refreshPendingMembers" type="button">
                     Refresh Pending
                 </button>
-            </div>
-
-            <div id="pendingMemberList" class="pending-member-list">
-                <div class="admin-empty">
+</div>
+<div class="pending-member-list" id="pendingMemberList">
+<div class="admin-empty">
                     Loading pending members...
                 </div>
-            </div>
-
-            <div
-                id="pendingMemberMessage"
-                class="pending-member-message"
-            ></div>
-        </section>
-
-
-        <!-- =================================================
+</div>
+<div class="pending-member-message" id="pendingMemberMessage"></div>
+</section>
+<!-- =================================================
              MEMBER MANAGEMENT
              ================================================= -->
-
-        <div class="admin-section-heading member-section-heading">
-
-            <h2>
+<div class="admin-section-heading member-section-heading">
+<h2>
                 Member Management
             </h2>
-
-            <div class="member-heading-actions">
-                <span>Personnel Records</span>
-
-                <button
-                    id="toggleMembers"
-                    class="member-collapse-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="memberManagementPanel"
-                >
+<div class="member-heading-actions">
+<span>Personnel Records</span>
+<button aria-controls="memberManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleMembers" type="button">
                     Show Members
                 </button>
-            </div>
-
-        </div>
-
-
-        <section
-            id="memberManagementPanel"
-            class="member-management-panel"
-            hidden
-        >
-
-            <!-- EXISTING SEARCH BAR -->
-
-            <section class="admin-toolbar">
-
-                <input
-                    id="memberSearch"
-                    class="admin-search"
-                    type="search"
-                    placeholder="Search members by name, rank, billet, section..."
-                    autocomplete="off"
-                >
-
-                <button
-                    id="refreshMembers"
-                    class="admin-refresh"
-                    type="button"
-                >
+</div>
+</div>
+<section class="member-management-panel" hidden="" id="memberManagementPanel">
+<!-- EXISTING SEARCH BAR -->
+<section class="admin-toolbar">
+<input autocomplete="off" class="admin-search" id="memberSearch" placeholder="Search members by name, rank, billet, section..." type="search"/>
+<button class="admin-refresh" id="refreshMembers" type="button">
                     Refresh Members
                 </button>
-
-            </section>
-
-
-            <div
-                id="memberCountLine"
-                class="member-count-line"
-            ></div>
-
-
-            <!-- MEMBER DROPDOWN LIST -->
-
-            <section
-                id="memberAdminList"
-                class="member-admin-list"
-            ></section>
-
-        </section>
-
-
-
-        <!-- =================================================
+</section>
+<div class="member-count-line" id="memberCountLine"></div>
+<!-- MEMBER DROPDOWN LIST -->
+<section class="member-admin-list" id="memberAdminList"></section>
+</section>
+<!-- =================================================
              DISCHARGE RECORDS
              ================================================= -->
-
-        <div class="admin-section-heading discharge-section-heading">
-            <h2>Discharge Records</h2>
-
-            <div class="discharge-heading-actions">
-                <span id="dischargeHeadingCount">0 Former Members</span>
-
-                <button
-                    id="toggleDischarges"
-                    class="discharge-collapse-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="dischargePanel"
-                >
+<div class="admin-section-heading discharge-section-heading">
+<h2>Discharge Records</h2>
+<div class="discharge-heading-actions">
+<span id="dischargeHeadingCount">0 Former Members</span>
+<button aria-controls="dischargePanel" aria-expanded="false" class="discharge-collapse-toggle" id="toggleDischarges" type="button">
                     Show Records
                 </button>
-            </div>
-        </div>
-
-        <section
-            id="dischargePanel"
-            class="discharge-panel"
-            hidden
-        >
-
-            <div class="discharge-toolbar">
-
-                <input
-                    id="dischargeSearch"
-                    class="admin-search"
-                    type="search"
-                    placeholder="Search discharge records by name, rank, billet, section, Discord ID or reason..."
-                    autocomplete="off"
-                >
-
-                <button
-                    id="refreshDischarges"
-                    class="admin-refresh"
-                    type="button"
-                >
+</div>
+</div>
+<section class="discharge-panel" hidden="" id="dischargePanel">
+<div class="discharge-toolbar">
+<input autocomplete="off" class="admin-search" id="dischargeSearch" placeholder="Search discharge records by name, rank, billet, section, Discord ID or reason..." type="search"/>
+<button class="admin-refresh" id="refreshDischarges" type="button">
                     Refresh Records
                 </button>
-
-            </div>
-
-            <div
-                id="dischargeCountLine"
-                class="member-count-line"
-            >
+</div>
+<div class="member-count-line" id="dischargeCountLine">
                 Loading discharge records...
             </div>
-
-            <div
-                id="dischargeList"
-                class="discharge-list"
-            >
-                <div class="admin-empty">
+<div class="discharge-list" id="dischargeList">
+<div class="admin-empty">
                     Loading discharge records...
                 </div>
-            </div>
-
-            <div
-                id="dischargeMessage"
-                class="discharge-message"
-            ></div>
-
-        </section>
-
-
-        <!-- =================================================
+</div>
+<div class="discharge-message" id="dischargeMessage"></div>
+</section>
+<!-- =================================================
              ATTENDANCE MANAGEMENT
              ================================================= -->
-
-        <div class="admin-section-heading member-section-heading">
-
-            <h2>
+<div class="admin-section-heading member-section-heading">
+<h2>
                 Attendance Management
             </h2>
-
-            <div class="member-heading-actions">
-                <span>
+<div class="member-heading-actions">
+<span>
                     Personnel Accountability
                 </span>
-
-                <button
-                    id="toggleAttendance"
-                    class="member-collapse-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="attendanceManagementPanel"
-                >
+<button aria-controls="attendanceManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleAttendance" type="button">
                     Show Attendance
                 </button>
-            </div>
-
-        </div>
-
-
-        <section
-            id="attendanceManagementPanel"
-            class="attendance-panel"
-            hidden
-        >
-
-
-            <div class="attendance-create-grid">
-
-                <input
-                    id="attendanceEventTitle"
-                    type="text"
-                    placeholder="Event name"
-                >
-
-                <select id="attendanceEventType">
-
-                    <option value="Training">
+</div>
+</div>
+<section class="attendance-panel" hidden="" id="attendanceManagementPanel">
+<div class="attendance-create-grid">
+<input id="attendanceEventTitle" placeholder="Event name" type="text"/>
+<select id="attendanceEventType">
+<option value="Training">
                         Training
                     </option>
-
-                    <option value="Operation">
+<option value="Operation">
                         Operation
                     </option>
-
-                    <option value="FTX">
+<option value="FTX">
                         FTX
                     </option>
-
-                    <option value="Qualification">
+<option value="Qualification">
                         Qualification
                     </option>
-
-                    <option value="Meeting">
+<option value="Meeting">
                         Meeting
                     </option>
-
-                    <option value="Other">
+<option value="Other">
                         Other
                     </option>
-
-                </select>
-
-
-                <input
-                    id="attendanceEventDate"
-                    type="date"
-                >
-
-
-                <button
-                    id="createAttendanceEvent"
-                    class="attendance-button primary"
-                    type="button"
-                >
+</select>
+<input id="attendanceEventDate" type="date"/>
+<button class="attendance-button primary" id="createAttendanceEvent" type="button">
                     Create Event
                 </button>
-
-            </div>
-
-
-            <div class="attendance-event-toolbar">
-
-                <select id="attendanceEventSelect">
-
-                    <option value="">
+</div>
+<div class="attendance-event-toolbar">
+<select id="attendanceEventSelect">
+<option value="">
                         Select attendance event
                     </option>
-
-                </select>
-
-                <button
-                    id="refreshAttendance"
-                    class="attendance-button"
-                    type="button"
-                >
+</select>
+<button class="attendance-button" id="refreshAttendance" type="button">
                     Refresh
                 </button>
-
-                <button
-                    id="deleteAttendanceEvent"
-                    class="attendance-button danger"
-                    type="button"
-                >
+<button class="attendance-button danger" id="deleteAttendanceEvent" type="button">
                     Delete Event
                 </button>
-
-            </div>
-
-
-            <div
-                id="attendanceMemberList"
-                class="attendance-list"
-            >
-
-                <div class="admin-empty">
+</div>
+<div class="attendance-list" id="attendanceMemberList">
+<div class="admin-empty">
                     Select an attendance event.
                 </div>
-
-            </div>
-
-
-            <div class="attendance-actions">
-
-                <button
-                    id="saveAttendance"
-                    class="attendance-button primary"
-                    type="button"
-                >
+</div>
+<div class="attendance-actions">
+<button class="attendance-button primary" id="saveAttendance" type="button">
                     Save Attendance
                 </button>
-
-            </div>
-
-
-            <div
-                id="attendanceMessage"
-                class="attendance-message"
-            ></div>
-
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =================================================
+</div>
+<div class="attendance-message" id="attendanceMessage"></div>
+</section>
+</main>
+<!-- =================================================
          FOOTER
          ================================================= -->
-
-    <footer>
-
-        <div class="brand footer-brand">
-
-            <div class="brand-mark">
+<footer>
+<div class="brand footer-brand">
+<div class="brand-mark">
                 21
             </div>
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </div>
-
-        <p>
+</div>
+</div>
+<p>
             Swift. Silent. Relentless.
         </p>
-
-        <div class="footer-links">
-
-            <a href="members.html">
+<div class="footer-links">
+<a href="members.html">
                 Member Portal
             </a>
-
-            <a href="resources.html">
+<a href="resources.html">
                 Unit Resources
             </a>
-
-            <a href="index.html">
+<a href="index.html">
                 Home
             </a>
-
-        </div>
-
-        <p class="fineprint">
+</div>
+<p class="fineprint">
             Administrative access is restricted to authorized
             21st Cavalry Division personnel.
         </p>
-
-    </footer>
-
-
-    <!-- =================================================
+</footer>
+<!-- =================================================
          SUPABASE
          ================================================= -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-    ></script>
-
-
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
 
         document.addEventListener(
             'DOMContentLoaded',
@@ -9468,8 +9041,6 @@ function renderAttendanceWarnings() {
         );
 
     </script>
-
-
 <script id="command-center-enhancements">
 document.addEventListener('DOMContentLoaded', function () {
     const dateNode = document.getElementById('commandDate');
@@ -9494,6 +9065,90 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-</body>
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
+
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
+
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
+
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
+
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
+
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
+
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
+</script>
+</body>
 </html>

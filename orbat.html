@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>21st Cavalry Division | ORBAT</title>
-    <meta name="description" content="21st Cavalry Division organizational structure and order of battle.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>21st Cavalry Division | ORBAT</title>
+<meta content="21st Cavalry Division organizational structure and order of battle." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         :root{
             --bg:#050706;
             --bg2:#0a0d0b;
@@ -413,7 +413,6 @@
             footer{flex-direction:column;align-items:flex-start}
         }
     </style>
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -524,224 +523,241 @@
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
 <body>
-
 <header class="site-header">
-    <a class="brand" href="index.html" aria-label="21st Cavalry Division home">
-        <div class="brand-mark">21</div>
-        <div><span>21ST CAVALRY</span><small>DIVISION</small></div>
-    </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-    <nav class="main-nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="orbat.html" class="active nav-current">ORBAT</a>
-        <a href="training.html">Training</a>
-        <a href="resources.html">SOPs</a>
-        <a href="server.html">Server</a>
-        <a href="media.html">Media</a>
-        <a class="nav-cta" href="recruitment.html">Enlist</a>
-    </nav>
+<a aria-label="21st Cavalry Division home" class="brand" href="index.html">
+<div class="brand-mark">21</div>
+<div><span>21ST CAVALRY</span><small>DIVISION</small></div>
+</a>
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
+<nav class="main-nav" id="mainNav">
+<a href="index.html">HOME</a><a class="nav-current" href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a></nav>
 </header>
-
 <main>
-    <section class="page-hero">
-        <div class="hero-inner reveal">
-            <p class="eyebrow">21ST CAVALRY DIVISION // PERSONNEL STRUCTURE</p>
-            <h1>ORDER OF <span>BATTLE</span></h1>
-            <p class="hero-copy">
+<section class="page-hero">
+<div class="hero-inner reveal">
+<p class="eyebrow">21ST CAVALRY DIVISION // PERSONNEL STRUCTURE</p>
+<h1>ORDER OF <span>BATTLE</span></h1>
+<p class="hero-copy">
                 The organizational structure of the 21st Cavalry Division. Command, maneuver, aviation,
                 armor, reconnaissance, medical, training and support elements operate as one coordinated force.
             </p>
-        </div>
-    </section>
-
-    <section class="status-strip">
-        <div class="status-item"><small>Formation</small><strong>Combined Arms</strong></div>
-        <div class="status-item"><small>Command</small><strong>Division HQ</strong></div>
-        <div class="status-item"><small>Maneuver</small><strong>Platoon / Squad</strong></div>
-        <div class="status-item"><small>Support</small><strong>Multi-Section</strong></div>
-    </section>
-
-    <section class="section">
-        <div class="wrap">
-            <div class="section-top reveal">
-                <div>
-                    <p class="eyebrow">01 // COMMAND</p>
-                    <h2>Division Headquarters</h2>
-                </div>
-                <div class="section-code">Command & Control</div>
-            </div>
-
-            <article class="command-card reveal">
-                <p class="eyebrow">COMMAND GROUP</p>
-                <h2 style="font-size:34px;margin-bottom:8px">21st Cavalry Division Command</h2>
-                <p style="color:var(--muted);max-width:850px;line-height:1.7;margin:0">
+</div>
+</section>
+<section class="status-strip">
+<div class="status-item"><small>Formation</small><strong>Combined Arms</strong></div>
+<div class="status-item"><small>Command</small><strong>Division HQ</strong></div>
+<div class="status-item"><small>Maneuver</small><strong>Platoon / Squad</strong></div>
+<div class="status-item"><small>Support</small><strong>Multi-Section</strong></div>
+</section>
+<section class="section">
+<div class="wrap">
+<div class="section-top reveal">
+<div>
+<p class="eyebrow">01 // COMMAND</p>
+<h2>Division Headquarters</h2>
+</div>
+<div class="section-code">Command &amp; Control</div>
+</div>
+<article class="command-card reveal">
+<p class="eyebrow">COMMAND GROUP</p>
+<h2 style="font-size:34px;margin-bottom:8px">21st Cavalry Division Command</h2>
+<p style="color:var(--muted);max-width:850px;line-height:1.7;margin:0">
                     Division Headquarters provides operational command, administration, standards,
                     personnel oversight and coordination across all subordinate elements.
                 </p>
-
-                <div class="command-grid">
-                    <div class="slot"><small>Command Billet</small><strong>Division Commander</strong><span>Overall unit command</span></div>
-                    <div class="slot"><small>Command Billet</small><strong>Executive Officer</strong><span>Operations & staff coordination</span></div>
-                    <div class="slot"><small>Senior Enlisted</small><strong>Command Sergeant Major</strong><span>Standards & enlisted leadership</span></div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="section" style="padding-top:10px">
-        <div class="wrap">
-            <div class="section-top reveal">
-                <div>
-                    <p class="eyebrow">02 // MANEUVER</p>
-                    <h2>Ground Combat Elements</h2>
-                </div>
-                <div class="section-code">Primary Maneuver Force</div>
-            </div>
-
-            <div class="org-tree">
-                <article class="element reveal">
-                    <div class="element-head">
-                        <div>
-                            <div class="element-kicker">Maneuver Element</div>
-                            <h3>1st Platoon</h3>
-                        </div>
-                        <span class="unit-tag">PLT // 01</span>
-                    </div>
-                    <div class="element-body">
-                        <div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leader / Platoon Sergeant</span></div>
-                        <div class="subunit"><strong>1st Squad</strong><span>Rifle Squad</span></div>
-                        <div class="subunit"><strong>2nd Squad</strong><span>Rifle Squad</span></div>
-                        <div class="subunit"><strong>Weapons Squad</strong><span>Support Weapons</span></div>
-                    </div>
-                </article>
-
-                <article class="element reveal">
-                    <div class="element-head">
-                        <div>
-                            <div class="element-kicker">Maneuver Element</div>
-                            <h3>2nd Platoon</h3>
-                        </div>
-                        <span class="unit-tag">PLT // 02</span>
-                    </div>
-                    <div class="element-body">
-                        <div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leadership</span></div>
-                        <div class="subunit"><strong>3rd Squad</strong><span>Rifle Squad</span></div>
-                        <div class="subunit"><strong>Attached Teams</strong><span>Mission Dependent</span></div>
-                        <div class="subunit"><strong>Reserve Positions</strong><span>Growth / Expansion</span></div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="padding-top:10px">
-        <div class="wrap">
-            <div class="section-top reveal">
-                <div>
-                    <p class="eyebrow">03 // SPECIALIZED ELEMENTS</p>
-                    <h2>Combat Support</h2>
-                </div>
-                <div class="section-code">Attached Capabilities</div>
-            </div>
-
-            <div class="support-grid">
-                <article class="support-card reveal">
-                    <div class="num">01</div>
-                    <h3>Aviation Detachment</h3>
-                    <p>Pilots, copilots and crew chiefs supporting transport, reconnaissance and air-mobile operations.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">02</div>
-                    <h3>Armor Section</h3>
-                    <p>Vehicle commanders, gunners, drivers and crewmen providing armored mobility and direct fire support.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">03</div>
-                    <h3>Recon Section</h3>
-                    <p>Forward reconnaissance, observation and information collection in support of the maneuver force.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">04</div>
-                    <h3>Medical Section</h3>
-                    <p>Combat medical personnel responsible for casualty response and battlefield medical support.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">05</div>
-                    <h3>Training Section</h3>
-                    <p>Instructors and training NCOs responsible for BCT, qualifications, standards and readiness.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">06</div>
-                    <h3>Recruitment Section</h3>
-                    <p>Recruiters responsible for applicant processing, onboarding and integration into the division.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">07</div>
-                    <h3>Command Staff</h3>
-                    <p>Administrative and operational staff supporting planning, accountability and division-level coordination.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">08</div>
-                    <h3>Unassigned Personnel</h3>
-                    <p>Members awaiting permanent assignment, billet placement or completion of required training.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="padding-top:10px">
-        <div class="wrap">
-            <div class="section-top reveal">
-                <div>
-                    <p class="eyebrow">04 // STRUCTURE GUIDE</p>
-                    <h2>ORBAT Reference</h2>
-                </div>
-                <div class="section-code">Personnel Classification</div>
-            </div>
-
-            <div class="legend">
-                <div class="legend-panel reveal">
-                    <h3>Organizational Levels</h3>
-                    <div class="legend-list">
-                        <div class="legend-row"><strong>Division HQ</strong><span>Senior command and division-wide leadership.</span></div>
-                        <div class="legend-row"><strong>Platoon</strong><span>Primary maneuver organization containing subordinate squads and attached capabilities.</span></div>
-                        <div class="legend-row"><strong>Squad</strong><span>Small-unit maneuver element led by a Squad Leader and Team Leaders.</span></div>
-                        <div class="legend-row"><strong>Section</strong><span>Specialized functional element such as aviation, armor, recon, medical or training.</span></div>
-                    </div>
-                </div>
-
-                <aside class="notice-panel reveal">
-                    <p class="eyebrow">PERSONNEL SYSTEM</p>
-                    <h3>Member Assignments</h3>
-                    <p>
+<div class="command-grid">
+<div class="slot"><small>Command Billet</small><strong>Division Commander</strong><span>Overall unit command</span></div>
+<div class="slot"><small>Command Billet</small><strong>Executive Officer</strong><span>Operations &amp; staff coordination</span></div>
+<div class="slot"><small>Senior Enlisted</small><strong>Command Sergeant Major</strong><span>Standards &amp; enlisted leadership</span></div>
+</div>
+</article>
+</div>
+</section>
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal">
+<div>
+<p class="eyebrow">02 // MANEUVER</p>
+<h2>Ground Combat Elements</h2>
+</div>
+<div class="section-code">Primary Maneuver Force</div>
+</div>
+<div class="org-tree">
+<article class="element reveal">
+<div class="element-head">
+<div>
+<div class="element-kicker">Maneuver Element</div>
+<h3>1st Platoon</h3>
+</div>
+<span class="unit-tag">PLT // 01</span>
+</div>
+<div class="element-body">
+<div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leader / Platoon Sergeant</span></div>
+<div class="subunit"><strong>1st Squad</strong><span>Rifle Squad</span></div>
+<div class="subunit"><strong>2nd Squad</strong><span>Rifle Squad</span></div>
+<div class="subunit"><strong>Weapons Squad</strong><span>Support Weapons</span></div>
+</div>
+</article>
+<article class="element reveal">
+<div class="element-head">
+<div>
+<div class="element-kicker">Maneuver Element</div>
+<h3>2nd Platoon</h3>
+</div>
+<span class="unit-tag">PLT // 02</span>
+</div>
+<div class="element-body">
+<div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leadership</span></div>
+<div class="subunit"><strong>3rd Squad</strong><span>Rifle Squad</span></div>
+<div class="subunit"><strong>Attached Teams</strong><span>Mission Dependent</span></div>
+<div class="subunit"><strong>Reserve Positions</strong><span>Growth / Expansion</span></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal">
+<div>
+<p class="eyebrow">03 // SPECIALIZED ELEMENTS</p>
+<h2>Combat Support</h2>
+</div>
+<div class="section-code">Attached Capabilities</div>
+</div>
+<div class="support-grid">
+<article class="support-card reveal">
+<div class="num">01</div>
+<h3>Aviation Detachment</h3>
+<p>Pilots, copilots and crew chiefs supporting transport, reconnaissance and air-mobile operations.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">02</div>
+<h3>Armor Section</h3>
+<p>Vehicle commanders, gunners, drivers and crewmen providing armored mobility and direct fire support.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">03</div>
+<h3>Recon Section</h3>
+<p>Forward reconnaissance, observation and information collection in support of the maneuver force.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">04</div>
+<h3>Medical Section</h3>
+<p>Combat medical personnel responsible for casualty response and battlefield medical support.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">05</div>
+<h3>Training Section</h3>
+<p>Instructors and training NCOs responsible for BCT, qualifications, standards and readiness.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">06</div>
+<h3>Recruitment Section</h3>
+<p>Recruiters responsible for applicant processing, onboarding and integration into the division.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">07</div>
+<h3>Command Staff</h3>
+<p>Administrative and operational staff supporting planning, accountability and division-level coordination.</p>
+</article>
+<article class="support-card reveal">
+<div class="num">08</div>
+<h3>Unassigned Personnel</h3>
+<p>Members awaiting permanent assignment, billet placement or completion of required training.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+<div class="section-top reveal">
+<div>
+<p class="eyebrow">04 // STRUCTURE GUIDE</p>
+<h2>ORBAT Reference</h2>
+</div>
+<div class="section-code">Personnel Classification</div>
+</div>
+<div class="legend">
+<div class="legend-panel reveal">
+<h3>Organizational Levels</h3>
+<div class="legend-list">
+<div class="legend-row"><strong>Division HQ</strong><span>Senior command and division-wide leadership.</span></div>
+<div class="legend-row"><strong>Platoon</strong><span>Primary maneuver organization containing subordinate squads and attached capabilities.</span></div>
+<div class="legend-row"><strong>Squad</strong><span>Small-unit maneuver element led by a Squad Leader and Team Leaders.</span></div>
+<div class="legend-row"><strong>Section</strong><span>Specialized functional element such as aviation, armor, recon, medical or training.</span></div>
+</div>
+</div>
+<aside class="notice-panel reveal">
+<p class="eyebrow">PERSONNEL SYSTEM</p>
+<h3>Member Assignments</h3>
+<p>
                         Official assignments, billets, ranks and qualifications are maintained through the division's
                         personnel management system. Members can review their individual record through the Member Portal.
                     </p>
-                    <a class="btn" href="members.html">Open Member Portal</a>
-                </aside>
-            </div>
-        </div>
-    </section>
+<a class="btn" href="members.html">Open Member Portal</a>
+</aside>
+</div>
+</div>
+</section>
 </main>
-
 <footer>
-    <div>
-        <strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong>
-        <div style="margin-top:6px">Swift. Silent. Relentless.</div>
-    </div>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="recruitment.html">Recruitment</a>
-        <a href="resources.html">Resources</a>
-        <a href="server.html">Server</a>
-    </div>
+<div>
+<strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong>
+<div style="margin-top:6px">Swift. Silent. Relentless.</div>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="recruitment.html">Recruitment</a>
+<a href="resources.html">Resources</a>
+<a href="server.html">Server</a>
+</div>
 </footer>
-
 <script>
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
@@ -762,6 +778,91 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
+
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
+
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
+
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
+
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
+
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
+
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
+</script>
 </body>
 </html>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>21st Cavalry Division | SOP Library</title>
-<meta name="description" content="21st Cavalry Division SOP library, unit standards, policies and reference material.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta content="21st Cavalry Division SOP library, unit standards, policies and reference material." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#050706;--panel:#0d110e;--panel2:#111713;--line:#293127;--line2:#3b4638;--gold:#c8aa5b;--gold2:#e1c778;--text:#f3f0e6;--muted:#a5aa9f}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -39,7 +40,6 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 @media(max-width:820px){.nav-toggle{display:block}.main-nav{display:none;position:absolute;top:75px;left:0;right:0;padding:18px 5vw 24px;flex-direction:column;align-items:stretch;background:#070a08;border-bottom:1px solid var(--line)}.main-nav.open{display:flex}.main-nav>a{padding:10px 0}.status-strip{grid-template-columns:repeat(2,1fr)}.library-tools{grid-template-columns:1fr}.filter-btn{min-height:38px}}
 @media(max-width:600px){.site-header{padding:0 18px}.brand span{font-size:15px}.status-strip,.doc-grid{grid-template-columns:1fr}.section{padding:54px 0}.section-top{align-items:flex-start;flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
 </style>
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -150,60 +150,95 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
 <a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
-<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-<nav class="main-nav" id="mainNav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html" class="active nav-current">SOPs</a><a href="server.html">Server</a><a href="media.html">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a></nav>
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
+<nav class="main-nav" id="mainNav"><a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a class="nav-current" href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a></nav>
 </header>
-
 <main>
 <section class="page-hero"><div class="hero-inner reveal"><p class="eyebrow">21ST CAVALRY DIVISION // DOCTRINE</p><h1>SOP <span>LIBRARY</span></h1><p class="hero-copy">Central reference for division standards, policies, training doctrine and operational procedures. Members are expected to remain familiar with the guidance that applies to their role and assignment.</p></div></section>
-
 <section class="status-strip">
 <div class="status-item"><small>Category</small><strong>Unit Policy</strong></div><div class="status-item"><small>Category</small><strong>Operations</strong></div><div class="status-item"><small>Category</small><strong>Training</strong></div><div class="status-item"><small>Category</small><strong>Personnel</strong></div>
 </section>
-
 <section class="section">
 <div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">01 // DOCUMENT CONTROL</p><h2>Doctrine Library</h2></div><div class="section-code">Standards & Reference</div></div>
+<div class="section-top reveal"><div><p class="eyebrow">01 // DOCUMENT CONTROL</p><h2>Doctrine Library</h2></div><div class="section-code">Standards &amp; Reference</div></div>
 <div class="library-tools reveal">
-<input id="docSearch" class="searchbox" type="search" placeholder="Search SOPs, policies, standards or topics...">
+<input class="searchbox" id="docSearch" placeholder="Search SOPs, policies, standards or topics..." type="search"/>
 <div class="filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="policy">Policy</button><button class="filter-btn" data-filter="operations">Operations</button><button class="filter-btn" data-filter="training">Training</button><button class="filter-btn" data-filter="personnel">Personnel</button></div>
 </div>
-
 <div class="doc-grid" id="docGrid">
-<article class="doc-card reveal" data-category="policy personnel" data-search="unit standards conduct expectations policy"><div class="doc-code"><span>SOP 01</span><span>Policy</span></div><h3>Unit Standards & Conduct</h3><p>General expectations for professionalism, behavior, accountability, chain of command and representation of the division.</p><div class="doc-tags"><span class="tag">Standards</span><span class="tag">Conduct</span><span class="tag">All Personnel</span></div></article>
-<article class="doc-card reveal" data-category="personnel policy" data-search="attendance policy participation absence loa leave of absence"><div class="doc-code"><span>SOP 02</span><span>Personnel</span></div><h3>Attendance & Accountability</h3><p>Guidance covering participation expectations, attendance tracking, absence notification and accountability procedures.</p><div class="doc-tags"><span class="tag">Attendance</span><span class="tag">Accountability</span></div></article>
+<article class="doc-card reveal" data-category="policy personnel" data-search="unit standards conduct expectations policy"><div class="doc-code"><span>SOP 01</span><span>Policy</span></div><h3>Unit Standards &amp; Conduct</h3><p>General expectations for professionalism, behavior, accountability, chain of command and representation of the division.</p><div class="doc-tags"><span class="tag">Standards</span><span class="tag">Conduct</span><span class="tag">All Personnel</span></div></article>
+<article class="doc-card reveal" data-category="personnel policy" data-search="attendance policy participation absence loa leave of absence"><div class="doc-code"><span>SOP 02</span><span>Personnel</span></div><h3>Attendance &amp; Accountability</h3><p>Guidance covering participation expectations, attendance tracking, absence notification and accountability procedures.</p><div class="doc-tags"><span class="tag">Attendance</span><span class="tag">Accountability</span></div></article>
 <article class="doc-card reveal" data-category="personnel policy" data-search="leave of absence loa policy return status"><div class="doc-code"><span>SOP 03</span><span>Personnel</span></div><h3>Leave of Absence</h3><p>Procedures for requesting LOA, maintaining status while away and returning to active participation.</p><div class="doc-tags"><span class="tag">LOA</span><span class="tag">Personnel</span></div></article>
 <article class="doc-card reveal" data-category="operations" data-search="operations mission planning briefing command control communications"><div class="doc-code"><span>SOP 04</span><span>Operations</span></div><h3>Operational Procedures</h3><p>Baseline expectations for mission preparation, briefings, command relationships, communications and execution.</p><div class="doc-tags"><span class="tag">Operations</span><span class="tag">Command</span></div></article>
-<article class="doc-card reveal" data-category="operations training" data-search="communications radio brevity reports salute sitrep bda medevac"><div class="doc-code"><span>SOP 05</span><span>Operations</span></div><h3>Communications & Reports</h3><p>Radio discipline, reporting formats, brevity expectations and common tactical communication procedures.</p><div class="doc-tags"><span class="tag">Comms</span><span class="tag">Reports</span><span class="tag">Brevity</span></div></article>
-<article class="doc-card reveal" data-category="training" data-search="basic combat training bct training qualification standards instructors"><div class="doc-code"><span>SOP 06</span><span>Training</span></div><h3>Training & Qualification Standards</h3><p>Standards for BCT, role training, qualification validation, instructors and sustainment training.</p><div class="doc-tags"><span class="tag">BCT</span><span class="tag">Qualifications</span></div></article>
+<article class="doc-card reveal" data-category="operations training" data-search="communications radio brevity reports salute sitrep bda medevac"><div class="doc-code"><span>SOP 05</span><span>Operations</span></div><h3>Communications &amp; Reports</h3><p>Radio discipline, reporting formats, brevity expectations and common tactical communication procedures.</p><div class="doc-tags"><span class="tag">Comms</span><span class="tag">Reports</span><span class="tag">Brevity</span></div></article>
+<article class="doc-card reveal" data-category="training" data-search="basic combat training bct training qualification standards instructors"><div class="doc-code"><span>SOP 06</span><span>Training</span></div><h3>Training &amp; Qualification Standards</h3><p>Standards for BCT, role training, qualification validation, instructors and sustainment training.</p><div class="doc-tags"><span class="tag">BCT</span><span class="tag">Qualifications</span></div></article>
 <article class="doc-card reveal" data-category="operations training" data-search="ground infantry movement formations weapons team tactics"><div class="doc-code"><span>SOP 07</span><span>Training</span></div><h3>Ground Operations</h3><p>Reference standards for infantry movement, formations, team integration and basic ground tactical procedures.</p><div class="doc-tags"><span class="tag">Infantry</span><span class="tag">Ground</span></div></article>
 <article class="doc-card reveal" data-category="operations training" data-search="aviation flight pilot aircrew landing zone lz pz"><div class="doc-code"><span>SOP 08</span><span>Operations</span></div><h3>Aviation Procedures</h3><p>Aircrew coordination, flight procedures, landing-zone operations and integration with supported ground elements.</p><div class="doc-tags"><span class="tag">Aviation</span><span class="tag">Aircrew</span></div></article>
-<article class="doc-card reveal" data-category="operations training" data-search="armor vehicle crew driver gunner commander mounted"><div class="doc-code"><span>SOP 09</span><span>Operations</span></div><h3>Armor & Vehicle Operations</h3><p>Vehicle crew responsibilities, mounted coordination, crew communications and integration with maneuver elements.</p><div class="doc-tags"><span class="tag">Armor</span><span class="tag">Vehicle Crew</span></div></article>
-<article class="doc-card reveal" data-category="personnel policy" data-search="promotion ranks leadership billet advancement eligibility"><div class="doc-code"><span>SOP 10</span><span>Personnel</span></div><h3>Ranks, Billets & Promotions</h3><p>Reference for rank structure, billet responsibility, advancement expectations and leadership progression.</p><div class="doc-tags"><span class="tag">Ranks</span><span class="tag">Promotions</span></div></article>
-<article class="doc-card reveal" data-category="personnel policy" data-search="recruitment application onboarding new members processing"><div class="doc-code"><span>SOP 11</span><span>Personnel</span></div><h3>Recruitment & Onboarding</h3><p>Applicant processing, new-member onboarding, initial assignment and entry into the training pipeline.</p><div class="doc-tags"><span class="tag">Recruitment</span><span class="tag">Onboarding</span></div></article>
+<article class="doc-card reveal" data-category="operations training" data-search="armor vehicle crew driver gunner commander mounted"><div class="doc-code"><span>SOP 09</span><span>Operations</span></div><h3>Armor &amp; Vehicle Operations</h3><p>Vehicle crew responsibilities, mounted coordination, crew communications and integration with maneuver elements.</p><div class="doc-tags"><span class="tag">Armor</span><span class="tag">Vehicle Crew</span></div></article>
+<article class="doc-card reveal" data-category="personnel policy" data-search="promotion ranks leadership billet advancement eligibility"><div class="doc-code"><span>SOP 10</span><span>Personnel</span></div><h3>Ranks, Billets &amp; Promotions</h3><p>Reference for rank structure, billet responsibility, advancement expectations and leadership progression.</p><div class="doc-tags"><span class="tag">Ranks</span><span class="tag">Promotions</span></div></article>
+<article class="doc-card reveal" data-category="personnel policy" data-search="recruitment application onboarding new members processing"><div class="doc-code"><span>SOP 11</span><span>Personnel</span></div><h3>Recruitment &amp; Onboarding</h3><p>Applicant processing, new-member onboarding, initial assignment and entry into the training pipeline.</p><div class="doc-tags"><span class="tag">Recruitment</span><span class="tag">Onboarding</span></div></article>
 <article class="doc-card reveal" data-category="policy personnel" data-search="administration discharge separation records member status"><div class="doc-code"><span>SOP 12</span><span>Policy</span></div><h3>Administrative Actions</h3><p>General reference for member status changes, administrative records, discharge processing and command actions.</p><div class="doc-tags"><span class="tag">Admin</span><span class="tag">Records</span></div></article>
 </div>
 </div>
 </section>
-
 <section class="section" style="padding-top:10px">
 <div class="wrap">
 <div class="section-top reveal"><div><p class="eyebrow">02 // QUICK REFERENCE</p><h2>Member Resources</h2></div><div class="section-code">Common Access</div></div>
 <div class="priority-panel">
-<article class="priority-card reveal"><p class="eyebrow">REQUIRED READING</p><h3>Know the Standards</h3><p>Unit policy, attendance requirements, training standards and operational procedures form the baseline for every member. Specialized personnel should also remain current on the procedures for their assigned role.</p><div class="quick-list"><div class="quick-row"><strong>Training & Qualifications</strong><span>training.html</span></div><div class="quick-row"><strong>Unit ORBAT</strong><span>orbat.html</span></div><div class="quick-row"><strong>Server Information</strong><span>server.html</span></div></div></article>
+<article class="priority-card reveal"><p class="eyebrow">REQUIRED READING</p><h3>Know the Standards</h3><p>Unit policy, attendance requirements, training standards and operational procedures form the baseline for every member. Specialized personnel should also remain current on the procedures for their assigned role.</p><div class="quick-list"><div class="quick-row"><strong>Training &amp; Qualifications</strong><span>training.html</span></div><div class="quick-row"><strong>Unit ORBAT</strong><span>orbat.html</span></div><div class="quick-row"><strong>Server Information</strong><span>server.html</span></div></div></article>
 <aside class="reference-card reveal"><p class="eyebrow">PERSONNEL ACCESS</p><h3>Your Records</h3><p>Use the Member Portal to review your rank, assignment, qualifications, attendance and other personnel information maintained by the division.</p><a class="btn" href="members.html">Open Member Portal</a></aside>
 </div>
 </div>
 </section>
 </main>
-
 <footer><div><strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong><div style="margin-top:6px">Swift. Silent. Relentless.</div></div><div class="footer-links"><a href="index.html">Home</a><a href="training.html">Training</a><a href="members.html">Member Portal</a><a href="recruitment.html">Recruitment</a></div></footer>
-
 <script>
 const navToggle=document.getElementById('navToggle'),mainNav=document.getElementById('mainNav');
 navToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
@@ -231,6 +266,92 @@ buttons.forEach(btn=>btn.addEventListener('click',()=>{
  buttons.forEach(b=>b.classList.toggle('active',b===btn));
  filterDocs();
 }));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
+
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
+
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
+
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
+
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
+
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
+
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
 </script>
 </body>
 </html>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>21st Cavalry Division | Server</title>
-<meta name="description" content="21st Cavalry Division server information, connection details and live required mod list.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta content="21st Cavalry Division server information, connection details and live required mod list." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --bg:#050706;--panel:#0d110e;--panel2:#111713;--line:#293127;--line2:#3b4638;
@@ -156,7 +157,6 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
  footer{flex-direction:column;align-items:flex-start}
 }
 </style>
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -267,17 +267,57 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
 <a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
-<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
 <nav class="main-nav" id="mainNav">
-<a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">SOPs</a><a href="server.html" class="active nav-current">Server</a><a href="media.html">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a>
-</nav>
+<a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a class="nav-current" href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a></nav>
 </header>
-
 <main>
 <section class="page-hero">
 <div class="hero-inner reveal">
@@ -286,38 +326,32 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 <p class="hero-copy">Official connection information, pre-operation checklist and the live required mod list for the 21st Cavalry Division server.</p>
 </div>
 </section>
-
 <section class="status-strip">
 <div class="status-item"><small>Platform</small><strong>Arma Reforger</strong></div>
 <div class="status-item"><small>Scenario</small><strong>Game Master</strong></div>
 <div class="status-item"><small>Terrain</small><strong>Everon</strong></div>
 <div class="status-item"><small>Capacity</small><strong>40 Slots</strong></div>
 </section>
-
 <section class="section">
 <div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">01 // CONNECTION</p><h2>Official Server</h2></div><div class="section-code">Operations & Training</div></div>
-
+<div class="section-top reveal"><div><p class="eyebrow">01 // CONNECTION</p><h2>Official Server</h2></div><div class="section-code">Operations &amp; Training</div></div>
 <div class="server-shell">
 <article class="server-primary reveal">
 <div class="server-title-row">
 <div><p class="eyebrow">SERVER IDENTIFICATION</p><h2 class="server-name">[US] 21st Cavalry | Modern Milsim | PvE Operations | New Players Welcome</h2><p class="server-sub">Primary 21st Cavalry Division operations and training environment.</p></div>
 <span class="online-badge">Official Server</span>
 </div>
-
 <div class="detail-grid">
 <div class="detail"><small>Address</small><strong>216.245.177.56</strong></div>
 <div class="detail"><small>Port</small><strong>7940</strong></div>
 <div class="detail"><small>Scenario</small><strong>Game Master - Everon</strong></div>
 <div class="detail"><small>Crossplay</small><strong>PC + PlayStation</strong></div>
 </div>
-
 <div class="connect-row">
 <button class="action-btn" id="copyAddress" type="button">Copy Address</button>
 <button class="action-btn secondary" id="copyServerName" type="button">Copy Server Name</button>
 </div>
 </article>
-
 <aside class="server-side reveal">
 <p class="eyebrow">SESSION INFORMATION</p>
 <h3>Before Connecting</h3>
@@ -332,7 +366,6 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 </div>
 </div>
 </section>
-
 <section class="section" style="padding-top:10px">
 <div class="wrap">
 <div class="section-top reveal"><div><p class="eyebrow">02 // PRE-FLIGHT</p><h2>Server Checklist</h2></div><div class="section-code">Before Formation</div></div>
@@ -344,39 +377,34 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 </div>
 </div>
 </section>
-
 <section class="section" style="padding-top:10px">
 <div class="wrap">
 <div class="section-top reveal"><div><p class="eyebrow">03 // LIVE MODPACK</p><h2>Required Content</h2></div><div class="section-code">Synced from Server Config</div></div>
-
 <div class="mod-panel reveal">
 <div class="mod-toolbar">
 <div class="mod-summary"><small>Required Mods</small><strong id="mod-count">0</strong></div>
-<input id="mod-search" type="search" placeholder="Search mod name or Workshop ID..." aria-label="Search server mods">
+<input aria-label="Search server mods" id="mod-search" placeholder="Search mod name or Workshop ID..." type="search"/>
 </div>
 <p class="mod-sync-note">This list loads from <code>mods.json</code>, which is automatically synchronized from the live server configuration.</p>
-<div id="server-mod-list" class="server-mod-list"><div class="mod-loading">Loading live server mods...</div></div>
+<div class="server-mod-list" id="server-mod-list"><div class="mod-loading">Loading live server mods...</div></div>
 </div>
 </div>
 </section>
-
 <section class="section" style="padding-top:10px">
 <div class="wrap">
 <div class="support-box reveal">
 <p class="eyebrow">04 // SERVER SUPPORT</p>
 <h3>Having Trouble Joining?</h3>
 <p>If the server does not appear, a mod fails to download, or you receive a connection error, contact unit staff and include the exact message you are seeing.</p>
-<a href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Open Discord</a>
+<a href="https://discord.gg/PCxE5jTYZ" rel="noopener noreferrer" target="_blank">Open Discord</a>
 </div>
 </div>
 </section>
 </main>
-
 <footer>
 <div><strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong><div style="margin-top:6px">Swift. Silent. Relentless.</div></div>
 <div class="footer-links"><a href="index.html">Home</a><a href="resources.html">Resources</a><a href="training.html">Training</a><a href="recruitment.html">Recruitment</a></div>
 </footer>
-
 <script>
 const navToggle=document.getElementById('navToggle');
 const mainNav=document.getElementById('mainNav');
@@ -513,6 +541,92 @@ function escapeHTML(value){
 }
 
 loadServerMods();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
+
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
+
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
+
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
+
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
+
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
+
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
+
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
+
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
 </script>
 </body>
 </html>

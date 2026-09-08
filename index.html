@@ -1,53 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="21st Cavalry Division — Swift, Silent, Relentless."
-    >
-
-    <title>21st Cavalry Division | Home</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- MAIN STYLESHEET -->
-
-    <link
-        rel="stylesheet"
-        href="styles.css?v=8"
-    >
-
-
-    <!-- HOMEPAGE BANNER -->
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="21st Cavalry Division — Swift, Silent, Relentless." name="description"/>
+<title>21st Cavalry Division | Home</title>
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- MAIN STYLESHEET -->
+<link href="styles.css?v=8" rel="stylesheet"/>
+<!-- HOMEPAGE BANNER -->
+<style>
 
         .hero {
             position: relative;
@@ -144,8 +110,6 @@
         }
 
     </style>
-
-
 <style id="command-center-home-redesign">
 :root{--cmd-gold:#c5a75b;--cmd-gold2:#e0c879;--cmd-ink:#070907;--cmd-panel:#0e120f;--cmd-panel2:#151a15;--cmd-line:rgba(197,167,91,.28);--cmd-text:#f0eee7;--cmd-muted:#a8aea5}
 body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transparent 25%),#070907;color:var(--cmd-text)}
@@ -171,8 +135,6 @@ body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transpare
 @media(max-width:900px){.stats.strip{grid-template-columns:repeat(2,1fr)}.stats.strip>div:nth-child(2){border-right:0}.command-grid,.timeline{grid-template-columns:repeat(2,1fr)!important}.hero{min-height:680px!important}.hero-badge{display:none!important}}
 @media(max-width:600px){.stats.strip,.command-grid,.timeline{grid-template-columns:1fr!important}.stats.strip>div{border-right:0;border-bottom:1px solid var(--cmd-line)}.hero{min-height:650px!important}.hero h1{font-size:4.2rem!important}.section-copy{border-left:0;padding-left:0}.join-inner{padding:34px 24px!important}.mission-card:after{display:none}}
 </style>
-
-
 <style id="global-nav-standardization">
 /* =========================================================
    21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
@@ -283,399 +245,231 @@ body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transpare
     }
 }
 </style>
+<style id="full-navigation-fix">
+/* Full navigation is intentionally present on every page. */
+.main-nav{
+    gap:22px !important;
+}
+.main-nav > a:not(.nav-cta){
+    white-space:nowrap !important;
+    flex:0 0 auto !important;
+}
+@media (max-width:1280px){
+    .main-nav{gap:16px !important;}
+    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
+}
+@media (max-width:1080px){
+    .main-nav{gap:13px !important;}
+    .main-nav > a:not(.nav-cta){font-size:13px !important;}
+}
+</style>
 
+<style id="auth-aware-navigation-style">
+/* =========================================================
+   AUTH-AWARE NAVIGATION
+   Logged out: public pages + ENLIST
+   Logged in: public pages + OPBOARD + MEMBER PORTAL
+   Admin: same as logged in + ADMIN
+   ========================================================= */
+.main-nav .member-only-nav,
+.main-nav .admin-only-nav{
+    display:none !important;
+}
+.main-nav .logged-out-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .member-only-nav{
+    display:flex !important;
+}
+body.nav-authenticated .main-nav .logged-out-only-nav{
+    display:none !important;
+}
+body.nav-admin .main-nav .admin-only-nav{
+    display:flex !important;
+}
+</style>
 </head>
-
-
 <body>
-
-
-    <!-- ================================================= -->
-    <!-- HEADER -->
-    <!-- ================================================= -->
-
-    <header class="site-header">
-
-
-        <!-- BRAND -->
-
-        <a
-            class="brand"
-            href="index.html"
-            aria-label="21st Cavalry Division home"
-        >
-
-            <div class="brand-mark">
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+<header class="site-header">
+<!-- BRAND -->
+<a aria-label="21st Cavalry Division home" class="brand" href="index.html">
+<div class="brand-mark">
                 21
             </div>
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </a>
-
-
-        <!-- MOBILE NAVIGATION -->
-
-        <button
-            class="nav-toggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-        >
+</div>
+</a>
+<!-- MOBILE NAVIGATION -->
+<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle">
             ☰
         </button>
-
-
-        <!-- NAVIGATION -->
-
-        <nav class="main-nav">
-
-            <a href="index.html" class="nav-current">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="media.html">
-                Media
-            </a>
-
-
-            <!-- MEMBER / ADMIN PORTAL LINKS -->
-
-            <a
-                href="members.html"
-                id="memberPortalLink"
-                hidden
-            >
-                Member Portal
-            </a>
-
-            <a
-                href="admin.html"
-                id="adminPortalLink"
-                hidden
-            >
-                Admin
-            </a>
-
-
-            <!-- DISCORD LOGIN -->
-
-            <div
-                class="member-auth"
-                id="memberAuth"
-            >
-
-                <button
-                    class="member-login-btn"
-                    id="discordLoginBtn"
-                    type="button"
-                >
+<!-- NAVIGATION -->
+<nav class="main-nav">
+<!-- MEMBER / ADMIN PORTAL LINKS -->
+<!-- DISCORD LOGIN -->
+<a class="nav-current" href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a class="member-only-nav" href="operations.html">OPBOARD</a><a class="member-only-nav" href="members.html">MEMBER PORTAL</a><a class="admin-only-nav" href="admin.html">ADMIN</a><a class="nav-cta logged-out-only-nav" href="recruitment.html">ENLIST</a><div class="member-auth" id="memberAuth">
+<button class="member-login-btn" id="discordLoginBtn" type="button">
                     Login with Discord
                 </button>
-
-
-                <!-- LOGGED-IN MEMBER -->
-
-                <div
-                    class="member-profile"
-                    id="memberProfile"
-                    hidden
-                >
-
-                    <img
-                        id="memberAvatar"
-                        class="member-avatar"
-                        src=""
-                        alt=""
-                        hidden
-                    >
-
-
-                    <div class="member-profile-text">
-
-                        <span id="memberName">
+<!-- LOGGED-IN MEMBER -->
+<div class="member-profile" hidden="" id="memberProfile">
+<img alt="" class="member-avatar" hidden="" id="memberAvatar" src=""/>
+<div class="member-profile-text">
+<span id="memberName">
                             Member
                         </span>
-
-                        <small>
+<small>
                             Authenticated Member
                         </small>
-
-                    </div>
-
-
-                    <button
-                        class="member-logout-btn"
-                        id="discordLogoutBtn"
-                        type="button"
-                    >
+</div>
+<button class="member-logout-btn" id="discordLogoutBtn" type="button">
                         Logout
                     </button>
-
-                </div>
-
-            </div>
-
-
-            <a
-                class="nav-cta"
-                href="recruitment.html"
-            >
-                Enlist
-            </a>
-
-        </nav>
-
-
-    </header>
-
-
-    <!-- ================================================= -->
-    <!-- MAIN -->
-    <!-- ================================================= -->
-
-    <main>
-
-
-        <!-- HERO -->
-
-        <section class="hero">
-
-            <div class="hero-overlay"></div>
-
-            <div class="hero-grid"></div>
-
-
-            <div class="hero-content reveal">
-
-                <p class="eyebrow">
+</div>
+</div></nav>
+</header>
+<!-- ================================================= -->
+<!-- MAIN -->
+<!-- ================================================= -->
+<main>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="hero-grid"></div>
+<div class="hero-content reveal">
+<p class="eyebrow">
                     21ST CAVALRY DIVISION
                 </p>
-
-
-                <h1>
+<h1>
 
                     SWIFT.
 
-                    <br>
-
-                    <span>
+                    <br/>
+<span>
                         SILENT.
                     </span>
-
-                    <br>
+<br/>
 
                     RELENTLESS.
 
                 </h1>
-
-
-                <p class="hero-copy">
+<p class="hero-copy">
                     A disciplined combined-arms milsim community built around
                     teamwork, leadership, tactical excellence, and decisive action.
                 </p>
-
-
-                <div class="hero-actions">
-
-                    <a
-                        class="btn btn-primary"
-                        href="recruitment.html"
-                    >
+<div class="hero-actions">
+<a class="btn btn-primary" href="recruitment.html">
                         Join the Division
                     </a>
-
-
-                    <a
-                        class="btn btn-secondary"
-                        href="resources.html"
-                    >
+<a class="btn btn-secondary" href="resources.html">
                         View Unit Resources
                     </a>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="hero-badge"
-                aria-hidden="true"
-            >
-
-                <b>
+</div>
+</div>
+<div aria-hidden="true" class="hero-badge">
+<b>
                     21
                 </b>
-
-                <span>
+<span>
                     CAVALRY
                 </span>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- UNIT STATS -->
-        <!-- ================================================= -->
-
-        <section class="stats strip">
-
-            <div>
-
-                <strong>
+</div>
+</section>
+<!-- ================================================= -->
+<!-- UNIT STATS -->
+<!-- ================================================= -->
+<section class="stats strip">
+<div>
+<strong>
                     WEEKLY
                 </strong>
-
-                <span>
-                    Operations & Training
+<span>
+                    Operations &amp; Training
                 </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>
+</div>
+<div>
+<strong>
                     COMBINED ARMS
                 </strong>
-
-                <span>
+<span>
                     Ground • Armor • Aviation
                 </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>
+</div>
+<div>
+<strong>
                     STRUCTURED
                 </strong>
-
-                <span>
-                    Training & Leadership
+<span>
+                    Training &amp; Leadership
                 </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>
+</div>
+<div>
+<strong>
                     ONE TEAM
                 </strong>
-
-                <span>
+<span>
                     Mission Focused
                 </span>
-
-            </div>
-
-        </section>
-
-
-
-        <section class="command-links reveal" aria-label="Quick navigation">
-            <p class="command-label">DIVISION // QUICK ACCESS</p>
-            <div class="command-grid">
-                <a class="command-tile" href="orbat.html"><small>01 // PERSONNEL</small><strong>ORBAT</strong></a>
-                <a class="command-tile" href="training.html"><small>02 // READINESS</small><strong>TRAINING</strong></a>
-                <a class="command-tile" href="server.html"><small>03 // OPERATIONS</small><strong>SERVER</strong></a>
-                <a class="command-tile" href="resources.html"><small>04 // DOCTRINE</small><strong>SOP LIBRARY</strong></a>
-            </div>
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- WHO WE ARE -->
-        <!-- ================================================= -->
-
-        <section class="section two-col">
-
-
-            <div class="section-heading reveal">
-
-                <p class="eyebrow">
+</div>
+</section>
+<section aria-label="Quick navigation" class="command-links reveal">
+<p class="command-label">DIVISION // QUICK ACCESS</p>
+<div class="command-grid">
+<a class="command-tile" href="orbat.html"><small>01 // PERSONNEL</small><strong>ORBAT</strong></a>
+<a class="command-tile" href="training.html"><small>02 // READINESS</small><strong>TRAINING</strong></a>
+<a class="command-tile" href="server.html"><small>03 // OPERATIONS</small><strong>SERVER</strong></a>
+<a class="command-tile" href="resources.html"><small>04 // DOCTRINE</small><strong>SOP LIBRARY</strong></a>
+</div>
+</section>
+<!-- ================================================= -->
+<!-- WHO WE ARE -->
+<!-- ================================================= -->
+<section class="section two-col">
+<div class="section-heading reveal">
+<p class="eyebrow">
                     WHO WE ARE
                 </p>
-
-                <h2>
+<h2>
                     Built for teamwork.
-                    <br>
+                    <br/>
                     Driven by standards.
                 </h2>
-
-            </div>
-
-
-            <div class="section-copy reveal">
-
-                <p>
+</div>
+<div class="section-copy reveal">
+<p>
                     The 21st Cavalry Division is an organized military simulation
                     community focused on coordinated, immersive operations while
                     maintaining a welcoming environment for its members.
                 </p>
-
-                <p>
+<p>
                     Every member has a purpose. Ground, armor, aviation,
                     reconnaissance, medical, support, and leadership elements
                     work together as one force.
                 </p>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- PROJECT MISSION -->
-        <!-- ================================================= -->
-
-        <section class="section mission">
-
-
-            <div class="mission-card reveal">
-
-                <p class="eyebrow">
+</div>
+</section>
+<!-- ================================================= -->
+<!-- PROJECT MISSION -->
+<!-- ================================================= -->
+<section class="section mission">
+<div class="mission-card reveal">
+<p class="eyebrow">
                     PROJECT MISSION
                 </p>
-
-
-                <h2>
+<h2>
                     Develop capable members who can adapt to any mission
                     and operate effectively as one team.
                 </h2>
-
-
-                <p>
+<p>
                     The mission of the 21st Cavalry Division is to build a
                     disciplined, organized, and professional unit focused on
                     teamwork, leadership, and tactical excellence. Through
@@ -683,343 +477,283 @@ body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transpare
                     cohesion, we aim to develop confident members prepared to
                     succeed in any assigned role.
                 </p>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- CAPABILITIES -->
-        <!-- ================================================= -->
-
-        <section class="section">
-
-
-            <div class="section-heading center reveal">
-
-                <p class="eyebrow">
+</div>
+</section>
+<!-- ================================================= -->
+<!-- CAPABILITIES -->
+<!-- ================================================= -->
+<section class="section">
+<div class="section-heading center reveal">
+<p class="eyebrow">
                     UNIT CAPABILITIES
                 </p>
-
-                <h2>
+<h2>
                     One force. Multiple roles.
                 </h2>
-
-            </div>
-
-
-            <div class="card-grid four">
-
-
-                <article class="info-card reveal">
-
-                    <span>
+</div>
+<div class="card-grid four">
+<article class="info-card reveal">
+<span>
                         01
                     </span>
-
-                    <h3>
+<h3>
                         Ground
                     </h3>
-
-                    <p>
+<p>
                         Dismounted and mechanized maneuver elements focused
                         on coordinated team operations.
                     </p>
-
-                </article>
-
-
-                <article class="info-card reveal">
-
-                    <span>
+</article>
+<article class="info-card reveal">
+<span>
                         02
                     </span>
-
-                    <h3>
+<h3>
                         Armor
                     </h3>
-
-                    <p>
+<p>
                         Armored crews providing mobility, protection,
                         and support to maneuver forces.
                     </p>
-
-                </article>
-
-
-                <article class="info-card reveal">
-
-                    <span>
+</article>
+<article class="info-card reveal">
+<span>
                         03
                     </span>
-
-                    <h3>
+<h3>
                         Aviation
                     </h3>
-
-                    <p>
+<p>
                         Air crews supporting transport, reconnaissance,
                         resupply, and coordinated air operations.
                     </p>
-
-                </article>
-
-
-                <article class="info-card reveal">
-
-                    <span>
+</article>
+<article class="info-card reveal">
+<span>
                         04
                     </span>
-
-                    <h3>
+<h3>
                         Support
                     </h3>
-
-                    <p>
+<p>
                         Medical, logistics, communications, and staff
                         functions that keep the division moving.
                     </p>
-
-                </article>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- START HERE -->
-        <!-- ================================================= -->
-
-        <section class="section dark-section">
-
-
-            <div class="section-heading reveal">
-
-                <p class="eyebrow">
+</article>
+</div>
+</section>
+<!-- ================================================= -->
+<!-- START HERE -->
+<!-- ================================================= -->
+<section class="section dark-section">
+<div class="section-heading reveal">
+<p class="eyebrow">
                     START HERE
                 </p>
-
-                <h2>
+<h2>
                     Your path into the 21st.
                 </h2>
-
-            </div>
-
-
-            <div class="timeline">
-
-
-                <div>
-
-                    <b>
+</div>
+<div class="timeline">
+<div>
+<b>
                         01
                     </b>
-
-                    <h3>
+<h3>
                         Join Discord
                     </h3>
-
-                    <p>
+<p>
                         Enter the community and review unit information.
                     </p>
-
-                </div>
-
-
-                <div>
-
-                    <b>
+</div>
+<div>
+<b>
                         02
                     </b>
-
-                    <h3>
+<h3>
                         Submit Application
                     </h3>
-
-                    <p>
+<p>
                         Complete the short enlistment application.
                     </p>
-
-                </div>
-
-
-                <div>
-
-                    <b>
+</div>
+<div>
+<b>
                         03
                     </b>
-
-                    <h3>
+<h3>
                         Basic Training
                     </h3>
-
-                    <p>
+<p>
                         Learn unit standards and core procedures.
                     </p>
-
-                </div>
-
-
-                <div>
-
-                    <b>
+</div>
+<div>
+<b>
                         04
                     </b>
-
-                    <h3>
+<h3>
                         Join Your Element
                     </h3>
-
-                    <p>
+<p>
                         Move into a role and begin qualification training.
                     </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- JOIN -->
-        <!-- ================================================= -->
-
-        <section class="section join">
-
-
-            <div class="join-inner reveal">
-
-                <p class="eyebrow">
+</div>
+</div>
+</section>
+<!-- ================================================= -->
+<!-- JOIN -->
+<!-- ================================================= -->
+<section class="section join">
+<div class="join-inner reveal">
+<p class="eyebrow">
                     READY TO SERVE?
                 </p>
-
-
-                <h2>
+<h2>
                     Earn your place in the 21st.
                 </h2>
-
-
-                <p>
+<p>
                     Join the community, complete your entry process,
                     and begin training with your assigned element.
                 </p>
-
-
-                <div class="hero-actions">
-
-
-                    <a
-                        class="btn btn-primary"
-                        href="recruitment.html"
-                    >
+<div class="hero-actions">
+<a class="btn btn-primary" href="recruitment.html">
                         Start Application
                     </a>
-
-
-                    <a
-                        class="btn btn-secondary"
-                        href="https://discord.gg/PCxE5jTYZ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+<a class="btn btn-secondary" href="https://discord.gg/PCxE5jTYZ" rel="noopener noreferrer" target="_blank">
                         Join Discord
                     </a>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-    <!-- ================================================= -->
-    <!-- FOOTER -->
-    <!-- ================================================= -->
-
-    <footer>
-
-
-        <div class="brand footer-brand">
-
-            <div class="brand-mark">
+</div>
+</div>
+</section>
+</main>
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+<footer>
+<div class="brand footer-brand">
+<div class="brand-mark">
                 21
             </div>
-
-            <div>
-
-                <span>
+<div>
+<span>
                     21ST CAVALRY
                 </span>
-
-                <small>
+<small>
                     DIVISION
                 </small>
-
-            </div>
-
-        </div>
-
-
-        <p>
+</div>
+</div>
+<p>
             Swift. Silent. Relentless.
         </p>
-
-
-        <div class="footer-links">
-
-            <a href="recruitment.html">
+<div class="footer-links">
+<a href="recruitment.html">
                 Recruitment
             </a>
-
-            <a href="resources.html">
+<a href="resources.html">
                 Unit Resources
             </a>
-
-            <a
-                href="https://discord.gg/PCxE5jTYZ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+<a href="https://discord.gg/PCxE5jTYZ" rel="noopener noreferrer" target="_blank">
                 Discord
             </a>
-
-        </div>
-
-
-        <p class="fineprint">
+</div>
+<p class="fineprint">
             This is a gaming/military simulation community website and is not
             affiliated with the United States Department of Defense.
         </p>
+</footer>
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+<!-- Supabase MUST load before script.js -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js?v=8"></script>
 
+<script id="auth-aware-navigation-script">
+(function () {
+    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
 
-    </footer>
+    function setLoggedOutNav() {
+        document.body.classList.remove('nav-authenticated', 'nav-admin');
+    }
 
+    async function updateNavigationForSession(client, session) {
+        if (!session || !session.user) {
+            setLoggedOutNav();
+            return;
+        }
 
-    <!-- ================================================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ================================================= -->
+        document.body.classList.add('nav-authenticated');
+        document.body.classList.remove('nav-admin');
 
-    <!-- Supabase MUST load before script.js -->
+        try {
+            const { data: profile, error } = await client
+                .from('member_profiles')
+                .select('access_level,member_status')
+                .eq('user_id', session.user.id)
+                .maybeSingle();
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            if (error) {
+                console.warn('Navigation profile check failed:', error);
+                return;
+            }
 
-    <script src="script.js?v=8"></script>
+            const accessLevel = profile && profile.access_level
+                ? String(profile.access_level)
+                : '';
 
+            if (accessLevel === 'Admin' || accessLevel === 'Super Admin') {
+                document.body.classList.add('nav-admin');
+            }
+        } catch (error) {
+            console.warn('Navigation permission check failed:', error);
+        }
+    }
 
+    async function initializeAuthNavigation() {
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            setLoggedOutNav();
+            return;
+        }
+
+        const navClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY,
+            {
+                auth: {
+                    persistSession: true,
+                    autoRefreshToken: true,
+                    detectSessionInUrl: false
+                }
+            }
+        );
+
+        try {
+            const { data } = await navClient.auth.getSession();
+            await updateNavigationForSession(
+                navClient,
+                data ? data.session : null
+            );
+        } catch (error) {
+            console.warn('Navigation session check failed:', error);
+            setLoggedOutNav();
+        }
+
+        navClient.auth.onAuthStateChange((_event, session) => {
+            setTimeout(() => {
+                updateNavigationForSession(navClient, session);
+            }, 0);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAuthNavigation);
+    } else {
+        initializeAuthNavigation();
+    }
+})();
+</script>
 </body>
-
 </html>
