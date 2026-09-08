@@ -87,12 +87,124 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 .lightbox{padding:10px}.lightbox-stage{width:100%;height:82vh}.lightbox-image-wrap{width:100%;padding:0 38px}.lightbox-arrow{width:42px;height:66px;font-size:30px}.lightbox-close{top:10px;right:10px;width:44px;height:44px;font-size:28px}.lightbox-info{bottom:10px;width:calc(100% - 20px)}footer{flex-direction:column;align-items:flex-start}
 }
 </style>
+
+<style id="global-nav-standardization">
+/* =========================================================
+   21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
+   Same typography and spacing on every page.
+   ========================================================= */
+.site-header{
+    min-height:72px !important;
+    height:72px !important;
+    padding:0 38px !important;
+    display:flex !important;
+    align-items:center !important;
+    box-sizing:border-box !important;
+}
+.site-header .brand{
+    min-height:72px !important;
+    display:flex !important;
+    align-items:center !important;
+}
+.main-nav{
+    min-height:72px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:28px !important;
+}
+.main-nav > a:not(.nav-cta){
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    min-height:72px !important;
+    padding:0 !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
+    font-size:16px !important;
+    font-style:normal !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    letter-spacing:.055em !important;
+    text-transform:uppercase !important;
+    text-decoration:none !important;
+
+    color:#c8cbc7 !important;
+    border:0 !important;
+    background:transparent !important;
+}
+.main-nav > a:not(.nav-cta)::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    width:100% !important;
+    height:2px !important;
+    margin:0 !important;
+    transform:scaleX(0) !important;
+    transform-origin:center !important;
+    background:#c8aa5b !important;
+    opacity:0 !important;
+    transition:transform .16s ease,opacity .16s ease,color .16s ease !important;
+}
+.main-nav > a:not(.nav-cta):hover{
+    color:#f0e5bf !important;
+}
+.main-nav > a:not(.nav-cta):hover::after{
+    transform:scaleX(.35) !important;
+    opacity:.7 !important;
+}
+.main-nav > a.nav-current:not(.nav-cta){
+    color:#d4b85e !important;
+}
+.main-nav > a.nav-current:not(.nav-cta)::after{
+    transform:scaleX(1) !important;
+    opacity:1 !important;
+}
+.main-nav .nav-cta{
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+    letter-spacing:.055em !important;
+    text-transform:uppercase !important;
+}
+.member-profile-text span,
+.member-login-btn,
+.member-logout-btn{
+    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
+}
+@media(max-width:1180px){
+    .site-header{padding:0 24px !important}
+    .main-nav{gap:20px !important}
+    .main-nav > a:not(.nav-cta){font-size:15px !important}
+}
+@media(max-width:900px){
+    .site-header{height:auto !important;min-height:72px !important}
+    .main-nav{
+        min-height:0 !important;
+        gap:0 !important;
+    }
+    .main-nav > a:not(.nav-cta){
+        min-height:auto !important;
+        padding:11px 0 !important;
+    }
+    .main-nav > a:not(.nav-cta)::after{
+        bottom:4px !important;
+        right:auto !important;
+        width:34px !important;
+    }
+}
+</style>
+
 </head>
 <body>
 <header class="site-header">
 <a class="brand" href="index.html" aria-label="21st Cavalry Division home"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-<nav class="main-nav" id="mainNav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">SOPs</a><a href="server.html">Server</a><a href="media.html" class="active">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a></nav>
+<nav class="main-nav" id="mainNav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html">SOPs</a><a href="server.html">Server</a><a href="media.html" class="active nav-current">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a></nav>
 </header>
 
 <main>
