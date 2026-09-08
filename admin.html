@@ -1600,6 +1600,51 @@
             margin-bottom: 28px;
         }
 
+        .discharge-heading-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .discharge-collapse-toggle {
+            min-height: 38px;
+            padding: 0 14px;
+            border: 1px solid #756438;
+            background: transparent;
+            color: #d5b85e;
+            cursor: pointer;
+            font: 600 10px Oswald, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .discharge-collapse-toggle:hover {
+            background: #151b1e;
+            border-color: #c5a75b;
+            color: #ffffff;
+        }
+
+        .discharge-collapse-toggle::after {
+            content: ' ▼';
+            color: #c5a75b;
+        }
+
+        .discharge-collapse-toggle[aria-expanded="true"]::after {
+            content: ' ▲';
+        }
+
+        @media (max-width: 650px) {
+            .discharge-heading-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .admin-section-heading.discharge-section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
         .discharge-toolbar {
             display: grid;
             grid-template-columns: minmax(0, 1fr) auto;
@@ -2561,12 +2606,29 @@
              DISCHARGE RECORDS
              ================================================= -->
 
-        <div class="admin-section-heading">
+        <div class="admin-section-heading discharge-section-heading">
             <h2>Discharge Records</h2>
-            <span id="dischargeHeadingCount">0 Former Members</span>
+
+            <div class="discharge-heading-actions">
+                <span id="dischargeHeadingCount">0 Former Members</span>
+
+                <button
+                    id="toggleDischarges"
+                    class="discharge-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="dischargePanel"
+                >
+                    Show Records
+                </button>
+            </div>
         </div>
 
-        <section class="discharge-panel">
+        <section
+            id="dischargePanel"
+            class="discharge-panel"
+            hidden
+        >
 
             <div class="discharge-toolbar">
 
@@ -3193,6 +3255,12 @@
                 const dischargeMessage =
                     document.getElementById('dischargeMessage');
 
+                const dischargePanel =
+                    document.getElementById('dischargePanel');
+
+                const toggleDischarges =
+                    document.getElementById('toggleDischarges');
+
 
                 /* =================================================
                    RANKS
@@ -3360,23 +3428,20 @@
                 const SECTION_OPTIONS = [
 
                     'Unassigned',
-                    '1st Cavalry Brigade',
-                    'Patriots',
-                    'Hellhounds',
-                    'Reapers',
-                    '2nd Cavalry Brigade',
-                    'Spartans',
-                    'Titans',
-                    'Raiders',
-                    'Combat Aviation Brigade',
-                    'Roughnecks',
-                    'Havoc',
-                    'Wolverine',
-                    'Special Troops Battalion (STB)',
-                    'Aviation Brigade',
-                    'IronEagle Company',
-                    'NightWing Company',
-                    'Guardian Company'
+                    'Division HQ',
+                    'Command Staff',
+                    '1st Platoon',
+                    '2nd Platoon',
+                    '1st Squad',
+                    '2nd Squad',
+                    '3rd Squad',
+                    'Weapons Squad',
+                    'Aviation Detachment',
+                    'Armor Section',
+                    'Recon Section',
+                    'Medical Section',
+                    'Training Section',
+                    'Recruitment Section'
 
                 ];
 
@@ -7083,6 +7148,30 @@
                 refreshDischarges.addEventListener(
                     'click',
                     loadDischargeRecords
+                );
+
+
+                toggleDischarges.addEventListener(
+                    'click',
+                    () => {
+
+                        const isOpen =
+                            toggleDischarges.getAttribute('aria-expanded')
+                            === 'true';
+
+                        toggleDischarges.setAttribute(
+                            'aria-expanded',
+                            String(!isOpen)
+                        );
+
+                        dischargePanel.hidden = isOpen;
+
+                        toggleDischarges.textContent =
+                            isOpen
+                                ? 'Show Records'
+                                : 'Hide Records';
+
+                    }
                 );
 
 
