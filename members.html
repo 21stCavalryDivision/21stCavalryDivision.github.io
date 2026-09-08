@@ -91,7 +91,7 @@
 
         .portal-shell {
             display: grid;
-            grid-template-columns: 270px minmax(0, 1fr) 390px;
+            grid-template-columns: 270px minmax(0, 1fr);
             gap: 20px;
             padding: 32px clamp(24px, 6vw, 110px) 90px;
         }
@@ -185,29 +185,6 @@
             color: #d46e6e;
         }
 
-
-
-
-        /* ========================================= */
-        /* PROMOTION SERVICE RECORD */
-        /* ========================================= */
-        .promotion-card { align-self:start; border:1px solid #30383d; border-top:2px solid #c5a75b; background:#101619; padding:22px; }
-        .promotion-card-header { padding-bottom:18px; border-bottom:1px solid #30383d; }
-        .promotion-card-header h2 { margin:0; color:#c5a75b; font:600 22px Oswald,sans-serif; text-transform:uppercase; }
-        .promotion-card-header p { margin:5px 0 0; color:#8c999f; font-size:12px; }
-        .promotion-current-label,.promotion-history-label { margin-top:18px; color:#748188; font:600 9px Oswald,sans-serif; letter-spacing:1.3px; text-transform:uppercase; }
-        .promotion-current { padding:14px 0 18px; border-bottom:1px solid #30383d; }
-        .promotion-current strong { display:block; color:#fff; font:600 19px Oswald,sans-serif; }
-        .promotion-current span { display:block; margin-top:5px; color:#9aa5aa; font-size:11px; }
-        .promotion-timeline { position:relative; display:grid; gap:8px; margin-top:14px; padding-left:31px; }
-        .promotion-timeline:before { content:''; position:absolute; left:11px; top:12px; bottom:12px; width:2px; background:#78683b; }
-        .promotion-entry { position:relative; padding:12px 13px; border:1px solid #30383d; background:#090f12; }
-        .promotion-entry:before { content:'✓'; position:absolute; left:-31px; top:12px; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; border:1px solid #417a50; background:#173821; color:#79d693; font:700 11px Roboto,sans-serif; }
-        .promotion-entry-top { display:flex; justify-content:space-between; gap:12px; align-items:start; }
-        .promotion-entry-rank { color:#fff; font:600 13px Oswald,sans-serif; }
-        .promotion-entry-date { flex:0 0 auto; color:#d9be6a; font:500 10px Oswald,sans-serif; }
-        .promotion-entry-time { margin-top:5px; color:#849197; font-size:10px; }
-        .promotion-empty { margin-top:14px; padding:18px; border:1px dashed #394349; color:#7e8a90; font-size:11px; text-align:center; }
 
         /* ========================================= */
         /* PANELS */
@@ -832,6 +809,264 @@
 
     </style>
 
+
+<style id="command-center-member-redesign">
+:root{
+    --cc-bg:#050706;
+    --cc-panel:#0d110e;
+    --cc-panel2:#111713;
+    --cc-line:#293127;
+    --cc-line2:#3b4638;
+    --cc-gold:#c8aa5b;
+    --cc-gold2:#e1c778;
+    --cc-text:#f3f0e6;
+    --cc-muted:#9ca49a;
+}
+body{
+    background:
+        linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px),
+        radial-gradient(circle at 12% 0%,rgba(200,170,91,.08),transparent 34%),
+        var(--cc-bg) !important;
+    background-size:34px 34px,34px 34px,auto,auto !important;
+}
+.site-header{
+    position:sticky !important;
+    top:0;
+    z-index:80;
+    min-height:76px;
+    padding:0 4vw !important;
+    background:rgba(4,7,5,.94) !important;
+    border-bottom:1px solid rgba(200,170,91,.27) !important;
+    backdrop-filter:blur(12px);
+}
+.brand-mark{
+    border-color:var(--cc-gold) !important;
+    color:var(--cc-gold2) !important;
+    background:linear-gradient(135deg,#11160f,#070907) !important;
+}
+.main-nav a{
+    font-family:Oswald,sans-serif !important;
+    letter-spacing:.06em !important;
+}
+.member-login-btn{
+    border:1px solid var(--cc-gold) !important;
+    background:var(--cc-gold) !important;
+    color:#111 !important;
+}
+.member-logout-btn{
+    border-color:#5d4930 !important;
+    color:#d2bd79 !important;
+}
+.portal-hero{
+    min-height:410px !important;
+    padding:90px 5vw 58px !important;
+    display:grid !important;
+    align-items:end !important;
+    position:relative !important;
+    overflow:hidden !important;
+    border-bottom:1px solid var(--cc-line) !important;
+    background:
+        linear-gradient(90deg,rgba(3,5,4,.98),rgba(3,5,4,.84) 50%,rgba(3,5,4,.54)),
+        url("assets/screenshots/21stBanner.png") center/cover no-repeat !important;
+}
+.portal-hero::after{
+    content:"MEMBER";
+    position:absolute;
+    right:3vw;
+    bottom:-48px;
+    font:700 clamp(110px,18vw,270px)/1 Oswald,sans-serif;
+    color:rgba(255,255,255,.024);
+    pointer-events:none;
+}
+.portal-hero-inner{
+    width:min(1480px,92vw) !important;
+    max-width:none !important;
+    margin:0 auto !important;
+    position:relative;
+    z-index:2;
+}
+.portal-hero .eyebrow{
+    color:var(--cc-gold2) !important;
+    letter-spacing:.24em !important;
+}
+.portal-hero h1{
+    margin:0 0 16px !important;
+    font-size:clamp(58px,8vw,104px) !important;
+    line-height:.9 !important;
+    color:var(--cc-text) !important;
+}
+.portal-hero-description{
+    max-width:760px !important;
+    color:#c5cbc2 !important;
+    font-size:16px !important;
+    line-height:1.7 !important;
+}
+.member-status-strip{
+    width:min(1480px,92vw);
+    margin:0 auto 34px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-left:1px solid var(--cc-line);
+    border-top:1px solid var(--cc-line);
+}
+.member-status-strip .member-status-item{
+    padding:20px 22px;
+    background:#090c0a;
+    border-right:1px solid var(--cc-line);
+    border-bottom:1px solid var(--cc-line);
+}
+.member-status-strip small{
+    display:block;
+    margin-bottom:7px;
+    color:var(--cc-muted);
+    font:600 9px/1 Oswald,sans-serif;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+.member-status-strip strong{
+    color:var(--cc-text);
+    font:600 18px/1.2 Oswald,sans-serif;
+    text-transform:uppercase;
+}
+.portal-state{
+    border:1px solid var(--cc-line) !important;
+    border-top:2px solid var(--cc-gold) !important;
+    background:linear-gradient(145deg,rgba(200,170,91,.05),transparent 44%),var(--cc-panel) !important;
+}
+.portal-shell{
+    width:min(1480px,92vw) !important;
+    max-width:none !important;
+    gap:20px !important;
+}
+.profile-card{
+    border:1px solid var(--cc-line) !important;
+    border-top:2px solid var(--cc-gold) !important;
+    background:linear-gradient(180deg,#10140f,#090c0a) !important;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+.profile-avatar{
+    border:2px solid rgba(200,170,91,.5) !important;
+}
+.profile-name{
+    font-size:28px !important;
+    color:#fff !important;
+}
+.profile-rank{
+    color:var(--cc-gold2) !important;
+}
+.profile-data-row{
+    border-color:#242c23 !important;
+}
+.portal-panel{
+    border:1px solid var(--cc-line) !important;
+    background:linear-gradient(180deg,#0f130f,#090c0a) !important;
+    box-shadow:none !important;
+}
+.portal-panel-header{
+    min-height:62px;
+    padding:16px 18px !important;
+    border-bottom:1px solid var(--cc-line) !important;
+    border-left:4px solid var(--cc-gold);
+    background:linear-gradient(90deg,rgba(200,170,91,.07),transparent 48%),#0b0f0c !important;
+}
+.portal-panel-header h2{
+    color:#fff !important;
+    letter-spacing:.03em !important;
+}
+.panel-tag{
+    border:1px solid #3c4438 !important;
+    background:#090c0a !important;
+    color:var(--cc-gold2) !important;
+}
+.portal-panel-body{
+    padding:20px !important;
+}
+.service-card,.training-stat,.account-item,.qualification-group,.attendance-history-row,.upcoming-operation{
+    border-color:#283027 !important;
+    background:#090c0a !important;
+}
+.upcoming-operation{
+    overflow:hidden;
+}
+.upcoming-date{
+    background:#0c100d !important;
+    border-right:1px solid var(--cc-line) !important;
+}
+.upcoming-month,.upcoming-type,.training-stat span,.account-item span{
+    color:var(--cc-gold) !important;
+}
+.upcoming-action{
+    border-left:1px solid var(--cc-line) !important;
+    background:#0b0f0c !important;
+}
+.signup-button{
+    border-color:var(--cc-gold) !important;
+    background:var(--cc-gold) !important;
+    color:#111 !important;
+}
+.signup-button.signed-up{
+    background:transparent !important;
+    color:#83ce93 !important;
+    border-color:#5e8c68 !important;
+}
+.training-summary{
+    gap:10px !important;
+}
+.training-stat strong{
+    color:#fff !important;
+}
+.qualification-badge,.qualification-chip{
+    border-color:#323b30 !important;
+    background:#0a0e0b !important;
+}
+.attendance-status-badge.present{
+    border-color:#46684d !important;
+    color:#7cd28d !important;
+    background:rgba(86,144,98,.08) !important;
+}
+.attendance-status-badge.excused{
+    border-color:#71633a !important;
+    color:#d6bb68 !important;
+    background:rgba(200,170,91,.07) !important;
+}
+.attendance-status-badge.absent{
+    border-color:#734343 !important;
+    color:#df7b7b !important;
+    background:rgba(150,65,65,.08) !important;
+}
+.loa-field input,.loa-field textarea{
+    border-color:#333c31 !important;
+    background:#080b09 !important;
+}
+.loa-field input:focus,.loa-field textarea:focus{
+    outline:none !important;
+    border-color:var(--cc-gold) !important;
+}
+.loa-submit{
+    border-color:var(--cc-gold) !important;
+    background:var(--cc-gold) !important;
+}
+.loa-card{
+    border-color:#2b332a !important;
+    background:#090c0a !important;
+}
+.account-grid{
+    gap:10px !important;
+}
+footer{
+    border-top:1px solid var(--cc-line) !important;
+    background:#050705 !important;
+}
+@media(max-width:900px){
+    .member-status-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+    .portal-hero{min-height:350px !important;padding:72px 18px 46px !important}
+    .member-status-strip{grid-template-columns:1fr;width:92vw}
+}
+</style>
+
 </head>
 
 
@@ -1018,6 +1253,26 @@
         </div>
 
     </section>
+
+
+<section class="member-status-strip" aria-label="Member portal overview">
+    <div class="member-status-item">
+        <small>System</small>
+        <strong>Personnel Record</strong>
+    </div>
+    <div class="member-status-item">
+        <small>Access</small>
+        <strong>Discord Verified</strong>
+    </div>
+    <div class="member-status-item">
+        <small>Readiness</small>
+        <strong>Qualifications</strong>
+    </div>
+    <div class="member-status-item">
+        <small>Accountability</small>
+        <strong>Attendance / LOA</strong>
+    </div>
+</section>
 
 
     <!-- ========================================= -->
@@ -1644,23 +1899,6 @@
 
 
         </div>
-
-        <aside class="promotion-card" id="promotionServiceRecord">
-            <div class="promotion-card-header">
-                <h2>Service Record</h2>
-                <p>Your rank progression and promotion history</p>
-            </div>
-            <div class="promotion-current-label">Current Rank</div>
-            <div class="promotion-current">
-                <strong id="promotionCurrentRank">—</strong>
-                <span id="promotionCurrentAccess">—</span>
-                <span id="promotionCurrentDate">Promotion date unavailable</span>
-            </div>
-            <div class="promotion-history-label">Promotion History</div>
-            <div id="promotionTimeline" class="promotion-timeline">
-                <div class="promotion-empty">Loading promotion history...</div>
-            </div>
-        </aside>
 
     </main>
 
@@ -3409,65 +3647,6 @@
                 }
 
 
-
-
-                function calculateTimeInGrade(startDate, endDate) {
-                    if (!startDate) return 'Time in Grade: —';
-                    const start = new Date(`${startDate}T00:00:00`);
-                    const end = endDate ? new Date(`${endDate}T00:00:00`) : new Date();
-                    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return 'Time in Grade: —';
-                    let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-                    let anchor = new Date(start); anchor.setMonth(anchor.getMonth() + months);
-                    if (anchor > end) { months--; anchor = new Date(start); anchor.setMonth(anchor.getMonth() + months); }
-                    const days = Math.max(0, Math.floor((end - anchor) / 86400000));
-                    const years = Math.floor(months / 12); const remMonths = months % 12;
-                    const parts = [];
-                    if (years) parts.push(`${years} Year${years === 1 ? '' : 's'}`);
-                    if (remMonths) parts.push(`${remMonths} Month${remMonths === 1 ? '' : 's'}`);
-                    if (days || !parts.length) parts.push(`${days} Day${days === 1 ? '' : 's'}`);
-                    return `Time in Grade: ${parts.join(', ')}`;
-                }
-
-                async function loadPromotionHistory(userId, profile) {
-                    const timeline = document.getElementById('promotionTimeline');
-                    const currentRank = document.getElementById('promotionCurrentRank');
-                    const currentAccess = document.getElementById('promotionCurrentAccess');
-                    const currentDate = document.getElementById('promotionCurrentDate');
-                    currentRank.textContent = profile?.rank || 'Unassigned';
-                    currentAccess.textContent = profile?.access_level || 'Member';
-                    const { data, error } = await client.from('promotion_history')
-                        .select('id,rank,promotion_date,notes,created_at')
-                        .eq('user_id', userId)
-                        .order('promotion_date', { ascending: false })
-                        .order('id', { ascending: false });
-                    if (error) {
-                        console.error('Promotion history load error:', error);
-                        timeline.innerHTML = '<div class="promotion-empty">Promotion history could not be loaded.</div>';
-                        currentDate.textContent = 'Promotion date unavailable';
-                        return;
-                    }
-                    const records = data || [];
-                    if (!records.length) {
-                        timeline.innerHTML = '<div class="promotion-empty">No promotion history has been recorded yet.</div>';
-                        currentDate.textContent = 'Promotion date unavailable';
-                        return;
-                    }
-                    const currentRecord = records.find(r => r.rank === profile?.rank) || records[0];
-                    currentDate.textContent = `Promoted on ${formatDate(currentRecord.promotion_date)}`;
-                    timeline.innerHTML = records.map((record, index) => {
-                        const nextNewer = index > 0 ? records[index - 1].promotion_date : null;
-                        const timeText = calculateTimeInGrade(record.promotion_date, nextNewer);
-                        return `<div class="promotion-entry">
-                            <div class="promotion-entry-top">
-                                <div class="promotion-entry-rank">${escapeHtml(record.rank || 'Unassigned')}</div>
-                                <div class="promotion-entry-date">${escapeHtml(formatDate(record.promotion_date))}</div>
-                            </div>
-                            <div class="promotion-entry-time">${escapeHtml(timeText)}</div>
-                        </div>`;
-                    }).join('');
-                }
-
-
                 /* =========================================
                    ATTENDANCE
                 ========================================= */
@@ -4020,11 +4199,6 @@
 
                         loadLoas(
                             user.id
-                        ),
-
-                        loadPromotionHistory(
-                            user.id,
-                            profile
                         )
 
                     ]);
