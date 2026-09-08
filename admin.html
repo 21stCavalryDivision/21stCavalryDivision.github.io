@@ -2178,6 +2178,415 @@
         @media (max-width:900px) { .archive-stat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .archive-history-row { grid-template-columns:1fr 1fr; } }
         @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
 
+    
+
+    /* =====================================================
+       21ST CAVALRY COMMAND CENTER REDESIGN
+       Visual-only layer. Existing IDs, forms and data logic
+       remain intact underneath this dashboard shell.
+       ===================================================== */
+
+    :root {
+        --cmd-bg: #070b0d;
+        --cmd-panel: #0d1316;
+        --cmd-panel-2: #11191d;
+        --cmd-line: rgba(183, 155, 78, 0.22);
+        --cmd-line-soft: rgba(255,255,255,0.08);
+        --cmd-gold: #d2aa3f;
+        --cmd-gold-soft: #b99743;
+        --cmd-text: #f1f4f3;
+        --cmd-muted: #84939a;
+        --cmd-green: #31d27c;
+        --cmd-red: #ff6464;
+        --cmd-blue: #55a8ff;
+        --cmd-shadow: 0 20px 60px rgba(0,0,0,.34);
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 18% -5%, rgba(181,145,50,.10), transparent 32%),
+            radial-gradient(circle at 86% 14%, rgba(45,77,68,.12), transparent 30%),
+            var(--cmd-bg);
+    }
+
+    .site-header {
+        background: rgba(5, 9, 11, .94);
+        border-bottom: 1px solid var(--cmd-line);
+        backdrop-filter: blur(14px);
+    }
+
+    .admin-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 240px;
+        display: flex;
+        align-items: flex-end;
+        background:
+            linear-gradient(90deg, rgba(5,9,11,.97) 0%, rgba(5,9,11,.80) 48%, rgba(5,9,11,.40) 100%),
+            linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.75));
+        border-bottom: 1px solid var(--cmd-line);
+    }
+
+    .admin-hero::after {
+        content: "SWIFT. SILENT. RELENTLESS.";
+        position: absolute;
+        right: 5vw;
+        bottom: 34px;
+        color: rgba(255,255,255,.22);
+        letter-spacing: .26em;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .admin-hero-inner {
+        width: min(1540px, 92vw);
+        margin: 0 auto;
+        padding: 64px 0 42px;
+    }
+
+    .admin-hero h1 {
+        margin: 6px 0 10px;
+        font-size: clamp(44px, 5vw, 78px);
+        line-height: .96;
+        letter-spacing: .025em;
+        text-transform: uppercase;
+    }
+
+    .admin-hero-description {
+        max-width: 720px;
+        color: #aeb9bd;
+        font-size: 16px;
+    }
+
+    .admin-container {
+        width: min(1540px, 94vw);
+        margin: 0 auto;
+        padding: 28px 0 80px;
+    }
+
+    .command-dashboard-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 22px;
+        padding: 22px 24px;
+        background: linear-gradient(135deg, rgba(16,24,28,.96), rgba(9,14,17,.96));
+        border: 1px solid var(--cmd-line);
+        border-left: 4px solid var(--cmd-gold);
+        box-shadow: var(--cmd-shadow);
+    }
+
+    .command-dashboard-title .eyebrow {
+        color: var(--cmd-gold);
+        margin: 0 0 6px;
+    }
+
+    .command-dashboard-title h2 {
+        margin: 0;
+        color: var(--cmd-text);
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        font-size: clamp(24px, 2.5vw, 38px);
+    }
+
+    .command-dashboard-title p {
+        margin: 6px 0 0;
+        color: var(--cmd-muted);
+    }
+
+    .command-dashboard-meta {
+        text-align: right;
+        min-width: 200px;
+    }
+
+    .command-dashboard-meta strong {
+        display: block;
+        color: var(--cmd-text);
+        font-size: 18px;
+        letter-spacing: .06em;
+    }
+
+    .command-dashboard-meta span {
+        display: block;
+        margin-top: 4px;
+        color: var(--cmd-gold);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .16em;
+    }
+
+    .command-quick-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 26px;
+    }
+
+    .command-quick-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 14px;
+        border: 1px solid var(--cmd-line-soft);
+        background: #0b1114;
+        color: #a9b5b9;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        transition: .2s ease;
+    }
+
+    .command-quick-nav a:hover {
+        color: #fff;
+        border-color: var(--cmd-gold-soft);
+        background: rgba(210,170,63,.08);
+        transform: translateY(-1px);
+    }
+
+    .admin-summary {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 14px;
+        margin: 0 0 26px;
+    }
+
+    .summary-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 130px;
+        padding: 20px 20px 18px;
+        background: linear-gradient(145deg, #11191d, #0b1114);
+        border: 1px solid var(--cmd-line-soft);
+        box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+
+    .summary-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: var(--cmd-gold);
+        opacity: .8;
+    }
+
+    .summary-card::after {
+        position: absolute;
+        right: 18px;
+        top: 16px;
+        color: rgba(210,170,63,.25);
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    .summary-card:nth-child(1)::after { content: "01"; }
+    .summary-card:nth-child(2)::after { content: "02"; }
+    .summary-card:nth-child(3)::after { content: "03"; }
+    .summary-card:nth-child(4)::after { content: "04"; }
+
+    .summary-card span {
+        color: var(--cmd-muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        font-weight: 800;
+    }
+
+    .summary-card strong {
+        display: block;
+        margin-top: 13px;
+        color: var(--cmd-text);
+        font-size: 38px;
+        line-height: 1;
+    }
+
+    .admin-section-heading {
+        margin: 22px 0 0;
+        padding: 16px 18px;
+        background: linear-gradient(90deg, #11191d, #0b1114);
+        border: 1px solid var(--cmd-line-soft);
+        border-bottom: 0;
+    }
+
+    .admin-section-heading h2 {
+        margin: 0;
+        color: var(--cmd-text);
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: .035em;
+    }
+
+    .admin-section-heading > span,
+    .member-heading-actions > span {
+        color: var(--cmd-gold);
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: .12em;
+    }
+
+    .member-heading-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .member-collapse-toggle,
+    .admin-refresh,
+    .attendance-button,
+    button.admin-refresh {
+        border: 1px solid var(--cmd-gold-soft) !important;
+        background: transparent !important;
+        color: var(--cmd-gold) !important;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: .07em;
+        transition: .18s ease;
+    }
+
+    .member-collapse-toggle:hover,
+    .admin-refresh:hover,
+    .attendance-button:hover {
+        background: var(--cmd-gold) !important;
+        color: #0b0e0f !important;
+    }
+
+    .attendance-warning-panel,
+    .loa-admin-panel,
+    .pending-member-panel,
+    .admin-toolbar,
+    .discharge-panel,
+    .attendance-panel,
+    .member-admin-list,
+    .loa-admin-list,
+    .pending-member-list,
+    .discharge-list {
+        background: #0c1215;
+    }
+
+    .attendance-warning-panel,
+    .loa-admin-panel,
+    .pending-member-panel,
+    .discharge-panel,
+    .attendance-panel {
+        margin-top: 0 !important;
+        border: 1px solid var(--cmd-line-soft) !important;
+        box-shadow: 0 16px 40px rgba(0,0,0,.18);
+    }
+
+    .attendance-warning-clear {
+        border-left: 3px solid var(--cmd-green);
+        background: rgba(49,210,124,.05);
+    }
+
+    .admin-search,
+    input[type="search"],
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+        background: #081014 !important;
+        border: 1px solid rgba(255,255,255,.11) !important;
+        color: #eef3f1 !important;
+        border-radius: 2px !important;
+    }
+
+    .admin-search:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none !important;
+        border-color: var(--cmd-gold-soft) !important;
+        box-shadow: 0 0 0 2px rgba(210,170,63,.10) !important;
+    }
+
+    .member-card,
+    .discharge-card,
+    .pending-member-card,
+    .loa-admin-card,
+    .attendance-event-card {
+        background: linear-gradient(145deg, #11191d, #0d1417) !important;
+        border: 1px solid rgba(255,255,255,.09) !important;
+        box-shadow: none !important;
+        transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .member-card:hover,
+    .discharge-card:hover,
+    .pending-member-card:hover,
+    .loa-admin-card:hover,
+    .attendance-event-card:hover {
+        border-color: rgba(210,170,63,.48) !important;
+        background: #121b1f !important;
+    }
+
+    .member-card.open,
+    .discharge-card.open {
+        border-color: rgba(210,170,63,.55) !important;
+    }
+
+    .member-name,
+    .discharge-name,
+    .pending-member-name {
+        color: #f2f5f4 !important;
+    }
+
+    .member-meta-label,
+    .discharge-label,
+    .attendance-label {
+        color: #63737a !important;
+        text-transform: uppercase;
+        letter-spacing: .11em;
+        font-size: 9px !important;
+    }
+
+    .admin-empty,
+    .member-count-line,
+    .discharge-message,
+    .loa-admin-message,
+    .pending-member-message {
+        color: #7f9097 !important;
+    }
+
+    .status-badge,
+    .access-badge,
+    .member-access-badge {
+        border-radius: 2px !important;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+    }
+
+    .command-footer-note {
+        margin-top: 34px;
+        padding: 18px 0 4px;
+        border-top: 1px solid var(--cmd-line);
+        color: #56666d;
+        text-align: right;
+        text-transform: uppercase;
+        letter-spacing: .22em;
+        font-size: 10px;
+    }
+
+    @media (max-width: 980px) {
+        .admin-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .command-dashboard-header { grid-template-columns: 1fr; }
+        .command-dashboard-meta { text-align: left; }
+        .admin-hero::after { display: none; }
+    }
+
+    @media (max-width: 620px) {
+        .admin-summary { grid-template-columns: 1fr; }
+        .admin-container { width: min(94vw, 100%); }
+        .admin-section-heading { align-items: flex-start; gap: 12px; }
+        .member-heading-actions { align-items: flex-end; flex-direction: column; gap: 8px; }
+        .command-dashboard-header { padding: 18px; }
+    }
+
     </style>
 
 </head>
@@ -2446,6 +2855,27 @@
         class="admin-container"
         hidden
     >
+
+        <section class="command-dashboard-header">
+            <div class="command-dashboard-title">
+                <p class="eyebrow">UNIT MANAGEMENT &amp; OVERSIGHT</p>
+                <h2>Command Dashboard</h2>
+                <p>Personnel readiness, accountability, access and administrative control.</p>
+            </div>
+            <div class="command-dashboard-meta">
+                <strong id="commandClock">--:--</strong>
+                <span id="commandDate">21st Cavalry Division</span>
+            </div>
+        </section>
+
+        <nav class="command-quick-nav" aria-label="Admin quick navigation">
+            <a href="#attendanceWarningPanel">Readiness</a>
+            <a href="#loaManagementPanel">LOA</a>
+            <a href="#pendingMemberList">Approvals</a>
+            <a href="#memberAdminList">Personnel</a>
+            <a href="#dischargeList">Discharges</a>
+            <a href="#attendanceManagementPanel">Attendance</a>
+        </nav>
 
 
         <!-- SUMMARY -->
@@ -2928,6 +3358,8 @@
 
         </section>
 
+
+            <div class="command-footer-note">People. Discipline. Purpose. Victory.</div>
 
     </main>
 
@@ -8937,6 +9369,25 @@ function renderAttendanceWarnings() {
         );
 
     </script>
+
+
+<script>
+(function () {
+    const clock = document.getElementById('commandClock');
+    const date = document.getElementById('commandDate');
+    function updateCommandClock() {
+        const now = new Date();
+        if (clock) {
+            clock.textContent = now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+        }
+        if (date) {
+            date.textContent = now.toLocaleDateString([], {weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'});
+        }
+    }
+    updateCommandClock();
+    setInterval(updateCommandClock, 30000);
+})();
+</script>
 
 </body>
 
