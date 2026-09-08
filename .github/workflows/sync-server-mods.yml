@@ -45,7 +45,7 @@ jobs:
 
       - name: Extract server mod list
         run: |
-          jq '.mods' serverconfig.json > mods.json
+          jq '.game.mods' serverconfig.json > mods.json
 
           echo "Live server mod count:"
           jq 'length' mods.json
