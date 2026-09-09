@@ -200,6 +200,10 @@
     "name": "BFS - Rappel Reforged"
   },
   {
+    "modId": "5C9691EA7FD7A79F",
+    "name": "KunarProvince"
+  },
+  {
     "modId": "6052A9DD45564825",
     "name": "You can sit"
   },
@@ -236,15 +240,19 @@
     "name": "Game Master Enhanced"
   },
   {
-    "modId": "65213120F3802203",
-    "name": "CM-PlayerStatsHUD"
+    "modId": "5B0D1E4380971EBD",
+    "name": "COALITION Squad Interface"
   },
   {
-    "modId": "60B524F7A5AE96A8",
-    "name": "ArmaTerrainCore"
+    "modId": "64CEC8E005828E5D",
+    "name": "Middle East Insurgents"
   },
   {
-    "modId": "5C9691EA7FD7A79F",
-    "name": "Kunar Province"
+    "modId": "65E0AE1A83DA063A",
+    "name": "Russian to Arabic"
+  },
+  {
+    "modId": "0B6643C078688A29",
+    "name": "TS MEI Arabic Voices"
   }
 ]
