@@ -1203,6 +1203,18 @@ body{
     border-color:var(--cc-gold) !important;
     box-shadow:0 0 0 1px rgba(200,170,91,.15) !important;
 }
+        .operation-field input:focus,
+.operation-field select:focus,
+.operation-field textarea:focus{
+    outline:none !important;
+    border-color:var(--cc-gold) !important;
+    box-shadow:0 0 0 1px rgba(200,170,91,.15) !important;
+}
+
+#operationDate::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .primary-button{
     border:1px solid var(--cc-gold) !important;
     background:var(--cc-gold) !important;
