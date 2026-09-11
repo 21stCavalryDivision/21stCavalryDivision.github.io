@@ -609,3 +609,57 @@ table{
         padding:40px 0 !important;
     }
 }
+
+
+/* ==========================================================
+   MOBILE NAV COLLAPSE FIX v2
+   ========================================================== */
+
+@media(max-width:900px){
+
+    /*
+       Closed state is explicit. This prevents other page CSS from
+       accidentally leaving the navigation banner visible.
+    */
+    .site-header .main-nav:not(.open){
+        display:none !important;
+        visibility:hidden !important;
+        pointer-events:none !important;
+    }
+
+    .site-header .main-nav.open{
+        display:flex !important;
+        visibility:visible !important;
+        pointer-events:auto !important;
+    }
+
+    /*
+       Keep the dropdown within the phone viewport instead of producing
+       an oversized full-page banner.
+    */
+    .site-header .main-nav{
+        top:100% !important;
+        max-height:min(72vh,560px) !important;
+        overflow-y:auto !important;
+        -webkit-overflow-scrolling:touch !important;
+    }
+
+    /*
+       Keep the hamburger above the dropdown and easy to press again.
+    */
+    .site-header .nav-toggle{
+        position:relative !important;
+        z-index:1005 !important;
+        touch-action:manipulation !important;
+    }
+
+    body{
+        overflow-x:hidden !important;
+    }
+}
+
+@media(max-width:600px){
+    .site-header .main-nav{
+        max-height:min(70vh,520px) !important;
+    }
+}

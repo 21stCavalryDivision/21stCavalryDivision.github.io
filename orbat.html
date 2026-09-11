@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>21st Cavalry Division | ORBAT</title>
-<meta content="21st Cavalry Division organizational structure and order of battle." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21st Cavalry Division | ORBAT</title>
+    <meta name="description" content="21st Cavalry Division organizational structure and order of battle.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
         :root{
             --bg:#050706;
             --bg2:#0a0d0b;
@@ -412,521 +412,225 @@
             .legend-row{grid-template-columns:1fr;gap:6px}
             footer{flex-direction:column;align-items:flex-start}
         }
-    
-/* =========================================================
-   LIVE ORBAT ROSTER
-   ========================================================= */
-.live-orbat-shell{
-    margin-top:28px;
-}
-.live-orbat-toolbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    padding:16px 18px;
-    border:1px solid rgba(200,170,91,.22);
-    background:rgba(255,255,255,.025);
-    margin-bottom:18px;
-}
-.live-orbat-state{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--muted);
-    font-size:13px;
-    letter-spacing:.04em;
-}
-.live-dot{
-    width:8px;
-    height:8px;
-    border-radius:999px;
-    background:#7f8a78;
-    box-shadow:0 0 0 4px rgba(127,138,120,.10);
-}
-.live-dot.online{
-    background:#79a36c;
-    box-shadow:0 0 0 4px rgba(121,163,108,.12);
-}
-.live-dot.error{
-    background:#ad6e62;
-    box-shadow:0 0 0 4px rgba(173,110,98,.12);
-}
-.live-orbat-count{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    color:var(--gold2);
-    font-size:13px;
-}
-.live-orbat-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:18px;
-}
-.live-element{
-    border:1px solid rgba(200,170,91,.18);
-    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));
-    min-width:0;
-}
-.live-element-head{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:16px;
-    padding:18px 20px;
-    border-bottom:1px solid rgba(200,170,91,.14);
-}
-.live-element-kicker{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    color:var(--gold);
-    margin-bottom:4px;
-}
-.live-element h3{
-    margin:0;
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    font-size:24px;
-    color:var(--text);
-}
-.live-element-count{
-    flex:0 0 auto;
-    min-width:38px;
-    height:30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid rgba(200,170,91,.30);
-    color:var(--gold2);
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
-    font-size:14px;
-}
-.live-member-list{
-    display:flex;
-    flex-direction:column;
-}
-.live-member{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(140px,.7fr);
-    gap:14px;
-    align-items:center;
-    padding:14px 20px;
-    border-bottom:1px solid rgba(255,255,255,.055);
-}
-.live-member:last-child{
-    border-bottom:0;
-}
-.live-member-name{
-    min-width:0;
-}
-.live-member-name strong{
-    display:block;
-    color:var(--text);
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif;
-    font-size:18px;
-    letter-spacing:.025em;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-.live-member-name span{
-    display:block;
-    margin-top:3px;
-    color:var(--gold2);
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:.07em;
-}
-.live-member-billet{
-    color:var(--muted);
-    text-align:right;
-    font-size:13px;
-    line-height:1.35;
-}
-.live-member-status{
-    display:inline-block;
-    margin-left:7px;
-    padding:2px 6px;
-    border:1px solid rgba(200,170,91,.22);
-    color:var(--muted);
-    font-size:9px;
-    letter-spacing:.08em;
-    vertical-align:2px;
-}
-.live-empty{
-    padding:20px;
-    color:var(--muted);
-    font-size:13px;
-}
-.live-orbat-message{
-    grid-column:1/-1;
-    padding:26px;
-    border:1px solid rgba(200,170,91,.18);
-    background:rgba(255,255,255,.02);
-    color:var(--muted);
-    line-height:1.65;
-}
-@media(max-width:900px){
-    .live-orbat-grid{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-    .live-orbat-toolbar{align-items:flex-start;flex-direction:column}
-    .live-member{grid-template-columns:1fr}
-    .live-member-billet{text-align:left}
-}
-</style>
-<style id="global-nav-standardization">
-/* =========================================================
-   21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
-   Same typography and spacing on every page.
-   ========================================================= */
-.site-header{
-    min-height:72px !important;
-    height:72px !important;
-    padding:0 38px !important;
-    display:flex !important;
-    align-items:center !important;
-    box-sizing:border-box !important;
-}
-.site-header .brand{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-}
-.main-nav{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-    gap:28px !important;
-}
-.main-nav > a:not(.nav-cta){
-    position:relative !important;
-    display:flex !important;
-    align-items:center !important;
-    min-height:72px !important;
-    padding:0 !important;
-    margin:0 !important;
-    box-sizing:border-box !important;
-
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:16px !important;
-    font-style:normal !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-    text-decoration:none !important;
-
-    color:#c8cbc7 !important;
-    border:0 !important;
-    background:transparent !important;
-}
-.main-nav > a:not(.nav-cta)::after{
-    content:"" !important;
-    position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:0 !important;
-    width:100% !important;
-    height:2px !important;
-    margin:0 !important;
-    transform:scaleX(0) !important;
-    transform-origin:center !important;
-    background:#c8aa5b !important;
-    opacity:0 !important;
-    transition:transform .16s ease,opacity .16s ease,color .16s ease !important;
-}
-.main-nav > a:not(.nav-cta):hover{
-    color:#f0e5bf !important;
-}
-.main-nav > a:not(.nav-cta):hover::after{
-    transform:scaleX(.35) !important;
-    opacity:.7 !important;
-}
-.main-nav > a.nav-current:not(.nav-cta){
-    color:#d4b85e !important;
-}
-.main-nav > a.nav-current:not(.nav-cta)::after{
-    transform:scaleX(1) !important;
-    opacity:1 !important;
-}
-.main-nav .nav-cta{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:15px !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-}
-.member-profile-text span,
-.member-login-btn,
-.member-logout-btn{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-}
-@media(max-width:1180px){
-    .site-header{padding:0 24px !important}
-    .main-nav{gap:20px !important}
-    .main-nav > a:not(.nav-cta){font-size:15px !important}
-}
-@media(max-width:900px){
-    .site-header{height:auto !important;min-height:72px !important}
-    .main-nav{
-        min-height:0 !important;
-        gap:0 !important;
-    }
-    .main-nav > a:not(.nav-cta){
-        min-height:auto !important;
-        padding:11px 0 !important;
-    }
-    .main-nav > a:not(.nav-cta)::after{
-        bottom:4px !important;
-        right:auto !important;
-        width:34px !important;
-    }
-}
-</style>
-<style id="full-navigation-fix">
-/* Full navigation is intentionally present on every page. */
-.main-nav{
-    gap:22px !important;
-}
-.main-nav > a:not(.nav-cta){
-    white-space:nowrap !important;
-    flex:0 0 auto !important;
-}
-@media (max-width:1280px){
-    .main-nav{gap:16px !important;}
-    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
-}
-@media (max-width:1080px){
-    .main-nav{gap:13px !important;}
-    .main-nav > a:not(.nav-cta){font-size:13px !important;}
-}
-</style>
-<style id="auth-nav-direct-style">
-/* Direct hidden-attribute navigation control */
-.main-nav a[hidden] { display:none !important; }
-.main-nav .nav-cta[hidden] { display:none !important; }
-</style>
+    </style>
+    <link rel="stylesheet" href="mobile.css?v=2">
 </head>
 <body>
+
 <header class="site-header">
-<a aria-label="21st Cavalry Division home" class="brand" href="index.html">
-<div class="brand-mark">21</div>
-<div><span>21ST CAVALRY</span><small>DIVISION</small></div>
-</a>
-<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
-<nav class="main-nav" id="mainNav">
-<a href="index.html">HOME</a><a class="nav-current" href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a hidden="" href="operations.html" id="operationsPortalLink">OPBOARD</a><a hidden="" href="members.html" id="memberPortalLink">MEMBER PORTAL</a><a hidden="" href="admin.html" id="adminPortalLink">ADMIN</a><a class="nav-cta" href="recruitment.html" id="enlistNavLink">ENLIST</a></nav>
+    <a class="brand" href="index.html" aria-label="21st Cavalry Division home">
+        <div class="brand-mark">21</div>
+        <div><span>21ST CAVALRY</span><small>DIVISION</small></div>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="orbat.html" class="active">ORBAT</a>
+        <a href="training.html">Training</a>
+        <a href="resources.html">SOPs</a>
+        <a href="server.html">Server</a>
+        <a href="media.html">Media</a>
+        <a class="nav-cta" href="recruitment.html">Enlist</a>
+    </nav>
 </header>
+
 <main>
-<section class="page-hero">
-<div class="hero-inner reveal">
-<p class="eyebrow">21ST CAVALRY DIVISION // PERSONNEL STRUCTURE</p>
-<h1>ORDER OF <span>BATTLE</span></h1>
-<p class="hero-copy">
+    <section class="page-hero">
+        <div class="hero-inner reveal">
+            <p class="eyebrow">21ST CAVALRY DIVISION // PERSONNEL STRUCTURE</p>
+            <h1>ORDER OF <span>BATTLE</span></h1>
+            <p class="hero-copy">
                 The organizational structure of the 21st Cavalry Division. Command, maneuver, aviation,
                 armor, reconnaissance, medical, training and support elements operate as one coordinated force.
             </p>
-</div>
-</section>
-<section class="status-strip">
-<div class="status-item"><small>Formation</small><strong>Combined Arms</strong></div>
-<div class="status-item"><small>Command</small><strong>Division HQ</strong></div>
-<div class="status-item"><small>Maneuver</small><strong>Platoon / Squad</strong></div>
-<div class="status-item"><small>Support</small><strong>Multi-Section</strong></div>
-</section>
-<section class="section" id="liveOrbatSection">
-<div class="wrap">
-<div class="section-top reveal">
-<div>
-<p class="eyebrow">LIVE // PERSONNEL ASSIGNMENTS</p>
-<h2>Current Division Roster</h2>
-</div>
-<div class="section-code">Supabase Personnel System</div>
-</div>
-<div class="live-orbat-shell reveal">
-<div class="live-orbat-toolbar">
-<div class="live-orbat-state">
-<span class="live-dot" id="liveOrbatDot"></span>
-<span id="liveOrbatStatus">Loading current assignments...</span>
-</div>
-<div class="live-orbat-count" id="liveOrbatCount">0 Personnel</div>
-</div>
-<div class="live-orbat-grid" id="liveOrbatGrid">
-<div class="live-orbat-message">Loading the live division roster...</div>
-</div>
-</div>
-</div>
-</section>
+        </div>
+    </section>
 
-<section class="section">
-<div class="wrap">
-<div class="section-top reveal">
-<div>
-<p class="eyebrow">01 // COMMAND</p>
-<h2>Division Headquarters</h2>
-</div>
-<div class="section-code">Command &amp; Control</div>
-</div>
-<article class="command-card reveal">
-<p class="eyebrow">COMMAND GROUP</p>
-<h2 style="font-size:34px;margin-bottom:8px">21st Cavalry Division Command</h2>
-<p style="color:var(--muted);max-width:850px;line-height:1.7;margin:0">
+    <section class="status-strip">
+        <div class="status-item"><small>Formation</small><strong>Combined Arms</strong></div>
+        <div class="status-item"><small>Command</small><strong>Division HQ</strong></div>
+        <div class="status-item"><small>Maneuver</small><strong>Platoon / Squad</strong></div>
+        <div class="status-item"><small>Support</small><strong>Multi-Section</strong></div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-top reveal">
+                <div>
+                    <p class="eyebrow">01 // COMMAND</p>
+                    <h2>Division Headquarters</h2>
+                </div>
+                <div class="section-code">Command & Control</div>
+            </div>
+
+            <article class="command-card reveal">
+                <p class="eyebrow">COMMAND GROUP</p>
+                <h2 style="font-size:34px;margin-bottom:8px">21st Cavalry Division Command</h2>
+                <p style="color:var(--muted);max-width:850px;line-height:1.7;margin:0">
                     Division Headquarters provides operational command, administration, standards,
                     personnel oversight and coordination across all subordinate elements.
                 </p>
-<div class="command-grid">
-<div class="slot"><small>Command Billet</small><strong>Division Commander</strong><span>Overall unit command</span></div>
-<div class="slot"><small>Command Billet</small><strong>Executive Officer</strong><span>Operations &amp; staff coordination</span></div>
-<div class="slot"><small>Senior Enlisted</small><strong>Command Sergeant Major</strong><span>Standards &amp; enlisted leadership</span></div>
-</div>
-</article>
-</div>
-</section>
-<section class="section" style="padding-top:10px">
-<div class="wrap">
-<div class="section-top reveal">
-<div>
-<p class="eyebrow">02 // MANEUVER</p>
-<h2>Ground Combat Elements</h2>
-</div>
-<div class="section-code">Primary Maneuver Force</div>
-</div>
-<div class="org-tree">
-<article class="element reveal">
-<div class="element-head">
-<div>
-<div class="element-kicker">Maneuver Element</div>
-<h3>1st Platoon</h3>
-</div>
-<span class="unit-tag">PLT // 01</span>
-</div>
-<div class="element-body">
-<div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leader / Platoon Sergeant</span></div>
-<div class="subunit"><strong>1st Squad</strong><span>Rifle Squad</span></div>
-<div class="subunit"><strong>2nd Squad</strong><span>Rifle Squad</span></div>
-<div class="subunit"><strong>Weapons Squad</strong><span>Support Weapons</span></div>
-</div>
-</article>
-<article class="element reveal">
-<div class="element-head">
-<div>
-<div class="element-kicker">Maneuver Element</div>
-<h3>2nd Platoon</h3>
-</div>
-<span class="unit-tag">PLT // 02</span>
-</div>
-<div class="element-body">
-<div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leadership</span></div>
-<div class="subunit"><strong>3rd Squad</strong><span>Rifle Squad</span></div>
-<div class="subunit"><strong>Attached Teams</strong><span>Mission Dependent</span></div>
-<div class="subunit"><strong>Reserve Positions</strong><span>Growth / Expansion</span></div>
-</div>
-</article>
-</div>
-</div>
-</section>
-<section class="section" style="padding-top:10px">
-<div class="wrap">
-<div class="section-top reveal">
-<div>
-<p class="eyebrow">03 // SPECIALIZED ELEMENTS</p>
-<h2>Combat Support</h2>
-</div>
-<div class="section-code">Attached Capabilities</div>
-</div>
-<div class="support-grid">
-<article class="support-card reveal">
-<div class="num">01</div>
-<h3>Aviation Detachment</h3>
-<p>Pilots, copilots and crew chiefs supporting transport, reconnaissance and air-mobile operations.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">02</div>
-<h3>Armor Section</h3>
-<p>Vehicle commanders, gunners, drivers and crewmen providing armored mobility and direct fire support.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">03</div>
-<h3>Recon Section</h3>
-<p>Forward reconnaissance, observation and information collection in support of the maneuver force.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">04</div>
-<h3>Medical Section</h3>
-<p>Combat medical personnel responsible for casualty response and battlefield medical support.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">05</div>
-<h3>Training Section</h3>
-<p>Instructors and training NCOs responsible for BCT, qualifications, standards and readiness.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">06</div>
-<h3>Recruitment Section</h3>
-<p>Recruiters responsible for applicant processing, onboarding and integration into the division.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">07</div>
-<h3>Command Staff</h3>
-<p>Administrative and operational staff supporting planning, accountability and division-level coordination.</p>
-</article>
-<article class="support-card reveal">
-<div class="num">08</div>
-<h3>Unassigned Personnel</h3>
-<p>Members awaiting permanent assignment, billet placement or completion of required training.</p>
-</article>
-</div>
-</div>
-</section>
-<section class="section" style="padding-top:10px">
-<div class="wrap">
-<div class="section-top reveal">
-<div>
-<p class="eyebrow">04 // STRUCTURE GUIDE</p>
-<h2>ORBAT Reference</h2>
-</div>
-<div class="section-code">Personnel Classification</div>
-</div>
-<div class="legend">
-<div class="legend-panel reveal">
-<h3>Organizational Levels</h3>
-<div class="legend-list">
-<div class="legend-row"><strong>Division HQ</strong><span>Senior command and division-wide leadership.</span></div>
-<div class="legend-row"><strong>Platoon</strong><span>Primary maneuver organization containing subordinate squads and attached capabilities.</span></div>
-<div class="legend-row"><strong>Squad</strong><span>Small-unit maneuver element led by a Squad Leader and Team Leaders.</span></div>
-<div class="legend-row"><strong>Section</strong><span>Specialized functional element such as aviation, armor, recon, medical or training.</span></div>
-</div>
-</div>
-<aside class="notice-panel reveal">
-<p class="eyebrow">PERSONNEL SYSTEM</p>
-<h3>Member Assignments</h3>
-<p>
+
+                <div class="command-grid">
+                    <div class="slot"><small>Command Billet</small><strong>Division Commander</strong><span>Overall unit command</span></div>
+                    <div class="slot"><small>Command Billet</small><strong>Executive Officer</strong><span>Operations & staff coordination</span></div>
+                    <div class="slot"><small>Senior Enlisted</small><strong>Command Sergeant Major</strong><span>Standards & enlisted leadership</span></div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:10px">
+        <div class="wrap">
+            <div class="section-top reveal">
+                <div>
+                    <p class="eyebrow">02 // MANEUVER</p>
+                    <h2>Ground Combat Elements</h2>
+                </div>
+                <div class="section-code">Primary Maneuver Force</div>
+            </div>
+
+            <div class="org-tree">
+                <article class="element reveal">
+                    <div class="element-head">
+                        <div>
+                            <div class="element-kicker">Maneuver Element</div>
+                            <h3>1st Platoon</h3>
+                        </div>
+                        <span class="unit-tag">PLT // 01</span>
+                    </div>
+                    <div class="element-body">
+                        <div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leader / Platoon Sergeant</span></div>
+                        <div class="subunit"><strong>1st Squad</strong><span>Rifle Squad</span></div>
+                        <div class="subunit"><strong>2nd Squad</strong><span>Rifle Squad</span></div>
+                        <div class="subunit"><strong>Weapons Squad</strong><span>Support Weapons</span></div>
+                    </div>
+                </article>
+
+                <article class="element reveal">
+                    <div class="element-head">
+                        <div>
+                            <div class="element-kicker">Maneuver Element</div>
+                            <h3>2nd Platoon</h3>
+                        </div>
+                        <span class="unit-tag">PLT // 02</span>
+                    </div>
+                    <div class="element-body">
+                        <div class="subunit"><strong>Platoon Headquarters</strong><span>Platoon Leadership</span></div>
+                        <div class="subunit"><strong>3rd Squad</strong><span>Rifle Squad</span></div>
+                        <div class="subunit"><strong>Attached Teams</strong><span>Mission Dependent</span></div>
+                        <div class="subunit"><strong>Reserve Positions</strong><span>Growth / Expansion</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:10px">
+        <div class="wrap">
+            <div class="section-top reveal">
+                <div>
+                    <p class="eyebrow">03 // SPECIALIZED ELEMENTS</p>
+                    <h2>Combat Support</h2>
+                </div>
+                <div class="section-code">Attached Capabilities</div>
+            </div>
+
+            <div class="support-grid">
+                <article class="support-card reveal">
+                    <div class="num">01</div>
+                    <h3>Aviation Detachment</h3>
+                    <p>Pilots, copilots and crew chiefs supporting transport, reconnaissance and air-mobile operations.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">02</div>
+                    <h3>Armor Section</h3>
+                    <p>Vehicle commanders, gunners, drivers and crewmen providing armored mobility and direct fire support.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">03</div>
+                    <h3>Recon Section</h3>
+                    <p>Forward reconnaissance, observation and information collection in support of the maneuver force.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">04</div>
+                    <h3>Medical Section</h3>
+                    <p>Combat medical personnel responsible for casualty response and battlefield medical support.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">05</div>
+                    <h3>Training Section</h3>
+                    <p>Instructors and training NCOs responsible for BCT, qualifications, standards and readiness.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">06</div>
+                    <h3>Recruitment Section</h3>
+                    <p>Recruiters responsible for applicant processing, onboarding and integration into the division.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">07</div>
+                    <h3>Command Staff</h3>
+                    <p>Administrative and operational staff supporting planning, accountability and division-level coordination.</p>
+                </article>
+                <article class="support-card reveal">
+                    <div class="num">08</div>
+                    <h3>Unassigned Personnel</h3>
+                    <p>Members awaiting permanent assignment, billet placement or completion of required training.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:10px">
+        <div class="wrap">
+            <div class="section-top reveal">
+                <div>
+                    <p class="eyebrow">04 // STRUCTURE GUIDE</p>
+                    <h2>ORBAT Reference</h2>
+                </div>
+                <div class="section-code">Personnel Classification</div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-panel reveal">
+                    <h3>Organizational Levels</h3>
+                    <div class="legend-list">
+                        <div class="legend-row"><strong>Division HQ</strong><span>Senior command and division-wide leadership.</span></div>
+                        <div class="legend-row"><strong>Platoon</strong><span>Primary maneuver organization containing subordinate squads and attached capabilities.</span></div>
+                        <div class="legend-row"><strong>Squad</strong><span>Small-unit maneuver element led by a Squad Leader and Team Leaders.</span></div>
+                        <div class="legend-row"><strong>Section</strong><span>Specialized functional element such as aviation, armor, recon, medical or training.</span></div>
+                    </div>
+                </div>
+
+                <aside class="notice-panel reveal">
+                    <p class="eyebrow">PERSONNEL SYSTEM</p>
+                    <h3>Member Assignments</h3>
+                    <p>
                         Official assignments, billets, ranks and qualifications are maintained through the division's
                         personnel management system. Members can review their individual record through the Member Portal.
                     </p>
-<a class="btn" href="members.html">Open Member Portal</a>
-</aside>
-</div>
-</div>
-</section>
+                    <a class="btn" href="members.html">Open Member Portal</a>
+                </aside>
+            </div>
+        </div>
+    </section>
 </main>
+
 <footer>
-<div>
-<strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong>
-<div style="margin-top:6px">Swift. Silent. Relentless.</div>
-</div>
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="recruitment.html">Recruitment</a>
-<a href="resources.html">Resources</a>
-<a href="server.html">Server</a>
-</div>
+    <div>
+        <strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong>
+        <div style="margin-top:6px">Swift. Silent. Relentless.</div>
+    </div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="recruitment.html">Recruitment</a>
+        <a href="resources.html">Resources</a>
+        <a href="server.html">Server</a>
+    </div>
 </footer>
+
 <script>
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
@@ -947,426 +651,7 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script id="live-orbat-script">
-(function () {
-    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
-
-    const rankOrder = [
-        'Recruit','PV1','PV2','PFC','SPC','CPL','SGT','SSG','SFC',
-        'MSG','1SG','SGM','CSM','2LT','1LT','CPT','MAJ','LTC','COL','BG','MG','LTG','GEN'
-    ];
-
-    const sectionOrder = [
-        'Division HQ',
-        'Command Staff',
-        '1st Platoon',
-        '1st Squad',
-        '2nd Squad',
-        'Weapons Squad',
-        '2nd Platoon',
-        '3rd Squad',
-        'Aviation Detachment',
-        'Armor Section',
-        'Recon Section',
-        'Medical Section',
-        'Training Section',
-        'Recruitment Section',
-        'Unassigned'
-    ];
-
-    const sectionLabels = {
-        'Division HQ': 'Command',
-        'Command Staff': 'Command',
-        '1st Platoon': 'Maneuver',
-        '2nd Platoon': 'Maneuver',
-        '1st Squad': 'Maneuver',
-        '2nd Squad': 'Maneuver',
-        '3rd Squad': 'Maneuver',
-        'Weapons Squad': 'Maneuver',
-        'Aviation Detachment': 'Combat Support',
-        'Armor Section': 'Combat Support',
-        'Recon Section': 'Combat Support',
-        'Medical Section': 'Combat Support',
-        'Training Section': 'Support',
-        'Recruitment Section': 'Support',
-        'Unassigned': 'Personnel'
-    };
-
-    function escapeHtml(value) {
-        return String(value ?? '')
-            .replaceAll('&', '&amp;')
-            .replaceAll('<', '&lt;')
-            .replaceAll('>', '&gt;')
-            .replaceAll('"', '&quot;')
-            .replaceAll("'", '&#039;');
-    }
-
-    function normalizeRank(rank) {
-        return String(rank || 'Recruit').trim();
-    }
-
-    function rankIndex(rank) {
-        const normalized = normalizeRank(rank).toUpperCase();
-        const idx = rankOrder.findIndex(r => r.toUpperCase() === normalized);
-        return idx === -1 ? -1 : idx;
-    }
-
-    const billetOrder = [
-        'Division Commander',
-        'Executive Officer',
-        'Command Sergeant Major',
-        'First Sergeant',
-        'Platoon Leader',
-        'Platoon Sergeant',
-        'Squad Leader',
-        'Team Leader',
-        'Forward Observer',
-        'Combat Medic',
-        'Radio Telephone Operator',
-        'Automatic Rifleman',
-        'Grenadier',
-        'Machine Gunner',
-        'Marksman',
-        'Sniper',
-        'Rifleman',
-        'Vehicle Commander',
-        'Gunner',
-        'Driver',
-        'Crewman',
-        'Pilot',
-        'Copilot',
-        'Crew Chief',
-        'Instructor',
-        'Training NCO',
-        'Recruiter'
-    ];
-
-    function billetIndex(billet) {
-        const value = String(billet || '').trim().toLowerCase();
-        const idx = billetOrder.findIndex(item => item.toLowerCase() === value);
-        return idx === -1 ? 999 : idx;
-    }
-
-    function rankIndex(rank) {
-        const value = String(rank || '').toUpperCase().trim();
-
-        // Prefer the abbreviation in parentheses, e.g. "LIEUTENANT COLONEL (LTC)".
-        const match = value.match(/\(([A-Z0-9]+)\)/);
-        const abbreviation = match ? match[1] : value;
-
-        const order = [
-            'RCT',
-            'PV1',
-            'PV2',
-            'PFC',
-            'SPC',
-            'CPL',
-            'SGT',
-            'SSG',
-            'SFC',
-            'MSG',
-            '1SG',
-            'SGM',
-            'CSM',
-            'WO1',
-            'CW2',
-            'CW3',
-            'CW4',
-            'CW5',
-            '2LT',
-            '1LT',
-            'CPT',
-            'MAJ',
-            'LTC',
-            'COL',
-            'BG',
-            'MG',
-            'LTG',
-            'GEN'
-        ];
-
-        const idx = order.indexOf(abbreviation);
-        return idx === -1 ? -1 : idx;
-    }
-
-    function memberSort(a, b) {
-        // ORBAT position comes first: commander, XO, senior enlisted, then subordinate billets.
-        const billetDiff = billetIndex(a.billet) - billetIndex(b.billet);
-        if (billetDiff !== 0) return billetDiff;
-
-        // If two members hold the same billet, higher rank appears first.
-        const rankDiff = rankIndex(b.rank) - rankIndex(a.rank);
-        if (rankDiff !== 0) return rankDiff;
-
-        return String(a.display_name || '').localeCompare(String(b.display_name || ''));
-    }
-
-    function isVisibleMember(member) {
-        const status = String(member.member_status || 'Active').trim().toLowerCase();
-        return ![
-            'discharged',
-            'denied',
-            'rejected',
-            'pending',
-            'inactive'
-        ].includes(status);
-    }
-
-    function renderMember(member) {
-        const status = String(member.member_status || 'Active').trim();
-        const showStatus = status && status.toLowerCase() !== 'active';
-
-        return `
-            <div class="live-member">
-                <div class="live-member-name">
-                    <strong>${escapeHtml(member.display_name || 'Unnamed Member')}</strong>
-                    <span>
-                        ${escapeHtml(normalizeRank(member.rank))}
-                        ${showStatus ? `<span class="live-member-status">${escapeHtml(status)}</span>` : ''}
-                    </span>
-                </div>
-                <div class="live-member-billet">
-                    ${escapeHtml(member.billet || 'Unassigned')}
-                </div>
-            </div>
-        `;
-    }
-
-    function renderRoster(members) {
-        const grid = document.getElementById('liveOrbatGrid');
-        const count = document.getElementById('liveOrbatCount');
-        const status = document.getElementById('liveOrbatStatus');
-        const dot = document.getElementById('liveOrbatDot');
-
-        const visible = members.filter(isVisibleMember);
-
-        const grouped = new Map();
-
-        visible.forEach(member => {
-            const section = String(member.section || 'Unassigned').trim() || 'Unassigned';
-            if (!grouped.has(section)) grouped.set(section, []);
-            grouped.get(section).push(member);
-        });
-
-        const orderedSections = [
-            ...sectionOrder.filter(section => grouped.has(section)),
-            ...Array.from(grouped.keys())
-                .filter(section => !sectionOrder.includes(section))
-                .sort((a, b) => a.localeCompare(b))
-        ];
-
-        if (!orderedSections.length) {
-            grid.innerHTML = `
-                <div class="live-orbat-message">
-                    No active personnel assignments are currently available.
-                </div>
-            `;
-        } else {
-            grid.innerHTML = orderedSections.map(section => {
-                const sectionMembers = grouped.get(section).sort(memberSort);
-                return `
-                    <article class="live-element">
-                        <div class="live-element-head">
-                            <div>
-                                <div class="live-element-kicker">${escapeHtml(sectionLabels[section] || 'Assigned Element')}</div>
-                                <h3>${escapeHtml(section)}</h3>
-                            </div>
-                            <div class="live-element-count">${sectionMembers.length}</div>
-                        </div>
-                        <div class="live-member-list">
-                            ${sectionMembers.map(renderMember).join('')}
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
-
-        count.textContent = `${visible.length} Personnel`;
-        status.textContent = 'Live personnel assignments loaded';
-        dot.classList.remove('error');
-        dot.classList.add('online');
-    }
-
-    function renderError(message) {
-        const grid = document.getElementById('liveOrbatGrid');
-        const count = document.getElementById('liveOrbatCount');
-        const status = document.getElementById('liveOrbatStatus');
-        const dot = document.getElementById('liveOrbatDot');
-
-        count.textContent = 'Roster Offline';
-        status.textContent = 'Live roster unavailable';
-        dot.classList.remove('online');
-        dot.classList.add('error');
-
-        grid.innerHTML = `
-            <div class="live-orbat-message">
-                The organizational structure below is still available, but the live personnel roster
-                could not be loaded. ${escapeHtml(message || '')}
-            </div>
-        `;
-    }
-
-    async function loadLiveOrbat() {
-        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-            renderError('The personnel connection did not initialize.');
-            return;
-        }
-
-        try {
-            const client = window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY,
-                {
-                    auth: {
-                        persistSession: true,
-                        autoRefreshToken: true,
-                        detectSessionInUrl: true
-                    }
-                }
-            );
-
-            const { data, error } = await client
-                .from('member_profiles')
-                .select('display_name,rank,billet,section,member_status');
-
-            if (error) throw error;
-
-            renderRoster(Array.isArray(data) ? data : []);
-        } catch (error) {
-            console.warn('Live ORBAT load failed:', error);
-            renderError('Personnel permissions may need to allow roster viewing.');
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadLiveOrbat);
-    } else {
-        loadLiveOrbat();
-    }
-})();
-</script>
-<script id="auth-nav-direct-script">
-(function () {
-    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
-
-    const el = id => document.getElementById(id);
-
-    function showLoggedOut() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        if (op) op.hidden = true;
-        if (member) member.hidden = true;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = false;
-    }
-
-    function showLoggedInImmediately() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        // IMPORTANT:
-        // OPBOARD + MEMBER PORTAL depend ONLY on a valid Discord/Supabase session.
-        // We do not wait for member_profiles to load.
-        if (op) op.hidden = false;
-        if (member) member.hidden = false;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = true;
-    }
-
-    async function setAdminVisibility(client, user) {
-        const admin = el('adminPortalLink');
-        if (!admin || !user) return;
-
-        try {
-            const { data: profile, error } = await client
-                .from('member_profiles')
-                .select('access_level')
-                .eq('user_id', user.id)
-                .maybeSingle();
-
-            if (error) {
-                console.warn('Admin navigation lookup failed:', error);
-                admin.hidden = true;
-                return;
-            }
-
-            const access = profile?.access_level || 'Member';
-            admin.hidden = !(access === 'Admin' || access === 'Super Admin');
-        } catch (error) {
-            console.warn('Admin navigation lookup failed:', error);
-            admin.hidden = true;
-        }
-    }
-
-    async function applySession(client, session) {
-        const user = session?.user || null;
-
-        if (!user) {
-            showLoggedOut();
-            return;
-        }
-
-        // Reveal member links immediately from the authenticated session.
-        showLoggedInImmediately();
-
-        // Admin is the only link that needs the database permission lookup.
-        await setAdminVisibility(client, user);
-    }
-
-    async function initAuthNav() {
-        showLoggedOut();
-
-        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-            console.warn('Supabase library unavailable for navigation.');
-            return;
-        }
-
-        const client = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY,
-            {
-                auth: {
-                    persistSession: true,
-                    autoRefreshToken: true,
-                    detectSessionInUrl: true
-                }
-            }
-        );
-
-        try {
-            const { data, error } = await client.auth.getSession();
-
-            if (error) {
-                console.warn('Navigation getSession failed:', error);
-                showLoggedOut();
-            } else {
-                await applySession(client, data?.session || null);
-            }
-        } catch (error) {
-            console.warn('Navigation getSession failed:', error);
-            showLoggedOut();
-        }
-
-        client.auth.onAuthStateChange((_event, session) => {
-            setTimeout(() => applySession(client, session), 0);
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAuthNav);
-    } else {
-        initAuthNav();
-    }
-})();
-</script>
+    <script src="mobile.js?v=2"></script>
 </body>
 </html>

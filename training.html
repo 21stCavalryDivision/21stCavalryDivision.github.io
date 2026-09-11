@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>21st Cavalry Division | Training</title>
-<meta content="21st Cavalry Division training pipeline, qualifications, and readiness standards." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="21st Cavalry Division training pipeline, qualifications, and readiness standards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#050706;--panel:#0d110e;--panel2:#111713;--line:#293127;--line2:#3b4638;
@@ -91,341 +90,98 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 }
 @media(max-width:600px){.site-header{padding:0 18px}.brand span{font-size:15px}.status-strip,.pipeline,.qual-grid,.track-grid{grid-template-columns:1fr}.section{padding:54px 0}.section-top{align-items:flex-start;flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
 </style>
-<style id="global-nav-standardization">
-/* =========================================================
-   21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
-   Same typography and spacing on every page.
-   ========================================================= */
-.site-header{
-    min-height:72px !important;
-    height:72px !important;
-    padding:0 38px !important;
-    display:flex !important;
-    align-items:center !important;
-    box-sizing:border-box !important;
-}
-.site-header .brand{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-}
-.main-nav{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-    gap:28px !important;
-}
-.main-nav > a:not(.nav-cta){
-    position:relative !important;
-    display:flex !important;
-    align-items:center !important;
-    min-height:72px !important;
-    padding:0 !important;
-    margin:0 !important;
-    box-sizing:border-box !important;
-
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:16px !important;
-    font-style:normal !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-    text-decoration:none !important;
-
-    color:#c8cbc7 !important;
-    border:0 !important;
-    background:transparent !important;
-}
-.main-nav > a:not(.nav-cta)::after{
-    content:"" !important;
-    position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:0 !important;
-    width:100% !important;
-    height:2px !important;
-    margin:0 !important;
-    transform:scaleX(0) !important;
-    transform-origin:center !important;
-    background:#c8aa5b !important;
-    opacity:0 !important;
-    transition:transform .16s ease,opacity .16s ease,color .16s ease !important;
-}
-.main-nav > a:not(.nav-cta):hover{
-    color:#f0e5bf !important;
-}
-.main-nav > a:not(.nav-cta):hover::after{
-    transform:scaleX(.35) !important;
-    opacity:.7 !important;
-}
-.main-nav > a.nav-current:not(.nav-cta){
-    color:#d4b85e !important;
-}
-.main-nav > a.nav-current:not(.nav-cta)::after{
-    transform:scaleX(1) !important;
-    opacity:1 !important;
-}
-.main-nav .nav-cta{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:15px !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-}
-.member-profile-text span,
-.member-login-btn,
-.member-logout-btn{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-}
-@media(max-width:1180px){
-    .site-header{padding:0 24px !important}
-    .main-nav{gap:20px !important}
-    .main-nav > a:not(.nav-cta){font-size:15px !important}
-}
-@media(max-width:900px){
-    .site-header{height:auto !important;min-height:72px !important}
-    .main-nav{
-        min-height:0 !important;
-        gap:0 !important;
-    }
-    .main-nav > a:not(.nav-cta){
-        min-height:auto !important;
-        padding:11px 0 !important;
-    }
-    .main-nav > a:not(.nav-cta)::after{
-        bottom:4px !important;
-        right:auto !important;
-        width:34px !important;
-    }
-}
-</style>
-<style id="full-navigation-fix">
-/* Full navigation is intentionally present on every page. */
-.main-nav{
-    gap:22px !important;
-}
-.main-nav > a:not(.nav-cta){
-    white-space:nowrap !important;
-    flex:0 0 auto !important;
-}
-@media (max-width:1280px){
-    .main-nav{gap:16px !important;}
-    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
-}
-@media (max-width:1080px){
-    .main-nav{gap:13px !important;}
-    .main-nav > a:not(.nav-cta){font-size:13px !important;}
-}
-</style>
-<style id="auth-nav-direct-style">
-/* Direct hidden-attribute navigation control */
-.main-nav a[hidden] { display:none !important; }
-.main-nav .nav-cta[hidden] { display:none !important; }
-</style>
+    <link rel="stylesheet" href="mobile.css?v=2">
 </head>
 <body>
 <header class="site-header">
-<a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
-<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">☰</button>
-<nav class="main-nav" id="mainNav">
-<a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a class="nav-current" href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a hidden="" href="operations.html" id="operationsPortalLink">OPBOARD</a><a hidden="" href="members.html" id="memberPortalLink">MEMBER PORTAL</a><a hidden="" href="admin.html" id="adminPortalLink">ADMIN</a><a class="nav-cta" href="recruitment.html" id="enlistNavLink">ENLIST</a></nav>
+  <a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="main-nav" id="mainNav">
+    <a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html" class="active">Training</a>
+    <a href="resources.html">SOPs</a><a href="server.html">Server</a><a href="media.html">Media</a>
+    <a class="nav-cta" href="recruitment.html">Enlist</a>
+  </nav>
 </header>
+
 <main>
 <section class="page-hero">
-<div class="hero-inner reveal">
-<p class="eyebrow">21ST CAVALRY DIVISION // READINESS</p>
-<h1>TRAINING &amp; <span>QUALIFICATIONS</span></h1>
-<p class="hero-copy">A structured progression from entry-level standards to specialized and leadership qualifications. Every training block is designed to build competent, dependable members who can operate effectively within the division.</p>
-</div>
+  <div class="hero-inner reveal">
+    <p class="eyebrow">21ST CAVALRY DIVISION // READINESS</p>
+    <h1>TRAINING & <span>QUALIFICATIONS</span></h1>
+    <p class="hero-copy">A structured progression from entry-level standards to specialized and leadership qualifications. Every training block is designed to build competent, dependable members who can operate effectively within the division.</p>
+  </div>
 </section>
+
 <section class="status-strip">
-<div class="status-item"><small>Entry Standard</small><strong>BCT</strong></div>
-<div class="status-item"><small>Core Qualification</small><strong>Rifle / CLS</strong></div>
-<div class="status-item"><small>Advanced Tracks</small><strong>Role Based</strong></div>
-<div class="status-item"><small>End State</small><strong>Mission Ready</strong></div>
+  <div class="status-item"><small>Entry Standard</small><strong>BCT</strong></div>
+  <div class="status-item"><small>Core Qualification</small><strong>Rifle / CLS</strong></div>
+  <div class="status-item"><small>Advanced Tracks</small><strong>Role Based</strong></div>
+  <div class="status-item"><small>End State</small><strong>Mission Ready</strong></div>
 </section>
+
 <section class="section">
 <div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">01 // TRAINING PIPELINE</p><h2>Path to Readiness</h2></div><div class="section-code">Progression System</div></div>
-<div class="pipeline">
-<article class="phase reveal"><div class="phase-num">01</div><h3>Basic Combat Training</h3><p>Unit standards, communications, movement, formations, safety, map skills, reporting procedures and team fundamentals.</p></article>
-<article class="phase reveal"><div class="phase-num">02</div><h3>Core Qualifications</h3><p>Rifle qualification, CLS fundamentals and validation of the basic skills required for assignment to an operational element.</p></article>
-<article class="phase reveal"><div class="phase-num">03</div><h3>Role Training</h3><p>Members train for their assigned billet in infantry, weapons, medical, communications, vehicles, aviation or support roles.</p></article>
-<article class="phase reveal"><div class="phase-num">04</div><h3>Advanced Readiness</h3><p>Leadership, instructor and specialized qualification tracks build members capable of operating and leading under complex conditions.</p></article>
-</div>
-</div>
-</section>
-<section class="section" style="padding-top:10px">
-<div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">02 // QUALIFICATION CATALOG</p><h2>Training Certifications</h2></div><div class="section-code">Personnel Records</div></div>
-<div class="qual-grid">
-<article class="qual-card reveal"><h3>Core Training</h3><ul><li>BCT</li><li>Rifle Qualification</li><li>CLS</li></ul></article>
-<article class="qual-card reveal"><h3>Infantry</h3><ul><li>Rifleman</li><li>Automatic Rifleman</li><li>Grenadier</li><li>Machine Gunner</li><li>RTO</li><li>Forward Observer</li><li>Combat Medic</li><li>Marksman</li><li>Sniper</li></ul></article>
-<article class="qual-card reveal"><h3>Vehicles</h3><ul><li>Driver</li><li>Crewman</li><li>Gunner</li><li>Vehicle Commander</li></ul></article>
-<article class="qual-card reveal"><h3>Aviation</h3><ul><li>Pilot</li><li>Copilot</li><li>Crew Chief</li></ul></article>
-<article class="qual-card reveal"><h3>Leadership</h3><ul><li>Team Leader</li><li>Squad Leader</li><li>Platoon Leadership</li><li>Instructor</li><li>Training Staff</li></ul></article>
-</div>
+  <div class="section-top reveal"><div><p class="eyebrow">01 // TRAINING PIPELINE</p><h2>Path to Readiness</h2></div><div class="section-code">Progression System</div></div>
+  <div class="pipeline">
+    <article class="phase reveal"><div class="phase-num">01</div><h3>Basic Combat Training</h3><p>Unit standards, communications, movement, formations, safety, map skills, reporting procedures and team fundamentals.</p></article>
+    <article class="phase reveal"><div class="phase-num">02</div><h3>Core Qualifications</h3><p>Rifle qualification, CLS fundamentals and validation of the basic skills required for assignment to an operational element.</p></article>
+    <article class="phase reveal"><div class="phase-num">03</div><h3>Role Training</h3><p>Members train for their assigned billet in infantry, weapons, medical, communications, vehicles, aviation or support roles.</p></article>
+    <article class="phase reveal"><div class="phase-num">04</div><h3>Advanced Readiness</h3><p>Leadership, instructor and specialized qualification tracks build members capable of operating and leading under complex conditions.</p></article>
+  </div>
 </div>
 </section>
+
 <section class="section" style="padding-top:10px">
 <div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">03 // SPECIALTY TRACKS</p><h2>Advanced Training Paths</h2></div><div class="section-code">Role Development</div></div>
-<div class="track-grid">
-<article class="track reveal"><small>Track 01</small><h3>Infantry</h3><p>Small-unit movement, weapons employment, communications, casualty response, navigation and tactical team integration.</p><div class="meta"><span>Ground</span><span>Combat Arms</span></div></article>
-<article class="track reveal"><small>Track 02</small><h3>Armor</h3><p>Vehicle operation, crew coordination, gunnery, mounted maneuver, vehicle command and integration with dismounted forces.</p><div class="meta"><span>Mounted</span><span>Crew Served</span></div></article>
-<article class="track reveal"><small>Track 03</small><h3>Aviation</h3><p>Aircrew procedures, navigation, communications, transport operations, landing zone procedures and coordinated air support.</p><div class="meta"><span>Air</span><span>Flight Ops</span></div></article>
-<article class="track reveal"><small>Track 04</small><h3>Medical</h3><p>Combat casualty response, triage, treatment priorities, evacuation coordination and medical support to maneuver elements.</p><div class="meta"><span>Support</span><span>Medical</span></div></article>
-<article class="track reveal"><small>Track 05</small><h3>Recon / FO</h3><p>Observation, reporting, reconnaissance, target identification and coordination with command and supporting elements.</p><div class="meta"><span>Recon</span><span>ISR</span></div></article>
-<article class="track reveal"><small>Track 06</small><h3>Leadership</h3><p>Planning, briefings, command presence, team management, instruction, accountability and tactical decision-making.</p><div class="meta"><span>Command</span><span>Leadership</span></div></article>
-</div>
+  <div class="section-top reveal"><div><p class="eyebrow">02 // QUALIFICATION CATALOG</p><h2>Training Certifications</h2></div><div class="section-code">Personnel Records</div></div>
+  <div class="qual-grid">
+    <article class="qual-card reveal"><h3>Core Training</h3><ul><li>BCT</li><li>Rifle Qualification</li><li>CLS</li></ul></article>
+    <article class="qual-card reveal"><h3>Infantry</h3><ul><li>Rifleman</li><li>Automatic Rifleman</li><li>Grenadier</li><li>Machine Gunner</li><li>RTO</li><li>Forward Observer</li><li>Combat Medic</li><li>Marksman</li><li>Sniper</li></ul></article>
+    <article class="qual-card reveal"><h3>Vehicles</h3><ul><li>Driver</li><li>Crewman</li><li>Gunner</li><li>Vehicle Commander</li></ul></article>
+    <article class="qual-card reveal"><h3>Aviation</h3><ul><li>Pilot</li><li>Copilot</li><li>Crew Chief</li></ul></article>
+    <article class="qual-card reveal"><h3>Leadership</h3><ul><li>Team Leader</li><li>Squad Leader</li><li>Platoon Leadership</li><li>Instructor</li><li>Training Staff</li></ul></article>
+  </div>
 </div>
 </section>
+
 <section class="section" style="padding-top:10px">
 <div class="wrap">
-<div class="section-top reveal"><div><p class="eyebrow">04 // READINESS STANDARD</p><h2>Mission Ready</h2></div><div class="section-code">Validation Criteria</div></div>
-<div class="readiness">
-<article class="readiness-panel reveal"><h3>Readiness Expectations</h3><p>Training is not just a checklist. Members are expected to demonstrate the skills, communication and discipline required to perform their billet during unit operations.</p>
-<div class="checklist"><div class="check">Understands unit SOPs and communication standards</div><div class="check">Demonstrates safe and competent weapon handling</div><div class="check">Can operate within a team and follow leadership</div><div class="check">Maintains required role qualifications</div><div class="check">Participates in sustainment and refresher training</div></div>
-</article>
-<aside class="cta reveal"><p class="eyebrow">MEMBER RECORDS</p><h2>Track Your Qualifications</h2><p>Members can view their current qualifications and personnel record from the Member Portal. Training staff maintain qualification status through the division's personnel system.</p><a class="btn" href="members.html">Open Member Portal</a></aside>
+  <div class="section-top reveal"><div><p class="eyebrow">03 // SPECIALTY TRACKS</p><h2>Advanced Training Paths</h2></div><div class="section-code">Role Development</div></div>
+  <div class="track-grid">
+    <article class="track reveal"><small>Track 01</small><h3>Infantry</h3><p>Small-unit movement, weapons employment, communications, casualty response, navigation and tactical team integration.</p><div class="meta"><span>Ground</span><span>Combat Arms</span></div></article>
+    <article class="track reveal"><small>Track 02</small><h3>Armor</h3><p>Vehicle operation, crew coordination, gunnery, mounted maneuver, vehicle command and integration with dismounted forces.</p><div class="meta"><span>Mounted</span><span>Crew Served</span></div></article>
+    <article class="track reveal"><small>Track 03</small><h3>Aviation</h3><p>Aircrew procedures, navigation, communications, transport operations, landing zone procedures and coordinated air support.</p><div class="meta"><span>Air</span><span>Flight Ops</span></div></article>
+    <article class="track reveal"><small>Track 04</small><h3>Medical</h3><p>Combat casualty response, triage, treatment priorities, evacuation coordination and medical support to maneuver elements.</p><div class="meta"><span>Support</span><span>Medical</span></div></article>
+    <article class="track reveal"><small>Track 05</small><h3>Recon / FO</h3><p>Observation, reporting, reconnaissance, target identification and coordination with command and supporting elements.</p><div class="meta"><span>Recon</span><span>ISR</span></div></article>
+    <article class="track reveal"><small>Track 06</small><h3>Leadership</h3><p>Planning, briefings, command presence, team management, instruction, accountability and tactical decision-making.</p><div class="meta"><span>Command</span><span>Leadership</span></div></article>
+  </div>
 </div>
+</section>
+
+<section class="section" style="padding-top:10px">
+<div class="wrap">
+  <div class="section-top reveal"><div><p class="eyebrow">04 // READINESS STANDARD</p><h2>Mission Ready</h2></div><div class="section-code">Validation Criteria</div></div>
+  <div class="readiness">
+    <article class="readiness-panel reveal"><h3>Readiness Expectations</h3><p>Training is not just a checklist. Members are expected to demonstrate the skills, communication and discipline required to perform their billet during unit operations.</p>
+      <div class="checklist"><div class="check">Understands unit SOPs and communication standards</div><div class="check">Demonstrates safe and competent weapon handling</div><div class="check">Can operate within a team and follow leadership</div><div class="check">Maintains required role qualifications</div><div class="check">Participates in sustainment and refresher training</div></div>
+    </article>
+    <aside class="cta reveal"><p class="eyebrow">MEMBER RECORDS</p><h2>Track Your Qualifications</h2><p>Members can view their current qualifications and personnel record from the Member Portal. Training staff maintain qualification status through the division's personnel system.</p><a class="btn" href="members.html">Open Member Portal</a></aside>
+  </div>
 </div>
 </section>
 </main>
+
 <footer>
 <div><strong style="font-family:Oswald,sans-serif;color:var(--text);letter-spacing:.08em">21ST CAVALRY DIVISION</strong><div style="margin-top:6px">Swift. Silent. Relentless.</div></div>
 <div class="footer-links"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="resources.html">Resources</a><a href="recruitment.html">Recruitment</a></div>
 </footer>
+
 <script>
 const navToggle=document.getElementById('navToggle'),mainNav=document.getElementById('mainNav');
 navToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<script id="auth-nav-direct-script">
-(function () {
-    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
-
-    const el = id => document.getElementById(id);
-
-    function showLoggedOut() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        if (op) op.hidden = true;
-        if (member) member.hidden = true;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = false;
-    }
-
-    function showLoggedInImmediately() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        // IMPORTANT:
-        // OPBOARD + MEMBER PORTAL depend ONLY on a valid Discord/Supabase session.
-        // We do not wait for member_profiles to load.
-        if (op) op.hidden = false;
-        if (member) member.hidden = false;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = true;
-    }
-
-    async function setAdminVisibility(client, user) {
-        const admin = el('adminPortalLink');
-        if (!admin || !user) return;
-
-        try {
-            const { data: profile, error } = await client
-                .from('member_profiles')
-                .select('access_level')
-                .eq('user_id', user.id)
-                .maybeSingle();
-
-            if (error) {
-                console.warn('Admin navigation lookup failed:', error);
-                admin.hidden = true;
-                return;
-            }
-
-            const access = profile?.access_level || 'Member';
-            admin.hidden = !(access === 'Admin' || access === 'Super Admin');
-        } catch (error) {
-            console.warn('Admin navigation lookup failed:', error);
-            admin.hidden = true;
-        }
-    }
-
-    async function applySession(client, session) {
-        const user = session?.user || null;
-
-        if (!user) {
-            showLoggedOut();
-            return;
-        }
-
-        // Reveal member links immediately from the authenticated session.
-        showLoggedInImmediately();
-
-        // Admin is the only link that needs the database permission lookup.
-        await setAdminVisibility(client, user);
-    }
-
-    async function initAuthNav() {
-        showLoggedOut();
-
-        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-            console.warn('Supabase library unavailable for navigation.');
-            return;
-        }
-
-        const client = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY,
-            {
-                auth: {
-                    persistSession: true,
-                    autoRefreshToken: true,
-                    detectSessionInUrl: true
-                }
-            }
-        );
-
-        try {
-            const { data, error } = await client.auth.getSession();
-
-            if (error) {
-                console.warn('Navigation getSession failed:', error);
-                showLoggedOut();
-            } else {
-                await applySession(client, data?.session || null);
-            }
-        } catch (error) {
-            console.warn('Navigation getSession failed:', error);
-            showLoggedOut();
-        }
-
-        client.auth.onAuthStateChange((_event, session) => {
-            setTimeout(() => applySession(client, session), 0);
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAuthNav);
-    } else {
-        initAuthNav();
-    }
-})();
-</script>
+    <script src="mobile.js?v=2"></script>
 </body>
 </html>

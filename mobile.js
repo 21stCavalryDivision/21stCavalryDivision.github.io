@@ -1,54 +1,81 @@
 /* ==========================================================
-   21ST CAVALRY DIVISION — MOBILE NAV HELPER v1
-   Only adds toggle behavior on pages that do not already have
-   the standard navToggle/mainNav IDs.
+   21ST CAVALRY DIVISION — MOBILE NAV FIX v2
+
+   IMPORTANT:
+   The site's main script.js already owns the hamburger click event.
+   The old mobile.js added a SECOND click listener on some pages, which
+   toggled the menu twice and made it appear impossible to close.
+
+   v2 does NOT add another hamburger click handler.
+   It only adds safe close/accessibility helpers.
    ========================================================== */
 
 (() => {
     "use strict";
 
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
+    const toggle =
+        document.querySelector(".nav-toggle");
 
-    if (!toggle || !nav) return;
+    const nav =
+        document.querySelector(".main-nav");
 
-    /*
-      Most Command Center pages already have their own nav handler.
-      If both standard IDs exist, leave that existing JavaScript alone.
-    */
-    const pageAlreadyOwnsToggle =
-        toggle.id === "navToggle" &&
-        nav.id === "mainNav";
-
-    if (!pageAlreadyOwnsToggle) {
-        if (!toggle.id) toggle.id = "mobileNavToggle";
-        if (!nav.id) nav.id = "mobileMainNav";
-
-        toggle.addEventListener("click", () => {
-            const open = nav.classList.toggle("open");
-            toggle.setAttribute("aria-expanded", String(open));
-        });
+    if (!toggle || !nav) {
+        return;
     }
 
-    /* Closing helpers are safe even on pages with their own toggle code. */
-    nav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            nav.classList.remove("open");
-            toggle.setAttribute("aria-expanded", "false");
+    function closeMobileNav() {
+        nav.classList.remove("open");
+        toggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+
+    /* Make sure the menu starts collapsed on phone/tablet. */
+    if (window.innerWidth <= 900) {
+        closeMobileNav();
+    }
+
+    /* Close after choosing a page. */
+    nav
+        .querySelectorAll("a")
+        .forEach(link => {
+            link.addEventListener(
+                "click",
+                closeMobileNav
+            );
         });
-    });
 
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            nav.classList.remove("open");
-            toggle.setAttribute("aria-expanded", "false");
+    /* Escape closes menu. */
+    document.addEventListener(
+        "keydown",
+        event => {
+            if (event.key === "Escape") {
+                closeMobileNav();
+            }
         }
-    });
+    );
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 900) {
-            nav.classList.remove("open");
-            toggle.setAttribute("aria-expanded", "false");
+    /* Returning to desktop must clear the mobile open state. */
+    window.addEventListener(
+        "resize",
+        () => {
+            if (window.innerWidth > 900) {
+                closeMobileNav();
+            }
         }
-    });
+    );
+
+    /*
+       If the page is restored from Safari's back/forward cache,
+       force the phone menu closed instead of restoring an old open state.
+    */
+    window.addEventListener(
+        "pageshow",
+        () => {
+            if (window.innerWidth <= 900) {
+                closeMobileNav();
+            }
+        }
+    );
 })();

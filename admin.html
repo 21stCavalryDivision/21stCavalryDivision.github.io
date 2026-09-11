@@ -2178,60 +2178,405 @@
         @media (max-width:900px) { .archive-stat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .archive-history-row { grid-template-columns:1fr 1fr; } }
         @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
 
-    
-/* ==========================================================
-   DISCHARGE RECORD DELETE BUTTON
-   ========================================================== */
+    </style>
 
-.discharge-delete-btn{
-    min-width:112px;
-    min-height:38px;
-    padding:0 14px;
-    border:1px solid #8d3d3d;
-    background:#1a0909;
-    color:#ef8b8b;
-    font:700 10px Oswald,sans-serif;
-    letter-spacing:.8px;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition:
-        border-color .18s ease,
-        background .18s ease,
-        color .18s ease,
-        opacity .18s ease;
-}
 
-.discharge-delete-btn:hover:not(:disabled){
-    border-color:#d85d5d;
-    background:#2a0b0b;
-    color:#ffb1b1;
-}
 
-.discharge-delete-btn:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-}
+    <style id="command-center-redesign">
+        :root {
+            --cc-bg: #05090b;
+            --cc-panel: #0b1216;
+            --cc-panel-2: #10191e;
+            --cc-line: #243139;
+            --cc-gold: #d6aa3a;
+            --cc-gold-soft: rgba(214,170,58,.13);
+            --cc-text: #f2f5f6;
+            --cc-muted: #7f9099;
+            --cc-green: #39d98a;
+            --cc-red: #ff5c5c;
+        }
 
-.discharge-card-actions{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:10px;
-}
+        html { scroll-behavior: smooth; }
+        body {
+            background:
+                radial-gradient(circle at 18% 0%, rgba(214,170,58,.07), transparent 30%),
+                linear-gradient(180deg, #05090b 0%, #081014 100%) !important;
+            color: var(--cc-text);
+        }
 
-@media(max-width:700px){
-    .discharge-card-actions{
-        width:100%;
-        justify-content:stretch;
-    }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            min-height: 74px;
+            background: rgba(5,9,11,.94) !important;
+            border-bottom: 1px solid rgba(214,170,58,.22) !important;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 30px rgba(0,0,0,.28);
+        }
 
-    .discharge-delete-btn{
-        width:100%;
-    }
-}
+        .brand-mark {
+            background: linear-gradient(145deg, #d6aa3a, #a87917) !important;
+            color: #090c0e !important;
+            box-shadow: 0 0 0 1px rgba(255,215,110,.18), 0 10px 25px rgba(0,0,0,.35);
+        }
 
-</style>
+        .main-nav a {
+            position: relative;
+            padding-top: 26px !important;
+            padding-bottom: 25px !important;
+        }
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            height: 2px;
+            background: var(--cc-gold);
+            transform: scaleX(0);
+            transition: transform .2s ease;
+        }
+        .main-nav a:hover::after { transform: scaleX(1); }
 
+        .admin-hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 340px;
+            display: grid;
+            align-items: center;
+            padding: 74px clamp(24px,6vw,110px) 66px !important;
+            background:
+                linear-gradient(90deg, rgba(4,8,10,.98) 0%, rgba(4,8,10,.89) 47%, rgba(4,8,10,.55) 100%),
+                radial-gradient(circle at 82% 35%, rgba(214,170,58,.14), transparent 26%),
+                linear-gradient(135deg, #0b1419 0%, #10170d 100%) !important;
+            border-bottom: 1px solid rgba(214,170,58,.22) !important;
+        }
+        .admin-hero::before {
+            content: "21";
+            position: absolute;
+            right: clamp(18px,6vw,110px);
+            top: 50%;
+            transform: translateY(-54%);
+            font: 700 clamp(170px,22vw,340px)/.8 Oswald,sans-serif;
+            color: rgba(214,170,58,.045);
+            letter-spacing: -18px;
+            pointer-events: none;
+        }
+        .admin-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(90deg, transparent 0 79px, rgba(255,255,255,.012) 80px);
+            pointer-events: none;
+        }
+        .admin-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1050px !important;
+            border-left: 4px solid var(--cc-gold);
+            padding-left: 28px;
+        }
+        .admin-hero .eyebrow {
+            color: var(--cc-gold) !important;
+            letter-spacing: 3px !important;
+        }
+        .admin-hero h1 {
+            font-size: clamp(58px,8vw,110px) !important;
+            letter-spacing: -1px;
+            text-shadow: 0 8px 24px rgba(0,0,0,.45);
+        }
+        .admin-hero-description {
+            max-width: 760px !important;
+            font-size: 15px !important;
+            color: #a8b4ba !important;
+        }
+
+        .admin-container {
+            max-width: 1720px;
+            margin: 0 auto;
+            padding: 34px clamp(22px,4vw,68px) 110px !important;
+        }
+
+        .command-overview {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(260px,.55fr);
+            gap: 14px;
+            margin: 0 0 14px;
+        }
+        .command-overview-copy,
+        .command-status-card {
+            border: 1px solid var(--cc-line);
+            background: linear-gradient(145deg, rgba(16,25,30,.98), rgba(9,16,20,.98));
+            box-shadow: 0 18px 45px rgba(0,0,0,.22);
+        }
+        .command-overview-copy {
+            position: relative;
+            padding: 28px 30px 26px;
+            overflow: hidden;
+        }
+        .command-overview-copy::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--cc-gold);
+        }
+        .command-kicker {
+            color: var(--cc-gold);
+            font: 600 10px Oswald,sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+        }
+        .command-overview h2 {
+            margin: 7px 0 8px;
+            font: 700 clamp(26px,3vw,42px) Oswald,sans-serif;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+        .command-overview p {
+            margin: 0;
+            max-width: 850px;
+            color: var(--cc-muted);
+            line-height: 1.65;
+            font-size: 13px;
+        }
+        .command-status-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+        }
+        .command-status-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cc-green);
+            font: 600 11px Oswald,sans-serif;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+        .command-status-label::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--cc-green);
+            box-shadow: 0 0 16px rgba(57,217,138,.65);
+        }
+        .command-status-card strong {
+            font: 600 22px Oswald,sans-serif;
+            text-transform: uppercase;
+        }
+        .command-status-card small {
+            color: var(--cc-muted);
+            font-size: 11px;
+        }
+
+        .admin-jump-nav {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(130px,1fr));
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .admin-jump-btn {
+            min-height: 48px;
+            border: 1px solid var(--cc-line);
+            background: #0a1115;
+            color: #b7c2c7;
+            font: 600 10px Oswald,sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .18s ease;
+        }
+        .admin-jump-btn:hover {
+            color: #fff;
+            border-color: var(--cc-gold);
+            background: var(--cc-gold-soft);
+            transform: translateY(-1px);
+        }
+
+        .admin-summary {
+            grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+            gap: 12px !important;
+            margin-bottom: 24px !important;
+        }
+        .summary-card {
+            position: relative;
+            min-height: 116px;
+            padding: 20px 20px 18px 72px !important;
+            border: 1px solid var(--cc-line) !important;
+            border-top: 1px solid var(--cc-line) !important;
+            background: linear-gradient(145deg,#0f181d,#0a1115) !important;
+            box-shadow: 0 14px 35px rgba(0,0,0,.18);
+            overflow: hidden;
+        }
+        .summary-card::before {
+            position: absolute;
+            left: 19px;
+            top: 25px;
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(214,170,58,.35);
+            background: rgba(214,170,58,.08);
+            color: var(--cc-gold);
+            font-size: 19px;
+        }
+        .summary-card:nth-child(1)::before { content: "♟"; }
+        .summary-card:nth-child(2)::before { content: "✓"; }
+        .summary-card:nth-child(3)::before { content: "★"; }
+        .summary-card:nth-child(4)::before { content: "%"; }
+        .summary-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 36%;
+            height: 2px;
+            background: var(--cc-gold);
+        }
+        .summary-card span { color: var(--cc-muted) !important; }
+        .summary-card strong { font-size: 38px !important; }
+
+        .admin-section-heading {
+            margin: 13px 0 0 !important;
+            min-height: 70px;
+            padding: 0 18px 0 22px;
+            border: 1px solid var(--cc-line);
+            background: linear-gradient(90deg,#0c1418,#091014);
+            position: relative;
+        }
+        .admin-section-heading::before {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            bottom: -1px;
+            width: 4px;
+            background: var(--cc-gold);
+        }
+        .admin-section-heading h2 {
+            font-size: 22px !important;
+            letter-spacing: .6px;
+        }
+        .admin-section-heading span { color: #a08b55 !important; }
+        .member-heading-actions,
+        .discharge-heading-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .member-collapse-toggle,
+        .discharge-collapse-toggle {
+            min-width: 132px;
+            min-height: 38px;
+            padding: 0 15px;
+            border: 1px solid rgba(214,170,58,.55) !important;
+            background: rgba(214,170,58,.07) !important;
+            color: var(--cc-gold) !important;
+            font: 600 10px Oswald,sans-serif !important;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .member-collapse-toggle:hover,
+        .discharge-collapse-toggle:hover {
+            background: var(--cc-gold) !important;
+            color: #070a0c !important;
+        }
+
+        .loa-admin-panel,
+        .pending-member-panel,
+        .member-management-panel,
+        .discharge-panel,
+        .attendance-panel,
+        .attendance-warning-panel {
+            margin-top: 0 !important;
+            border: 1px solid var(--cc-line) !important;
+            border-top: 0 !important;
+            background: #0a1115 !important;
+            padding: 18px !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.015);
+        }
+        .attendance-warning-panel {
+            border-top: 1px solid var(--cc-line) !important;
+            margin-top: 0 !important;
+        }
+
+        .member-admin-card,
+        .discharge-card,
+        .pending-member-card,
+        .loa-admin-card,
+        .attendance-event-card {
+            border-color: #2b3940 !important;
+            background: linear-gradient(145deg,#111a1f,#0c1317) !important;
+            transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+        }
+        .member-admin-card:hover,
+        .discharge-card:hover,
+        .pending-member-card:hover,
+        .loa-admin-card:hover,
+        .attendance-event-card:hover {
+            border-color: rgba(214,170,58,.5) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,.22);
+            transform: translateY(-1px);
+        }
+
+        .admin-search,
+        .attendance-panel input,
+        .attendance-panel select,
+        .attendance-panel textarea {
+            border-color: #2b3940 !important;
+            background: #060b0e !important;
+        }
+        .admin-search:focus,
+        .attendance-panel input:focus,
+        .attendance-panel select:focus,
+        .attendance-panel textarea:focus {
+            border-color: var(--cc-gold) !important;
+            box-shadow: 0 0 0 2px rgba(214,170,58,.08);
+        }
+        .admin-refresh {
+            border-color: rgba(214,170,58,.6) !important;
+            color: var(--cc-gold) !important;
+            background: rgba(214,170,58,.05) !important;
+        }
+        .admin-refresh:hover {
+            color: #070a0c !important;
+            background: var(--cc-gold) !important;
+        }
+
+        @media (max-width: 1050px) {
+            .command-overview { grid-template-columns: 1fr; }
+            .admin-jump-nav { grid-template-columns: repeat(2,1fr); }
+            .admin-summary { grid-template-columns: repeat(2,1fr) !important; }
+        }
+        @media (max-width: 720px) {
+            .admin-hero { min-height: 280px; }
+            .admin-hero::before { opacity: .55; }
+            .admin-hero-inner { padding-left: 18px; }
+            .admin-summary { grid-template-columns: 1fr !important; }
+            .admin-jump-nav { grid-template-columns: 1fr; }
+            .admin-section-heading {
+                align-items: flex-start !important;
+                flex-direction: column;
+                padding: 16px !important;
+            }
+            .member-heading-actions,
+            .discharge-heading-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="mobile.css?v=2">
 </head>
 
 
@@ -2498,6 +2843,29 @@
         class="admin-container"
         hidden
     >
+
+        <section class="command-overview">
+            <div class="command-overview-copy">
+                <span class="command-kicker">21ST CAVALRY // COMMAND CENTER</span>
+                <h2>Unit Readiness Overview</h2>
+                <p>
+                    Personnel accountability, readiness, approvals, leave, discharge records and training attendance in one command workspace.
+                </p>
+            </div>
+            <div class="command-status-card">
+                <span class="command-status-label">Command System Online</span>
+                <strong id="commandDate">Administration Portal</strong>
+                <small>Authorized command personnel only</small>
+            </div>
+        </section>
+
+        <div class="admin-jump-nav" aria-label="Admin quick navigation">
+            <button class="admin-jump-btn" data-panel="loaManagementPanel" data-toggle="toggleLoas">Leave of Absence</button>
+            <button class="admin-jump-btn" data-panel="pendingMemberPanel" data-toggle="togglePendingMembers">Pending Approvals</button>
+            <button class="admin-jump-btn" data-panel="memberManagementPanel" data-toggle="toggleMembers">Member Management</button>
+            <button class="admin-jump-btn" data-panel="dischargePanel" data-toggle="toggleDischarges">Discharge Records</button>
+            <button class="admin-jump-btn" data-panel="attendanceManagementPanel" data-toggle="toggleAttendance">Attendance</button>
+        </div>
 
 
         <!-- SUMMARY -->
@@ -6354,8 +6722,7 @@
                                         data-discharge-id="${escapeHtml(record.id)}"
                                     >
 
-                                        <div class="discharge-card-actions">
-<button
+                                        <button
                                             class="discharge-header"
                                             type="button"
                                             data-discharge-toggle
@@ -6431,15 +6798,6 @@
                                             </span>
 
                                         </button>
-
-<button
-    class="discharge-delete-btn"
-    type="button"
-    data-delete-discharge
->
-    Delete Record
-</button>
-</div>
 
                                         <div class="discharge-body">
 
@@ -7287,137 +7645,6 @@
                         );
 
                 }
-
-                /*
-                 * DISCHARGE DELETE — EVENT DELEGATION
-                 *
-                 * Discharge cards are rendered dynamically after Supabase loads.
-                 * A one-time querySelectorAll() runs too early and finds zero
-                 * delete buttons. Delegating the click to dischargeList makes
-                 * every current and future Delete Record button work.
-                 */
-                dischargeList.addEventListener(
-                    'click',
-                    async event => {
-
-                        const button =
-                            event.target.closest(
-                                '[data-delete-discharge]'
-                            );
-
-                        if (!button) {
-                            return;
-                        }
-
-                        event.preventDefault();
-                        event.stopPropagation();
-
-                        const card =
-                            button.closest(
-                                '[data-discharge-id]'
-                            );
-
-                        if (!card) {
-                            return;
-                        }
-
-                        const id =
-                            card.dataset.dischargeId;
-
-                        const record =
-                            dischargeRecords.find(
-                                item =>
-                                    String(item.id)
-                                    ===
-                                    String(id)
-                            );
-
-                        const displayName =
-                            record?.display_name
-                            ||
-                            'this former member';
-
-                        const confirmed =
-                            window.confirm(
-                                `Permanently delete the discharge record for ${displayName}?\n\nThis cannot be undone.`
-                            );
-
-                        if (!confirmed) {
-                            return;
-                        }
-
-                        button.disabled =
-                            true;
-
-                        button.textContent =
-                            'Deleting...';
-
-                        setDischargeMessage(
-                            `Deleting discharge record for ${displayName}...`
-                        );
-
-                        const {
-                            error
-                        } =
-                            await client
-                                .from(
-                                    'discharge_records'
-                                )
-                                .delete()
-                                .eq(
-                                    'id',
-                                    id
-                                );
-
-                        if (error) {
-
-                            console.error(
-                                'Discharge record delete error:',
-                                error
-                            );
-
-                            setDischargeMessage(
-                                'Could not delete discharge record: '
-                                +
-                                error.message,
-                                'error'
-                            );
-
-                            button.disabled =
-                                false;
-
-                            button.textContent =
-                                'Delete Record';
-
-                            return;
-                        }
-
-                        dischargeRecords =
-                            dischargeRecords.filter(
-                                item =>
-                                    String(item.id)
-                                    !==
-                                    String(id)
-                            );
-
-                        if (
-                            String(openDischargeId)
-                            ===
-                            String(id)
-                        ) {
-                            openDischargeId =
-                                null;
-                        }
-
-                        setDischargeMessage(
-                            `Discharge record for ${displayName} deleted.`,
-                            'success'
-                        );
-
-                        renderDischargeRecords();
-                    }
-                );
-
 
 
                 async function loadDischargeRecords() {
@@ -9131,6 +9358,32 @@ function renderAttendanceWarnings() {
 
     </script>
 
+
+<script id="command-center-enhancements">
+document.addEventListener('DOMContentLoaded', function () {
+    const dateNode = document.getElementById('commandDate');
+    if (dateNode) {
+        dateNode.textContent = new Intl.DateTimeFormat('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric'
+        }).format(new Date());
+    }
+
+    document.querySelectorAll('.admin-jump-btn').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const panel = document.getElementById(button.dataset.panel);
+            const toggle = document.getElementById(button.dataset.toggle);
+            if (!panel) return;
+            if (panel.hidden && toggle) toggle.click();
+            setTimeout(function () {
+                const heading = panel.previousElementSibling || panel;
+                heading.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }, 80);
+        });
+    });
+});
+</script>
+
+    <script src="mobile.js?v=2"></script>
 </body>
 
 </html>
