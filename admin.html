@@ -3506,9 +3506,11 @@
                    DISCORD RANK SYNC
                    ================================================= */
 
-                async function syncDiscordRank(
+                async function syncDiscordPersonnel(
                     discordId,
-                    rank
+                    rank,
+                    billet,
+                    section
                 ) {
 
                     if (!discordId) {
@@ -3519,7 +3521,6 @@
                                 'No Discord ID is stored for this member.'
                         };
                     }
-
 
                     try {
 
@@ -3534,16 +3535,19 @@
                                         discord_id:
                                             String(discordId),
                                         rank:
-                                            rank
+                                            String(rank || ''),
+                                        billet:
+                                            String(billet || 'Unassigned'),
+                                        section:
+                                            String(section || 'Unassigned')
                                     }
                                 }
                             );
 
-
                         if (error) {
 
                             console.error(
-                                'Discord rank sync failed:',
+                                'Discord personnel sync failed:',
                                 error
                             );
 
@@ -3553,11 +3557,9 @@
                                 message:
                                     error.message
                                     ||
-                                    'Discord rank sync failed.'
+                                    'Discord personnel sync failed.'
                             };
-
                         }
-
 
                         if (
                             !data
@@ -3566,7 +3568,7 @@
                         ) {
 
                             console.error(
-                                'Discord rank sync returned an error:',
+                                'Discord personnel sync returned an error:',
                                 data
                             );
 
@@ -3579,11 +3581,9 @@
                                     ||
                                     data?.message
                                     ||
-                                    'Discord rank sync failed.'
+                                    'Discord personnel sync failed.'
                             };
-
                         }
-
 
                         return {
                             success: true,
@@ -3592,19 +3592,14 @@
                             message:
                                 data.message
                                 ||
-                                (
-                                    data.synced === false
-                                        ? 'Website rank saved. No Discord role is mapped for this rank.'
-                                        : 'Discord rank synchronized.'
-                                )
+                                'Discord personnel synchronized.'
                         };
-
 
                     }
                     catch (error) {
 
                         console.error(
-                            'Discord rank sync exception:',
+                            'Discord personnel sync exception:',
                             error
                         );
 
@@ -3614,11 +3609,9 @@
                             message:
                                 error instanceof Error
                                     ? error.message
-                                    : 'Discord rank sync failed.'
+                                    : 'Discord personnel sync failed.'
                         };
-
                     }
-
                 }
 
 
@@ -3900,120 +3893,27 @@
 
                 const RANK_OPTIONS = [
 
-                    {
-                        label: 'Recruit',
-                        value: 'Recruit'
-                    },
-
-                    {
-                        label: 'E-1 — Private (PVT)',
-                        value: 'Private (PVT)'
-                    },
-
-                    {
-                        label: 'E-2 — Private Second Class (PV2)',
-                        value: 'Private Second Class (PV2)'
-                    },
-
-                    {
-                        label: 'E-3 — Private First Class (PFC)',
-                        value: 'Private First Class (PFC)'
-                    },
-
-                    {
-                        label: 'E-4 — Specialist (SPC)',
-                        value: 'Specialist (SPC)'
-                    },
-
-                    {
-                        label: 'E-4 — Corporal (CPL)',
-                        value: 'Corporal (CPL)'
-                    },
-
-                    {
-                        label: 'E-5 — Sergeant (SGT)',
-                        value: 'Sergeant (SGT)'
-                    },
-
-                    {
-                        label: 'E-6 — Staff Sergeant (SSG)',
-                        value: 'Staff Sergeant (SSG)'
-                    },
-
-                    {
-                        label: 'E-7 — Sergeant First Class (SFC)',
-                        value: 'Sergeant First Class (SFC)'
-                    },
-
-                    {
-                        label: 'E-8 — Master Sergeant (MSG)',
-                        value: 'Master Sergeant (MSG)'
-                    },
-
-                    {
-                        label: 'E-8 — First Sergeant (1SG)',
-                        value: 'First Sergeant (1SG)'
-                    },
-
-                    {
-                        label: 'E-9 — Sergeant Major (SGM)',
-                        value: 'Sergeant Major (SGM)'
-                    },
-
-                    {
-                        label: 'E-9 — Command Sergeant Major (CSM)',
-                        value: 'Command Sergeant Major (CSM)'
-                    },
-
-                    {
-                        label: 'W-1 — Warrant Officer 1 (WO1)',
-                        value: 'Warrant Officer 1 (WO1)'
-                    },
-
-                    {
-                        label: 'W-2 — Chief Warrant Officer 2 (CW2)',
-                        value: 'Chief Warrant Officer 2 (CW2)'
-                    },
-
-                    {
-                        label: 'W-3 — Chief Warrant Officer 3 (CW3)',
-                        value: 'Chief Warrant Officer 3 (CW3)'
-                    },
-
-                    {
-                        label: 'W-4 — Chief Warrant Officer 4 (CW4)',
-                        value: 'Chief Warrant Officer 4 (CW4)'
-                    },
-
-                    {
-                        label: 'W-5 — Chief Warrant Officer 5 (CW5)',
-                        value: 'Chief Warrant Officer 5 (CW5)'
-                    },
-
-                    {
-                        label: 'O-1 — Second Lieutenant (2LT)',
-                        value: 'Second Lieutenant (2LT)'
-                    },
-
-                    {
-                        label: 'O-2 — First Lieutenant (1LT)',
-                        value: 'First Lieutenant (1LT)'
-                    },
-
-                    {
-                        label: 'O-3 — Captain (CPT)',
-                        value: 'Captain (CPT)'
-                    },
-
-                    {
-                        label: 'O-4 — Major (MAJ)',
-                        value: 'Major (MAJ)'
-                    },
-
-                    {
-                        label: 'O-5 — Lieutenant Colonel (LTC)',
-                        value: 'Lieutenant Colonel (LTC)'
-                    }
+                    'Private (PVT)',
+                    'Private Second Class (PV2)',
+                    'Private First Class (PFC)',
+                    'Specialist (SPC)',
+                    'Corporal (CPL)',
+                    'Sergeant (SGT)',
+                    'Staff Sergeant (SSG)',
+                    'Sergeant First Class (SFC)',
+                    'Master Sergeant (MSG)',
+                    'First Sergeant (1SG)',
+                    'Sergeant Major (SGM)',
+                    'Warrant Officer 1 (WO1)',
+                    'Chief Warrant Officer 2 (CW2)',
+                    'Chief Warrant Officer 3 (CW3)',
+                    'Chief Warrant Officer 4 (CW4)',
+                    'Chief Warrant Officer 5 (CW5)',
+                    'Second Lieutenant (2LT)',
+                    'First Lieutenant (1LT)',
+                    'Captain (CPT)',
+                    'Major (MAJ)',
+                    'Lieutenant Colonel (LTC)'
 
                 ];
 
@@ -4025,29 +3925,59 @@
                 const BILLET_OPTIONS = [
 
                     'Unassigned',
+
+                    /* COMMAND */
                     'Division Commander',
                     'Executive Officer',
                     'Command Sergeant Major',
+                    'Operations Officer',
+                    'Personnel Officer',
+                    'Training Officer',
                     'First Sergeant',
+
+                    /* MANEUVER LEADERSHIP */
                     'Platoon Leader',
                     'Platoon Sergeant',
                     'Squad Leader',
                     'Team Leader',
+
+                    /* INFANTRY */
                     'Rifleman',
                     'Automatic Rifleman',
                     'Grenadier',
+                    'Machine Gunner',
+                    'Anti-Tank Rifleman',
+                    'Designated Marksman',
                     'Combat Medic',
                     'Radio Telephone Operator',
                     'Forward Observer',
-                    'Crew Chief',
+
+                    /* AVIATION */
+                    'Aviation Detachment Commander',
                     'Pilot',
                     'Copilot',
+                    'Crew Chief',
+                    'Door Gunner',
+
+                    /* ARMOR */
+                    'Armor Section Leader',
                     'Vehicle Commander',
                     'Gunner',
                     'Driver',
                     'Crewman',
+
+                    /* RECON */
+                    'Recon Section Leader',
+                    'Scout',
+                    'Sniper',
+                    'Spotter',
+
+                    /* SUPPORT / STAFF */
+                    'Medical Section Leader',
+                    'Training Section Leader',
                     'Instructor',
                     'Training NCO',
+                    'Recruitment Section Leader',
                     'Recruiter'
 
                 ];
@@ -4060,20 +3990,23 @@
                 const SECTION_OPTIONS = [
 
                     'Unassigned',
-                    'Division HQ',
-                    'Command Staff',
-                    '1st Platoon',
-                    '2nd Platoon',
-                    '1st Squad',
-                    '2nd Squad',
-                    '3rd Squad',
-                    'Weapons Squad',
-                    'Aviation Detachment',
-                    'Armor Section',
-                    'Recon Section',
-                    'Medical Section',
-                    'Training Section',
-                    'Recruitment Section'
+                    '1st Cavalry Brigade',
+                    'Patriots',
+                    'Hellhounds',
+                    'Reapers',
+                    '2nd Cavalry Brigade',
+                    'Spartans',
+                    'Titans',
+                    'Raiders',
+                    'Combat Aviation Brigade',
+                    'Roughnecks',
+                    'Havoc',
+                    'Wolverine',
+                    'Special Troops Battalion (STB)',
+                    'Aviation Brigade',
+                    'IronEagle Company',
+                    'NightWing Company',
+                    'Guardian Company'
 
                 ];
 
@@ -5704,28 +5637,34 @@
                         );
 
 
-                    const rankChanged =
+                    const discordPersonnelChanged =
                         savedMember
                         &&
-                        savedMember.rank
-                        !==
-                        updateData.rank;
+                        (
+                            savedMember.rank !== updateData.rank
+                            ||
+                            savedMember.billet !== updateData.billet
+                            ||
+                            savedMember.section !== updateData.section
+                        );
 
 
-                    if (rankChanged) {
+                    if (discordPersonnelChanged) {
 
                         saveStatus.className =
                             'save-status';
 
 
                         saveStatus.textContent =
-                            'Website saved. Syncing Discord rank...';
+                            'Website saved. Syncing Discord personnel roles...';
 
 
                         const discordResult =
-                            await syncDiscordRank(
+                            await syncDiscordPersonnel(
                                 savedMember.discord_id,
-                                updateData.rank
+                                updateData.rank,
+                                updateData.billet,
+                                updateData.section
                             );
 
 
@@ -5740,7 +5679,7 @@
 
 
                             saveStatus.textContent =
-                                'Saved + Discord rank updated';
+                                'Saved + Discord roles updated';
 
                         }
                         else if (
@@ -6094,14 +6033,16 @@
 
 
                                         setPendingMemberMessage(
-                                            `${name} approved. Syncing Discord rank...`
+                                            `${name} approved. Syncing Discord personnel roles...`
                                         );
 
 
                                         const discordResult =
-                                            await syncDiscordRank(
+                                            await syncDiscordPersonnel(
                                                 approvedPending?.discord_id,
-                                                rank
+                                                rank,
+                                                billet,
+                                                section
                                             );
 
 
@@ -6112,7 +6053,7 @@
                                         ) {
 
                                             setPendingMemberMessage(
-                                                `${name} approved. Member Portal access enabled and Discord rank assigned.`,
+                                                `${name} approved. Member Portal access enabled and Discord roles synchronized.`,
                                                 'success'
                                             );
 
@@ -6132,7 +6073,7 @@
                                         else {
 
                                             setPendingMemberMessage(
-                                                `${name} approved and Member Portal access enabled, but Discord rank sync failed: ${discordResult.message}`,
+                                                `${name} approved and Member Portal access enabled, but Discord personnel sync failed: ${discordResult.message}`,
                                                 'error'
                                             );
 
