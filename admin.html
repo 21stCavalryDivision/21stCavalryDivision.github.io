@@ -3542,21 +3542,31 @@ select option {
                             data,
                             error
                         } =
-                            await client.functions.invoke(
-                                'discord-rank-sync',
-                                {
-                                    body: {
-                                        discord_id:
-                                            String(discordId),
-                                        rank:
-                                            String(rank || ''),
-                                        billet:
-                                            String(billet || 'Unassigned'),
-                                        section:
-                                            String(section || 'Unassigned')
+                            await Promise.race([
+                                client.functions.invoke(
+                                    'discord-rank-sync',
+                                    {
+                                        body: {
+                                            discord_id:
+                                                String(discordId),
+                                            rank:
+                                                String(rank || ''),
+                                            billet:
+                                                String(billet || 'Unassigned'),
+                                            section:
+                                                String(section || 'Unassigned')
+                                        }
                                     }
-                                }
-                            );
+                                ),
+                                new Promise((_, reject) =>
+                                    setTimeout(
+                                        () => reject(
+                                            new Error('Discord sync timed out after 12 seconds.')
+                                        ),
+                                        12000
+                                    )
+                                )
+                            ]);
 
                         if (error) {
 
@@ -3919,7 +3929,6 @@ select option {
                     'Master Sergeant (MSG)',
                     'First Sergeant (1SG)',
                     'Sergeant Major (SGM)',
-                    'Command Sergeant Major (CSM)',
                     'Warrant Officer 1 (WO1)',
                     'Chief Warrant Officer 2 (CW2)',
                     'Chief Warrant Officer 3 (CW3)',
@@ -4315,14 +4324,22 @@ select option {
                     if (
                         selected
                         &&
-                        !options.includes(
-                            selected
+                        !options.some(
+                            item =>
+                                item.value ===
+                                selected
                         )
                     ) {
 
-                        options.unshift(
-                            selected
-                        );
+                        options.unshift({
+
+                            label:
+                                selected,
+
+                            value:
+                                selected
+
+                        });
 
                     }
 
@@ -4330,10 +4347,10 @@ select option {
                     return options
                         .map(
 
-                            value => {
+                            item => {
 
                                 const selectedText =
-                                    value ===
+                                    item.value ===
                                     selected
                                         ?
                                         'selected'
@@ -4345,12 +4362,12 @@ select option {
 
                                     <option
                                         value="${escapeHtml(
-                                            value
+                                            item.value
                                         )}"
                                         ${selectedText}
                                     >
                                         ${escapeHtml(
-                                            value
+                                            item.label
                                         )}
                                     </option>
 
