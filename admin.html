@@ -3919,6 +3919,7 @@ select option {
                     'Master Sergeant (MSG)',
                     'First Sergeant (1SG)',
                     'Sergeant Major (SGM)',
+                    'Command Sergeant Major (CSM)',
                     'Warrant Officer 1 (WO1)',
                     'Chief Warrant Officer 2 (CW2)',
                     'Chief Warrant Officer 3 (CW3)',
@@ -4314,22 +4315,14 @@ select option {
                     if (
                         selected
                         &&
-                        !options.some(
-                            item =>
-                                item.value ===
-                                selected
+                        !options.includes(
+                            selected
                         )
                     ) {
 
-                        options.unshift({
-
-                            label:
-                                selected,
-
-                            value:
-                                selected
-
-                        });
+                        options.unshift(
+                            selected
+                        );
 
                     }
 
@@ -4337,10 +4330,10 @@ select option {
                     return options
                         .map(
 
-                            item => {
+                            value => {
 
                                 const selectedText =
-                                    item.value ===
+                                    value ===
                                     selected
                                         ?
                                         'selected'
@@ -4352,12 +4345,12 @@ select option {
 
                                     <option
                                         value="${escapeHtml(
-                                            item.value
+                                            value
                                         )}"
                                         ${selectedText}
                                     >
                                         ${escapeHtml(
-                                            item.label
+                                            value
                                         )}
                                     </option>
 
