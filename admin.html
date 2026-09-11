@@ -2178,7 +2178,67 @@
         @media (max-width:900px) { .archive-stat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .archive-history-row { grid-template-columns:1fr 1fr; } }
         @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
 
-    </style>
+    
+/* ==========================================================
+   DISCHARGE RECORD DELETE — MOBILE MERGED v3
+   ========================================================== */
+
+.discharge-card-header-row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:stretch;
+    border-bottom:0;
+}
+
+.discharge-card-header-row .discharge-header{
+    min-width:0;
+}
+
+.discharge-delete-btn{
+    min-width:150px;
+    padding:0 18px;
+    border:0;
+    border-left:1px solid #30383d;
+    background:#1a0909;
+    color:#ef8b8b;
+    font:700 10px Oswald,sans-serif;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+
+.discharge-delete-btn:hover:not(:disabled){
+    background:#2a0b0b;
+    color:#ffb1b1;
+}
+
+.discharge-delete-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.discharge-card.open .discharge-card-header-row{
+    border-bottom:1px solid #30383d;
+}
+
+.discharge-card.open .discharge-header{
+    border-bottom:0 !important;
+}
+
+@media(max-width:900px){
+    .discharge-card-header-row{
+        grid-template-columns:1fr;
+    }
+
+    .discharge-delete-btn{
+        width:100%;
+        min-height:46px;
+        border-left:0;
+        border-top:1px solid #6b2a2a;
+    }
+}
+
+</style>
 
 
 
@@ -6722,6 +6782,8 @@
                                         data-discharge-id="${escapeHtml(record.id)}"
                                     >
 
+                                        <div class="discharge-card-header-row">
+
                                         <button
                                             class="discharge-header"
                                             type="button"
@@ -6798,6 +6860,16 @@
                                             </span>
 
                                         </button>
+
+                                        <button
+                                            class="discharge-delete-btn"
+                                            type="button"
+                                            data-delete-discharge
+                                        >
+                                            Delete Record
+                                        </button>
+
+                                        </div>
 
                                         <div class="discharge-body">
 
@@ -7645,6 +7717,126 @@
                         );
 
                 }
+
+                /*
+                 * DISCHARGE DELETE — EVENT DELEGATION
+                 * Works after dynamic Supabase rendering/search/refresh.
+                 */
+                dischargeList.addEventListener(
+                    'click',
+                    async event => {
+
+                        const button =
+                            event.target.closest(
+                                '[data-delete-discharge]'
+                            );
+
+                        if (!button) {
+                            return;
+                        }
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        const card =
+                            button.closest(
+                                '[data-discharge-id]'
+                            );
+
+                        if (!card) {
+                            return;
+                        }
+
+                        const id =
+                            card.dataset.dischargeId;
+
+                        const record =
+                            dischargeRecords.find(
+                                item =>
+                                    String(item.id)
+                                    ===
+                                    String(id)
+                            );
+
+                        const displayName =
+                            record?.display_name
+                            ||
+                            'this former member';
+
+                        const confirmed =
+                            window.confirm(
+                                `Permanently delete the discharge record for ${displayName}?\n\nThis cannot be undone.`
+                            );
+
+                        if (!confirmed) {
+                            return;
+                        }
+
+                        button.disabled = true;
+                        button.textContent = 'Deleting...';
+
+                        setDischargeMessage(
+                            `Deleting discharge record for ${displayName}...`
+                        );
+
+                        const {
+                            error
+                        } =
+                            await client
+                                .from(
+                                    'discharge_records'
+                                )
+                                .delete()
+                                .eq(
+                                    'id',
+                                    id
+                                );
+
+                        if (error) {
+
+                            console.error(
+                                'Discharge record delete error:',
+                                error
+                            );
+
+                            setDischargeMessage(
+                                'Could not delete discharge record: '
+                                +
+                                error.message,
+                                'error'
+                            );
+
+                            button.disabled = false;
+                            button.textContent = 'Delete Record';
+
+                            return;
+                        }
+
+                        dischargeRecords =
+                            dischargeRecords.filter(
+                                item =>
+                                    String(item.id)
+                                    !==
+                                    String(id)
+                            );
+
+                        if (
+                            String(openDischargeId)
+                            ===
+                            String(id)
+                        ) {
+                            openDischargeId = null;
+                        }
+
+                        setDischargeMessage(
+                            `Discharge record for ${displayName} deleted.`,
+                            'success'
+                        );
+
+                        renderDischargeRecords();
+                    }
+                );
+
 
 
                 async function loadDischargeRecords() {
