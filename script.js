@@ -224,6 +224,18 @@ const memberName =
     );
 
 
+const memberPortalLink =
+    document.getElementById(
+        'memberPortalLink'
+    );
+
+
+const adminPortalLink =
+    document.getElementById(
+        'adminPortalLink'
+    );
+
+
 let supabaseClient = null;
 
 
@@ -322,7 +334,7 @@ async function syncPendingMemberRegistration(session) {
 // UPDATE MEMBER INTERFACE
 // =========================================================
 
-function renderAuthState(session) {
+async function renderAuthState(session) {
 
     if (
         !loginBtn ||
@@ -360,6 +372,16 @@ function renderAuthState(session) {
             true;
 
 
+        if (memberPortalLink) {
+            memberPortalLink.hidden = true;
+        }
+
+
+        if (adminPortalLink) {
+            adminPortalLink.hidden = true;
+        }
+
+
         return;
 
     }
@@ -377,11 +399,102 @@ function renderAuthState(session) {
         false;
 
 
+    /*
+     * Do NOT show protected navigation merely because Discord OAuth
+     * succeeded. Member Portal requires an approved member_profiles row.
+     * Admin additionally requires Admin / Super Admin access.
+     */
+    if (memberPortalLink) {
+        memberPortalLink.hidden = true;
+    }
+
+    if (adminPortalLink) {
+        adminPortalLink.hidden = true;
+    }
+
+
+    let approvedProfile = null;
+
+
+    if (supabaseClient) {
+
+        const {
+            data: profile,
+            error: profileError
+        } =
+            await supabaseClient
+                .from(
+                    'member_profiles'
+                )
+                .select(
+                    'display_name,access_level,member_status'
+                )
+                .eq(
+                    'user_id',
+                    user.id
+                )
+                .maybeSingle();
+
+
+        if (profileError) {
+
+            console.error(
+                'Unable to check member portal access:',
+                profileError
+            );
+
+        }
+        else {
+
+            approvedProfile =
+                profile || null;
+
+        }
+
+    }
+
+
+    const hasApprovedProfile =
+        Boolean(approvedProfile);
+
+
+    const accessLevel =
+        approvedProfile?.access_level
+        ||
+        'Member';
+
+
+    const hasAdminAccess =
+        accessLevel === 'Admin'
+        ||
+        accessLevel === 'Super Admin';
+
+
+    if (memberPortalLink) {
+
+        memberPortalLink.hidden =
+            !hasApprovedProfile;
+
+    }
+
+
+    if (adminPortalLink) {
+
+        adminPortalLink.hidden =
+            !hasApprovedProfile
+            ||
+            !hasAdminAccess;
+
+    }
+
+
     // MEMBER NAME
 
     if (memberName) {
 
         memberName.textContent =
+            approvedProfile?.display_name
+            ||
             getDisplayName(user);
 
     }
@@ -402,7 +515,12 @@ function renderAuthState(session) {
 
 
             memberAvatar.alt =
-                getDisplayName(user) +
+                (
+                    approvedProfile?.display_name
+                    ||
+                    getDisplayName(user)
+                )
+                +
                 ' Discord avatar';
 
 
@@ -424,6 +542,7 @@ function renderAuthState(session) {
         }
 
     }
+
 
 }
 
@@ -580,7 +699,7 @@ async function logoutMember() {
         }
 
 
-        renderAuthState(
+        await renderAuthState(
             null
         );
 
@@ -727,7 +846,7 @@ async function initializeMemberAuth() {
         );
 
 
-        renderAuthState(
+        await renderAuthState(
             data?.session || null
         );
 
@@ -756,7 +875,7 @@ async function initializeMemberAuth() {
                     );
 
 
-                    renderAuthState(
+                    await renderAuthState(
                         session
                     );
 
