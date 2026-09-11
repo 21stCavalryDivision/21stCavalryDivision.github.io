@@ -1,0 +1,611 @@
+/* ==========================================================
+   21ST CAVALRY DIVISION — GLOBAL MOBILE RESPONSIVE LAYER v1
+   Loads AFTER page styles so it safely corrects phone/tablet layouts.
+   Desktop remains unchanged.
+   ========================================================== */
+
+html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+img,
+video,
+canvas,
+svg{
+    max-width:100%;
+}
+
+img{
+    height:auto;
+}
+
+input,
+select,
+textarea,
+button{
+    max-width:100%;
+}
+
+table{
+    max-width:100%;
+}
+
+/* ----------------------------------------------------------
+   TABLET / MOBILE NAV
+   ---------------------------------------------------------- */
+@media(max-width:900px){
+
+    .site-header{
+        position:relative !important;
+        min-height:68px !important;
+        padding:0 18px !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:space-between !important;
+        gap:14px !important;
+        z-index:1000 !important;
+    }
+
+    .brand{
+        min-width:0 !important;
+        display:flex !important;
+        align-items:center !important;
+        gap:10px !important;
+        text-decoration:none !important;
+    }
+
+    .brand-mark{
+        flex:0 0 auto !important;
+    }
+
+    .brand > div:last-child{
+        min-width:0 !important;
+    }
+
+    .brand span{
+        display:block !important;
+        font-size:15px !important;
+        white-space:nowrap !important;
+    }
+
+    .brand small{
+        display:block !important;
+        font-size:9px !important;
+        white-space:nowrap !important;
+    }
+
+    .nav-toggle{
+        display:grid !important;
+        place-items:center !important;
+        flex:0 0 46px !important;
+        width:46px !important;
+        height:42px !important;
+        min-width:46px !important;
+        margin-left:auto !important;
+        border:1px solid rgba(197,167,91,.45) !important;
+        background:#0b0f0d !important;
+        color:#e0c87f !important;
+        font-size:22px !important;
+        line-height:1 !important;
+        cursor:pointer !important;
+        z-index:1002 !important;
+    }
+
+    .main-nav{
+        display:none !important;
+        position:absolute !important;
+        top:100% !important;
+        left:0 !important;
+        right:0 !important;
+        width:100% !important;
+        max-height:calc(100vh - 68px) !important;
+        overflow-y:auto !important;
+        overscroll-behavior:contain !important;
+        padding:12px 18px 20px !important;
+        gap:0 !important;
+        flex-direction:column !important;
+        align-items:stretch !important;
+        background:rgba(5,9,8,.985) !important;
+        border-top:1px solid rgba(197,167,91,.18) !important;
+        border-bottom:1px solid rgba(197,167,91,.28) !important;
+        box-shadow:0 18px 40px rgba(0,0,0,.45) !important;
+        z-index:1001 !important;
+    }
+
+    .main-nav.open{
+        display:flex !important;
+    }
+
+    .main-nav > a,
+    .main-nav .nav-cta{
+        width:100% !important;
+        min-height:46px !important;
+        padding:13px 4px !important;
+        display:flex !important;
+        align-items:center !important;
+        border-bottom:1px solid rgba(255,255,255,.065) !important;
+        font-size:13px !important;
+        line-height:1.2 !important;
+    }
+
+    .main-nav .nav-cta{
+        margin-top:10px !important;
+        padding:13px 14px !important;
+        justify-content:center !important;
+        border:1px solid #c5a75b !important;
+    }
+
+    .member-auth{
+        width:100% !important;
+        margin:10px 0 0 !important;
+    }
+
+    .member-login-btn,
+    .member-logout-btn{
+        width:100% !important;
+        min-height:44px !important;
+    }
+
+    .member-profile{
+        width:100% !important;
+        flex-wrap:wrap !important;
+        gap:10px !important;
+    }
+
+    /* Generically contain page widths */
+    .wrap,
+    .container,
+    .section-container,
+    .portal-shell,
+    .admin-shell,
+    .board-shell,
+    .opboard-shell,
+    .hero-inner,
+    .portal-hero-inner,
+    .opboard-hero-inner{
+        width:min(100% - 32px,1200px) !important;
+        max-width:100% !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
+
+    /* Large desktop headings */
+    .hero h1,
+    .page-hero h1,
+    .portal-hero h1,
+    .opboard-hero h1{
+        font-size:clamp(40px,10vw,64px) !important;
+        line-height:.96 !important;
+        overflow-wrap:anywhere !important;
+    }
+
+    .hero-copy,
+    .portal-hero-description,
+    .opboard-hero-description{
+        max-width:100% !important;
+        font-size:14px !important;
+    }
+
+    .hero-actions{
+        flex-wrap:wrap !important;
+    }
+
+    .hero-actions .btn,
+    .hero-actions a,
+    .btn{
+        max-width:100% !important;
+    }
+
+    .section-top,
+    .section-heading{
+        max-width:100% !important;
+    }
+
+    .section-top{
+        align-items:flex-start !important;
+        gap:10px !important;
+    }
+
+    .section-code{
+        white-space:normal !important;
+    }
+
+    /* Common multi-column sections */
+    .two-col,
+    .feature-panel,
+    .priority-panel,
+    .join-panel,
+    .readiness,
+    .legend,
+    .server-shell,
+    .command-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .card-grid.four{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+
+    /* Forms */
+    .operation-form-grid,
+    .admin-form-grid,
+    .account-grid,
+    .profile-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+
+    .operation-field.wide,
+    .admin-field.wide{
+        grid-column:1 / -1 !important;
+    }
+
+    input,
+    select,
+    textarea{
+        font-size:16px !important; /* prevents iOS zoom-on-focus */
+    }
+
+    button,
+    .btn,
+    a.btn,
+    .primary-button,
+    .secondary-button,
+    .attendance-button{
+        min-height:44px;
+    }
+
+    /* Tables should scroll instead of blowing page width */
+    .table-wrap,
+    .attendance-table-wrap,
+    .roster-table-wrap{
+        width:100% !important;
+        overflow-x:auto !important;
+        -webkit-overflow-scrolling:touch !important;
+    }
+
+    table{
+        width:100% !important;
+    }
+
+    /* Member/Admin portals */
+    .portal-shell{
+        grid-template-columns:1fr !important;
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+
+    .profile-card{
+        position:relative !important;
+        top:auto !important;
+    }
+
+    .admin-shell,
+    .board-shell{
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+
+    .command-panel-header,
+    .portal-panel-header{
+        flex-wrap:wrap !important;
+    }
+
+    /* Media */
+    .gallery-grid{
+        gap:12px !important;
+    }
+
+    .lightbox-stage{
+        max-width:100% !important;
+    }
+
+    /* Server mods */
+    .server-mod-item{
+        min-width:0 !important;
+    }
+
+    .server-mod-info{
+        min-width:0 !important;
+    }
+
+    .server-mod-info h3,
+    .server-mod-info p,
+    .server-name{
+        overflow-wrap:anywhere !important;
+        word-break:break-word !important;
+    }
+
+    .server-mod-actions{
+        flex-wrap:wrap !important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   PHONE
+   ---------------------------------------------------------- */
+@media(max-width:600px){
+
+    .site-header{
+        min-height:64px !important;
+        padding:0 12px !important;
+    }
+
+    .brand-mark{
+        width:39px !important;
+        height:39px !important;
+        font-size:17px !important;
+    }
+
+    .brand span{
+        font-size:13px !important;
+        letter-spacing:.05em !important;
+    }
+
+    .brand small{
+        font-size:8px !important;
+    }
+
+    .nav-toggle{
+        width:44px !important;
+        min-width:44px !important;
+        height:40px !important;
+    }
+
+    .main-nav{
+        padding:10px 14px 18px !important;
+        max-height:calc(100vh - 64px) !important;
+    }
+
+    .hero,
+    .page-hero,
+    .portal-hero,
+    .opboard-hero{
+        min-height:auto !important;
+        padding-top:52px !important;
+        padding-bottom:52px !important;
+    }
+
+    .hero-content,
+    .hero-inner,
+    .portal-hero-inner,
+    .opboard-hero-inner{
+        width:min(100% - 28px,900px) !important;
+        max-width:100% !important;
+    }
+
+    .hero h1,
+    .page-hero h1,
+    .portal-hero h1,
+    .opboard-hero h1{
+        font-size:clamp(36px,13vw,52px) !important;
+    }
+
+    .hero-badge{
+        display:none !important;
+    }
+
+    .hero-actions{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        width:100% !important;
+        gap:10px !important;
+    }
+
+    .hero-actions a,
+    .hero-actions button,
+    .hero-actions .btn{
+        width:100% !important;
+        justify-content:center !important;
+        text-align:center !important;
+    }
+
+    .section{
+        padding:46px 0 !important;
+    }
+
+    .section h2,
+    .section-heading h2{
+        font-size:clamp(28px,9vw,40px) !important;
+        overflow-wrap:anywhere !important;
+    }
+
+    .status-strip,
+    .member-status-strip{
+        grid-template-columns:1fr !important;
+    }
+
+    .status-item,
+    .member-status-item{
+        min-width:0 !important;
+        padding:15px 16px !important;
+    }
+
+    .card-grid,
+    .card-grid.four,
+    .support-grid,
+    .qual-grid,
+    .pipeline,
+    .track-grid,
+    .doc-grid,
+    .process-grid,
+    .roles-grid,
+    .check-grid,
+    .detail-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .command-card,
+    .mission-card,
+    .info-card,
+    .support-card,
+    .qual-card,
+    .track,
+    .doc-card,
+    .role-card,
+    .step,
+    .server-primary,
+    .server-side,
+    .portal-panel,
+    .command-panel{
+        min-width:0 !important;
+    }
+
+    /* Forms fully single-column on phones */
+    .operation-form-grid,
+    .admin-form-grid,
+    .account-grid,
+    .profile-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .operation-field,
+    .operation-field.wide,
+    .admin-field,
+    .admin-field.wide{
+        grid-column:1 !important;
+    }
+
+    /* OPBOARD / attendance generated rows */
+    .attendance-row{
+        grid-template-columns:1fr !important;
+        gap:8px !important;
+    }
+
+    .attendance-row select,
+    .attendance-row input{
+        width:100% !important;
+    }
+
+    /* Buttons easier to tap */
+    .filters{
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:8px !important;
+    }
+
+    .filter-btn{
+        width:100% !important;
+        min-height:42px !important;
+    }
+
+    .server-mod-item{
+        display:grid !important;
+        grid-template-columns:30px minmax(0,1fr) !important;
+        gap:8px !important;
+        padding:13px !important;
+    }
+
+    .server-mod-actions{
+        grid-column:1 / -1 !important;
+        width:100% !important;
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:8px !important;
+    }
+
+    .server-mod-actions a,
+    .server-mod-actions button{
+        width:100% !important;
+        min-width:0 !important;
+        text-align:center !important;
+    }
+
+    code{
+        white-space:normal !important;
+        overflow-wrap:anywhere !important;
+        word-break:break-all !important;
+    }
+
+    /* Media cards */
+    .gallery-card,
+    .gallery-card:nth-child(n){
+        grid-column:1 / -1 !important;
+        min-height:230px !important;
+    }
+
+    .gallery-label{
+        gap:8px !important;
+    }
+
+    .lightbox{
+        padding:6px !important;
+    }
+
+    .lightbox-stage{
+        width:100% !important;
+        height:75vh !important;
+    }
+
+    .lightbox-image-wrap{
+        width:100% !important;
+        padding:0 34px !important;
+    }
+
+    .lightbox-arrow{
+        width:38px !important;
+        height:58px !important;
+        font-size:26px !important;
+    }
+
+    .lightbox-info{
+        width:calc(100% - 12px) !important;
+        bottom:6px !important;
+        padding:10px 12px !important;
+    }
+
+    /* Footer */
+    footer{
+        flex-direction:column !important;
+        align-items:flex-start !important;
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+
+    .footer-links{
+        width:100% !important;
+        display:flex !important;
+        flex-wrap:wrap !important;
+        gap:12px 16px !important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   VERY SMALL PHONES
+   ---------------------------------------------------------- */
+@media(max-width:390px){
+
+    .brand span{
+        font-size:12px !important;
+    }
+
+    .brand small{
+        font-size:7px !important;
+    }
+
+    .hero h1,
+    .page-hero h1,
+    .portal-hero h1,
+    .opboard-hero h1{
+        font-size:34px !important;
+    }
+
+    .filters{
+        grid-template-columns:1fr !important;
+    }
+
+    .server-mod-actions{
+        grid-template-columns:1fr !important;
+    }
+
+    .section{
+        padding:40px 0 !important;
+    }
+}
