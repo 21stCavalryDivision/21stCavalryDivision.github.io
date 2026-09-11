@@ -187,125 +187,7 @@ const SUPABASE_PUBLISHABLE_KEY =
 
 
 const SITE_URL =
-    'https://21stcavalrydivision.github.io/';
-
-
-// =========================================================
-// AUTOMATIC OPBOARD NAVIGATION LINK
-// =========================================================
-
-function createOperationsNavigationLink() {
-
-    const mainNav =
-        document.querySelector(
-            '.main-nav'
-        );
-
-
-    if (!mainNav) {
-
-        return null;
-
-    }
-
-
-    let operationsLink =
-        document.getElementById(
-            'operationsPortalLink'
-        );
-
-
-    if (operationsLink) {
-
-        return operationsLink;
-
-    }
-
-
-    operationsLink =
-        document.createElement(
-            'a'
-        );
-
-
-    operationsLink.href =
-        'operations.html';
-
-
-    operationsLink.id =
-        'operationsPortalLink';
-
-
-    operationsLink.textContent =
-        'OPBOARD';
-
-
-    operationsLink.hidden =
-        true;
-
-
-    const orbatLink =
-        Array.from(
-            mainNav.querySelectorAll(
-                'a'
-            )
-        )
-        .find(
-
-            link => {
-
-                const href =
-                    link.getAttribute(
-                        'href'
-                    );
-
-                return (
-                    href ===
-                    'orbat.html'
-                );
-
-            }
-
-        );
-
-
-    if (
-        orbatLink
-        &&
-        orbatLink.nextSibling
-    ) {
-
-        mainNav.insertBefore(
-            operationsLink,
-            orbatLink.nextSibling
-        );
-
-    }
-
-    else if (orbatLink) {
-
-        mainNav.appendChild(
-            operationsLink
-        );
-
-    }
-
-    else {
-
-        mainNav.prepend(
-            operationsLink
-        );
-
-    }
-
-
-    return operationsLink;
-
-}
-
-
-const operationsPortalLink =
-    createOperationsNavigationLink();
+    window.location.origin + window.location.pathname;
 
 
 // =========================================================
@@ -339,18 +221,6 @@ const memberAvatar =
 const memberName =
     document.getElementById(
         'memberName'
-    );
-
-
-const memberPortalLink =
-    document.getElementById(
-        'memberPortalLink'
-    );
-
-
-const adminPortalLink =
-    document.getElementById(
-        'adminPortalLink'
     );
 
 
@@ -412,10 +282,47 @@ function getAvatarUrl(user) {
 
 
 // =========================================================
+// PENDING MEMBER REGISTRATION
+// =========================================================
+
+async function syncPendingMemberRegistration(session) {
+
+    if (!supabaseClient || !session?.user) {
+        return;
+    }
+
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .rpc(
+                    'sync_my_pending_member'
+                );
+
+        if (error) {
+            console.error(
+                'Pending member registration sync failed:',
+                error
+            );
+        }
+
+    }
+    catch (error) {
+        console.error(
+            'Pending member registration sync exception:',
+            error
+        );
+    }
+}
+
+
+// =========================================================
 // UPDATE MEMBER INTERFACE
 // =========================================================
 
-async function renderAuthState(session) {
+function renderAuthState(session) {
 
     if (
         !loginBtn ||
@@ -453,30 +360,6 @@ async function renderAuthState(session) {
             true;
 
 
-        if (memberPortalLink) {
-
-            memberPortalLink.hidden =
-                true;
-
-        }
-
-
-        if (operationsPortalLink) {
-
-            operationsPortalLink.hidden =
-                true;
-
-        }
-
-
-        if (adminPortalLink) {
-
-            adminPortalLink.hidden =
-                true;
-
-        }
-
-
         return;
 
     }
@@ -494,45 +377,7 @@ async function renderAuthState(session) {
         false;
 
 
-    // =====================================================
-    // MEMBER PORTAL ACCESS
-    // =====================================================
-
-    if (memberPortalLink) {
-
-        memberPortalLink.hidden =
-            false;
-
-    }
-
-
-    // =====================================================
-    // OPBOARD ACCESS
-    // =====================================================
-
-    if (operationsPortalLink) {
-
-        operationsPortalLink.hidden =
-            false;
-
-    }
-
-
-    // =====================================================
-    // ADMIN ACCESS
-    // =====================================================
-
-    if (adminPortalLink) {
-
-        adminPortalLink.hidden =
-            true;
-
-    }
-
-
-    // =====================================================
     // MEMBER NAME
-    // =====================================================
 
     if (memberName) {
 
@@ -542,9 +387,7 @@ async function renderAuthState(session) {
     }
 
 
-    // =====================================================
-    // DISCORD AVATAR
-    // =====================================================
+    // MEMBER AVATAR
 
     if (memberAvatar) {
 
@@ -577,115 +420,6 @@ async function renderAuthState(session) {
 
             memberAvatar.hidden =
                 true;
-
-        }
-
-    }
-
-
-    // =====================================================
-    // CHECK MEMBER PROFILE
-    // =====================================================
-
-    if (supabaseClient) {
-
-        const {
-            data: profile,
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    'member_profiles'
-                )
-
-                .select(
-                    'access_level,member_status'
-                )
-
-                .eq(
-                    'user_id',
-                    user.id
-                )
-
-                .maybeSingle();
-
-
-        if (error) {
-
-            console.error(
-                'Unable to check member portal access:',
-                error
-            );
-
-
-            if (operationsPortalLink) {
-
-                operationsPortalLink.hidden =
-                    true;
-
-            }
-
-
-            return;
-
-        }
-
-
-        // No unit member profile means
-        // OPBOARD should remain restricted.
-
-        if (!profile) {
-
-            if (operationsPortalLink) {
-
-                operationsPortalLink.hidden =
-                    true;
-
-            }
-
-
-            if (memberPortalLink) {
-
-                memberPortalLink.hidden =
-                    true;
-
-            }
-
-
-            return;
-
-        }
-
-
-        const accessLevel =
-            profile.access_level ||
-            'Member';
-
-
-        const hasAdminAccess =
-
-            accessLevel ===
-            'Admin'
-
-            ||
-
-            accessLevel ===
-            'Super Admin';
-
-
-        if (adminPortalLink) {
-
-            adminPortalLink.hidden =
-                !hasAdminAccess;
-
-        }
-
-
-        if (operationsPortalLink) {
-
-            operationsPortalLink.hidden =
-                false;
 
         }
 
@@ -737,9 +471,7 @@ async function startDiscordLogin() {
             error
         } =
             await supabaseClient
-
                 .auth
-
                 .signInWithOAuth({
 
                     provider:
@@ -767,6 +499,14 @@ async function startDiscordLogin() {
             data
         );
 
+
+        /*
+         * Supabase normally redirects the browser
+         * automatically when skipBrowserRedirect is false.
+         *
+         * This fallback makes sure the browser still moves
+         * to the OAuth URL if a URL is returned.
+         */
 
         if (
             data?.url &&
@@ -829,9 +569,7 @@ async function logoutMember() {
             error
         } =
             await supabaseClient
-
                 .auth
-
                 .signOut();
 
 
@@ -842,7 +580,7 @@ async function logoutMember() {
         }
 
 
-        await renderAuthState(
+        renderAuthState(
             null
         );
 
@@ -886,8 +624,8 @@ async function initializeMemberAuth() {
 
 
     /*
-     * Some pages use script.js without
-     * member authentication controls.
+     * Other pages may use script.js without containing
+     * the member-login HTML.
      */
 
     if (!loginBtn) {
@@ -973,9 +711,7 @@ async function initializeMemberAuth() {
             error
         } =
             await supabaseClient
-
                 .auth
-
                 .getSession();
 
 
@@ -986,7 +722,12 @@ async function initializeMemberAuth() {
         }
 
 
-        await renderAuthState(
+        await syncPendingMemberRegistration(
+            data?.session || null
+        );
+
+
+        renderAuthState(
             data?.session || null
         );
 
@@ -996,9 +737,7 @@ async function initializeMemberAuth() {
         // =================================================
 
         supabaseClient
-
             .auth
-
             .onAuthStateChange(
 
                 async (
@@ -1012,7 +751,12 @@ async function initializeMemberAuth() {
                     );
 
 
-                    await renderAuthState(
+                    await syncPendingMemberRegistration(
+                        session
+                    );
+
+
+                    renderAuthState(
                         session
                     );
 

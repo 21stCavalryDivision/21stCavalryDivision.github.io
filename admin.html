@@ -9442,6 +9442,27 @@ function renderAttendanceWarnings() {
                     session.user.id;
 
 
+                /* AUDIT FIX: sync pending member registration */
+                try {
+                    const { error: pendingSyncError } =
+                        await client.rpc('sync_my_pending_member');
+
+                    if (pendingSyncError) {
+                        console.error(
+                            'Pending member sync failed:',
+                            pendingSyncError
+                        );
+                    }
+                }
+                catch (pendingSyncException) {
+                    console.error(
+                        'Pending member sync exception:',
+                        pendingSyncException
+                    );
+                }
+
+
+
                 const {
                     data:
                         profile,
