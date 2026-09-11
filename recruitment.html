@@ -270,30 +270,34 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
         <p class="eyebrow">21ST CAVALRY DIVISION</p>
         <h3>Submit Your Application</h3>
         <p>
-            Complete the application below. When finished, copy the completed
-            application and paste it into the recruitment channel in Discord.
+            Complete the application below and submit it directly to the 21st Cavalry recruiting staff.
         </p>
 
-        <form class="application-form" id="enlistmentApplication" onsubmit="return false;">
+        <form
+            class="application-form"
+            id="enlistmentApplication"
+            action="https://formspree.io/f/xjyvkzko"
+            method="POST"
+        >
 
             <div class="application-field">
                 <label for="appName">Display Name / Callsign</label>
-                <input id="appName" type="text" autocomplete="nickname" required placeholder="Your name or callsign">
+                <input id="appName" name="display_name_callsign" type="text" autocomplete="nickname" required placeholder="Your name or callsign">
             </div>
 
             <div class="application-field">
                 <label for="appAge">Age</label>
-                <input id="appAge" type="number" min="13" max="99" inputmode="numeric" required placeholder="Age">
+                <input id="appAge" name="age" type="number" min="13" max="99" inputmode="numeric" required placeholder="Age">
             </div>
 
             <div class="application-field">
                 <label for="appTimezone">Timezone</label>
-                <input id="appTimezone" type="text" required placeholder="Example: EST / CST / PST">
+                <input id="appTimezone" name="timezone" type="text" required placeholder="Example: EST / CST / PST">
             </div>
 
             <div class="application-field">
                 <label for="appRole">Preferred Role</label>
-                <select id="appRole" required>
+                <select id="appRole" name="preferred_role" required>
                     <option value="">Select a role</option>
                     <option>Infantry</option>
                     <option>Armor</option>
@@ -308,20 +312,23 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 
             <div class="application-field wide">
                 <label for="appExp">Previous Experience</label>
-                <textarea id="appExp" placeholder="Tell us about any Arma, milsim, leadership, aviation, armor, medical, or other relevant experience."></textarea>
+                <textarea id="appExp" name="previous_experience" placeholder="Tell us about any Arma, milsim, leadership, aviation, armor, medical, or other relevant experience."></textarea>
             </div>
 
             <div class="application-field wide">
                 <label for="appWhy">Why Do You Want to Join?</label>
-                <textarea id="appWhy" required placeholder="Tell us why you want to join the 21st Cavalry Division and what you are looking for in the unit."></textarea>
+                <textarea id="appWhy" name="why_join" required placeholder="Tell us why you want to join the 21st Cavalry Division and what you are looking for in the unit."></textarea>
             </div>
 
+            <input type="hidden" name="_subject" value="New 21st Cavalry Division Enlistment Application">
+            <input type="hidden" name="source" value="21st Cavalry Division Website">
+
             <div class="application-actions">
-                <button id="copyApplication" type="button">Copy Completed Application</button>
+                <button id="submitApplication" type="submit">Submit Application</button>
                 <a href="https://discord.gg/PCxE5jTYZ" target="_blank" rel="noopener noreferrer">Open Recruitment Discord</a>
             </div>
 
-            <div class="application-status" id="copyStatus" aria-live="polite"></div>
+            <div class="application-status" id="applicationStatus" aria-live="polite"></div>
 
         </form>
     </article>
@@ -330,15 +337,14 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
         <p class="eyebrow">APPLICATION PROCESS</p>
         <h3>What Happens Next</h3>
         <p>
-            After completing the form, use the copy button and paste the
-            application into the unit's recruitment channel.
+            After completing the form, submit it directly through the website. Recruiting staff can review it in Formspree.
         </p>
 
         <div class="application-list">
             <div><strong>01.</strong> Complete every required field.</div>
-            <div><strong>02.</strong> Copy the completed application.</div>
-            <div><strong>03.</strong> Open the 21st Cavalry Discord.</div>
-            <div><strong>04.</strong> Paste it in the recruitment channel for staff review.</div>
+            <div><strong>02.</strong> Click Submit Application.</div>
+            <div><strong>03.</strong> Your application is sent to the unit's Formspree inbox.</div>
+            <div><strong>04.</strong> Recruiting staff reviews it and follows up through Discord.</div>
         </div>
     </aside>
 
@@ -361,54 +367,83 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 (() => {
     "use strict";
 
-    const copyBtn = document.getElementById("copyApplication");
-    const status = document.getElementById("copyStatus");
+    const form = document.getElementById("enlistmentApplication");
+    const submitButton = document.getElementById("submitApplication");
+    const status = document.getElementById("applicationStatus");
 
-    if (!copyBtn) return;
+    if (!form || !submitButton) return;
 
-    const value = id =>
-        document.getElementById(id)?.value?.trim() || "Not provided";
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    copyBtn.addEventListener("click", async () => {
-        const required = ["appName","appAge","appTimezone","appRole","appWhy"];
-        const missing = required.filter(id => !document.getElementById(id)?.value?.trim());
-
-        if (missing.length) {
-            if (status) status.textContent = "Please complete all required application fields first.";
-            document.getElementById(missing[0])?.focus();
+        if (!form.checkValidity()) {
+            form.reportValidity();
             return;
         }
 
-        const text =
-`21ST CAVALRY DIVISION - ENLISTMENT APPLICATION
+        submitButton.disabled = true;
+        submitButton.textContent = "SUBMITTING...";
 
-Display Name / Callsign: ${value("appName")}
-Age: ${value("appAge")}
-Timezone: ${value("appTimezone")}
-Preferred Role: ${value("appRole")}
-
-Previous Experience:
-${value("appExp")}
-
-Why I Want to Join:
-${value("appWhy")}`;
+        if (status) {
+            status.textContent = "Sending application...";
+        }
 
         try {
-            await navigator.clipboard.writeText(text);
+            const response = await fetch(
+                "https://formspree.io/f/xjyvkzko",
+                {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                let message = "Application could not be submitted.";
+
+                try {
+                    const data = await response.json();
+
+                    if (data?.errors?.length) {
+                        message = data.errors
+                            .map(error => error.message)
+                            .join(" ");
+                    }
+                }
+                catch (parseError) {
+                    // Keep the fallback message.
+                }
+
+                throw new Error(message);
+            }
+
+            form.reset();
+
             if (status) {
                 status.textContent =
-                    "Application copied. Open Discord and paste it into the recruitment channel.";
+                    "Application submitted successfully. Recruiting staff will review it.";
             }
-            copyBtn.textContent = "APPLICATION COPIED";
+
+            submitButton.textContent = "APPLICATION SUBMITTED";
+
             setTimeout(() => {
-                copyBtn.textContent = "COPY COMPLETED APPLICATION";
-            }, 1800);
-        } catch (error) {
-            console.error("Application copy failed:", error);
+                submitButton.textContent = "SUBMIT APPLICATION";
+                submitButton.disabled = false;
+            }, 2500);
+        }
+        catch (error) {
+            console.error("Formspree submission failed:", error);
+
             if (status) {
                 status.textContent =
-                    "Copy failed. Select your answers manually and paste them into Discord.";
+                    error?.message ||
+                    "Application could not be submitted. Please try again.";
             }
+
+            submitButton.textContent = "SUBMIT APPLICATION";
+            submitButton.disabled = false;
         }
     });
 })();
