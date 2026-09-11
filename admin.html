@@ -1,18 +1,46 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="21st Cavalry Division Administration Portal" name="description"/>
-<title>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="21st Cavalry Division Administration Portal"
+    >
+
+    <title>
         21st Cavalry Division | Administration
     </title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=17" rel="stylesheet"/>
-<style>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css?v=17"
+    >
+
+    <style>
 
         body {
             background: #080d10;
@@ -2150,988 +2178,876 @@
         @media (max-width:900px) { .archive-stat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .archive-history-row { grid-template-columns:1fr 1fr; } }
         @media (max-width:650px) { .archive-stat-grid,.archive-history-row { grid-template-columns:1fr; } }
 
-    </style>
-<style id="command-center-redesign">
-        :root {
-            --cc-bg: #05090b;
-            --cc-panel: #0b1216;
-            --cc-panel-2: #10191e;
-            --cc-line: #243139;
-            --cc-gold: #d6aa3a;
-            --cc-gold-soft: rgba(214,170,58,.13);
-            --cc-text: #f2f5f6;
-            --cc-muted: #7f9099;
-            --cc-green: #39d98a;
-            --cc-red: #ff5c5c;
-        }
+    
+/* ==========================================================
+   DISCHARGE RECORD DELETE BUTTON
+   ========================================================== */
 
-        html { scroll-behavior: smooth; }
-        body {
-            background:
-                radial-gradient(circle at 18% 0%, rgba(214,170,58,.07), transparent 30%),
-                linear-gradient(180deg, #05090b 0%, #081014 100%) !important;
-            color: var(--cc-text);
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            min-height: 74px;
-            background: rgba(5,9,11,.94) !important;
-            border-bottom: 1px solid rgba(214,170,58,.22) !important;
-            backdrop-filter: blur(18px);
-            box-shadow: 0 12px 30px rgba(0,0,0,.28);
-        }
-
-        .brand-mark {
-            background: linear-gradient(145deg, #d6aa3a, #a87917) !important;
-            color: #090c0e !important;
-            box-shadow: 0 0 0 1px rgba(255,215,110,.18), 0 10px 25px rgba(0,0,0,.35);
-        }
-
-        .main-nav a {
-            position: relative;
-            padding-top: 26px !important;
-            padding-bottom: 25px !important;
-        }
-        .main-nav a::after {
-            content: "";
-            position: absolute;
-            left: 14px;
-            right: 14px;
-            bottom: 14px;
-            height: 2px;
-            background: var(--cc-gold);
-            transform: scaleX(0);
-            transition: transform .2s ease;
-        }
-        .main-nav a:hover::after { transform: scaleX(1); }
-
-        .admin-hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 340px;
-            display: grid;
-            align-items: center;
-            padding: 74px clamp(24px,6vw,110px) 66px !important;
-            background:
-                linear-gradient(90deg, rgba(4,8,10,.98) 0%, rgba(4,8,10,.89) 47%, rgba(4,8,10,.55) 100%),
-                radial-gradient(circle at 82% 35%, rgba(214,170,58,.14), transparent 26%),
-                linear-gradient(135deg, #0b1419 0%, #10170d 100%) !important;
-            border-bottom: 1px solid rgba(214,170,58,.22) !important;
-        }
-        .admin-hero::before {
-            content: "21";
-            position: absolute;
-            right: clamp(18px,6vw,110px);
-            top: 50%;
-            transform: translateY(-54%);
-            font: 700 clamp(170px,22vw,340px)/.8 Oswald,sans-serif;
-            color: rgba(214,170,58,.045);
-            letter-spacing: -18px;
-            pointer-events: none;
-        }
-        .admin-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(90deg, transparent 0 79px, rgba(255,255,255,.012) 80px);
-            pointer-events: none;
-        }
-        .admin-hero-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 1050px !important;
-            border-left: 4px solid var(--cc-gold);
-            padding-left: 28px;
-        }
-        .admin-hero .eyebrow {
-            color: var(--cc-gold) !important;
-            letter-spacing: 3px !important;
-        }
-        .admin-hero h1 {
-            font-size: clamp(58px,8vw,110px) !important;
-            letter-spacing: -1px;
-            text-shadow: 0 8px 24px rgba(0,0,0,.45);
-        }
-        .admin-hero-description {
-            max-width: 760px !important;
-            font-size: 15px !important;
-            color: #a8b4ba !important;
-        }
-
-        .admin-container {
-            max-width: 1720px;
-            margin: 0 auto;
-            padding: 34px clamp(22px,4vw,68px) 110px !important;
-        }
-
-        .command-overview {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(260px,.55fr);
-            gap: 14px;
-            margin: 0 0 14px;
-        }
-        .command-overview-copy,
-        .command-status-card {
-            border: 1px solid var(--cc-line);
-            background: linear-gradient(145deg, rgba(16,25,30,.98), rgba(9,16,20,.98));
-            box-shadow: 0 18px 45px rgba(0,0,0,.22);
-        }
-        .command-overview-copy {
-            position: relative;
-            padding: 28px 30px 26px;
-            overflow: hidden;
-        }
-        .command-overview-copy::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--cc-gold);
-        }
-        .command-kicker {
-            color: var(--cc-gold);
-            font: 600 10px Oswald,sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-        }
-        .command-overview h2 {
-            margin: 7px 0 8px;
-            font: 700 clamp(26px,3vw,42px) Oswald,sans-serif;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-        }
-        .command-overview p {
-            margin: 0;
-            max-width: 850px;
-            color: var(--cc-muted);
-            line-height: 1.65;
-            font-size: 13px;
-        }
-        .command-status-card {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 8px;
-        }
-        .command-status-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--cc-green);
-            font: 600 11px Oswald,sans-serif;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-        }
-        .command-status-label::before {
-            content: "";
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--cc-green);
-            box-shadow: 0 0 16px rgba(57,217,138,.65);
-        }
-        .command-status-card strong {
-            font: 600 22px Oswald,sans-serif;
-            text-transform: uppercase;
-        }
-        .command-status-card small {
-            color: var(--cc-muted);
-            font-size: 11px;
-        }
-
-        .admin-jump-nav {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(130px,1fr));
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        .admin-jump-btn {
-            min-height: 48px;
-            border: 1px solid var(--cc-line);
-            background: #0a1115;
-            color: #b7c2c7;
-            font: 600 10px Oswald,sans-serif;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: .18s ease;
-        }
-        .admin-jump-btn:hover {
-            color: #fff;
-            border-color: var(--cc-gold);
-            background: var(--cc-gold-soft);
-            transform: translateY(-1px);
-        }
-
-        .admin-summary {
-            grid-template-columns: repeat(4, minmax(0,1fr)) !important;
-            gap: 12px !important;
-            margin-bottom: 24px !important;
-        }
-        .summary-card {
-            position: relative;
-            min-height: 116px;
-            padding: 20px 20px 18px 72px !important;
-            border: 1px solid var(--cc-line) !important;
-            border-top: 1px solid var(--cc-line) !important;
-            background: linear-gradient(145deg,#0f181d,#0a1115) !important;
-            box-shadow: 0 14px 35px rgba(0,0,0,.18);
-            overflow: hidden;
-        }
-        .summary-card::before {
-            position: absolute;
-            left: 19px;
-            top: 25px;
-            width: 38px;
-            height: 38px;
-            display: grid;
-            place-items: center;
-            border: 1px solid rgba(214,170,58,.35);
-            background: rgba(214,170,58,.08);
-            color: var(--cc-gold);
-            font-size: 19px;
-        }
-        .summary-card:nth-child(1)::before { content: "♟"; }
-        .summary-card:nth-child(2)::before { content: "✓"; }
-        .summary-card:nth-child(3)::before { content: "★"; }
-        .summary-card:nth-child(4)::before { content: "%"; }
-        .summary-card::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 36%;
-            height: 2px;
-            background: var(--cc-gold);
-        }
-        .summary-card span { color: var(--cc-muted) !important; }
-        .summary-card strong { font-size: 38px !important; }
-
-        .admin-section-heading {
-            margin: 13px 0 0 !important;
-            min-height: 70px;
-            padding: 0 18px 0 22px;
-            border: 1px solid var(--cc-line);
-            background: linear-gradient(90deg,#0c1418,#091014);
-            position: relative;
-        }
-        .admin-section-heading::before {
-            content: "";
-            position: absolute;
-            left: -1px;
-            top: -1px;
-            bottom: -1px;
-            width: 4px;
-            background: var(--cc-gold);
-        }
-        .admin-section-heading h2 {
-            font-size: 22px !important;
-            letter-spacing: .6px;
-        }
-        .admin-section-heading span { color: #a08b55 !important; }
-        .member-heading-actions,
-        .discharge-heading-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .member-collapse-toggle,
-        .discharge-collapse-toggle {
-            min-width: 132px;
-            min-height: 38px;
-            padding: 0 15px;
-            border: 1px solid rgba(214,170,58,.55) !important;
-            background: rgba(214,170,58,.07) !important;
-            color: var(--cc-gold) !important;
-            font: 600 10px Oswald,sans-serif !important;
-            letter-spacing: 1.1px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .member-collapse-toggle:hover,
-        .discharge-collapse-toggle:hover {
-            background: var(--cc-gold) !important;
-            color: #070a0c !important;
-        }
-
-        .loa-admin-panel,
-        .pending-member-panel,
-        .member-management-panel,
-        .discharge-panel,
-        .attendance-panel,
-        .attendance-warning-panel {
-            margin-top: 0 !important;
-            border: 1px solid var(--cc-line) !important;
-            border-top: 0 !important;
-            background: #0a1115 !important;
-            padding: 18px !important;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.015);
-        }
-        .attendance-warning-panel {
-            border-top: 1px solid var(--cc-line) !important;
-            margin-top: 0 !important;
-        }
-
-        .member-admin-card,
-        .discharge-card,
-        .pending-member-card,
-        .loa-admin-card,
-        .attendance-event-card {
-            border-color: #2b3940 !important;
-            background: linear-gradient(145deg,#111a1f,#0c1317) !important;
-            transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
-        }
-        .member-admin-card:hover,
-        .discharge-card:hover,
-        .pending-member-card:hover,
-        .loa-admin-card:hover,
-        .attendance-event-card:hover {
-            border-color: rgba(214,170,58,.5) !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,.22);
-            transform: translateY(-1px);
-        }
-
-        .admin-search,
-        .attendance-panel input,
-        .attendance-panel select,
-        .attendance-panel textarea {
-            border-color: #2b3940 !important;
-            background: #060b0e !important;
-        }
-        .admin-search:focus,
-        .attendance-panel input:focus,
-        .attendance-panel select:focus,
-        .attendance-panel textarea:focus {
-            border-color: var(--cc-gold) !important;
-            box-shadow: 0 0 0 2px rgba(214,170,58,.08);
-        }
-        .admin-refresh {
-            border-color: rgba(214,170,58,.6) !important;
-            color: var(--cc-gold) !important;
-            background: rgba(214,170,58,.05) !important;
-        }
-        .admin-refresh:hover {
-            color: #070a0c !important;
-            background: var(--cc-gold) !important;
-        }
-
-        @media (max-width: 1050px) {
-            .command-overview { grid-template-columns: 1fr; }
-            .admin-jump-nav { grid-template-columns: repeat(2,1fr); }
-            .admin-summary { grid-template-columns: repeat(2,1fr) !important; }
-        }
-        @media (max-width: 720px) {
-            .admin-hero { min-height: 280px; }
-            .admin-hero::before { opacity: .55; }
-            .admin-hero-inner { padding-left: 18px; }
-            .admin-summary { grid-template-columns: 1fr !important; }
-            .admin-jump-nav { grid-template-columns: 1fr; }
-            .admin-section-heading {
-                align-items: flex-start !important;
-                flex-direction: column;
-                padding: 16px !important;
-            }
-            .member-heading-actions,
-            .discharge-heading-actions {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-    </style>
-<style id="global-nav-standardization">
-/* =========================================================
-   21ST CAVALRY — GLOBAL HEADER / NAV STANDARD
-   Same typography and spacing on every page.
-   ========================================================= */
-.site-header{
-    min-height:72px !important;
-    height:72px !important;
-    padding:0 38px !important;
-    display:flex !important;
-    align-items:center !important;
-    box-sizing:border-box !important;
+.discharge-delete-btn{
+    min-width:112px;
+    min-height:38px;
+    padding:0 14px;
+    border:1px solid #8d3d3d;
+    background:#1a0909;
+    color:#ef8b8b;
+    font:700 10px Oswald,sans-serif;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        color .18s ease,
+        opacity .18s ease;
 }
-.site-header .brand{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-}
-.main-nav{
-    min-height:72px !important;
-    display:flex !important;
-    align-items:center !important;
-    gap:28px !important;
-}
-.main-nav > a:not(.nav-cta){
-    position:relative !important;
-    display:flex !important;
-    align-items:center !important;
-    min-height:72px !important;
-    padding:0 !important;
-    margin:0 !important;
-    box-sizing:border-box !important;
 
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:16px !important;
-    font-style:normal !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-    text-decoration:none !important;
+.discharge-delete-btn:hover:not(:disabled){
+    border-color:#d85d5d;
+    background:#2a0b0b;
+    color:#ffb1b1;
+}
 
-    color:#c8cbc7 !important;
-    border:0 !important;
-    background:transparent !important;
+.discharge-delete-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
 }
-.main-nav > a:not(.nav-cta)::after{
-    content:"" !important;
-    position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:0 !important;
-    width:100% !important;
-    height:2px !important;
-    margin:0 !important;
-    transform:scaleX(0) !important;
-    transform-origin:center !important;
-    background:#c8aa5b !important;
-    opacity:0 !important;
-    transition:transform .16s ease,opacity .16s ease,color .16s ease !important;
+
+.discharge-card-actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
 }
-.main-nav > a:not(.nav-cta):hover{
-    color:#f0e5bf !important;
-}
-.main-nav > a:not(.nav-cta):hover::after{
-    transform:scaleX(.35) !important;
-    opacity:.7 !important;
-}
-.main-nav > a.nav-current:not(.nav-cta){
-    color:#d4b85e !important;
-}
-.main-nav > a.nav-current:not(.nav-cta)::after{
-    transform:scaleX(1) !important;
-    opacity:1 !important;
-}
-.main-nav .nav-cta{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-    font-size:15px !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-    letter-spacing:.055em !important;
-    text-transform:uppercase !important;
-}
-.member-profile-text span,
-.member-login-btn,
-.member-logout-btn{
-    font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
-}
-@media(max-width:1180px){
-    .site-header{padding:0 24px !important}
-    .main-nav{gap:20px !important}
-    .main-nav > a:not(.nav-cta){font-size:15px !important}
-}
-@media(max-width:900px){
-    .site-header{height:auto !important;min-height:72px !important}
-    .main-nav{
-        min-height:0 !important;
-        gap:0 !important;
+
+@media(max-width:700px){
+    .discharge-card-actions{
+        width:100%;
+        justify-content:stretch;
     }
-    .main-nav > a:not(.nav-cta){
-        min-height:auto !important;
-        padding:11px 0 !important;
-    }
-    .main-nav > a:not(.nav-cta)::after{
-        bottom:4px !important;
-        right:auto !important;
-        width:34px !important;
+
+    .discharge-delete-btn{
+        width:100%;
     }
 }
-</style>
-<style id="full-navigation-fix">
-/* Full navigation is intentionally present on every page. */
-.main-nav{
-    gap:22px !important;
-}
-.main-nav > a:not(.nav-cta){
-    white-space:nowrap !important;
-    flex:0 0 auto !important;
-}
-@media (max-width:1280px){
-    .main-nav{gap:16px !important;}
-    .main-nav > a:not(.nav-cta){font-size:14px !important;letter-spacing:.045em !important;}
-}
-@media (max-width:1080px){
-    .main-nav{gap:13px !important;}
-    .main-nav > a:not(.nav-cta){font-size:13px !important;}
-}
-</style>
-<style id="auth-nav-direct-style">
-/* Direct hidden-attribute navigation control */
-.main-nav a[hidden] { display:none !important; }
-.main-nav .nav-cta[hidden] { display:none !important; }
-</style>
 
-<style id="promotion-review-styles">
-.promotion-review-panel{margin-bottom:28px;padding:20px;border:1px solid #30383d;border-top:2px solid #c5a75b;background:#101619}
-.promotion-review-toolbar{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
-.promotion-review-rules{color:#829097;font-size:10px;line-height:1.6}
-.promotion-review-rules strong{color:#d4b95f;font:600 10px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase}
-.promotion-review-count{flex:0 0 auto;padding:7px 10px;border:1px solid #756438;color:#d4b95f;font:600 9px Oswald,sans-serif;letter-spacing:.8px;text-transform:uppercase}
-.promotion-review-list{display:grid;gap:9px}
-.promotion-review-card{display:grid;grid-template-columns:minmax(190px,1.25fr) minmax(150px,.8fr) minmax(150px,.85fr) minmax(150px,.85fr) auto;gap:14px;align-items:center;padding:15px 16px;border:1px solid #30383d;background:#090f12}
-.promotion-review-card.ready{border-left:3px solid #75d48c}
-.promotion-review-card.hold{border-left:3px solid #c5a75b}
-.promotion-review-card.blocked{border-left:3px solid #df7474}
-.promotion-review-name strong{display:block;color:#fff;font:600 16px Oswald,sans-serif;text-transform:uppercase}
-.promotion-review-name small{display:block;margin-top:3px;color:#718088;font-size:9px}
-.promotion-review-field span{display:block;margin-bottom:3px;color:#6e7d84;font:500 8px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase}
-.promotion-review-field strong{display:block;color:#cbd2d5;font:500 10px Oswald,sans-serif;line-height:1.35}
-.promotion-review-badge{justify-self:end;padding:6px 9px;border:1px solid #4b565c;color:#9ba7ac;font:600 8px Oswald,sans-serif;letter-spacing:.7px;text-transform:uppercase;white-space:nowrap}
-.promotion-review-badge.ready{border-color:#3f6a4a;color:#75d48c}
-.promotion-review-badge.hold{border-color:#756438;color:#d4b95f}
-.promotion-review-badge.blocked{border-color:#744343;color:#e17b7b}
-.promotion-review-note{grid-column:1/-1;margin-top:-4px;padding-top:9px;border-top:1px solid #222d32;color:#75858c;font-size:10px;line-height:1.5}
-.promotion-review-empty{padding:25px 18px;border:1px dashed #30383d;color:#77858b;text-align:center}
-@media(max-width:1050px){.promotion-review-card{grid-template-columns:1fr 1fr 1fr}.promotion-review-badge{justify-self:start}}
-@media(max-width:700px){.promotion-review-toolbar{flex-direction:column}.promotion-review-card{grid-template-columns:1fr}}
 </style>
 
 </head>
+
+
 <body>
-<!-- =================================================
+
+
+    <!-- =================================================
          HEADER
          ================================================= -->
-<header class="site-header">
-<a class="brand" href="index.html">
-<div class="brand-mark">
+
+    <header class="site-header">
+
+        <a
+            class="brand"
+            href="index.html"
+        >
+
+            <div class="brand-mark">
                 21
             </div>
-<div>
-<span>
+
+            <div>
+
+                <span>
                     21ST CAVALRY
                 </span>
-<small>
+
+                <small>
                     DIVISION
                 </small>
-</div>
-</a>
-<button aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" id="navToggle">
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
             ☰
         </button>
-<nav class="main-nav" id="mainNav">
-<a href="index.html">HOME</a><a href="orbat.html">ORBAT</a><a href="training.html">TRAINING</a><a href="resources.html">SOPS</a><a href="server.html">SERVER</a><a href="media.html">MEDIA</a><a hidden="" href="operations.html" id="operationsPortalLink">OPBOARD</a><a hidden="" href="members.html" id="memberPortalLink">MEMBER PORTAL</a><a class="nav-current" hidden="" href="admin.html" id="adminPortalLink">ADMIN</a><a class="nav-cta" href="recruitment.html" id="enlistNavLink">ENLIST</a><div class="member-auth" id="memberAuth">
-<button class="member-login-btn" id="discordLoginBtn" type="button">
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="orbat.html">
+                ORBAT
+            </a>
+
+            <a href="operations.html">
+                OPBOARD
+            </a>
+
+            <a href="training.html">
+                Training
+            </a>
+
+            <a href="resources.html">
+                SOPs
+            </a>
+
+            <a href="server.html">
+                Server
+            </a>
+
+            <a href="media.html">
+                Media
+            </a>
+
+            <a href="members.html">
+                Member Portal
+            </a>
+
+            <a
+                href="admin.html"
+                style="color:#c5a75b;"
+            >
+                Admin
+            </a>
+
+
+            <div
+                class="member-auth"
+                id="memberAuth"
+            >
+
+                <button
+                    class="member-login-btn"
+                    id="discordLoginBtn"
+                    type="button"
+                >
                     Login with Discord
                 </button>
-<div class="member-profile" hidden="" id="memberProfile">
-<img alt="" class="member-avatar" hidden="" id="memberAvatar" src=""/>
-<div class="member-profile-text">
-<span id="memberName">
+
+
+                <div
+                    class="member-profile"
+                    id="memberProfile"
+                    hidden
+                >
+
+                    <img
+                        id="memberAvatar"
+                        class="member-avatar"
+                        src=""
+                        alt=""
+                        hidden
+                    >
+
+                    <div class="member-profile-text">
+
+                        <span id="memberName">
                             Member
                         </span>
-<small>
+
+                        <small>
                             Administrator
                         </small>
-</div>
-<button class="member-logout-btn" id="discordLogoutBtn" type="button">
+
+                    </div>
+
+                    <button
+                        class="member-logout-btn"
+                        id="discordLogoutBtn"
+                        type="button"
+                    >
                         Logout
                     </button>
-</div>
-</div></nav>
-</header>
-<!-- =================================================
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =================================================
          HERO
          ================================================= -->
-<section class="admin-hero">
-<div class="admin-hero-inner">
-<p class="eyebrow">
+
+    <section class="admin-hero">
+
+        <div class="admin-hero-inner">
+
+            <p class="eyebrow">
                 COMMAND PERSONNEL SYSTEM
             </p>
-<h1>
+
+            <h1>
                 Administration
             </h1>
-<p class="admin-hero-description">
+
+            <p class="admin-hero-description">
                 Manage personnel records, ranks, assignments,
                 qualifications, access levels and attendance.
             </p>
-</div>
-</section>
-<!-- =================================================
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
          LOADING
          ================================================= -->
-<section class="admin-message" id="adminLoading">
-<p class="eyebrow">
+
+    <section
+        id="adminLoading"
+        class="admin-message"
+    >
+
+        <p class="eyebrow">
             SECURE ACCESS
         </p>
-<h2>
+
+        <h2>
             Loading Administration
         </h2>
-<p>
+
+        <p>
             Verifying administrator permissions.
         </p>
-</section>
-<!-- =================================================
+
+    </section>
+
+
+    <!-- =================================================
          LOGIN
          ================================================= -->
-<section class="admin-message" hidden="" id="adminLogin">
-<p class="eyebrow">
+
+    <section
+        id="adminLogin"
+        class="admin-message"
+        hidden
+    >
+
+        <p class="eyebrow">
             AUTHENTICATION REQUIRED
         </p>
-<h2>
+
+        <h2>
             Administrator Login Required
         </h2>
-<p>
+
+        <p>
             Sign in with your authorized Discord account.
         </p>
-<button class="attendance-button primary" id="adminLoginButton" type="button">
+
+        <button
+            id="adminLoginButton"
+            class="attendance-button primary"
+            type="button"
+        >
             Login with Discord
         </button>
-</section>
-<!-- =================================================
+
+    </section>
+
+
+    <!-- =================================================
          ACCESS DENIED
          ================================================= -->
-<section class="admin-message" hidden="" id="adminDenied">
-<p class="eyebrow">
+
+    <section
+        id="adminDenied"
+        class="admin-message"
+        hidden
+    >
+
+        <p class="eyebrow">
             ACCESS RESTRICTED
         </p>
-<h2>
+
+        <h2>
             Access Denied
         </h2>
-<p>
+
+        <p>
             Your account does not have permission to access
             the 21st Cavalry Division Administration Portal.
         </p>
-</section>
-<!-- =================================================
+
+    </section>
+
+
+    <!-- =================================================
          ADMIN DASHBOARD
          ================================================= -->
-<main class="admin-container" hidden="" id="adminContent">
-<section class="command-overview">
-<div class="command-overview-copy">
-<span class="command-kicker">21ST CAVALRY // COMMAND CENTER</span>
-<h2>Unit Readiness Overview</h2>
-<p>
-                    Personnel accountability, readiness, approvals, leave, discharge records and training attendance in one command workspace.
-                </p>
-</div>
-<div class="command-status-card">
-<span class="command-status-label">Command System Online</span>
-<strong id="commandDate">Administration Portal</strong>
-<small>Authorized command personnel only</small>
-</div>
-</section>
-<div aria-label="Admin quick navigation" class="admin-jump-nav">
-<button class="admin-jump-btn" data-panel="loaManagementPanel" data-toggle="toggleLoas">Leave of Absence</button>
-<button class="admin-jump-btn" data-panel="pendingMemberPanel" data-toggle="togglePendingMembers">Pending Approvals</button>
-<button class="admin-jump-btn" data-panel="promotionReviewPanel" data-toggle="togglePromotionReview">Promotion Review</button>
-<button class="admin-jump-btn" data-panel="memberManagementPanel" data-toggle="toggleMembers">Member Management</button>
-<button class="admin-jump-btn" data-panel="dischargePanel" data-toggle="toggleDischarges">Discharge Records</button>
-<button class="admin-jump-btn" data-panel="attendanceManagementPanel" data-toggle="toggleAttendance">Attendance</button>
-</div>
-<!-- SUMMARY -->
-<section class="admin-summary">
-<div class="summary-card">
-<span>
+
+    <main
+        id="adminContent"
+        class="admin-container"
+        hidden
+    >
+
+
+        <!-- SUMMARY -->
+
+        <section class="admin-summary">
+
+            <div class="summary-card">
+
+                <span>
                     Total Members
                 </span>
-<strong id="totalMembers">
+
+                <strong id="totalMembers">
                     0
                 </strong>
-</div>
-<div class="summary-card">
-<span>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>
                     Active
                 </span>
-<strong id="activeMembers">
+
+                <strong id="activeMembers">
                     0
                 </strong>
-</div>
-<div class="summary-card">
-<span>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>
                     Admins
                 </span>
-<strong id="adminMembers">
+
+                <strong id="adminMembers">
                     0
                 </strong>
-</div>
-<div class="summary-card">
-<span>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>
                     Average Attendance
                 </span>
-<strong id="averageAttendance">
+
+                <strong id="averageAttendance">
                     0%
                 </strong>
-</div>
-</section>
-<!-- =================================================
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
              ATTENDANCE WARNINGS
              ================================================= -->
-<div class="admin-section-heading attendance-warning-heading">
-<h2>
+
+        <div class="admin-section-heading attendance-warning-heading">
+
+            <h2>
                 Attendance Warnings
             </h2>
-<span>
+
+            <span>
                 Threshold: Below 65%
             </span>
-</div>
-<section class="attendance-warning-panel" id="attendanceWarningPanel">
-<div class="attendance-warning-clear">
-<strong>
+
+        </div>
+
+
+        <section
+            id="attendanceWarningPanel"
+            class="attendance-warning-panel"
+        >
+
+            <div class="attendance-warning-clear">
+
+                <strong>
                     No Attendance Warnings
                 </strong>
-<span>
+
+                <span>
                     All active personnel are currently at or above the attendance threshold.
                 </span>
-</div>
-</section>
 
-<!-- =================================================
-             PROMOTION REVIEW / ELIGIBILITY
-             ================================================= -->
-<div class="admin-section-heading member-section-heading">
-<h2>Promotion Review</h2>
-<div class="member-heading-actions">
-<span id="promotionReviewHeadingCount">0 Ready for Review</span>
-<button aria-controls="promotionReviewPanel" aria-expanded="true" class="member-collapse-toggle" id="togglePromotionReview" type="button">Hide Promotion Review</button>
-</div>
-</div>
-<section class="promotion-review-panel" id="promotionReviewPanel">
-<div class="promotion-review-toolbar">
-<div class="promotion-review-rules">
-<strong>Automatic Screening</strong><br/>
-Active member • Attendance at or above the existing 65% standard • Current promotion record available • Next standard rank available.<br/>
-Time in grade and qualifications are displayed for command review; they are not automatically treated as pass/fail requirements.
-</div>
-<div class="promotion-review-count" id="promotionReviewCount">Loading...</div>
-</div>
-<div class="promotion-review-list" id="promotionReviewList">
-<div class="promotion-review-empty">Loading promotion review data...</div>
-</div>
-</section>
+            </div>
 
-<!-- =================================================
+        </section>
+
+
+        <!-- =================================================
              LOA MANAGEMENT
              ================================================= -->
-<div class="admin-section-heading member-section-heading">
-<h2>Leave of Absence Management</h2>
-<div class="member-heading-actions">
-<span>Automatically Approved</span>
-<button aria-controls="loaManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleLoas" type="button">
+
+        <div class="admin-section-heading member-section-heading">
+            <h2>Leave of Absence Management</h2>
+
+            <div class="member-heading-actions">
+                <span>Automatically Approved</span>
+                <button
+                    id="toggleLoas"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="loaManagementPanel"
+                >
                     Show LOAs
                 </button>
-</div>
-</div>
-<section class="loa-admin-panel" hidden="" id="loaManagementPanel">
-<div class="loa-admin-toolbar">
-<div class="member-count-line" id="loaCountLine">Loading LOA records...</div>
-<button class="admin-refresh" id="refreshLoas" type="button">Refresh LOAs</button>
-</div>
-<div class="loa-admin-list" id="loaAdminList">
-<div class="admin-empty">Loading leave of absence records...</div>
-</div>
-<div class="loa-admin-message" id="loaAdminMessage"></div>
-</section>
-<!-- =================================================
+            </div>
+        </div>
+
+        <section
+            id="loaManagementPanel"
+            class="loa-admin-panel"
+            hidden
+        >
+            <div class="loa-admin-toolbar">
+                <div id="loaCountLine" class="member-count-line">Loading LOA records...</div>
+                <button id="refreshLoas" class="admin-refresh" type="button">Refresh LOAs</button>
+            </div>
+            <div id="loaAdminList" class="loa-admin-list">
+                <div class="admin-empty">Loading leave of absence records...</div>
+            </div>
+            <div id="loaAdminMessage" class="loa-admin-message"></div>
+        </section>
+
+
+
+        <!-- =================================================
              PENDING MEMBER APPROVALS
              ================================================= -->
-<div class="admin-section-heading member-section-heading">
-<h2>Pending Member Approvals</h2>
-<div class="member-heading-actions">
-<span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
-<button aria-controls="pendingMemberPanel" aria-expanded="false" class="member-collapse-toggle" id="togglePendingMembers" type="button">
+
+        <div class="admin-section-heading member-section-heading">
+            <h2>Pending Member Approvals</h2>
+
+            <div class="member-heading-actions">
+                <span id="pendingMemberHeadingCount">0 Awaiting Approval</span>
+                <button
+                    id="togglePendingMembers"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="pendingMemberPanel"
+                >
                     Show Pending
                 </button>
-</div>
-</div>
-<section class="pending-member-panel" hidden="" id="pendingMemberPanel">
-<div class="pending-member-toolbar">
-<div class="member-count-line" id="pendingMemberCountLine">
+            </div>
+        </div>
+
+        <section
+            id="pendingMemberPanel"
+            class="pending-member-panel"
+            hidden
+        >
+            <div class="pending-member-toolbar">
+                <div id="pendingMemberCountLine" class="member-count-line">
                     Loading Discord logins...
                 </div>
-<button class="admin-refresh" id="refreshPendingMembers" type="button">
+
+                <button
+                    id="refreshPendingMembers"
+                    class="admin-refresh"
+                    type="button"
+                >
                     Refresh Pending
                 </button>
-</div>
-<div class="pending-member-list" id="pendingMemberList">
-<div class="admin-empty">
+            </div>
+
+            <div id="pendingMemberList" class="pending-member-list">
+                <div class="admin-empty">
                     Loading pending members...
                 </div>
-</div>
-<div class="pending-member-message" id="pendingMemberMessage"></div>
-</section>
-<!-- =================================================
+            </div>
+
+            <div
+                id="pendingMemberMessage"
+                class="pending-member-message"
+            ></div>
+        </section>
+
+
+        <!-- =================================================
              MEMBER MANAGEMENT
              ================================================= -->
-<div class="admin-section-heading member-section-heading">
-<h2>
+
+        <div class="admin-section-heading member-section-heading">
+
+            <h2>
                 Member Management
             </h2>
-<div class="member-heading-actions">
-<span>Personnel Records</span>
-<button aria-controls="memberManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleMembers" type="button">
+
+            <div class="member-heading-actions">
+                <span>Personnel Records</span>
+
+                <button
+                    id="toggleMembers"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="memberManagementPanel"
+                >
                     Show Members
                 </button>
-</div>
-</div>
-<section class="member-management-panel" hidden="" id="memberManagementPanel">
-<!-- EXISTING SEARCH BAR -->
-<section class="admin-toolbar">
-<input autocomplete="off" class="admin-search" id="memberSearch" placeholder="Search members by name, rank, billet, section..." type="search"/>
-<button class="admin-refresh" id="refreshMembers" type="button">
+            </div>
+
+        </div>
+
+
+        <section
+            id="memberManagementPanel"
+            class="member-management-panel"
+            hidden
+        >
+
+            <!-- EXISTING SEARCH BAR -->
+
+            <section class="admin-toolbar">
+
+                <input
+                    id="memberSearch"
+                    class="admin-search"
+                    type="search"
+                    placeholder="Search members by name, rank, billet, section..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="refreshMembers"
+                    class="admin-refresh"
+                    type="button"
+                >
                     Refresh Members
                 </button>
-</section>
-<div class="member-count-line" id="memberCountLine"></div>
-<!-- MEMBER DROPDOWN LIST -->
-<section class="member-admin-list" id="memberAdminList"></section>
-</section>
-<!-- =================================================
+
+            </section>
+
+
+            <div
+                id="memberCountLine"
+                class="member-count-line"
+            ></div>
+
+
+            <!-- MEMBER DROPDOWN LIST -->
+
+            <section
+                id="memberAdminList"
+                class="member-admin-list"
+            ></section>
+
+        </section>
+
+
+
+        <!-- =================================================
              DISCHARGE RECORDS
              ================================================= -->
-<div class="admin-section-heading discharge-section-heading">
-<h2>Discharge Records</h2>
-<div class="discharge-heading-actions">
-<span id="dischargeHeadingCount">0 Former Members</span>
-<button aria-controls="dischargePanel" aria-expanded="false" class="discharge-collapse-toggle" id="toggleDischarges" type="button">
+
+        <div class="admin-section-heading discharge-section-heading">
+            <h2>Discharge Records</h2>
+
+            <div class="discharge-heading-actions">
+                <span id="dischargeHeadingCount">0 Former Members</span>
+
+                <button
+                    id="toggleDischarges"
+                    class="discharge-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="dischargePanel"
+                >
                     Show Records
                 </button>
-</div>
-</div>
-<section class="discharge-panel" hidden="" id="dischargePanel">
-<div class="discharge-toolbar">
-<input autocomplete="off" class="admin-search" id="dischargeSearch" placeholder="Search discharge records by name, rank, billet, section, Discord ID or reason..." type="search"/>
-<button class="admin-refresh" id="refreshDischarges" type="button">
+            </div>
+        </div>
+
+        <section
+            id="dischargePanel"
+            class="discharge-panel"
+            hidden
+        >
+
+            <div class="discharge-toolbar">
+
+                <input
+                    id="dischargeSearch"
+                    class="admin-search"
+                    type="search"
+                    placeholder="Search discharge records by name, rank, billet, section, Discord ID or reason..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="refreshDischarges"
+                    class="admin-refresh"
+                    type="button"
+                >
                     Refresh Records
                 </button>
-</div>
-<div class="member-count-line" id="dischargeCountLine">
+
+            </div>
+
+            <div
+                id="dischargeCountLine"
+                class="member-count-line"
+            >
                 Loading discharge records...
             </div>
-<div class="discharge-list" id="dischargeList">
-<div class="admin-empty">
+
+            <div
+                id="dischargeList"
+                class="discharge-list"
+            >
+                <div class="admin-empty">
                     Loading discharge records...
                 </div>
-</div>
-<div class="discharge-message" id="dischargeMessage"></div>
-</section>
-<!-- =================================================
+            </div>
+
+            <div
+                id="dischargeMessage"
+                class="discharge-message"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
              ATTENDANCE MANAGEMENT
              ================================================= -->
-<div class="admin-section-heading member-section-heading">
-<h2>
+
+        <div class="admin-section-heading member-section-heading">
+
+            <h2>
                 Attendance Management
             </h2>
-<div class="member-heading-actions">
-<span>
+
+            <div class="member-heading-actions">
+                <span>
                     Personnel Accountability
                 </span>
-<button aria-controls="attendanceManagementPanel" aria-expanded="false" class="member-collapse-toggle" id="toggleAttendance" type="button">
+
+                <button
+                    id="toggleAttendance"
+                    class="member-collapse-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="attendanceManagementPanel"
+                >
                     Show Attendance
                 </button>
-</div>
-</div>
-<section class="attendance-panel" hidden="" id="attendanceManagementPanel">
-<div class="attendance-create-grid">
-<input id="attendanceEventTitle" placeholder="Event name" type="text"/>
-<select id="attendanceEventType">
-<option value="Training">
+            </div>
+
+        </div>
+
+
+        <section
+            id="attendanceManagementPanel"
+            class="attendance-panel"
+            hidden
+        >
+
+
+            <div class="attendance-create-grid">
+
+                <input
+                    id="attendanceEventTitle"
+                    type="text"
+                    placeholder="Event name"
+                >
+
+                <select id="attendanceEventType">
+
+                    <option value="Training">
                         Training
                     </option>
-<option value="Operation">
+
+                    <option value="Operation">
                         Operation
                     </option>
-<option value="FTX">
+
+                    <option value="FTX">
                         FTX
                     </option>
-<option value="Qualification">
+
+                    <option value="Qualification">
                         Qualification
                     </option>
-<option value="Meeting">
+
+                    <option value="Meeting">
                         Meeting
                     </option>
-<option value="Other">
+
+                    <option value="Other">
                         Other
                     </option>
-</select>
-<input id="attendanceEventDate" type="date"/>
-<button class="attendance-button primary" id="createAttendanceEvent" type="button">
+
+                </select>
+
+
+                <input
+                    id="attendanceEventDate"
+                    type="date"
+                >
+
+
+                <button
+                    id="createAttendanceEvent"
+                    class="attendance-button primary"
+                    type="button"
+                >
                     Create Event
                 </button>
-</div>
-<div class="attendance-event-toolbar">
-<select id="attendanceEventSelect">
-<option value="">
+
+            </div>
+
+
+            <div class="attendance-event-toolbar">
+
+                <select id="attendanceEventSelect">
+
+                    <option value="">
                         Select attendance event
                     </option>
-</select>
-<button class="attendance-button" id="refreshAttendance" type="button">
+
+                </select>
+
+                <button
+                    id="refreshAttendance"
+                    class="attendance-button"
+                    type="button"
+                >
                     Refresh
                 </button>
-<button class="attendance-button danger" id="deleteAttendanceEvent" type="button">
+
+                <button
+                    id="deleteAttendanceEvent"
+                    class="attendance-button danger"
+                    type="button"
+                >
                     Delete Event
                 </button>
-</div>
-<div class="attendance-list" id="attendanceMemberList">
-<div class="admin-empty">
+
+            </div>
+
+
+            <div
+                id="attendanceMemberList"
+                class="attendance-list"
+            >
+
+                <div class="admin-empty">
                     Select an attendance event.
                 </div>
-</div>
-<div class="attendance-actions">
-<button class="attendance-button primary" id="saveAttendance" type="button">
+
+            </div>
+
+
+            <div class="attendance-actions">
+
+                <button
+                    id="saveAttendance"
+                    class="attendance-button primary"
+                    type="button"
+                >
                     Save Attendance
                 </button>
-</div>
-<div class="attendance-message" id="attendanceMessage"></div>
-</section>
-</main>
-<!-- =================================================
+
+            </div>
+
+
+            <div
+                id="attendanceMessage"
+                class="attendance-message"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =================================================
          FOOTER
          ================================================= -->
-<footer>
-<div class="brand footer-brand">
-<div class="brand-mark">
+
+    <footer>
+
+        <div class="brand footer-brand">
+
+            <div class="brand-mark">
                 21
             </div>
-<div>
-<span>
+
+            <div>
+
+                <span>
                     21ST CAVALRY
                 </span>
-<small>
+
+                <small>
                     DIVISION
                 </small>
-</div>
-</div>
-<p>
+
+            </div>
+
+        </div>
+
+        <p>
             Swift. Silent. Relentless.
         </p>
-<div class="footer-links">
-<a href="members.html">
+
+        <div class="footer-links">
+
+            <a href="members.html">
                 Member Portal
             </a>
-<a href="resources.html">
+
+            <a href="resources.html">
                 Unit Resources
             </a>
-<a href="index.html">
+
+            <a href="index.html">
                 Home
             </a>
-</div>
-<p class="fineprint">
+
+        </div>
+
+        <p class="fineprint">
             Administrative access is restricted to authorized
             21st Cavalry Division personnel.
         </p>
-</footer>
-<!-- =================================================
+
+    </footer>
+
+
+    <!-- =================================================
          SUPABASE
          ================================================= -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script>
 
         document.addEventListener(
             'DOMContentLoaded',
@@ -6438,7 +6354,8 @@ Time in grade and qualifications are displayed for command review; they are not 
                                         data-discharge-id="${escapeHtml(record.id)}"
                                     >
 
-                                        <button
+                                        <div class="discharge-card-actions">
+<button
                                             class="discharge-header"
                                             type="button"
                                             data-discharge-toggle
@@ -6514,6 +6431,15 @@ Time in grade and qualifications are displayed for command review; they are not 
                                             </span>
 
                                         </button>
+
+<button
+    class="discharge-delete-btn"
+    type="button"
+    data-delete-discharge
+>
+    Delete Record
+</button>
+</div>
 
                                         <div class="discharge-body">
 
@@ -7362,6 +7288,126 @@ Time in grade and qualifications are displayed for command review; they are not 
 
                 }
 
+                dischargeList
+                    .querySelectorAll(
+                        '[data-delete-discharge]'
+                    )
+                    .forEach(
+                        button => {
+
+                            button.addEventListener(
+                                'click',
+                                async () => {
+
+                                    const card =
+                                        button.closest(
+                                            '[data-discharge-id]'
+                                        );
+
+                                    if (!card) {
+                                        return;
+                                    }
+
+                                    const id =
+                                        card.dataset.dischargeId;
+
+                                    const record =
+                                        dischargeRecords.find(
+                                            item =>
+                                                String(item.id)
+                                                ===
+                                                String(id)
+                                        );
+
+                                    const displayName =
+                                        record?.display_name
+                                        ||
+                                        'this former member';
+
+                                    const confirmed =
+                                        window.confirm(
+                                            `Permanently delete the discharge record for ${displayName}?\n\nThis cannot be undone.`
+                                        );
+
+                                    if (!confirmed) {
+                                        return;
+                                    }
+
+                                    button.disabled =
+                                        true;
+
+                                    button.textContent =
+                                        'Deleting...';
+
+                                    setDischargeMessage(
+                                        `Deleting discharge record for ${displayName}...`
+                                    );
+
+                                    const {
+                                        error
+                                    } =
+                                        await client
+                                            .from(
+                                                'discharge_records'
+                                            )
+                                            .delete()
+                                            .eq(
+                                                'id',
+                                                id
+                                            );
+
+                                    if (error) {
+
+                                        console.error(
+                                            'Discharge record delete error:',
+                                            error
+                                        );
+
+                                        setDischargeMessage(
+                                            'Could not delete discharge record: '
+                                            +
+                                            error.message,
+                                            'error'
+                                        );
+
+                                        button.disabled =
+                                            false;
+
+                                        button.textContent =
+                                            'Delete Record';
+
+                                        return;
+                                    }
+
+                                    dischargeRecords =
+                                        dischargeRecords.filter(
+                                            item =>
+                                                String(item.id)
+                                                !==
+                                                String(id)
+                                        );
+
+                                    if (
+                                        String(openDischargeId)
+                                        ===
+                                        String(id)
+                                    ) {
+                                        openDischargeId =
+                                            null;
+                                    }
+
+                                    setDischargeMessage(
+                                        `Discharge record for ${displayName} deleted.`,
+                                        'success'
+                                    );
+
+                                    renderDischargeRecords();
+                                }
+                            );
+                        }
+                    );
+
+
 
                 async function loadDischargeRecords() {
 
@@ -7711,177 +7757,6 @@ function renderAttendanceWarnings() {
             .join('');
 
 }
-
-                /* =================================================
-                   PROMOTION REVIEW / ELIGIBILITY
-                   ================================================= */
-                const PROMOTION_ATTENDANCE_THRESHOLD = 65;
-
-                const PROMOTION_NEXT_RANK = {
-                    'Recruit': 'Private (PVT)',
-                    'Private (PVT)': 'Private Second Class (PV2)',
-                    'Private Second Class (PV2)': 'Private First Class (PFC)',
-                    'Private First Class (PFC)': 'Specialist (SPC)',
-                    'Specialist (SPC)': 'Sergeant (SGT)',
-                    'Corporal (CPL)': 'Sergeant (SGT)',
-                    'Sergeant (SGT)': 'Staff Sergeant (SSG)',
-                    'Staff Sergeant (SSG)': 'Sergeant First Class (SFC)',
-                    'Sergeant First Class (SFC)': 'Master Sergeant (MSG)',
-                    'Master Sergeant (MSG)': 'Sergeant Major (SGM)',
-                    'First Sergeant (1SG)': 'Sergeant Major (SGM)',
-                    'Sergeant Major (SGM)': 'Command Sergeant Major (CSM)',
-                    'Warrant Officer 1 (WO1)': 'Chief Warrant Officer 2 (CW2)',
-                    'Chief Warrant Officer 2 (CW2)': 'Chief Warrant Officer 3 (CW3)',
-                    'Chief Warrant Officer 3 (CW3)': 'Chief Warrant Officer 4 (CW4)',
-                    'Chief Warrant Officer 4 (CW4)': 'Chief Warrant Officer 5 (CW5)',
-                    'Second Lieutenant (2LT)': 'First Lieutenant (1LT)',
-                    'First Lieutenant (1LT)': 'Captain (CPT)',
-                    'Captain (CPT)': 'Major (MAJ)',
-                    'Major (MAJ)': 'Lieutenant Colonel (LTC)',
-                    'Lieutenant Colonel (LTC)': 'Colonel (COL)',
-                    'Colonel (COL)': 'Brigadier General (BG)',
-                    'Brigadier General (BG)': 'Major General (MG)',
-                    'Major General (MG)': 'Lieutenant General (LTG)',
-                    'Lieutenant General (LTG)': 'General (GEN)'
-                };
-
-                function promotionDaysSince(value) {
-                    if (!value) return null;
-                    const start = new Date(`${String(value).slice(0,10)}T00:00:00`);
-                    const now = new Date();
-                    if (Number.isNaN(start.getTime())) return null;
-                    return Math.max(0, Math.floor((now.getTime() - start.getTime()) / 86400000));
-                }
-
-                function promotionTimeText(value) {
-                    const totalDays = promotionDaysSince(value);
-                    if (totalDays == null) return 'Unknown';
-                    const years = Math.floor(totalDays / 365);
-                    const months = Math.floor((totalDays % 365) / 30);
-                    const days = (totalDays % 365) % 30;
-                    const parts = [];
-                    if (years) parts.push(`${years} yr${years === 1 ? '' : 's'}`);
-                    if (months) parts.push(`${months} mo`);
-                    if (!years && !months) parts.push(`${days} day${days === 1 ? '' : 's'}`);
-                    return parts.join(' ');
-                }
-
-                function promotionNextRank(rank) {
-                    return PROMOTION_NEXT_RANK[String(rank || '').trim()] || null;
-                }
-
-                function promotionReviewStatus(member, promotionRecord) {
-                    const active = String(member.member_status || 'Active').toLowerCase() === 'active';
-                    const attendance = Number(member.attendance_rate || 0);
-                    const nextRank = promotionNextRank(member.rank);
-
-                    if (!active) {
-                        return {key:'blocked',label:'Not Eligible',reason:`Member status is ${member.member_status || 'not Active'}.`};
-                    }
-                    if (attendance < PROMOTION_ATTENDANCE_THRESHOLD) {
-                        return {key:'blocked',label:'Attendance Hold',reason:`Attendance is below the existing ${PROMOTION_ATTENDANCE_THRESHOLD}% command standard.`};
-                    }
-                    if (!nextRank) {
-                        return {key:'hold',label:'Command Review',reason:'No automatic next-rank path is assigned for the current rank.'};
-                    }
-                    if (!promotionRecord) {
-                        return {key:'hold',label:'Needs Rank Date',reason:'No promotion-history record matches the current rank, so time in grade cannot be verified.'};
-                    }
-                    return {key:'ready',label:'Ready for Review',reason:'Automatic screening passed. Final promotion decision remains with command.'};
-                }
-
-                async function loadPromotionReview() {
-                    const list = document.getElementById('promotionReviewList');
-                    const count = document.getElementById('promotionReviewCount');
-                    const headingCount = document.getElementById('promotionReviewHeadingCount');
-                    if (!list || !count || !headingCount) return;
-
-                    const members = (allMembers || []).filter(
-                        member => String(member.member_status || '').toLowerCase() !== 'discharged'
-                    );
-
-                    if (!members.length) {
-                        count.textContent = '0 Personnel';
-                        headingCount.textContent = '0 Ready for Review';
-                        list.innerHTML = '<div class="promotion-review-empty">No personnel are available for promotion review.</div>';
-                        return;
-                    }
-
-                    const ids = members.map(member => member.user_id).filter(Boolean);
-                    let history = [];
-
-                    if (ids.length) {
-                        const { data, error } = await client
-                            .from('promotion_history')
-                            .select('id,user_id,rank,promotion_date,notes,created_at')
-                            .in('user_id', ids)
-                            .order('promotion_date', { ascending: false })
-                            .order('id', { ascending: false });
-
-                        if (error) {
-                            console.error('Promotion review history load error:', error);
-                        } else {
-                            history = data || [];
-                        }
-                    }
-
-                    const historyByUser = new Map();
-                    history.forEach(record => {
-                        const key = String(record.user_id);
-                        if (!historyByUser.has(key)) historyByUser.set(key, []);
-                        historyByUser.get(key).push(record);
-                    });
-
-                    const reviewed = members.map(member => {
-                        const records = historyByUser.get(String(member.user_id)) || [];
-                        const currentRecord = records.find(record => record.rank === member.rank) || null;
-                        return {
-                            member,
-                            currentRecord,
-                            nextRank: promotionNextRank(member.rank),
-                            status: promotionReviewStatus(member, currentRecord)
-                        };
-                    });
-
-                    const weights = {ready:0, hold:1, blocked:2};
-                    reviewed.sort((a,b) => {
-                        const d = weights[a.status.key] - weights[b.status.key];
-                        return d || String(a.member.display_name || '').localeCompare(String(b.member.display_name || ''));
-                    });
-
-                    const readyCount = reviewed.filter(item => item.status.key === 'ready').length;
-                    count.textContent = `${readyCount} Ready / ${reviewed.length} Reviewed`;
-                    headingCount.textContent = `${readyCount} Ready for Review`;
-
-                    list.innerHTML = reviewed.map(item => {
-                        const m = item.member;
-                        const attendance = Number(m.attendance_rate || 0);
-                        const qCount = Array.isArray(m.qualifications) ? m.qualifications.length : 0;
-                        return `
-                            <article class="promotion-review-card ${item.status.key}">
-                                <div class="promotion-review-name">
-                                    <strong>${escapeHtml(m.display_name || 'Member')}</strong>
-                                    <small>${escapeHtml(m.rank || 'Recruit')} • ${escapeHtml(m.section || 'Unassigned')}</small>
-                                </div>
-                                <div class="promotion-review-field">
-                                    <span>Next Standard Rank</span>
-                                    <strong>${escapeHtml(item.nextRank || 'Command Determination')}</strong>
-                                </div>
-                                <div class="promotion-review-field">
-                                    <span>Time in Grade</span>
-                                    <strong>${item.currentRecord ? escapeHtml(promotionTimeText(item.currentRecord.promotion_date)) : 'Not Available'}</strong>
-                                </div>
-                                <div class="promotion-review-field">
-                                    <span>Readiness</span>
-                                    <strong>${attendance}% Attendance • ${qCount} Qualification${qCount === 1 ? '' : 's'}</strong>
-                                </div>
-                                <span class="promotion-review-badge ${item.status.key}">${escapeHtml(item.status.label)}</span>
-                                <div class="promotion-review-note">${escapeHtml(item.status.reason)}</div>
-                            </article>
-                        `;
-                    }).join('');
-                }
-
                 async function loadMembers() {
 
                     const {
@@ -7938,8 +7813,6 @@ function renderAttendanceWarnings() {
                     updateSummary();
                     
                     renderAttendanceWarnings();
-
-                    await loadPromotionReview();
 
                     applyMemberSearch();
 
@@ -8016,26 +7889,6 @@ function renderAttendanceWarnings() {
 
                 }
 
-
-
-                const togglePromotionReview =
-                    document.getElementById('togglePromotionReview');
-                const promotionReviewPanel =
-                    document.getElementById('promotionReviewPanel');
-
-                if (togglePromotionReview && promotionReviewPanel) {
-                    togglePromotionReview.addEventListener(
-                        'click',
-                        () => {
-                            const isOpen =
-                                togglePromotionReview.getAttribute('aria-expanded') === 'true';
-                            togglePromotionReview.setAttribute('aria-expanded', String(!isOpen));
-                            promotionReviewPanel.hidden = isOpen;
-                            togglePromotionReview.textContent =
-                                isOpen ? 'Show Promotion Review' : 'Hide Promotion Review';
-                        }
-                    );
-                }
 
                 toggleMembers.addEventListener(
                     'click',
@@ -9266,150 +9119,7 @@ function renderAttendanceWarnings() {
         );
 
     </script>
-<script id="command-center-enhancements">
-document.addEventListener('DOMContentLoaded', function () {
-    const dateNode = document.getElementById('commandDate');
-    if (dateNode) {
-        dateNode.textContent = new Intl.DateTimeFormat('en-US', {
-            month: 'short', day: 'numeric', year: 'numeric'
-        }).format(new Date());
-    }
 
-    document.querySelectorAll('.admin-jump-btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            const panel = document.getElementById(button.dataset.panel);
-            const toggle = document.getElementById(button.dataset.toggle);
-            if (!panel) return;
-            if (panel.hidden && toggle) toggle.click();
-            setTimeout(function () {
-                const heading = panel.previousElementSibling || panel;
-                heading.scrollIntoView({behavior: 'smooth', block: 'start'});
-            }, 80);
-        });
-    });
-});
-</script>
-
-
-<script id="auth-nav-direct-script">
-(function () {
-    const SUPABASE_URL = 'https://uwtvgpeijygvjpcifkew.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_xA3go5xRhg62NnEELn3I6Q_kCk54JuZ';
-
-    const el = id => document.getElementById(id);
-
-    function showLoggedOut() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        if (op) op.hidden = true;
-        if (member) member.hidden = true;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = false;
-    }
-
-    function showLoggedInImmediately() {
-        const op = el('operationsPortalLink');
-        const member = el('memberPortalLink');
-        const admin = el('adminPortalLink');
-        const enlist = el('enlistNavLink');
-
-        // IMPORTANT:
-        // OPBOARD + MEMBER PORTAL depend ONLY on a valid Discord/Supabase session.
-        // We do not wait for member_profiles to load.
-        if (op) op.hidden = false;
-        if (member) member.hidden = false;
-        if (admin) admin.hidden = true;
-        if (enlist) enlist.hidden = true;
-    }
-
-    async function setAdminVisibility(client, user) {
-        const admin = el('adminPortalLink');
-        if (!admin || !user) return;
-
-        try {
-            const { data: profile, error } = await client
-                .from('member_profiles')
-                .select('access_level')
-                .eq('user_id', user.id)
-                .maybeSingle();
-
-            if (error) {
-                console.warn('Admin navigation lookup failed:', error);
-                admin.hidden = true;
-                return;
-            }
-
-            const access = profile?.access_level || 'Member';
-            admin.hidden = !(access === 'Admin' || access === 'Super Admin');
-        } catch (error) {
-            console.warn('Admin navigation lookup failed:', error);
-            admin.hidden = true;
-        }
-    }
-
-    async function applySession(client, session) {
-        const user = session?.user || null;
-
-        if (!user) {
-            showLoggedOut();
-            return;
-        }
-
-        // Reveal member links immediately from the authenticated session.
-        showLoggedInImmediately();
-
-        // Admin is the only link that needs the database permission lookup.
-        await setAdminVisibility(client, user);
-    }
-
-    async function initAuthNav() {
-        showLoggedOut();
-
-        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-            console.warn('Supabase library unavailable for navigation.');
-            return;
-        }
-
-        const client = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY,
-            {
-                auth: {
-                    persistSession: true,
-                    autoRefreshToken: true,
-                    detectSessionInUrl: true
-                }
-            }
-        );
-
-        try {
-            const { data, error } = await client.auth.getSession();
-
-            if (error) {
-                console.warn('Navigation getSession failed:', error);
-                showLoggedOut();
-            } else {
-                await applySession(client, data?.session || null);
-            }
-        } catch (error) {
-            console.warn('Navigation getSession failed:', error);
-            showLoggedOut();
-        }
-
-        client.auth.onAuthStateChange((_event, session) => {
-            setTimeout(() => applySession(client, session), 0);
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAuthNav);
-    } else {
-        initAuthNav();
-    }
-})();
-</script>
 </body>
+
 </html>
