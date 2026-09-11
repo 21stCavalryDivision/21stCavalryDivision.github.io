@@ -2238,6 +2238,20 @@
     }
 }
 
+
+/* RANK/SELECT READABILITY FIX v10 */
+.member-edit-grid select,
+.pending-edit-grid select,
+select {
+    color: #f3f4f4;
+}
+.member-edit-grid select option,
+.pending-edit-grid select option,
+select option {
+    background: #071014 !important;
+    color: #f3f4f4 !important;
+}
+
 </style>
 
 
@@ -3893,6 +3907,7 @@
 
                 const RANK_OPTIONS = [
 
+                    'Recruit',
                     'Private (PVT)',
                     'Private Second Class (PV2)',
                     'Private First Class (PFC)',
