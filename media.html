@@ -43,6 +43,7 @@ h1,h2,h3{font-family:Oswald,sans-serif;text-transform:uppercase;margin-top:0}h1{
 .gallery-card:nth-child(1),.gallery-card:nth-child(6){grid-column:span 8;min-height:410px}
 .gallery-card:nth-child(2),.gallery-card:nth-child(5){grid-column:span 4;min-height:410px}
 .gallery-card:nth-child(3),.gallery-card:nth-child(4),.gallery-card:nth-child(7),.gallery-card:nth-child(8),.gallery-card:nth-child(9),.gallery-card:nth-child(10){grid-column:span 6}
+.gallery-card:nth-child(n+11){grid-column:span 4}
 .gallery-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease,filter .35s ease}
 .gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(2,4,3,.9));pointer-events:none}
 .gallery-card:hover .gallery-image{transform:scale(1.035);filter:brightness(1.08)}
@@ -51,6 +52,7 @@ h1,h2,h3{font-family:Oswald,sans-serif;text-transform:uppercase;margin-top:0}h1{
 .gallery-index{color:var(--gold);font:700 18px Oswald,sans-serif;white-space:nowrap}
 .gallery-open-button{position:absolute;inset:0;z-index:3;border:0;background:transparent;cursor:pointer}
 .gallery-open-button:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+.gallery-loading,.gallery-empty{grid-column:1/-1;padding:34px;border:1px solid var(--line);background:#090c0a;color:var(--muted);text-align:center;line-height:1.7}
 
 .feature-panel{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
 .feature-card,.submission-card{padding:30px;border:1px solid var(--line);background:var(--panel)}
@@ -87,7 +89,7 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 .lightbox{padding:10px}.lightbox-stage{width:100%;height:82vh}.lightbox-image-wrap{width:100%;padding:0 38px}.lightbox-arrow{width:42px;height:66px;font-size:30px}.lightbox-close{top:10px;right:10px;width:44px;height:44px;font-size:28px}.lightbox-info{bottom:10px;width:calc(100% - 20px)}footer{flex-direction:column;align-items:flex-start}
 }
 </style>
-    <link rel="stylesheet" href="mobile.css?v=2">
+<link rel="stylesheet" href="mobile.css?v=2">
 </head>
 <body>
 <header class="site-header">
@@ -116,17 +118,8 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 <div class="wrap">
 <div class="section-top reveal"><div><p class="eyebrow">01 // FIELD ARCHIVE</p><h2>Division Media</h2></div><div class="section-code">Click Any Image to Expand</div></div>
 
-<div class="gallery-grid" id="mediaGallery">
-<div class="gallery-card reveal"><img src="assets/screenshots/Unitmax.png" alt="21st Cavalry Division Operation Photo" class="gallery-image" loading="lazy" data-caption="21st Cavalry Division Operation Photo"><div class="gallery-label"><div><strong>Operation Photo</strong><small>21st Cavalry Division</small></div><span class="gallery-index">01</span></div><button class="gallery-open-button" type="button" aria-label="Open Operation Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/Aviation.png" alt="21st Cavalry Division Aviation Photo" class="gallery-image" loading="lazy" data-caption="Aviation Operations"><div class="gallery-label"><div><strong>Aviation</strong><small>Air Cavalry Operations</small></div><span class="gallery-index">02</span></div><button class="gallery-open-button" type="button" aria-label="Open Aviation Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/TrainingShot.png" alt="21st Cavalry Division Ground Operations Photo" class="gallery-image" loading="lazy" data-caption="Ground Operations"><div class="gallery-label"><div><strong>Ground Operations</strong><small>Maneuver Element</small></div><span class="gallery-index">03</span></div><button class="gallery-open-button" type="button" aria-label="Open Ground Operations Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/Armor.png" alt="21st Cavalry Division Armor Photo" class="gallery-image" loading="lazy" data-caption="Armor Operations"><div class="gallery-label"><div><strong>Armor Operations</strong><small>Mounted Element</small></div><span class="gallery-index">04</span></div><button class="gallery-open-button" type="button" aria-label="Open Armor Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/Training.png" alt="21st Cavalry Division Training Photo" class="gallery-image" loading="lazy" data-caption="Unit Training"><div class="gallery-label"><div><strong>Unit Training</strong><small>Readiness & Qualification</small></div><span class="gallery-index">05</span></div><button class="gallery-open-button" type="button" aria-label="Open Training Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/Arty.png" alt="21st Cavalry Division Artillery Photo" class="gallery-image" loading="lazy" data-caption="Artillery Support"><div class="gallery-label"><div><strong>Artillery Support</strong><small>Combined Arms Fires</small></div><span class="gallery-index">06</span></div><button class="gallery-open-button" type="button" aria-label="Open Artillery Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/SRTraining.png" alt="21st Cavalry Division Small Unit Training Photo" class="gallery-image" loading="lazy" data-caption="Small Unit Training"><div class="gallery-label"><div><strong>Small Unit Training</strong><small>Team & Squad Tactics</small></div><span class="gallery-index">07</span></div><button class="gallery-open-button" type="button" aria-label="Open Small Unit Training Photo"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/BradleyFire.png" alt="21st Cavalry Division Bradley Live Fire" class="gallery-image" loading="lazy" data-caption="Bradley Live Fire"><div class="gallery-label"><div><strong>Bradley Live Fire</strong><small>Armor Gunnery</small></div><span class="gallery-index">08</span></div><button class="gallery-open-button" type="button" aria-label="Open Bradley Live Fire"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/GunRun.png" alt="21st Cavalry Division Aviation Gun Run" class="gallery-image" loading="lazy" data-caption="Aviation Gun Run"><div class="gallery-label"><div><strong>Aviation Gun Run</strong><small>Air Support</small></div><span class="gallery-index">09</span></div><button class="gallery-open-button" type="button" aria-label="Open Aviation Gun Run"></button></div>
-<div class="gallery-card reveal"><img src="assets/screenshots/LilBirdFire.png" alt="21st Cavalry Division Little Bird Fire Mission" class="gallery-image" loading="lazy" data-caption="Little Bird Fire Mission"><div class="gallery-label"><div><strong>Little Bird Fire Mission</strong><small>Aviation Detachment</small></div><span class="gallery-index">10</span></div><button class="gallery-open-button" type="button" aria-label="Open Little Bird Fire Mission"></button></div>
+<div class="gallery-grid" id="mediaGallery" aria-live="polite">
+<div class="gallery-loading">Loading division media…</div>
 </div>
 </div>
 </section>
@@ -155,73 +148,381 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 </div>
 
 <script>
-const navToggle=document.getElementById('navToggle'),mainNav=document.getElementById('mainNav');
-navToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open));});
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
 
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-(()=>{
-const gallery=document.getElementById('mediaGallery');
-const lightbox=document.getElementById('lightbox');
-const lightboxImage=document.getElementById('lightboxImage');
-const lightboxCaption=document.getElementById('lightboxCaption');
-const lightboxCounter=document.getElementById('lightboxCounter');
-const closeButton=document.getElementById('lightboxClose');
-const previousButton=document.getElementById('lightboxPrev');
-const nextButton=document.getElementById('lightboxNext');
-if(!gallery||!lightbox||!lightboxImage||!closeButton||!previousButton||!nextButton)return;
-
-const cards=Array.from(gallery.querySelectorAll('.gallery-card'));
-const images=cards.map(card=>card.querySelector('.gallery-image')).filter(Boolean);
-const openButtons=cards.map(card=>card.querySelector('.gallery-open-button')).filter(Boolean);
-if(!images.length)return;
-
-let currentIndex=0,lastFocusedElement=null,touchStartX=0,touchEndX=0;
-const normalizeIndex=index=>(index+images.length)%images.length;
-
-function preloadNeighbor(index){const img=new Image();img.src=images[normalizeIndex(index)].src;}
-function updateLightbox(index){
- currentIndex=normalizeIndex(index);
- const sourceImage=images[currentIndex];
- const caption=sourceImage.dataset.caption||sourceImage.alt||'21st Cavalry Division Media';
- lightboxImage.src=sourceImage.src;
- lightboxImage.alt=sourceImage.alt||caption;
- lightboxCaption.textContent=caption;
- lightboxCounter.textContent=`${currentIndex+1} / ${images.length}`;
- preloadNeighbor(currentIndex-1);preloadNeighbor(currentIndex+1);
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', () => {
+    const open = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
 }
-function openLightbox(index,trigger){
- lastFocusedElement=trigger||document.activeElement;updateLightbox(index);
- lightbox.classList.add('active');lightbox.setAttribute('aria-hidden','false');document.body.classList.add('lightbox-open');closeButton.focus();
-}
-function closeLightbox(){
- if(!lightbox.classList.contains('active'))return;
- lightbox.classList.remove('active');lightbox.setAttribute('aria-hidden','true');document.body.classList.remove('lightbox-open');lightboxImage.src='';
- if(lastFocusedElement&&typeof lastFocusedElement.focus==='function')lastFocusedElement.focus();
-}
-function showPreviousImage(){updateLightbox(currentIndex-1)}
-function showNextImage(){updateLightbox(currentIndex+1)}
 
-openButtons.forEach((button,index)=>button.addEventListener('click',()=>openLightbox(index,button)));
-closeButton.addEventListener('click',closeLightbox);
-previousButton.addEventListener('click',showPreviousImage);
-nextButton.addEventListener('click',showNextImage);
-lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox()});
-document.addEventListener('keydown',event=>{
- if(!lightbox.classList.contains('active'))return;
- if(event.key==='Escape'){event.preventDefault();closeLightbox()}
- else if(event.key==='ArrowLeft'){event.preventDefault();showPreviousImage()}
- else if(event.key==='ArrowRight'){event.preventDefault();showNextImage()}
-});
-lightbox.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0].screenX},{passive:true});
-lightbox.addEventListener('touchend',event=>{
- touchEndX=event.changedTouches[0].screenX;
- const distance=touchEndX-touchStartX;
- if(Math.abs(distance)>55){distance>0?showPreviousImage():showNextImage()}
-},{passive:true});
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.08 }
+);
+
+function observeReveals(root = document) {
+  root.querySelectorAll('.reveal:not(.visible)').forEach((element) => {
+    revealObserver.observe(element);
+  });
+}
+
+observeReveals();
+
+(() => {
+  const gallery = document.getElementById('mediaGallery');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const closeButton = document.getElementById('lightboxClose');
+  const previousButton = document.getElementById('lightboxPrev');
+  const nextButton = document.getElementById('lightboxNext');
+
+  if (!gallery || !lightbox || !lightboxImage || !lightboxCaption || !lightboxCounter || !closeButton || !previousButton || !nextButton) {
+    return;
+  }
+
+  const FALLBACK_MEDIA = [
+    'assets/screenshots/Unitmax.png',
+    'assets/screenshots/Aviation.png',
+    'assets/screenshots/TrainingShot.png',
+    'assets/screenshots/Armor.png',
+    'assets/screenshots/Training.png',
+    'assets/screenshots/Arty.png',
+    'assets/screenshots/SRTraining.png',
+    'assets/screenshots/BradleyFire.png',
+    'assets/screenshots/GunRun.png',
+    'assets/screenshots/LilBirdFire.png'
+  ];
+
+  const MEDIA_OVERRIDES = {
+    'Unitmax.png': {
+      title: 'Operation Photo',
+      subtitle: '21st Cavalry Division',
+      caption: '21st Cavalry Division Operation Photo'
+    },
+    'Aviation.png': {
+      title: 'Aviation',
+      subtitle: 'Air Cavalry Operations',
+      caption: 'Aviation Operations'
+    },
+    'TrainingShot.png': {
+      title: 'Ground Operations',
+      subtitle: 'Maneuver Element',
+      caption: 'Ground Operations'
+    },
+    'Armor.png': {
+      title: 'Armor Operations',
+      subtitle: 'Mounted Element',
+      caption: 'Armor Operations'
+    },
+    'Training.png': {
+      title: 'Unit Training',
+      subtitle: 'Readiness & Qualification',
+      caption: 'Unit Training'
+    },
+    'Arty.png': {
+      title: 'Artillery Support',
+      subtitle: 'Combined Arms Fires',
+      caption: 'Artillery Support'
+    },
+    'SRTraining.png': {
+      title: 'Small Unit Training',
+      subtitle: 'Team & Squad Tactics',
+      caption: 'Small Unit Training'
+    },
+    'BradleyFire.png': {
+      title: 'Bradley Live Fire',
+      subtitle: 'Armor Gunnery',
+      caption: 'Bradley Live Fire'
+    },
+    'GunRun.png': {
+      title: 'Aviation Gun Run',
+      subtitle: 'Air Support',
+      caption: 'Aviation Gun Run'
+    },
+    'LilBirdFire.png': {
+      title: 'Little Bird Fire Mission',
+      subtitle: 'Aviation Detachment',
+      caption: 'Little Bird Fire Mission'
+    }
+  };
+
+  let images = [];
+  let openButtons = [];
+  let currentIndex = 0;
+  let lastFocusedElement = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function fileNameFromSource(src) {
+    const cleanSource = String(src || '').split('?')[0].split('#')[0];
+    return decodeURIComponent(cleanSource.substring(cleanSource.lastIndexOf('/') + 1));
+  }
+
+  function titleFromFileName(fileName) {
+    const withoutExtension = fileName.replace(/\.[^.]+$/, '');
+    const withSpaces = withoutExtension
+      .replace(/[_-]+/g, ' ')
+      .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!withSpaces) return 'Division Media';
+
+    return withSpaces.replace(/\b\w/g, (letter) => letter.toUpperCase());
+  }
+
+  function normalizeManifestItem(item) {
+    const src = typeof item === 'string' ? item : item?.src;
+    if (typeof src !== 'string' || !src.trim()) return null;
+
+    const fileName = typeof item === 'object' && item?.fileName
+      ? String(item.fileName)
+      : fileNameFromSource(src);
+
+    const override = MEDIA_OVERRIDES[fileName] || {};
+    const generatedTitle = titleFromFileName(fileName);
+
+    return {
+      src: src.trim(),
+      fileName,
+      title: override.title || generatedTitle,
+      subtitle: override.subtitle || '21st Cavalry Division',
+      caption: override.caption || generatedTitle
+    };
+  }
+
+  async function loadMediaItems() {
+    try {
+      const response = await fetch(`assets/screenshots.json?v=${Date.now()}`, {
+        cache: 'no-store'
+      });
+
+      if (!response.ok) {
+        throw new Error(`Manifest request failed with HTTP ${response.status}`);
+      }
+
+      const payload = await response.json();
+      const rawItems = Array.isArray(payload) ? payload : payload?.images;
+
+      if (!Array.isArray(rawItems) || rawItems.length === 0) {
+        throw new Error('The screenshot manifest does not contain any images.');
+      }
+
+      const normalized = rawItems
+        .map(normalizeManifestItem)
+        .filter(Boolean);
+
+      if (!normalized.length) {
+        throw new Error('No valid images were found in the screenshot manifest.');
+      }
+
+      return normalized;
+    } catch (error) {
+      console.warn('Using built-in media fallback because screenshots.json could not be loaded.', error);
+      return FALLBACK_MEDIA
+        .map(normalizeManifestItem)
+        .filter(Boolean);
+    }
+  }
+
+  function renderGallery(items) {
+    gallery.replaceChildren();
+
+    if (!items.length) {
+      const empty = document.createElement('div');
+      empty.className = 'gallery-empty';
+      empty.textContent = 'No screenshots are currently available.';
+      gallery.appendChild(empty);
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    items.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card reveal';
+
+      const image = document.createElement('img');
+      image.src = item.src;
+      image.alt = item.caption;
+      image.className = 'gallery-image';
+      image.loading = index < 2 ? 'eager' : 'lazy';
+      image.decoding = 'async';
+      image.dataset.caption = item.caption;
+
+      const label = document.createElement('div');
+      label.className = 'gallery-label';
+
+      const labelText = document.createElement('div');
+      const strong = document.createElement('strong');
+      const small = document.createElement('small');
+      strong.textContent = item.title;
+      small.textContent = item.subtitle;
+      labelText.append(strong, small);
+
+      const galleryIndex = document.createElement('span');
+      galleryIndex.className = 'gallery-index';
+      galleryIndex.textContent = String(index + 1).padStart(2, '0');
+
+      label.append(labelText, galleryIndex);
+
+      const button = document.createElement('button');
+      button.className = 'gallery-open-button';
+      button.type = 'button';
+      button.setAttribute('aria-label', `Open ${item.title}`);
+
+      card.append(image, label, button);
+      fragment.appendChild(card);
+    });
+
+    gallery.appendChild(fragment);
+    observeReveals(gallery);
+  }
+
+  function refreshLightboxItems() {
+    const cards = Array.from(gallery.querySelectorAll('.gallery-card'));
+    images = cards
+      .map((card) => card.querySelector('.gallery-image'))
+      .filter(Boolean);
+    openButtons = cards
+      .map((card) => card.querySelector('.gallery-open-button'))
+      .filter(Boolean);
+
+    openButtons.forEach((button, index) => {
+      button.addEventListener('click', () => openLightbox(index, button));
+    });
+  }
+
+  const normalizeIndex = (index) => {
+    if (!images.length) return 0;
+    return (index + images.length) % images.length;
+  };
+
+  function preloadNeighbor(index) {
+    if (!images.length) return;
+    const sourceImage = images[normalizeIndex(index)];
+    if (!sourceImage) return;
+    const preloadImage = new Image();
+    preloadImage.src = sourceImage.src;
+  }
+
+  function updateLightbox(index) {
+    if (!images.length) return;
+
+    currentIndex = normalizeIndex(index);
+    const sourceImage = images[currentIndex];
+    const caption = sourceImage.dataset.caption || sourceImage.alt || '21st Cavalry Division Media';
+
+    lightboxImage.src = sourceImage.src;
+    lightboxImage.alt = sourceImage.alt || caption;
+    lightboxCaption.textContent = caption;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+
+    preloadNeighbor(currentIndex - 1);
+    preloadNeighbor(currentIndex + 1);
+  }
+
+  function openLightbox(index, trigger) {
+    if (!images.length) return;
+
+    lastFocusedElement = trigger || document.activeElement;
+    updateLightbox(index);
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeButton.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox.classList.contains('active')) return;
+
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    lightboxImage.src = '';
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+  }
+
+  function showPreviousImage() {
+    updateLightbox(currentIndex - 1);
+  }
+
+  function showNextImage() {
+    updateLightbox(currentIndex + 1);
+  }
+
+  closeButton.addEventListener('click', closeLightbox);
+  previousButton.addEventListener('click', showPreviousImage);
+  nextButton.addEventListener('click', showNextImage);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeLightbox();
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      showPreviousImage();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      showNextImage();
+    }
+  });
+
+  lightbox.addEventListener(
+    'touchstart',
+    (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+
+  lightbox.addEventListener(
+    'touchend',
+    (event) => {
+      touchEndX = event.changedTouches[0].screenX;
+      const distance = touchEndX - touchStartX;
+
+      if (Math.abs(distance) > 55) {
+        distance > 0 ? showPreviousImage() : showNextImage();
+      }
+    },
+    { passive: true }
+  );
+
+  async function startGallery() {
+    const items = await loadMediaItems();
+    renderGallery(items);
+    refreshLightboxItems();
+  }
+
+  startGallery().catch((error) => {
+    console.error('Media gallery initialization failed.', error);
+    gallery.innerHTML = '<div class="gallery-empty">The media gallery could not be loaded.</div>';
+  });
 })();
 </script>
-    <script src="mobile.js?v=2"></script>
+<script src="mobile.js?v=2"></script>
 </body>
 </html>
