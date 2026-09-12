@@ -6323,13 +6323,6 @@ select option {
                             .select(
                                 'user_id,display_name,discord_id,email,status,first_login_at,last_login_at'
                             )
-                            .in(
-                                'status',
-                                [
-                                    'Pending',
-                                    'Denied'
-                                ]
-                            )
                             .order(
                                 'first_login_at',
                                 {
@@ -7254,7 +7247,7 @@ select option {
                                                 </h3>
 
                                                 <p>
-                                                    The former member must rejoin the Discord and log into the website once. Their new pending Discord login will then be linked to this discharge record.
+                                                    The former member must rejoin the Discord and log into the website once. Their Discord website login will be matched to this discharge record by Discord ID.
                                                 </p>
 
                                                 ${(() => {
@@ -7269,8 +7262,6 @@ select option {
                                                                 String(pending.discord_id)
                                                                 ===
                                                                 String(record.discord_id)
-                                                                &&
-                                                                pending.status !== 'Approved'
                                                         );
 
                                                     return `
