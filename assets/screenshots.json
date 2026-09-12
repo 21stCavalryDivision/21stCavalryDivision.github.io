@@ -1,0 +1,98 @@
+[
+  {
+    "file": "Unitmax.png",
+    "src": "assets/screenshots/Unitmax.png",
+    "title": "Operation Photo",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Operation Photo",
+    "caption": "Operation Photo"
+  },
+  {
+    "file": "Aviation.png",
+    "src": "assets/screenshots/Aviation.png",
+    "title": "Aviation",
+    "subtitle": "Air Cavalry Operations",
+    "alt": "21st Cavalry Division Aviation",
+    "caption": "Aviation"
+  },
+  {
+    "file": "TrainingShot.png",
+    "src": "assets/screenshots/TrainingShot.png",
+    "title": "Ground Operations",
+    "subtitle": "Maneuver Element",
+    "alt": "21st Cavalry Division Ground Operations",
+    "caption": "Ground Operations"
+  },
+  {
+    "file": "Armor.png",
+    "src": "assets/screenshots/Armor.png",
+    "title": "Armor Operations",
+    "subtitle": "Mounted Element",
+    "alt": "21st Cavalry Division Armor Operations",
+    "caption": "Armor Operations"
+  },
+  {
+    "file": "Training.png",
+    "src": "assets/screenshots/Training.png",
+    "title": "Unit Training",
+    "subtitle": "Readiness & Qualification",
+    "alt": "21st Cavalry Division Unit Training",
+    "caption": "Unit Training"
+  },
+  {
+    "file": "Arty.png",
+    "src": "assets/screenshots/Arty.png",
+    "title": "Artillery Support",
+    "subtitle": "Combined Arms Fires",
+    "alt": "21st Cavalry Division Artillery Support",
+    "caption": "Artillery Support"
+  },
+  {
+    "file": "SRTraining.png",
+    "src": "assets/screenshots/SRTraining.png",
+    "title": "Small Unit Training",
+    "subtitle": "Team & Squad Tactics",
+    "alt": "21st Cavalry Division Small Unit Training",
+    "caption": "Small Unit Training"
+  },
+  {
+    "file": "BradleyFire.png",
+    "src": "assets/screenshots/BradleyFire.png",
+    "title": "Bradley Live Fire",
+    "subtitle": "Armor Gunnery",
+    "alt": "21st Cavalry Division Bradley Live Fire",
+    "caption": "Bradley Live Fire"
+  },
+  {
+    "file": "GunRun.png",
+    "src": "assets/screenshots/GunRun.png",
+    "title": "Aviation Gun Run",
+    "subtitle": "Air Support",
+    "alt": "21st Cavalry Division Aviation Gun Run",
+    "caption": "Aviation Gun Run"
+  },
+  {
+    "file": "LilBirdFire.png",
+    "src": "assets/screenshots/LilBirdFire.png",
+    "title": "Little Bird Fire Mission",
+    "subtitle": "Aviation Detachment",
+    "alt": "21st Cavalry Division Little Bird Fire Mission",
+    "caption": "Little Bird Fire Mission"
+  },
+  {
+    "file": "21stBanner.png",
+    "src": "assets/screenshots/21stBanner.png",
+    "title": "21st Banner",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division 21st Banner",
+    "caption": "21st Banner"
+  },
+  {
+    "file": "Sunrise.png",
+    "src": "assets/screenshots/Sunrise.png",
+    "title": "Sunrise",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Sunrise",
+    "caption": "Sunrise"
+  }
+]
