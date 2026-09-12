@@ -236,6 +236,26 @@
     "name": "ACE Core Dev"
   },
   {
+    "modId": "6586079789278413",
+    "name": "ACE Medical Core Dev"
+  },
+  {
+    "modId": "65B343F799FB521B",
+    "name": "ACE Medical Hitzones Dev"
+  },
+  {
+    "modId": "65AD7D4F994EA327",
+    "name": "ACE Medical Circulation Dev"
+  },
+  {
+    "modId": "671F73D99978B4F2",
+    "name": "ACE Medical Breathing Dev"
+  },
+  {
+    "modId": "65AD7C379CBD394D",
+    "name": "ACE Carrying Dev"
+  },
+  {
     "modId": "5964E0B3BB7410CE",
     "name": "Game Master Enhanced"
   },
