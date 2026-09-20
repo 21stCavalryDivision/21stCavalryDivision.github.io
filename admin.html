@@ -3651,6 +3651,10 @@ select option {
                     [];
 
 
+                let recruitmentApplications =
+                    [];
+
+
                 let dischargeRecords =
                     [];
 
@@ -6304,6 +6308,115 @@ select option {
                 }
 
 
+                function renderRecruitmentApplications() {
+
+                    const pendingApplications =
+                        recruitmentApplications.filter(
+                            application =>
+                                String(application.status || 'Pending').toLowerCase()
+                                === 'pending'
+                        );
+
+                    if (!pendingApplications.length) {
+                        return;
+                    }
+
+                    const oldPendingCount =
+                        pendingMembers.filter(
+                            member =>
+                                member.status === 'Pending'
+                        ).length;
+
+                    const totalAwaiting =
+                        oldPendingCount + pendingApplications.length;
+
+                    pendingMemberHeadingCount.textContent =
+                        `${totalAwaiting} Awaiting Approval`;
+
+                    pendingMemberCountLine.textContent =
+                        `${totalAwaiting} awaiting approval`;
+
+                    const currentEmpty =
+                        pendingMemberList.querySelector('.admin-empty');
+
+                    if (
+                        currentEmpty
+                        &&
+                        !pendingMembers.some(
+                            member =>
+                                member.status === 'Pending'
+                                ||
+                                member.status === 'Denied'
+                        )
+                    ) {
+                        pendingMemberList.innerHTML = '';
+                    }
+
+                    pendingMemberList.insertAdjacentHTML(
+                        'beforeend',
+                        pendingApplications.map(
+                            application => `
+                                <article
+                                    class="pending-member-card"
+                                    data-recruitment-application-id="${escapeHtml(application.id)}"
+                                >
+                                    <div class="pending-member-top">
+                                        <div class="pending-member-name">
+                                            <strong>
+                                                ${escapeHtml(application.display_name || 'Applicant')}
+                                            </strong>
+                                            <small>
+                                                Recruitment Application #${escapeHtml(application.id)}
+                                            </small>
+                                        </div>
+
+                                        <span class="pending-status-badge">
+                                            Application Pending
+                                        </span>
+                                    </div>
+
+                                    <div class="pending-member-meta">
+                                        <div class="pending-meta-item">
+                                            <span>Age</span>
+                                            <strong>${escapeHtml(application.age ?? 'Not provided')}</strong>
+                                        </div>
+
+                                        <div class="pending-meta-item">
+                                            <span>Timezone</span>
+                                            <strong>${escapeHtml(application.timezone || 'Not provided')}</strong>
+                                        </div>
+
+                                        <div class="pending-meta-item">
+                                            <span>Preferred Role</span>
+                                            <strong>${escapeHtml(application.preferred_role || 'Not provided')}</strong>
+                                        </div>
+
+                                        <div class="pending-meta-item">
+                                            <span>Submitted</span>
+                                            <strong>${escapeHtml(formatPendingDate(application.created_at))}</strong>
+                                        </div>
+
+                                        <div class="pending-meta-item" style="grid-column:span 2;">
+                                            <span>Previous Experience</span>
+                                            <strong>${escapeHtml(application.previous_experience || 'None provided')}</strong>
+                                        </div>
+
+                                        <div class="pending-meta-item" style="grid-column:1 / -1;">
+                                            <span>Why They Want To Join</span>
+                                            <strong>${escapeHtml(application.why_join || 'Not provided')}</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="pending-member-message">
+                                        Application received. Approval controls will appear once this application is linked to the applicant's Discord account.
+                                    </div>
+                                </article>
+                            `
+                        ).join('')
+                    );
+                }
+
+
                 async function loadPendingMembers() {
 
                     pendingMemberList.innerHTML = `
@@ -6361,6 +6474,48 @@ select option {
                         data || [];
 
                     renderPendingMembers();
+
+
+                    const {
+                        data: applicationData,
+                        error: applicationError
+                    } =
+                        await client
+                            .from('recruitment_applications')
+                            .select(
+                                'id,created_at,display_name,age,timezone,preferred_role,previous_experience,why_join,status'
+                            )
+                            .eq(
+                                'status',
+                                'Pending'
+                            )
+                            .order(
+                                'created_at',
+                                {
+                                    ascending:
+                                        true
+                                }
+                            );
+
+                    if (applicationError) {
+                        console.error(
+                            'Could not load recruitment applications:',
+                            applicationError
+                        );
+
+                        setPendingMemberMessage(
+                            'Discord pending members loaded, but recruitment applications could not be loaded: ' +
+                            applicationError.message,
+                            'error'
+                        );
+
+                        return;
+                    }
+
+                    recruitmentApplications =
+                        applicationData || [];
+
+                    renderRecruitmentApplications();
 
                 }
 
