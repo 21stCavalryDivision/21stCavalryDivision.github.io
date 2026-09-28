@@ -88,6 +88,14 @@
     "caption": "21st Banner"
   },
   {
+    "file": "Mortarman.png",
+    "src": "assets/screenshots/Mortarman.png",
+    "title": "Mortarman",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Mortarman",
+    "caption": "Mortarman"
+  },
+  {
     "file": "Sunrise.png",
     "src": "assets/screenshots/Sunrise.png",
     "title": "Sunrise",
