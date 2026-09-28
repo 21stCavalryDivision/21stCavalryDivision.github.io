@@ -88,12 +88,36 @@
     "caption": "21st Banner"
   },
   {
+    "file": "Basic Trainning..png",
+    "src": "assets/screenshots/Basic%20Trainning..png",
+    "title": "Basic Trainning.",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Basic Trainning.",
+    "caption": "Basic Trainning."
+  },
+  {
+    "file": "Medical Aid.png",
+    "src": "assets/screenshots/Medical%20Aid.png",
+    "title": "Medical Aid",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Medical Aid",
+    "caption": "Medical Aid"
+  },
+  {
     "file": "Mortarman.png",
     "src": "assets/screenshots/Mortarman.png",
     "title": "Mortarman",
     "subtitle": "21st Cavalry Division",
     "alt": "21st Cavalry Division Mortarman",
     "caption": "Mortarman"
+  },
+  {
+    "file": "Sniper School.png",
+    "src": "assets/screenshots/Sniper%20School.png",
+    "title": "Sniper School",
+    "subtitle": "21st Cavalry Division",
+    "alt": "21st Cavalry Division Sniper School",
+    "caption": "Sniper School"
   },
   {
     "file": "Sunrise.png",
