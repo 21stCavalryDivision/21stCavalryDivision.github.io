@@ -651,7 +651,13 @@
   const rankOrder=["GEN","LTG","MG","BG","COL","LTC","MAJ","CPT","1LT","2LT","CW5","CW4","CW3","CW2","WO1","CSM","SGM","1SG","MSG","SFC","SSG","SGT","CPL","SPC","PFC","PV2","PVT"];
   const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
   const norm=v=>String(v??"").trim().toLowerCase();
-  const rankIndex=r=>{const i=rankOrder.indexOf(String(r??"").trim().toUpperCase());return i<0?999:i};
+  const rankIndex=r=>{
+    const raw=String(r??"").trim().toUpperCase();
+    const abbr=(raw.match(/\(([A-Z0-9]+)\)\s*$/)||[])[1];
+    const key=abbr||raw;
+    const i=rankOrder.indexOf(key);
+    return i<0?999:i;
+  };
   const sorter=(a,b)=>rankIndex(a.rank)-rankIndex(b.rank)||String(a.display_name||"").localeCompare(String(b.display_name||""));
 
   function person(m){
@@ -682,7 +688,9 @@
     const groups=new Map();
     members.filter(m=>{
       const s=norm(m.section);
-      return s && !category(m) && !/unassigned|none|n\/a/.test(s);
+      const namedManeuverSections=["patriots","roughnecks","hellhounds","reapers"];
+      if(namedManeuverSections.includes(s)) return true;
+      return s && !category(m) && !/unassigned|none|n\/a|division hq|headquarters|command staff/.test(s);
     }).forEach(m=>{
       const s=String(m.section).trim();
       if(!groups.has(s)) groups.set(s,[]);
