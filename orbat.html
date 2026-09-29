@@ -246,7 +246,7 @@
 
         .org-tree{
             display:grid;
-            grid-template-columns:repeat(2,minmax(0,1fr));
+            grid-template-columns:1fr;
             gap:20px;
             align-items:start;
         }
@@ -321,7 +321,7 @@
         }
         .unit-grid{
             display:grid;
-            grid-template-columns:repeat(3,minmax(0,1fr));
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
             gap:10px;
         }
         .unit-card{
@@ -336,6 +336,13 @@
             text-transform:uppercase;
         }
         .unit-card .orbat-personnel{margin-top:9px}
+
+        @media(max-width:900px){
+            .unit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        }
+        @media(max-width:620px){
+            .unit-grid{grid-template-columns:1fr}
+        }
 
         .support-grid{
             display:grid;
@@ -667,7 +674,6 @@
       organization.formations.map(formation => '<article class="element reveal visible"><div class="element-head"><h3>' + esc(formation.name) + '</h3></div><div class="element-body">' +
         (assigned(formation.name).length ? personnel(assigned(formation.name)) : '') +
         formation.companies.map(company => '<section class="company-block"><div class="company-heading">' + esc(company.name) + '</div>' +
-          (assigned(company.name).length ? personnel(assigned(company.name)) : '') +
           '<div class="unit-grid">' + company.units.map(unit => '<div class="unit-card"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div></section>').join('') + '</div></article>').join('');
     const other = members.filter(m => !organization.sectionDetails(m.section) && !['division hq', 'command staff'].includes(norm(m.section))).sort(sorter);
     if(other.length) root.innerHTML += '<article class="element reveal visible"><div class="element-head"><h3>Unassigned / Previous Assignments</h3></div><div class="element-body">' + other.map(m => person(m) + '<div class="orbat-empty">' + esc(m.section || 'Unassigned') + '</div>').join('') + '</div></article>';
