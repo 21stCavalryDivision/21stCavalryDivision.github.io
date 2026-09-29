@@ -248,6 +248,7 @@
             display:grid;
             grid-template-columns:repeat(2,minmax(0,1fr));
             gap:20px;
+            align-items:start;
         }
 
         .element{
@@ -301,6 +302,40 @@
             letter-spacing:.02em;
         }
         .subunit span{font-size:12px;color:var(--muted);text-align:right}
+
+        .company-block{
+            padding:14px 0 18px;
+            border-bottom:1px solid #20271f;
+        }
+        .company-block:last-child{border-bottom:0;padding-bottom:0}
+        .company-heading{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:14px;
+            padding:0 4px 10px;
+            color:var(--gold);
+            font:700 17px/1.1 Oswald,sans-serif;
+            text-transform:uppercase;
+            letter-spacing:.04em;
+        }
+        .unit-grid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:10px;
+        }
+        .unit-card{
+            min-width:0;
+            padding:13px 12px;
+            border:1px solid #20271f;
+            background:#070a08;
+        }
+        .unit-card strong{
+            display:block;
+            font:700 15px/1.15 Oswald,sans-serif;
+            text-transform:uppercase;
+        }
+        .unit-card .orbat-personnel{margin-top:9px}
 
         .support-grid{
             display:grid;
@@ -408,6 +443,7 @@
             .main-nav.open{display:flex}
             .main-nav>a{padding:10px 0}
             .command-grid,.org-tree{grid-template-columns:1fr}
+            .unit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
             .page-hero{min-height:390px}
         }
 
@@ -419,6 +455,7 @@
             .section{padding:54px 0}
             .section-top{align-items:flex-start;flex-direction:column}
             .legend-row{grid-template-columns:1fr;gap:6px}
+            .unit-grid{grid-template-columns:1fr}
             footer{flex-direction:column;align-items:flex-start}
         }
     </style>
@@ -629,9 +666,9 @@
     root.innerHTML = '<article class="element reveal visible"><div class="element-head"><h3>Division Headquarters</h3></div><div class="element-body">' + personnel(headquarters) + '</div></article>' +
       organization.formations.map(formation => '<article class="element reveal visible"><div class="element-head"><h3>' + esc(formation.name) + '</h3></div><div class="element-body">' +
         (assigned(formation.name).length ? personnel(assigned(formation.name)) : '') +
-        formation.companies.map(company => '<div class="subunit"><strong>' + esc(company.name) + '</strong>' +
+        formation.companies.map(company => '<section class="company-block"><div class="company-heading">' + esc(company.name) + '</div>' +
           (assigned(company.name).length ? personnel(assigned(company.name)) : '') +
-          company.units.map(unit => '<div class="subunit"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div>').join('') + '</div></article>').join('');
+          '<div class="unit-grid">' + company.units.map(unit => '<div class="unit-card"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div></section>').join('') + '</div></article>').join('');
     const other = members.filter(m => !organization.sectionDetails(m.section) && !['division hq', 'command staff'].includes(norm(m.section))).sort(sorter);
     if(other.length) root.innerHTML += '<article class="element reveal visible"><div class="element-head"><h3>Unassigned / Previous Assignments</h3></div><div class="element-body">' + other.map(m => person(m) + '<div class="orbat-empty">' + esc(m.section || 'Unassigned') + '</div>').join('') + '</div></article>';
   }
