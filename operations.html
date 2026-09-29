@@ -1949,9 +1949,7 @@ footer{
     <!-- ============================================= -->
     <!-- SUPABASE -->
     <!-- ============================================= -->
-
-    <script src="organization.js"></script>
-    <script
+<script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
@@ -2093,7 +2091,73 @@ footer{
                         'operationSection'
                     );
 
-                operationSection.innerHTML = window.DivisionOrganization.operationOptions('All Personnel');
+                const OPERATION_SECTION_OPTIONS = [
+                    'All Personnel',
+                    'Division HQ',
+                    'Patriots',
+                    'Patriots - Headquarters',
+                    'Patriots - 1st Squad',
+                    'Patriots - 2nd Squad',
+                    'Patriots - 3rd Squad',
+                    'Hellhounds',
+                    'Hellhounds - Headquarters',
+                    'Hellhounds - 1st Squad',
+                    'Hellhounds - 2nd Squad',
+                    'Reapers',
+                    'Reapers - Headquarters',
+                    'Reapers - 1st Squad',
+                    'Reapers - 2nd Squad',
+                    'Spartans',
+                    'Spartans - Headquarters',
+                    'Spartans - 1st Squad',
+                    'Spartans - 2nd Squad',
+                    'Titans',
+                    'Titans - Headquarters',
+                    'Titans - 1st Squad',
+                    'Titans - 2nd Squad',
+                    'Raiders',
+                    'Raiders - Headquarters',
+                    'Raiders - 1st Squad',
+                    'Raiders - 2nd Squad',
+                    'Roughnecks',
+                    'Roughnecks - Headquarters',
+                    'Roughnecks - 1st Squad',
+                    'Roughnecks - 2nd Squad',
+                    'Havoc',
+                    'Havoc - Headquarters',
+                    'Havoc - 1st Squad',
+                    'Havoc - 2nd Squad',
+                    'Wolverine',
+                    'Wolverine - Headquarters',
+                    'Wolverine - 1st Squad',
+                    'Wolverine - 2nd Squad',
+                    'Sentinel Company',
+                    'Sentinel Company - Headquarters',
+                    'Sentinel Company - Ghost Squad',
+                    'Sentinel Company - Stalker Squad',
+                    'Sentinel Company - Raven Squad',
+                    'Sentinel Company - Nomad Squad',
+                    'IronEagle Company',
+                    'IronEagle Company - Headquarters',
+                    'IronEagle Company - IronEagle 1',
+                    'IronEagle Company - IronEagle 2',
+                    'NightWing Company',
+                    'NightWing Company - Headquarters',
+                    'NightWing Company - NightWing 1',
+                    'NightWing Company - NightWing 2',
+                    'Guardian Company',
+                    'Guardian Company - Headquarters',
+                    'Guardian Company - Guardian 1',
+                    'Guardian Company - Guardian 2'
+                ];
+                function setOperationSectionOptions(selected = 'All Personnel') {
+                    const values = [...OPERATION_SECTION_OPTIONS];
+                    if (selected && !values.includes(selected)) values.unshift(selected);
+                    operationSection.innerHTML = values.map(value =>
+                        `<option value="${escapeHtml(value)}"${value === selected ? ' selected' : ''}>${escapeHtml(value)}</option>`
+                    ).join('');
+                }
+                setOperationSectionOptions('All Personnel');
 
 
                 const operationStatus =
@@ -4629,7 +4693,7 @@ if (attendanceEventError) {
                                             '';
 
 
-                                        operationSection.innerHTML = window.DivisionOrganization.operationOptions(operation.required_section || 'All Personnel');
+                                        setOperationSectionOptions(operation.required_section || 'All Personnel');
 
 
                                         operationStatus.value =
@@ -4905,7 +4969,19 @@ if (attendanceEventError) {
                 }
 
 
-                await initialize();
+                try {
+                    await initialize();
+                } catch (error) {
+                    console.error('OPBOARD initialization failed:', error);
+                    boardLoading.hidden = true;
+                    boardContent.hidden = true;
+                    loginRequired.hidden = true;
+                    membershipRequired.hidden = false;
+                    const h = membershipRequired.querySelector('h2');
+                    const p = membershipRequired.querySelector('p:not(.eyebrow)');
+                    if (h) h.textContent = 'Unable to Load OPBOARD';
+                    if (p) p.textContent = 'The operations board could not finish loading. Refresh the page and try again.';
+                }
 
             }
 

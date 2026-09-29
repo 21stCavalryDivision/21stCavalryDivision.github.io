@@ -3483,9 +3483,7 @@ select option {
     <!-- =================================================
          SUPABASE
          ================================================= -->
-
-    <script src="organization.js"></script>
-    <script
+<script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
 
@@ -4028,14 +4026,114 @@ select option {
                    BILLETS
                    ================================================= */
 
-                const BILLET_OPTIONS = window.DivisionOrganization.billets;
+                const BILLET_OPTIONS = [
+                    'Unassigned',
+                    'Division Commander',
+                    'Executive Officer',
+                    'Command Sergeant Major',
+                    'Operations Officer',
+                    'Personnel Officer',
+                    'Training Officer',
+                    'First Sergeant',
+                    'Platoon Leader',
+                    'Platoon Sergeant',
+                    'Squad Leader',
+                    'Team Leader',
+                    'Rifleman',
+                    'Automatic Rifleman',
+                    'Grenadier',
+                    'Machine Gunner',
+                    'Anti-Tank Rifleman',
+                    'Designated Marksman',
+                    'Combat Medic',
+                    'Radio Telephone Operator',
+                    'Forward Observer',
+                    'Aviation Detachment Commander',
+                    'Pilot',
+                    'Copilot',
+                    'Crew Chief',
+                    'Door Gunner',
+                    'Armor Section Leader',
+                    'Vehicle Commander',
+                    'Gunner',
+                    'Driver',
+                    'Crewman',
+                    'Recon Section Leader',
+                    'Scout',
+                    'Sniper',
+                    'Spotter',
+                    'Medical Section Leader',
+                    'Training Section Leader',
+                    'Instructor',
+                    'Training NCO',
+                    'Recruitment Section Leader',
+                    'Recruiter'
+                ];
 
 
                 /* =================================================
                    SECTIONS
                    ================================================= */
 
-                const SECTION_OPTIONS = window.DivisionOrganization.sections;
+                const SECTION_OPTIONS = [
+                    'Unassigned',
+                    'Division HQ',
+                    'Patriots',
+                    'Patriots - Headquarters',
+                    'Patriots - 1st Squad',
+                    'Patriots - 2nd Squad',
+                    'Patriots - 3rd Squad',
+                    'Hellhounds',
+                    'Hellhounds - Headquarters',
+                    'Hellhounds - 1st Squad',
+                    'Hellhounds - 2nd Squad',
+                    'Reapers',
+                    'Reapers - Headquarters',
+                    'Reapers - 1st Squad',
+                    'Reapers - 2nd Squad',
+                    'Spartans',
+                    'Spartans - Headquarters',
+                    'Spartans - 1st Squad',
+                    'Spartans - 2nd Squad',
+                    'Titans',
+                    'Titans - Headquarters',
+                    'Titans - 1st Squad',
+                    'Titans - 2nd Squad',
+                    'Raiders',
+                    'Raiders - Headquarters',
+                    'Raiders - 1st Squad',
+                    'Raiders - 2nd Squad',
+                    'Roughnecks',
+                    'Roughnecks - Headquarters',
+                    'Roughnecks - 1st Squad',
+                    'Roughnecks - 2nd Squad',
+                    'Havoc',
+                    'Havoc - Headquarters',
+                    'Havoc - 1st Squad',
+                    'Havoc - 2nd Squad',
+                    'Wolverine',
+                    'Wolverine - Headquarters',
+                    'Wolverine - 1st Squad',
+                    'Wolverine - 2nd Squad',
+                    'Sentinel Company',
+                    'Sentinel Company - Headquarters',
+                    'Sentinel Company - Ghost Squad',
+                    'Sentinel Company - Stalker Squad',
+                    'Sentinel Company - Raven Squad',
+                    'Sentinel Company - Nomad Squad',
+                    'IronEagle Company',
+                    'IronEagle Company - Headquarters',
+                    'IronEagle Company - IronEagle 1',
+                    'IronEagle Company - IronEagle 2',
+                    'NightWing Company',
+                    'NightWing Company - Headquarters',
+                    'NightWing Company - NightWing 1',
+                    'NightWing Company - NightWing 2',
+                    'Guardian Company',
+                    'Guardian Company - Headquarters',
+                    'Guardian Company - Guardian 1',
+                    'Guardian Company - Guardian 2'
+                ];
 
 
                 /* =================================================
@@ -4258,10 +4356,6 @@ select option {
                     values,
                     selected
                 ) {
-
-                    if (values === BILLET_OPTIONS || values === SECTION_OPTIONS) {
-                        return window.DivisionOrganization.options(values, selected);
-                    }
 
                     const options =
                         [...values];
