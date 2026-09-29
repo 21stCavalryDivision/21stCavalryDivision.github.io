@@ -246,7 +246,7 @@
 
         .org-tree{
             display:grid;
-            grid-template-columns:repeat(2,minmax(0,1fr));
+            grid-template-columns:1fr;
             gap:20px;
             align-items:start;
         }
@@ -321,7 +321,7 @@
         }
         .unit-grid{
             display:grid;
-            grid-template-columns:repeat(3,minmax(0,1fr));
+            grid-template-columns:repeat(2,minmax(0,1fr));
             gap:10px;
         }
         .unit-card{
@@ -658,7 +658,64 @@
 
   function renderManeuver(members){
     const root = document.getElementById('dynamicManeuverOrbat');
-    const organization = window.DivisionOrganization;
+    // ORBAT structure is embedded here so the page no longer depends on organization.js.
+    // Section values match the personnel system / Discord organization.
+    const organization = {
+      formations: [
+        { name: '1st Cavalry Brigade', companies: [
+          { name: 'Patriots', units: [
+            {name:'1st Platoon',value:'Patriots - 1st Platoon'},
+            {name:'2nd Platoon',value:'Patriots - 2nd Platoon'},
+            {name:'3rd Platoon',value:'Patriots - 3rd Platoon'}
+          ]},
+          { name: 'Hellhounds', units: [
+            {name:'1st Platoon',value:'Hellhounds - 1st Platoon'},
+            {name:'2nd Platoon',value:'Hellhounds - 2nd Platoon'},
+            {name:'3rd Platoon',value:'Hellhounds - 3rd Platoon'}
+          ]},
+          { name: 'Reapers', units: [
+            {name:'1st Platoon',value:'Reapers - 1st Platoon'},
+            {name:'2nd Platoon',value:'Reapers - 2nd Platoon'},
+            {name:'3rd Platoon',value:'Reapers - 3rd Platoon'}
+          ]}
+        ]},
+        { name: '2nd Cavalry Brigade', companies: [
+          { name: 'Spartans', units: [] },
+          { name: 'Titans', units: [] },
+          { name: 'Raiders', units: [] }
+        ]},
+        { name: 'Combat Aviation Brigade', companies: [
+          { name: 'Roughnecks', units: [] },
+          { name: 'Havoc', units: [] },
+          { name: 'Wolverine', units: [] }
+        ]},
+        { name: 'Special Troops Battalion (STB)', companies: [
+          { name: 'Sentinel Company', units: [
+            {name:'Ghost Squad',value:'Sentinel Company - Ghost Squad'},
+            {name:'Stalker Squad',value:'Sentinel Company - Stalker Squad'},
+            {name:'Raven Squad',value:'Sentinel Company - Raven Squad'},
+            {name:'Nomad Squad',value:'Sentinel Company - Nomad Squad'}
+          ]}
+        ]},
+        { name: 'Aviation Brigade', companies: [
+          { name: 'IronEagle Company', units: [] },
+          { name: 'NightWing Company', units: [] },
+          { name: 'Guardian Company', units: [] }
+        ]}
+      ],
+      sectionDetails(value){
+        const v=String(value||'').trim();
+        if(!v) return null;
+        for(const f of this.formations){
+          if(v===f.name) return {formation:f};
+          for(const c of f.companies){
+            if(v===c.name) return {formation:f,company:c};
+            for(const u of c.units||[]) if(v===u.value) return {formation:f,company:c,unit:u};
+          }
+        }
+        return null;
+      }
+    };
     const assigned = value => members.filter(m => String(m.section || '').trim() === value).sort(sorter);
     const personnel = people => people.length ? people.map(person).join('') : '<div class="orbat-empty">No personnel assigned</div>';
     const senior = new Set(['division commander', 'executive officer', 'command sergeant major']);
@@ -668,7 +725,7 @@
         (assigned(formation.name).length ? personnel(assigned(formation.name)) : '') +
         formation.companies.map(company => '<section class="company-block"><div class="company-heading">' + esc(company.name) + '</div>' +
           (assigned(company.name).length ? personnel(assigned(company.name)) : '') +
-          '<div class="unit-grid">' + company.units.map(unit => '<div class="unit-card"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div></section>').join('') + '</div></article>').join('');
+          (company.units && company.units.length ? '<div class="unit-grid">' + company.units.map(unit => '<div class="unit-card"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div>' : '') + '</section>').join('') + '</div></article>').join('');
     const other = members.filter(m => !organization.sectionDetails(m.section) && !['division hq', 'command staff'].includes(norm(m.section))).sort(sorter);
     if(other.length) root.innerHTML += '<article class="element reveal visible"><div class="element-head"><h3>Unassigned / Previous Assignments</h3></div><div class="element-body">' + other.map(m => person(m) + '<div class="orbat-empty">' + esc(m.section || 'Unassigned') + '</div>').join('') + '</div></article>';
   }
