@@ -468,115 +468,124 @@
     </style>
     <link rel="stylesheet" href="mobile.css?v=2">
 <script>
-window.DivisionOrganization = window.DivisionOrganization || {
- sections: [
-                    'Unassigned',
-                    'Division HQ',
-                    'Patriots',
-                    'Patriots - Headquarters',
-                    'Patriots - 1st Squad',
-                    'Patriots - 2nd Squad',
-                    'Patriots - 3rd Squad',
-                    'Hellhounds',
-                    'Hellhounds - Headquarters',
-                    'Hellhounds - 1st Squad',
-                    'Hellhounds - 2nd Squad',
-                    'Reapers',
-                    'Reapers - Headquarters',
-                    'Reapers - 1st Squad',
-                    'Reapers - 2nd Squad',
-                    'Spartans',
-                    'Spartans - Headquarters',
-                    'Spartans - 1st Squad',
-                    'Spartans - 2nd Squad',
-                    'Titans',
-                    'Titans - Headquarters',
-                    'Titans - 1st Squad',
-                    'Titans - 2nd Squad',
-                    'Raiders',
-                    'Raiders - Headquarters',
-                    'Raiders - 1st Squad',
-                    'Raiders - 2nd Squad',
-                    'Roughnecks',
-                    'Roughnecks - Headquarters',
-                    'Roughnecks - 1st Squad',
-                    'Roughnecks - 2nd Squad',
-                    'Havoc',
-                    'Havoc - Headquarters',
-                    'Havoc - 1st Squad',
-                    'Havoc - 2nd Squad',
-                    'Wolverine',
-                    'Wolverine - Headquarters',
-                    'Wolverine - 1st Squad',
-                    'Wolverine - 2nd Squad',
-                    'Sentinel Company',
-                    'Sentinel Company - Headquarters',
-                    'Sentinel Company - Ghost Squad',
-                    'Sentinel Company - Stalker Squad',
-                    'Sentinel Company - Raven Squad',
-                    'Sentinel Company - Nomad Squad',
-                    'IronEagle Company',
-                    'IronEagle Company - Headquarters',
-                    'IronEagle Company - IronEagle 1',
-                    'IronEagle Company - IronEagle 2',
-                    'NightWing Company',
-                    'NightWing Company - Headquarters',
-                    'NightWing Company - NightWing 1',
-                    'NightWing Company - NightWing 2',
-                    'Guardian Company',
-                    'Guardian Company - Headquarters',
-                    'Guardian Company - Guardian 1',
-                    'Guardian Company - Guardian 2'
-                ],
- billets: [
-                    'Unassigned',
-                    'Division Commander',
-                    'Executive Officer',
-                    'Command Sergeant Major',
-                    'Operations Officer',
-                    'Personnel Officer',
-                    'Training Officer',
-                    'First Sergeant',
-                    'Platoon Leader',
-                    'Platoon Sergeant',
-                    'Squad Leader',
-                    'Team Leader',
-                    'Rifleman',
-                    'Automatic Rifleman',
-                    'Grenadier',
-                    'Machine Gunner',
-                    'Anti-Tank Rifleman',
-                    'Designated Marksman',
-                    'Combat Medic',
-                    'Radio Telephone Operator',
-                    'Forward Observer',
-                    'Aviation Detachment Commander',
-                    'Pilot',
-                    'Copilot',
-                    'Crew Chief',
-                    'Door Gunner',
-                    'Armor Section Leader',
-                    'Vehicle Commander',
-                    'Gunner',
-                    'Driver',
-                    'Crewman',
-                    'Recon Section Leader',
-                    'Scout',
-                    'Sniper',
-                    'Spotter',
-                    'Medical Section Leader',
-                    'Training Section Leader',
-                    'Instructor',
-                    'Training NCO',
-                    'Recruitment Section Leader',
-                    'Recruiter'
-                ],
- options(values, selected) {
-  const list=[...values]; if(selected&&!list.includes(selected)) list.unshift(selected);
-  return list.map(v=>`<option value="${v}"${v===selected?' selected':''}>${v}</option>`).join('');
- },
- operationOptions(selected='All Personnel'){return this.options(['All Personnel',...this.sections.filter(x=>x!=='Unassigned')],selected);}
-};
+(function () {
+  'use strict';
+
+  const formations = [
+    {
+      name: '1st Cavalry Brigade',
+      companies: [
+        { name: 'Patriots', units: [
+          { name: 'Patriots Headquarters', value: 'Patriots' },
+          { name: '1st Squad', value: 'Patriots - 1st Squad' },
+          { name: '2nd Squad', value: 'Patriots - 2nd Squad' },
+          { name: '3rd Squad', value: 'Patriots - 3rd Squad' }
+        ]},
+        { name: 'Hellhounds', units: [
+          { name: 'Hellhounds Headquarters', value: 'Hellhounds' },
+          { name: '1st Squad', value: 'Hellhounds - 1st Squad' },
+          { name: '2nd Squad', value: 'Hellhounds - 2nd Squad' }
+        ]},
+        { name: 'Reapers', units: [
+          { name: 'Reapers Headquarters', value: 'Reapers' },
+          { name: '1st Squad', value: 'Reapers - 1st Squad' },
+          { name: '2nd Squad', value: 'Reapers - 2nd Squad' }
+        ]}
+      ]
+    },
+    {
+      name: 'Special Troops Battalion (STB)',
+      companies: [
+        { name: 'Sentinel Company', units: [
+          { name: 'Sentinel Company Headquarters', value: 'Sentinel Company' },
+          { name: 'Ghost Squad', value: 'Sentinel Company - Ghost Squad' },
+          { name: 'Stalker Squad', value: 'Sentinel Company - Stalker Squad' },
+          { name: 'Raven Squad', value: 'Sentinel Company - Raven Squad' },
+          { name: 'Nomad Squad', value: 'Sentinel Company - Nomad Squad' }
+        ]},
+        { name: 'Guardian Company', units: [
+          { name: 'Guardian Company Headquarters', value: 'Guardian Company' },
+          { name: 'Medical Section', value: 'Guardian Company - Medical Section' },
+          { name: 'Support Section', value: 'Guardian Company - Support Section' }
+        ]}
+      ]
+    },
+    {
+      name: 'Aviation Brigade',
+      companies: [
+        { name: 'IronEagle Company', units: [
+          { name: 'IronEagle Company Headquarters', value: 'IronEagle Company' },
+          { name: 'IronEagle 1', value: 'IronEagle 1' },
+          { name: 'IronEagle 2', value: 'IronEagle 2' }
+        ]},
+        { name: 'NightWing Company', units: [
+          { name: 'NightWing Company Headquarters', value: 'NightWing Company' },
+          { name: 'NightWing 1', value: 'NightWing 1' },
+          { name: 'NightWing 2', value: 'NightWing 2' }
+        ]}
+      ]
+    }
+  ];
+
+  const legacySections = [
+    'Unassigned', 'Division HQ', 'Command Staff',
+    '2nd Cavalry Brigade', 'Spartans', 'Titans', 'Raiders',
+    'Combat Aviation Brigade', 'Roughnecks', 'Havoc', 'Wolverine'
+  ];
+
+  const sections = [...legacySections];
+  formations.forEach(f => {
+    sections.push(f.name);
+    f.companies.forEach(c => {
+      sections.push(c.name);
+      c.units.forEach(u => sections.push(u.value));
+    });
+  });
+
+  const billets = [
+    'Unassigned',
+    'Division Commander', 'Executive Officer', 'Command Sergeant Major',
+    'Operations Officer', 'Personnel Officer', 'Training Officer', 'First Sergeant',
+    'Company Commander', 'Company Executive Officer', 'Company First Sergeant',
+    'Platoon Leader', 'Platoon Sergeant', 'Squad Leader', 'Team Leader',
+    'Rifleman', 'Automatic Rifleman', 'Grenadier', 'Machine Gunner',
+    'Anti-Tank Rifleman', 'Designated Marksman', 'Combat Medic',
+    'Radio Telephone Operator', 'Forward Observer',
+    'Aviation Detachment Commander', 'Pilot', 'Copilot', 'Crew Chief', 'Door Gunner',
+    'Armor Section Leader', 'Vehicle Commander', 'Gunner', 'Driver', 'Crewman',
+    'Recon Company Commander', 'Recon Section Leader', 'Scout', 'Sniper', 'Spotter',
+    'Medical Section Leader', 'Training Section Leader', 'Instructor', 'Training NCO',
+    'Recruitment Section Leader', 'Recruiter'
+  ];
+
+  function esc(v) {
+    return String(v ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+  }
+
+  function options(values, selected) {
+    const list = [...values];
+    if (selected && !list.includes(selected)) list.unshift(selected);
+    return list.map(v => `<option value="${esc(v)}" ${v === selected ? 'selected' : ''}>${esc(v)}</option>`).join('');
+  }
+
+  function sectionDetails(section) {
+    const value = String(section || '').trim();
+    if (!value) return null;
+    for (const formation of formations) {
+      if (formation.name === value) return { level: 'formation', formation };
+      for (const company of formation.companies) {
+        if (company.name === value) return { level: 'company', formation, company };
+        for (const unit of company.units) {
+          if (unit.value === value) return { level: 'unit', formation, company, unit };
+        }
+      }
+    }
+    return legacySections.includes(value) ? { level: 'legacy', value } : null;
+  }
+
+  window.DivisionOrganization = { formations, sections: [...new Set(sections)], billets, options, sectionDetails };
+})();
+
 </script>
 
 </head>
@@ -799,9 +808,19 @@ window.DivisionOrganization = window.DivisionOrganization || {
     }
     const members=(data||[]).filter(m=>m.display_name);
     renderCommand(members);
-    renderManeuver(members);
+    try {
+      renderManeuver(members);
+    } catch (renderError) {
+      console.error("ORBAT render failed:", renderError);
+      const root=document.getElementById("dynamicManeuverOrbat");
+      if(root) root.innerHTML=`<div class="orbat-error">Unable to display personnel assignments. Check the browser console for details.</div>`;
+    }
   }
-  load();
+  load().catch(error => {
+    console.error("ORBAT startup failed:", error);
+    const root=document.getElementById("dynamicManeuverOrbat");
+    if(root) root.innerHTML=`<div class="orbat-error">Unable to load ORBAT.</div>`;
+  });
 })();
 </script>
 
