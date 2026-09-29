@@ -588,6 +588,72 @@
 
 </script>
 
+
+<style id="simple-orbat-layout">
+/* Simple ORBAT: readable hierarchy, fewer visual boxes */
+.org-tree{display:block!important}
+.formation-card{
+  margin:0 0 22px!important;
+  border:1px solid rgba(213,178,84,.28)!important;
+  background:rgba(8,12,9,.88)!important;
+}
+.formation-title{
+  font-size:clamp(22px,2vw,30px)!important;
+  padding:15px 18px!important;
+}
+.company-block{
+  padding:16px 18px!important;
+  border-top:1px solid rgba(213,178,84,.18)!important;
+}
+.company-heading{
+  font-size:18px!important;
+  margin:0 0 10px!important;
+}
+.unit-grid{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:0!important;
+}
+.unit-card{
+  display:grid!important;
+  grid-template-columns:minmax(170px,220px) 1fr!important;
+  gap:18px!important;
+  align-items:start!important;
+  min-height:0!important;
+  padding:10px 12px!important;
+  border:0!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+  background:transparent!important;
+}
+.unit-card:first-child{border-top:0!important}
+.unit-card h5{
+  margin:0!important;
+  font-size:15px!important;
+  line-height:1.25!important;
+}
+.unit-card>p{
+  margin:0!important;
+  opacity:.65!important;
+}
+.unit-card .orbat-personnel{
+  margin:0!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+}
+.personnel-card{
+  min-width:220px!important;
+  flex:1 1 260px!important;
+  padding:9px 11px!important;
+}
+.personnel-card strong{font-size:14px!important}
+.personnel-card span{font-size:12px!important}
+@media(max-width:720px){
+ .unit-card{grid-template-columns:1fr!important;gap:7px!important}
+ .personnel-card{min-width:0!important}
+}
+</style>
+
 </head>
 <body>
 
