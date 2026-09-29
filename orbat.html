@@ -495,10 +495,10 @@
         <div class="wrap">
             <div class="section-top reveal">
                 <div>
-                    <p class="eyebrow">02 // MANEUVER</p>
-                    <h2>Ground Combat Elements</h2>
+                    <p class="eyebrow">02 // ORGANIZATION</p>
+                    <h2>Division Organization</h2>
                 </div>
-                <div class="section-code">Primary Maneuver Force</div>
+                <div class="section-code">Brigades · Companies · Platoons</div>
             </div>
 
             <div class="org-tree" id="dynamicManeuverOrbat">
@@ -514,60 +514,7 @@
         </div>
     </section>
 
-    <section class="section" style="padding-top:10px">
-        <div class="wrap">
-            <div class="section-top reveal">
-                <div>
-                    <p class="eyebrow">03 // SPECIALIZED ELEMENTS</p>
-                    <h2>Combat Support</h2>
-                </div>
-                <div class="section-code">Attached Capabilities</div>
-            </div>
 
-            <div class="support-grid">
-                <article class="support-card reveal">
-                    <div class="num">01</div>
-                    <h3>Aviation Detachment</h3>
-                    <p>Pilots, copilots and crew chiefs supporting transport, reconnaissance and air-mobile operations.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">02</div>
-                    <h3>Armor Section</h3>
-                    <p>Vehicle commanders, gunners, drivers and crewmen providing armored mobility and direct fire support.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">03</div>
-                    <h3>Recon Section</h3>
-                    <p>Forward reconnaissance, observation and information collection in support of the maneuver force.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">04</div>
-                    <h3>Medical Section</h3>
-                    <p>Combat medical personnel responsible for casualty response and battlefield medical support.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">05</div>
-                    <h3>Training Section</h3>
-                    <p>Instructors and training NCOs responsible for BCT, qualifications, standards and readiness.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">06</div>
-                    <h3>Recruitment Section</h3>
-                    <p>Recruiters responsible for applicant processing, onboarding and integration into the division.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">07</div>
-                    <h3>Command Staff</h3>
-                    <p>Administrative and operational staff supporting planning, accountability and division-level coordination.</p>
-                </article>
-                <article class="support-card reveal">
-                    <div class="num">08</div>
-                    <h3>Unassigned Personnel</h3>
-                    <p>Members awaiting permanent assignment, billet placement or completion of required training.</p>
-                </article>
-            </div>
-        </div>
-    </section>
 
     <section class="section" style="padding-top:10px">
         <div class="wrap">
@@ -639,6 +586,7 @@
 </script>
 
 
+<script src="organization.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (() => {
@@ -664,18 +612,6 @@
     return `<div class="orbat-person"><strong>${esc([m.rank,m.display_name].filter(Boolean).join(" "))}</strong><span>${esc(m.billet||"Unassigned")}</span></div>`;
   }
 
-  function category(m){
-    const x=`${norm(m.section)} ${norm(m.billet)}`;
-    if(/aviation|aircrew|pilot|copilot|crew chief/.test(x)) return "aviation";
-    if(/armor|armour|tank|vehicle commander|gunner|driver|crewman/.test(x)) return "armor";
-    if(/recon|forward observer|\bfo\b|scout/.test(x)) return "recon";
-    if(/medical|medic|corpsman/.test(x)) return "medical";
-    if(/training|instructor|tradoc/.test(x)) return "training";
-    if(/recruit|recruitment/.test(x)) return "recruitment";
-    if(/division hq|command staff|headquarters/.test(x)) return "command";
-    return null;
-  }
-
   function renderCommand(members){
     document.querySelectorAll("[data-command-billet]").forEach(slot=>{
       const matches=members.filter(m=>norm(m.billet)===norm(slot.dataset.commandBillet)).sort(sorter);
@@ -684,49 +620,20 @@
   }
 
   function renderManeuver(members){
-    const root=document.getElementById("dynamicManeuverOrbat");
-    const groups=new Map();
-    members.filter(m=>{
-      const s=norm(m.section);
-      const namedManeuverSections=["patriots","roughnecks","hellhounds","reapers"];
-      if(namedManeuverSections.includes(s)) return true;
-      return s && !category(m) && !/unassigned|none|n\/a|division hq|headquarters|command staff/.test(s);
-    }).forEach(m=>{
-      const s=String(m.section).trim();
-      if(!groups.has(s)) groups.set(s,[]);
-      groups.get(s).push(m);
-    });
-
-    if(!groups.size){
-      root.innerHTML=`<article class="element reveal visible"><div class="element-head"><div><div class="element-kicker">Maneuver Element</div><h3>No Assigned Elements</h3></div><span class="unit-tag">LIVE</span></div><div class="element-body"><div class="orbat-empty">No maneuver personnel are currently assigned.</div></div></article>`;
-      return;
-    }
-
-    root.innerHTML=[...groups.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([section,people],i)=>`
-      <article class="element reveal visible">
-        <div class="element-head"><div><div class="element-kicker">Maneuver Element</div><h3>${esc(section)}</h3></div><span class="unit-tag">UNIT // ${String(i+1).padStart(2,"0")}</span></div>
-        <div class="element-body">${people.sort(sorter).map(m=>`<div class="subunit"><strong>${esc([m.rank,m.display_name].filter(Boolean).join(" "))}</strong><span>${esc(m.billet||"Unassigned")}</span></div>`).join("")}</div>
-      </article>`).join("");
-  }
-
-  function renderSupport(members){
-    const senior=new Set(["division commander","executive officer","command sergeant major"]);
-    document.querySelectorAll("[data-support]").forEach(holder=>{
-      const c=holder.dataset.support;
-      let matches;
-      if(c==="unassigned"){
-        matches=members.filter(m=>{
-          const s=norm(m.section), b=norm(m.billet);
-          return !s||/unassigned|none|n\/a/.test(s)||!b||/unassigned|none|n\/a/.test(b);
-        });
-      } else if(c==="command"){
-        matches=members.filter(m=>category(m)==="command"&&!senior.has(norm(m.billet)));
-      } else {
-        matches=members.filter(m=>category(m)===c);
-      }
-      matches.sort(sorter);
-      holder.innerHTML=matches.length?matches.map(person).join(""):`<div class="orbat-empty">No personnel assigned</div>`;
-    });
+    const root = document.getElementById('dynamicManeuverOrbat');
+    const organization = window.DivisionOrganization;
+    const assigned = value => members.filter(m => String(m.section || '').trim() === value).sort(sorter);
+    const personnel = people => people.length ? people.map(person).join('') : '<div class="orbat-empty">No personnel assigned</div>';
+    const senior = new Set(['division commander', 'executive officer', 'command sergeant major']);
+    const headquarters = members.filter(m => ['division headquarters', 'division hq', 'command staff'].includes(norm(m.section)) && !senior.has(norm(m.billet))).sort(sorter);
+    root.innerHTML = '<article class="element reveal visible"><div class="element-head"><h3>Division Headquarters</h3></div><div class="element-body">' + personnel(headquarters) + '</div></article>' +
+      organization.formations.map(formation => '<article class="element reveal visible"><div class="element-head"><h3>' + esc(formation.name) + '</h3></div><div class="element-body">' +
+        (assigned(formation.name).length ? personnel(assigned(formation.name)) : '') +
+        formation.companies.map(company => '<div class="subunit"><strong>' + esc(company.name) + '</strong>' +
+          (assigned(company.name).length ? personnel(assigned(company.name)) : '') +
+          company.units.map(unit => '<div class="subunit"><strong>' + esc(unit.name) + '</strong>' + personnel(assigned(unit.value)) + '</div>').join('') + '</div>').join('') + '</div></article>').join('');
+    const other = members.filter(m => !organization.sectionDetails(m.section) && !['division hq', 'command staff'].includes(norm(m.section))).sort(sorter);
+    if(other.length) root.innerHTML += '<article class="element reveal visible"><div class="element-head"><h3>Unassigned / Previous Assignments</h3></div><div class="element-body">' + other.map(m => person(m) + '<div class="orbat-empty">' + esc(m.section || 'Unassigned') + '</div>').join('') + '</div></article>';
   }
 
   async function load(){

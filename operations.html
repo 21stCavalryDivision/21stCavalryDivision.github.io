@@ -1777,23 +1777,7 @@ footer{
                         </label>
 
                         <select id="operationSection">
-
                             <option>All Personnel</option>
-                            <option>Division HQ</option>
-                            <option>Command Staff</option>
-                            <option>1st Platoon</option>
-                            <option>2nd Platoon</option>
-                            <option>1st Squad</option>
-                            <option>2nd Squad</option>
-                            <option>3rd Squad</option>
-                            <option>Weapons Squad</option>
-                            <option>Aviation Detachment</option>
-                            <option>Armor Section</option>
-                            <option>Recon Section</option>
-                            <option>Medical Section</option>
-                            <option>Training Section</option>
-                            <option>Recruitment Section</option>
-
                         </select>
 
                     </div>
@@ -1966,6 +1950,7 @@ footer{
     <!-- SUPABASE -->
     <!-- ============================================= -->
 
+    <script src="organization.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
     ></script>
@@ -2107,6 +2092,8 @@ footer{
                     document.getElementById(
                         'operationSection'
                     );
+
+                operationSection.innerHTML = window.DivisionOrganization.operationOptions('All Personnel');
 
 
                 const operationStatus =
@@ -4642,8 +4629,7 @@ if (attendanceEventError) {
                                             '';
 
 
-                                        operationSection.value =
-                                            operation.required_section;
+                                        operationSection.innerHTML = window.DivisionOrganization.operationOptions(operation.required_section || 'All Personnel');
 
 
                                         operationStatus.value =
