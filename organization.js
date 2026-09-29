@@ -1,81 +1,117 @@
-/* Shared personnel assignments, matching the 21st Cavalry Division Discord. */
-(() => {
-    'use strict';
+(function () {
+  'use strict';
 
-    const billets = Object.freeze([
-        'Unassigned', 'Division Commander', 'Executive Officer',
-        'Command Sergeant Major', 'Rifleman', 'Automatic Rifleman',
-        'Grenadier', 'Machine Gunner', 'Anti-Tank Rifleman',
-        'Designated Marksman', 'Combat Medic'
-    ]);
+  const formations = [
+    {
+      name: '1st Cavalry Brigade',
+      companies: [
+        { name: 'Patriots', units: [
+          { name: 'Patriots Headquarters', value: 'Patriots' },
+          { name: '1st Squad', value: 'Patriots - 1st Squad' },
+          { name: '2nd Squad', value: 'Patriots - 2nd Squad' },
+          { name: '3rd Squad', value: 'Patriots - 3rd Squad' }
+        ]},
+        { name: 'Hellhounds', units: [
+          { name: 'Hellhounds Headquarters', value: 'Hellhounds' },
+          { name: '1st Squad', value: 'Hellhounds - 1st Squad' },
+          { name: '2nd Squad', value: 'Hellhounds - 2nd Squad' }
+        ]},
+        { name: 'Reapers', units: [
+          { name: 'Reapers Headquarters', value: 'Reapers' },
+          { name: '1st Squad', value: 'Reapers - 1st Squad' },
+          { name: '2nd Squad', value: 'Reapers - 2nd Squad' }
+        ]}
+      ]
+    },
+    {
+      name: 'Special Troops Battalion (STB)',
+      companies: [
+        { name: 'Sentinel Company', units: [
+          { name: 'Sentinel Company Headquarters', value: 'Sentinel Company' },
+          { name: 'Ghost Squad', value: 'Sentinel Company - Ghost Squad' },
+          { name: 'Stalker Squad', value: 'Sentinel Company - Stalker Squad' },
+          { name: 'Raven Squad', value: 'Sentinel Company - Raven Squad' },
+          { name: 'Nomad Squad', value: 'Sentinel Company - Nomad Squad' }
+        ]},
+        { name: 'Guardian Company', units: [
+          { name: 'Guardian Company Headquarters', value: 'Guardian Company' },
+          { name: 'Medical Section', value: 'Guardian Company - Medical Section' },
+          { name: 'Support Section', value: 'Guardian Company - Support Section' }
+        ]}
+      ]
+    },
+    {
+      name: 'Aviation Brigade',
+      companies: [
+        { name: 'IronEagle Company', units: [
+          { name: 'IronEagle Company Headquarters', value: 'IronEagle Company' },
+          { name: 'IronEagle 1', value: 'IronEagle 1' },
+          { name: 'IronEagle 2', value: 'IronEagle 2' }
+        ]},
+        { name: 'NightWing Company', units: [
+          { name: 'NightWing Company Headquarters', value: 'NightWing Company' },
+          { name: 'NightWing 1', value: 'NightWing 1' },
+          { name: 'NightWing 2', value: 'NightWing 2' }
+        ]}
+      ]
+    }
+  ];
 
-    const company = (name, names, type = 'Platoon') => ({
-        name,
-        units: names.map((callsign, index) => ({
-            name: `${['1st', '2nd', '3rd'][index]} ${Array.isArray(type) ? type[index] : type} — ${callsign}`
-        }))
+  const legacySections = [
+    'Unassigned', 'Division HQ', 'Command Staff',
+    '2nd Cavalry Brigade', 'Spartans', 'Titans', 'Raiders',
+    'Combat Aviation Brigade', 'Roughnecks', 'Havoc', 'Wolverine'
+  ];
+
+  const sections = [...legacySections];
+  formations.forEach(f => {
+    sections.push(f.name);
+    f.companies.forEach(c => {
+      sections.push(c.name);
+      c.units.forEach(u => sections.push(u.value));
     });
-    const formations = [
-        { name: '1st Cavalry Brigade', companies: [
-            company('Patriots', ['Viper', 'Havoc', 'Raider']),
-            company('Hellhounds', ['Cerberus', 'Anvil', 'Inferno']),
-            company('Reapers', ['Outlaw', 'Banshee', 'Vandal'], ['Platoon', 'Platoon', 'Squad'])
-        ] },
-        { name: '2nd Cavalry Brigade', companies: [
-            company('Spartans', ['Saber', 'Phalanx', 'Hoplite']),
-            company('Titans', ['Atlas', 'Cronus', 'Hyperion']),
-            company('Raiders', ['Marauder', 'Jackal', 'Renegade'])
-        ] },
-        { name: 'Combat Aviation Brigade', companies: [
-            company('Roughnecks', ['Warhorse', 'Mustang', 'Bronco']),
-            company('Havoc', ['Thunder', 'Tempest', 'Cyclone']),
-            company('Wolverine', ['Talon', 'Raptor', 'Kestrel'])
-        ] },
-        { name: 'Special Troops Battalion (STB)', companies: [
-            company('Sentinel Company', ['Ghost', 'Specter']),
-            company('NightWing Company', ['Raven', 'Phantom'], 'Squad'),
-            company('Guardian Company', ['Aegis', 'Valkyrie'], 'Squad')
-        ] }
-    ];
+  });
 
-    // Keep existing company values; include the parent company in platoon values.
-    const sections = ['Unassigned', 'Division Headquarters'];
-    const sectionDetails = new Map();
-    sectionDetails.set('Division Headquarters', { formation: 'Division Headquarters' });
+  const billets = [
+    'Unassigned',
+    'Division Commander', 'Executive Officer', 'Command Sergeant Major',
+    'Operations Officer', 'Personnel Officer', 'Training Officer', 'First Sergeant',
+    'Company Commander', 'Company Executive Officer', 'Company First Sergeant',
+    'Platoon Leader', 'Platoon Sergeant', 'Squad Leader', 'Team Leader',
+    'Rifleman', 'Automatic Rifleman', 'Grenadier', 'Machine Gunner',
+    'Anti-Tank Rifleman', 'Designated Marksman', 'Combat Medic',
+    'Radio Telephone Operator', 'Forward Observer',
+    'Aviation Detachment Commander', 'Pilot', 'Copilot', 'Crew Chief', 'Door Gunner',
+    'Armor Section Leader', 'Vehicle Commander', 'Gunner', 'Driver', 'Crewman',
+    'Recon Company Commander', 'Recon Section Leader', 'Scout', 'Sniper', 'Spotter',
+    'Medical Section Leader', 'Training Section Leader', 'Instructor', 'Training NCO',
+    'Recruitment Section Leader', 'Recruiter'
+  ];
+
+  function esc(v) {
+    return String(v ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+  }
+
+  function options(values, selected) {
+    const list = [...values];
+    if (selected && !list.includes(selected)) list.unshift(selected);
+    return list.map(v => `<option value="${esc(v)}" ${v === selected ? 'selected' : ''}>${esc(v)}</option>`).join('');
+  }
+
+  function sectionDetails(section) {
+    const value = String(section || '').trim();
+    if (!value) return null;
     for (const formation of formations) {
-        sections.push(formation.name);
-        sectionDetails.set(formation.name, { formation: formation.name });
-        for (const entry of formation.companies) {
-            sections.push(entry.name);
-            sectionDetails.set(entry.name, { formation: formation.name, company: entry.name });
-            for (const unit of entry.units) {
-                unit.value = `${entry.name} / ${unit.name}`;
-                sections.push(unit.value);
-                sectionDetails.set(unit.value, { formation: formation.name, company: entry.name, unit: unit.name });
-                Object.freeze(unit);
-            }
-            Object.freeze(entry.units);
-            Object.freeze(entry);
+      if (formation.name === value) return { level: 'formation', formation };
+      for (const company of formation.companies) {
+        if (company.name === value) return { level: 'company', formation, company };
+        for (const unit of company.units) {
+          if (unit.value === value) return { level: 'unit', formation, company, unit };
         }
-        Object.freeze(formation.companies);
-        Object.freeze(formation);
+      }
     }
+    return legacySections.includes(value) ? { level: 'legacy', value } : null;
+  }
 
-    const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-    }[char]));
-
-    function options(values, selected) {
-        // Preserve a historical assignment visibly, without offering it for new assignments.
-        const legacy = selected && !values.includes(selected)
-            ? `<option value="${escape(selected)}" selected disabled>${escape(selected)} (previous assignment)</option>`
-            : '';
-        return legacy + values.map(value => `<option value="${escape(value)}"${value === selected ? ' selected' : ''}>${escape(value)}</option>`).join('');
-    }
-
-    window.DivisionOrganization = Object.freeze({
-        billets, sections: Object.freeze(sections), formations: Object.freeze(formations), options,
-        sectionDetails: value => sectionDetails.get(String(value ?? '').trim()) || null,
-        operationOptions: selected => options(['All Personnel', ...sections.filter(value => value !== 'Unassigned')], selected)
-    });
+  window.DivisionOrganization = { formations, sections: [...new Set(sections)], billets, options, sectionDetails };
 })();
