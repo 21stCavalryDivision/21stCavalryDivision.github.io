@@ -1,7 +1,7 @@
 [
   {
     "modId": "5E389BB9F58B79A6",
-    "name": "SpaceCore"
+    "name": "WCS_SpaceCore"
   },
   {
     "modId": "6276E6E3CC97A22B",
@@ -12,12 +12,28 @@
     "name": "AKI_Core"
   },
   {
+    "modId": "662EB83AB3F8CAE3",
+    "name": "AKI_Core_Upgrade"
+  },
+  {
     "modId": "64EE818E08AFCF94",
     "name": "MFD Framework"
   },
   {
     "modId": "65DACC64CE785B6C",
     "name": "GRS - Dev Framework"
+  },
+  {
+    "modId": "687CD82F6E41D627",
+    "name": "Attachment Framework-Core"
+  },
+  {
+    "modId": "645F08FA9E7CDEDE",
+    "name": "Attachment Framework"
+  },
+  {
+    "modId": "688719AD953F7AD6",
+    "name": "SHS Modular Framework"
   },
   {
     "modId": "1337C0DE5DABBEEF",
@@ -56,14 +72,6 @@
     "name": "WCS_Scopes"
   },
   {
-    "modId": "6602C1EC7E5A4A87",
-    "name": "WCS_Clothing_Assets"
-  },
-  {
-    "modId": "6152CB0BD0684837",
-    "name": "WCS_Clothing"
-  },
-  {
     "modId": "615806DC6C57AF02",
     "name": "WCS_NATO"
   },
@@ -84,24 +92,28 @@
     "name": "WCS_Earplugs"
   },
   {
-    "modId": "657B064AE0E231DF",
-    "name": "GRS - Patches"
+    "modId": "65B60A48AEC31157",
+    "name": "WCS_FMTV"
   },
   {
-    "modId": "65157D09F042428A",
-    "name": "GRS - Apparel"
+    "modId": "5D1880C4AD410C14",
+    "name": "WCS_M1A1"
   },
   {
-    "modId": "651433ECBC794018",
-    "name": "GRS - Weapons"
+    "modId": "63120AE07E6C0966",
+    "name": "WCS_M2A2"
   },
   {
-    "modId": "66D45759BD855397",
-    "name": "Gabagool Gears"
+    "modId": "5B383D4CB27E0D54",
+    "name": "WCS_BMP-3"
   },
   {
-    "modId": "696214A3D7FAD490",
-    "name": "Modern US Army Revamped 2026"
+    "modId": "5C721177A220B42F",
+    "name": "WCS_JLTV"
+  },
+  {
+    "modId": "6528B3CE24C85120",
+    "name": "WCS_JLTV_Upgrade"
   },
   {
     "modId": "5D0551624969C92E",
@@ -128,18 +140,6 @@
     "name": "Task Force Mattock Weapons"
   },
   {
-    "modId": "5D1880C4AD410C14",
-    "name": "M1 Abrams"
-  },
-  {
-    "modId": "63120AE07E6C0966",
-    "name": "M2 Bradley Fighting Vehicle"
-  },
-  {
-    "modId": "5C721177A220B42F",
-    "name": "Joint Light Tactical Vehicle"
-  },
-  {
     "modId": "6A2D41D3518240A4",
     "name": "M1 Abrams Sound"
   },
@@ -150,6 +150,10 @@
   {
     "modId": "66DF6C37335B0554",
     "name": "AHC Fuel Systems"
+  },
+  {
+    "modId": "68F2C8A63C2B791F",
+    "name": "Garrons M1083 Truck"
   },
   {
     "modId": "6303360DA719E832",
@@ -170,6 +174,10 @@
   {
     "modId": "61957C5C6FB7A773",
     "name": "H-47 Chinook"
+  },
+  {
+    "modId": "644617F2A068E870",
+    "name": "HGU-56 RHS Compat"
   },
   {
     "modId": "686AC479236F235D",
@@ -220,6 +228,46 @@
     "name": "BFS - Rappel Reforged"
   },
   {
+    "modId": "6708A2497129CDEE",
+    "name": "SOF Infiltration Methods 2.0"
+  },
+  {
+    "modId": "673400A2B22F8501",
+    "name": "SHS Apparel"
+  },
+  {
+    "modId": "695D1C20908DA231",
+    "name": "SHS Backpacks"
+  },
+  {
+    "modId": "69A64C8D8D9ACE1E",
+    "name": "SHS Clothing attachments"
+  },
+  {
+    "modId": "6A38F9731A91E569",
+    "name": "VRT - Gear Addons"
+  },
+  {
+    "modId": "6A390B288BA6D64E",
+    "name": "VRT - Lids"
+  },
+  {
+    "modId": "6A393A2EA6A0151D",
+    "name": "VRT - Threads"
+  },
+  {
+    "modId": "6A38109FF94A3CB6",
+    "name": "VRT - Vests & Bags"
+  },
+  {
+    "modId": "646A1AFB53E782AC",
+    "name": "VRT EOD HAND ENTRY"
+  },
+  {
+    "modId": "65EF16962A8D9840",
+    "name": "Press Gear - Expanded"
+  },
+  {
     "modId": "5C9691EA7FD7A79F",
     "name": "KunarProvince"
   },
@@ -242,10 +290,6 @@
   {
     "modId": "5994AD5A9F33BE57",
     "name": "Game Master FX"
-  },
-  {
-    "modId": "646A1AFB53E782AC",
-    "name": "VRT EOD HAND ENTRY"
   },
   {
     "modId": "656AC01634459D8D",
