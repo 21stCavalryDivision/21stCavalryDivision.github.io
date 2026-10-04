@@ -2648,9 +2648,19 @@ select option {
                 justify-content: space-between;
             }
         }
-    </style>
+    
+/* ADMIN RIBBON ASSIGNMENT */
+.ribbon-admin-panel{margin-top:18px;padding:16px;border:1px solid #30383d;background:#0b1114}
+.ribbon-admin-heading{margin-bottom:12px}.ribbon-admin-heading h3{margin:0;color:#fff;font:600 18px Oswald,sans-serif;text-transform:uppercase}.ribbon-admin-heading span{color:#748188;font-size:10px}
+.ribbon-admin-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ribbon-option{display:grid;grid-template-columns:58px minmax(0,1fr);align-items:center;gap:9px;min-height:48px;padding:7px;border:1px solid #30383d;background:#11171a;color:#aeb7ba;cursor:pointer}
+.ribbon-option.selected{border-color:#a58b3a;background:rgba(197,167,91,.11);color:#d8c57f}.ribbon-option input{position:absolute;opacity:0;pointer-events:none}.ribbon-option img{width:58px;aspect-ratio:11/3;object-fit:cover;display:block}.ribbon-option span{font:500 8px Oswald,sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.ribbon-catalog-empty{grid-column:1/-1;padding:15px;border:1px dashed #394349;color:#7e8a90;font-size:11px;text-align:center}
+@media(max-width:900px){.ribbon-admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.ribbon-admin-grid{grid-template-columns:1fr}}
 
-    <link rel="stylesheet" href="mobile.css?v=3">
+</style>
+
+    <link rel="stylesheet" href="mobile.css?v=4">
 </head>
 
 
@@ -4054,6 +4064,35 @@ select option {
                 ];
 
 
+
+                let AVAILABLE_RIBBONS = [];
+
+                async function loadRibbonCatalog() {
+                    try {
+                        const response = await fetch('https://api.github.com/repos/21stCavalryDivision/21stCavalryDivision.github.io/contents/assets/ribbons', {cache:'no-store'});
+                        if (!response.ok) throw new Error('Ribbon folder could not be read.');
+                        const files = await response.json();
+                        AVAILABLE_RIBBONS = files.filter(item => item.type === 'file' && /\.png$/i.test(item.name)).map(item => item.name).sort((a,b) => a.localeCompare(b));
+                    } catch (error) {
+                        console.error('Ribbon catalog load failed:', error);
+                        AVAILABLE_RIBBONS = [];
+                    }
+                }
+
+                function ribbonHtml(member) {
+                    const selected = (Array.isArray(member.qualifications) ? member.qualifications : [])
+                        .filter(value => String(value).startsWith('RIBBON:')).map(value => String(value).slice(7));
+                    if (!AVAILABLE_RIBBONS.length) return '<div class="ribbon-catalog-empty">No PNG ribbons found. Upload PNG files to assets/ribbons/ in GitHub.</div>';
+                    return '<div class="ribbon-admin-grid">' + AVAILABLE_RIBBONS.map(file => {
+                        const checked = selected.includes(file);
+                        const label = file.replace(/\.png$/i,'').replaceAll('-',' ').replaceAll('_',' ');
+                        const src = 'assets/ribbons/' + encodeURIComponent(file).replaceAll('%2F','/');
+                        return '<label class="ribbon-option ' + (checked ? 'selected' : '') + '"><input type="checkbox" data-ribbon="' +
+                            escapeHtml(file) + '" ' + (checked ? 'checked' : '') + '><img src="' + src + '" alt="" loading="lazy"><span>' +
+                            escapeHtml(label) + '</span></label>';
+                    }).join('') + '</div>';
+                }
+
                 /* =================================================
                    QUALIFICATIONS
                    ================================================= */
@@ -4831,12 +4870,7 @@ select option {
 
                     const custom =
                         selected.filter(
-
-                            value =>
-                                !known.includes(
-                                    value
-                                )
-
+                            value => !known.includes(value) && !String(value).startsWith('RIBBON:')
                         );
 
 
@@ -5422,6 +5456,11 @@ select option {
                                     </div>
 
 
+                                    <div class="ribbon-admin-panel">
+                                        <div class="ribbon-admin-heading"><h3>Awards &amp; Ribbons</h3><span>Select the ribbons awarded to this member. PNGs load automatically from assets/ribbons/.</span></div>
+                                        ${ribbonHtml(member)}
+                                    </div>
+
                                     <!-- =================================
                                          SAVE
                                          ================================= -->
@@ -5512,6 +5551,10 @@ select option {
                                 );
 
 
+                            card.querySelectorAll('[data-ribbon]').forEach(checkbox => {
+                                checkbox.addEventListener('change', () => checkbox.closest('.ribbon-option').classList.toggle('selected', checkbox.checked));
+                            });
+
                             /* =============================
                                SAVE BUTTON
                                ============================= */
@@ -5594,6 +5637,10 @@ select option {
                                     .qualification
                         );
 
+
+                    const ribbons = Array.from(card.querySelectorAll('[data-ribbon]:checked'))
+                        .map(checkbox => 'RIBBON:' + checkbox.dataset.ribbon);
+                    qualifications.push(...ribbons);
 
                     const updateData = {
 
@@ -9703,7 +9750,9 @@ function renderAttendanceWarnings() {
                 await loadDischargeRecords();
 
 
-                await loadMembers();
+                await loadRibbonCatalog();
+
+                    await loadMembers();
 
 
                 await loadLoas();
