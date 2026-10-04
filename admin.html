@@ -4069,10 +4069,10 @@ select option {
 
                 async function loadRibbonCatalog() {
                     try {
-                        const response = await fetch('https://api.github.com/repos/21stCavalryDivision/21stCavalryDivision.github.io/contents/assets/ribbons', {cache:'no-store'});
-                        if (!response.ok) throw new Error('Ribbon folder could not be read.');
+                        const response = await fetch('ribbons.json?ts=' + Date.now(), {cache:'no-store'});
+                        if (!response.ok) throw new Error('Ribbon catalog could not be read.');
                         const files = await response.json();
-                        AVAILABLE_RIBBONS = files.filter(item => item.type === 'file' && /\.png$/i.test(item.name)).map(item => item.name).sort((a,b) => a.localeCompare(b));
+                        AVAILABLE_RIBBONS = (Array.isArray(files) ? files : []).filter(name => /\.png$/i.test(name)).sort((a,b) => a.localeCompare(b));
                     } catch (error) {
                         console.error('Ribbon catalog load failed:', error);
                         AVAILABLE_RIBBONS = [];
