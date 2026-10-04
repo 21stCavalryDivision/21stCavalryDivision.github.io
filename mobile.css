@@ -663,3 +663,91 @@ table{
         max-height:min(70vh,520px) !important;
     }
 }
+
+
+/* ==========================================================
+   21ST CAVALRY DIVISION — GLOBAL DESKTOP NAVIGATION
+   Keeps the header/navigation visually identical on every page.
+   ========================================================== */
+@media(min-width:901px){
+    .site-header{
+        min-height:76px !important;
+        height:76px !important;
+        padding:0 4vw !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:space-between !important;
+        gap:24px !important;
+        background:rgba(4,7,5,.96) !important;
+        border-bottom:1px solid rgba(200,170,91,.26) !important;
+        backdrop-filter:blur(12px) !important;
+    }
+
+    .brand{
+        flex:0 0 auto !important;
+        display:flex !important;
+        align-items:center !important;
+        gap:12px !important;
+    }
+
+    .main-nav{
+        display:flex !important;
+        align-items:center !important;
+        justify-content:flex-end !important;
+        gap:20px !important;
+        margin-left:auto !important;
+        padding:0 !important;
+        position:static !important;
+        background:transparent !important;
+        border:0 !important;
+        white-space:nowrap !important;
+    }
+
+    .main-nav > a{
+        display:inline-flex !important;
+        align-items:center !important;
+        min-height:76px !important;
+        padding:0 !important;
+        margin:0 !important;
+        border:0 !important;
+        background:transparent !important;
+        color:#d6d8d1 !important;
+        font-family:Oswald,Arial,sans-serif !important;
+        font-size:13px !important;
+        font-weight:700 !important;
+        line-height:1 !important;
+        letter-spacing:.06em !important;
+        text-transform:uppercase !important;
+    }
+
+    .main-nav > a.active,
+    .main-nav > a[style*="color:#c5a75b"],
+    .main-nav > a[style*="color: #c5a75b"]{
+        color:#c8aa5b !important;
+    }
+
+    .main-nav .nav-cta{
+        min-height:auto !important;
+        padding:11px 16px !important;
+        background:#c8aa5b !important;
+        border:1px solid #c8aa5b !important;
+        color:#0c0f0c !important;
+    }
+
+    .main-nav .member-auth{
+        display:flex !important;
+        align-items:center !important;
+        margin:0 !important;
+    }
+
+    .nav-toggle{
+        display:none !important;
+    }
+}
+
+@media(min-width:901px) and (max-width:1250px){
+    .site-header{padding:0 2vw !important;gap:14px !important}
+    .main-nav{gap:13px !important}
+    .main-nav > a{font-size:12px !important;letter-spacing:.035em !important}
+    .main-nav .nav-cta{padding:10px 12px !important}
+}
