@@ -807,7 +807,19 @@
 
         }
 
-    </style>
+    
+/* MEMBER RIBBON RACK */
+.portal-shell{grid-template-columns:270px minmax(0,1fr) 300px!important;max-width:1510px;margin:0 auto}
+.ribbon-record{align-self:start;position:sticky;top:20px;border:1px solid #30383d;border-top:2px solid #c5a75b;background:#101619;padding:18px}
+.ribbon-record h2{margin:0 0 4px;color:#fff;font:600 21px Oswald,sans-serif;text-transform:uppercase}
+.ribbon-record-sub{color:#748188;font:500 8px Oswald,sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.member-ribbon-rack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:start}
+.member-ribbon{width:100%;aspect-ratio:11/3;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.12);background:#080d10}
+.ribbon-empty{grid-column:1/-1;padding:18px 10px;border:1px dashed #394349;color:#7e8a90;font-size:11px;text-align:center}
+@media(max-width:1200px){.portal-shell{grid-template-columns:240px minmax(0,1fr)!important}.ribbon-record{grid-column:1/-1;position:static}.member-ribbon-rack{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:700px){.portal-shell{grid-template-columns:1fr!important}.member-ribbon-rack{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+</style>
 
 
 <style id="command-center-member-redesign">
@@ -1067,7 +1079,7 @@ footer{
 }
 </style>
 
-    <link rel="stylesheet" href="mobile.css?v=3">
+    <link rel="stylesheet" href="mobile.css?v=4">
 </head>
 
 
@@ -1804,8 +1816,15 @@ footer{
 
             </article>
 
+        <aside class="ribbon-record" aria-label="Awards and ribbons">
+            <h2>Awards &amp; Ribbons</h2>
+            <div class="ribbon-record-sub">Personnel Decorations</div>
+            <div id="memberRibbonRack" class="member-ribbon-rack">
+                <div class="ribbon-empty">No ribbons assigned.</div>
+            </div>
+        </aside>
 
-        </div>
+    </div>
 
     </main>
 
@@ -3246,6 +3265,26 @@ footer{
                 }
 
 
+
+                function renderMemberRibbons(qualifications) {
+                    const rack = document.getElementById('memberRibbonRack');
+                    if (!rack) return;
+                    const ribbons = (Array.isArray(qualifications) ? qualifications : [])
+                        .filter(value => String(value).startsWith('RIBBON:'))
+                        .map(value => String(value).slice(7))
+                        .filter(Boolean);
+                    if (!ribbons.length) {
+                        rack.innerHTML = '<div class="ribbon-empty">No ribbons assigned.</div>';
+                        return;
+                    }
+                    rack.innerHTML = ribbons.map(file => {
+                        const safe = encodeURIComponent(file).replaceAll('%2F','/');
+                        const title = file.replace(/\.png$/i,'').replaceAll('-',' ').replaceAll('_',' ');
+                        return '<img class="member-ribbon" src="assets/ribbons/' + safe + '" alt="' +
+                            escapeHtml(title) + '" title="' + escapeHtml(title) + '" loading="lazy">';
+                    }).join('');
+                }
+
                 /* =========================================
                    PROFILE
                 ========================================= */
@@ -3542,8 +3581,12 @@ footer{
 
 
                     renderQualifications(
-                        profile.qualifications
+                        Array.isArray(profile.qualifications)
+                            ? profile.qualifications.filter(value => !String(value).startsWith('RIBBON:'))
+                            : profile.qualifications
                     );
+
+                    renderMemberRibbons(profile.qualifications);
 
 
                     renderHeader(
