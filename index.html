@@ -172,7 +172,7 @@ body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transpare
 @media(max-width:600px){.stats.strip,.command-grid,.timeline{grid-template-columns:1fr!important}.stats.strip>div{border-right:0;border-bottom:1px solid var(--cmd-line)}.hero{min-height:650px!important}.hero h1{font-size:4.2rem!important}.section-copy{border-left:0;padding-left:0}.join-inner{padding:34px 24px!important}.mission-card:after{display:none}}
 </style>
 
-    <link rel="stylesheet" href="mobile.css?v=2">
+    <link rel="stylesheet" href="mobile.css?v=3">
 </head>
 
 
@@ -226,119 +226,22 @@ body{background:radial-gradient(circle at 75% 10%,rgba(197,167,91,.07),transpare
 
         <!-- NAVIGATION -->
 
-        <nav class="main-nav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="orbat.html">
-                ORBAT
-            </a>
-
-            <a href="training.html">
-                Training
-            </a>
-
-            <a href="resources.html">
-                SOPs
-            </a>
-
-            <a href="server.html">
-                Server
-            </a>
-
-            <a href="media.html">
-                Media
-            </a>
-
-
-            <!-- MEMBER / ADMIN PORTAL LINKS -->
-
-            <a
-                href="members.html"
-                id="memberPortalLink"
-                hidden
-            >
-                Member Portal
-            </a>
-
-            <a
-                href="admin.html"
-                id="adminPortalLink"
-                hidden
-            >
-                Admin
-            </a>
-
-
-            <!-- DISCORD LOGIN -->
-
-            <div
-                class="member-auth"
-                id="memberAuth"
-            >
-
-                <button
-                    class="member-login-btn"
-                    id="discordLoginBtn"
-                    type="button"
-                >
-                    Login with Discord
-                </button>
-
-
-                <!-- LOGGED-IN MEMBER -->
-
-                <div
-                    class="member-profile"
-                    id="memberProfile"
-                    hidden
-                >
-
-                    <img
-                        id="memberAvatar"
-                        class="member-avatar"
-                        src=""
-                        alt=""
-                        hidden
-                    >
-
-
-                    <div class="member-profile-text">
-
-                        <span id="memberName">
-                            Member
-                        </span>
-
-                        <small>
-                            Authenticated Member
-                        </small>
-
-                    </div>
-
-
-                    <button
-                        class="member-logout-btn"
-                        id="discordLogoutBtn"
-                        type="button"
-                    >
-                        Logout
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <a
-                class="nav-cta"
-                href="recruitment.html"
-            >
-                Enlist
-            </a>
-
-        </nav>
+        <nav class="main-nav" id="mainNav">
+<a href="index.html" class="active">Home</a>
+<a href="orbat.html">ORBAT</a>
+<a href="operations.html" id="operationsPortalLink" hidden>OPBOARD</a>
+<a href="training.html">Training</a>
+<a href="resources.html">SOPs</a>
+<a href="server.html">Server</a>
+<a href="media.html">Media</a>
+<a href="members.html" id="memberPortalLink" hidden>Member Portal</a>
+<a href="admin.html" id="adminPortalLink" hidden>Admin</a>
+<div class="member-auth" id="memberAuth">
+<button class="member-login-btn" id="discordLoginBtn" type="button">Login with Discord</button>
+<div class="member-profile" id="memberProfile" hidden><img id="memberAvatar" class="member-avatar" src="" alt="" hidden><div class="member-profile-text"><span id="memberName">Member</span><small>Authenticated Member</small></div><button class="member-logout-btn" id="discordLogoutBtn" type="button">Logout</button></div>
+</div>
+<a class="nav-cta" href="recruitment.html">Enlist</a>
+</nav>
 
 
     </header>
