@@ -61,13 +61,28 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 @media(max-width:600px){.sop-modal{padding:0}.sop-document{min-height:100vh;border:0}.sop-body{padding:22px 18px}.sop-document-head{padding:16px 18px}.sop-meta{grid-template-columns:1fr}}
 
 </style>
-    <link rel="stylesheet" href="mobile.css?v=2">
+    <link rel="stylesheet" href="mobile.css?v=3">
 </head>
 <body>
 <header class="site-header">
 <a class="brand" href="index.html"><div class="brand-mark">21</div><div><span>21ST CAVALRY</span><small>DIVISION</small></div></a>
 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-<nav class="main-nav" id="mainNav"><a href="index.html">Home</a><a href="orbat.html">ORBAT</a><a href="training.html">Training</a><a href="resources.html" class="active">SOPs</a><a href="server.html">Server</a><a href="media.html">Media</a><a class="nav-cta" href="recruitment.html">Enlist</a></nav>
+<nav class="main-nav" id="mainNav">
+<a href="index.html">Home</a>
+<a href="orbat.html">ORBAT</a>
+<a href="operations.html" id="operationsPortalLink" hidden>OPBOARD</a>
+<a href="training.html">Training</a>
+<a href="resources.html" class="active">SOPs</a>
+<a href="server.html">Server</a>
+<a href="media.html">Media</a>
+<a href="members.html" id="memberPortalLink" hidden>Member Portal</a>
+<a href="admin.html" id="adminPortalLink" hidden>Admin</a>
+<div class="member-auth" id="memberAuth">
+<button class="member-login-btn" id="discordLoginBtn" type="button">Login with Discord</button>
+<div class="member-profile" id="memberProfile" hidden><img id="memberAvatar" class="member-avatar" src="" alt="" hidden><div class="member-profile-text"><span id="memberName">Member</span><small>Authenticated Member</small></div><button class="member-logout-btn" id="discordLogoutBtn" type="button">Logout</button></div>
+</div>
+<a class="nav-cta" href="recruitment.html">Enlist</a>
+</nav>
 </header>
 
 <main>
