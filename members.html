@@ -3282,7 +3282,7 @@ footer{
                     }
                     rack.innerHTML = ribbons.map(file => {
                         const safe = encodeURIComponent(file).replaceAll('%2F','/');
-                        const title = file.replace(/\.png$/i,'').replaceAll('-',' ').replaceAll('_',' ');
+                        const title = file.replace(/\.(png|svg)$/i,'').replaceAll('-',' ').replaceAll('_',' ');
                         return '<img class="member-ribbon" src="assets/ribbons/' + safe + '" alt="' +
                             escapeHtml(title) + '" title="' + escapeHtml(title) + '" loading="lazy">';
                     }).join('');
