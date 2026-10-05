@@ -3271,11 +3271,11 @@ footer{
                 function renderMemberRibbons(qualifications) {
                     const rack = document.getElementById('memberRibbonRack');
                     if (!rack) return;
-                    const removedRibbons = new Set(['KunarDeploymentRibbon.png']);
                     const ribbons = (Array.isArray(qualifications) ? qualifications : [])
                         .filter(value => String(value).startsWith('RIBBON:'))
                         .map(value => String(value).slice(7))
-                        .filter(file => file && !removedRibbons.has(file));
+                        .filter(Boolean)
+                        .filter(file => String(file).toLowerCase() !== 'kunardeploymentribbon.png');
                     if (!ribbons.length) {
                         rack.innerHTML = '<div class="ribbon-empty">No ribbons assigned.</div>';
                         return;
