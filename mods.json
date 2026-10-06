@@ -92,30 +92,6 @@
     "name": "WCS_Earplugs"
   },
   {
-    "modId": "65B60A48AEC31157",
-    "name": "WCS_FMTV"
-  },
-  {
-    "modId": "5D1880C4AD410C14",
-    "name": "WCS_M1A1"
-  },
-  {
-    "modId": "63120AE07E6C0966",
-    "name": "WCS_M2A2"
-  },
-  {
-    "modId": "5B383D4CB27E0D54",
-    "name": "WCS_BMP-3"
-  },
-  {
-    "modId": "5C721177A220B42F",
-    "name": "WCS_JLTV"
-  },
-  {
-    "modId": "6528B3CE24C85120",
-    "name": "WCS_JLTV_Upgrade"
-  },
-  {
     "modId": "5D0551624969C92E",
     "name": "Zeliks Character"
   },
@@ -140,6 +116,42 @@
     "name": "Task Force Mattock Weapons"
   },
   {
+    "modId": "69757836727815BA",
+    "name": "SHS Modular M110"
+  },
+  {
+    "modId": "69AD3AF3F20FE611",
+    "name": "CDD ELR Mod Pack"
+  },
+  {
+    "modId": "62CD51E9C58D6957",
+    "name": "Mar-10"
+  },
+  {
+    "modId": "65B60A48AEC31157",
+    "name": "WCS_FMTV"
+  },
+  {
+    "modId": "5D1880C4AD410C14",
+    "name": "WCS_M1A1"
+  },
+  {
+    "modId": "63120AE07E6C0966",
+    "name": "WCS_M2A2"
+  },
+  {
+    "modId": "5B383D4CB27E0D54",
+    "name": "WCS_BMP-3"
+  },
+  {
+    "modId": "5C721177A220B42F",
+    "name": "WCS_JLTV"
+  },
+  {
+    "modId": "6528B3CE24C85120",
+    "name": "WCS_JLTV_Upgrade"
+  },
+  {
     "modId": "6A2D41D3518240A4",
     "name": "M1 Abrams Sound"
   },
@@ -156,6 +168,18 @@
     "name": "Garrons M1083 Truck"
   },
   {
+    "modId": "6A391ACE98228BA0",
+    "name": "ACM Flight CORE"
+  },
+  {
+    "modId": "6A1502DE87DE7924",
+    "name": "ACM Weapons"
+  },
+  {
+    "modId": "6A6D7BC482790A79",
+    "name": "HH-60W Jolly Green II"
+  },
+  {
     "modId": "6303360DA719E832",
     "name": "WCS_AH-64D"
   },
@@ -166,10 +190,6 @@
   {
     "modId": "694E575D2AD51736",
     "name": "WCS Littlebird Maps"
-  },
-  {
-    "modId": "60ED3CC6E7E40221",
-    "name": "Sikorsky H60 Project"
   },
   {
     "modId": "61957C5C6FB7A773",
@@ -186,14 +206,6 @@
   {
     "modId": "6A20948448913FD7",
     "name": "WCS_Hescos"
-  },
-  {
-    "modId": "606B100247F5C709",
-    "name": "Bacon Loadout Editor"
-  },
-  {
-    "modId": "68E62B31ACC625A3",
-    "name": "RHS_BaconLoadout"
   },
   {
     "modId": "65AD7D0D9941A380",
@@ -268,6 +280,14 @@
     "name": "Press Gear - Expanded"
   },
   {
+    "modId": "606B100247F5C709",
+    "name": "Bacon Loadout Editor"
+  },
+  {
+    "modId": "68E62B31ACC625A3",
+    "name": "RHS_BaconLoadout"
+  },
+  {
     "modId": "5C9691EA7FD7A79F",
     "name": "KunarProvince"
   },
@@ -308,6 +328,10 @@
     "name": "COALITION Squad Interface"
   },
   {
+    "modId": "69FF11283FA5F65C",
+    "name": "Kestrel5700"
+  },
+  {
     "modId": "6052A9DD45564825",
     "name": "You can sit"
   },
@@ -318,9 +342,5 @@
   {
     "modId": "5C9758250C8C56F1",
     "name": "Bon Action Animations"
-  },
-  {
-    "modId": "69FF11283FA5F65C",
-    "name": "Kestrel5700"
   }
 ]
