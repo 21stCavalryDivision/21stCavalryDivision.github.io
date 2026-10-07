@@ -1177,6 +1177,43 @@ footer {
 }
 
 
+/* Global Discord login button lock — keeps login controls consistent on every page */
+button.member-login-btn,
+.member-auth > button.member-login-btn,
+#discordLoginBtn.member-login-btn {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    box-sizing: border-box !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 15px !important;
+    border: 1px solid #5865f2 !important;
+    border-radius: 0 !important;
+    background: #5865f2 !important;
+    color: #fff !important;
+    font: 600 12px Oswald, sans-serif !important;
+    line-height: 1 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+}
+button.member-login-btn:hover,
+.member-auth > button.member-login-btn:hover,
+#discordLoginBtn.member-login-btn:hover {
+    background: #6d78f5 !important;
+    border-color: #6d78f5 !important;
+    color: #fff !important;
+}
+button.member-login-btn[hidden],
+#discordLoginBtn.member-login-btn[hidden] {
+    display: none !important;
+}
+
 /* =========================================================
    DISCORD MEMBER LOGIN
    ========================================================= */
