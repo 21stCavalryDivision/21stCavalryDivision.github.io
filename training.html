@@ -91,6 +91,7 @@ footer{margin-top:34px;padding:38px 5vw;display:flex;justify-content:space-betwe
 @media(max-width:600px){.site-header{padding:0 18px}.brand span{font-size:15px}.status-strip,.pipeline,.qual-grid,.track-grid{grid-template-columns:1fr}.section{padding:54px 0}.section-top{align-items:flex-start;flex-direction:column}footer{flex-direction:column;align-items:flex-start}}
 </style>
     <link rel="stylesheet" href="mobile.css?v=3">
+<link rel="stylesheet" href="discord-header.css?v=1">
 </head>
 <body>
 <header class="site-header">
@@ -194,5 +195,7 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entr
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
     <script src="mobile.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="discord-header.js?v=1"></script>
 </body>
 </html>
