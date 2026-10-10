@@ -1047,7 +1047,16 @@
                 width: 100%;
             }
         }
-    </style>
+    
+/* OPBOARD sign-up personnel roster */
+.operation-signup-area{flex-wrap:wrap}
+.mission-roster{flex:1 0 100%;width:100%;margin-top:14px;padding:12px 16px;border:1px solid #34403e;background:#0b1214;color:#dce3e2}
+.mission-roster summary{cursor:pointer;font-family:Oswald,sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#d0b15c}
+.mission-roster-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 18px;margin:12px 0 0;padding-left:24px}
+.mission-roster-list li{padding:3px 0;overflow-wrap:anywhere}
+.mission-roster-empty{margin-top:12px;color:#9ca7a9;font-size:13px}
+
+</style>
 
 <style id="command-center-opboard-redesign">
 :root{
@@ -1906,6 +1915,8 @@ footer{
                 let signups =
                     [];
 
+                let signupNames = {};
+
 
                 let isAdmin =
                     false;
@@ -2508,6 +2519,23 @@ footer{
                 }
 
 
+                function renderSignupRoster(operationSignups) {
+                    if (!operationSignups.length) {
+                        return '<div class="mission-roster-empty">No members have signed up yet.</div>';
+                    }
+                    const items = operationSignups.map((signup, index) => {
+                        const name = signupNames[signup.user_id] ||
+                            (signup.user_id === currentUser?.id
+                                ? (currentProfile?.display_name || 'You')
+                                : 'Member ' + (index + 1));
+                        return '<li>' + escapeHtml(name) + '</li>';
+                    }).join('');
+                    return '<details class="mission-roster" open>' +
+                        '<summary>Signed-Up Personnel (' + operationSignups.length + ')</summary>' +
+                        '<ol class="mission-roster-list">' + items + '</ol>' +
+                        '</details>';
+                }
+
                 function isCurrentUserSignedUp(
                     operationId
                 ) {
@@ -2960,6 +2988,8 @@ footer{
 
                                             ${signupButton}
 
+                                            ${renderSignupRoster(operationSignups)}
+
                                         </div>
 
 
@@ -3113,6 +3143,23 @@ footer{
                 }
 
 
+                async function loadSignupNames() {
+                    const ids = [...new Set(signups.map(row => row.user_id).filter(Boolean))];
+                    signupNames = {};
+                    if (!ids.length) return;
+                    const { data, error } = await client
+                        .from('member_profiles')
+                        .select('user_id,display_name')
+                        .in('user_id', ids);
+                    if (error) {
+                        console.warn('Signup names unavailable; check member_profiles SELECT policies:', error);
+                        return;
+                    }
+                    for (const profile of (data || [])) {
+                        signupNames[profile.user_id] = profile.display_name || 'Member';
+                    }
+                }
+
                 // =========================================
                 // LOAD SIGNUPS
                 // =========================================
@@ -3153,6 +3200,8 @@ footer{
 
                     signups =
                         data || [];
+
+                    await loadSignupNames();
 
                 }
 
