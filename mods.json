@@ -112,6 +112,10 @@
     "name": "M240H"
   },
   {
+    "modId": "6A2753EA9E8CA0CD",
+    "name": "MM MK46&48 MOD 2"
+  },
+  {
     "modId": "5B3ED33ADA805340",
     "name": "Task Force Mattock Weapons"
   },
@@ -126,6 +130,10 @@
   {
     "modId": "62CD51E9C58D6957",
     "name": "Mar-10"
+  },
+  {
+    "modId": "69A28A2691D2B719",
+    "name": "Nestrel 5700 Ballistic Solver"
   },
   {
     "modId": "65B60A48AEC31157",
@@ -166,6 +174,10 @@
   {
     "modId": "68F2C8A63C2B791F",
     "name": "Garrons M1083 Truck"
+  },
+  {
+    "modId": "6566D742FEEE316B",
+    "name": "HEMTT"
   },
   {
     "modId": "6A391ACE98228BA0",
@@ -280,6 +292,10 @@
     "name": "Press Gear - Expanded"
   },
   {
+    "modId": "6995491FA5EF4A9B",
+    "name": "WOOKIE_GHILLIE_CHAOS"
+  },
+  {
     "modId": "606B100247F5C709",
     "name": "Bacon Loadout Editor"
   },
@@ -312,6 +328,10 @@
     "name": "Game Master FX"
   },
   {
+    "modId": "691B5B4623A84BB4",
+    "name": "GM Persistence"
+  },
+  {
     "modId": "656AC01634459D8D",
     "name": "Map Drawing"
   },
@@ -320,16 +340,16 @@
     "name": "Kova x ATAK"
   },
   {
+    "modId": "69D211EDA4869F43",
+    "name": "FOF Dashcam"
+  },
+  {
     "modId": "66D4117974B3F12F",
     "name": "VRT CQB ShootHouse Modular"
   },
   {
     "modId": "5B0D1E4380971EBD",
     "name": "COALITION Squad Interface"
-  },
-  {
-    "modId": "69FF11283FA5F65C",
-    "name": "Kestrel5700"
   },
   {
     "modId": "6052A9DD45564825",
@@ -342,17 +362,5 @@
   {
     "modId": "5C9758250C8C56F1",
     "name": "Bon Action Animations"
-  },
-  {
-    "modId": "691B5B4623A84BB4",
-    "name": "GM Persistence"
-  },
-  {
-    "modId": "6A2753EA9E8CA0CD",
-    "name": "MM MK46&48 MOD 2"
-  },
-  {
-    "modId": "6566D742FEEE316B",
-    "name": "HEMTT"
   }
 ]
