@@ -24,6 +24,26 @@
     "name": "GRS - Dev Framework"
   },
   {
+    "modId": "6515672F96701110",
+    "name": "GRS - Essentials"
+  },
+  {
+    "modId": "657B064AE0E231DF",
+    "name": "GRS - Patches"
+  },
+  {
+    "modId": "65157D09F042428A",
+    "name": "GRS - Apparel"
+  },
+  {
+    "modId": "651834C8D77BF86B",
+    "name": "GRS - Modular Vests & Rigs"
+  },
+  {
+    "modId": "65183608D6DA5728",
+    "name": "GRS - Belts & Bags & Droplegs"
+  },
+  {
     "modId": "687CD82F6E41D627",
     "name": "Attachment Framework-Core"
   },
@@ -254,6 +274,10 @@
   {
     "modId": "6708A2497129CDEE",
     "name": "SOF Infiltration Methods 2.0"
+  },
+  {
+    "modId": "5CF0C3158AB2337E",
+    "name": "Task Force Mattock Uniforms"
   },
   {
     "modId": "673400A2B22F8501",
